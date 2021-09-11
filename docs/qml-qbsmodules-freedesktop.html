@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<!-- freedesktop-module.qdoc -->
+  <title>freedesktop QML Type | Qbs Manual</title>
+</head>
+<body>
+<li><a href="index.html">Qbs Manual</a></li>
+<li id="buildversion">Qbs 1.21-0</li>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#example-usage">Example usage</a></li>
+<li class="level2"><a href="#relevant-file-tags">Relevant File Tags</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">freedesktop QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$freedesktop-brief -->
+<p>Provides support for some freedesktop.org specifications. <a href="#details">More...</a></p>
+<!-- @@@freedesktop -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsModules .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.16</td></tr></table></div><ul>
+<li><a href="qml-qbsmodules-freedesktop-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qbsmodules-freedesktop.html#desktopKeys-prop">desktopKeys</a></b></b> : var</li>
+<li class="fn"><b><b><a href="qml-qbsmodules-freedesktop.html#name-prop">name</a></b></b> : string</li>
+</ul>
+<!-- $$$freedesktop-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+<p>The <code>freedesktop</code> module contains properties and rules for building and working with applications compliant to freedesktop.org specifications on UNIX platforms. The areas in which this module can be of use include:</p>
+<ul>
+<li>Creation or post-processing of <a href="https://specifications.freedesktop.org/desktop-entry-spec/latest/"><code>.desktop</code> files</a></li>
+<li>Installation of <a href="https://www.freedesktop.org/software/appstream/docs/chap-Metadata.html">AppStream</a> metadata</li>
+<li>Defining the location for <a href="https://specifications.freedesktop.org/icon-theme-spec/icon-theme-spec-latest.html#directory_layout">application icons</a></li>
+</ul>
+<p>This module is available on all platforms but is currently only useful on UNIX platforms.</p>
+<a name="example-usage"></a>
+<h3 id="example-usage">Example usage</h3>
+<a name="example-freedesktop"></a><pre class="cpp">Application {
+    <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+    Depends { name: <span class="string">&quot;freedesktop&quot;</span> }
+
+    Group {
+        files: <span class="operator">[</span>
+            <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+
+            <span class="comment">// Declare the desktop and appstream files</span>
+            <span class="string">&quot;data/my-app.desktop&quot;</span><span class="operator">,</span>
+            <span class="string">&quot;data/my-app.metainfo.xml&quot;</span><span class="operator">,</span>
+        <span class="operator">]</span>
+    }
+
+    <span class="comment">// Add/change some fields in the desktop file</span>
+    freedesktop<span class="operator">.</span>desktopKeys: ({
+        <span class="char">'Exec'</span>: FileInfo<span class="operator">.</span>joinPaths(qbs<span class="operator">.</span>installPrefix<span class="operator">,</span>
+                                   product<span class="operator">.</span>installDir<span class="operator">,</span>
+                                   product<span class="operator">.</span>targetName) <span class="operator">+</span> <span class="char">' --argument'</span><span class="operator">,</span>
+        <span class="char">'X-Application-Version'</span>: product<span class="operator">.</span>version<span class="operator">,</span>
+    })
+
+    <span class="comment">// Declare the application icon</span>
+    Group {
+        files: <span class="string">&quot;icons/my-application.svg&quot;</span>
+        fileTags: <span class="string">&quot;freedesktop.appIcon&quot;</span>
+    }
+}</pre>
+<a name="relevant-file-tags"></a>
+<h3 id="relevant-file-tags">Relevant File Tags</h3>
+<a name="filetags-freedesktop"></a><div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Tag</th><th >Auto-tagged File Names</th><th >Since</th><th >Description</th></tr></thead>
+<tr valign="top" class="odd"><td ><code>&quot;freedesktop.desktopfile_source&quot;</code></td><td ><code>*.desktop</code></td><td >1.16</td><td >A source file with this tag is a <code>.desktop</code> file or fragment that will be merged into the application's final <code>.desktop</code> file.</td></tr>
+<tr valign="top" class="even"><td ><code>&quot;freedesktop.desktopfile&quot;</code></td><td >-</td><td >1.16</td><td >Attached to the output artifacts of the rule that produces the merged <code>.desktop</code> file.</td></tr>
+<tr valign="top" class="odd"><td ><code>&quot;freedesktop.appstream&quot;</code></td><td ><code>*.metainfo.xml</code>, <code>*.appdata.xml</code></td><td >1.16</td><td >Source files with this tag are AppStream metadata files which will be installed under <a href="qml-qbsmodules-qbs.html#installPrefix-prop">installPrefix</a><code>/share/metainfo</code></td></tr>
+<tr valign="top" class="even"><td ><code>&quot;freedesktop.appIcon&quot;</code></td><td >-</td><td >1.16</td><td >Source files with this tag are application icons and will be installed under <a href="qml-qbsmodules-qbs.html#installPrefix-prop">installPrefix</a><code>/share/icons/hicolor/scalable/apps</code></td></tr>
+</table></div>
+<!-- @@@freedesktop -->
+<h2>Property Documentation</h2>
+<!-- $$$desktopKeys -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="desktopKeys-prop">
+<td class="tblQmlPropNode"><p>
+<a name="desktopKeys-prop"></a><span class="name">desktopKeys</span> : <span class="type">var</span></p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>A dictionary of key-value pairs to add to the application's <code>.desktop</code> file.</p>
+<p>The contents of this property will be aggregated with the values from any <code>.desktop</code> file. If this property and any <code>.desktop</code> files contain the same key, this property will take precedence.</p>
+<p>Default: Undefined</p>
+</div></div><!-- @@@desktopKeys -->
+<br/>
+<!-- $$$name -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="name-prop">
+<td class="tblQmlPropNode"><p>
+<a name="name-prop"></a><span class="name">name</span> : <span class="type">string</span></p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>The display name of the application which will be stored in the <code>.desktop</code> file.</p>
+<p>Default: <a href="qml-qbslanguageitems-product.html#name-prop">product.name</a></p>
+</div></div><!-- @@@name -->
+<br/>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<!-- framework-probe.qdoc -->
+  <title>FrameworkProbe QML Type | Qbs Manual</title>
+</head>
+<body>
+<li><a href="index.html">Qbs Manual</a></li>
+<li id="buildversion">Qbs 1.21-0</li>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">FrameworkProbe QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$FrameworkProbe-brief -->
+<p>Locates <a href="nolink">macOS</a> frameworks outside the project. <a href="#details">More...</a></p>
+<!-- @@@FrameworkProbe -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsProbes .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherits:</td><td class="memItemRight bottomAlign"> <p><a href="qml-qbsprobes-pathprobe.html">PathProbe</a></p>
+</td></tr></table></div><ul>
+<li><a href="qml-qbsprobes-frameworkprobe-members.html">List of all members, including inherited members</a></li>
+</ul>
+<!-- $$$FrameworkProbe-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+<p>Finds <a href="nolink">macOS</a> frameworks that have the specified file names.</p>
+<p>By default, FrameworkProbe searches for frameworks in <code>~/Library/Frameworks</code>, <code>/usr/local/lib</code>, <code>/Library/Frameworks</code>, and in <code>/System/Library/Frameworks</code>.</p>
+<p>Also, if <a href="qml-qbsmodules-qbs.html#sysroot-prop">qbs.sysroot</a> is specified (for example, when compiling using XCode SDK), the probe searches in the <code>sysroot/System/Library/Frameworks</code> folder first.</p>
+<p>For example, a simple FrameworkProbe that searches for the Foundation framework can be used as follows:</p>
+<pre class="cpp">import qbs<span class="operator">.</span>Probes
+Product {
+    Depends { name: <span class="string">&quot;cpp&quot;</span>; }
+    Probes<span class="operator">.</span>FrameworkProbe {
+        id: foundationProbe
+        names: <span class="operator">[</span><span class="string">&quot;Foundation&quot;</span><span class="operator">]</span>
+    }
+    cpp<span class="operator">.</span>frameworkPaths: foundationProbe<span class="operator">.</span>found <span class="operator">?</span> <span class="operator">[</span>foundationProbe<span class="operator">.</span>path<span class="operator">]</span> : <span class="operator">[</span><span class="operator">]</span>
+}</pre>
+<!-- @@@FrameworkProbe -->
+</body>
+</html>

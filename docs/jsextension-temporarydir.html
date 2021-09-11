@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<!-- jsextension-temporarydir.qdoc -->
+  <title>TemporaryDir Service | Qbs Manual</title>
+</head>
+<body>
+<li><a href="index.html">Qbs Manual</a></li>
+<li>TemporaryDir Service</li>
+<li id="buildversion">Qbs 1.21-0</li>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#available-operations">Available Operations</a></li>
+<li class="level2"><a href="#constructor">Constructor</a></li>
+<li class="level2"><a href="#isvalid">isValid</a></li>
+<li class="level2"><a href="#path">path</a></li>
+<li class="level2"><a href="#remove">remove</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">TemporaryDir Service</h1>
+<span class="subtitle"></span>
+<!-- $$$jsextension-temporarydir.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>The <code>TemporaryDir</code> service creates a unique directory for temporary use.</p>
+<a name="available-operations"></a>
+<h2 id="available-operations">Available Operations</h2>
+<a name="constructor"></a>
+<h3 id="constructor">Constructor</h3>
+<pre class="cpp">TemporaryDir()</pre>
+<p>Allocates and returns a new TemporaryDir object. This method creates the temporary directory.</p>
+<a name="isvalid"></a>
+<h3 id="isvalid">isValid</h3>
+<pre class="cpp">isValid(): boolean</pre>
+<p>Returns <code>true</code> if the temporary directory was created successfully.</p>
+<a name="path"></a>
+<h3 id="path">path</h3>
+<pre class="cpp">path(): string</pre>
+<p>Returns the path to the temporary directory. Empty if the temporary directory could not be created.</p>
+<a name="remove"></a>
+<h3 id="remove">remove</h3>
+<pre class="cpp">remove(): boolean</pre>
+<p>Removes the temporary directory, including all its contents. Returns <code>true</code> if removing was successful. It is recommended to always call this function as soon as you are finished with the temporary directory. The directory will not be removed automatically.</p>
+</div>
+<!-- @@@jsextension-temporarydir.html -->
+</body>
+</html>

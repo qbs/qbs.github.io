@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Qbs</title>
+    <meta name="description" content="Qbs Manual Language Introduction Qbs 1.21.0 Usage Building Applications  Contents  The Obligatory Hello World Example Reusing Project File Code Modules Different Properties for a Single File Selecting Files by Properties Property Types Overriding Property Values from the Command Line File Tags and Taggers Rules    Language Introduction   Qbs uses project files (*.qbs) to describe the contents of a project. A project contains one or more products. ">
+    <link rel="canonical" href="https://qbs.io/docs/language-introduction/" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+
+    
+      
+      <link rel="stylesheet" href="/css/main.min.4b4afe3bc3ac46250ed86d95bc0261be3c962560258ab862147fc09704f82464.css" integrity="sha256-S0r+O8OsRiUO2G2VvAJhvjyWJWAlirhiFH/AlwT4JGQ="/>
+    
+
+    <meta property="og:title" content="" />
+<meta property="og:description" content="Qbs Manual Language Introduction Qbs 1.21.0 Usage Building Applications  Contents  The Obligatory Hello World Example Reusing Project File Code Modules Different Properties for a Single File Selecting Files by Properties Property Types Overriding Property Values from the Command Line File Tags and Taggers Rules    Language Introduction   Qbs uses project files (*.qbs) to describe the contents of a project. A project contains one or more products." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://qbs.io/docs/language-introduction/" /><meta property="article:section" content="docs" />
+
+
+
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Qbs Manual Language Introduction Qbs 1.21.0 Usage Building Applications  Contents  The Obligatory Hello World Example Reusing Project File Code Modules Different Properties for a Single File Selecting Files by Properties Property Types Overriding Property Values from the Command Line File Tags and Taggers Rules    Language Introduction   Qbs uses project files (*.qbs) to describe the contents of a project. A project contains one or more products."/>
+
+</head>
+<body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
+    <a class="flex items-center" href="/">
+        <img src="https://qbs.io/img/Cubes.svg" class="h-10 effect-shadow-small">
+        <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
+    </a>
+
+    <div>
+        
+        <a href="/blog" class="ml-2">
+            <span>Blog</span>
+        </a>
+        
+        <a href="/docs" class="ml-2">
+            <span>Documentation</span>
+        </a>
+        
+        <a href="/docs/installing/" class="ml-2">
+            <span>Get Qbs</span>
+        </a>
+        
+    </div>
+</header><main>
+<div class="centre-outer">
+    <article class="centre-inner docs" >
+    
+<li><a href="https://qbs.io
+/docs">Qbs Manual</a></li>
+<li>Language Introduction</li>
+<li id="buildversion">Qbs 1.21.0</li>
+  <link rel="prev" href="https://qbs.io
+/docs/usage/">
+  <link rel="next" href="https://qbs.io
+/docs/building-applications/">
+<p class="naviNextPrevious headerNavi">
+<a class="prevPage" href="https://qbs.io
+/docs/usage/">Usage</a>
+<a class="nextPage" href="https://qbs.io
+/docs/building-applications/">Building Applications</a>
+</p><p>
+</p><div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#the-obligatory-hello-world-example">The Obligatory Hello World Example</a></li>
+<li class="level1"><a href="#reusing-project-file-code">Reusing Project File Code</a></li>
+<li class="level1"><a href="#modules">Modules</a></li>
+<li class="level2"><a href="#different-properties-for-a-single-file">Different Properties for a Single File</a></li>
+<li class="level2"><a href="#selecting-files-by-properties">Selecting Files by Properties</a></li>
+<li class="level1"><a href="#property-types">Property Types</a></li>
+<li class="level1"><a href="#overriding-property-values-from-the-command-line">Overriding Property Values from the Command Line</a></li>
+<li class="level1"><a href="#file-tags-and-taggers">File Tags and Taggers</a></li>
+<li class="level1"><a href="#rules">Rules</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Language Introduction</h1>
+<span class="subtitle"></span>
+<!-- $$$language-introduction.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>Qbs uses project files (*.qbs) to describe the contents of a project. A project contains one or more <a href="https://qbs.io
+/docs/qml-qbslanguageitems-product/">products</a>. A product is the target of a build process, typically an application, library or maybe a tar ball.</p>
+<p><b>Note: </b>Qbs source files are assumed to be UTF-8 encoded.</p>
+<a name="the-obligatory-hello-world-example"></a>
+<h2 id="the-obligatory-hello-world-example">The Obligatory Hello World Example</h2>
+<p>Qbs project files are written using a QML dialect. A very simple C++ hello world project looks like this:</p>
+<pre class="cpp"><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span>helloworld<span class="operator">.</span>qbs<span class="operator">-</span><span class="operator">-</span><span class="operator">-</span>
+Application {
+    name: <span class="string">"helloworld"</span>
+    files: <span class="string">"main.cpp"</span>
+    Depends { name: <span class="string">"cpp"</span> }
+}</pre>
+<p>The import statement gives us access to some built-in types and specifies the used language version.</p>
+<p><i>Application</i> describes the product we want to build. In this case, an application. This is just a shortcut for writing</p>
+<pre class="cpp">Product {
+    type: <span class="string">"application"</span>
+    <span class="comment">// ...</span>
+}</pre>
+<p>The <i>name</i> is the name of the product. In this case it is also the name of the produced executable (on Windows, the ".exe" extension is added by default).</p>
+<p>In the property <i>files</i>, we specify the source files for our product. Unlike QML, the right-hand side can be either a string or a string list. A single string is converted to a stringlist containing just one element. So we could have also written</p>
+<pre class="cpp">files: <span class="operator">[</span> <span class="string">"main.cpp"</span> <span class="operator">]</span></pre>
+<p><i>Depends</i> adds the dependency to the <a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/">cpp</a> module. This is necessary to let Qbs know that we have a C++ project and want to compile main.cpp with a C++ compiler. For more information about Qbs modules, see <a href="https://qbs.io
+/docs/language-introduction/#modules">Modules</a>.</p>
+<a name="reusing-project-file-code"></a>
+<h2 id="reusing-project-file-code">Reusing Project File Code</h2>
+<p>QML-like inheritance works also in Qbs.</p>
+<pre class="cpp"><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span>CrazyProduct<span class="operator">.</span>qbs<span class="operator">-</span><span class="operator">-</span><span class="operator">-</span>
+Product {
+    property string craziness: <span class="string">"low"</span>
+}
+
+<span class="operator">-</span><span class="operator">-</span><span class="operator">-</span>hellocrazyworld<span class="operator">.</span>qbs<span class="operator">-</span><span class="operator">-</span><span class="operator">-</span>
+import <span class="string">"CrazyProduct.qbs"</span> as CrazyProduct
+
+CrazyProduct {
+    craziness: <span class="string">"enormous"</span>
+    name: <span class="string">"hellocrazyworld"</span>
+    <span class="comment">// ...</span>
+}</pre>
+<p>You can put JS code into separate <code>.js</code> files and then import them.</p>
+<pre class="cpp"><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span>helpers<span class="operator">.</span>js<span class="operator">-</span><span class="operator">-</span><span class="operator">-</span>
+function planetsCorrectlyAligned()
+{
+    <span class="comment">// implementation</span>
+}
+
+<span class="operator">-</span><span class="operator">-</span><span class="operator">-</span>myproject<span class="operator">.</span>qbs<span class="operator">-</span><span class="operator">-</span><span class="operator">-</span>
+import <span class="string">"helpers.js"</span> as Helpers
+
+Product {
+    name: <span class="string">"myproject"</span>
+    Group {
+        condition: Helpers<span class="operator">.</span>planetsCorrectlyAligned()
+        file: <span class="string">"magic_hack.cpp"</span>
+    }
+    <span class="comment">// ...</span>
+}</pre>
+<a name="modules"></a>
+<h2 id="modules">Modules</h2>
+<p>A <i>module</i> is a collection of properties and language items that are used for building a product if the product depends on (or loads) the module.</p>
+<p>For example, the <i>cpp</i> module looks like this (simplified):</p>
+<pre class="cpp">Module {
+    name: <span class="string">"cpp"</span>
+    property string warningLevel
+    property string optimization
+    property bool debugInformation
+    property pathList includePaths
+    <span class="comment">// ...</span>
+    FileTagger {
+        patterns: <span class="string">"*.cpp"</span>
+        fileTags: <span class="operator">[</span><span class="string">"cpp"</span><span class="operator">]</span>
+    }
+    Rule {<span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>}  <span class="comment">// compiler</span>
+    Rule {<span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>}  <span class="comment">// application linker</span>
+    Rule {<span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>}  <span class="comment">// static lib linker</span>
+    Rule {<span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>}  <span class="comment">// dynamic lib linker</span>
+}</pre>
+<p>The properties that can be set for the <i>cpp</i> module are used to control the behavior of your C++ toolchain. In addition, you can use FileTaggers and Rules that are explained later.</p>
+<p>As soon as your product depends on a module, it can set the properties of the module. You specify the optimization level for your product (and all build variants) like this:</p>
+<pre class="cpp">Application {
+    name: <span class="string">"helloworld"</span>
+    files: <span class="operator">[</span><span class="string">"main.cpp"</span><span class="operator">]</span>
+    cpp<span class="operator">.</span>optimization: <span class="string">"ludicrousSpeed"</span>
+    Depends { name: <span class="string">"cpp"</span> }
+}</pre>
+<p>A module can implicitly depend on other modules. For example, the <a href="https://qbs.io
+/docs/qml-qbsmodules-qt-core/">Qt.core</a> module depends on the <a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/">cpp</a> module. However, to set the properties of a module, you must make the dependency explicit.</p>
+<pre class="cpp"><span class="comment">// THIS DOES NOT WORK</span>
+Application {
+    name: <span class="string">"helloworld"</span>
+    files: <span class="operator">[</span><span class="string">"main.cpp"</span><span class="operator">]</span>
+    Depends { name: <span class="string">"Qt.core"</span> }
+    cpp<span class="operator">.</span>optimization: <span class="string">"ludicrousSpeed"</span>
+    <span class="comment">// ERROR! We do not know about "cpp" here,</span>
+    <span class="comment">// though "Qt.core" depends on "cpp".</span>
+}
+
+<span class="comment">// THIS WORKS</span>
+Application {
+    name: <span class="string">"helloworld"</span>
+    files: <span class="operator">[</span><span class="string">"main.cpp"</span><span class="operator">]</span>
+    Depends { name: <span class="string">"Qt.core"</span> }
+    Depends { name: <span class="string">"cpp"</span> }
+    cpp<span class="operator">.</span>optimization: <span class="string">"ludicrousSpeed"</span>
+}</pre>
+<a name="different-properties-for-a-single-file"></a>
+<h3 id="different-properties-for-a-single-file">Different Properties for a Single File</h3>
+<p>Not only the product, but all the source files of the product can have their own set of module properties. For example, assume you have some files that are known to crash your compiler if you turn on optimizations. You want to turn off optimizations for just these files and this is how you do it:</p>
+<pre class="cpp">Application {
+    name: <span class="string">"helloworld"</span>
+    files: <span class="string">"main.cpp"</span>
+    Group {
+        files: <span class="operator">[</span><span class="string">"bad_file.cpp"</span><span class="operator">,</span> <span class="string">"other_bad_file.cpp"</span><span class="operator">]</span>
+        cpp<span class="operator">.</span>optimization: <span class="string">"none"</span>
+    }
+    Depends { name: <span class="string">"cpp"</span> }
+}</pre>
+<a name="selecting-files-by-properties"></a>
+<h3 id="selecting-files-by-properties">Selecting Files by Properties</h3>
+<p>Sometimes you have a file that is only going to be compiled on a certain platform. This is how you do it:</p>
+<pre class="cpp">Group {
+    condition: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>contains(<span class="string">"windows"</span>)
+    files: <span class="operator">[</span>
+        <span class="string">"harddiskdeleter_win.cpp"</span><span class="operator">,</span>
+        <span class="string">"blowupmonitor_win.cpp"</span><span class="operator">,</span>
+        <span class="string">"setkeyboardonfire_win.cpp"</span>
+    <span class="operator">]</span>
+}
+Group {
+    condition: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>contains(<span class="string">"linux"</span>)
+    files: <span class="operator">[</span>
+        <span class="string">"harddiskdeleter_linux.cpp"</span><span class="operator">,</span>
+        <span class="string">"blowupmonitor_linux.cpp"</span><span class="operator">,</span>
+        <span class="string">"setkeyboardonfire_linux.cpp"</span>
+    <span class="operator">]</span>
+}</pre>
+<p>In the above example, <a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#targetOS-prop">qbs.targetOS</a> is a property of the target of the the <a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/">qbs</a> module. The <code>qbs</code> module is always implicitly loaded. Its main properties are:</p>
+<ul>
+<li><a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#buildVariant-prop">buildVariant</a> that specifies the name of the build variant for the current build.</li>
+<li><a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#hostOS-prop">hostOS</a> that is set by Qbs internally and specifies the operating system Qbs is running on.</li>
+<li><a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#targetOS-prop">targetOS</a> that specifies the operating system you want to build the project for.</li>
+</ul>
+<p>You can set these properties on the command line or by using a profile.</p>
+<pre class="cpp">$ qbs                             <span class="preprocessor"># qbs.buildVariant:debug, profile:&lt;default profile&gt; (or profile:none, if no default profile exists)</span>
+$ qbs config:release              <span class="preprocessor"># qbs.buildVariant:release, profile:&lt;default profile&gt;</span>
+$ qbs config:debug config:release <span class="preprocessor"># builds two configurations of the project</span>
+$ qbs profile:none                <span class="preprocessor"># all module properties have their default values</span></pre>
+<p>To select files by build variant:</p>
+<pre class="cpp">Group {
+    condition: qbs<span class="operator">.</span>buildVariant <span class="operator">=</span><span class="operator">=</span> <span class="string">"debug"</span>
+    files: <span class="string">"debughelper.cpp"</span>
+}</pre>
+<p>To set properties for a build variant:</p>
+<pre class="cpp">Properties {
+    condition: qbs<span class="operator">.</span>buildVariant <span class="operator">=</span><span class="operator">=</span> <span class="string">"debug"</span>
+    cpp<span class="operator">.</span>debugInformation: <span class="keyword">true</span>
+    cpp<span class="operator">.</span>optimization: <span class="string">"none"</span>
+}</pre>
+<p>Or, to use a more QML-like style:</p>
+<pre class="cpp">cpp<span class="operator">.</span>debugInformation: qbs<span class="operator">.</span>buildVariant <span class="operator">=</span><span class="operator">=</span> <span class="string">"debug"</span> <span class="operator">?</span> <span class="keyword">true</span> : <span class="keyword">false</span>
+cpp<span class="operator">.</span>optimization: qbs<span class="operator">.</span>buildVariant <span class="operator">=</span><span class="operator">=</span> <span class="string">"debug"</span> <span class="operator">?</span> <span class="string">"none"</span> : <span class="string">"fast"</span></pre>
+<a name="property-types"></a>
+<h2 id="property-types">Property Types</h2>
+<p>While properties in Qbs generally work the same way as in QML, the set of possible property types has been adapted to reflect the specific needs of a build tool. The supported types are as follows:</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th>Property type</th><th>Example</th><th>Description</th></tr></thead>
+<tbody><tr valign="top" class="odd"><td><code>bool</code></td><td><code>property bool someBoolean: false</code></td><td>The usual boolean values.</td></tr>
+<tr valign="top" class="even"><td><code>int</code></td><td><code>property int theAnswer: 42</code></td><td>Integral numbers.</td></tr>
+<tr valign="top" class="odd"><td><code>path</code></td><td><code>property path aFile: "file.txt"</code></td><td>File paths resolved relative to the directory the product they are associated with is located in.</td></tr>
+<tr valign="top" class="even"><td><code>pathList</code></td><td><code>property pathList twoFiles: ["file1.txt", "./file2.txt"]</code></td><td>A list of <code>path</code> values.</td></tr>
+<tr valign="top" class="odd"><td><code>string</code></td><td><code>property string parentalAdvisory: "explicit lyrics"</code></td><td>JavaScript strings.</td></tr>
+<tr valign="top" class="even"><td><code>stringList</code></td><td><code>property stringList realWorldExample: ["no", "not really"]</code></td><td>A list of JavaScript strings.</td></tr>
+<tr valign="top" class="odd"><td><code>var</code></td><td><code>property var aMap: ({ key1: "value1", key2: "value2" })</code></td><td>Generic data, as in QML.</td></tr>
+<tr valign="top" class="even"><td><code>varList</code></td><td><code>property var aMapList: [{ key1: "value1", key2: "value2" }, { key1: "value3" }]</code></td><td>A list of generic data, typically JavaScript objects.</td></tr>
+</tbody></table></div>
+<a name="overriding-property-values-from-the-command-line"></a>
+<h2 id="overriding-property-values-from-the-command-line">Overriding Property Values from the Command Line</h2>
+<p>Property values set in project files or profiles can be overridden on the command line. The syntax is <code>&lt;prefix&gt;.&lt;prop-name&gt;:&lt;prop-value&gt;</code>. The following command lines demonstrate how to set different kinds of properties:</p>
+<pre class="cpp">$ qbs projects<span class="operator">.</span>someProject<span class="operator">.</span>projectProperty:<span class="keyword">false</span>          <span class="preprocessor"># set a property of a project</span>
+$ qbs products<span class="operator">.</span>someProduct<span class="operator">.</span>productProperty:<span class="keyword">false</span>          <span class="preprocessor"># set a property of a product</span>
+$ qbs modules<span class="operator">.</span>cpp<span class="operator">.</span>treatWarningsAsErrors:<span class="keyword">true</span>              <span class="preprocessor"># set a module property for all products</span>
+$ qbs products<span class="operator">.</span>someProduct<span class="operator">.</span>cpp<span class="operator">.</span>treatWarningsAsErrors:<span class="keyword">true</span> <span class="preprocessor"># set a module property for one product</span></pre>
+<p>Property values on the command line can also be expressed in JavaScript form, the same way as you would write them in a project file. Make sure to take care of proper quoting, so that the shell does not interpret any of the values itself. Properties of type <code>stringList</code> can also be provided as comma-separated values, if none of the strings contain special characters:</p>
+<pre class="cpp">$ qbs projects<span class="operator">.</span>someProject<span class="operator">.</span>listProp:<span class="char">'["a", "b", "c"]'</span>
+$ qbs projects<span class="operator">.</span>someProject<span class="operator">.</span>listProp:a<span class="operator">,</span>b<span class="operator">,</span>c               <span class="preprocessor"># same as above</span>
+$ qbs projects<span class="operator">.</span>someProject<span class="operator">.</span>listProp:<span class="char">'["a b", "c"]'</span>      <span class="preprocessor"># no CSV equivalent</span></pre>
+<a name="file-tags-and-taggers"></a>
+<h2 id="file-tags-and-taggers">File Tags and Taggers</h2>
+<p>Qbs itself knows nothing about C++ files or file extensions. All source files in a product are handled equally. However, you can assign <i>file tags</i> to an artifact to act as a marker or to specify a file type.</p>
+<p>An artifact can have multiple file tags. For example, you can use the <i>Group</i> item to group files with the same file tags (or a set of properties).</p>
+<pre class="cpp">Product {
+    Group {
+        files: <span class="operator">[</span><span class="string">"file1.cpp"</span><span class="operator">,</span> <span class="string">"file2.cpp"</span><span class="operator">]</span>
+        fileTags: <span class="operator">[</span><span class="string">"cpp"</span><span class="operator">]</span>
+    }
+    Group {
+        files: <span class="string">"mydsl_scanner.l"</span>
+        fileTags: <span class="operator">[</span><span class="string">"flex"</span><span class="operator">,</span> <span class="string">"foobar"</span><span class="operator">]</span>
+    }
+    <span class="comment">// ...</span>
+}</pre>
+<p>When you load the <i>cpp</i> module, you also load the following item:</p>
+<pre class="cpp">FileTagger {
+    patterns: <span class="string">"*.cpp"</span>
+    fileTags: <span class="operator">[</span><span class="string">"cpp"</span><span class="operator">]</span>
+}</pre>
+<p>This construct means that each source file that matches the pattern <code>*.cpp</code> (and has not explicitly set a file tag) gets the file tag <code>cpp</code>.</p>
+<p>The above example can be simplified to</p>
+<pre class="cpp">Product {
+    Depends: <span class="string">"cpp"</span>
+    files: <span class="operator">[</span><span class="string">"file1.cpp"</span><span class="operator">,</span> <span class="string">"file2.cpp"</span><span class="operator">]</span>
+    Group {
+        files: <span class="string">"mydsl_scanner.l"</span>
+        fileTags: <span class="operator">[</span><span class="string">"flex"</span><span class="operator">,</span> <span class="string">"foobar"</span><span class="operator">]</span>
+    }
+    <span class="comment">// ...</span>
+}</pre>
+<p>The <i>FileTagger</i> from the <i>cpp</i> module automatically assigns the <code>cpp</code> file tag to the source files. Groups that just contain the <i>files</i> property can be more simply expressed by using the <i>files</i> property of the product.</p>
+<p>File tags are used by <i>rules</i> to transform one type of artifact into another. For instance, the C++ compiler rule transforms artifacts with the file tag <code>cpp</code> to artifacts with the file tag <code>obj</code>.</p>
+<p>In addition, it is possible to use file taggers to tag files and specify custom file tags:</p>
+<pre class="cpp">Product {
+    Depends: <span class="string">"cpp"</span>
+    Group {
+        overrideTags: <span class="keyword">false</span>     <span class="comment">// The overrideTags property defaults to true.</span>
+        fileTags: <span class="operator">[</span><span class="string">"foobar"</span><span class="operator">]</span>
+        files: <span class="operator">[</span><span class="string">"main.cpp"</span><span class="operator">]</span>     <span class="comment">// Gets the file tag "cpp" through a FileTagger item and</span>
+                                <span class="comment">// "foobar" from this group's fileTags property.</span>
+    }
+    <span class="comment">// ...</span>
+}</pre>
+<a name="rules"></a>
+<h2 id="rules">Rules</h2>
+<p>Qbs applies a <i>rule</i> to a pool of artifacts (in the beginning it is just the set of source files of the project) and chooses the ones that match the input file tags specified by the rule. Then it creates output artifacts in the build graph that have other filenames and file tags. It also creates a script that transforms the input artifacts into the output artifacts. Artifacts created by one rule can (and typically do) serve as inputs to another rule. In this way, rules are connected to one another via their input and output file tags.</p>
+<p>For examples of rules, see the share/qbs/modules directory in the Qbs repository.</p>
+<p>You can define rules in your own module to be provided along with your project. Or you can put a rule directly into your project file.</p>
+<p>For more information, see <a href="https://qbs.io
+/docs/qml-qbslanguageitems-rule/">Rule</a>.</p>
+</div>
+<!-- @@@language-introduction.html -->
+<p class="naviNextPrevious footerNavi">
+<a class="prevPage" href="https://qbs.io
+/docs/usage/">Usage</a>
+<a class="nextPage" href="https://qbs.io
+/docs/building-applications/">Building Applications</a>
+</p>
+
+
+
+    </article>
+</div>
+
+        </main></body>
+</html>

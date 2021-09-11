@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Qbs</title>
+    <meta name="description" content="Qbs Manual Qbs 1.21.0 Contents  Properties Detailed Description    vcs QML Type  Provides support for version control systems. More...
+Import Statement:import QbsModules .Since:Qbs 1.10 List of all members, including inherited members   Properties  headerFileName : string repoDir : string repoState : string toolFilePath : string type : string   Detailed Description The vcs module provides the current state of the project&#39;s repository via the repoState property. ">
+    <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-vcs/" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+
+    
+      
+      <link rel="stylesheet" href="/css/main.min.4b4afe3bc3ac46250ed86d95bc0261be3c962560258ab862147fc09704f82464.css" integrity="sha256-S0r+O8OsRiUO2G2VvAJhvjyWJWAlirhiFH/AlwT4JGQ="/>
+    
+
+    <meta property="og:title" content="" />
+<meta property="og:description" content="Qbs Manual Qbs 1.21.0 Contents  Properties Detailed Description    vcs QML Type  Provides support for version control systems. More...
+Import Statement:import QbsModules .Since:Qbs 1.10 List of all members, including inherited members   Properties  headerFileName : string repoDir : string repoState : string toolFilePath : string type : string   Detailed Description The vcs module provides the current state of the project&#39;s repository via the repoState property." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-vcs/" /><meta property="article:section" content="docs" />
+
+
+
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Qbs Manual Qbs 1.21.0 Contents  Properties Detailed Description    vcs QML Type  Provides support for version control systems. More...
+Import Statement:import QbsModules .Since:Qbs 1.10 List of all members, including inherited members   Properties  headerFileName : string repoDir : string repoState : string toolFilePath : string type : string   Detailed Description The vcs module provides the current state of the project&#39;s repository via the repoState property."/>
+
+</head>
+<body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
+    <a class="flex items-center" href="/">
+        <img src="https://qbs.io/img/Cubes.svg" class="h-10 effect-shadow-small">
+        <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
+    </a>
+
+    <div>
+        
+        <a href="/blog" class="ml-2">
+            <span>Blog</span>
+        </a>
+        
+        <a href="/docs" class="ml-2">
+            <span>Documentation</span>
+        </a>
+        
+        <a href="/docs/installing/" class="ml-2">
+            <span>Get Qbs</span>
+        </a>
+        
+    </div>
+</header><main>
+<div class="centre-outer">
+    <article class="centre-inner docs" >
+    
+<li><a href="https://qbs.io
+/docs">Qbs Manual</a></li>
+<li id="buildversion">Qbs 1.21.0</li>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">vcs QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$vcs-brief -->
+<p>Provides support for version control systems. <a href="#details">More...</a></p>
+<!-- @@@vcs -->
+<div class="table"><table class="alignedsummary">
+<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsModules .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.10</td></tr></tbody></table></div><ul>
+<li><a href="https://qbs.io
+/docs/qml-qbsmodules-vcs-members/">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-vcs/#headerFileName-prop">headerFileName</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-vcs/#repoDir-prop">repoDir</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-vcs/#repoState-prop">repoState</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-vcs/#toolFilePath-prop">toolFilePath</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-vcs/#type-prop">type</a></b></b> : string</li>
+</ul>
+<!-- $$$vcs-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+<p>The <code>vcs</code> module provides the current state of the project's repository via the <a href="https://qbs.io
+/docs/qml-qbsmodules-vcs/#repoState-prop">repoState</a> property. By default, a <code>C</code> header is also generated, allowing for simple retrieval of the repository state directly from within your C/C++ sources. This is useful to embed information into binaries about the exact state of the repository from which they were built.</p>
+<p>For example:</p>
+<pre class="cpp"><span class="preprocessor">#include &lt;vcs-repo-state.h&gt;</span>
+<span class="preprocessor">#include &lt;iostream&gt;</span>
+
+<span class="type">int</span> main()
+{
+    std<span class="operator">::</span>cout <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">"I was built from "</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> VCS_REPO_STATE <span class="operator">&lt;</span><span class="operator">&lt;</span> std<span class="operator">::</span>endl;
+}</pre>
+<p>Above, a header file called <code>vcs-repo-state.h</code> is created, defining a macro called <code>VCS_REPO_STATE</code>, which expands to a character constant describing the current state of the repository. For Git, this would be the current HEAD's commit hash.</p>
+<!-- @@@vcs -->
+<h2>Property Documentation</h2>
+<!-- $$$headerFileName -->
+<div class="qmlitem"><h3 class="qmlproto">headerFileName: string</h3>
+<div class="qmldoc"><p>The name of the C header file to be created.</p>
+<p>Set this to <code>undefined</code> if you do not want a header file to be generated.</p>
+<p>Default: <code>"vcs-repo-state.h"</code></p>
+</div></div><!-- @@@headerFileName -->
+<br>
+<!-- $$$repoDir -->
+<div class="qmlitem"><h3 class="qmlproto">repoDir: string</h3>
+<div class="qmldoc"><p>The root directory of the repository.</p>
+<p>Default: The top-level project directory (<a href="https://qbs.io
+/docs/qml-qbslanguageitems-project/#sourceDirectory-prop">project.sourceDirectory</a>).</p>
+</div></div><!-- @@@repoDir -->
+<br>
+<!-- $$$repoState -->
+<div class="qmlitem"><h3 class="qmlproto">repoState: string</h3>
+<div class="qmldoc"><p>The current state of the repository.</p>
+<p>For example, in Git this is the commit hash of the current HEAD.</p>
+<p>Default: Undefined</p>
+</div></div><!-- @@@repoState -->
+<br>
+<!-- $$$toolFilePath -->
+<div class="qmlitem"><h3 class="qmlproto">toolFilePath: string</h3>
+<div class="qmldoc"><p>Set this property if the tool has an unusual name in your local installation, or if it is located in a directory that is not in the build environment's <code>PATH</code>.</p>
+<p>Default: The file name of the version control tool corresponding to <a href="https://qbs.io
+/docs/qml-qbsmodules-vcs/#type-prop">type</a>.</p>
+</div></div><!-- @@@toolFilePath -->
+<br>
+<!-- $$$type -->
+<div class="qmlitem"><h3 class="qmlproto">type: string</h3>
+<div class="qmldoc"><p>The version control system used in the project.</p>
+<p>Currently, the supported values are <code>"git"</code> and <code>"svn"</code>.</p>
+<p>Default: auto-detected</p>
+</div></div><!-- @@@type -->
+<br>
+
+
+
+    </article>
+</div>
+
+        </main></body>
+</html>

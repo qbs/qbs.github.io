@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<!-- cli-setup-qt.qdoc -->
+  <title>setup-qt | Qbs Manual</title>
+</head>
+<body>
+<li><a href="index.html">Qbs Manual</a></li>
+<li>setup-qt</li>
+<li id="buildversion">Qbs 1.21-0</li>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#synopsis">Synopsis</a></li>
+<li class="level1"><a href="#description">Description</a></li>
+<li class="level1"><a href="#options">Options</a></li>
+<li class="level2"><a href="#op-op-op-op-detect"><code>--detect</code></a></li>
+<li class="level2"><a href="#op-op-op-op-settings-op-op-dir-op-lt-op-directory-op-gt-op"><code>--settings-dir &lt;directory&gt;</code></a></li>
+<li class="level2"><a href="#op-op-op-op-system"><code>--system</code></a></li>
+<li class="level2"><a href="#op-op-op-op-help-op-op-op-op-h-op-op-op-op-op-op"><code>--help|-h|-?</code></a></li>
+<li class="level1"><a href="#examples">Examples</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">setup-qt</h1>
+<span class="subtitle"></span>
+<!-- $$$cli-setup-qt.html-description -->
+<div class="descr"> <a name="details"></a>
+<a name="synopsis"></a>
+<h2 id="synopsis">Synopsis</h2>
+<pre class="cpp">qbs setup<span class="operator">-</span>qt <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>settings<span class="operator">-</span>dir <span class="operator">&lt;</span>directory<span class="operator">&gt;</span><span class="operator">]</span> <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>system<span class="operator">]</span> <span class="operator">-</span><span class="operator">-</span>detect
+qbs setup<span class="operator">-</span>qt <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>settings<span class="operator">-</span>dir <span class="operator">&lt;</span>directory<span class="operator">&gt;</span><span class="operator">]</span> <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>system<span class="operator">]</span> <span class="operator">&lt;</span>path to qmake<span class="operator">&gt;</span> <span class="operator">&lt;</span>profile name<span class="operator">&gt;</span></pre>
+<a name="description"></a>
+<h2 id="description">Description</h2>
+<p>Creates Qbs profiles for Qt installations.</p>
+<p>The first form tries to auto-detect all known Qt versions, looking them up via the PATH variable.</p>
+<p>The second form creates a profile with the name <code>&lt;profile name&gt;</code> for the Qt version located at <code>&lt;path to qmake&gt;</code>.</p>
+<p>For more information, see <a href="qt-versions.html">Managing Qt Versions</a>.</p>
+<a name="options"></a>
+<h2 id="options">Options</h2>
+<a name="op-op-op-op-detect"></a>
+<h3 id="op-op-op-op-detect"><code>--detect</code></h3>
+<p>Attempts to auto-detect all known Qt versions, looking them up in the PATH environment variable.</p>
+<a name="op-op-op-op-settings-op-op-dir-op-lt-op-directory-op-gt-op"></a>
+<h3 id="op-op-op-op-settings-op-op-dir-op-lt-op-directory-op-gt-op"><code>--settings-dir &lt;directory&gt;</code></h3>
+<p>Reads all settings (such as <a href="qml-qbslanguageitems-profile.html">profile</a> information) from the specified <code>&lt;directory&gt;</code>. If the directory does not exist, it will be created.</p>
+<p>The default value is system-specific. For example:</p>
+<ul>
+<li>Linux: <code>$HOME/.config/QtProject/qbs</code></li>
+<li>Windows: <code>%APPDATA%\QtProject\qbs</code></li>
+<li><a href="nolink">macOS</a>: <code>$HOME/Library/Preferences/qbs</code></li>
+</ul>
+<a name="op-op-op-op-system"></a>
+<h3 id="op-op-op-op-system"><code>--system</code></h3>
+<p>If this option is given, the profile(s) created by this tool will end up in the system-level settings and thus be available to all users. Otherwise, they go into the user-level settings.</p>
+<a name="op-op-op-op-help-op-op-op-op-h-op-op-op-op-op-op"></a>
+<h3 id="op-op-op-op-help-op-op-op-op-h-op-op-op-op-op-op"><code>--help|-h|-?</code></h3>
+<p>Displays help for the command.</p>
+<a name="examples"></a>
+<h2 id="examples">Examples</h2>
+<p>Looks up Qt versions in the PATH and creates profiles for them:</p>
+<pre class="cpp">qbs setup<span class="operator">-</span>qt <span class="operator">-</span><span class="operator">-</span>detect</pre>
+<p>Creates a profile called <code>myqt</code> for the Qt version located in <code>/usr/bin/qmake</code>:</p>
+<pre class="cpp">qbs setup<span class="operator">-</span>qt <span class="operator">/</span>usr<span class="operator">/</span>bin<span class="operator">/</span>qmake myqt</pre>
+</div>
+<!-- @@@cli-setup-qt.html -->
+</body>
+</html>

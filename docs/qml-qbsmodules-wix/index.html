@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Qbs</title>
+    <meta name="description" content="Qbs Manual Qbs 1.21.0 Contents  Properties Detailed Description Relevant File Tags    wix QML Type  Provides Windows Installer XML Toolset support. More...
+Import Statement:import QbsModules .Since:Qbs 1.2 List of all members, including inherited members   Properties  compilerFlags : stringList compilerName : string compilerPath : string cultures : stringList debugInformation : bool defines : stringList enableQbsDefines : bool extensions : stringList includePaths : pathList linkerFlags : stringList linkerName : string linkerPath : string toolchainInstallPath : path toolchainInstallRoot : path treatWarningsAsErrors : bool verboseOutput : bool version : string versionBuild : int versionMajor : int versionMinor : int versionParts : list versionPatch : int visualStudioCompatibility : bool warningLevel : string   Detailed Description The wix module contains properties and rules for building MSI and EXE setup packages with the Windows Installer XML Toolset. ">
+    <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-wix/" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+
+    
+      
+      <link rel="stylesheet" href="/css/main.min.4b4afe3bc3ac46250ed86d95bc0261be3c962560258ab862147fc09704f82464.css" integrity="sha256-S0r+O8OsRiUO2G2VvAJhvjyWJWAlirhiFH/AlwT4JGQ="/>
+    
+
+    <meta property="og:title" content="" />
+<meta property="og:description" content="Qbs Manual Qbs 1.21.0 Contents  Properties Detailed Description Relevant File Tags    wix QML Type  Provides Windows Installer XML Toolset support. More...
+Import Statement:import QbsModules .Since:Qbs 1.2 List of all members, including inherited members   Properties  compilerFlags : stringList compilerName : string compilerPath : string cultures : stringList debugInformation : bool defines : stringList enableQbsDefines : bool extensions : stringList includePaths : pathList linkerFlags : stringList linkerName : string linkerPath : string toolchainInstallPath : path toolchainInstallRoot : path treatWarningsAsErrors : bool verboseOutput : bool version : string versionBuild : int versionMajor : int versionMinor : int versionParts : list versionPatch : int visualStudioCompatibility : bool warningLevel : string   Detailed Description The wix module contains properties and rules for building MSI and EXE setup packages with the Windows Installer XML Toolset." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-wix/" /><meta property="article:section" content="docs" />
+
+
+
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Qbs Manual Qbs 1.21.0 Contents  Properties Detailed Description Relevant File Tags    wix QML Type  Provides Windows Installer XML Toolset support. More...
+Import Statement:import QbsModules .Since:Qbs 1.2 List of all members, including inherited members   Properties  compilerFlags : stringList compilerName : string compilerPath : string cultures : stringList debugInformation : bool defines : stringList enableQbsDefines : bool extensions : stringList includePaths : pathList linkerFlags : stringList linkerName : string linkerPath : string toolchainInstallPath : path toolchainInstallRoot : path treatWarningsAsErrors : bool verboseOutput : bool version : string versionBuild : int versionMajor : int versionMinor : int versionParts : list versionPatch : int visualStudioCompatibility : bool warningLevel : string   Detailed Description The wix module contains properties and rules for building MSI and EXE setup packages with the Windows Installer XML Toolset."/>
+
+</head>
+<body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
+    <a class="flex items-center" href="/">
+        <img src="https://qbs.io/img/Cubes.svg" class="h-10 effect-shadow-small">
+        <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
+    </a>
+
+    <div>
+        
+        <a href="/blog" class="ml-2">
+            <span>Blog</span>
+        </a>
+        
+        <a href="/docs" class="ml-2">
+            <span>Documentation</span>
+        </a>
+        
+        <a href="/docs/installing/" class="ml-2">
+            <span>Get Qbs</span>
+        </a>
+        
+    </div>
+</header><main>
+<div class="centre-outer">
+    <article class="centre-inner docs" >
+    
+<li><a href="https://qbs.io
+/docs">Qbs Manual</a></li>
+<li id="buildversion">Qbs 1.21.0</li>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#relevant-file-tags">Relevant File Tags</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">wix QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$wix-brief -->
+<p>Provides Windows Installer XML Toolset support. <a href="#details">More...</a></p>
+<!-- @@@wix -->
+<div class="table"><table class="alignedsummary">
+<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsModules .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.2</td></tr></tbody></table></div><ul>
+<li><a href="https://qbs.io
+/docs/qml-qbsmodules-wix-members/">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-wix/#compilerFlags-prop">compilerFlags</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-wix/#compilerName-prop">compilerName</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-wix/#compilerPath-prop">compilerPath</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-wix/#cultures-prop">cultures</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-wix/#debugInformation-prop">debugInformation</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-wix/#defines-prop">defines</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-wix/#enableQbsDefines-prop">enableQbsDefines</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-wix/#extensions-prop">extensions</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-wix/#includePaths-prop">includePaths</a></b></b> : pathList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-wix/#linkerFlags-prop">linkerFlags</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-wix/#linkerName-prop">linkerName</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-wix/#linkerPath-prop">linkerPath</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-wix/#toolchainInstallPath-prop">toolchainInstallPath</a></b></b> : path</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-wix/#toolchainInstallRoot-prop">toolchainInstallRoot</a></b></b> : path</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-wix/#treatWarningsAsErrors-prop">treatWarningsAsErrors</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-wix/#verboseOutput-prop">verboseOutput</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-wix/#version-prop">version</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-wix/#versionBuild-prop">versionBuild</a></b></b> : int</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-wix/#versionMajor-prop">versionMajor</a></b></b> : int</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-wix/#versionMinor-prop">versionMinor</a></b></b> : int</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-wix/#versionParts-prop">versionParts</a></b></b> : list</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-wix/#versionPatch-prop">versionPatch</a></b></b> : int</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-wix/#visualStudioCompatibility-prop">visualStudioCompatibility</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-wix/#warningLevel-prop">warningLevel</a></b></b> : string</li>
+</ul>
+<!-- $$$wix-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+<p>The <code>wix</code> module contains properties and rules for building MSI and EXE setup packages with the <a href="http://wixtoolset.org">Windows Installer XML Toolset</a>.</p>
+<p>This module is available on all platforms.</p>
+<a name="relevant-file-tags"></a>
+<h3 id="relevant-file-tags">Relevant File Tags</h3>
+<a name="filetags-wix"></a><div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th>Tag</th><th>Auto-tagged File Names</th><th>Since</th><th>Description</th></tr></thead>
+<tbody><tr valign="top" class="odd"><td><code>"msi"</code></td><td>-</td><td>1.2</td><td>The rule that creates the Microsoft Installer setup file attaches this tag to its output artifact.</td></tr>
+<tr valign="top" class="even"><td><code>"wixpdb"</code></td><td>-</td><td>1.2</td><td>The rule that creates the Microsoft Installer setup file or WiX setup executable attaches this tag to the associated debug symbol file.</td></tr>
+<tr valign="top" class="odd"><td><code>"wixsetup"</code></td><td>-</td><td>1.2</td><td>The rule that creates the WiX setup executable attaches this tag to its output artifact.</td></tr>
+<tr valign="top" class="even"><td><code>"wxi"</code></td><td><code>*.wxi</code></td><td>1.2</td><td>This tag is attached to WiX include files.</td></tr>
+<tr valign="top" class="odd"><td><code>"wxl"</code></td><td><code>*.wxl</code></td><td>1.2</td><td>This tag is attached to WiX localization files.</td></tr>
+<tr valign="top" class="even"><td><code>"wxs"</code></td><td><code>*.wxs</code></td><td>1.2</td><td>This tag is attached to WiX source files. Each source file will be compiled into one WiX object file.</td></tr>
+</tbody></table></div>
+<!-- @@@wix -->
+<h2>Property Documentation</h2>
+<!-- $$$compilerFlags -->
+<div class="qmlitem"><h3 class="qmlproto">compilerFlags: stringList</h3>
+<div class="qmldoc"><p>A list of additional flags for the Candle compiler.</p>
+<p>Default: Undefined</p>
+</div></div><!-- @@@compilerFlags -->
+<br>
+<!-- $$$compilerName -->
+<div class="qmlitem"><h3 class="qmlproto">compilerName: string</h3>
+<div class="qmldoc"><p>The name of the compiler binary.</p>
+<p>This property should not normally need to be changed.</p>
+<p>Default: <code>"candle.exe"</code></p>
+</div></div><!-- @@@compilerName -->
+<br>
+<!-- $$$compilerPath -->
+<div class="qmlitem"><h3 class="qmlproto">compilerPath: string</h3>
+<div class="qmldoc"><p>The directory where the compiler binary is located.</p>
+<p>This property should not normally need to be changed.</p>
+<p>Default: <a href="https://qbs.io
+/docs/qml-qbsmodules-wix/#compilerName-prop">compilerName</a></p>
+</div></div><!-- @@@compilerPath -->
+<br>
+<!-- $$$cultures -->
+<div class="qmlitem"><h3 class="qmlproto">cultures: stringList</h3>
+<div class="qmldoc"><p>A list of localizations to include in the MSI.</p>
+<p>If left undefined, includes all localizations.</p>
+<p>Default: Undefined</p>
+</div></div><!-- @@@cultures -->
+<br>
+<!-- $$$debugInformation -->
+<div class="qmlitem"><h3 class="qmlproto">debugInformation: bool</h3>
+<div class="qmldoc"><p>Whether to generate debug information.</p>
+<p>Default: <a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#debugInformation-prop">qbs.debugInformation</a></p>
+<p><b>See also </b><a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#debugInformation-prop">qbs.debugInformation</a>.</p>
+</div></div><!-- @@@debugInformation -->
+<br>
+<!-- $$$defines -->
+<div class="qmlitem"><h3 class="qmlproto">defines: stringList</h3>
+<div class="qmldoc"><p>A list of preprocessor macros that get passed to the compiler.</p>
+<p>To set macro values, use the following syntax:</p>
+<pre class="cpp plain">wix.defines: ["USE_COLORS=1", 'COLOR_STR="blanched almond"']</pre>
+<p>Default: Undefined</p>
+</div></div><!-- @@@defines -->
+<br>
+<!-- $$$enableQbsDefines -->
+<div class="qmlitem"><h3 class="qmlproto">enableQbsDefines: bool</h3>
+<div class="qmldoc"><p>Whether to define preprocessor macros corresponding to values from the project and product objects.</p>
+<p>When building a 64-bit package, the preprocessor variable <code>Win64</code> will also be defined.</p>
+<p>Default: <code>true</code></p>
+</div></div><!-- @@@enableQbsDefines -->
+<br>
+<!-- $$$extensions -->
+<div class="qmlitem"><h3 class="qmlproto">extensions: stringList</h3>
+<div class="qmldoc"><p>A list of extension assemblies to link into the output.</p>
+<p>Possible values include:</p>
+<ul>
+<li>custom assemblies</li>
+<li><code>"WixBalExtension"</code></li>
+<li><code>"WixComPlusExtension"</code></li>
+<li><code>"WixDependencyExtension"</code></li>
+<li><code>"WixDifxAppExtension"</code></li>
+<li><code>"WixDirectXExtension"</code></li>
+<li><code>"WixFirewallExtension"</code></li>
+<li><code>"WixGamingExtension"</code></li>
+<li><code>"WixIisExtension"</code></li>
+<li><code>"WixMsmqExtension"</code></li>
+<li><code>"WixNetFxExtension"</code></li>
+<li><code>"WixPSExtension"</code></li>
+<li><code>"WixSqlExtension"</code></li>
+<li><code>"WixTagExtension"</code></li>
+<li><code>"WixUIExtension"</code></li>
+<li><code>"WixUtilExtension"</code></li>
+<li><code>"WixVSExtension"</code></li>
+</ul>
+<p>Default: <code>["WixBalExtension"]</code> if the product type is an EXE setup application, otherwise <code>undefined</code>.</p>
+</div></div><!-- @@@extensions -->
+<br>
+<!-- $$$includePaths -->
+<div class="qmlitem"><h3 class="qmlproto">includePaths: pathList</h3>
+<div class="qmldoc"><p>A list of include paths.</p>
+<p>Relative paths are considered to be relative to the <code>.qbs</code> product file they are used in.</p>
+<p>Default: Undefined</p>
+</div></div><!-- @@@includePaths -->
+<br>
+<!-- $$$linkerFlags -->
+<div class="qmlitem"><h3 class="qmlproto">linkerFlags: stringList</h3>
+<div class="qmldoc"><p>A list of additional flags for the Light linker.</p>
+<p>Default: Undefined</p>
+</div></div><!-- @@@linkerFlags -->
+<br>
+<!-- $$$linkerName -->
+<div class="qmlitem"><h3 class="qmlproto">linkerName: string</h3>
+<div class="qmldoc"><p>The name of the linker binary.</p>
+<p>This property should not normally need to be changed.</p>
+<p>Default: <code>"light.exe"</code></p>
+</div></div><!-- @@@linkerName -->
+<br>
+<!-- $$$linkerPath -->
+<div class="qmlitem"><h3 class="qmlproto">linkerPath: string</h3>
+<div class="qmldoc"><p>The directory where the linker binary is located.</p>
+<p>This property should not normally need to be changed.</p>
+<p>Default: <a href="https://qbs.io
+/docs/qml-qbsmodules-wix/#linkerName-prop">linkerName</a></p>
+</div></div><!-- @@@linkerPath -->
+<br>
+<!-- $$$toolchainInstallPath -->
+<div class="qmlitem"><h3 class="qmlproto">toolchainInstallPath: path</h3>
+<div class="qmldoc"><p>The WiX installation directory.</p>
+<p>This property should not normally need to be changed.</p>
+<p>Default: Determined automatically by searching the registry for the latest version.</p>
+</div></div><!-- @@@toolchainInstallPath -->
+<br>
+<!-- $$$toolchainInstallRoot -->
+<div class="qmlitem"><h3 class="qmlproto">toolchainInstallRoot: path</h3>
+<div class="qmldoc"><p>The WiX binaries directory.</p>
+<p>This property should not normally need to be changed.</p>
+<p>Default: Determined automatically by searching the registry for the latest version.</p>
+</div></div><!-- @@@toolchainInstallRoot -->
+<br>
+<!-- $$$treatWarningsAsErrors -->
+<div class="qmlitem"><h3 class="qmlproto">treatWarningsAsErrors: bool</h3>
+<div class="qmldoc"><p>Whether warnings will be handled as errors and cause the build to fail.</p>
+<p>Default: <code>false</code></p>
+</div></div><!-- @@@treatWarningsAsErrors -->
+<br>
+<!-- $$$verboseOutput -->
+<div class="qmlitem"><h3 class="qmlproto">verboseOutput: bool</h3>
+<div class="qmldoc"><p>Whether to display verbose output from the compiler and linker.</p>
+<p>Default: <code>false</code></p>
+</div></div><!-- @@@verboseOutput -->
+<br>
+<!-- $$$version -->
+<div class="qmlitem"><h3 class="qmlproto">version: string</h3>
+<div class="qmldoc"><p>The WiX version.</p>
+<p>Consists of four numbers separated by dots. For example, "3.7.1224.0".</p>
+<p>Default: Undefined</p>
+</div></div><!-- @@@version -->
+<br>
+<!-- $$$versionBuild -->
+<div class="qmlitem"><h3 class="qmlproto">versionBuild: int</h3>
+<div class="qmldoc"><p>The fourth WiX version number component.</p>
+<p>Default: <code>versionParts[3]</code></p>
+</div></div><!-- @@@versionBuild -->
+<br>
+<!-- $$$versionMajor -->
+<div class="qmlitem"><h3 class="qmlproto">versionMajor: int</h3>
+<div class="qmldoc"><p>The WiX major version.</p>
+<p>Default: <code>versionParts[0]</code></p>
+</div></div><!-- @@@versionMajor -->
+<br>
+<!-- $$$versionMinor -->
+<div class="qmlitem"><h3 class="qmlproto">versionMinor: int</h3>
+<div class="qmldoc"><p>The WiX minor version.</p>
+<p>Default: <code>versionParts[1]</code></p>
+</div></div><!-- @@@versionMinor -->
+<br>
+<!-- $$$versionParts -->
+<div class="qmlitem"><h3 class="qmlproto">versionParts: list</h3>
+<div class="qmldoc"><p>The WiX version as a list.</p>
+<p>For example, WiX version 3.7.1224.0 would correspond to a value of <code>[3, 7, 1224, 0]</code>.</p>
+<p>Default: <code>[]</code></p>
+</div></div><!-- @@@versionParts -->
+<br>
+<!-- $$$versionPatch -->
+<div class="qmlitem"><h3 class="qmlproto">versionPatch: int</h3>
+<div class="qmldoc"><p>The WiX patch level.</p>
+<p>Default: <code>versionParts[2]</code></p>
+</div></div><!-- @@@versionPatch -->
+<br>
+<!-- $$$visualStudioCompatibility -->
+<div class="qmlitem"><h3 class="qmlproto">visualStudioCompatibility: bool</h3>
+<div class="qmldoc"><p>Whether to pass most of the same preprocessor macros to the compiler as Visual Studio does.</p>
+<p>This allows easier authoring of WiX files that are compatible with both Qbs and MSBuild.</p>
+<p>Default: <code>true</code></p>
+</div></div><!-- @@@visualStudioCompatibility -->
+<br>
+<!-- $$$warningLevel -->
+<div class="qmlitem"><h3 class="qmlproto">warningLevel: string</h3>
+<div class="qmldoc"><p>The severity of warnings to emit.</p>
+<p>The higher the level, the more warnings will be shown.</p>
+<p>Possible values include: <code>"none"</code>, <code>"normal"</code>, <code>"pedantic"</code></p>
+<p>Default: <code>"normal"</code></p>
+</div></div><!-- @@@warningLevel -->
+<br>
+
+
+
+    </article>
+</div>
+
+        </main></body>
+</html>

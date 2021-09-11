@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Qbs</title>
+    <meta name="description" content="Qbs Manual Qbs 1.21.0 Contents  Properties Detailed Description    PathProbe QML Type  Locates files outside the project. More...
+Import Statement:import QbsProbes .Inherited By:BinaryProbe, FrameworkProbe, IncludeProbe, and LibraryProbe
+ List of all members, including inherited members   Properties  allResults : varList candidateFilter : var candidatePaths : stringList environmentPaths : stringList fileName : string filePath : string nameFilter : script nameSuffixes : stringList names : stringList path : string pathSuffixes : stringList platformEnvironmentPaths : stringList platformSearchPaths : pathList searchPaths : pathList selectors : varList   Detailed Description Finds files that have the specified file name suffix, such as . ">
+    <link rel="canonical" href="https://qbs.io/docs/qml-qbsprobes-pathprobe/" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+
+    
+      
+      <link rel="stylesheet" href="/css/main.min.4b4afe3bc3ac46250ed86d95bc0261be3c962560258ab862147fc09704f82464.css" integrity="sha256-S0r+O8OsRiUO2G2VvAJhvjyWJWAlirhiFH/AlwT4JGQ="/>
+    
+
+    <meta property="og:title" content="" />
+<meta property="og:description" content="Qbs Manual Qbs 1.21.0 Contents  Properties Detailed Description    PathProbe QML Type  Locates files outside the project. More...
+Import Statement:import QbsProbes .Inherited By:BinaryProbe, FrameworkProbe, IncludeProbe, and LibraryProbe
+ List of all members, including inherited members   Properties  allResults : varList candidateFilter : var candidatePaths : stringList environmentPaths : stringList fileName : string filePath : string nameFilter : script nameSuffixes : stringList names : stringList path : string pathSuffixes : stringList platformEnvironmentPaths : stringList platformSearchPaths : pathList searchPaths : pathList selectors : varList   Detailed Description Finds files that have the specified file name suffix, such as ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://qbs.io/docs/qml-qbsprobes-pathprobe/" /><meta property="article:section" content="docs" />
+
+
+
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Qbs Manual Qbs 1.21.0 Contents  Properties Detailed Description    PathProbe QML Type  Locates files outside the project. More...
+Import Statement:import QbsProbes .Inherited By:BinaryProbe, FrameworkProbe, IncludeProbe, and LibraryProbe
+ List of all members, including inherited members   Properties  allResults : varList candidateFilter : var candidatePaths : stringList environmentPaths : stringList fileName : string filePath : string nameFilter : script nameSuffixes : stringList names : stringList path : string pathSuffixes : stringList platformEnvironmentPaths : stringList platformSearchPaths : pathList searchPaths : pathList selectors : varList   Detailed Description Finds files that have the specified file name suffix, such as ."/>
+
+</head>
+<body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
+    <a class="flex items-center" href="/">
+        <img src="https://qbs.io/img/Cubes.svg" class="h-10 effect-shadow-small">
+        <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
+    </a>
+
+    <div>
+        
+        <a href="/blog" class="ml-2">
+            <span>Blog</span>
+        </a>
+        
+        <a href="/docs" class="ml-2">
+            <span>Documentation</span>
+        </a>
+        
+        <a href="/docs/installing/" class="ml-2">
+            <span>Get Qbs</span>
+        </a>
+        
+    </div>
+</header><main>
+<div class="centre-outer">
+    <article class="centre-inner docs" >
+    
+<li><a href="https://qbs.io
+/docs">Qbs Manual</a></li>
+<li id="buildversion">Qbs 1.21.0</li>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">PathProbe QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$PathProbe-brief -->
+<p>Locates files outside the project. <a href="#details">More...</a></p>
+<!-- @@@PathProbe -->
+<div class="table"><table class="alignedsummary">
+<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsProbes .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherited By:</td><td class="memItemRight bottomAlign"> <p><a href="https://qbs.io
+/docs/qml-qbsprobes-binaryprobe/">BinaryProbe</a>, <a href="https://qbs.io
+/docs/qml-qbsprobes-frameworkprobe/">FrameworkProbe</a>, <a href="https://qbs.io
+/docs/qml-qbsprobes-includeprobe/">IncludeProbe</a>, and <a href="https://qbs.io
+/docs/qml-qbsprobes-libraryprobe/">LibraryProbe</a></p>
+</td></tr></tbody></table></div><ul>
+<li><a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe-members/">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#allResults-prop">allResults</a></b></b> : varList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#candidateFilter-prop">candidateFilter</a></b></b> : var</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#candidatePaths-prop">candidatePaths</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#environmentPaths-prop">environmentPaths</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#fileName-prop">fileName</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#filePath-prop">filePath</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#nameFilter-prop">nameFilter</a></b></b> : script</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#nameSuffixes-prop">nameSuffixes</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#names-prop">names</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#path-prop">path</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#pathSuffixes-prop">pathSuffixes</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#platformEnvironmentPaths-prop">platformEnvironmentPaths</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#platformSearchPaths-prop">platformSearchPaths</a></b></b> : pathList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#searchPaths-prop">searchPaths</a></b></b> : pathList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#selectors-prop">selectors</a></b></b> : varList</li>
+</ul>
+<!-- $$$PathProbe-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+<p>Finds files that have the specified file name suffix, such as <i>.exe</i>, from the specified locations.</p>
+<p>PathProbe takes as input lists of paths to search files from and file name patterns. The paths are specified by using the <a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#environmentPaths-prop">environmentPaths</a>, <a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#searchPaths-prop">searchPaths</a>, <a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#platformEnvironmentPaths-prop">platformEnvironmentPaths</a> and <a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#platformSearchPaths-prop">platformSearchPaths</a> properties; the path are searched in the same order as listed. The file name patterns are specified by the <a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#names-prop">names</a> and <a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#nameSuffixes-prop">nameSuffixes</a> properties. Returns the first file that matches the file name patterns. If no such file is found, the <a href="https://qbs.io
+/docs/qml-qbslanguageitems-probe/#found-prop">probe.found</a> property is set to <code>false</code>.</p>
+<p>For example, a simple PathProbe that searches for the stdio.h header can be used as follows:</p>
+<pre class="cpp">Product {
+    Depends { name: <span class="string">"cpp"</span> }
+    PathProbe {
+        id: probe
+        pathSuffixes: <span class="operator">[</span><span class="string">"include"</span><span class="operator">]</span>
+        names: <span class="operator">[</span><span class="string">"stdio.h"</span><span class="operator">]</span>
+    }
+    cpp<span class="operator">.</span>includePaths: probe<span class="operator">.</span>found <span class="operator">?</span> <span class="operator">[</span>probe<span class="operator">.</span>path<span class="operator">]</span> : <span class="operator">[</span><span class="operator">]</span>
+}</pre>
+<!-- @@@PathProbe -->
+<h2>Property Documentation</h2>
+<!-- $$$allResults -->
+<div class="qmlitem"><h3 class="qmlproto">allResults: varList</h3>
+<div class="qmldoc"><p>This property contains the list of objects, each object representing a single found file:</p>
+<pre class="cpp">{
+    found: <span class="keyword">true</span><span class="operator">,</span>
+    candidatePaths: <span class="operator">[</span><span class="string">"path1/to/file"</span><span class="operator">,</span> <span class="string">"path2/to/file"</span><span class="operator">,</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span><span class="operator">]</span>
+    filePath: <span class="string">"path/to/file"</span>
+    fileName: <span class="string">"file"</span>
+    path: <span class="string">"path/to"</span>
+}</pre>
+<p><b>See also </b><a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#filePath-prop">filePath</a>, <a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#fileName-prop">fileName</a>, and <a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#path-prop">path</a>.</p>
+</div></div><!-- @@@allResults -->
+<br>
+<!-- $$$candidateFilter -->
+<div class="qmlitem"><h3 class="qmlproto">candidateFilter: var</h3>
+<div class="qmldoc"><p>This property holds the function that can be used to filter out unsuitable candidates. For example, when searching for a library, it might be necessary to check its architecture:</p>
+<pre class="cpp">PathProbe {
+    pathSuffixes: <span class="operator">[</span><span class="string">".so"</span><span class="operator">,</span> <span class="string">".dll"</span><span class="operator">,</span> <span class="string">".dylib"</span><span class="operator">]</span>
+    candidateFilter: {
+        function getLibraryArchitecture(file) { <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span> }
+        <span class="keyword">return</span> function(file) {
+            <span class="keyword">return</span> Utilities<span class="operator">.</span>isSharedLibrary(file)
+                    <span class="operator">&amp;</span><span class="operator">&amp;</span> getLibraryArchitecture(file) <span class="operator">=</span><span class="operator">=</span> qbs<span class="operator">.</span>architecture;
+        }
+    }
+}</pre>
+</div></div><!-- @@@candidateFilter -->
+<br>
+<!-- $$$candidatePaths -->
+<div class="qmlitem"><h3 class="qmlproto">candidatePaths: stringList</h3>
+<div class="qmldoc"><p>This property contains the result list of all paths that were checked before a file was found (including the file names).</p>
+<p>This property is set even if the Probe didn't find anything and can be used to give the user a hint what went wrong:</p>
+<pre class="cpp">Module {
+    Probes<span class="operator">.</span>BinaryProbe {
+        id: pythonProbe
+        names: <span class="string">"python"</span>
+    }
+    validate: {
+        <span class="keyword">if</span> (<span class="operator">!</span>pythonProbe<span class="operator">.</span>found) {
+            <span class="keyword">throw</span> ModUtils<span class="operator">.</span>ModuleError(
+                    <span class="string">"Could not find python binary at any of the following locations:\n\t"</span> <span class="operator">+</span>
+                    pythonProbe<span class="operator">.</span>candidatePaths<span class="operator">.</span>join(<span class="string">"\n\t"</span>));
+        }
+    }
+}</pre>
+<p>Default: Undefined</p>
+</div></div><!-- @@@candidatePaths -->
+<br>
+<!-- $$$environmentPaths -->
+<div class="qmlitem"><h3 class="qmlproto">environmentPaths: stringList</h3>
+<div class="qmldoc"><p>The list of environment variables that contains paths where to search files. Paths in the environment variable should be separated using <a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#pathListSeparator-prop">qbs.pathListSeparator</a>.</p>
+<p>Default: Undefined</p>
+</div></div><!-- @@@environmentPaths -->
+<br>
+<!-- $$$fileName -->
+<div class="qmlitem"><h3 class="qmlproto">fileName: string</h3>
+<div class="qmldoc"><p>This property contains the found file's name (excluding the path).</p>
+<p>Default: Undefined</p>
+</div></div><!-- @@@fileName -->
+<br>
+<!-- $$$filePath -->
+<div class="qmlitem"><h3 class="qmlproto">filePath: string</h3>
+<div class="qmldoc"><p>This property contains the full path to the found file, including the file name.</p>
+<p>Default: Undefined</p>
+</div></div><!-- @@@filePath -->
+<br>
+<!-- $$$nameFilter -->
+<div class="qmlitem"><h3 class="qmlproto">nameFilter: script</h3>
+<div class="qmldoc"><p>A script that is executed for each file name before prepending file suffixes. Can be used to transform file names.</p>
+</div></div><!-- @@@nameFilter -->
+<br>
+<!-- $$$nameSuffixes -->
+<div class="qmlitem"><h3 class="qmlproto">nameSuffixes: stringList</h3>
+<div class="qmldoc"><p>The list of file suffixes to search for. These suffixes are appended to every file name passed via the <a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#names-prop">names</a> property.</p>
+<p>Default: Undefined</p>
+</div></div><!-- @@@nameSuffixes -->
+<br>
+<!-- $$$names -->
+<div class="qmlitem"><h3 class="qmlproto">names: stringList</h3>
+<div class="qmldoc"><p>The list of file names to search for.</p>
+<p>Default: Undefined</p>
+</div></div><!-- @@@names -->
+<br>
+<!-- $$$path -->
+<div class="qmlitem"><h3 class="qmlproto">path: string</h3>
+<div class="qmldoc"><p>This property contains the full path where the found file is located (that is, the file directory).</p>
+<p>Default: Undefined</p>
+</div></div><!-- @@@path -->
+<br>
+<!-- $$$pathSuffixes -->
+<div class="qmlitem"><h3 class="qmlproto">pathSuffixes: stringList</h3>
+<div class="qmldoc"><p>A list of relative paths that are appended to each path where <a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/">PathProbe</a> searches for files. That is, the file should be located within one of the subfolders passed using this property.</p>
+<p>Default: Undefined</p>
+</div></div><!-- @@@pathSuffixes -->
+<br>
+<!-- $$$platformEnvironmentPaths -->
+<div class="qmlitem"><h3 class="qmlproto">platformEnvironmentPaths: stringList</h3>
+<div class="qmldoc"><p>The list of platform environment variables that contains paths where to search files. Paths in the environment variable should be separated using <a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#pathListSeparator-prop">qbs.pathListSeparator</a>.</p>
+<p>Default: Undefined</p>
+</div></div><!-- @@@platformEnvironmentPaths -->
+<br>
+<!-- $$$platformSearchPaths -->
+<div class="qmlitem"><h3 class="qmlproto">platformSearchPaths: pathList</h3>
+<div class="qmldoc"><p>The list of platform paths where to search files.</p>
+<p>Default: <code>['/usr', '/usr/local']</code> on Unix hosts, empty otherwise</p>
+</div></div><!-- @@@platformSearchPaths -->
+<br>
+<!-- $$$searchPaths -->
+<div class="qmlitem"><h3 class="qmlproto">searchPaths: pathList</h3>
+<div class="qmldoc"><p>The list of paths where to search files.</p>
+<p>Default: Undefined</p>
+</div></div><!-- @@@searchPaths -->
+<br>
+<!-- $$$selectors -->
+<div class="qmlitem"><h3 class="qmlproto">selectors: varList</h3>
+<div class="qmldoc"><p>This property should be used to search for multiple files. It contains the list of selectors each of which describes a single file to search for. A selector can be either a string, a stringList, or a dictionary.</p>
+<p>The following example searches for three files and illustrates different ways to specify selectors:</p>
+<pre class="cpp">selectors: <span class="operator">[</span>
+    <span class="comment">// 1st file with a single name</span>
+    <span class="string">"header.h"</span><span class="operator">,</span>
+    <span class="comment">// 2nd file with possible name variants</span>
+    <span class="operator">[</span><span class="string">"config.h"</span><span class="operator">,</span> <span class="string">"foo-config.h"</span><span class="operator">,</span> <span class="string">"bar-config.h"</span><span class="operator">]</span><span class="operator">,</span>
+    <span class="comment">// 3rd file with possible name and suffix variants</span>
+    {names: <span class="operator">[</span><span class="string">"footk"</span><span class="operator">,</span> <span class="string">"footk-version"</span><span class="operator">]</span><span class="operator">,</span> nameSuffixes: <span class="operator">[</span><span class="string">".h"</span><span class="operator">,</span> <span class="string">".hpp"</span><span class="operator">]</span>}
+<span class="operator">]</span></pre>
+</div></div><!-- @@@selectors -->
+<br>
+
+
+
+    </article>
+</div>
+
+        </main></body>
+</html>

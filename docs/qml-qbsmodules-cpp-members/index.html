@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Qbs</title>
+    <meta name="description" content=" Qbs Manual Qbs 1.21.0  List of All Members for cpp This is the complete list of members for cpp, including inherited members.
+ allowUnresolvedSymbols : bool alwaysUseLipo : bool architecture : string archiverName : string archiverPath : string assemblerFlags : stringList assemblerListingSuffix : string assemblerName : string assemblerPath : string automaticReferenceCounting : bool cFlags : stringList cLanguageVersion : stringList combineCSources : bool combineCxxSources : bool combineObjcSources : bool combineObjcxxSources : bool commonCompilerFlags : stringList compilerDefinesByLanguage : var compilerFrameworkPaths : pathList compilerIncludePaths : pathList compilerLibraryPaths : pathList compilerListingSuffix : string compilerName : string compilerPath : string compilerPathByLanguage : var compilerVersion : string compilerVersionMajor : int compilerVersionMinor : int compilerVersionPatch : int compilerWrapper : stringList cppFlags : stringList createSymlinks : bool cxxFlags : stringList cxxLanguageVersion : stringList cxxStandardLibrary : string debugInfoBundleSuffix : string debugInfoSuffix : string debugInformation : bool defines : stringList discardUnusedData : bool distributionFrameworkPaths : pathList distributionIncludePaths : pathList distributionLibraryPaths : pathList driverFlags : stringList driverLinkerFlags : stringList dsymutilFlags : stringList dsymutilPath : string dynamicLibraries : stringList dynamicLibraryImportSuffix : string dynamicLibraryPrefix : string dynamicLibrarySuffix : string enableCompilerDefinesByLanguage : stringList enableCxxLanguageMacro : string enableExceptions : bool enableReproducibleBuilds : bool enableRtti : bool enableSuspiciousLinkerFlagWarnings : bool endianness : string entryPoint : string exceptionHandlingModel : string executablePrefix : string executableSuffix : string exportedSymbolsCheckMode : string frameworkPaths : pathList frameworks : stringList generateAssemblerListingFiles : bool generateCompilerListingFiles : bool generateLinkerMapFile : bool generateManifestFile : bool includePaths : pathList libraryPaths : pathList linkerFlags : stringList linkerMapSuffix : string linkerMode : string linkerName : string linkerPath : string linkerVariant : string linkerWrapper : stringList lipoPath : string loadableModulePrefix : string loadableModuleSuffix : string minimumIosVersion : string minimumMacosVersion : string minimumOsxVersion : string (obsolete) minimumTvosVersion : string minimumWatchosVersion : string minimumWindowsVersion : string nmName : string nmPath : string objcFlags : stringList objcopyName : string objcopyPath : string objcxxFlags : stringList objectSuffix : string optimization : string platformDefines : stringList positionIndependentCode : bool prefixHeaders : pathList removeDuplicateLibraries : bool requireAppContainer : bool requireAppExtensionSafeApi : bool rpathLinkFlag : string rpathOrigin : string rpaths : stringList runtimeLibrary : string separateDebugInformation : bool soVersion : string sonamePrefix : string staticLibraries : stringList staticLibraryPrefix : string staticLibrarySuffix : string stripName : string stripPath : string systemFrameworkPaths : pathList systemIncludePaths : pathList systemRunPaths : stringList toolchainInstallPath : string treatSystemHeadersAsDependencies : bool treatWarningsAsErrors : bool useCPrecompiledHeader : bool useCxxPrecompiledHeader : bool useLanguageVersionFallback : bool useObjcPrecompiledHeader : bool useObjcxxPrecompiledHeader : bool useRPathLink : bool useRPaths : bool variantSuffix : string visibility : string warningLevel : string weakFrameworks : stringList windowsApiAdditionalPartitions : stringList windowsApiCharacterSet : string windowsApiFamily : string windowsSdkVersion : string   ">
+    <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-cpp-members/" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+
+    
+      
+      <link rel="stylesheet" href="/css/main.min.4b4afe3bc3ac46250ed86d95bc0261be3c962560258ab862147fc09704f82464.css" integrity="sha256-S0r+O8OsRiUO2G2VvAJhvjyWJWAlirhiFH/AlwT4JGQ="/>
+    
+
+    <meta property="og:title" content="" />
+<meta property="og:description" content=" Qbs Manual Qbs 1.21.0  List of All Members for cpp This is the complete list of members for cpp, including inherited members.
+ allowUnresolvedSymbols : bool alwaysUseLipo : bool architecture : string archiverName : string archiverPath : string assemblerFlags : stringList assemblerListingSuffix : string assemblerName : string assemblerPath : string automaticReferenceCounting : bool cFlags : stringList cLanguageVersion : stringList combineCSources : bool combineCxxSources : bool combineObjcSources : bool combineObjcxxSources : bool commonCompilerFlags : stringList compilerDefinesByLanguage : var compilerFrameworkPaths : pathList compilerIncludePaths : pathList compilerLibraryPaths : pathList compilerListingSuffix : string compilerName : string compilerPath : string compilerPathByLanguage : var compilerVersion : string compilerVersionMajor : int compilerVersionMinor : int compilerVersionPatch : int compilerWrapper : stringList cppFlags : stringList createSymlinks : bool cxxFlags : stringList cxxLanguageVersion : stringList cxxStandardLibrary : string debugInfoBundleSuffix : string debugInfoSuffix : string debugInformation : bool defines : stringList discardUnusedData : bool distributionFrameworkPaths : pathList distributionIncludePaths : pathList distributionLibraryPaths : pathList driverFlags : stringList driverLinkerFlags : stringList dsymutilFlags : stringList dsymutilPath : string dynamicLibraries : stringList dynamicLibraryImportSuffix : string dynamicLibraryPrefix : string dynamicLibrarySuffix : string enableCompilerDefinesByLanguage : stringList enableCxxLanguageMacro : string enableExceptions : bool enableReproducibleBuilds : bool enableRtti : bool enableSuspiciousLinkerFlagWarnings : bool endianness : string entryPoint : string exceptionHandlingModel : string executablePrefix : string executableSuffix : string exportedSymbolsCheckMode : string frameworkPaths : pathList frameworks : stringList generateAssemblerListingFiles : bool generateCompilerListingFiles : bool generateLinkerMapFile : bool generateManifestFile : bool includePaths : pathList libraryPaths : pathList linkerFlags : stringList linkerMapSuffix : string linkerMode : string linkerName : string linkerPath : string linkerVariant : string linkerWrapper : stringList lipoPath : string loadableModulePrefix : string loadableModuleSuffix : string minimumIosVersion : string minimumMacosVersion : string minimumOsxVersion : string (obsolete) minimumTvosVersion : string minimumWatchosVersion : string minimumWindowsVersion : string nmName : string nmPath : string objcFlags : stringList objcopyName : string objcopyPath : string objcxxFlags : stringList objectSuffix : string optimization : string platformDefines : stringList positionIndependentCode : bool prefixHeaders : pathList removeDuplicateLibraries : bool requireAppContainer : bool requireAppExtensionSafeApi : bool rpathLinkFlag : string rpathOrigin : string rpaths : stringList runtimeLibrary : string separateDebugInformation : bool soVersion : string sonamePrefix : string staticLibraries : stringList staticLibraryPrefix : string staticLibrarySuffix : string stripName : string stripPath : string systemFrameworkPaths : pathList systemIncludePaths : pathList systemRunPaths : stringList toolchainInstallPath : string treatSystemHeadersAsDependencies : bool treatWarningsAsErrors : bool useCPrecompiledHeader : bool useCxxPrecompiledHeader : bool useLanguageVersionFallback : bool useObjcPrecompiledHeader : bool useObjcxxPrecompiledHeader : bool useRPathLink : bool useRPaths : bool variantSuffix : string visibility : string warningLevel : string weakFrameworks : stringList windowsApiAdditionalPartitions : stringList windowsApiCharacterSet : string windowsApiFamily : string windowsSdkVersion : string  " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-cpp-members/" /><meta property="article:section" content="docs" />
+
+
+
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content=" Qbs Manual Qbs 1.21.0  List of All Members for cpp This is the complete list of members for cpp, including inherited members.
+ allowUnresolvedSymbols : bool alwaysUseLipo : bool architecture : string archiverName : string archiverPath : string assemblerFlags : stringList assemblerListingSuffix : string assemblerName : string assemblerPath : string automaticReferenceCounting : bool cFlags : stringList cLanguageVersion : stringList combineCSources : bool combineCxxSources : bool combineObjcSources : bool combineObjcxxSources : bool commonCompilerFlags : stringList compilerDefinesByLanguage : var compilerFrameworkPaths : pathList compilerIncludePaths : pathList compilerLibraryPaths : pathList compilerListingSuffix : string compilerName : string compilerPath : string compilerPathByLanguage : var compilerVersion : string compilerVersionMajor : int compilerVersionMinor : int compilerVersionPatch : int compilerWrapper : stringList cppFlags : stringList createSymlinks : bool cxxFlags : stringList cxxLanguageVersion : stringList cxxStandardLibrary : string debugInfoBundleSuffix : string debugInfoSuffix : string debugInformation : bool defines : stringList discardUnusedData : bool distributionFrameworkPaths : pathList distributionIncludePaths : pathList distributionLibraryPaths : pathList driverFlags : stringList driverLinkerFlags : stringList dsymutilFlags : stringList dsymutilPath : string dynamicLibraries : stringList dynamicLibraryImportSuffix : string dynamicLibraryPrefix : string dynamicLibrarySuffix : string enableCompilerDefinesByLanguage : stringList enableCxxLanguageMacro : string enableExceptions : bool enableReproducibleBuilds : bool enableRtti : bool enableSuspiciousLinkerFlagWarnings : bool endianness : string entryPoint : string exceptionHandlingModel : string executablePrefix : string executableSuffix : string exportedSymbolsCheckMode : string frameworkPaths : pathList frameworks : stringList generateAssemblerListingFiles : bool generateCompilerListingFiles : bool generateLinkerMapFile : bool generateManifestFile : bool includePaths : pathList libraryPaths : pathList linkerFlags : stringList linkerMapSuffix : string linkerMode : string linkerName : string linkerPath : string linkerVariant : string linkerWrapper : stringList lipoPath : string loadableModulePrefix : string loadableModuleSuffix : string minimumIosVersion : string minimumMacosVersion : string minimumOsxVersion : string (obsolete) minimumTvosVersion : string minimumWatchosVersion : string minimumWindowsVersion : string nmName : string nmPath : string objcFlags : stringList objcopyName : string objcopyPath : string objcxxFlags : stringList objectSuffix : string optimization : string platformDefines : stringList positionIndependentCode : bool prefixHeaders : pathList removeDuplicateLibraries : bool requireAppContainer : bool requireAppExtensionSafeApi : bool rpathLinkFlag : string rpathOrigin : string rpaths : stringList runtimeLibrary : string separateDebugInformation : bool soVersion : string sonamePrefix : string staticLibraries : stringList staticLibraryPrefix : string staticLibrarySuffix : string stripName : string stripPath : string systemFrameworkPaths : pathList systemIncludePaths : pathList systemRunPaths : stringList toolchainInstallPath : string treatSystemHeadersAsDependencies : bool treatWarningsAsErrors : bool useCPrecompiledHeader : bool useCxxPrecompiledHeader : bool useLanguageVersionFallback : bool useObjcPrecompiledHeader : bool useObjcxxPrecompiledHeader : bool useRPathLink : bool useRPaths : bool variantSuffix : string visibility : string warningLevel : string weakFrameworks : stringList windowsApiAdditionalPartitions : stringList windowsApiCharacterSet : string windowsApiFamily : string windowsSdkVersion : string  "/>
+
+</head>
+<body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
+    <a class="flex items-center" href="/">
+        <img src="https://qbs.io/img/Cubes.svg" class="h-10 effect-shadow-small">
+        <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
+    </a>
+
+    <div>
+        
+        <a href="/blog" class="ml-2">
+            <span>Blog</span>
+        </a>
+        
+        <a href="/docs" class="ml-2">
+            <span>Documentation</span>
+        </a>
+        
+        <a href="/docs/installing/" class="ml-2">
+            <span>Get Qbs</span>
+        </a>
+        
+    </div>
+</header><main>
+<div class="centre-outer">
+    <article class="centre-inner docs" >
+    
+<li><a href="https://qbs.io
+/docs">Qbs Manual</a></li>
+<li id="buildversion">Qbs 1.21.0</li>
+<div class="sidebar"><div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">List of All Members for cpp</h1>
+<p>This is the complete list of members for <a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/">cpp</a>, including inherited members.</p>
+<ul>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#allowUnresolvedSymbols-prop">allowUnresolvedSymbols</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#alwaysUseLipo-prop">alwaysUseLipo</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#architecture-prop">architecture</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#archiverName-prop">archiverName</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#archiverPath-prop">archiverPath</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#assemblerFlags-prop">assemblerFlags</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#assemblerListingSuffix-prop">assemblerListingSuffix</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#assemblerName-prop">assemblerName</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#assemblerPath-prop">assemblerPath</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#automaticReferenceCounting-prop">automaticReferenceCounting</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#cFlags-prop">cFlags</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#cLanguageVersion-prop">cLanguageVersion</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#combineCSources-prop">combineCSources</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#combineCxxSources-prop">combineCxxSources</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#combineObjcSources-prop">combineObjcSources</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#combineObjcxxSources-prop">combineObjcxxSources</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#commonCompilerFlags-prop">commonCompilerFlags</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#compilerDefinesByLanguage-prop">compilerDefinesByLanguage</a></b></b> : var</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#compilerFrameworkPaths-prop">compilerFrameworkPaths</a></b></b> : pathList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#compilerIncludePaths-prop">compilerIncludePaths</a></b></b> : pathList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#compilerLibraryPaths-prop">compilerLibraryPaths</a></b></b> : pathList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#compilerListingSuffix-prop">compilerListingSuffix</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#compilerName-prop">compilerName</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#compilerPath-prop">compilerPath</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#compilerPathByLanguage-prop">compilerPathByLanguage</a></b></b> : var</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#compilerVersion-prop">compilerVersion</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#compilerVersionMajor-prop">compilerVersionMajor</a></b></b> : int</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#compilerVersionMinor-prop">compilerVersionMinor</a></b></b> : int</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#compilerVersionPatch-prop">compilerVersionPatch</a></b></b> : int</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#compilerWrapper-prop">compilerWrapper</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#cppFlags-prop">cppFlags</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#createSymlinks-prop">createSymlinks</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#cxxFlags-prop">cxxFlags</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#cxxLanguageVersion-prop">cxxLanguageVersion</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#cxxStandardLibrary-prop">cxxStandardLibrary</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#debugInfoBundleSuffix-prop">debugInfoBundleSuffix</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#debugInfoSuffix-prop">debugInfoSuffix</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#debugInformation-prop">debugInformation</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#defines-prop">defines</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#discardUnusedData-prop">discardUnusedData</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#distributionFrameworkPaths-prop">distributionFrameworkPaths</a></b></b> : pathList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#distributionIncludePaths-prop">distributionIncludePaths</a></b></b> : pathList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#distributionLibraryPaths-prop">distributionLibraryPaths</a></b></b> : pathList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#driverFlags-prop">driverFlags</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#driverLinkerFlags-prop">driverLinkerFlags</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#dsymutilFlags-prop">dsymutilFlags</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#dsymutilPath-prop">dsymutilPath</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#dynamicLibraries-prop">dynamicLibraries</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#dynamicLibraryImportSuffix-prop">dynamicLibraryImportSuffix</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#dynamicLibraryPrefix-prop">dynamicLibraryPrefix</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#dynamicLibrarySuffix-prop">dynamicLibrarySuffix</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#enableCompilerDefinesByLanguage-prop">enableCompilerDefinesByLanguage</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#enableCxxLanguageMacro-prop">enableCxxLanguageMacro</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#enableExceptions-prop">enableExceptions</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#enableReproducibleBuilds-prop">enableReproducibleBuilds</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#enableRtti-prop">enableRtti</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#enableSuspiciousLinkerFlagWarnings-prop">enableSuspiciousLinkerFlagWarnings</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#endianness-prop">endianness</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#entryPoint-prop">entryPoint</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#exceptionHandlingModel-prop">exceptionHandlingModel</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#executablePrefix-prop">executablePrefix</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#executableSuffix-prop">executableSuffix</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#exportedSymbolsCheckMode-prop">exportedSymbolsCheckMode</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#frameworkPaths-prop">frameworkPaths</a></b></b> : pathList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#frameworks-prop">frameworks</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#generateAssemblerListingFiles-prop">generateAssemblerListingFiles</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#generateCompilerListingFiles-prop">generateCompilerListingFiles</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#generateLinkerMapFile-prop">generateLinkerMapFile</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#generateManifestFile-prop">generateManifestFile</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#includePaths-prop">includePaths</a></b></b> : pathList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#libraryPaths-prop">libraryPaths</a></b></b> : pathList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#linkerFlags-prop">linkerFlags</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#linkerMapSuffix-prop">linkerMapSuffix</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#linkerMode-prop">linkerMode</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#linkerName-prop">linkerName</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#linkerPath-prop">linkerPath</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#linkerVariant-prop">linkerVariant</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#linkerWrapper-prop">linkerWrapper</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#lipoPath-prop">lipoPath</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#loadableModulePrefix-prop">loadableModulePrefix</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#loadableModuleSuffix-prop">loadableModuleSuffix</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#minimumIosVersion-prop">minimumIosVersion</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#minimumMacosVersion-prop">minimumMacosVersion</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp-obsolete/#minimumOsxVersion-prop">minimumOsxVersion</a></b></b> : string<code> (obsolete)</code></li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#minimumTvosVersion-prop">minimumTvosVersion</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#minimumWatchosVersion-prop">minimumWatchosVersion</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#minimumWindowsVersion-prop">minimumWindowsVersion</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#nmName-prop">nmName</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#nmPath-prop">nmPath</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#objcFlags-prop">objcFlags</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#objcopyName-prop">objcopyName</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#objcopyPath-prop">objcopyPath</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#objcxxFlags-prop">objcxxFlags</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#objectSuffix-prop">objectSuffix</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#optimization-prop">optimization</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#platformDefines-prop">platformDefines</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#positionIndependentCode-prop">positionIndependentCode</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#prefixHeaders-prop">prefixHeaders</a></b></b> : pathList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#removeDuplicateLibraries-prop">removeDuplicateLibraries</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#requireAppContainer-prop">requireAppContainer</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#requireAppExtensionSafeApi-prop">requireAppExtensionSafeApi</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#rpathLinkFlag-prop">rpathLinkFlag</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#rpathOrigin-prop">rpathOrigin</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#rpaths-prop">rpaths</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#runtimeLibrary-prop">runtimeLibrary</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#separateDebugInformation-prop">separateDebugInformation</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#soVersion-prop">soVersion</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#sonamePrefix-prop">sonamePrefix</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#staticLibraries-prop">staticLibraries</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#staticLibraryPrefix-prop">staticLibraryPrefix</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#staticLibrarySuffix-prop">staticLibrarySuffix</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#stripName-prop">stripName</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#stripPath-prop">stripPath</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#systemFrameworkPaths-prop">systemFrameworkPaths</a></b></b> : pathList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#systemIncludePaths-prop">systemIncludePaths</a></b></b> : pathList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#systemRunPaths-prop">systemRunPaths</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#toolchainInstallPath-prop">toolchainInstallPath</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#treatSystemHeadersAsDependencies-prop">treatSystemHeadersAsDependencies</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#treatWarningsAsErrors-prop">treatWarningsAsErrors</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#useCPrecompiledHeader-prop">useCPrecompiledHeader</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#useCxxPrecompiledHeader-prop">useCxxPrecompiledHeader</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#useLanguageVersionFallback-prop">useLanguageVersionFallback</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#useObjcPrecompiledHeader-prop">useObjcPrecompiledHeader</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#useObjcxxPrecompiledHeader-prop">useObjcxxPrecompiledHeader</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#useRPathLink-prop">useRPathLink</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#useRPaths-prop">useRPaths</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#variantSuffix-prop">variantSuffix</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#visibility-prop">visibility</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#warningLevel-prop">warningLevel</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#weakFrameworks-prop">weakFrameworks</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#windowsApiAdditionalPartitions-prop">windowsApiAdditionalPartitions</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#windowsApiCharacterSet-prop">windowsApiCharacterSet</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#windowsApiFamily-prop">windowsApiFamily</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#windowsSdkVersion-prop">windowsSdkVersion</a></b></b> : string</li>
+</ul>
+
+
+
+    </article>
+</div>
+
+        </main></body>
+</html>

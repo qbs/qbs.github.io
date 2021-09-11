@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<!-- qbs-target-qnx.qdoc -->
+  <title>Building for QNX | Qbs Manual</title>
+</head>
+<body>
+<li><a href="index.html">Qbs Manual</a></li>
+<li>Building for QNX</li>
+<li id="buildversion">Qbs 1.21-0</li>
+<div class="sidebar"><div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Building for QNX</h1>
+<span class="subtitle"></span>
+<!-- $$$qbs-target-qnx.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>To develop applications for the QNX Neutrino RTOS, you need to install the QNX Software Development Platform (SDP) on a Linux, <a href="nolink">macOS</a>, or Windows development host. You can deploy the QNX Neutrino RTOS on a target system, such as embedded hardware, a virtual machine, or a PC.</p>
+<p>Qbs automatically determines the location of the SDP base directory if the SDP is installed at one of the standard locations, such as <code>~/qnx700</code>, <code>/opt/qnx700</code>, or <code>C:\qnx700</code>. In addition, Qbs uses the SDP and the information it has about the host operating system to determine the location of the QNX host and target directories.</p>
+<p>If the QNX SDP path could not be determined automatically, you must add a dependency to the <a href="qml-qbsmodules-qnx.html">qnx</a> module to your application and set the <a href="qml-qbsmodules-qnx.html#sdkDir-prop">qnx.sdkDir</a> property:</p>
+<pre class="cpp">Application {
+    name: <span class="string">&quot;helloworld&quot;</span>
+    files: <span class="string">&quot;main.cpp&quot;</span>
+    Depends { name: <span class="string">&quot;cpp&quot;</span> }
+
+    Depends { name: <span class="string">&quot;qnx&quot;</span> }
+    qnx<span class="operator">.</span>sdkDir: <span class="string">&quot;/path/to/qnx700&quot;</span>
+}</pre>
+<p>Alternatively, you can set the <code>qnx.sdkDir</code> property in a profile or on the command line.</p>
+<p>Qbs supports QNX SDP version 6.5 and above.</p>
+<p>For more information about developing applications for the QNX Neutrino RTOS, see the <a href="http://www.qnx.com/developers/docs/">QNX Product Documentation</a>.</p>
+</div>
+<!-- @@@qbs-target-qnx.html -->
+</body>
+</html>

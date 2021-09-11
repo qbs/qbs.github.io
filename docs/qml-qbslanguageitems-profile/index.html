@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Qbs</title>
+    <meta name="description" content="Qbs Manual Qbs 1.21.0 Product Project  Contents  Properties Detailed Description    Profile QML Type  Creates a profile within the project. More...
+Import Statement:import QbsLanguageItems . List of all members, including inherited members   Properties  baseProfile : string condition : bool name : string   Detailed Description The profiles used by Qbs are normally set up on a user&#39;s machine and are then available to all projects. ">
+    <link rel="canonical" href="https://qbs.io/docs/qml-qbslanguageitems-profile/" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+
+    
+      
+      <link rel="stylesheet" href="/css/main.min.4b4afe3bc3ac46250ed86d95bc0261be3c962560258ab862147fc09704f82464.css" integrity="sha256-S0r+O8OsRiUO2G2VvAJhvjyWJWAlirhiFH/AlwT4JGQ="/>
+    
+
+    <meta property="og:title" content="" />
+<meta property="og:description" content="Qbs Manual Qbs 1.21.0 Product Project  Contents  Properties Detailed Description    Profile QML Type  Creates a profile within the project. More...
+Import Statement:import QbsLanguageItems . List of all members, including inherited members   Properties  baseProfile : string condition : bool name : string   Detailed Description The profiles used by Qbs are normally set up on a user&#39;s machine and are then available to all projects." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-profile/" /><meta property="article:section" content="docs" />
+
+
+
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Qbs Manual Qbs 1.21.0 Product Project  Contents  Properties Detailed Description    Profile QML Type  Creates a profile within the project. More...
+Import Statement:import QbsLanguageItems . List of all members, including inherited members   Properties  baseProfile : string condition : bool name : string   Detailed Description The profiles used by Qbs are normally set up on a user&#39;s machine and are then available to all projects."/>
+
+</head>
+<body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
+    <a class="flex items-center" href="/">
+        <img src="https://qbs.io/img/Cubes.svg" class="h-10 effect-shadow-small">
+        <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
+    </a>
+
+    <div>
+        
+        <a href="/blog" class="ml-2">
+            <span>Blog</span>
+        </a>
+        
+        <a href="/docs" class="ml-2">
+            <span>Documentation</span>
+        </a>
+        
+        <a href="/docs/installing/" class="ml-2">
+            <span>Get Qbs</span>
+        </a>
+        
+    </div>
+</header><main>
+<div class="centre-outer">
+    <article class="centre-inner docs" >
+    
+<li><a href="https://qbs.io
+/docs">Qbs Manual</a></li>
+<li id="buildversion">Qbs 1.21.0</li>
+  <link rel="prev" href="https://qbs.io
+/docs/qml-qbslanguageitems-product/">
+  <link rel="next" href="https://qbs.io
+/docs/qml-qbslanguageitems-project/">
+<p class="naviNextPrevious headerNavi">
+<a class="prevPage" href="https://qbs.io
+/docs/qml-qbslanguageitems-product/">Product</a>
+<a class="nextPage" href="https://qbs.io
+/docs/qml-qbslanguageitems-project/">Project</a>
+</p><p>
+</p><div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Profile QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$Profile-brief -->
+<p>Creates a profile within the project. <a href="#details">More...</a></p>
+<!-- @@@Profile -->
+<div class="table"><table class="alignedsummary">
+<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsLanguageItems .</td></tr></tbody></table></div><ul>
+<li><a href="https://qbs.io
+/docs/qml-qbslanguageitems-profile-members/">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbslanguageitems-profile/#baseProfile-prop">baseProfile</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbslanguageitems-profile/#condition-prop">condition</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbslanguageitems-profile/#name-prop">name</a></b></b> : string</li>
+</ul>
+<!-- $$$Profile-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+<p>The profiles used by Qbs are normally set up on a user's machine and are then available to all projects. See <a href="https://qbs.io
+/docs/configuring/">Configuring Profiles and Preferences</a> for information on how to set up and use profiles on the command line. In some rare cases, however, the creator of a project has complete knowledge about the system on which that project is to be built. Then it can make sense to integrate the profile into the project:</p>
+<pre class="cpp">Product {
+    <span class="comment">// ...</span>
+    Profile {
+        name: <span class="string">"my-special-profile"</span>
+        qbs<span class="operator">.</span>toolchainType: <span class="string">"gcc"</span>
+        qbs<span class="operator">.</span>targetPlatform: <span class="string">"linux"</span>
+        qbs<span class="operator">.</span>architecture: <span class="string">"armv7a"</span>
+        cpp<span class="operator">.</span>toolchainInstallPath: <span class="string">"/opt/special-gcc/bin"</span>
+        cpp<span class="operator">.</span>toolchainPrefix: <span class="string">"arm-linux-gnueabi-"</span>
+    }
+    qbs<span class="operator">.</span>profiles: <span class="operator">[</span><span class="string">"my-special-profile"</span><span class="operator">]</span>
+    <span class="comment">// ...</span>
+}</pre>
+<p>The project in the above example can be built in a particular well-known environment without any additional setup.</p>
+<p><code>Profile</code> items can appear inside <a href="https://qbs.io
+/docs/qml-qbslanguageitems-product/">Product</a> and <a href="https://qbs.io
+/docs/qml-qbslanguageitems-project/">Project</a> items.</p>
+<!-- @@@Profile -->
+<h2>Property Documentation</h2>
+<!-- $$$baseProfile -->
+<div class="qmlitem"><h3 class="qmlproto">baseProfile: string</h3>
+<div class="qmldoc"><p>The name of a profile from which this profile inherits. If the same property is set in both this profile and the base profile, the value from this profile takes precedence.</p>
+<p>Default: Undefined</p>
+</div></div><!-- @@@baseProfile -->
+<br>
+<!-- $$$condition -->
+<div class="qmlitem"><h3 class="qmlproto">condition: bool</h3>
+<div class="qmldoc"><p>Determines whether this profile can be used.</p>
+<p>If this property is set to <code>false</code>, the profile cannot be used.</p>
+<p>Default: <code>true</code></p>
+</div></div><!-- @@@condition -->
+<br>
+<!-- $$$name -->
+<div class="qmlitem"><h3 class="qmlproto">name: string</h3>
+<div class="qmldoc"><p>The name under which the profile can be referenced later. Setting this property is required. The value must be unique among all profiles in an entire project.</p>
+<p>Default: Undefined</p>
+</div></div><!-- @@@name -->
+<br>
+<p class="naviNextPrevious footerNavi">
+<a class="prevPage" href="https://qbs.io
+/docs/qml-qbslanguageitems-product/">Product</a>
+<a class="nextPage" href="https://qbs.io
+/docs/qml-qbslanguageitems-project/">Project</a>
+</p>
+
+
+
+    </article>
+</div>
+
+        </main></body>
+</html>

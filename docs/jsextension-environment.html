@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<!-- jsextension-environment.qdoc -->
+  <title>Environment Service | Qbs Manual</title>
+</head>
+<body>
+<li><a href="index.html">Qbs Manual</a></li>
+<li>Environment Service</li>
+<li id="buildversion">Qbs 1.21-0</li>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#available-operations">Available Operations</a></li>
+<li class="level2"><a href="#currentenv">currentEnv</a></li>
+<li class="level2"><a href="#getenv">getEnv</a></li>
+<li class="level2"><a href="#putenv">putEnv</a></li>
+<li class="level2"><a href="#unsetenv">unsetEnv</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Environment Service</h1>
+<span class="subtitle"></span>
+<!-- $$$jsextension-environment.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>The <code>Environment</code> service offers access to the system environment or process environment.</p>
+<a name="available-operations"></a>
+<h2 id="available-operations">Available Operations</h2>
+<a name="currentenv"></a>
+<h3 id="currentenv">currentEnv</h3>
+<pre class="cpp">Environment<span class="operator">.</span>currentEnv(): { <span class="operator">[</span>key: string<span class="operator">]</span>: string; }</pre>
+<p>Returns the environment of Qbs in the current context as an object whose properties are the environment variables.</p>
+<a name="getenv"></a>
+<h3 id="getenv">getEnv</h3>
+<pre class="cpp">Environment<span class="operator">.</span>getEnv(key: string): string</pre>
+<p>Tries to find a variable with the given name in the current context's environment and returns its value. If no such variable could be found, <code>undefined</code> is returned.</p>
+<a name="putenv"></a>
+<h3 id="putenv">putEnv</h3>
+<pre class="cpp">Environment<span class="operator">.</span>putEnv(key: string<span class="operator">,</span> value: string): <span class="type">void</span></pre>
+<p>Sets the value of the environment variable with the given name in the build or run environment. This method is only available in the <code>Module.setupBuildEnvironment</code> and <code>Module.setupRunEnvironment</code> scripts.</p>
+<a name="unsetenv"></a>
+<h3 id="unsetenv">unsetEnv</h3>
+<pre class="cpp">Environment<span class="operator">.</span>unsetEnv(key: string): <span class="type">void</span></pre>
+<p>Unsets the environment variable with the given name from the build or run environment. This method is only available in the <code>Module.setupBuildEnvironment</code> and <code>Module.setupRunEnvironment</code> scripts.</p>
+</div>
+<!-- @@@jsextension-environment.html -->
+</body>
+</html>

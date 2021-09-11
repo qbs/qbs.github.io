@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<!-- parameters.qdoc -->
+  <title>Parameters QML Type | Qbs Manual</title>
+</head>
+<body>
+<li><a href="index.html">Qbs Manual</a></li>
+<li id="buildversion">Qbs 1.21-0</li>
+  <link rel="prev" href="qml-qbslanguageitems-parameter.html" />
+  <link rel="next" href="qml-qbslanguageitems-probe.html" />
+<p class="naviNextPrevious headerNavi">
+<a class="prevPage" href="qml-qbslanguageitems-parameter.html">Parameter</a>
+<a class="nextPage" href="qml-qbslanguageitems-probe.html">Probe</a>
+</p><p/>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Parameters QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$Parameters-brief -->
+<p>Defines default values for dependency parameters within Export items. <a href="#details">More...</a></p>
+<!-- @@@Parameters -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsLanguageItems .</td></tr></table></div><ul>
+<li><a href="qml-qbslanguageitems-parameters-members.html">List of all members, including inherited members</a></li>
+</ul>
+<!-- $$$Parameters-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+<p>The Parameters item defines default values for dependency parameters within <a href="qml-qbslanguageitems-export.html">Export</a> items.</p>
+<p>Example:</p>
+<pre class="cpp">DynamicLibrary {
+   name: <span class="string">&quot;foo&quot;</span>
+   <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+   Export {
+       <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+       Parameters {
+           cpp<span class="operator">.</span>link: <span class="keyword">false</span>
+       }
+   }
+}</pre>
+<p>Every dependency on <i>foo</i> has the parameter <a href="qml-qbsmodules-cpp.html#dependency-parameters-cpp">cpp.link</a> set to <code>false</code> by default.</p>
+<p>This can be overridden explicitly:</p>
+<pre class="cpp">Depends { name: <span class="string">&quot;foo&quot;</span>; cpp<span class="operator">.</span>link: <span class="keyword">true</span> }</pre>
+<p>The Parameters item contains a number of property bindings where each property must be a properly declared dependency parameter. For more information, see <a href="qml-qbslanguageitems-parameter.html">Parameter</a> and <a href="qml-qbslanguageitems-module.html#dependency-parameters">Module - Dependency Parameters</a>.</p>
+<!-- @@@Parameters -->
+<p class="naviNextPrevious footerNavi">
+<a class="prevPage" href="qml-qbslanguageitems-parameter.html">Parameter</a>
+<a class="nextPage" href="qml-qbslanguageitems-probe.html">Probe</a>
+</p>
+</body>
+</html>

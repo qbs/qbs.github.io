@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<!-- qbs.qdoc -->
+  <title>Building Applications | Qbs Manual</title>
+</head>
+<body>
+<li><a href="index.html">Qbs Manual</a></li>
+<li>Building Applications</li>
+<li id="buildversion">Qbs 1.21-0</li>
+  <link rel="prev" href="language-introduction.html" />
+  <link rel="next" href="running-applications.html" />
+<p class="naviNextPrevious headerNavi">
+<a class="prevPage" href="language-introduction.html">Language Introduction</a>
+<a class="nextPage" href="running-applications.html">Running Applications</a>
+</p><p/>
+<div class="sidebar"><div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Building Applications</h1>
+<span class="subtitle"></span>
+<!-- $$$building-applications.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>This section assumes that Qbs is present in <code>PATH</code>. For the details how to install Qbs, see the <a href="installing.html">Installing</a> page.</p>
+<p>To build applications from the command line, enter the following commands:</p>
+<pre class="cpp">cd examples<span class="operator">/</span>collidingmice
+qbs</pre>
+<p>By default, Qbs uses all the CPU cores available to achieve maximum build parallelization. To explicitly specify the number of concurrent jobs, use the <code>-j</code> option. For example, to run 4 concurrent jobs, enter the following command:</p>
+<pre class="cpp">qbs <span class="operator">-</span>j4</pre>
+<p>The application is built using the default build profile that is set up in your Qbs configuration.</p>
+<p>You can use the <a href="cli-config.html">config</a> command to set the max number of jobs per profile. For example, to set four jobs as the default option for a profile named <i>Android</i>, enter the following command:</p>
+<pre class="cpp">qbs config profiles<span class="operator">.</span>Android<span class="operator">.</span>preferences<span class="operator">.</span>jobs <span class="number">4</span></pre>
+<p>To build with other profiles than the default one, specify options for the <a href="cli-build.html">build</a> command. For example, to build debug and release configurations with the <i>Android</i> profile, enter the following command:</p>
+<pre class="cpp">qbs build profile:Android config:debug config:release</pre>
+<p>The position of the property assignment is important. In the example above, the profile property is set for all build configurations that come afterwards.</p>
+<p>To set a property just for one build configuration, place the assignment after the build configuration name. In the following example, the property <a href="qml-qbsmodules-cpp.html#treatWarningsAsErrors-prop">cpp.treatWarningsAsErrors</a> is set to <code>true</code> for debug only and <a href="qml-qbsmodules-cpp.html#optimization-prop">cpp.optimization</a> is set to <code>small</code> for release only.</p>
+<pre class="cpp">qbs build config:debug modules<span class="operator">.</span>cpp<span class="operator">.</span>treatWarningsAsErrors:<span class="keyword">true</span> config:release modules<span class="operator">.</span>cpp<span class="operator">.</span>optimization:small</pre>
+<p>Projects are built in the debug build configuration by default.</p>
+</div>
+<!-- @@@building-applications.html -->
+<p class="naviNextPrevious footerNavi">
+<a class="prevPage" href="language-introduction.html">Language Introduction</a>
+<a class="nextPage" href="running-applications.html">Running Applications</a>
+</p>
+</body>
+</html>

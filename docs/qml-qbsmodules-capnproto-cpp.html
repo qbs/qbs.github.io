@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<!-- capnprotocpp-module.qdoc -->
+  <title>capnproto.cpp QML Type | Qbs Manual</title>
+</head>
+<body>
+<li><a href="index.html">Qbs Manual</a></li>
+<li id="buildversion">Qbs 1.21-0</li>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#relevant-file-tags">Relevant File Tags</a></li>
+<li class="level2"><a href="#dependencies">Dependencies</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">capnproto.cpp QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$capnproto.cpp-brief -->
+<p>Provides support for Cap'n Proto for the C++ language. <a href="#details">More...</a></p>
+<!-- @@@capnproto.cpp -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsModules .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.17</td></tr></table></div><ul>
+<li><a href="qml-qbsmodules-capnproto-cpp-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qbsmodules-capnproto-cpp.html#compilerName-prop">compilerName</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-qbsmodules-capnproto-cpp.html#compilerPath-prop">compilerPath</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-qbsmodules-capnproto-cpp.html#importPaths-prop">importPaths</a></b></b> : pathList</li>
+<li class="fn"><b><b><a href="qml-qbsmodules-capnproto-cpp.html#outputDir-prop">outputDir</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-qbsmodules-capnproto-cpp.html#useRpc-prop">useRpc</a></b></b> : bool</li>
+</ul>
+<!-- $$$capnproto.cpp-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+<p>The <code>capnproto.cpp</code> module provides support for generating C++ headers and sources from proto definition files using the <code>capnpc</code> tool.</p>
+<p>A simple qbs file that uses Cap'n Proto can be written as follows:</p>
+<pre class="cpp">CppApplication {
+    Depends { name: <span class="string">&quot;capnproto.cpp&quot;</span> }
+    files: <span class="operator">[</span><span class="string">&quot;foo.capnp&quot;</span><span class="operator">,</span> <span class="string">&quot;main.cpp&quot;</span><span class="operator">]</span>
+}</pre>
+<p>A generated header now can be included in the C++ sources:</p>
+<pre class="cpp"><span class="preprocessor">#include &lt;foo.capnp.h&gt;</span>
+
+<span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span><span class="operator">*</span> argv<span class="operator">[</span><span class="operator">]</span>) {
+    <span class="operator">::</span>capnp<span class="operator">::</span>MallocMessageBuilder message;
+
+    <span class="keyword">auto</span> foo <span class="operator">=</span> message<span class="operator">.</span>initRoot<span class="operator">&lt;</span>Foo<span class="operator">&gt;</span>();
+    foo<span class="operator">.</span>setAnswer(<span class="number">42</span>);
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</pre>
+<a name="relevant-file-tags"></a>
+<h3 id="relevant-file-tags">Relevant File Tags</h3>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Tag</th><th >Auto-tagged File Names</th><th >Since</th><th >Description</th></tr></thead>
+<tr valign="top" class="odd"><td ><code>&quot;capnproto.input&quot;</code></td><td ><code>*.capnp</code></td><td >1.17.0</td><td >Source files with this tag are considered inputs to the <code>capnpc</code> compiler.</td></tr>
+</table></div>
+<a name="dependencies"></a>
+<h3 id="dependencies">Dependencies</h3>
+<p>This module depends on the <code>capnp</code> module and on the <code>capnp-rpc</code> module if <a href="qml-qbsmodules-capnproto-cpp.html#useRpc-prop">useRpc</a> property is <code>true</code>. These modules are created by the <a href="module-providers.html">Module Providers</a> via the <code>pkg-config</code> tool.</p>
+<!-- @@@capnproto.cpp -->
+<h2>Property Documentation</h2>
+<!-- $$$compilerName -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="compilerName-prop">
+<td class="tblQmlPropNode"><p>
+<a name="compilerName-prop"></a><span class="name">compilerName</span> : <span class="type">string</span></p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>The name of the capnp binary.</p>
+<p>Default: <code>&quot;capnpc&quot;</code></p>
+</div></div><!-- @@@compilerName -->
+<br/>
+<!-- $$$compilerPath -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="compilerPath-prop">
+<td class="tblQmlPropNode"><p>
+<a name="compilerPath-prop"></a><span class="name">compilerPath</span> : <span class="type">string</span></p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>The path to the protoc binary.</p>
+<p>Use this property to override the auto-detected location.</p>
+<p>Default: <code>auto-detected</code></p>
+</div></div><!-- @@@compilerPath -->
+<br/>
+<!-- $$$importPaths -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="importPaths-prop">
+<td class="tblQmlPropNode"><p>
+<a name="importPaths-prop"></a><span class="name">importPaths</span> : <span class="type">pathList</span></p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>The list of import paths that are passed to the <code>capnpc</code> tool via the <code>--import-path</code> option.</p>
+<p>Default: <code>[]</code></p>
+</div></div><!-- @@@importPaths -->
+<br/>
+<!-- $$$outputDir -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="outputDir-prop">
+<td class="tblQmlPropNode"><p>
+<a name="outputDir-prop"></a><span class="qmlreadonly">[read-only] </span><span class="name">outputDir</span> : <span class="type">string</span></p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>The directory where the <code>capnpc</code> compiler generated files are placed.</p>
+<p>The value of this property is automatically set by Qbs and cannot be changed by the user.</p>
+</div></div><!-- @@@outputDir -->
+<br/>
+<!-- $$$useRpc -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="useRpc-prop">
+<td class="tblQmlPropNode"><p>
+<a name="useRpc-prop"></a><span class="name">useRpc</span> : <span class="type">bool</span></p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>Use this property to enable support for the RPC framework.</p>
+<p>A simple qbs file that uses rpc can be written as follows:</p>
+<pre class="cpp">Project {
+    CppApplication {
+        Depends { name: &quot;capnproto.cpp&quot;; required: false }
+        name: &quot;server&quot;
+        condition: capnproto.cpp.present &amp;&amp; qbs.targetPlatform === qbs.hostPlatform
+        consoleApplication: true
+        capnproto.cpp.useRpc: true
+
+        files: [
+            &quot;calculator.capnp&quot;,
+            &quot;calculator-server.cpp&quot;
+        ]
+    }
+    CppApplication {
+        Depends { name: &quot;capnproto.cpp&quot;; required: false }
+        name: &quot;client&quot;
+        condition: capnproto.cpp.present &amp;&amp; qbs.targetPlatform === qbs.hostPlatform
+        consoleApplication: true
+        capnproto.cpp.useRpc: true
+
+        files: [
+            &quot;calculator.capnp&quot;,
+            &quot;calculator-client.cpp&quot;
+        ]
+    }
+}</pre>
+<p>Default: <code>false</code></p>
+</div></div><!-- @@@useRpc -->
+<br/>
+</body>
+</html>

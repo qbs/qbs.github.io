@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Qbs</title>
+    <meta name="description" content="Qbs Manual Utilities Service Qbs 1.21.0 Contents  Available Operations cStringQuote getHash rfc1034Identifier versionCompare    Utilities Service   The Utilities service offers miscellaneous operations.
+ Available Operations  cStringQuote Utilities.cStringQuote(str: string): string Takes a string and escapes special characters in a way that the result is suitable for use as a C/C&#43;&#43; string literal. This function is typically used to specify values for cpp.defines.
+ getHash Utilities. ">
+    <link rel="canonical" href="https://qbs.io/docs/jsextension-utilities/" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+
+    
+      
+      <link rel="stylesheet" href="/css/main.min.4b4afe3bc3ac46250ed86d95bc0261be3c962560258ab862147fc09704f82464.css" integrity="sha256-S0r+O8OsRiUO2G2VvAJhvjyWJWAlirhiFH/AlwT4JGQ="/>
+    
+
+    <meta property="og:title" content="" />
+<meta property="og:description" content="Qbs Manual Utilities Service Qbs 1.21.0 Contents  Available Operations cStringQuote getHash rfc1034Identifier versionCompare    Utilities Service   The Utilities service offers miscellaneous operations.
+ Available Operations  cStringQuote Utilities.cStringQuote(str: string): string Takes a string and escapes special characters in a way that the result is suitable for use as a C/C&#43;&#43; string literal. This function is typically used to specify values for cpp.defines.
+ getHash Utilities." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://qbs.io/docs/jsextension-utilities/" /><meta property="article:section" content="docs" />
+
+
+
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Qbs Manual Utilities Service Qbs 1.21.0 Contents  Available Operations cStringQuote getHash rfc1034Identifier versionCompare    Utilities Service   The Utilities service offers miscellaneous operations.
+ Available Operations  cStringQuote Utilities.cStringQuote(str: string): string Takes a string and escapes special characters in a way that the result is suitable for use as a C/C&#43;&#43; string literal. This function is typically used to specify values for cpp.defines.
+ getHash Utilities."/>
+
+</head>
+<body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
+    <a class="flex items-center" href="/">
+        <img src="https://qbs.io/img/Cubes.svg" class="h-10 effect-shadow-small">
+        <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
+    </a>
+
+    <div>
+        
+        <a href="/blog" class="ml-2">
+            <span>Blog</span>
+        </a>
+        
+        <a href="/docs" class="ml-2">
+            <span>Documentation</span>
+        </a>
+        
+        <a href="/docs/installing/" class="ml-2">
+            <span>Get Qbs</span>
+        </a>
+        
+    </div>
+</header><main>
+<div class="centre-outer">
+    <article class="centre-inner docs" >
+    
+<li><a href="https://qbs.io
+/docs">Qbs Manual</a></li>
+<li>Utilities Service</li>
+<li id="buildversion">Qbs 1.21.0</li>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#available-operations">Available Operations</a></li>
+<li class="level2"><a href="#cstringquote">cStringQuote</a></li>
+<li class="level2"><a href="#gethash">getHash</a></li>
+<li class="level2"><a href="#rfc1034identifier">rfc1034Identifier</a></li>
+<li class="level2"><a href="#versioncompare">versionCompare</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Utilities Service</h1>
+<span class="subtitle"></span>
+<!-- $$$jsextension-utilities.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>The <code>Utilities</code> service offers miscellaneous operations.</p>
+<a name="available-operations"></a>
+<h2 id="available-operations">Available Operations</h2>
+<a name="cstringquote"></a>
+<h3 id="cstringquote">cStringQuote</h3>
+<pre class="cpp plain">Utilities.cStringQuote(str: string): string</pre>
+<p>Takes a string and escapes special characters in a way that the result is suitable for use as a C/C++ string literal. This function is typically used to specify values for <a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#defines-prop">cpp.defines</a>.</p>
+<a name="gethash"></a>
+<h3 id="gethash">getHash</h3>
+<pre class="cpp plain">Utilities.getHash(key: string): string</pre>
+<p>Calculates a 16-byte hash of the input and returns it. Rules in modules should use this function to find unique locations for output artifacts in the build directory without duplicating the whole directory structure of the respective input file (to deal with the case of two files with the same name in different subdirectories of the same product).</p>
+<a name="rfc1034identifier"></a>
+<h3 id="rfc1034identifier">rfc1034Identifier</h3>
+<pre class="cpp plain">Utilities.rfc1034Identifier(str: string): string</pre>
+<p>Returns an RFC-1034 compliant identifier based on the given string by replacing each character that is not Latin alphanumeric or <code>.</code> with <code>-</code>.</p>
+<a name="versioncompare"></a>
+<h3 id="versioncompare">versionCompare</h3>
+<pre class="cpp plain">Utilities.versionCompare(version1: string, version2: string): number</pre>
+<p>Interprets the two arguments as version numbers and returns a number that is smaller than, equal to, or greater than zero if <code>version1</code> is smaller than, equal to, or greater than <code>version2</code>, respectively.</p>
+<p>The version strings consist of up to three numbers separated by dots.</p>
+</div>
+<!-- @@@jsextension-utilities.html -->
+
+
+
+    </article>
+</div>
+
+        </main></body>
+</html>

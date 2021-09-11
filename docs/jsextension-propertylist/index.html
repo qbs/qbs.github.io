@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Qbs</title>
+    <meta name="description" content="Qbs Manual PropertyList Service Qbs 1.21.0 Contents  Available operations Constructor clear isEmpty format readFromFile readFromObject readFromString toObject toJSON toString toXMLString writeToFile    PropertyList Service   The PropertyList service allows you to read and write property list files in all formats supported by the Core Foundation API: XML, binary, JSON, and OpenStep (read-only).
+This service is only available on Darwin platforms such as iOS, macOS, tvOS, and watchOS. ">
+    <link rel="canonical" href="https://qbs.io/docs/jsextension-propertylist/" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+
+    
+      
+      <link rel="stylesheet" href="/css/main.min.4b4afe3bc3ac46250ed86d95bc0261be3c962560258ab862147fc09704f82464.css" integrity="sha256-S0r+O8OsRiUO2G2VvAJhvjyWJWAlirhiFH/AlwT4JGQ="/>
+    
+
+    <meta property="og:title" content="" />
+<meta property="og:description" content="Qbs Manual PropertyList Service Qbs 1.21.0 Contents  Available operations Constructor clear isEmpty format readFromFile readFromObject readFromString toObject toJSON toString toXMLString writeToFile    PropertyList Service   The PropertyList service allows you to read and write property list files in all formats supported by the Core Foundation API: XML, binary, JSON, and OpenStep (read-only).
+This service is only available on Darwin platforms such as iOS, macOS, tvOS, and watchOS." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://qbs.io/docs/jsextension-propertylist/" /><meta property="article:section" content="docs" />
+
+
+
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Qbs Manual PropertyList Service Qbs 1.21.0 Contents  Available operations Constructor clear isEmpty format readFromFile readFromObject readFromString toObject toJSON toString toXMLString writeToFile    PropertyList Service   The PropertyList service allows you to read and write property list files in all formats supported by the Core Foundation API: XML, binary, JSON, and OpenStep (read-only).
+This service is only available on Darwin platforms such as iOS, macOS, tvOS, and watchOS."/>
+
+</head>
+<body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
+    <a class="flex items-center" href="/">
+        <img src="https://qbs.io/img/Cubes.svg" class="h-10 effect-shadow-small">
+        <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
+    </a>
+
+    <div>
+        
+        <a href="/blog" class="ml-2">
+            <span>Blog</span>
+        </a>
+        
+        <a href="/docs" class="ml-2">
+            <span>Documentation</span>
+        </a>
+        
+        <a href="/docs/installing/" class="ml-2">
+            <span>Get Qbs</span>
+        </a>
+        
+    </div>
+</header><main>
+<div class="centre-outer">
+    <article class="centre-inner docs" >
+    
+<li><a href="https://qbs.io
+/docs">Qbs Manual</a></li>
+<li>PropertyList Service</li>
+<li id="buildversion">Qbs 1.21.0</li>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#available-operations">Available operations</a></li>
+<li class="level2"><a href="#constructor">Constructor</a></li>
+<li class="level2"><a href="#clear">clear</a></li>
+<li class="level2"><a href="#isempty">isEmpty</a></li>
+<li class="level2"><a href="#format">format</a></li>
+<li class="level2"><a href="#readfromfile">readFromFile</a></li>
+<li class="level2"><a href="#readfromobject">readFromObject</a></li>
+<li class="level2"><a href="#readfromstring">readFromString</a></li>
+<li class="level2"><a href="#toobject">toObject</a></li>
+<li class="level2"><a href="#tojson">toJSON</a></li>
+<li class="level2"><a href="#tostring">toString</a></li>
+<li class="level2"><a href="#toxmlstring">toXMLString</a></li>
+<li class="level2"><a href="#writetofile">writeToFile</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">PropertyList Service</h1>
+<span class="subtitle"></span>
+<!-- $$$jsextension-propertylist.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>The <code>PropertyList</code> service allows you to read and write property list files in all formats supported by the Core Foundation API: XML, binary, JSON, and OpenStep (read-only).</p>
+<p>This service is only available on Darwin platforms such as iOS, <a href="https://qbs.io
+/docs/nolink">macOS</a>, tvOS, and watchOS.</p>
+<a name="available-operations"></a>
+<h2 id="available-operations">Available operations</h2>
+<a name="constructor"></a>
+<h3 id="constructor">Constructor</h3>
+<pre class="cpp">PropertyList()</pre>
+<p>Allocates and returns a new PropertyList object.</p>
+<a name="clear"></a>
+<h3 id="clear">clear</h3>
+<pre class="cpp">clear(): <span class="type">void</span></pre>
+<p>Voids the property list by deleting its internal object reference.</p>
+<a name="isempty"></a>
+<h3 id="isempty">isEmpty</h3>
+<pre class="cpp">isEmpty(): boolean</pre>
+<p>Returns true if the property list has no internal object reference set, otherwise false.</p>
+<a name="format"></a>
+<h3 id="format">format</h3>
+<pre class="cpp">format(): string</pre>
+<p>Returns the data format that the property list data was deserialized from. This property is set after calling <code>readFromString</code> or <code>readFromFile</code>. Possible return values include: <code>"binary1"</code>, <code>"json"</code>, <code>"openstep"</code>, and <code>"xml1"</code>. If the property list object is empty or the input format could not be determined, returns <code>undefined</code>.</p>
+<a name="readfromfile"></a>
+<h3 id="readfromfile">readFromFile</h3>
+<pre class="cpp">readFromFile(filePath: string): <span class="type">void</span></pre>
+<p>Parses the file and stores the result in the property list. Throws an exception if an I/O error occurs or the input is in an invalid format.</p>
+<a name="readfromobject"></a>
+<h3 id="readfromobject">readFromObject</h3>
+<pre class="cpp">readFromObject(obj: any): <span class="type">void</span></pre>
+<p>Sets the given object as the property list's internal object. <code>format()</code> will return <code>undefined</code> as this method does not deserialize a storage format.</p>
+<a name="readfromstring"></a>
+<h3 id="readfromstring">readFromString</h3>
+<pre class="cpp">readFromString(input: string): <span class="type">void</span></pre>
+<p>Parses <code>input</code> and stores the result in the property list. This is most useful for initializing a property list object from the result of a <code>JSON.stringify</code> call. Throws an exception if the input is in an invalid format.</p>
+<a name="toobject"></a>
+<h3 id="toobject">toObject</h3>
+<pre class="cpp">toObject(): any</pre>
+<p>Returns an object representing the property list.</p>
+<a name="tojson"></a>
+<h3 id="tojson">toJSON</h3>
+<pre class="cpp">toJSON(style: string <span class="operator">=</span> <span class="string">"compact"</span>): string</pre>
+<p>Returns a string representation of the property list in JSON format. Possible values for <code>style</code> include <code>"pretty"</code> and <code>"compact"</code>. The default is compact.</p>
+<a name="tostring"></a>
+<h3 id="tostring">toString</h3>
+<pre class="cpp">toString(format: string): string</pre>
+<p>Returns a string representation of the property list in the specified format. Possible values for <code>format</code> include: <code>"json"</code> (compact), <code>"json-compact"</code>, <code>"json-pretty"</code>, and <code>"xml1"</code>. Currently, the OpenStep format is not supported. Throws an exception if the object cannot be written in the given format.</p>
+<a name="toxmlstring"></a>
+<h3 id="toxmlstring">toXMLString</h3>
+<pre class="cpp">toXMLString(): string</pre>
+<p>Returns a string representation of the property list in XML format. This function is a synonym for <code>toString("xml1")</code>.</p>
+<a name="writetofile"></a>
+<h3 id="writetofile">writeToFile</h3>
+<pre class="cpp">writeToFile(filePath: string<span class="operator">,</span> format: string): <span class="type">void</span></pre>
+<p>Writes the property list to the file in the given format. Possible values for <code>format</code> include: <code>"binary1"</code>, <code>"json"</code> (compact), <code>"json-compact"</code>, <code>"json-pretty"</code>, and <code>"xml1"</code>. Currently, the OpenStep format is not supported for writing. Throws an exception if an I/O error occurs or the object cannot be written in the given format.</p>
+</div>
+<!-- @@@jsextension-propertylist.html -->
+
+
+
+    </article>
+</div>
+
+        </main></body>
+</html>

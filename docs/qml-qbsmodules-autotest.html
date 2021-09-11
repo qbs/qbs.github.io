@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<!-- autotest-module.qdoc -->
+  <title>autotest QML Type | Qbs Manual</title>
+</head>
+<body>
+<li><a href="index.html">Qbs Manual</a></li>
+<li id="buildversion">Qbs 1.21-0</li>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">autotest QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$autotest-brief -->
+<p>Allows to fine-tune autotest execution. <a href="#details">More...</a></p>
+<!-- @@@autotest -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsModules .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.13</td></tr></table></div><ul>
+<li><a href="qml-qbsmodules-autotest-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qbsmodules-autotest.html#allowFailure-prop">allowFailure</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qbsmodules-autotest.html#arguments-prop">arguments</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="qml-qbsmodules-autotest.html#timeout-prop">timeout</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qbsmodules-autotest.html#workingDir-prop">workingDir</a></b></b> : string</li>
+</ul>
+<!-- $$$autotest-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+<p>The <code>autotest</code> module provides properties that allow autotest applications to specify how exactly they should be run.</p>
+<!-- @@@autotest -->
+<h2>Property Documentation</h2>
+<!-- $$$allowFailure -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="allowFailure-prop">
+<td class="tblQmlPropNode"><p>
+<a name="allowFailure-prop"></a><span class="name">allowFailure</span> : <span class="type">bool</span></p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>Autotests for which this property is <code>true</code> can return a non-zero exit code without causing the entire <a href="qml-qbsconvenienceitems-autotestrunner.html">AutotestRunner</a> to fail. Use this for tests that are known to be unreliable.</p>
+<p>Default: <code>false</code></p>
+</div></div><!-- @@@allowFailure -->
+<br/>
+<!-- $$$arguments -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="arguments-prop">
+<td class="tblQmlPropNode"><p>
+<a name="arguments-prop"></a><span class="name">arguments</span> : <span class="type">stringList</span></p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>The list of arguments to invoke the autotest with. If not specified, then the <a href="qml-qbsconvenienceitems-autotestrunner.html#arguments-prop">arguments</a> property of the <a href="qml-qbsconvenienceitems-autotestrunner.html">AutotestRunner</a> that invokes the autotest is used.</p>
+<p>Default: Undefined</p>
+</div></div><!-- @@@arguments -->
+<br/>
+<!-- $$$timeout -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="timeout-prop">
+<td class="tblQmlPropNode"><p>
+<a name="timeout-prop"></a><span class="name">timeout</span> : <span class="type">int</span></p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>The time limit for the execution of the autotest. If not specified, the <a href="qml-qbsconvenienceitems-autotestrunner.html#timeout-prop">timeout</a> property of the <a href="qml-qbsconvenienceitems-autotestrunner.html">AutotestRunner</a> that invokes the autotest is used.</p>
+<p>Default: Undefined</p>
+<p>This property was introduced in Qbs 1.15.</p>
+</div></div><!-- @@@timeout -->
+<br/>
+<!-- $$$workingDir -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="workingDir-prop">
+<td class="tblQmlPropNode"><p>
+<a name="workingDir-prop"></a><span class="name">workingDir</span> : <span class="type">string</span></p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>The working directory for running the autotest. If not specified, then the <a href="qml-qbsconvenienceitems-autotestrunner.html#workingDir-prop">workingDir</a> property of the <a href="qml-qbsconvenienceitems-autotestrunner.html">AutotestRunner</a> that invokes the autotest is used.</p>
+<p>Default: Undefined</p>
+</div></div><!-- @@@workingDir -->
+<br/>
+</body>
+</html>

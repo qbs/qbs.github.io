@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Qbs</title>
+    <meta name="description" content="Qbs Manual Qbs 1.21.0 Depends  Contents  Properties Detailed Description    Artifact QML Type  Describes a file produced by a Rule. More...
+Import Statement:import QbsLanguageItems . List of all members, including inherited members   Properties  alwaysUpdated : bool filePath : string fileTags : stringList   Detailed Description An Artifact represents a single file produced by a Rule.
+For example, if a rule produces three files, it needs to contain three Artifact items. ">
+    <link rel="canonical" href="https://qbs.io/docs/qml-qbslanguageitems-artifact/" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+
+    
+      
+      <link rel="stylesheet" href="/css/main.min.4b4afe3bc3ac46250ed86d95bc0261be3c962560258ab862147fc09704f82464.css" integrity="sha256-S0r+O8OsRiUO2G2VvAJhvjyWJWAlirhiFH/AlwT4JGQ="/>
+    
+
+    <meta property="og:title" content="" />
+<meta property="og:description" content="Qbs Manual Qbs 1.21.0 Depends  Contents  Properties Detailed Description    Artifact QML Type  Describes a file produced by a Rule. More...
+Import Statement:import QbsLanguageItems . List of all members, including inherited members   Properties  alwaysUpdated : bool filePath : string fileTags : stringList   Detailed Description An Artifact represents a single file produced by a Rule.
+For example, if a rule produces three files, it needs to contain three Artifact items." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-artifact/" /><meta property="article:section" content="docs" />
+
+
+
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Qbs Manual Qbs 1.21.0 Depends  Contents  Properties Detailed Description    Artifact QML Type  Describes a file produced by a Rule. More...
+Import Statement:import QbsLanguageItems . List of all members, including inherited members   Properties  alwaysUpdated : bool filePath : string fileTags : stringList   Detailed Description An Artifact represents a single file produced by a Rule.
+For example, if a rule produces three files, it needs to contain three Artifact items."/>
+
+</head>
+<body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
+    <a class="flex items-center" href="/">
+        <img src="https://qbs.io/img/Cubes.svg" class="h-10 effect-shadow-small">
+        <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
+    </a>
+
+    <div>
+        
+        <a href="/blog" class="ml-2">
+            <span>Blog</span>
+        </a>
+        
+        <a href="/docs" class="ml-2">
+            <span>Documentation</span>
+        </a>
+        
+        <a href="/docs/installing/" class="ml-2">
+            <span>Get Qbs</span>
+        </a>
+        
+    </div>
+</header><main>
+<div class="centre-outer">
+    <article class="centre-inner docs" >
+    
+<li><a href="https://qbs.io
+/docs">Qbs Manual</a></li>
+<li id="buildversion">Qbs 1.21.0</li>
+  <link rel="next" href="https://qbs.io
+/docs/qml-qbslanguageitems-depends/">
+<p class="naviNextPrevious headerNavi">
+<a class="nextPage" href="https://qbs.io
+/docs/qml-qbslanguageitems-depends/">Depends</a>
+</p><p>
+</p><div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Artifact QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$Artifact-brief -->
+<p>Describes a file produced by a Rule. <a href="#details">More...</a></p>
+<!-- @@@Artifact -->
+<div class="table"><table class="alignedsummary">
+<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsLanguageItems .</td></tr></tbody></table></div><ul>
+<li><a href="https://qbs.io
+/docs/qml-qbslanguageitems-artifact-members/">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbslanguageitems-artifact/#alwaysUpdated-prop">alwaysUpdated</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbslanguageitems-artifact/#filePath-prop">filePath</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbslanguageitems-artifact/#fileTags-prop">fileTags</a></b></b> : stringList</li>
+</ul>
+<!-- $$$Artifact-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+<p>An Artifact represents a single file produced by a <a href="https://qbs.io
+/docs/qml-qbslanguageitems-rule/">Rule</a>.</p>
+<p>For example, if a rule produces three files, it needs to contain three Artifact items.</p>
+<p>In addition to Artifact properties, you can set module properties within an Artifact item, as follows:</p>
+<pre class="cpp">Artifact {
+    filePath: <span class="string">"somefile.cpp"</span>
+    fileTags: <span class="operator">[</span><span class="string">"cpp"</span><span class="operator">]</span>
+    cpp<span class="operator">.</span>cxxLanguageVersion: <span class="string">"c++11"</span>
+    <span class="comment">// ...</span>
+}</pre>
+<p><b>Note: </b>The code on the right-hand side of Artifact properties has access to the set of input artifacts. That is, it can refer to the <code>inputs</code> map and, if the rule is not a multiplex rule, the <code>input</code> variable.</p>
+<!-- @@@Artifact -->
+<h2>Property Documentation</h2>
+<!-- $$$alwaysUpdated -->
+<div class="qmlitem"><h3 class="qmlproto">alwaysUpdated: bool</h3>
+<div class="qmldoc"><p>Setting this property to <code>false</code> means the file is not necessarily always written to by any command run by the rule. If all artifacts of a rule have this property set to <code>false</code>, the commands of the rule are only executed if all of them are out of date compared to the inputs.</p>
+<p>Default: <code>true</code></p>
+</div></div><!-- @@@alwaysUpdated -->
+<br>
+<!-- $$$filePath -->
+<div class="qmlitem"><h3 class="qmlproto">filePath: string</h3>
+<div class="qmldoc"><p>The file path of the target artifact.</p>
+<p>Default: Undefined</p>
+</div></div><!-- @@@filePath -->
+<br>
+<!-- $$$fileTags -->
+<div class="qmlitem"><h3 class="qmlproto">fileTags: stringList</h3>
+<div class="qmldoc"><p>A list of tags to attach to the target file. These can then be matched by a <a href="https://qbs.io
+/docs/qml-qbslanguageitems-rule/">Rule</a>.</p>
+<p>Default: An empty list</p>
+</div></div><!-- @@@fileTags -->
+<br>
+<p class="naviNextPrevious footerNavi">
+<a class="nextPage" href="https://qbs.io
+/docs/qml-qbslanguageitems-depends/">Depends</a>
+</p>
+
+
+
+    </article>
+</div>
+
+        </main></body>
+</html>

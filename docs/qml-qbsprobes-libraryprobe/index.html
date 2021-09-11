@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Qbs</title>
+    <meta name="description" content="Qbs Manual Qbs 1.21.0 Contents  Detailed Description    LibraryProbe QML Type  Locates library files outside the project. More...
+Import Statement:import QbsProbes .Inherits:PathProbe
+ List of all members, including inherited members   Detailed Description On Windows, searches for library files within directories specified by the PATH environment variable.
+On Unix, searches for library files within directories specified by the LIBRARY_PATH environment variable, as well as in &#34; ">
+    <link rel="canonical" href="https://qbs.io/docs/qml-qbsprobes-libraryprobe/" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+
+    
+      
+      <link rel="stylesheet" href="/css/main.min.4b4afe3bc3ac46250ed86d95bc0261be3c962560258ab862147fc09704f82464.css" integrity="sha256-S0r+O8OsRiUO2G2VvAJhvjyWJWAlirhiFH/AlwT4JGQ="/>
+    
+
+    <meta property="og:title" content="" />
+<meta property="og:description" content="Qbs Manual Qbs 1.21.0 Contents  Detailed Description    LibraryProbe QML Type  Locates library files outside the project. More...
+Import Statement:import QbsProbes .Inherits:PathProbe
+ List of all members, including inherited members   Detailed Description On Windows, searches for library files within directories specified by the PATH environment variable.
+On Unix, searches for library files within directories specified by the LIBRARY_PATH environment variable, as well as in &#34;" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://qbs.io/docs/qml-qbsprobes-libraryprobe/" /><meta property="article:section" content="docs" />
+
+
+
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Qbs Manual Qbs 1.21.0 Contents  Detailed Description    LibraryProbe QML Type  Locates library files outside the project. More...
+Import Statement:import QbsProbes .Inherits:PathProbe
+ List of all members, including inherited members   Detailed Description On Windows, searches for library files within directories specified by the PATH environment variable.
+On Unix, searches for library files within directories specified by the LIBRARY_PATH environment variable, as well as in &#34;"/>
+
+</head>
+<body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
+    <a class="flex items-center" href="/">
+        <img src="https://qbs.io/img/Cubes.svg" class="h-10 effect-shadow-small">
+        <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
+    </a>
+
+    <div>
+        
+        <a href="/blog" class="ml-2">
+            <span>Blog</span>
+        </a>
+        
+        <a href="/docs" class="ml-2">
+            <span>Documentation</span>
+        </a>
+        
+        <a href="/docs/installing/" class="ml-2">
+            <span>Get Qbs</span>
+        </a>
+        
+    </div>
+</header><main>
+<div class="centre-outer">
+    <article class="centre-inner docs" >
+    
+<li><a href="https://qbs.io
+/docs">Qbs Manual</a></li>
+<li id="buildversion">Qbs 1.21.0</li>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">LibraryProbe QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$LibraryProbe-brief -->
+<p>Locates library files outside the project. <a href="#details">More...</a></p>
+<!-- @@@LibraryProbe -->
+<div class="table"><table class="alignedsummary">
+<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsProbes .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherits:</td><td class="memItemRight bottomAlign"> <p><a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/">PathProbe</a></p>
+</td></tr></tbody></table></div><ul>
+<li><a href="https://qbs.io
+/docs/qml-qbsprobes-libraryprobe-members/">List of all members, including inherited members</a></li>
+</ul>
+<!-- $$$LibraryProbe-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+<p>On Windows, searches for library files within directories specified by the <code>PATH</code> environment variable.</p>
+<p>On Unix, searches for library files within directories specified by the <code>LIBRARY_PATH</code> environment variable, as well as in <code>"/usr/lib"</code> and <code>"/usr/local/lib"</code>.</p>
+<p>On Linux, also searches in platform-specific directories, such as <code>"/usr/lib64"</code> and <code>"/usr/lib/x86_64-linux-gnu"</code>.</p>
+<p>For example, LibraryProbe can be used to search for a <code>zlib</code> library as follows:</p>
+<pre class="cpp">import qbs<span class="operator">.</span>Probes
+
+CppApplication {
+    Probes<span class="operator">.</span>LibraryProbe {
+        id: zlibProbe
+        names: <span class="string">"z"</span>
+    }
+    cpp<span class="operator">.</span>libraryPaths: zlibProbe<span class="operator">.</span>found <span class="operator">?</span> <span class="operator">[</span>zlibProbe<span class="operator">.</span>path<span class="operator">]</span> : <span class="operator">[</span><span class="operator">]</span>
+    cpp<span class="operator">.</span>dynamicLibraries: zlibProbe<span class="operator">.</span>found <span class="operator">?</span> <span class="operator">[</span>zlibProbe<span class="operator">.</span>names<span class="operator">]</span> : <span class="operator">[</span><span class="operator">]</span>
+    files: <span class="char">'main.cpp'</span>
+}</pre>
+<!-- @@@LibraryProbe -->
+
+
+
+    </article>
+</div>
+
+        </main></body>
+</html>

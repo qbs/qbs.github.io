@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<!-- qbs-target-android.qdoc -->
+  <title>Building for Android | Qbs Manual</title>
+</head>
+<body>
+<li><a href="index.html">Qbs Manual</a></li>
+<li>Building for Android</li>
+<li id="buildversion">Qbs 1.21-0</li>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#creating-android-application-packages">Creating Android Application Packages</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Building for Android</h1>
+<span class="subtitle"></span>
+<!-- $$$qbs-target-android.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>To develop applications for Android, you need development tools provided by the Android SDK from Google, and (optionally) a C/C++ toolchain provided by the Android NDK.</p>
+<p><b>Note: </b>Qbs does not yet support the Kotlin programming language.</p>
+<a name="creating-android-application-packages"></a>
+<h2 id="creating-android-application-packages">Creating Android Application Packages</h2>
+<p>On Android, applications are distributed in a specially structured type of ZIP package called an APK. The following files should be created and bundled into an APK:</p>
+<ul>
+<li>Android assets.</li>
+<li>Android resource files.</li>
+<li>AndroidManifest.xml, which provides meta-information about your application.</li>
+<li>Compiled Java code, which serves as the entry point into your application and that automatically executes the native code in your application (if there is any).</li>
+<li>Shared libraries containing native code.</li>
+</ul>
+<p>You can use the <a href="qml-qbsconvenienceitems-application.html">Application</a> item to build application packages for Android.</p>
+<p>If the <a href="qml-qbsmodules-qbs.html#targetPlatform-prop">target platform</a> is <code>&quot;android&quot;</code>, then the Application item has a dependency on the <a href="qml-qbsmodules-android-sdk.html">Android.sdk</a> module, which contains the properties and rules to create Android application packages from source files.</p>
+<p>You can use the <a href="qml-qbsconvenienceitems-dynamiclibrary.html">DynamicLibrary</a> item to build native Android libraries that are bundled into the APK. The <code>qbs.architectures</code> property specifies the architectures to build for, with the default value <code>armv7a</code>. If you have only one native library, you can simply list its sources within the main Application item, and it will get built and packaged automatically.</p>
+<p>The <a href="qml-qbsconvenienceitems-dynamiclibrary.html">DynamicLibrary</a> item, as well as the <a href="qml-qbsconvenienceitems-cppapplication.html">CppApplication</a> item, has a dependency on the <a href="qml-qbsmodules-android-ndk.html">Android.ndk</a> module, and contains the properties and rules to create native libraries.</p>
+</div>
+<!-- @@@qbs-target-android.html -->
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Qbs</title>
+    <meta name="description" content="Qbs Manual Module Providers Qbs 1.21.0 Custom Modules and Items How-tos  Contents  How Qbs Uses Module Providers Parameterizing Module Providers    Module Providers   There are use cases for which a pre-defined module is not flexible enough. For instance, the overall set of modules related to a certain task might depend on some information present on the local platform.
+Note: Module providers are an advanced concept that you will rarely need to use directly. ">
+    <link rel="canonical" href="https://qbs.io/docs/module-providers/" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+
+    
+      
+      <link rel="stylesheet" href="/css/main.min.4b4afe3bc3ac46250ed86d95bc0261be3c962560258ab862147fc09704f82464.css" integrity="sha256-S0r+O8OsRiUO2G2VvAJhvjyWJWAlirhiFH/AlwT4JGQ="/>
+    
+
+    <meta property="og:title" content="" />
+<meta property="og:description" content="Qbs Manual Module Providers Qbs 1.21.0 Custom Modules and Items How-tos  Contents  How Qbs Uses Module Providers Parameterizing Module Providers    Module Providers   There are use cases for which a pre-defined module is not flexible enough. For instance, the overall set of modules related to a certain task might depend on some information present on the local platform.
+Note: Module providers are an advanced concept that you will rarely need to use directly." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://qbs.io/docs/module-providers/" /><meta property="article:section" content="docs" />
+
+
+
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Qbs Manual Module Providers Qbs 1.21.0 Custom Modules and Items How-tos  Contents  How Qbs Uses Module Providers Parameterizing Module Providers    Module Providers   There are use cases for which a pre-defined module is not flexible enough. For instance, the overall set of modules related to a certain task might depend on some information present on the local platform.
+Note: Module providers are an advanced concept that you will rarely need to use directly."/>
+
+</head>
+<body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
+    <a class="flex items-center" href="/">
+        <img src="https://qbs.io/img/Cubes.svg" class="h-10 effect-shadow-small">
+        <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
+    </a>
+
+    <div>
+        
+        <a href="/blog" class="ml-2">
+            <span>Blog</span>
+        </a>
+        
+        <a href="/docs" class="ml-2">
+            <span>Documentation</span>
+        </a>
+        
+        <a href="/docs/installing/" class="ml-2">
+            <span>Get Qbs</span>
+        </a>
+        
+    </div>
+</header><main>
+<div class="centre-outer">
+    <article class="centre-inner docs" >
+    
+<li><a href="https://qbs.io
+/docs">Qbs Manual</a></li>
+<li>Module Providers</li>
+<li id="buildversion">Qbs 1.21.0</li>
+  <link rel="prev" href="https://qbs.io
+/docs/custom-modules/">
+  <link rel="next" href="https://qbs.io
+/docs/howtos/">
+<p class="naviNextPrevious headerNavi">
+<a class="prevPage" href="https://qbs.io
+/docs/custom-modules/">Custom Modules and Items</a>
+<a class="nextPage" href="https://qbs.io
+/docs/howtos/">How-tos</a>
+</p><p>
+</p><div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#how-qbs-uses-module-providers">How Qbs Uses Module Providers</a></li>
+<li class="level1"><a href="#parameterizing-module-providers">Parameterizing Module Providers</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Module Providers</h1>
+<span class="subtitle"></span>
+<!-- $$$module-providers.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>There are use cases for which a pre-defined module is not flexible enough. For instance, the overall set of modules related to a certain task might depend on some information present on the local platform.</p>
+<p><b>Note: </b>Module providers are an advanced concept that you will rarely need to use directly. Reading this section is not required for most people's everyday work.</p>
+<a name="how-qbs-uses-module-providers"></a>
+<h2 id="how-qbs-uses-module-providers">How Qbs Uses Module Providers</h2>
+<p>If Qbs encounters a <a href="https://qbs.io
+/docs/qml-qbslanguageitems-depends/">Depends</a> item whose name does not match a known module, it checks whether such a module can be generated. This procedure works as follows:</p>
+<ol class="1" type="1"><li>All <a href="https://qbs.io
+/docs/qml-qbslanguageitems-project/#qbsSearchPaths-prop">search paths</a> are scanned for a file called <code>module-providers/&lt;name&gt;/provider.qbs</code>, where <code>&lt;name&gt;</code> is the name of the dependency as specified in the <code>Depends</code> item. Multi-component names such as "a.b" are turned into nested directories, and each of them is scanned, starting with the deepest path. For instance, if the dependency's name is <code>a.b</code>, then Qbs will look for <code>a/b/provider.qbs</code> and then <code>a/provider.qbs</code>.</li>
+<li>If such a file is found, it needs to contain a <a href="https://qbs.io
+/docs/qml-qbslanguageitems-moduleprovider/">ModuleProvider</a> item. This item is instantiated, which potentially leads to the creation of one or more modules, and Qbs retrieves the search paths to find these modules from the item. The details are described in the <a href="https://qbs.io
+/docs/qml-qbslanguageitems-moduleprovider/">ModuleProvider</a> documentation.</li>
+<li>If a matching module provider was found and provided new search paths, a second attempt will be made to locate the dependency using the new paths. The search for a matching module provider ends as soon as one was found, regardless of whether it created any modules or not.</li>
+<li>If no matching module provider was found in any of the search paths, Qbs will fall back to a generic module provider, which creates a module that attempts to locate the dependency via <code>pkg-config</code>. This fallback mechanism can be disabled in the respective <a href="https://qbs.io
+/docs/qml-qbslanguageitems-depends/#enableFallback-prop">Depends</a> item or globally via the <a href="https://qbs.io
+/docs/cli-build/#no-fallback-module-provider">--no-fallback-module-provider</a> option.</li>
+</ol>
+<a name="parameterizing-module-providers"></a>
+<h2 id="parameterizing-module-providers">Parameterizing Module Providers</h2>
+<p>You can pass information to module providers from the command line, via profiles or from within a product, in a similar way as you would do for modules. For instance, the following invocation of Qbs passes information to two module providers <code>a</code> and <code>b</code>:</p>
+<pre class="cpp">$ qbs moduleProviders<span class="operator">.</span>a<span class="operator">.</span>p1:<span class="keyword">true</span> moduleProviders<span class="operator">.</span>a<span class="operator">.</span>p2:<span class="keyword">true</span> moduleProviders<span class="operator">.</span>b<span class="operator">.</span>p:<span class="keyword">false</span></pre>
+<p>Qbs will set the properties of the respective module providers accordingly. In the above example, module provider <code>a</code> needs to declare two boolean properties <code>p1</code> and <code>p2</code>, and they will be set to <code>true</code> and <code>false</code>, respectively.</p>
+</div>
+<!-- @@@module-providers.html -->
+<p class="naviNextPrevious footerNavi">
+<a class="prevPage" href="https://qbs.io
+/docs/custom-modules/">Custom Modules and Items</a>
+<a class="nextPage" href="https://qbs.io
+/docs/howtos/">How-tos</a>
+</p>
+
+
+
+    </article>
+</div>
+
+        </main></body>
+</html>

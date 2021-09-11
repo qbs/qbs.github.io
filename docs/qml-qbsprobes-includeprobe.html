@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<!-- include-probe.qdoc -->
+  <title>IncludeProbe QML Type | Qbs Manual</title>
+</head>
+<body>
+<li><a href="index.html">Qbs Manual</a></li>
+<li id="buildversion">Qbs 1.21-0</li>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">IncludeProbe QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$IncludeProbe-brief -->
+<p>Locates header files outside the project. <a href="#details">More...</a></p>
+<!-- @@@IncludeProbe -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsProbes .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherits:</td><td class="memItemRight bottomAlign"> <p><a href="qml-qbsprobes-pathprobe.html">PathProbe</a></p>
+</td></tr></table></div><ul>
+<li><a href="qml-qbsprobes-includeprobe-members.html">List of all members, including inherited members</a></li>
+</ul>
+<!-- $$$IncludeProbe-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+<p>This is the convenience item that searches for files in &quot;include&quot; directories.</p>
+<p>For example, IncludeProbe can be used to search for a zlib header as follows:</p>
+<pre class="cpp">import qbs<span class="operator">.</span>Probes
+
+CppApplication {
+    Probes<span class="operator">.</span>IncludeProbe {
+        id: zlibProbe
+        names: <span class="string">&quot;zlib.h&quot;</span>
+    }
+    cpp<span class="operator">.</span>includePaths: zlibProbe<span class="operator">.</span>found <span class="operator">?</span> <span class="operator">[</span>zlibProbe<span class="operator">.</span>path<span class="operator">]</span> : <span class="operator">[</span><span class="operator">]</span>
+    files: <span class="char">'main.cpp'</span>
+}</pre>
+<!-- @@@IncludeProbe -->
+</body>
+</html>

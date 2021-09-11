@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<!-- library.qdoc -->
+  <title>Library QML Type | Qbs Manual</title>
+</head>
+<body>
+<li><a href="index.html">Qbs Manual</a></li>
+<li id="buildversion">Qbs 1.21-0</li>
+  <link rel="prev" href="qml-qbsconvenienceitems-javajarfile.html" />
+  <link rel="next" href="qml-qbsconvenienceitems-loadablemodule.html" />
+<p class="naviNextPrevious headerNavi">
+<a class="prevPage" href="qml-qbsconvenienceitems-javajarfile.html">JavaJarFile</a>
+<a class="nextPage" href="qml-qbsconvenienceitems-loadablemodule.html">LoadableModule</a>
+</p><p/>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Library QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$Library-brief -->
+<p>Generic library. <a href="#details">More...</a></p>
+<!-- @@@Library -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsConvenienceItems .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.4</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherits:</td><td class="memItemRight bottomAlign"> <p><a href="qml-qbslanguageitems-product.html">Product</a></p>
+</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherited By:</td><td class="memItemRight bottomAlign"> <p><a href="qml-qbsconvenienceitems-dynamiclibrary.html">DynamicLibrary</a>, <a href="qml-qbsconvenienceitems-loadablemodule.html">LoadableModule</a>, and <a href="qml-qbsconvenienceitems-staticlibrary.html">StaticLibrary</a></p>
+</td></tr></table></div><ul>
+<li><a href="qml-qbsconvenienceitems-library-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qbsconvenienceitems-library.html#debugInformationInstallDir-prop">debugInformationInstallDir</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-qbsconvenienceitems-library.html#importLibInstallDir-prop">importLibInstallDir</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-qbsconvenienceitems-library.html#install-prop">install</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qbsconvenienceitems-library.html#installDebugInformation-prop">installDebugInformation</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qbsconvenienceitems-library.html#installDir-prop">installDir</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-qbsconvenienceitems-library.html#installImportLib-prop">installImportLib</a></b></b> : bool</li>
+</ul>
+<!-- $$$Library-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+<p>A Library item is a base item for native libraries and can have <a href="qml-qbslanguageitems-product.html#type-prop">type</a> set to one of the following values: <code>&quot;dynamiclibrary&quot;</code>, <code>&quot;staticlibrary&quot;</code>, <code>&quot;loadablemodule&quot;</code>.</p>
+<p>The default <a href="qml-qbslanguageitems-product.html#type-prop">type</a> value is <code>&quot;dynamiclibrary&quot;</code> except for iOS prior to version 8, in which case the default value is <code>&quot;staticlibrary&quot;</code>.</p>
+<p>This item can automatically install the library target (and library symlinks on Unix) and separated debug information.</p>
+<p>For Android targets, the following applies:</p>
+<ul>
+<li>The <a href="qml-qbslanguageitems-product.html#type-prop">Product.type</a> property value contains <code>&quot;android.nativelibrary&quot;</code> in addition to <code>&quot;dynamiclibrary&quot;</code>.</li>
+<li>There is a dependency on the <a href="qml-qbsmodules-cpp.html">cpp</a> and <a href="qml-qbsmodules-android-ndk.html">Android.ndk</a> modules.</li>
+</ul>
+<!-- @@@Library -->
+<h2>Property Documentation</h2>
+<!-- $$$debugInformationInstallDir -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="debugInformationInstallDir-prop">
+<td class="tblQmlPropNode"><p>
+<a name="debugInformationInstallDir-prop"></a><span class="name">debugInformationInstallDir</span> : <span class="type">string</span></p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>Where to install the debug information if <a href="qml-qbsconvenienceitems-library.html#installDebugInformation-prop">installDebugInformation</a> is enabled.</p>
+<p>The value is appended to <a href="qml-qbsmodules-qbs.html#installPrefix-prop">qbs.installPrefix</a> when constructing the actual installation directory.</p>
+<p>Default: <a href="qml-qbsconvenienceitems-library.html#installDir-prop">installDir</a>.</p>
+<p>This property was introduced in Qbs 1.16.</p>
+<p><b>See also </b><a href="howtos.html#how-do-i-separate-and-install-debugging-symbols">How do I separate and install debugging symbols?</a>.</p>
+</div></div><!-- @@@debugInformationInstallDir -->
+<br/>
+<!-- $$$importLibInstallDir -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="importLibInstallDir-prop">
+<td class="tblQmlPropNode"><p>
+<a name="importLibInstallDir-prop"></a><span class="name">importLibInstallDir</span> : <span class="type">string</span></p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>Where to install the import library, if <a href="qml-qbsconvenienceitems-library.html#installImportLib-prop">installImportLib</a> is enabled.</p>
+<p>The value is appended to <a href="qml-qbsmodules-qbs.html#installPrefix-prop">qbs.installPrefix</a> when constructing the actual installation directory.</p>
+<p>This property is only relevant for Windows targets.</p>
+<p>Default: <code>lib</code></p>
+<p>This property was introduced in Qbs 1.13.</p>
+</div></div><!-- @@@importLibInstallDir -->
+<br/>
+<!-- $$$install -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="install-prop">
+<td class="tblQmlPropNode"><p>
+<a name="install-prop"></a><span class="name">install</span> : <span class="type">bool</span></p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>If <code>true</code>, the library will be installed to <a href="qml-qbsconvenienceitems-library.html#installDir-prop">installDir</a>.</p>
+<p>Default: <code>false</code></p>
+<p>This property was introduced in Qbs 1.13.</p>
+</div></div><!-- @@@install -->
+<br/>
+<!-- $$$installDebugInformation -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="installDebugInformation-prop">
+<td class="tblQmlPropNode"><p>
+<a name="installDebugInformation-prop"></a><span class="name">installDebugInformation</span> : <span class="type">bool</span></p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>If <code>true</code>, the debug information will be installed to <a href="qml-qbsconvenienceitems-library.html#debugInformationInstallDir-prop">debugInformationInstallDir</a>.</p>
+<p>Default: <code>false</code></p>
+<p>This property was introduced in Qbs 1.16.</p>
+<p><b>See also </b><a href="howtos.html#how-do-i-separate-and-install-debugging-symbols">How do I separate and install debugging symbols?</a>.</p>
+</div></div><!-- @@@installDebugInformation -->
+<br/>
+<!-- $$$installDir -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="installDir-prop">
+<td class="tblQmlPropNode"><p>
+<a name="installDir-prop"></a><span class="name">installDir</span> : <span class="type">string</span></p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>Where to install the library, if <a href="qml-qbsconvenienceitems-library.html#install-prop">install</a> is enabled. On Unix, the symbolic links are also installed to this location.</p>
+<p>The value is appended to <a href="qml-qbsmodules-qbs.html#installPrefix-prop">qbs.installPrefix</a> when constructing the actual installation directory.</p>
+<p>Default: <code>Library/Frameworks</code> if the library is a <a href="qml-qbsmodules-bundle.html#isBundle-prop">bundle</a>, otherwise <code>bin</code> for Windows and <code>lib</code> for Unix-like targets.</p>
+<p>This property was introduced in Qbs 1.13.</p>
+</div></div><!-- @@@installDir -->
+<br/>
+<!-- $$$installImportLib -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="installImportLib-prop">
+<td class="tblQmlPropNode"><p>
+<a name="installImportLib-prop"></a><span class="name">installImportLib</span> : <span class="type">bool</span></p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>If <code>true</code>, the import library will be installed to <a href="qml-qbsconvenienceitems-library.html#importLibInstallDir-prop">importLibInstallDir</a>. This property is only relevant for Windows targets. Enable it if you want to create a development package.</p>
+<p>Default: <code>false</code></p>
+<p>This property was introduced in Qbs 1.13.</p>
+</div></div><!-- @@@installImportLib -->
+<br/>
+<p class="naviNextPrevious footerNavi">
+<a class="prevPage" href="qml-qbsconvenienceitems-javajarfile.html">JavaJarFile</a>
+<a class="nextPage" href="qml-qbsconvenienceitems-loadablemodule.html">LoadableModule</a>
+</p>
+</body>
+</html>

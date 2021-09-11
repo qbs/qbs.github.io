@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<!-- library-probe.qdoc -->
+  <title>LibraryProbe QML Type | Qbs Manual</title>
+</head>
+<body>
+<li><a href="index.html">Qbs Manual</a></li>
+<li id="buildversion">Qbs 1.21-0</li>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">LibraryProbe QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$LibraryProbe-brief -->
+<p>Locates library files outside the project. <a href="#details">More...</a></p>
+<!-- @@@LibraryProbe -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsProbes .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherits:</td><td class="memItemRight bottomAlign"> <p><a href="qml-qbsprobes-pathprobe.html">PathProbe</a></p>
+</td></tr></table></div><ul>
+<li><a href="qml-qbsprobes-libraryprobe-members.html">List of all members, including inherited members</a></li>
+</ul>
+<!-- $$$LibraryProbe-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+<p>On Windows, searches for library files within directories specified by the <code>PATH</code> environment variable.</p>
+<p>On Unix, searches for library files within directories specified by the <code>LIBRARY_PATH</code> environment variable, as well as in <code>&quot;/usr/lib&quot;</code> and <code>&quot;/usr/local/lib&quot;</code>.</p>
+<p>On Linux, also searches in platform-specific directories, such as <code>&quot;/usr/lib64&quot;</code> and <code>&quot;/usr/lib/x86_64-linux-gnu&quot;</code>.</p>
+<p>For example, LibraryProbe can be used to search for a <code>zlib</code> library as follows:</p>
+<pre class="cpp">import qbs<span class="operator">.</span>Probes
+
+CppApplication {
+    Probes<span class="operator">.</span>LibraryProbe {
+        id: zlibProbe
+        names: <span class="string">&quot;z&quot;</span>
+    }
+    cpp<span class="operator">.</span>libraryPaths: zlibProbe<span class="operator">.</span>found <span class="operator">?</span> <span class="operator">[</span>zlibProbe<span class="operator">.</span>path<span class="operator">]</span> : <span class="operator">[</span><span class="operator">]</span>
+    cpp<span class="operator">.</span>dynamicLibraries: zlibProbe<span class="operator">.</span>found <span class="operator">?</span> <span class="operator">[</span>zlibProbe<span class="operator">.</span>names<span class="operator">]</span> : <span class="operator">[</span><span class="operator">]</span>
+    files: <span class="char">'main.cpp'</span>
+}</pre>
+<!-- @@@LibraryProbe -->
+</body>
+</html>

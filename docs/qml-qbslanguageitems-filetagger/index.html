@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Qbs</title>
+    <meta name="description" content="Qbs Manual Qbs 1.21.0 Export Group  Contents  Properties Detailed Description    FileTagger QML Type  Assigns file tags to files. More...
+Import Statement:import QbsLanguageItems . List of all members, including inherited members   Properties  fileTags : list patterns : stringList priority : int   Detailed Description This item assigns file tags to files. The FileTagger item can appear in Product items or Module items. ">
+    <link rel="canonical" href="https://qbs.io/docs/qml-qbslanguageitems-filetagger/" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+
+    
+      
+      <link rel="stylesheet" href="/css/main.min.4b4afe3bc3ac46250ed86d95bc0261be3c962560258ab862147fc09704f82464.css" integrity="sha256-S0r+O8OsRiUO2G2VvAJhvjyWJWAlirhiFH/AlwT4JGQ="/>
+    
+
+    <meta property="og:title" content="" />
+<meta property="og:description" content="Qbs Manual Qbs 1.21.0 Export Group  Contents  Properties Detailed Description    FileTagger QML Type  Assigns file tags to files. More...
+Import Statement:import QbsLanguageItems . List of all members, including inherited members   Properties  fileTags : list patterns : stringList priority : int   Detailed Description This item assigns file tags to files. The FileTagger item can appear in Product items or Module items." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-filetagger/" /><meta property="article:section" content="docs" />
+
+
+
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Qbs Manual Qbs 1.21.0 Export Group  Contents  Properties Detailed Description    FileTagger QML Type  Assigns file tags to files. More...
+Import Statement:import QbsLanguageItems . List of all members, including inherited members   Properties  fileTags : list patterns : stringList priority : int   Detailed Description This item assigns file tags to files. The FileTagger item can appear in Product items or Module items."/>
+
+</head>
+<body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
+    <a class="flex items-center" href="/">
+        <img src="https://qbs.io/img/Cubes.svg" class="h-10 effect-shadow-small">
+        <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
+    </a>
+
+    <div>
+        
+        <a href="/blog" class="ml-2">
+            <span>Blog</span>
+        </a>
+        
+        <a href="/docs" class="ml-2">
+            <span>Documentation</span>
+        </a>
+        
+        <a href="/docs/installing/" class="ml-2">
+            <span>Get Qbs</span>
+        </a>
+        
+    </div>
+</header><main>
+<div class="centre-outer">
+    <article class="centre-inner docs" >
+    
+<li><a href="https://qbs.io
+/docs">Qbs Manual</a></li>
+<li id="buildversion">Qbs 1.21.0</li>
+  <link rel="prev" href="https://qbs.io
+/docs/qml-qbslanguageitems-export/">
+  <link rel="next" href="https://qbs.io
+/docs/qml-qbslanguageitems-group/">
+<p class="naviNextPrevious headerNavi">
+<a class="prevPage" href="https://qbs.io
+/docs/qml-qbslanguageitems-export/">Export</a>
+<a class="nextPage" href="https://qbs.io
+/docs/qml-qbslanguageitems-group/">Group</a>
+</p><p>
+</p><div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">FileTagger QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$FileTagger-brief -->
+<p>Assigns file tags to files. <a href="#details">More...</a></p>
+<!-- @@@FileTagger -->
+<div class="table"><table class="alignedsummary">
+<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsLanguageItems .</td></tr></tbody></table></div><ul>
+<li><a href="https://qbs.io
+/docs/qml-qbslanguageitems-filetagger-members/">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbslanguageitems-filetagger/#fileTags-prop">fileTags</a></b></b> : list</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbslanguageitems-filetagger/#patterns-prop">patterns</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbslanguageitems-filetagger/#priority-prop">priority</a></b></b> : int</li>
+</ul>
+<!-- $$$FileTagger-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+<p>This item assigns file tags to files. The FileTagger item can appear in <a href="https://qbs.io
+/docs/qml-qbslanguageitems-product/">Product</a> items or <a href="https://qbs.io
+/docs/qml-qbslanguageitems-module/">Module</a> items.</p>
+<p>For every source artifact that has no file tag, Qbs will search for a FileTagger with a pattern that matches the file name of the source artifact. If a matching file tagger is found, then the file tags specified in the FileTagger item are assigned to the source artifact.</p>
+<p>If there is more than one matching FileTagger, all file taggers with the same highest priority are taken into account and their file tags are accumulated.</p>
+<p>The FileTagger item can be attached to a product or a module. In the latter case, its effect is the same as if it had been attached to all products having a dependency on the respective module. For instance, the <a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/">cpp</a> module of Qbs has, among others, the following file tagger:</p>
+<pre class="cpp">FileTagger {
+    patterns: <span class="string">"*.cpp"</span>
+    fileTags: <span class="operator">[</span><span class="string">"cpp"</span><span class="operator">]</span>
+}</pre>
+<p>As a result, the <code>"cpp"</code> tag is automatically attached to all files ending with <code>".cpp"</code> in products depending on the <code>cpp</code> module. This causes them to be compiled, because a C++ compiler rule has <code>"cpp"</code> in its list of matching input tags.</p>
+<p>File taggers are disabled if file tags are set explicitly in a <a href="https://qbs.io
+/docs/qml-qbslanguageitems-product/">product</a> or <a href="https://qbs.io
+/docs/qml-qbslanguageitems-group/">group</a>. For example, the <code>"cpp"</code> tag is not attached to the <code>.cpp</code> files in the following product:</p>
+<pre class="cpp">Product {
+    Depends { name: <span class="string">"cpp"</span> }
+    Group {
+        files: <span class="string">"*.cpp"</span>
+        fileTags: <span class="string">"other"</span>
+    }
+}</pre>
+<!-- @@@FileTagger -->
+<h2>Property Documentation</h2>
+<!-- $$$fileTags -->
+<div class="qmlitem"><h3 class="qmlproto">fileTags: list</h3>
+<div class="qmldoc"><p>Tags to attach to a product's files. These can then be matched by a rule.</p>
+<p>Default: An empty list</p>
+<p>This property was introduced in Qbs 1.0.</p>
+</div></div><!-- @@@fileTags -->
+<br>
+<!-- $$$patterns -->
+<div class="qmlitem"><h3 class="qmlproto">patterns: stringList</h3>
+<div class="qmldoc"><p>A list of patterns to match against. Supports the usual wildcards '*', '?' and '[]'.</p>
+<p>Neither the list itself nor any of its elements may be empty.</p>
+<p>This property was introduced in Qbs 1.0.</p>
+</div></div><!-- @@@patterns -->
+<br>
+<!-- $$$priority -->
+<div class="qmlitem"><h3 class="qmlproto">priority: int</h3>
+<div class="qmldoc"><p>The priority of the <a href="https://qbs.io
+/docs/qml-qbslanguageitems-filetagger/">FileTagger</a>. A higher numerical value means a higher priority.</p>
+<p>Default: 0</p>
+<p>This property was introduced in Qbs 1.10.</p>
+</div></div><!-- @@@priority -->
+<br>
+<p class="naviNextPrevious footerNavi">
+<a class="prevPage" href="https://qbs.io
+/docs/qml-qbslanguageitems-export/">Export</a>
+<a class="nextPage" href="https://qbs.io
+/docs/qml-qbslanguageitems-group/">Group</a>
+</p>
+
+
+
+    </article>
+</div>
+
+        </main></body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Qbs</title>
+    <meta name="description" content="Qbs Manual Qbs 1.21.0 Contents  Detailed Description    BinaryProbe QML Type  Locates executable files outside the project. More...
+Import Statement:import QbsProbes .Inherits:PathProbe
+ List of all members, including inherited members   Detailed Description Finds executable files that have the specified file names.
+BinaryProbe searches for executable files within directories specified by the PATH environment variable.
+Note: On Unix, also searches in the /usr/bin and /usr/local/bin directories by default. ">
+    <link rel="canonical" href="https://qbs.io/docs/qml-qbsprobes-binaryprobe/" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+
+    
+      
+      <link rel="stylesheet" href="/css/main.min.4b4afe3bc3ac46250ed86d95bc0261be3c962560258ab862147fc09704f82464.css" integrity="sha256-S0r+O8OsRiUO2G2VvAJhvjyWJWAlirhiFH/AlwT4JGQ="/>
+    
+
+    <meta property="og:title" content="" />
+<meta property="og:description" content="Qbs Manual Qbs 1.21.0 Contents  Detailed Description    BinaryProbe QML Type  Locates executable files outside the project. More...
+Import Statement:import QbsProbes .Inherits:PathProbe
+ List of all members, including inherited members   Detailed Description Finds executable files that have the specified file names.
+BinaryProbe searches for executable files within directories specified by the PATH environment variable.
+Note: On Unix, also searches in the /usr/bin and /usr/local/bin directories by default." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://qbs.io/docs/qml-qbsprobes-binaryprobe/" /><meta property="article:section" content="docs" />
+
+
+
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Qbs Manual Qbs 1.21.0 Contents  Detailed Description    BinaryProbe QML Type  Locates executable files outside the project. More...
+Import Statement:import QbsProbes .Inherits:PathProbe
+ List of all members, including inherited members   Detailed Description Finds executable files that have the specified file names.
+BinaryProbe searches for executable files within directories specified by the PATH environment variable.
+Note: On Unix, also searches in the /usr/bin and /usr/local/bin directories by default."/>
+
+</head>
+<body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
+    <a class="flex items-center" href="/">
+        <img src="https://qbs.io/img/Cubes.svg" class="h-10 effect-shadow-small">
+        <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
+    </a>
+
+    <div>
+        
+        <a href="/blog" class="ml-2">
+            <span>Blog</span>
+        </a>
+        
+        <a href="/docs" class="ml-2">
+            <span>Documentation</span>
+        </a>
+        
+        <a href="/docs/installing/" class="ml-2">
+            <span>Get Qbs</span>
+        </a>
+        
+    </div>
+</header><main>
+<div class="centre-outer">
+    <article class="centre-inner docs" >
+    
+<li><a href="https://qbs.io
+/docs">Qbs Manual</a></li>
+<li id="buildversion">Qbs 1.21.0</li>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">BinaryProbe QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$BinaryProbe-brief -->
+<p>Locates executable files outside the project. <a href="#details">More...</a></p>
+<!-- @@@BinaryProbe -->
+<div class="table"><table class="alignedsummary">
+<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsProbes .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherits:</td><td class="memItemRight bottomAlign"> <p><a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/">PathProbe</a></p>
+</td></tr></tbody></table></div><ul>
+<li><a href="https://qbs.io
+/docs/qml-qbsprobes-binaryprobe-members/">List of all members, including inherited members</a></li>
+</ul>
+<!-- $$$BinaryProbe-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+<p>Finds executable files that have the specified file names.</p>
+<p>BinaryProbe searches for executable files within directories specified by the PATH environment variable.</p>
+<p><b>Note: </b>On Unix, also searches in the <code>/usr/bin</code> and <code>/usr/local/bin</code> directories by default. Override <a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#platformSearchPaths-prop">PathProbe.platformSearchPaths</a> to change this behavior.</p>
+<p><b>Note: </b>On Windows, only files that have <i>.com</i>, <i>.exe</i>, <i>.bat</i>, <i>.cmd</i> extensions are considered <i>executables</i>. Override <a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#nameSuffixes-prop">PathProbe.nameSuffixes</a> to change this behavior.</p>
+<p>For example, BinaryProbe can be used to search for a protobuf compiler executable as follows:</p>
+<pre class="cpp">import qbs<span class="operator">.</span>File
+import qbs<span class="operator">.</span>Probes
+
+Module {
+    <span class="comment">// search for a protoc executable</span>
+    Probes<span class="operator">.</span>BinaryProbe {
+        id: protocProbe
+        names: <span class="string">"protoc"</span>
+    }
+    property string executableFilePath: protocProbe<span class="operator">.</span>filePath
+
+    validate: {
+        <span class="keyword">if</span> (<span class="operator">!</span>File<span class="operator">.</span>exists(executableFilePath))
+            <span class="keyword">throw</span> <span class="string">"The executable '"</span> <span class="operator">+</span> executableFilePath <span class="operator">+</span> <span class="string">"' does not exist."</span>;
+    }
+
+    <span class="comment">// use the found executable</span>
+    Rule {
+        <span class="comment">// rule input/outputs here...</span>
+
+        <span class="comment">// run executable</span>
+        prepare: {
+            var args <span class="operator">=</span> <span class="comment">// initialize arguments...</span>
+            var cmd <span class="operator">=</span> <span class="keyword">new</span> Command(executableFilePath<span class="operator">,</span> args);
+            cmd<span class="operator">.</span>highlight <span class="operator">=</span> <span class="string">"codegen"</span>;
+            cmd<span class="operator">.</span>description <span class="operator">=</span> <span class="string">"generating protobuf files for "</span> <span class="operator">+</span> input<span class="operator">.</span>fileName;
+            <span class="keyword">return</span> <span class="operator">[</span>cmd<span class="operator">]</span>;
+        }
+    }
+}</pre>
+<!-- @@@BinaryProbe -->
+
+
+
+    </article>
+</div>
+
+        </main></body>
+</html>

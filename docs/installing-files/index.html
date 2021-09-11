@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Qbs</title>
+    <meta name="description" content="Qbs Manual Installing Files Qbs 1.21.0 Running Applications Target Platforms   Installing Files   To install your project, specify the necessary information in the project file:
+Application { Group { name: &#34;Runtime resources&#34; files: &#34;*.qml&#34; qbs.install: true qbs.installDir: &#34;share/myproject&#34; } Group { name: &#34;The App itself&#34; fileTagsFilter: &#34;application&#34; qbs.install: true qbs.installDir: &#34;bin&#34; } } In this example, we want to install a couple of QML files and an executable. ">
+    <link rel="canonical" href="https://qbs.io/docs/installing-files/" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+
+    
+      
+      <link rel="stylesheet" href="/css/main.min.4b4afe3bc3ac46250ed86d95bc0261be3c962560258ab862147fc09704f82464.css" integrity="sha256-S0r+O8OsRiUO2G2VvAJhvjyWJWAlirhiFH/AlwT4JGQ="/>
+    
+
+    <meta property="og:title" content="" />
+<meta property="og:description" content="Qbs Manual Installing Files Qbs 1.21.0 Running Applications Target Platforms   Installing Files   To install your project, specify the necessary information in the project file:
+Application { Group { name: &#34;Runtime resources&#34; files: &#34;*.qml&#34; qbs.install: true qbs.installDir: &#34;share/myproject&#34; } Group { name: &#34;The App itself&#34; fileTagsFilter: &#34;application&#34; qbs.install: true qbs.installDir: &#34;bin&#34; } } In this example, we want to install a couple of QML files and an executable." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://qbs.io/docs/installing-files/" /><meta property="article:section" content="docs" />
+
+
+
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Qbs Manual Installing Files Qbs 1.21.0 Running Applications Target Platforms   Installing Files   To install your project, specify the necessary information in the project file:
+Application { Group { name: &#34;Runtime resources&#34; files: &#34;*.qml&#34; qbs.install: true qbs.installDir: &#34;share/myproject&#34; } Group { name: &#34;The App itself&#34; fileTagsFilter: &#34;application&#34; qbs.install: true qbs.installDir: &#34;bin&#34; } } In this example, we want to install a couple of QML files and an executable."/>
+
+</head>
+<body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
+    <a class="flex items-center" href="/">
+        <img src="https://qbs.io/img/Cubes.svg" class="h-10 effect-shadow-small">
+        <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
+    </a>
+
+    <div>
+        
+        <a href="/blog" class="ml-2">
+            <span>Blog</span>
+        </a>
+        
+        <a href="/docs" class="ml-2">
+            <span>Documentation</span>
+        </a>
+        
+        <a href="/docs/installing/" class="ml-2">
+            <span>Get Qbs</span>
+        </a>
+        
+    </div>
+</header><main>
+<div class="centre-outer">
+    <article class="centre-inner docs" >
+    
+<li><a href="https://qbs.io
+/docs">Qbs Manual</a></li>
+<li>Installing Files</li>
+<li id="buildversion">Qbs 1.21.0</li>
+  <link rel="prev" href="https://qbs.io
+/docs/running-applications/">
+  <link rel="next" href="https://qbs.io
+/docs/platforms/">
+<p class="naviNextPrevious headerNavi">
+<a class="prevPage" href="https://qbs.io
+/docs/running-applications/">Running Applications</a>
+<a class="nextPage" href="https://qbs.io
+/docs/platforms/">Target Platforms</a>
+</p><p>
+</p><div class="sidebar"><div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Installing Files</h1>
+<span class="subtitle"></span>
+<!-- $$$installing-files.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>To install your project, specify the necessary information in the project file:</p>
+<pre class="cpp">Application {
+    Group {
+        name: <span class="string">"Runtime resources"</span>
+        files: <span class="string">"*.qml"</span>
+        qbs<span class="operator">.</span>install: <span class="keyword">true</span>
+        qbs<span class="operator">.</span>installDir: <span class="string">"share/myproject"</span>
+    }
+    Group {
+        name: <span class="string">"The App itself"</span>
+        fileTagsFilter: <span class="string">"application"</span>
+        qbs<span class="operator">.</span>install: <span class="keyword">true</span>
+        qbs<span class="operator">.</span>installDir: <span class="string">"bin"</span>
+    }
+}</pre>
+<p>In this example, we want to install a couple of QML files and an executable.</p>
+<p>When building, Qbs installs artifacts into the default root folder, namely <code>&lt;build root&gt;/install-root</code>. The <a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#installPrefix-prop">qbs.installPrefix</a> and <a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#installDir-prop">qbs.installDir</a> properties are appended to the root folder.</p>
+<pre class="cpp">qbs build qbs<span class="operator">.</span>installPrefix:<span class="operator">/</span>usr</pre>
+<p>In this example, the executable will be installed into the <code>&lt;build root&gt;/install-root/usr/bin</code> folder and the QML files will be installed into the <code>&lt;build root&gt;/install-root/usr/share/myproject</code> folder.</p>
+<p>To skip installation during the build, use the <code>--no-install</code> option.</p>
+<p>To override the default location, use the <code>--install-root</code> option of the <code>qbs install</code> command:</p>
+<pre class="cpp">qbs build <span class="operator">-</span><span class="operator">-</span>no<span class="operator">-</span>install qbs<span class="operator">.</span>installPrefix:<span class="operator">/</span>usr
+sudo qbs install <span class="operator">-</span><span class="operator">-</span>no<span class="operator">-</span>build <span class="operator">-</span><span class="operator">-</span>install<span class="operator">-</span>root <span class="operator">/</span></pre>
+<p>In this example, artifacts will be installed directly into the <code>/usr</code> folder. Since the <code>qbs install</code> command implies <code>build</code>, we use the <code>--no-build</code> parameter to ensure that we do not accidentally rebuild the project, thereby changing the artifacts' owner to <code>root</code>.</p>
+<p>Sometimes, it makes sense to install the application into a temporary root folder, keeping the same folder structure within that root folder as in the examples above; for instance, when building a Linux package such as <code>deb</code> or <code>rmp</code>. To install the application into the <code>/tmp/myProjectRoot</code> folder, use the following command:</p>
+<pre class="cpp">$ qbs install <span class="operator">-</span><span class="operator">-</span>install<span class="operator">-</span>root <span class="operator">/</span>tmp<span class="operator">/</span>myProjectRoot</pre>
+<p>In this example, the executable will be installed into the <code>/tmp/myProjectRoot/usr/bin</code> folder and QML files will be installed into the <code>/tmp/myProjectRoot/usr/share/myproject</code> folder.</p>
+<p>To remove all files from the install root prior to installing, use the <code>--clean-install-root</code> parameter:</p>
+<pre class="cpp">qbs install <span class="operator">-</span><span class="operator">-</span>clean<span class="operator">-</span>install<span class="operator">-</span>root <span class="operator">-</span><span class="operator">-</span>install<span class="operator">-</span>root <span class="operator">/</span>tmp<span class="operator">/</span>myProjectRoot</pre>
+<p>For more information about how the installation path is constructed, see <a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#installation-properties">Installation Properties</a>.</p>
+</div>
+<!-- @@@installing-files.html -->
+<p class="naviNextPrevious footerNavi">
+<a class="prevPage" href="https://qbs.io
+/docs/running-applications/">Running Applications</a>
+<a class="nextPage" href="https://qbs.io
+/docs/platforms/">Target Platforms</a>
+</p>
+
+
+
+    </article>
+</div>
+
+        </main></body>
+</html>

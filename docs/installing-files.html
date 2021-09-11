@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<!-- qbs.qdoc -->
+  <title>Installing Files | Qbs Manual</title>
+</head>
+<body>
+<li><a href="index.html">Qbs Manual</a></li>
+<li>Installing Files</li>
+<li id="buildversion">Qbs 1.21-0</li>
+  <link rel="prev" href="running-applications.html" />
+  <link rel="next" href="platforms.html" />
+<p class="naviNextPrevious headerNavi">
+<a class="prevPage" href="running-applications.html">Running Applications</a>
+<a class="nextPage" href="platforms.html">Target Platforms</a>
+</p><p/>
+<div class="sidebar"><div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Installing Files</h1>
+<span class="subtitle"></span>
+<!-- $$$installing-files.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>To install your project, specify the necessary information in the project file:</p>
+<pre class="cpp">Application {
+    Group {
+        name: <span class="string">&quot;Runtime resources&quot;</span>
+        files: <span class="string">&quot;*.qml&quot;</span>
+        qbs<span class="operator">.</span>install: <span class="keyword">true</span>
+        qbs<span class="operator">.</span>installDir: <span class="string">&quot;share/myproject&quot;</span>
+    }
+    Group {
+        name: <span class="string">&quot;The App itself&quot;</span>
+        fileTagsFilter: <span class="string">&quot;application&quot;</span>
+        qbs<span class="operator">.</span>install: <span class="keyword">true</span>
+        qbs<span class="operator">.</span>installDir: <span class="string">&quot;bin&quot;</span>
+    }
+}</pre>
+<p>In this example, we want to install a couple of QML files and an executable.</p>
+<p>When building, Qbs installs artifacts into the default root folder, namely <code>&lt;build root&gt;/install-root</code>. The <a href="qml-qbsmodules-qbs.html#installPrefix-prop">qbs.installPrefix</a> and <a href="qml-qbsmodules-qbs.html#installDir-prop">qbs.installDir</a> properties are appended to the root folder.</p>
+<pre class="cpp">qbs build qbs<span class="operator">.</span>installPrefix:<span class="operator">/</span>usr</pre>
+<p>In this example, the executable will be installed into the <code>&lt;build root&gt;/install-root/usr/bin</code> folder and the QML files will be installed into the <code>&lt;build root&gt;/install-root/usr/share/myproject</code> folder.</p>
+<p>To skip installation during the build, use the <code>--no-install</code> option.</p>
+<p>To override the default location, use the <code>--install-root</code> option of the <code>qbs install</code> command:</p>
+<pre class="cpp">qbs build <span class="operator">-</span><span class="operator">-</span>no<span class="operator">-</span>install qbs<span class="operator">.</span>installPrefix:<span class="operator">/</span>usr
+sudo qbs install <span class="operator">-</span><span class="operator">-</span>no<span class="operator">-</span>build <span class="operator">-</span><span class="operator">-</span>install<span class="operator">-</span>root <span class="operator">/</span></pre>
+<p>In this example, artifacts will be installed directly into the <code>/usr</code> folder. Since the <code>qbs install</code> command implies <code>build</code>, we use the <code>--no-build</code> parameter to ensure that we do not accidentally rebuild the project, thereby changing the artifacts' owner to <code>root</code>.</p>
+<p>Sometimes, it makes sense to install the application into a temporary root folder, keeping the same folder structure within that root folder as in the examples above; for instance, when building a Linux package such as <code>deb</code> or <code>rmp</code>. To install the application into the <code>/tmp/myProjectRoot</code> folder, use the following command:</p>
+<pre class="cpp">$ qbs install <span class="operator">-</span><span class="operator">-</span>install<span class="operator">-</span>root <span class="operator">/</span>tmp<span class="operator">/</span>myProjectRoot</pre>
+<p>In this example, the executable will be installed into the <code>/tmp/myProjectRoot/usr/bin</code> folder and QML files will be installed into the <code>/tmp/myProjectRoot/usr/share/myproject</code> folder.</p>
+<p>To remove all files from the install root prior to installing, use the <code>--clean-install-root</code> parameter:</p>
+<pre class="cpp">qbs install <span class="operator">-</span><span class="operator">-</span>clean<span class="operator">-</span>install<span class="operator">-</span>root <span class="operator">-</span><span class="operator">-</span>install<span class="operator">-</span>root <span class="operator">/</span>tmp<span class="operator">/</span>myProjectRoot</pre>
+<p>For more information about how the installation path is constructed, see <a href="qml-qbsmodules-qbs.html#installation-properties">Installation Properties</a>.</p>
+</div>
+<!-- @@@installing-files.html -->
+<p class="naviNextPrevious footerNavi">
+<a class="prevPage" href="running-applications.html">Running Applications</a>
+<a class="nextPage" href="platforms.html">Target Platforms</a>
+</p>
+</body>
+</html>

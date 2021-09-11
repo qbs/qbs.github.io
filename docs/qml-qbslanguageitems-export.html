@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<!-- export.qdoc -->
+  <title>Export QML Type | Qbs Manual</title>
+</head>
+<body>
+<li><a href="index.html">Qbs Manual</a></li>
+<li id="buildversion">Qbs 1.21-0</li>
+  <link rel="prev" href="qml-qbslanguageitems-depends.html" />
+  <link rel="next" href="qml-qbslanguageitems-filetagger.html" />
+<p class="naviNextPrevious headerNavi">
+<a class="prevPage" href="qml-qbslanguageitems-depends.html">Depends</a>
+<a class="nextPage" href="qml-qbslanguageitems-filetagger.html">FileTagger</a>
+</p><p/>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Export QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$Export-brief -->
+<p>Exports dependencies and properties to other products. <a href="#details">More...</a></p>
+<!-- @@@Export -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsLanguageItems .</td></tr></table></div><ul>
+<li><a href="qml-qbslanguageitems-export-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qbslanguageitems-export.html#prefixMapping-prop">prefixMapping</a></b></b> : var</li>
+</ul>
+<!-- $$$Export-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+<p>An Export item can appear inside a <a href="qml-qbslanguageitems-product.html">Product</a> item. It defines a <a href="qml-qbslanguageitems-module.html">Module</a> with the product's name that can be depended on by other products. The properties attached to the Export item will take effect in all products that depend on the product inside which the Export item is defined. As an example, consider these two products:</p>
+<pre class="cpp">Product {
+    name: <span class="string">&quot;A&quot;</span>
+    Export {
+        Depends { name: <span class="string">&quot;cpp&quot;</span> }
+        cpp<span class="operator">.</span>includePaths: exportingProduct<span class="operator">.</span>sourceDirectory
+        cpp<span class="operator">.</span>defines: <span class="operator">[</span><span class="string">&quot;USING_&quot;</span> <span class="operator">+</span> exportingProduct<span class="operator">.</span>name<span class="operator">.</span>toUpperCase()<span class="operator">]</span>
+    }
+}
+
+Product {
+    name: <span class="string">&quot;B&quot;</span>
+    Depends { name: <span class="string">&quot;A&quot;</span> }
+}</pre>
+<p>The sources in product B will be able to use headers from product A without specifying the full path to them, because the include path has been made known to the compiler via A's Export item. Additionally, product B will be compiled with the define <code>USING_A</code>.</p>
+<p>The dependent <a href="qml-qbslanguageitems-product.html">Product</a>'s modules are not exported unless explicitly specified within the <a href="qml-qbslanguageitems-export.html">Export</a> item:</p>
+<pre class="cpp">Product {
+    name: <span class="string">&quot;B-Exporting-A&quot;</span>
+    Depends { name: <span class="string">&quot;A&quot;</span> }
+    Export {
+        Depends { name: <span class="string">&quot;A&quot;</span> }
+    }
+}</pre>
+<p>The relationship of the exported dependencies is transitive. A product C depending on a product B-Exporting-A will also get a direct dependency on A and thus inherit include paths and preprocessor macros exported by A.</p>
+<pre class="cpp">Product {
+    name: <span class="string">&quot;C&quot;</span>
+    Depends { name: <span class="string">&quot;B-Exporting-A&quot;</span> }
+}</pre>
+<p>Within an Export item, you can use the <code>exportingProduct</code> variable to refer to the product which defines the Export item. Use the <code>importingProduct</code> variable to refer to the product that pulls in the resulting module:</p>
+<pre class="cpp">Product {
+    name: <span class="string">&quot;D&quot;</span>
+    Export {
+        Depends { name: <span class="string">&quot;cpp&quot;</span> }
+        cpp<span class="operator">.</span>includePaths: <span class="operator">[</span>exportingProduct<span class="operator">.</span>sourceDirectory<span class="operator">,</span> importingProduct<span class="operator">.</span>buildDirectory<span class="operator">]</span>
+    }
+}</pre>
+<!-- @@@Export -->
+<h2>Property Documentation</h2>
+<!-- $$$prefixMapping -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="prefixMapping-prop">
+<td class="tblQmlPropNode"><p>
+<a name="prefixMapping-prop"></a><span class="name">prefixMapping</span> : <span class="type">var</span></p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>This property allows to provide a translation of exported values between non-deployed and deployed contexts. It is an array of objects with properties <code>prefix</code> and <code>replacement</code>. The array's elements get applied to all other properties set in this item such that if the property's value start with <code>prefix</code>, that prefix gets replaced with <code>replacement</code>. It is typically used for C/C++ include paths. For instance, in a library that provides header files for inclusion both directly from its source directory (when building it as part of a bigger project) and from some installed location (when building an unrelated project against it), you would write something like the following:</p>
+<pre class="cpp">Export {
+    Depends { name: cpp<span class="string">&quot; }
+    cpp.includePaths: [exportingProduct.sourceDirectory]
+    prefixMapping: [{
+            prefix: exportingProduct.sourceDirectory,
+            replacement: FileInfo.joinPaths(qbs.installPrefix, &quot;</span><span class="keyword">include</span><span class="string">&quot;)
+    }]
+}
+</span></pre>
+<p>Default: <code>undefined</code></p>
+<p>This property was introduced in Qt 1.12.</p>
+<p><b>See also </b><a href="qml-qbsmodules-exporter-qbs.html">Exporter.qbs</a> and <a href="qml-qbsmodules-exporter-pkgconfig.html">Exporter.pkgconfig</a>.</p>
+</div></div><!-- @@@prefixMapping -->
+<br/>
+<p class="naviNextPrevious footerNavi">
+<a class="prevPage" href="qml-qbslanguageitems-depends.html">Depends</a>
+<a class="nextPage" href="qml-qbslanguageitems-filetagger.html">FileTagger</a>
+</p>
+</body>
+</html>
