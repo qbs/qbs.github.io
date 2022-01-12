@@ -3,7 +3,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Generators Qbs 1.22.0 Using the Shell Multiplexing  Contents  Generating Microsoft Visual Studio Projects Generating IAR Embedded Workbench Projects KEIL uVision Projects Generating Clang Compilation Databases Generating Makefiles Targets Pre-defined Variables Spaces in Directory Names Platform-specific Differences in Format Limitations    Generators   Generators are a Qbs sub-tool and set of APIs that enable arbitrary processing to be performed on the build graph. Currently, they are used to integrate Qbs with popular IDEs, such as Microsoft Visual Studio, and to generate Clang compilation databases. ">
+    <meta name="description" content="Qbs Manual Generators Qbs 1.22.0 Using the Shell Multiplexing  Generators   Generators are a Qbs sub-tool and set of APIs that enable arbitrary processing to be performed on the build graph. Currently, they are used to integrate Qbs with popular IDEs, such as Microsoft Visual Studio, and to generate Clang compilation databases.
+ Generating Microsoft Visual Studio Projects To generate a project for another build system, such as Microsoft Visual Studio, use the qbs generate command and specify a generator using the -g option. ">
     <link rel="canonical" href="https://qbs.io/docs/generators/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -13,18 +14,22 @@
 
     
       
-      <link rel="stylesheet" href="/css/main.min.3d0f6098eb95bdd46738f7e0eddb33d7d543bd1255f1ddbe9c9b85c4a6cd391f.css" integrity="sha256-PQ9gmOuVvdRnOPfg7dsz19VDvRJV8d2+nJuFxKbNOR8="/>
+      <link rel="stylesheet" href="/css/main.min.33c0858b180bacf5dafe6dec54ead827f7abea42b5d29244820d6601eb04aca2.css" integrity="sha256-M8CFixgLrPXa/m3sVOrYJ/er6kK10pJEgg1mAesErKI="/>
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Generators Qbs 1.22.0 Using the Shell Multiplexing  Contents  Generating Microsoft Visual Studio Projects Generating IAR Embedded Workbench Projects KEIL uVision Projects Generating Clang Compilation Databases Generating Makefiles Targets Pre-defined Variables Spaces in Directory Names Platform-specific Differences in Format Limitations    Generators   Generators are a Qbs sub-tool and set of APIs that enable arbitrary processing to be performed on the build graph. Currently, they are used to integrate Qbs with popular IDEs, such as Microsoft Visual Studio, and to generate Clang compilation databases." />
+<meta property="og:description" content="Qbs Manual Generators Qbs 1.22.0 Using the Shell Multiplexing  Generators   Generators are a Qbs sub-tool and set of APIs that enable arbitrary processing to be performed on the build graph. Currently, they are used to integrate Qbs with popular IDEs, such as Microsoft Visual Studio, and to generate Clang compilation databases.
+ Generating Microsoft Visual Studio Projects To generate a project for another build system, such as Microsoft Visual Studio, use the qbs generate command and specify a generator using the -g option." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://qbs.io/docs/generators/" />
+<meta property="og:url" content="https://qbs.io/docs/generators/" /><meta property="article:section" content="docs" />
+
+
 
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Generators Qbs 1.22.0 Using the Shell Multiplexing  Contents  Generating Microsoft Visual Studio Projects Generating IAR Embedded Workbench Projects KEIL uVision Projects Generating Clang Compilation Databases Generating Makefiles Targets Pre-defined Variables Spaces in Directory Names Platform-specific Differences in Format Limitations    Generators   Generators are a Qbs sub-tool and set of APIs that enable arbitrary processing to be performed on the build graph. Currently, they are used to integrate Qbs with popular IDEs, such as Microsoft Visual Studio, and to generate Clang compilation databases."/>
+<meta name="twitter:description" content="Qbs Manual Generators Qbs 1.22.0 Using the Shell Multiplexing  Generators   Generators are a Qbs sub-tool and set of APIs that enable arbitrary processing to be performed on the build graph. Currently, they are used to integrate Qbs with popular IDEs, such as Microsoft Visual Studio, and to generate Clang compilation databases.
+ Generating Microsoft Visual Studio Projects To generate a project for another build system, such as Microsoft Visual Studio, use the qbs generate command and specify a generator using the -g option."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -66,23 +71,7 @@
 <a class="nextPage" href="https://qbs.io
 /docs/multiplexing/">Multiplexing</a>
 </p><p>
-</p><div class="sidebar">
-<div class="toc">
-<h3><a name="toc">Contents</a></h3>
-<ul>
-<li class="level1"><a href="#generating-microsoft-visual-studio-projects">Generating Microsoft Visual Studio Projects</a></li>
-<li class="level1"><a href="#generating-iar-embedded-workbench-projects">Generating IAR Embedded Workbench Projects</a></li>
-<li class="level1"><a href="#keil-uvision-projects">KEIL uVision Projects</a></li>
-<li class="level1"><a href="#generating-clang-compilation-databases">Generating Clang Compilation Databases</a></li>
-<li class="level1"><a href="#generating-makefiles">Generating Makefiles</a></li>
-<li class="level2"><a href="#targets">Targets</a></li>
-<li class="level2"><a href="#pre-defined-variables">Pre-defined Variables</a></li>
-<li class="level2"><a href="#spaces-in-directory-names">Spaces in Directory Names</a></li>
-<li class="level2"><a href="#platform-specific-differences-in-format">Platform-specific Differences in Format</a></li>
-<li class="level1"><a href="#limitations">Limitations</a></li>
-</ul>
-</div>
-<div class="sidebar-content" id="sidebar-content"></div></div>
+</p>
 <div class="content"><h1 class="title">Generators</h1>
 <span class="subtitle"></span>
 <!-- $$$generators.html-description -->

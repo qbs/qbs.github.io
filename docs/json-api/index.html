@@ -3,7 +3,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Appendix C: The JSON API Qbs 1.22.0 Appendix B: Migrating from Other Build Systems Appendix D: Licenses and Code Attributions  Contents  Packet Format Messages The hello Message Resolving a Project Building a Project Cleaning a Project Installing a Project Canceling an Operation Adding and Removing Source Files The get-run-environment Message The get-generated-files-for-sources Message Closing a Project Closing the Session Progress Messages The task-started Message The task-progress Message The new-max-progress Message Messages for Users The log-data Message The warning Message The protocol-error Message Project Data TopLevelProjectData PlainProjectData ProductData GroupData ArtifactData ModulePropertiesData Other Custom Data Types FilePath Location ErrorInfo DataMode LogLevel Environment    Appendix C: The JSON API   This API is the recommended way to provide Qbs support to an IDE. ">
+    <meta name="description" content="Qbs Manual Appendix C: The JSON API Qbs 1.22.0 Appendix B: Migrating from Other Build Systems Appendix D: Licenses and Code Attributions  Appendix C: The JSON API   This API is the recommended way to provide Qbs support to an IDE. It is accessible via the session command.
+ Packet Format All information is exchanged via packets, which have the following structure:
+packet = &#34;qbsmsg:&#34; &lt;payload length&gt; [&lt;meta data&gt;] &lt;line feed&gt; &lt;payload&gt; First comes a fixed string indentifying the start of a packet, followed by the size of the actual data in bytes. ">
     <link rel="canonical" href="https://qbs.io/docs/json-api/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -13,18 +15,24 @@
 
     
       
-      <link rel="stylesheet" href="/css/main.min.3d0f6098eb95bdd46738f7e0eddb33d7d543bd1255f1ddbe9c9b85c4a6cd391f.css" integrity="sha256-PQ9gmOuVvdRnOPfg7dsz19VDvRJV8d2+nJuFxKbNOR8="/>
+      <link rel="stylesheet" href="/css/main.min.33c0858b180bacf5dafe6dec54ead827f7abea42b5d29244820d6601eb04aca2.css" integrity="sha256-M8CFixgLrPXa/m3sVOrYJ/er6kK10pJEgg1mAesErKI="/>
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Appendix C: The JSON API Qbs 1.22.0 Appendix B: Migrating from Other Build Systems Appendix D: Licenses and Code Attributions  Contents  Packet Format Messages The hello Message Resolving a Project Building a Project Cleaning a Project Installing a Project Canceling an Operation Adding and Removing Source Files The get-run-environment Message The get-generated-files-for-sources Message Closing a Project Closing the Session Progress Messages The task-started Message The task-progress Message The new-max-progress Message Messages for Users The log-data Message The warning Message The protocol-error Message Project Data TopLevelProjectData PlainProjectData ProductData GroupData ArtifactData ModulePropertiesData Other Custom Data Types FilePath Location ErrorInfo DataMode LogLevel Environment    Appendix C: The JSON API   This API is the recommended way to provide Qbs support to an IDE." />
+<meta property="og:description" content="Qbs Manual Appendix C: The JSON API Qbs 1.22.0 Appendix B: Migrating from Other Build Systems Appendix D: Licenses and Code Attributions  Appendix C: The JSON API   This API is the recommended way to provide Qbs support to an IDE. It is accessible via the session command.
+ Packet Format All information is exchanged via packets, which have the following structure:
+packet = &#34;qbsmsg:&#34; &lt;payload length&gt; [&lt;meta data&gt;] &lt;line feed&gt; &lt;payload&gt; First comes a fixed string indentifying the start of a packet, followed by the size of the actual data in bytes." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://qbs.io/docs/json-api/" />
+<meta property="og:url" content="https://qbs.io/docs/json-api/" /><meta property="article:section" content="docs" />
+
+
 
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Appendix C: The JSON API Qbs 1.22.0 Appendix B: Migrating from Other Build Systems Appendix D: Licenses and Code Attributions  Contents  Packet Format Messages The hello Message Resolving a Project Building a Project Cleaning a Project Installing a Project Canceling an Operation Adding and Removing Source Files The get-run-environment Message The get-generated-files-for-sources Message Closing a Project Closing the Session Progress Messages The task-started Message The task-progress Message The new-max-progress Message Messages for Users The log-data Message The warning Message The protocol-error Message Project Data TopLevelProjectData PlainProjectData ProductData GroupData ArtifactData ModulePropertiesData Other Custom Data Types FilePath Location ErrorInfo DataMode LogLevel Environment    Appendix C: The JSON API   This API is the recommended way to provide Qbs support to an IDE."/>
+<meta name="twitter:description" content="Qbs Manual Appendix C: The JSON API Qbs 1.22.0 Appendix B: Migrating from Other Build Systems Appendix D: Licenses and Code Attributions  Appendix C: The JSON API   This API is the recommended way to provide Qbs support to an IDE. It is accessible via the session command.
+ Packet Format All information is exchanged via packets, which have the following structure:
+packet = &#34;qbsmsg:&#34; &lt;payload length&gt; [&lt;meta data&gt;] &lt;line feed&gt; &lt;payload&gt; First comes a fixed string indentifying the start of a packet, followed by the size of the actual data in bytes."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -66,48 +74,7 @@
 <a class="nextPage" href="https://qbs.io
 /docs/attributions/">Appendix D: Licenses and Code Attributions</a>
 </p><p>
-</p><div class="sidebar">
-<div class="toc">
-<h3><a name="toc">Contents</a></h3>
-<ul>
-<li class="level1"><a href="#packet-format">Packet Format</a></li>
-<li class="level1"><a href="#messages">Messages</a></li>
-<li class="level1"><a href="#the-hello-message">The <code>hello</code> Message</a></li>
-<li class="level1"><a href="#resolving-a-project">Resolving a Project</a></li>
-<li class="level1"><a href="#building-a-project">Building a Project</a></li>
-<li class="level1"><a href="#cleaning-a-project">Cleaning a Project</a></li>
-<li class="level1"><a href="#installing-a-project">Installing a Project</a></li>
-<li class="level1"><a href="#canceling-an-operation">Canceling an Operation</a></li>
-<li class="level1"><a href="#adding-and-removing-source-files">Adding and Removing Source Files</a></li>
-<li class="level1"><a href="#the-get-op-op-run-op-op-environment-message">The <code>get-run-environment</code> Message</a></li>
-<li class="level1"><a href="#the-get-op-op-generated-op-op-files-op-op-keyword-for-keyword-op-op-sources-message">The <code>get-generated-files-for-sources</code> Message</a></li>
-<li class="level1"><a href="#closing-a-project">Closing a Project</a></li>
-<li class="level1"><a href="#closing-the-session">Closing the Session</a></li>
-<li class="level1"><a href="#progress-messages">Progress Messages</a></li>
-<li class="level2"><a href="#the-task-op-op-started-message">The <code>task-started</code> Message</a></li>
-<li class="level2"><a href="#the-task-op-op-progress-message">The <code>task-progress</code> Message</a></li>
-<li class="level2"><a href="#the-keyword-new-keyword-op-op-max-op-op-progress-message">The <code>new-max-progress</code> Message</a></li>
-<li class="level1"><a href="#messages-for-users">Messages for Users</a></li>
-<li class="level2"><a href="#the-log-op-op-data-message">The <code>log-data</code> Message</a></li>
-<li class="level2"><a href="#the-warning-message">The <code>warning</code> Message</a></li>
-<li class="level1"><a href="#the-protocol-op-op-error-message">The <code>protocol-error</code> Message</a></li>
-<li class="level1"><a href="#project-data">Project Data</a></li>
-<li class="level2"><a href="#toplevelprojectdata">TopLevelProjectData</a></li>
-<li class="level2"><a href="#plainprojectdata">PlainProjectData</a></li>
-<li class="level2"><a href="#productdata">ProductData</a></li>
-<li class="level2"><a href="#groupdata">GroupData</a></li>
-<li class="level2"><a href="#artifactdata">ArtifactData</a></li>
-<li class="level2"><a href="#modulepropertiesdata">ModulePropertiesData</a></li>
-<li class="level1"><a href="#other-custom-data-types">Other Custom Data Types</a></li>
-<li class="level2"><a href="#filepath">FilePath</a></li>
-<li class="level2"><a href="#location">Location</a></li>
-<li class="level2"><a href="#errorinfo">ErrorInfo</a></li>
-<li class="level2"><a href="#datamode">DataMode</a></li>
-<li class="level2"><a href="#loglevel">LogLevel</a></li>
-<li class="level2"><a href="#environment">Environment</a></li>
-</ul>
-</div>
-<div class="sidebar-content" id="sidebar-content"></div></div>
+</p>
 <div class="content"><h1 class="title">Appendix C: The JSON API</h1>
 <span class="subtitle"></span>
 <!-- $$$json-api.html-description -->

@@ -3,10 +3,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Building for watchOS Qbs 1.22.0 Contents  Building User Interfaces Creating App Bundles Multiple Architectures and Build Variants    Building for watchOS   This topic describes the Qbs features specific to watchOS.
+    <meta name="description" content="Qbs Manual Building for watchOS Qbs 1.22.0 Building for watchOS   This topic describes the Qbs features specific to watchOS.
 Note: Qbs does not yet support the Swift programming language.
 The xcode module contains properties and rules for Xcode-based development.
- Building User Interfaces The ib module contains properties and rules for building Interface Builder documents, storyboards, asset catalogs, and icon sets. ">
+ Building User Interfaces The ib module contains properties and rules for building Interface Builder documents, storyboards, asset catalogs, and icon sets.
+ Creating App Bundles The bundle module contains properties and rules for building and working with Core Foundation bundles (application bundles and frameworks) on Apple platforms. ">
     <link rel="canonical" href="https://qbs.io/docs/qbs-target-watchos/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -16,24 +17,28 @@ The xcode module contains properties and rules for Xcode-based development.
 
     
       
-      <link rel="stylesheet" href="/css/main.min.3d0f6098eb95bdd46738f7e0eddb33d7d543bd1255f1ddbe9c9b85c4a6cd391f.css" integrity="sha256-PQ9gmOuVvdRnOPfg7dsz19VDvRJV8d2+nJuFxKbNOR8="/>
+      <link rel="stylesheet" href="/css/main.min.33c0858b180bacf5dafe6dec54ead827f7abea42b5d29244820d6601eb04aca2.css" integrity="sha256-M8CFixgLrPXa/m3sVOrYJ/er6kK10pJEgg1mAesErKI="/>
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Building for watchOS Qbs 1.22.0 Contents  Building User Interfaces Creating App Bundles Multiple Architectures and Build Variants    Building for watchOS   This topic describes the Qbs features specific to watchOS.
+<meta property="og:description" content="Qbs Manual Building for watchOS Qbs 1.22.0 Building for watchOS   This topic describes the Qbs features specific to watchOS.
 Note: Qbs does not yet support the Swift programming language.
 The xcode module contains properties and rules for Xcode-based development.
- Building User Interfaces The ib module contains properties and rules for building Interface Builder documents, storyboards, asset catalogs, and icon sets." />
+ Building User Interfaces The ib module contains properties and rules for building Interface Builder documents, storyboards, asset catalogs, and icon sets.
+ Creating App Bundles The bundle module contains properties and rules for building and working with Core Foundation bundles (application bundles and frameworks) on Apple platforms." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://qbs.io/docs/qbs-target-watchos/" />
+<meta property="og:url" content="https://qbs.io/docs/qbs-target-watchos/" /><meta property="article:section" content="docs" />
+
+
 
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Building for watchOS Qbs 1.22.0 Contents  Building User Interfaces Creating App Bundles Multiple Architectures and Build Variants    Building for watchOS   This topic describes the Qbs features specific to watchOS.
+<meta name="twitter:description" content="Qbs Manual Building for watchOS Qbs 1.22.0 Building for watchOS   This topic describes the Qbs features specific to watchOS.
 Note: Qbs does not yet support the Swift programming language.
 The xcode module contains properties and rules for Xcode-based development.
- Building User Interfaces The ib module contains properties and rules for building Interface Builder documents, storyboards, asset catalogs, and icon sets."/>
+ Building User Interfaces The ib module contains properties and rules for building Interface Builder documents, storyboards, asset catalogs, and icon sets.
+ Creating App Bundles The bundle module contains properties and rules for building and working with Core Foundation bundles (application bundles and frameworks) on Apple platforms."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -65,16 +70,7 @@ The xcode module contains properties and rules for Xcode-based development.
 /docs">Qbs Manual</a></li>
 <li>Building for watchOS</li>
 <li id="buildversion">Qbs 1.22.0</li>
-<div class="sidebar">
-<div class="toc">
-<h3><a name="toc">Contents</a></h3>
-<ul>
-<li class="level1"><a href="#building-user-interfaces">Building User Interfaces</a></li>
-<li class="level1"><a href="#creating-app-bundles">Creating App Bundles</a></li>
-<li class="level1"><a href="#multiple-architectures-and-build-variants">Multiple Architectures and Build Variants</a></li>
-</ul>
-</div>
-<div class="sidebar-content" id="sidebar-content"></div></div>
+
 <div class="content"><h1 class="title">Building for watchOS</h1>
 <span class="subtitle"></span>
 <!-- $$$qbs-target-watchos.html-description -->

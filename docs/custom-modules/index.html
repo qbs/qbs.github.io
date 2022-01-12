@@ -3,7 +3,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Custom Modules and Items Qbs 1.22.0 Multiplexing Module Providers  Contents  File System Layout Custom Modules Custom Items Making Qbs Aware of Custom Modules and Items Project-specific Modules and Items Making Custom Modules and Items Available Across Projects    Custom Modules and Items   Users of Qbs are not limited to the pre-defined modules and items, they can also create their own. Here we describe how to set up custom modules and items so that Qbs will find them. ">
+    <meta name="description" content="Qbs Manual Custom Modules and Items Qbs 1.22.0 Multiplexing Module Providers  Custom Modules and Items   Users of Qbs are not limited to the pre-defined modules and items, they can also create their own. Here we describe how to set up custom modules and items so that Qbs will find them.
+ File System Layout Items and modules are located under a common base directory, whose name and location is completely arbitrary. ">
     <link rel="canonical" href="https://qbs.io/docs/custom-modules/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -13,18 +14,22 @@
 
     
       
-      <link rel="stylesheet" href="/css/main.min.3d0f6098eb95bdd46738f7e0eddb33d7d543bd1255f1ddbe9c9b85c4a6cd391f.css" integrity="sha256-PQ9gmOuVvdRnOPfg7dsz19VDvRJV8d2+nJuFxKbNOR8="/>
+      <link rel="stylesheet" href="/css/main.min.33c0858b180bacf5dafe6dec54ead827f7abea42b5d29244820d6601eb04aca2.css" integrity="sha256-M8CFixgLrPXa/m3sVOrYJ/er6kK10pJEgg1mAesErKI="/>
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Custom Modules and Items Qbs 1.22.0 Multiplexing Module Providers  Contents  File System Layout Custom Modules Custom Items Making Qbs Aware of Custom Modules and Items Project-specific Modules and Items Making Custom Modules and Items Available Across Projects    Custom Modules and Items   Users of Qbs are not limited to the pre-defined modules and items, they can also create their own. Here we describe how to set up custom modules and items so that Qbs will find them." />
+<meta property="og:description" content="Qbs Manual Custom Modules and Items Qbs 1.22.0 Multiplexing Module Providers  Custom Modules and Items   Users of Qbs are not limited to the pre-defined modules and items, they can also create their own. Here we describe how to set up custom modules and items so that Qbs will find them.
+ File System Layout Items and modules are located under a common base directory, whose name and location is completely arbitrary." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://qbs.io/docs/custom-modules/" />
+<meta property="og:url" content="https://qbs.io/docs/custom-modules/" /><meta property="article:section" content="docs" />
+
+
 
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Custom Modules and Items Qbs 1.22.0 Multiplexing Module Providers  Contents  File System Layout Custom Modules Custom Items Making Qbs Aware of Custom Modules and Items Project-specific Modules and Items Making Custom Modules and Items Available Across Projects    Custom Modules and Items   Users of Qbs are not limited to the pre-defined modules and items, they can also create their own. Here we describe how to set up custom modules and items so that Qbs will find them."/>
+<meta name="twitter:description" content="Qbs Manual Custom Modules and Items Qbs 1.22.0 Multiplexing Module Providers  Custom Modules and Items   Users of Qbs are not limited to the pre-defined modules and items, they can also create their own. Here we describe how to set up custom modules and items so that Qbs will find them.
+ File System Layout Items and modules are located under a common base directory, whose name and location is completely arbitrary."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -66,19 +71,7 @@
 <a class="nextPage" href="https://qbs.io
 /docs/module-providers/">Module Providers</a>
 </p><p>
-</p><div class="sidebar">
-<div class="toc">
-<h3><a name="toc">Contents</a></h3>
-<ul>
-<li class="level1"><a href="#file-system-layout">File System Layout</a></li>
-<li class="level1"><a href="#custom-modules">Custom Modules</a></li>
-<li class="level1"><a href="#custom-items">Custom Items</a></li>
-<li class="level1"><a href="#making-qbs-aware-of-custom-modules-and-items">Making Qbs Aware of Custom Modules and Items</a></li>
-<li class="level2"><a href="#project-specific-modules-and-items">Project-specific Modules and Items</a></li>
-<li class="level2"><a href="#making-custom-modules-and-items-available-across-projects">Making Custom Modules and Items Available Across Projects</a></li>
-</ul>
-</div>
-<div class="sidebar-content" id="sidebar-content"></div></div>
+</p>
 <div class="content"><h1 class="title">Custom Modules and Items</h1>
 <span class="subtitle"></span>
 <!-- $$$custom-modules.html-description -->

@@ -3,8 +3,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual General Services Qbs 1.22.0 Contents  Available Operations require Extensions to JavaScript Built-in Objects Array.contains Array.containsAll Array.containsAny Array.uniqueConcat String.contains startsWith endsWith Console API console.debug console.error console.info console.log console.warn    General Services   These are operations that do not fit into any of the other categories. They are automatically available in any Qbs project file or JavaScript file.
- Available Operations  require require(identifier: string): any Loads an extension and returns an object representing the extension. ">
+    <meta name="description" content="Qbs Manual General Services Qbs 1.22.0 General Services   These are operations that do not fit into any of the other categories. They are automatically available in any Qbs project file or JavaScript file.
+ Available Operations  require require(identifier: string): any Loads an extension and returns an object representing the extension. If identifier is a relative or absolute file path, this function will load a JavaScript file and return an object containing the evaluated context of that file. ">
     <link rel="canonical" href="https://qbs.io/docs/jsextensions-general/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -14,20 +14,22 @@
 
     
       
-      <link rel="stylesheet" href="/css/main.min.3d0f6098eb95bdd46738f7e0eddb33d7d543bd1255f1ddbe9c9b85c4a6cd391f.css" integrity="sha256-PQ9gmOuVvdRnOPfg7dsz19VDvRJV8d2+nJuFxKbNOR8="/>
+      <link rel="stylesheet" href="/css/main.min.33c0858b180bacf5dafe6dec54ead827f7abea42b5d29244820d6601eb04aca2.css" integrity="sha256-M8CFixgLrPXa/m3sVOrYJ/er6kK10pJEgg1mAesErKI="/>
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual General Services Qbs 1.22.0 Contents  Available Operations require Extensions to JavaScript Built-in Objects Array.contains Array.containsAll Array.containsAny Array.uniqueConcat String.contains startsWith endsWith Console API console.debug console.error console.info console.log console.warn    General Services   These are operations that do not fit into any of the other categories. They are automatically available in any Qbs project file or JavaScript file.
- Available Operations  require require(identifier: string): any Loads an extension and returns an object representing the extension." />
+<meta property="og:description" content="Qbs Manual General Services Qbs 1.22.0 General Services   These are operations that do not fit into any of the other categories. They are automatically available in any Qbs project file or JavaScript file.
+ Available Operations  require require(identifier: string): any Loads an extension and returns an object representing the extension. If identifier is a relative or absolute file path, this function will load a JavaScript file and return an object containing the evaluated context of that file." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://qbs.io/docs/jsextensions-general/" />
+<meta property="og:url" content="https://qbs.io/docs/jsextensions-general/" /><meta property="article:section" content="docs" />
+
+
 
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual General Services Qbs 1.22.0 Contents  Available Operations require Extensions to JavaScript Built-in Objects Array.contains Array.containsAll Array.containsAny Array.uniqueConcat String.contains startsWith endsWith Console API console.debug console.error console.info console.log console.warn    General Services   These are operations that do not fit into any of the other categories. They are automatically available in any Qbs project file or JavaScript file.
- Available Operations  require require(identifier: string): any Loads an extension and returns an object representing the extension."/>
+<meta name="twitter:description" content="Qbs Manual General Services Qbs 1.22.0 General Services   These are operations that do not fit into any of the other categories. They are automatically available in any Qbs project file or JavaScript file.
+ Available Operations  require require(identifier: string): any Loads an extension and returns an object representing the extension. If identifier is a relative or absolute file path, this function will load a JavaScript file and return an object containing the evaluated context of that file."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -59,29 +61,7 @@
 /docs">Qbs Manual</a></li>
 <li>General Services</li>
 <li id="buildversion">Qbs 1.22.0</li>
-<div class="sidebar">
-<div class="toc">
-<h3><a name="toc">Contents</a></h3>
-<ul>
-<li class="level1"><a href="#available-operations">Available Operations</a></li>
-<li class="level2"><a href="#require">require</a></li>
-<li class="level1"><a href="#extensions-to-javascript-built-in-objects">Extensions to JavaScript Built-in Objects</a></li>
-<li class="level2"><a href="#array-contains">Array.contains</a></li>
-<li class="level2"><a href="#array-containsall">Array.containsAll</a></li>
-<li class="level2"><a href="#array-containsany">Array.containsAny</a></li>
-<li class="level2"><a href="#array-uniqueconcat">Array.uniqueConcat</a></li>
-<li class="level2"><a href="#string-contains">String.contains</a></li>
-<li class="level2"><a href="#startswith">startsWith</a></li>
-<li class="level2"><a href="#endswith">endsWith</a></li>
-<li class="level1"><a href="#console-api">Console API</a></li>
-<li class="level2"><a href="#console-debug">console.debug</a></li>
-<li class="level2"><a href="#console-error">console.error</a></li>
-<li class="level2"><a href="#console-info">console.info</a></li>
-<li class="level2"><a href="#console-log">console.log</a></li>
-<li class="level2"><a href="#console-warn">console.warn</a></li>
-</ul>
-</div>
-<div class="sidebar-content" id="sidebar-content"></div></div>
+
 <div class="content"><h1 class="title">General Services</h1>
 <span class="subtitle"></span>
 <!-- $$$jsextensions-general.html-description -->

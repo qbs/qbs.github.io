@@ -3,7 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual build Qbs 1.22.0 Contents  Synopsis Description Options --all-products --build-directory|-d &lt;directory&gt; --changed-files &lt;file&gt;[,&lt;file&gt;...] --check-outputs --check-timestamps --clean-install-root --command-echo-mode &lt;mode&gt; --dry-run|-n [--file|-f &lt;file&gt;] --force-probe-execution --jobs|-j &lt;n&gt; --job-limits &lt;pool1&gt;:&lt;limit1&gt;[,&lt;pool2&gt;:&lt;limit2&gt;...] --enforce-project-job-limits --keep-going|-k --less-verbose|-q --log-level &lt;level&gt; --log-time --more-verbose|-v --no-install --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; --show-progress --no-fallback-module-provider --wait-lock Parameters config:configuration-name property:value Examples    build    Synopsis qbs build [options] [[config:configuration-name] [property:value] ...]  Description Builds projects in one or more configurations. ">
+    <meta name="description" content="Qbs Manual build Qbs 1.22.0 build    Synopsis qbs build [options] [[config:configuration-name] [property:value] ...]  Description Builds projects in one or more configurations.
+You can specify project, product, or module properties, as well as a profile separately for each configuration.
+This is the default command.
+If the build directory does not exist, it will be created.
+For more information, see Building Applications.
+ Options  --all-products Processes all products, even if their builtByDefault property is false. ">
     <link rel="canonical" href="https://qbs.io/docs/cli-build/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -13,18 +18,30 @@
 
     
       
-      <link rel="stylesheet" href="/css/main.min.3d0f6098eb95bdd46738f7e0eddb33d7d543bd1255f1ddbe9c9b85c4a6cd391f.css" integrity="sha256-PQ9gmOuVvdRnOPfg7dsz19VDvRJV8d2+nJuFxKbNOR8="/>
+      <link rel="stylesheet" href="/css/main.min.33c0858b180bacf5dafe6dec54ead827f7abea42b5d29244820d6601eb04aca2.css" integrity="sha256-M8CFixgLrPXa/m3sVOrYJ/er6kK10pJEgg1mAesErKI="/>
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual build Qbs 1.22.0 Contents  Synopsis Description Options --all-products --build-directory|-d &lt;directory&gt; --changed-files &lt;file&gt;[,&lt;file&gt;...] --check-outputs --check-timestamps --clean-install-root --command-echo-mode &lt;mode&gt; --dry-run|-n [--file|-f &lt;file&gt;] --force-probe-execution --jobs|-j &lt;n&gt; --job-limits &lt;pool1&gt;:&lt;limit1&gt;[,&lt;pool2&gt;:&lt;limit2&gt;...] --enforce-project-job-limits --keep-going|-k --less-verbose|-q --log-level &lt;level&gt; --log-time --more-verbose|-v --no-install --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; --show-progress --no-fallback-module-provider --wait-lock Parameters config:configuration-name property:value Examples    build    Synopsis qbs build [options] [[config:configuration-name] [property:value] ...]  Description Builds projects in one or more configurations." />
+<meta property="og:description" content="Qbs Manual build Qbs 1.22.0 build    Synopsis qbs build [options] [[config:configuration-name] [property:value] ...]  Description Builds projects in one or more configurations.
+You can specify project, product, or module properties, as well as a profile separately for each configuration.
+This is the default command.
+If the build directory does not exist, it will be created.
+For more information, see Building Applications.
+ Options  --all-products Processes all products, even if their builtByDefault property is false." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://qbs.io/docs/cli-build/" />
+<meta property="og:url" content="https://qbs.io/docs/cli-build/" /><meta property="article:section" content="docs" />
+
+
 
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual build Qbs 1.22.0 Contents  Synopsis Description Options --all-products --build-directory|-d &lt;directory&gt; --changed-files &lt;file&gt;[,&lt;file&gt;...] --check-outputs --check-timestamps --clean-install-root --command-echo-mode &lt;mode&gt; --dry-run|-n [--file|-f &lt;file&gt;] --force-probe-execution --jobs|-j &lt;n&gt; --job-limits &lt;pool1&gt;:&lt;limit1&gt;[,&lt;pool2&gt;:&lt;limit2&gt;...] --enforce-project-job-limits --keep-going|-k --less-verbose|-q --log-level &lt;level&gt; --log-time --more-verbose|-v --no-install --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; --show-progress --no-fallback-module-provider --wait-lock Parameters config:configuration-name property:value Examples    build    Synopsis qbs build [options] [[config:configuration-name] [property:value] ...]  Description Builds projects in one or more configurations."/>
+<meta name="twitter:description" content="Qbs Manual build Qbs 1.22.0 build    Synopsis qbs build [options] [[config:configuration-name] [property:value] ...]  Description Builds projects in one or more configurations.
+You can specify project, product, or module properties, as well as a profile separately for each configuration.
+This is the default command.
+If the build directory does not exist, it will be created.
+For more information, see Building Applications.
+ Options  --all-products Processes all products, even if their builtByDefault property is false."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -56,44 +73,7 @@
 /docs">Qbs Manual</a></li>
 <li>build</li>
 <li id="buildversion">Qbs 1.22.0</li>
-<div class="sidebar">
-<div class="toc">
-<h3><a name="toc">Contents</a></h3>
-<ul>
-<li class="level1"><a href="#synopsis">Synopsis</a></li>
-<li class="level1"><a href="#description">Description</a></li>
-<li class="level1"><a href="#options">Options</a></li>
-<li class="level2"><a href="#op-op-op-op-all-op-op-products"><code>--all-products</code></a></li>
-<li class="level2"><a href="#op-op-op-op-build-op-op-directory-op-op-op-op-d-op-lt-op-directory-op-gt-op"><code>--build-directory|-d &lt;directory&gt;</code></a></li>
-<li class="level2"><a href="#op-op-op-op-changed-op-op-files-op-lt-op-file-op-gt-op-op-op-op-op-op-lt-op-file-op-gt-op-op-op-op-op-op-op-op-op"><code>--changed-files &lt;file&gt;[,&lt;file&gt;...]</code></a></li>
-<li class="level2"><a href="#op-op-op-op-check-op-op-outputs"><code>--check-outputs</code></a></li>
-<li class="level2"><a href="#op-op-op-op-check-op-op-timestamps"><code>--check-timestamps</code></a></li>
-<li class="level2"><a href="#op-op-op-op-clean-op-op-install-op-op-root"><code>--clean-install-root</code></a></li>
-<li class="level2"><a href="#op-op-op-op-command-op-op-echo-op-op-mode-op-lt-op-mode-op-gt-op"><code>--command-echo-mode &lt;mode&gt;</code></a></li>
-<li class="level2"><a href="#op-op-op-op-dry-op-op-run-op-op-op-op-n"><code>--dry-run|-n</code></a></li>
-<li class="level2"><a href="#op-op-op-op-op-op-file-op-op-op-op-f-op-lt-op-file-op-gt-op-op-op"><code>[--file|-f &lt;file&gt;]</code></a></li>
-<li class="level2"><a href="#op-op-op-op-force-op-op-probe-op-op-execution"><code>--force-probe-execution</code></a></li>
-<li class="level2"><a href="#op-op-op-op-jobs-op-op-op-op-j-op-lt-op-n-op-gt-op"><code>--jobs|-j &lt;n&gt;</code></a></li>
-<li class="level2"><a href="#op-op-op-op-job-op-op-limits-op-lt-op-pool1-op-gt-op-op-lt-op-limit1-op-gt-op-op-op-op-op-op-lt-op-pool2-op-gt-op-op-lt-op-limit2-op-gt-op-op-op-op-op-op-op-op-op"><code>--job-limits &lt;pool1&gt;:&lt;limit1&gt;[,&lt;pool2&gt;:&lt;limit2&gt;...]</code></a></li>
-<li class="level2"><a href="#op-op-op-op-enforce-op-op-project-op-op-job-op-op-limits"><code>--enforce-project-job-limits</code></a></li>
-<li class="level2"><a href="#op-op-op-op-keep-op-op-going-op-op-op-op-k"><code>--keep-going|-k</code></a></li>
-<li class="level2"><a href="#op-op-op-op-less-op-op-verbose-op-op-op-op-q"><code>--less-verbose|-q</code></a></li>
-<li class="level2"><a href="#op-op-op-op-log-op-op-level-op-lt-op-level-op-gt-op"><code>--log-level &lt;level&gt;</code></a></li>
-<li class="level2"><a href="#op-op-op-op-log-op-op-time"><code>--log-time</code></a></li>
-<li class="level2"><a href="#op-op-op-op-more-op-op-verbose-op-op-op-op-v"><code>--more-verbose|-v</code></a></li>
-<li class="level2"><a href="#op-op-op-op-no-op-op-install"><code>--no-install</code></a></li>
-<li class="level2"><a href="#op-op-op-op-products-op-op-op-op-p-op-lt-op-name-op-gt-op-op-op-op-op-op-lt-op-name-op-gt-op-op-op-op-op-op-op-op-op"><code>--products|-p &lt;name&gt;[,&lt;name&gt;...]</code></a></li>
-<li class="level2"><a href="#op-op-op-op-settings-op-op-dir-op-lt-op-directory-op-gt-op"><code>--settings-dir &lt;directory&gt;</code></a></li>
-<li class="level2"><a href="#op-op-op-op-show-op-op-progress"><code>--show-progress</code></a></li>
-<li class="level2"><a href="#op-op-op-op-no-op-op-fallback-op-op-module-op-op-provider"><code>--no-fallback-module-provider</code></a></li>
-<li class="level2"><a href="#op-op-op-op-wait-op-op-lock"><code>--wait-lock</code></a></li>
-<li class="level1"><a href="#parameters">Parameters</a></li>
-<li class="level2"><a href="#config-configuration-op-op-name"><code>config:configuration-name</code></a></li>
-<li class="level2"><a href="#property-value"><code>property:value</code></a></li>
-<li class="level1"><a href="#examples">Examples</a></li>
-</ul>
-</div>
-<div class="sidebar-content" id="sidebar-content"></div></div>
+
 <div class="content"><h1 class="title">build</h1>
 <span class="subtitle"></span>
 <!-- $$$cli-build.html-description -->
