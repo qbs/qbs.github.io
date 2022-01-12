@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual How-tos Qbs 1.21.0 Custom Modules and Items Reference  Contents  How do I build a Qt-based project? How do I make my app build against my library? Choosing Between Dynamic and Statically-built Qt Projects How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled? ">
+    <meta name="description" content="Qbs Manual How-tos Qbs 1.22.0 Custom Modules and Items Reference  Contents  How do I build a Qt-based project? How do I make my app build against my library? Choosing Between Dynamic and Statically-built Qt Projects How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled? ">
     <link rel="canonical" href="https://qbs.io/docs/howtos/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -13,20 +13,18 @@
 
     
       
-      <link rel="stylesheet" href="/css/main.min.4b4afe3bc3ac46250ed86d95bc0261be3c962560258ab862147fc09704f82464.css" integrity="sha256-S0r+O8OsRiUO2G2VvAJhvjyWJWAlirhiFH/AlwT4JGQ="/>
+      <link rel="stylesheet" href="/css/main.min.8d3c37775671d5f5d2a55d5b302afe6f02c723d07f8fe4cd09ec33098122f4fd.css" integrity="sha256-jTw3d1Zx1fXSpV1bMCr+bwLHI9B/j+TNCewzCYEi9P0="/>
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual How-tos Qbs 1.21.0 Custom Modules and Items Reference  Contents  How do I build a Qt-based project? How do I make my app build against my library? Choosing Between Dynamic and Statically-built Qt Projects How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled?" />
+<meta property="og:description" content="Qbs Manual How-tos Qbs 1.22.0 Custom Modules and Items Reference  Contents  How do I build a Qt-based project? How do I make my app build against my library? Choosing Between Dynamic and Statically-built Qt Projects How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled?" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://qbs.io/docs/howtos/" /><meta property="article:section" content="docs" />
-
-
+<meta property="og:url" content="https://qbs.io/docs/howtos/" />
 
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual How-tos Qbs 1.21.0 Custom Modules and Items Reference  Contents  How do I build a Qt-based project? How do I make my app build against my library? Choosing Between Dynamic and Statically-built Qt Projects How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled?"/>
+<meta name="twitter:description" content="Qbs Manual How-tos Qbs 1.22.0 Custom Modules and Items Reference  Contents  How do I build a Qt-based project? How do I make my app build against my library? Choosing Between Dynamic and Statically-built Qt Projects How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled?"/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -52,12 +50,12 @@
     </div>
 </header><main>
 <div class="centre-outer">
-    <article class="centre-inner docs" >
+    <article class="centre-inner docs">
     
 <li><a href="https://qbs.io
 /docs">Qbs Manual</a></li>
 <li>How-tos</li>
-<li id="buildversion">Qbs 1.21.0</li>
+<li id="buildversion">Qbs 1.22.0</li>
   <link rel="prev" href="https://qbs.io
 /docs/custom-modules/">
   <link rel="next" href="https://qbs.io
@@ -91,13 +89,14 @@
 <li class="level1"><a href="#how-do-i-limit-the-number-of-concurrent-jobs-for-the-linker-only">How do I limit the number of concurrent jobs for the linker only?</a></li>
 <li class="level1"><a href="#how-do-i-add-qml-files-to-a-project">How do I add QML files to a project?</a></li>
 <li class="level1"><a href="#how-do-i-define-a-reusable-group-of-files-that-can-be-included-in-other-qbs-files">How do I define a reusable Group of files that can be included in other Qbs files?</a></li>
+<li class="level1"><a href="#how-do-i-access-properties-of-a-base-type">How do I access properties of a base type?</a></li>
 <li class="level1"><a href="#how-do-i-print-the-value-of-a-property">How do I print the value of a property?</a></li>
 <li class="level1"><a href="#how-do-i-debug-qbs-scripts">How do I debug Qbs scripts?</a></li>
 <li class="level1"><a href="#how-do-i-sign-an-application-for-an-apple-platform">How do I sign an application for an Apple platform?</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<h1 class="title">How-tos</h1>
+<div class="content"><h1 class="title">How-tos</h1>
 <span class="subtitle"></span>
 <!-- $$$howtos.html-description -->
 <div class="descr"> <a name="details"></a>
@@ -139,6 +138,8 @@
 /docs/howtos/#how-do-i-add-qml-files-to-a-project">How do I add QML files to a project?</a></li>
 <li><a href="https://qbs.io
 /docs/howtos/#how-do-i-define-a-reusable-group-of-files-that-can-be-included-in-other-qbs-files">How do I define a reusable Group of files that can be included in other Qbs files?</a></li>
+<li><a href="https://qbs.io
+/docs/howtos/#how-do-i-access-properties-of-a-base-type">How do I access properties of a base type?</a></li>
 <li><a href="https://qbs.io
 /docs/howtos/#how-do-i-print-the-value-of-a-property">How do I print the value of a property?</a></li>
 <li><a href="https://qbs.io
@@ -197,7 +198,8 @@ $ qbs</pre>
 <p>To build <code>"the-lib"</code> as either a dynamic or static library, depending on how Qt was built, you can use the following code:</p>
 <pre class="cpp">Product {
     name: <span class="string">"the-lib"</span>
-    type: <span class="type">Qt</span><span class="operator">.</span>core<span class="operator">.</span>staticBuild <span class="operator">?</span> <span class="string">"staticlibrary"</span> : <span class="string">"dynamiclibrary"</span>
+    type: <span class="type"><a href="https://qbs.io
+/docs/qml-qbsmoduleproviders-qt/">Qt</a></span><span class="operator">.</span>core<span class="operator">.</span>staticBuild <span class="operator">?</span> <span class="string">"staticlibrary"</span> : <span class="string">"dynamiclibrary"</span>
 
     Depends { name: <span class="string">"Qt.core"</span> }
     <span class="comment">// ...</span>
@@ -642,6 +644,25 @@ $ qbs config profiles<span class="operator">.</span>myprofile<span class="operat
 
     QmlUiFiles {}
 }</pre>
+<a name="how-do-i-access-properties-of-a-base-type"></a>
+<h2 id="how-do-i-access-properties-of-a-base-type">How do I access properties of a base type?</h2>
+<p>You can use the <a href="https://qbs.io
+/docs/qml-qbslanguageitems-module/#base">base</a> property. For example, to append to a list of files that come from the base type, you can use <code>base.concat()</code>:</p>
+<pre class="cpp"><span class="comment">// TestBase.qbs</span>
+
+<span class="type"><a href="https://qbs.io
+/docs/qml-qbsconvenienceitems-qtguiapplication/">QtGuiApplication</a></span> {
+    files: <span class="operator">[</span>
+        <span class="string">"TestCaseBase.h"</span><span class="operator">,</span>
+        <span class="string">"TestCaseBase.cpp"</span>
+    <span class="operator">]</span>
+}</pre>
+<pre class="cpp"><span class="comment">// tst_stuff.qbs</span>
+TestBase {
+    files: base<span class="operator">.</span>concat(<span class="operator">[</span><span class="string">"tst_stuff.cpp"</span><span class="operator">]</span>)
+}</pre>
+<p>See <a href="https://qbs.io
+/docs/qml-qbslanguageitems-module/#special-property-values">Special Property Values</a> for more details.</p>
 <a name="how-do-i-print-the-value-of-a-property"></a>
 <h2 id="how-do-i-print-the-value-of-a-property">How do I print the value of a property?</h2>
 <p>Use the <a href="https://qbs.io
@@ -698,7 +719,7 @@ codesign<span class="operator">.</span>teamIdentifier: <span class="string">"Joh
 <a class="nextPage" href="https://qbs.io
 /docs/reference/">Reference</a>
 </p>
-
+</div>
 
 
     </article>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QtHelpProject version="1.0">
-    <namespace>org.qt-project.qbs.1210</namespace>
+    <namespace>org.qt-project.qbs.1220</namespace>
     <virtualFolder>doc</virtualFolder>
     <metaData name="version" value=""/>
-    <customFilter name="Qbs 1.21.0">
-        <filterAttribute>1.21.0</filterAttribute>
+    <customFilter name="Qbs 1.22.0">
+        <filterAttribute>1.22.0</filterAttribute>
         <filterAttribute>qbs</filterAttribute>
     </customFilter>
     <filterSection>
-        <filterAttribute>1.21.0</filterAttribute>
+        <filterAttribute>1.22.0</filterAttribute>
         <filterAttribute>qbs</filterAttribute>
         <toc>
             <section ref="index.html" title="Qbs">
@@ -40,6 +40,7 @@
                     <section ref="list-of-builtin-services.html" title="List of Built-in Services"/>
                     <section ref="cli.html" title="Command-Line Interface"/>
                     <section ref="qbsmodules-qmlmodule.html" title="List of Modules"/>
+                    <section ref="qbsmoduleproviders-qmlmodule.html" title="List of Module Providers"/>
                     <section ref="commands.html" title="Command and JavaScriptCommand"/>
                 </section>
                 <section ref="building-qbs.html" title="Appendix A: Building Qbs"/>
@@ -110,6 +111,7 @@
             <keyword name="List of Built-in Services" id="List of Built-in Services" ref="list-of-builtin-services.html"/>
             <keyword name="List of Convenience Items" id="List of Convenience Items" ref="qbsconvenienceitems-qmlmodule.html"/>
             <keyword name="List of Language Items" id="List of Language Items" ref="qbslanguageitems-qmlmodule.html"/>
+            <keyword name="List of Module Providers" id="List of Module Providers" ref="qbsmoduleproviders-qmlmodule.html"/>
             <keyword name="List of Modules" id="List of Modules" ref="qbsmodules-qmlmodule.html"/>
             <keyword name="List of Probes" id="List of Probes" ref="qbsprobes-qmlmodule.html"/>
             <keyword name="LoadableModule" id="QML.LoadableModule" ref="qml-qbsconvenienceitems-loadablemodule.html"/>
@@ -174,6 +176,7 @@
             <keyword name="QML.SubProject" id="QML.SubProject" ref="qml-qbslanguageitems-subproject.html"/>
             <keyword name="QML.XPCService" id="QML.XPCService" ref="qml-qbsconvenienceitems-xpcservice.html"/>
             <keyword name="Qbs Manual" id="Qbs Manual" ref="index.html"/>
+            <keyword name="Qt" id="QML.Qt" ref="qml-qbsmoduleproviders-qt.html"/>
             <keyword name="Qt Modules" id="Qt Modules" ref="qt-modules.html"/>
             <keyword name="Qt.android_support" id="QML.Qt.android_support" ref="qml-qbsmodules-qt-android-support.html"/>
             <keyword name="Qt.core" id="QML.Qt.core" ref="qml-qbsmodules-qt-core.html"/>
@@ -388,6 +391,7 @@
             <keyword name="desktopKeys" id="freedesktop::desktopKeys" ref="qml-qbsmodules-freedesktop.html#desktopKeys-prop"/>
             <keyword name="destinationDirectory" id="Product::destinationDirectory" ref="qml-qbslanguageitems-product.html#destinationDirectory-prop"/>
             <keyword name="developerPath" id="xcode::developerPath" ref="qml-qbsmodules-xcode.html#developerPath-prop"/>
+            <keyword name="dexCompilerName" id="Android.sdk::dexCompilerName" ref="qml-qbsmodules-android-sdk.html#dexCompilerName-prop"/>
             <keyword name="dict" id="texttemplate::dict" ref="qml-qbsmodules-texttemplate.html#dict-prop"/>
             <keyword name="disableConfig" id="nsis::disableConfig" ref="qml-qbsmodules-nsis.html#disableConfig-prop"/>
             <keyword name="discardUnusedData" id="cpp::discardUnusedData" ref="qml-qbsmodules-cpp.html#discardUnusedData-prop"/>
@@ -442,6 +446,7 @@
             <keyword name="executable" id="ConanfileProbe::executable" ref="qml-qbsprobes-conanfileprobe.html#executable-prop"/>
             <keyword name="executable" id="PkgConfigProbe::executable" ref="qml-qbsprobes-pkgconfigprobe.html#executable-prop"/>
             <keyword name="executableFilePath" id="pkgconfig::executableFilePath" ref="qml-qbsmodules-pkgconfig.html#executableFilePath-prop"/>
+            <keyword name="executableFilePath" id="qbspkgconfig::executableFilePath" ref="qml-qbsmoduleproviders-qbspkgconfig.html#executableFilePath-prop"/>
             <keyword name="executableFolderPath" id="bundle::executableFolderPath" ref="qml-qbsmodules-bundle.html#executableFolderPath-prop"/>
             <keyword name="executablePath" id="bundle::executablePath" ref="qml-qbsmodules-bundle.html#executablePath-prop"/>
             <keyword name="executablePrefix" id="cpp::executablePrefix" ref="qml-qbsmodules-cpp.html#executablePrefix-prop"/>
@@ -454,6 +459,7 @@
             <keyword name="extensions" id="wix::extensions" ref="qml-qbsmodules-wix.html#extensions-prop"/>
             <keyword name="extraLibs" id="Qt.android_support::extraLibs" ref="qml-qbsmodules-qt-android-support.html#extraLibs-prop"/>
             <keyword name="extraMetaTypesFiles" id="Qt.qml::extraMetaTypesFiles" ref="qml-qbsmodules-qt-qml.html#extraMetaTypesFiles-prop"/>
+            <keyword name="extraPaths" id="qbspkgconfig::extraPaths" ref="qml-qbsmoduleproviders-qbspkgconfig.html#extraPaths-prop"/>
             <keyword name="extraPlugins" id="Qt.android_support::extraPlugins" ref="qml-qbsmodules-qt-android-support.html#extraPlugins-prop"/>
             <keyword name="fileName" id="Exporter.pkgconfig::fileName" ref="qml-qbsmodules-exporter-pkgconfig.html#fileName-prop"/>
             <keyword name="fileName" id="Exporter.qbs::fileName" ref="qml-qbsmodules-exporter-qbs.html#fileName-prop"/>
@@ -587,6 +593,7 @@
             <keyword name="lex_yacc" id="QML.lex_yacc" ref="qml-qbsmodules-lex-yacc.html"/>
             <keyword name="libDirs" id="PkgConfigProbe::libDirs" ref="qml-qbsprobes-pkgconfigprobe.html#libDirs-prop"/>
             <keyword name="libDirs" id="pkgconfig::libDirs" ref="qml-qbsmodules-pkgconfig.html#libDirs-prop"/>
+            <keyword name="libDirs" id="qbspkgconfig::libDirs" ref="qml-qbsmoduleproviders-qbspkgconfig.html#libDirs-prop"/>
             <keyword name="libInfix" id="Qt.core::libInfix" ref="qml-qbsmodules-qt-core.html#libInfix-prop"/>
             <keyword name="libPath" id="Qt.core::libPath" ref="qml-qbsmodules-qt-core.html#libPath-prop"/>
             <keyword name="libraries" id="PkgConfigProbe::libraries" ref="qml-qbsprobes-pkgconfigprobe.html#libraries-prop"/>
@@ -630,6 +637,7 @@
             <keyword name="manifestClassPath" id="java::manifestClassPath" ref="qml-qbsmodules-java.html#manifestClassPath-prop"/>
             <keyword name="manifestFile" id="Android.sdk::manifestFile" ref="qml-qbsmodules-android-sdk.html#manifestFile-prop"/>
             <keyword name="maxVersion" id="PkgConfigProbe::maxVersion" ref="qml-qbsprobes-pkgconfigprobe.html#maxVersion-prop"/>
+            <keyword name="mergeDependencies" id="qbspkgconfig::mergeDependencies" ref="qml-qbsmoduleproviders-qbspkgconfig.html#mergeDependencies-prop"/>
             <keyword name="metaTypesInstallDir" id="Qt.core::metaTypesInstallDir" ref="qml-qbsmodules-qt-core.html#metaTypesInstallDir-prop"/>
             <keyword name="minVersion" id="PkgConfigProbe::minVersion" ref="qml-qbsprobes-pkgconfigprobe.html#minVersion-prop"/>
             <keyword name="minimumIosVersion" id="cpp::minimumIosVersion" ref="qml-qbsmodules-cpp.html#minimumIosVersion-prop"/>
@@ -741,11 +749,15 @@
             <keyword name="publicHeaders" id="bundle::publicHeaders" ref="qml-qbsmodules-bundle.html#publicHeaders-prop"/>
             <keyword name="publicHeadersFolderPath" id="bundle::publicHeadersFolderPath" ref="qml-qbsmodules-bundle.html#publicHeadersFolderPath-prop"/>
             <keyword name="qbs" id="QML.qbs" ref="qml-qbsmodules-qbs.html"/>
+            <keyword name="qbsModuleProviders" id="Product::qbsModuleProviders" ref="qml-qbslanguageitems-product.html#qbsModuleProviders-prop"/>
+            <keyword name="qbsModuleProviders" id="Project::qbsModuleProviders" ref="qml-qbslanguageitems-project.html#qbsModuleProviders-prop"/>
             <keyword name="qbsSearchPaths" id="Product::qbsSearchPaths" ref="qml-qbslanguageitems-product.html#qbsSearchPaths-prop"/>
             <keyword name="qbsSearchPaths" id="Project::qbsSearchPaths" ref="qml-qbslanguageitems-project.html#qbsSearchPaths-prop"/>
+            <keyword name="qbspkgconfig" id="QML.qbspkgconfig" ref="qml-qbsmoduleproviders-qbspkgconfig.html"/>
             <keyword name="qdocEnvironment" id="Qt.core::qdocEnvironment" ref="qml-qbsmodules-qt-core.html#qdocEnvironment-prop"/>
             <keyword name="qdocName" id="Qt.core::qdocName" ref="qml-qbsmodules-qt-core.html#qdocName-prop"/>
             <keyword name="qmBaseName" id="Qt.core::qmBaseName" ref="qml-qbsmodules-qt-core.html#qmBaseName-prop"/>
+            <keyword name="qmakeFilePaths" id="Qt::qmakeFilePaths" ref="qml-qbsmoduleproviders-qt.html#qmakeFilePaths-prop"/>
             <keyword name="qmlCacheGenPath" id="Qt.qml::qmlCacheGenPath" ref="qml-qbsmodules-qt-qml.html#qmlCacheGenPath-prop"/>
             <keyword name="qmlDebugging" id="Qt.declarative::qmlDebugging" ref="qml-qbsmodules-qt-declarative.html#qmlDebugging-prop"/>
             <keyword name="qmlDebugging" id="Qt.quick::qmlDebugging" ref="qml-qbsmodules-qt-quick.html#qmlDebugging-prop"/>
@@ -827,6 +839,7 @@
             <keyword name="staticLibraryPrefix" id="cpp::staticLibraryPrefix" ref="qml-qbsmodules-cpp.html#staticLibraryPrefix-prop"/>
             <keyword name="staticLibrarySuffix" id="cpp::staticLibrarySuffix" ref="qml-qbsmodules-cpp.html#staticLibrarySuffix-prop"/>
             <keyword name="staticMode" id="pkgconfig::staticMode" ref="qml-qbsmodules-pkgconfig.html#staticMode-prop"/>
+            <keyword name="staticMode" id="qbspkgconfig::staticMode" ref="qml-qbsmoduleproviders-qbspkgconfig.html#staticMode-prop"/>
             <keyword name="status" id="status" ref="cli-status.html"/>
             <keyword name="stripComments" id="typescript::stripComments" ref="qml-qbsmodules-typescript.html#stripComments-prop"/>
             <keyword name="stripName" id="cpp::stripName" ref="qml-qbsmodules-cpp.html#stripName-prop"/>
@@ -837,6 +850,7 @@
             <keyword name="sysroot" id="PkgConfigProbe::sysroot" ref="qml-qbsprobes-pkgconfigprobe.html#sysroot-prop"/>
             <keyword name="sysroot" id="pkgconfig::sysroot" ref="qml-qbsmodules-pkgconfig.html#sysroot-prop"/>
             <keyword name="sysroot" id="qbs::sysroot" ref="qml-qbsmodules-qbs.html#sysroot-prop"/>
+            <keyword name="sysroot" id="qbspkgconfig::sysroot" ref="qml-qbsmoduleproviders-qbspkgconfig.html#sysroot-prop"/>
             <keyword name="systemFrameworkPaths" id="cpp::systemFrameworkPaths" ref="qml-qbsmodules-cpp.html#systemFrameworkPaths-prop"/>
             <keyword name="systemIncludePaths" id="cpp::systemIncludePaths" ref="qml-qbsmodules-cpp.html#systemIncludePaths-prop"/>
             <keyword name="systemRunPaths" id="cpp::systemRunPaths" ref="qml-qbsmodules-cpp.html#systemRunPaths-prop"/>
@@ -891,6 +905,7 @@
             <keyword name="validate" id="Module::validate" ref="qml-qbslanguageitems-module.html#validate-prop"/>
             <keyword name="variantSuffix" id="cpp::variantSuffix" ref="qml-qbsmodules-cpp.html#variantSuffix-prop"/>
             <keyword name="vcs" id="QML.vcs" ref="qml-qbsmodules-vcs.html"/>
+            <keyword name="verbose" id="ConanfileProbe::verbose" ref="qml-qbsprobes-conanfileprobe.html#verbose-prop"/>
             <keyword name="verboseAndroidDeployQt" id="Qt.android_support::verboseAndroidDeployQt" ref="qml-qbsmodules-qt-android-support.html#verboseAndroidDeployQt-prop"/>
             <keyword name="verboseOutput" id="innosetup::verboseOutput" ref="qml-qbsmodules-innosetup.html#verboseOutput-prop"/>
             <keyword name="verboseOutput" id="wix::verboseOutput" ref="qml-qbsmodules-wix.html#verboseOutput-prop"/>
@@ -1056,6 +1071,7 @@
             <file>qbs-target-windows.html</file>
             <file>qbsconvenienceitems-qmlmodule.html</file>
             <file>qbslanguageitems-qmlmodule.html</file>
+            <file>qbsmoduleproviders-qmlmodule.html</file>
             <file>qbsmodules-qmlmodule.html</file>
             <file>qbsprobes-qmlmodule.html</file>
             <file>qml-qbsconvenienceitems-appleapplicationdiskimage-members.html</file>
@@ -1130,6 +1146,10 @@
             <file>qml-qbslanguageitems-scanner.html</file>
             <file>qml-qbslanguageitems-subproject-members.html</file>
             <file>qml-qbslanguageitems-subproject.html</file>
+            <file>qml-qbsmoduleproviders-qbspkgconfig-members.html</file>
+            <file>qml-qbsmoduleproviders-qbspkgconfig.html</file>
+            <file>qml-qbsmoduleproviders-qt-members.html</file>
+            <file>qml-qbsmoduleproviders-qt.html</file>
             <file>qml-qbsmodules-android-ndk-members.html</file>
             <file>qml-qbsmodules-android-ndk.html</file>
             <file>qml-qbsmodules-android-sdk-members.html</file>

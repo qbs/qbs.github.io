@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Qbs 1.21.0 Contents  Properties Detailed Description Installation Properties Multiplexing Properties    qbs QML Type  Comprises general properties. More...
+    <meta name="description" content="Qbs Manual Qbs 1.22.0 Contents  Properties Detailed Description Installation Properties Multiplexing Properties    qbs QML Type  Comprises general properties. More...
 Import Statement:import QbsModules .Since:Qbs 1.0 List of all members, including inherited members   Properties  architecture : string architectures : stringList buildVariant : string buildVariants : stringList configurationName : string debugInformation : bool enableDebugCode : bool hostArchitecture : string hostOS : stringList hostOSBuildVersion : string hostOSVersion : string hostOSVersionMajor : int hostOSVersionMinor : int hostOSVersionParts : list hostOSVersionPatch : int hostPlatform : string install : bool installDir : string installPrefix : string installRoot : string installSourceBase : string nullDevice : string optimization : string pathListSeparator : string profiles : stringList shellPath : path sysroot : string targetOS : stringList targetPlatform : string toolchain : stringList toolchainType : string version : string versionMajor : int versionMinor : int versionPatch : int   Detailed Description The qbs module is implicitly loaded in every product. ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-qbs/" />
 
@@ -14,21 +14,19 @@ Import Statement:import QbsModules .Since:Qbs 1.0 List of all members, including
 
     
       
-      <link rel="stylesheet" href="/css/main.min.4b4afe3bc3ac46250ed86d95bc0261be3c962560258ab862147fc09704f82464.css" integrity="sha256-S0r+O8OsRiUO2G2VvAJhvjyWJWAlirhiFH/AlwT4JGQ="/>
+      <link rel="stylesheet" href="/css/main.min.8d3c37775671d5f5d2a55d5b302afe6f02c723d07f8fe4cd09ec33098122f4fd.css" integrity="sha256-jTw3d1Zx1fXSpV1bMCr+bwLHI9B/j+TNCewzCYEi9P0="/>
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Qbs 1.21.0 Contents  Properties Detailed Description Installation Properties Multiplexing Properties    qbs QML Type  Comprises general properties. More...
+<meta property="og:description" content="Qbs Manual Qbs 1.22.0 Contents  Properties Detailed Description Installation Properties Multiplexing Properties    qbs QML Type  Comprises general properties. More...
 Import Statement:import QbsModules .Since:Qbs 1.0 List of all members, including inherited members   Properties  architecture : string architectures : stringList buildVariant : string buildVariants : stringList configurationName : string debugInformation : bool enableDebugCode : bool hostArchitecture : string hostOS : stringList hostOSBuildVersion : string hostOSVersion : string hostOSVersionMajor : int hostOSVersionMinor : int hostOSVersionParts : list hostOSVersionPatch : int hostPlatform : string install : bool installDir : string installPrefix : string installRoot : string installSourceBase : string nullDevice : string optimization : string pathListSeparator : string profiles : stringList shellPath : path sysroot : string targetOS : stringList targetPlatform : string toolchain : stringList toolchainType : string version : string versionMajor : int versionMinor : int versionPatch : int   Detailed Description The qbs module is implicitly loaded in every product." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-qbs/" /><meta property="article:section" content="docs" />
-
-
+<meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-qbs/" />
 
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Qbs 1.21.0 Contents  Properties Detailed Description Installation Properties Multiplexing Properties    qbs QML Type  Comprises general properties. More...
+<meta name="twitter:description" content="Qbs Manual Qbs 1.22.0 Contents  Properties Detailed Description Installation Properties Multiplexing Properties    qbs QML Type  Comprises general properties. More...
 Import Statement:import QbsModules .Since:Qbs 1.0 List of all members, including inherited members   Properties  architecture : string architectures : stringList buildVariant : string buildVariants : stringList configurationName : string debugInformation : bool enableDebugCode : bool hostArchitecture : string hostOS : stringList hostOSBuildVersion : string hostOSVersion : string hostOSVersionMajor : int hostOSVersionMinor : int hostOSVersionParts : list hostOSVersionPatch : int hostPlatform : string install : bool installDir : string installPrefix : string installRoot : string installSourceBase : string nullDevice : string optimization : string pathListSeparator : string profiles : stringList shellPath : path sysroot : string targetOS : stringList targetPlatform : string toolchain : stringList toolchainType : string version : string versionMajor : int versionMinor : int versionPatch : int   Detailed Description The qbs module is implicitly loaded in every product."/>
 
 </head>
@@ -55,11 +53,11 @@ Import Statement:import QbsModules .Since:Qbs 1.0 List of all members, including
     </div>
 </header><main>
 <div class="centre-outer">
-    <article class="centre-inner docs" >
+    <article class="centre-inner docs">
     
 <li><a href="https://qbs.io
 /docs">Qbs Manual</a></li>
-<li id="buildversion">Qbs 1.21.0</li>
+<li id="buildversion">Qbs 1.22.0</li>
 <div class="sidebar">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
@@ -71,7 +69,7 @@ Import Statement:import QbsModules .Since:Qbs 1.0 List of all members, including
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<h1 class="title">qbs QML Type</h1>
+<div class="content"><h1 class="title">qbs QML Type</h1>
 <span class="subtitle"></span>
 <!-- $$$qbs-brief -->
 <p>Comprises general properties. <a href="#details">More...</a></p>
@@ -222,34 +220,35 @@ Import Statement:import QbsModules .Since:Qbs 1.0 List of all members, including
 <tr valign="top" class="odd"><td><code>"avr32"</code></td><td>32-bit RISC architecture microcontroller family developed by Atmel</td></tr>
 <tr valign="top" class="even"><td><code>"c166"</code></td><td>16-bit architecture microcontroller family developed by Infineon</td></tr>
 <tr valign="top" class="odd"><td><code>"cr16"</code></td><td>16-bit compact RISC architecture microcontroller family developed by National Semiconductor</td></tr>
-<tr valign="top" class="even"><td><code>"hcs8"</code></td><td>8-bit HC08 and S08 microcontroller family from Freescale Semiconductor</td></tr>
-<tr valign="top" class="odd"><td><code>"hcs12"</code></td><td>16-bit HC12 and S12 microcontroller family from Freescale Semiconductor</td></tr>
-<tr valign="top" class="even"><td><code>"ia64"</code></td><td>64-bit ISA architecture of the Itanium family processors developed by Intel</td></tr>
-<tr valign="top" class="odd"><td><code>"m16c"</code></td><td>16-bit CISC microcontrollers featuring high ROM code efficiency manufactured by Renesas Electronics</td></tr>
-<tr valign="top" class="even"><td><code>"m32c"</code></td><td>32- and 16-bit CISC microcontrollers featuring high ROM code efficiency manufactured by Renesas Electronics</td></tr>
-<tr valign="top" class="odd"><td><code>"m32r"</code></td><td>32-bit RISC microcontrollers for general industrial and car-mounted systems, digital AV equipment, digital imaging equipment manufactured by Renesas Electronics</td></tr>
-<tr valign="top" class="even"><td><code>"m68k"</code></td><td>16- and 32-bit CISC microprocessor, developed by Motorola Semiconductor Products Sector, and further improved as ColdFire architecture developed by NXP</td></tr>
-<tr valign="top" class="odd"><td><code>"mcs251"</code></td><td>8-, 16-, and 32-bit microcontroller family which is a next binary compatible generation for the <code>"mcs51"</code> family</td></tr>
-<tr valign="top" class="even"><td><code>"mcs51"</code></td><td>8-bit Harvard architecture microcontroller family developed by Intel</td></tr>
-<tr valign="top" class="odd"><td><code>"mips"</code></td><td>32-bit RISC microprocessor without interlocked pipelined stages architecture developed by MIPS Computer Systems</td></tr>
-<tr valign="top" class="even"><td><code>"mips64"</code></td><td>64-bit RISC microprocessor without interlocked pipelined stages architecture developed by MIPS Computer Systems</td></tr>
-<tr valign="top" class="odd"><td><code>"msp430"</code></td><td>16-bit mixed-signal microcontroller family manufactured by Texas Instruments</td></tr>
-<tr valign="top" class="even"><td><code>"ppc"</code></td><td>32-bit RISC architecture processor family developed by Apple–IBM–Motorola alliance</td></tr>
-<tr valign="top" class="odd"><td><code>"ppc64"</code></td><td>64-bit RISC architecture processor family developed by Apple–IBM–Motorola alliance</td></tr>
-<tr valign="top" class="even"><td><code>"r32c"</code></td><td>32-bit CISC microcontrollers with improved code efficiency and processing performance manufactured by Renesas Electronics</td></tr>
-<tr valign="top" class="odd"><td><code>"rh850"</code></td><td>32-bit automotive microcontroller family manufactured by Renesas Electronics</td></tr>
-<tr valign="top" class="even"><td><code>"riscv"</code></td><td>Open and free standard instruction set architecture based on established RISC principles</td></tr>
-<tr valign="top" class="odd"><td><code>"rl78"</code></td><td>16- and 8-bit accumulator-based register-bank CISC architecture with 3-stage instruction pipelining microcontroller family manufactured by Renesas Electronics</td></tr>
-<tr valign="top" class="even"><td><code>"rx"</code></td><td>High performance 32-bit CISC microcontroller family manufactured by Renesas Electronics</td></tr>
-<tr valign="top" class="odd"><td><code>"s390x"</code></td><td>64- and 32-bit System/390 processor architecture developed by IBM</td></tr>
-<tr valign="top" class="even"><td><code>"sh"</code></td><td>32-bit RISC architecture processor family developed by Hitachi and currently manufactured by Renesas Electronics</td></tr>
-<tr valign="top" class="odd"><td><code>"sparc"</code></td><td>32-bit RISC architecture processor family developed by Sun Microsystems and Fujitsu</td></tr>
-<tr valign="top" class="even"><td><code>"sparc64"</code></td><td>64-bit RISC architecture processor family developed by Sun Microsystems and Fujitsu</td></tr>
-<tr valign="top" class="odd"><td><code>"stm8"</code></td><td>8-bit microcontroller family manufactured by STMicroelectronics</td></tr>
-<tr valign="top" class="even"><td><code>"v850"</code></td><td>32-bit RISC microcontroller family manufactured by Renesas Electronics</td></tr>
-<tr valign="top" class="odd"><td><code>"x86"</code></td><td>32-bit ISA architecture processor family developed by Intel</td></tr>
-<tr valign="top" class="even"><td><code>"x86_64"</code></td><td>64-bit ISA architecture processor family developed by AMD</td></tr>
-<tr valign="top" class="odd"><td><code>"xtensa"</code></td><td>32-bit architecture with a compact 16- and 24-bit instruction set developed by Tensilica</td></tr>
+<tr valign="top" class="even"><td><code>"e2k"</code></td><td>512-bit Russian wide VLIW microprocessor developed by Moscow Center of SPARC Technologies (MCST) and fabricated by TSMC</td></tr>
+<tr valign="top" class="odd"><td><code>"hcs8"</code></td><td>8-bit HC08 and S08 microcontroller family from Freescale Semiconductor</td></tr>
+<tr valign="top" class="even"><td><code>"hcs12"</code></td><td>16-bit HC12 and S12 microcontroller family from Freescale Semiconductor</td></tr>
+<tr valign="top" class="odd"><td><code>"ia64"</code></td><td>64-bit ISA architecture of the Itanium family processors developed by Intel</td></tr>
+<tr valign="top" class="even"><td><code>"m16c"</code></td><td>16-bit CISC microcontrollers featuring high ROM code efficiency manufactured by Renesas Electronics</td></tr>
+<tr valign="top" class="odd"><td><code>"m32c"</code></td><td>32- and 16-bit CISC microcontrollers featuring high ROM code efficiency manufactured by Renesas Electronics</td></tr>
+<tr valign="top" class="even"><td><code>"m32r"</code></td><td>32-bit RISC microcontrollers for general industrial and car-mounted systems, digital AV equipment, digital imaging equipment manufactured by Renesas Electronics</td></tr>
+<tr valign="top" class="odd"><td><code>"m68k"</code></td><td>16- and 32-bit CISC microprocessor, developed by Motorola Semiconductor Products Sector, and further improved as ColdFire architecture developed by NXP</td></tr>
+<tr valign="top" class="even"><td><code>"mcs251"</code></td><td>8-, 16-, and 32-bit microcontroller family which is a next binary compatible generation for the <code>"mcs51"</code> family</td></tr>
+<tr valign="top" class="odd"><td><code>"mcs51"</code></td><td>8-bit Harvard architecture microcontroller family developed by Intel</td></tr>
+<tr valign="top" class="even"><td><code>"mips"</code></td><td>32-bit RISC microprocessor without interlocked pipelined stages architecture developed by MIPS Computer Systems</td></tr>
+<tr valign="top" class="odd"><td><code>"mips64"</code></td><td>64-bit RISC microprocessor without interlocked pipelined stages architecture developed by MIPS Computer Systems</td></tr>
+<tr valign="top" class="even"><td><code>"msp430"</code></td><td>16-bit mixed-signal microcontroller family manufactured by Texas Instruments</td></tr>
+<tr valign="top" class="odd"><td><code>"ppc"</code></td><td>32-bit RISC architecture processor family developed by Apple–IBM–Motorola alliance</td></tr>
+<tr valign="top" class="even"><td><code>"ppc64"</code></td><td>64-bit RISC architecture processor family developed by Apple–IBM–Motorola alliance</td></tr>
+<tr valign="top" class="odd"><td><code>"r32c"</code></td><td>32-bit CISC microcontrollers with improved code efficiency and processing performance manufactured by Renesas Electronics</td></tr>
+<tr valign="top" class="even"><td><code>"rh850"</code></td><td>32-bit automotive microcontroller family manufactured by Renesas Electronics</td></tr>
+<tr valign="top" class="odd"><td><code>"riscv"</code></td><td>Open and free standard instruction set architecture based on established RISC principles</td></tr>
+<tr valign="top" class="even"><td><code>"rl78"</code></td><td>16- and 8-bit accumulator-based register-bank CISC architecture with 3-stage instruction pipelining microcontroller family manufactured by Renesas Electronics</td></tr>
+<tr valign="top" class="odd"><td><code>"rx"</code></td><td>High performance 32-bit CISC microcontroller family manufactured by Renesas Electronics</td></tr>
+<tr valign="top" class="even"><td><code>"s390x"</code></td><td>64- and 32-bit System/390 processor architecture developed by IBM</td></tr>
+<tr valign="top" class="odd"><td><code>"sh"</code></td><td>32-bit RISC architecture processor family developed by Hitachi and currently manufactured by Renesas Electronics</td></tr>
+<tr valign="top" class="even"><td><code>"sparc"</code></td><td>32-bit RISC architecture processor family developed by Sun Microsystems and Fujitsu</td></tr>
+<tr valign="top" class="odd"><td><code>"sparc64"</code></td><td>64-bit RISC architecture processor family developed by Sun Microsystems and Fujitsu</td></tr>
+<tr valign="top" class="even"><td><code>"stm8"</code></td><td>8-bit microcontroller family manufactured by STMicroelectronics</td></tr>
+<tr valign="top" class="odd"><td><code>"v850"</code></td><td>32-bit RISC microcontroller family manufactured by Renesas Electronics</td></tr>
+<tr valign="top" class="even"><td><code>"x86"</code></td><td>32-bit ISA architecture processor family developed by Intel</td></tr>
+<tr valign="top" class="odd"><td><code>"x86_64"</code></td><td>64-bit ISA architecture processor family developed by AMD</td></tr>
+<tr valign="top" class="even"><td><code>"xtensa"</code></td><td>32-bit architecture with a compact 16- and 24-bit instruction set developed by Tensilica</td></tr>
 </tbody></table></div>
 <p>Default: Undefined</p>
 </div></div><!-- @@@architecture -->
@@ -651,7 +650,7 @@ Properties {
 <p>This property was introduced in Qbs 1.4.1.</p>
 </div></div><!-- @@@versionPatch -->
 <br>
-
+</div>
 
 
     </article>

@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Introduction Qbs 1.21.0 Qbs Manual Setup  Contents  Features Declarative Paradigm Well-Defined Language Platform and Programming Language Independence Correct and Fast Incremental Builds Extensible Architecture IDE Integration Qt Creator Visual Studio Code Build Process    Introduction   Qbs is a build automation tool designed to conveniently manage the build process of software projects across multiple platforms.
+    <meta name="description" content="Qbs Manual Introduction Qbs 1.22.0 Qbs Manual Setup  Contents  Features Declarative Paradigm Well-Defined Language Platform and Programming Language Independence Correct and Fast Incremental Builds Extensible Architecture IDE Integration Qt Creator Visual Studio Code Build Process    Introduction   Qbs is a build automation tool designed to conveniently manage the build process of software projects across multiple platforms.
  Features Qbs provides the following benefits: ">
     <link rel="canonical" href="https://qbs.io/docs/overview/" />
 
@@ -14,21 +14,19 @@
 
     
       
-      <link rel="stylesheet" href="/css/main.min.4b4afe3bc3ac46250ed86d95bc0261be3c962560258ab862147fc09704f82464.css" integrity="sha256-S0r+O8OsRiUO2G2VvAJhvjyWJWAlirhiFH/AlwT4JGQ="/>
+      <link rel="stylesheet" href="/css/main.min.8d3c37775671d5f5d2a55d5b302afe6f02c723d07f8fe4cd09ec33098122f4fd.css" integrity="sha256-jTw3d1Zx1fXSpV1bMCr+bwLHI9B/j+TNCewzCYEi9P0="/>
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Introduction Qbs 1.21.0 Qbs Manual Setup  Contents  Features Declarative Paradigm Well-Defined Language Platform and Programming Language Independence Correct and Fast Incremental Builds Extensible Architecture IDE Integration Qt Creator Visual Studio Code Build Process    Introduction   Qbs is a build automation tool designed to conveniently manage the build process of software projects across multiple platforms.
+<meta property="og:description" content="Qbs Manual Introduction Qbs 1.22.0 Qbs Manual Setup  Contents  Features Declarative Paradigm Well-Defined Language Platform and Programming Language Independence Correct and Fast Incremental Builds Extensible Architecture IDE Integration Qt Creator Visual Studio Code Build Process    Introduction   Qbs is a build automation tool designed to conveniently manage the build process of software projects across multiple platforms.
  Features Qbs provides the following benefits:" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://qbs.io/docs/overview/" /><meta property="article:section" content="docs" />
-
-
+<meta property="og:url" content="https://qbs.io/docs/overview/" />
 
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Introduction Qbs 1.21.0 Qbs Manual Setup  Contents  Features Declarative Paradigm Well-Defined Language Platform and Programming Language Independence Correct and Fast Incremental Builds Extensible Architecture IDE Integration Qt Creator Visual Studio Code Build Process    Introduction   Qbs is a build automation tool designed to conveniently manage the build process of software projects across multiple platforms.
+<meta name="twitter:description" content="Qbs Manual Introduction Qbs 1.22.0 Qbs Manual Setup  Contents  Features Declarative Paradigm Well-Defined Language Platform and Programming Language Independence Correct and Fast Incremental Builds Extensible Architecture IDE Integration Qt Creator Visual Studio Code Build Process    Introduction   Qbs is a build automation tool designed to conveniently manage the build process of software projects across multiple platforms.
  Features Qbs provides the following benefits:"/>
 
 </head>
@@ -55,12 +53,12 @@
     </div>
 </header><main>
 <div class="centre-outer">
-    <article class="centre-inner docs" >
+    <article class="centre-inner docs">
     
 <li><a href="https://qbs.io
 /docs">Qbs Manual</a></li>
 <li>Introduction</li>
-<li id="buildversion">Qbs 1.21.0</li>
+<li id="buildversion">Qbs 1.22.0</li>
   <link rel="prev" href="https://qbs.io
 /docs">
   <link rel="next" href="https://qbs.io
@@ -88,7 +86,7 @@
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<h1 class="title">Introduction</h1>
+<div class="content"><h1 class="title">Introduction</h1>
 <span class="subtitle"></span>
 <!-- $$$overview.html-description -->
 <div class="descr"> <a name="details"></a>
@@ -182,7 +180,9 @@
 /docs/custom-modules/">Custom Modules and Items</a>.</p>
 <a name="ide-integration"></a>
 <h3 id="ide-integration">IDE Integration</h3>
-<p>Qbs can be used not only from the command line, but also in combination with an IDE, such as Qt Creator or Visual Studio Code. These IDEs directly support Qbs projects using the new Qbs {https://doc.qt.io/qbs/cli-session.html}{session} feature. Thus, these IDEs can retrieve all the information required to build a single file or project through a session's JSON protocol {https://doc.qt.io/qbs/json-api.html}{API}.</p>
+<p>Qbs can be used not only from the command line, but also in combination with an IDE, such as Qt Creator or Visual Studio Code. These IDEs directly support Qbs projects using the new Qbs <a href="https://qbs.io
+/docs/cli-session/">session</a> feature. Thus, these IDEs can retrieve all the information required to build a single file or project through a session's JSON protocol <a href="https://qbs.io
+/docs/json-api/">API</a>.</p>
 <p>In addition, Qbs can generate projects for Visual Studio, IAR EW, and Keil uVision, but it still is an experimental option. For more information, see <a href="https://qbs.io
 /docs/generators/">Generators</a>.</p>
 <a name="qt-creator"></a>
@@ -191,7 +191,7 @@
 <p>For more information about using Qbs to build projects from Qt Creator, see <a href="http://doc.qt.io/qtcreator/creator-project-qbs.html">Setting Up Qbs</a>.</p>
 <a name="visual-studio-code"></a>
 <h4 id="visual-studio-code">Visual Studio Code</h4>
-<p><a href="https://code.visualstudio.com/">Visual Studio Code</a> provides the {https://marketplace.visualstudio.com/items?itemName=qbs-community.qbs-tools} {qbs-community} plugin that provides accurate information about the build progress and displays a project tree that reflects the logical structure of the project. Also, it can provide low-level information, such as the file system structure.</p>
+<p><a href="https://code.visualstudio.com/">Visual Studio Code</a> provides the <a href="https://marketplace.visualstudio.com/items?itemName=qbs-community.qbs-tools">qbs-community</a> plugin that provides accurate information about the build progress and displays a project tree that reflects the logical structure of the project. Also, it can provide low-level information, such as the file system structure.</p>
 <p>For more information about using Qbs to build projects from Visual Studio Code, see <a href="https://github.com/denis-shienkov/vscode-qbs/blob/master/docs/how-to.md">How To</a>.</p>
 <a name="build-process"></a>
 <h2 id="build-process">Build Process</h2>
@@ -244,7 +244,7 @@
 <a class="nextPage" href="https://qbs.io
 /docs/setup/">Setup</a>
 </p>
-
+</div>
 
 
     </article>
