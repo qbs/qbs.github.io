@@ -3,8 +3,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual setup-toolchains Qbs 1.22.0 setup-toolchains    Synopsis qbs setup-toolchains [--settings-dir &lt;directory&gt;] [--system] --detect qbs setup-toolchains [--settings-dir &lt;directory&gt;] [--system] [--type &lt;toolchain type&gt;] &lt;compiler path&gt; &lt;profile name&gt;  Description The first form tries to auto-detect all known toolchains, looking them up via the PATH variable.
-The second form creates a profile with the name &lt;profile name&gt; for the toolchain located at &lt;compiler path&gt;. It will attempt to determine the toolchain type automatically based on the file name or the compiler executable. ">
+    <meta name="description" content="Qbs Manual setup-toolchains Qbs 1.22.0 Contents  Synopsis Description Options --settings-dir &lt;directory&gt; --system --detect --type &lt;toolchain type&gt; --help|-h|-? Examples    setup-toolchains    Synopsis qbs setup-toolchains [--settings-dir &lt;directory&gt;] [--system] --detect qbs setup-toolchains [--settings-dir &lt;directory&gt;] [--system] [--type &lt;toolchain type&gt;] &lt;compiler path&gt; &lt;profile name&gt;  Description The first form tries to auto-detect all known toolchains, looking them up via the PATH variable.
+The second form creates a profile with the name &lt;profile name&gt; for the toolchain located at &lt;compiler path&gt;. ">
     <link rel="canonical" href="https://qbs.io/docs/cli-setup-toolchains/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -14,12 +14,12 @@ The second form creates a profile with the name &lt;profile name&gt; for the too
 
     
       
-      <link rel="stylesheet" href="/css/main.min.33c0858b180bacf5dafe6dec54ead827f7abea42b5d29244820d6601eb04aca2.css" integrity="sha256-M8CFixgLrPXa/m3sVOrYJ/er6kK10pJEgg1mAesErKI="/>
+      <link rel="stylesheet" href="/css/main.min.0b28249bdde6c5167bae7490242f67232bebe677164f84b780bbeed6fe5d4c82.css" integrity="sha256-Cygkm93mxRZ7rnSQJC9nIyvr5ncWT4S3gLvu1v5dTII="/>
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual setup-toolchains Qbs 1.22.0 setup-toolchains    Synopsis qbs setup-toolchains [--settings-dir &lt;directory&gt;] [--system] --detect qbs setup-toolchains [--settings-dir &lt;directory&gt;] [--system] [--type &lt;toolchain type&gt;] &lt;compiler path&gt; &lt;profile name&gt;  Description The first form tries to auto-detect all known toolchains, looking them up via the PATH variable.
-The second form creates a profile with the name &lt;profile name&gt; for the toolchain located at &lt;compiler path&gt;. It will attempt to determine the toolchain type automatically based on the file name or the compiler executable." />
+<meta property="og:description" content="Qbs Manual setup-toolchains Qbs 1.22.0 Contents  Synopsis Description Options --settings-dir &lt;directory&gt; --system --detect --type &lt;toolchain type&gt; --help|-h|-? Examples    setup-toolchains    Synopsis qbs setup-toolchains [--settings-dir &lt;directory&gt;] [--system] --detect qbs setup-toolchains [--settings-dir &lt;directory&gt;] [--system] [--type &lt;toolchain type&gt;] &lt;compiler path&gt; &lt;profile name&gt;  Description The first form tries to auto-detect all known toolchains, looking them up via the PATH variable.
+The second form creates a profile with the name &lt;profile name&gt; for the toolchain located at &lt;compiler path&gt;." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/cli-setup-toolchains/" /><meta property="article:section" content="docs" />
 
@@ -28,8 +28,8 @@ The second form creates a profile with the name &lt;profile name&gt; for the too
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual setup-toolchains Qbs 1.22.0 setup-toolchains    Synopsis qbs setup-toolchains [--settings-dir &lt;directory&gt;] [--system] --detect qbs setup-toolchains [--settings-dir &lt;directory&gt;] [--system] [--type &lt;toolchain type&gt;] &lt;compiler path&gt; &lt;profile name&gt;  Description The first form tries to auto-detect all known toolchains, looking them up via the PATH variable.
-The second form creates a profile with the name &lt;profile name&gt; for the toolchain located at &lt;compiler path&gt;. It will attempt to determine the toolchain type automatically based on the file name or the compiler executable."/>
+<meta name="twitter:description" content="Qbs Manual setup-toolchains Qbs 1.22.0 Contents  Synopsis Description Options --settings-dir &lt;directory&gt; --system --detect --type &lt;toolchain type&gt; --help|-h|-? Examples    setup-toolchains    Synopsis qbs setup-toolchains [--settings-dir &lt;directory&gt;] [--system] --detect qbs setup-toolchains [--settings-dir &lt;directory&gt;] [--system] [--type &lt;toolchain type&gt;] &lt;compiler path&gt; &lt;profile name&gt;  Description The first form tries to auto-detect all known toolchains, looking them up via the PATH variable.
+The second form creates a profile with the name &lt;profile name&gt; for the toolchain located at &lt;compiler path&gt;."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -61,7 +61,22 @@ The second form creates a profile with the name &lt;profile name&gt; for the too
 /docs">Qbs Manual</a></li>
 <li>setup-toolchains</li>
 <li id="buildversion">Qbs 1.22.0</li>
-
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#synopsis">Synopsis</a></li>
+<li class="level1"><a href="#description">Description</a></li>
+<li class="level1"><a href="#options">Options</a></li>
+<li class="level2"><a href="#op-op-op-op-settings-op-op-dir-op-lt-op-directory-op-gt-op"><code>--settings-dir &lt;directory&gt;</code></a></li>
+<li class="level2"><a href="#op-op-op-op-system"><code>--system</code></a></li>
+<li class="level2"><a href="#op-op-op-op-detect"><code>--detect</code></a></li>
+<li class="level2"><a href="#op-op-op-op-type-op-lt-op-toolchain-type-op-gt-op"><code>--type &lt;toolchain type&gt;</code></a></li>
+<li class="level2"><a href="#op-op-op-op-help-op-op-op-op-h-op-op-op-op-op-op"><code>--help|-h|-?</code></a></li>
+<li class="level1"><a href="#examples">Examples</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
 <div class="content"><h1 class="title">setup-toolchains</h1>
 <span class="subtitle"></span>
 <!-- $$$cli-setup-toolchains.html-description -->

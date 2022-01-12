@@ -3,9 +3,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual FileInfo Service Qbs 1.22.0 FileInfo Service   The FileInfo service offers various operations on file paths, such as turning absolute paths into relative ones, splitting a path into its components, and so on.
- Available Operations  baseName FileInfo.baseName(filePath: string): string Returns the file name of filePath up to (but not including) the first &#39;.&#39; character.
- canonicalPath FileInfo.canonicalPath(filePath: string): string Returns a canonicalized filePath, i.e. an absolute path without symbolic links or redundant &#34; ">
+    <meta name="description" content="Qbs Manual FileInfo Service Qbs 1.22.0 Contents  Available Operations baseName canonicalPath cleanPath completeBaseName completeSuffix fileName fromNativeSeparators fromWindowsSeparators isAbsolutePath joinPaths path relativePath suffix toNativeSeparators toWindowsSeparators    FileInfo Service   The FileInfo service offers various operations on file paths, such as turning absolute paths into relative ones, splitting a path into its components, and so on.
+ Available Operations  baseName FileInfo.baseName(filePath: string): string Returns the file name of filePath up to (but not including) the first &#39;. ">
     <link rel="canonical" href="https://qbs.io/docs/jsextension-fileinfo/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -15,13 +14,12 @@
 
     
       
-      <link rel="stylesheet" href="/css/main.min.33c0858b180bacf5dafe6dec54ead827f7abea42b5d29244820d6601eb04aca2.css" integrity="sha256-M8CFixgLrPXa/m3sVOrYJ/er6kK10pJEgg1mAesErKI="/>
+      <link rel="stylesheet" href="/css/main.min.0b28249bdde6c5167bae7490242f67232bebe677164f84b780bbeed6fe5d4c82.css" integrity="sha256-Cygkm93mxRZ7rnSQJC9nIyvr5ncWT4S3gLvu1v5dTII="/>
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual FileInfo Service Qbs 1.22.0 FileInfo Service   The FileInfo service offers various operations on file paths, such as turning absolute paths into relative ones, splitting a path into its components, and so on.
- Available Operations  baseName FileInfo.baseName(filePath: string): string Returns the file name of filePath up to (but not including) the first &#39;.&#39; character.
- canonicalPath FileInfo.canonicalPath(filePath: string): string Returns a canonicalized filePath, i.e. an absolute path without symbolic links or redundant &#34;" />
+<meta property="og:description" content="Qbs Manual FileInfo Service Qbs 1.22.0 Contents  Available Operations baseName canonicalPath cleanPath completeBaseName completeSuffix fileName fromNativeSeparators fromWindowsSeparators isAbsolutePath joinPaths path relativePath suffix toNativeSeparators toWindowsSeparators    FileInfo Service   The FileInfo service offers various operations on file paths, such as turning absolute paths into relative ones, splitting a path into its components, and so on.
+ Available Operations  baseName FileInfo.baseName(filePath: string): string Returns the file name of filePath up to (but not including) the first &#39;." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/jsextension-fileinfo/" /><meta property="article:section" content="docs" />
 
@@ -30,9 +28,8 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual FileInfo Service Qbs 1.22.0 FileInfo Service   The FileInfo service offers various operations on file paths, such as turning absolute paths into relative ones, splitting a path into its components, and so on.
- Available Operations  baseName FileInfo.baseName(filePath: string): string Returns the file name of filePath up to (but not including) the first &#39;.&#39; character.
- canonicalPath FileInfo.canonicalPath(filePath: string): string Returns a canonicalized filePath, i.e. an absolute path without symbolic links or redundant &#34;"/>
+<meta name="twitter:description" content="Qbs Manual FileInfo Service Qbs 1.22.0 Contents  Available Operations baseName canonicalPath cleanPath completeBaseName completeSuffix fileName fromNativeSeparators fromWindowsSeparators isAbsolutePath joinPaths path relativePath suffix toNativeSeparators toWindowsSeparators    FileInfo Service   The FileInfo service offers various operations on file paths, such as turning absolute paths into relative ones, splitting a path into its components, and so on.
+ Available Operations  baseName FileInfo.baseName(filePath: string): string Returns the file name of filePath up to (but not including) the first &#39;."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -64,7 +61,29 @@
 /docs">Qbs Manual</a></li>
 <li>FileInfo Service</li>
 <li id="buildversion">Qbs 1.22.0</li>
-
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#available-operations">Available Operations</a></li>
+<li class="level2"><a href="#basename">baseName</a></li>
+<li class="level2"><a href="#canonicalpath">canonicalPath</a></li>
+<li class="level2"><a href="#cleanpath">cleanPath</a></li>
+<li class="level2"><a href="#completebasename">completeBaseName</a></li>
+<li class="level2"><a href="#completesuffix">completeSuffix</a></li>
+<li class="level2"><a href="#filename">fileName</a></li>
+<li class="level2"><a href="#fromnativeseparators">fromNativeSeparators</a></li>
+<li class="level2"><a href="#fromwindowsseparators">fromWindowsSeparators</a></li>
+<li class="level2"><a href="#isabsolutepath">isAbsolutePath</a></li>
+<li class="level2"><a href="#joinpaths">joinPaths</a></li>
+<li class="level2"><a href="#path">path</a></li>
+<li class="level2"><a href="#relativepath">relativePath</a></li>
+<li class="level2"><a href="#suffix">suffix</a></li>
+<li class="level2"><a href="#tonativeseparators">toNativeSeparators</a></li>
+<li class="level2"><a href="#towindowsseparators">toWindowsSeparators</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
 <div class="content"><h1 class="title">FileInfo Service</h1>
 <span class="subtitle"></span>
 <!-- $$$jsextension-fileinfo.html-description -->

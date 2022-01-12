@@ -3,8 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual How-tos Qbs 1.22.0 Custom Modules and Items Reference  How-tos   This page provides concrete instructions for common scenarios.
- How do I build a Qt-based project? How do I make my app build against my library? How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled? ">
+    <meta name="description" content="Qbs Manual How-tos Qbs 1.22.0 Custom Modules and Items Reference  Contents  How do I build a Qt-based project? How do I make my app build against my library? Choosing Between Dynamic and Statically-built Qt Projects How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled? ">
     <link rel="canonical" href="https://qbs.io/docs/howtos/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -14,12 +13,11 @@
 
     
       
-      <link rel="stylesheet" href="/css/main.min.33c0858b180bacf5dafe6dec54ead827f7abea42b5d29244820d6601eb04aca2.css" integrity="sha256-M8CFixgLrPXa/m3sVOrYJ/er6kK10pJEgg1mAesErKI="/>
+      <link rel="stylesheet" href="/css/main.min.0b28249bdde6c5167bae7490242f67232bebe677164f84b780bbeed6fe5d4c82.css" integrity="sha256-Cygkm93mxRZ7rnSQJC9nIyvr5ncWT4S3gLvu1v5dTII="/>
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual How-tos Qbs 1.22.0 Custom Modules and Items Reference  How-tos   This page provides concrete instructions for common scenarios.
- How do I build a Qt-based project? How do I make my app build against my library? How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled?" />
+<meta property="og:description" content="Qbs Manual How-tos Qbs 1.22.0 Custom Modules and Items Reference  Contents  How do I build a Qt-based project? How do I make my app build against my library? Choosing Between Dynamic and Statically-built Qt Projects How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled?" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/howtos/" /><meta property="article:section" content="docs" />
 
@@ -28,8 +26,7 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual How-tos Qbs 1.22.0 Custom Modules and Items Reference  How-tos   This page provides concrete instructions for common scenarios.
- How do I build a Qt-based project? How do I make my app build against my library? How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled?"/>
+<meta name="twitter:description" content="Qbs Manual How-tos Qbs 1.22.0 Custom Modules and Items Reference  Contents  How do I build a Qt-based project? How do I make my app build against my library? Choosing Between Dynamic and Statically-built Qt Projects How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled?"/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -71,7 +68,36 @@
 <a class="nextPage" href="https://qbs.io
 /docs/reference/">Reference</a>
 </p><p>
-</p>
+</p><div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#how-do-i-build-a-qt-based-project">How do I build a Qt-based project?</a></li>
+<li class="level1"><a href="#how-do-i-make-my-app-build-against-my-library">How do I make my app build against my library?</a></li>
+<li class="level2"><a href="#choosing-between-dynamic-and-statically-built-qt-projects">Choosing Between Dynamic and Statically-built Qt Projects</a></li>
+<li class="level1"><a href="#how-do-i-build-release-with-debug-information">How do I build release with debug information?</a></li>
+<li class="level1"><a href="#how-do-i-separate-and-install-debugging-symbols">How do I separate and install debugging symbols?</a></li>
+<li class="level1"><a href="#how-do-i-use-precompiled-headers">How do I use precompiled headers?</a></li>
+<li class="level1"><a href="#how-do-i-make-use-of-rpaths">How do I make use of rpaths?</a></li>
+<li class="level1"><a href="#how-do-i-make-sure-my-generated-sources-are-getting-compiled">How do I make sure my generated sources are getting compiled?</a></li>
+<li class="level1"><a href="#how-do-i-run-my-autotests">How do I run my autotests?</a></li>
+<li class="level1"><a href="#how-do-i-use-ccache">How do I use ccache?</a></li>
+<li class="level1"><a href="#how-do-i-create-a-module-for-a-third-party-library">How do I create a module for a third-party library?</a></li>
+<li class="level1"><a href="#how-do-i-create-application-bundles-and-frameworks-on-ios-macos-tvos-and-watchos">How do I create application bundles and frameworks on iOS, macOS, tvOS, and watchOS?</a></li>
+<li class="level1"><a href="#how-do-i-build-against-libraries-that-provide-pkg-config-files">How do I build against libraries that provide pkg-config files?</a></li>
+<li class="level1"><a href="#how-do-i-apply-c-c-preprocessor-macros-to-only-a-subset-of-the-files-in-my-product">How do I apply C/C++ preprocessor macros to only a subset of the files in my product?</a></li>
+<li class="level1"><a href="#how-do-i-disable-a-compiler-warning">How do I disable a compiler warning?</a></li>
+<li class="level1"><a href="#how-do-i-make-the-state-of-my-git-repository-available-to-my-source-files">How do I make the state of my Git repository available to my source files?</a></li>
+<li class="level1"><a href="#how-do-i-limit-the-number-of-concurrent-jobs-for-the-linker-only">How do I limit the number of concurrent jobs for the linker only?</a></li>
+<li class="level1"><a href="#how-do-i-add-qml-files-to-a-project">How do I add QML files to a project?</a></li>
+<li class="level1"><a href="#how-do-i-define-a-reusable-group-of-files-that-can-be-included-in-other-qbs-files">How do I define a reusable Group of files that can be included in other Qbs files?</a></li>
+<li class="level1"><a href="#how-do-i-access-properties-of-a-base-type">How do I access properties of a base type?</a></li>
+<li class="level1"><a href="#how-do-i-print-the-value-of-a-property">How do I print the value of a property?</a></li>
+<li class="level1"><a href="#how-do-i-debug-qbs-scripts">How do I debug Qbs scripts?</a></li>
+<li class="level1"><a href="#how-do-i-sign-an-application-for-an-apple-platform">How do I sign an application for an Apple platform?</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
 <div class="content"><h1 class="title">How-tos</h1>
 <span class="subtitle"></span>
 <!-- $$$howtos.html-description -->

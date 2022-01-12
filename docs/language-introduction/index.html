@@ -3,9 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Language Introduction Qbs 1.22.0 Usage Building Applications  Language Introduction   Qbs uses project files (*.qbs) to describe the contents of a project. A project contains one or more products. A product is the target of a build process, typically an application, library or maybe a tar ball.
-Note: Qbs source files are assumed to be UTF-8 encoded.
- The Obligatory Hello World Example Qbs project files are written using a QML dialect. ">
+    <meta name="description" content="Qbs Manual Language Introduction Qbs 1.22.0 Usage Building Applications  Contents  The Obligatory Hello World Example Reusing Project File Code Modules Different Properties for a Single File Selecting Files by Properties Property Types Overriding Property Values from the Command Line File Tags and Taggers Rules    Language Introduction   Qbs uses project files (*.qbs) to describe the contents of a project. A project contains one or more products. ">
     <link rel="canonical" href="https://qbs.io/docs/language-introduction/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -15,13 +13,11 @@ Note: Qbs source files are assumed to be UTF-8 encoded.
 
     
       
-      <link rel="stylesheet" href="/css/main.min.33c0858b180bacf5dafe6dec54ead827f7abea42b5d29244820d6601eb04aca2.css" integrity="sha256-M8CFixgLrPXa/m3sVOrYJ/er6kK10pJEgg1mAesErKI="/>
+      <link rel="stylesheet" href="/css/main.min.0b28249bdde6c5167bae7490242f67232bebe677164f84b780bbeed6fe5d4c82.css" integrity="sha256-Cygkm93mxRZ7rnSQJC9nIyvr5ncWT4S3gLvu1v5dTII="/>
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Language Introduction Qbs 1.22.0 Usage Building Applications  Language Introduction   Qbs uses project files (*.qbs) to describe the contents of a project. A project contains one or more products. A product is the target of a build process, typically an application, library or maybe a tar ball.
-Note: Qbs source files are assumed to be UTF-8 encoded.
- The Obligatory Hello World Example Qbs project files are written using a QML dialect." />
+<meta property="og:description" content="Qbs Manual Language Introduction Qbs 1.22.0 Usage Building Applications  Contents  The Obligatory Hello World Example Reusing Project File Code Modules Different Properties for a Single File Selecting Files by Properties Property Types Overriding Property Values from the Command Line File Tags and Taggers Rules    Language Introduction   Qbs uses project files (*.qbs) to describe the contents of a project. A project contains one or more products." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/language-introduction/" /><meta property="article:section" content="docs" />
 
@@ -30,9 +26,7 @@ Note: Qbs source files are assumed to be UTF-8 encoded.
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Language Introduction Qbs 1.22.0 Usage Building Applications  Language Introduction   Qbs uses project files (*.qbs) to describe the contents of a project. A project contains one or more products. A product is the target of a build process, typically an application, library or maybe a tar ball.
-Note: Qbs source files are assumed to be UTF-8 encoded.
- The Obligatory Hello World Example Qbs project files are written using a QML dialect."/>
+<meta name="twitter:description" content="Qbs Manual Language Introduction Qbs 1.22.0 Usage Building Applications  Contents  The Obligatory Hello World Example Reusing Project File Code Modules Different Properties for a Single File Selecting Files by Properties Property Types Overriding Property Values from the Command Line File Tags and Taggers Rules    Language Introduction   Qbs uses project files (*.qbs) to describe the contents of a project. A project contains one or more products."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -74,7 +68,22 @@ Note: Qbs source files are assumed to be UTF-8 encoded.
 <a class="nextPage" href="https://qbs.io
 /docs/building-applications/">Building Applications</a>
 </p><p>
-</p>
+</p><div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#the-obligatory-hello-world-example">The Obligatory Hello World Example</a></li>
+<li class="level1"><a href="#reusing-project-file-code">Reusing Project File Code</a></li>
+<li class="level1"><a href="#modules">Modules</a></li>
+<li class="level2"><a href="#different-properties-for-a-single-file">Different Properties for a Single File</a></li>
+<li class="level2"><a href="#selecting-files-by-properties">Selecting Files by Properties</a></li>
+<li class="level1"><a href="#property-types">Property Types</a></li>
+<li class="level1"><a href="#overriding-property-values-from-the-command-line">Overriding Property Values from the Command Line</a></li>
+<li class="level1"><a href="#file-tags-and-taggers">File Tags and Taggers</a></li>
+<li class="level1"><a href="#rules">Rules</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
 <div class="content"><h1 class="title">Language Introduction</h1>
 <span class="subtitle"></span>
 <!-- $$$language-introduction.html-description -->
