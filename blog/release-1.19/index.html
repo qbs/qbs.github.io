@@ -4,9 +4,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs 1.19.0 released | Qbs</title>
     <meta name="description" content="The Qbs build tool version 1.19.0 is available.
-Qbs is a community-driven language-agnostic build automation system. It is fast and offers an easy-to-learn language based upon QML.
-What&rsquo;s new About 151 contributions went into this release since version 1.18.0. We have selected a few items below. Have a look into the complete changelog if you are interested in more details.
-Codesign module A new codesign module that implements code signing for Apple, Android and Windows platforms has been added. ">
+Qbs is a community-driven language-agnostic build automation system. It is fast
+and offers an easy-to-learn language based upon QML.
+What&rsquo;s new
+About 151 contributions went into this release since version 1.18.0. We have
+selected a few items below. Have a look into the complete
+changelog
+if you are interested in more details. ">
     <link rel="canonical" href="https://qbs.io/blog/release-1.19/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -16,26 +20,33 @@ Codesign module A new codesign module that implements code signing for Apple, An
 
     
       
-      <link rel="stylesheet" href="/css/main.min.89ff34dfc559972eac709cd03d5c2b8e3126fb29f3b9590f57309009e11f8a04.css" integrity="sha256-if8038VZly6scJzQPVwrjjEm+ynzuVkPVzCQCeEfigQ="/>
+      <link rel="stylesheet" href="/css/main.min.761a6ef2660f6c116654a7b2e12cde896df4bcccaaac3a1e6527ef4bcc1c16e7.css" integrity="sha256-dhpu8mYPbBFmVKey4SzeiW30vMyqrDoeZSfvS8wcFuc="/>
     
 
     <meta property="og:title" content="Qbs 1.19.0 released" />
 <meta property="og:description" content="The Qbs build tool version 1.19.0 is available.
-Qbs is a community-driven language-agnostic build automation system. It is fast and offers an easy-to-learn language based upon QML.
-What&rsquo;s new About 151 contributions went into this release since version 1.18.0. We have selected a few items below. Have a look into the complete changelog if you are interested in more details.
-Codesign module A new codesign module that implements code signing for Apple, Android and Windows platforms has been added." />
+Qbs is a community-driven language-agnostic build automation system. It is fast
+and offers an easy-to-learn language based upon QML.
+What&rsquo;s new
+About 151 contributions went into this release since version 1.18.0. We have
+selected a few items below. Have a look into the complete
+changelog
+if you are interested in more details." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://qbs.io/blog/release-1.19/" /><meta property="article:section" content="blog" />
+<meta property="og:url" content="https://qbs.io/blog/release-1.19/" />
 <meta property="article:published_time" content="2021-06-03T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-06-03T00:00:00+00:00" />
-
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Qbs 1.19.0 released"/>
 <meta name="twitter:description" content="The Qbs build tool version 1.19.0 is available.
-Qbs is a community-driven language-agnostic build automation system. It is fast and offers an easy-to-learn language based upon QML.
-What&rsquo;s new About 151 contributions went into this release since version 1.18.0. We have selected a few items below. Have a look into the complete changelog if you are interested in more details.
-Codesign module A new codesign module that implements code signing for Apple, Android and Windows platforms has been added."/>
+Qbs is a community-driven language-agnostic build automation system. It is fast
+and offers an easy-to-learn language based upon QML.
+What&rsquo;s new
+About 151 contributions went into this release since version 1.18.0. We have
+selected a few items below. Have a look into the complete
+changelog
+if you are interested in more details."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -82,7 +93,7 @@ executables. By default, Qbs uses Xcode specs to understand whether it should en
 For example, codesigning is now enabled for iOS (non-simulator) builds, but not enabled for
 macOS, matching Xcode behavior. To sign an application for the Darwin platform, one
 should specify the codesign.signingIdentity and codesign.provisioningProfile properties:</p>
-<pre tabindex="0"><code>CppApplication {
+<pre><code>CppApplication {
     files: &quot;main.m&quot;
     codesign.enableCodeSigning: true
     codesign.provisioningProfile: &quot;my provisioning profile name&quot;
@@ -93,7 +104,7 @@ provisioningProfile (yet).</p>
 <p>For more information, see the <a href="https://doc.qt.io/qbs/howtos.html#how-do-i-sign-an-application-for-an-apple-platform">How-To section</a></p>
 <p>On the Android platform, it is possible to sign Aab and Apk packages. A typical example can be
 written as follows:</p>
-<pre tabindex="0"><code>QtGuiApplication {
+<pre><code>QtGuiApplication {
     files: &quot;main.cpp&quot;
     codesign.enableCodeSigning: true
     codesign.keystorePath: &quot;path to the keyStore file&quot;
@@ -104,7 +115,7 @@ written as follows:</p>
 </code></pre><p>On Windows, to sign a standalone executable using the
 <a href="https://docs.microsoft.com/en-us/dotnet/framework/tools/signtool-exe">signtool.exe</a>, one can
 specify the codesign.certificatePath and codesign.certificatePassword properties:</p>
-<pre tabindex="0"><code>CppApplication {
+<pre><code>CppApplication {
     files: &quot;main.m&quot;
     codesign.enableCodeSigning: true
     codesign.certificatePath: &quot;C:\certs\mycert.pfx&quot;
@@ -170,7 +181,6 @@ sanity-checked, built and verified on Linux, macOS and Windows by our CI bot.</p
 <li>Raphaël Cotty</li>
 <li>Richard Weickelt</li>
 </ul>
-
         </article>
     </div>
 </div>
