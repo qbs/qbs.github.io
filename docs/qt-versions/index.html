@@ -3,8 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Managing Qt Versions Qbs 2.0.1 Configuring Profiles and Preferences Usage Contents Introduction Multiple Qt Builds Managing Qt Versions Introduction If your environment has the right qmake binary in its PATH and is also set up properly for a matching toolchain, then you do not necessarily need a profile to build projects with a Qt dependency. Otherwise, you should create one:
-qbs setup-qt /usr/bin/qmake myqt This will create the myqt profile which can then be used on the command line: ">
+    <meta name="description" content="Qbs Manual Managing Qt Versions Qbs 1.22.0 Configuring Profiles and Preferences Usage  Contents  Introduction Multiple Qt Builds    Managing Qt Versions    Introduction If your environment has the right qmake binary in its PATH and is also set up properly for a matching toolchain, then you do not necessarily need a profile to build projects with a Qt dependency. Otherwise, you should create one: ">
     <link rel="canonical" href="https://qbs.io/docs/qt-versions/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -18,17 +17,16 @@ qbs setup-qt /usr/bin/qmake myqt This will create the myqt profile which can the
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Managing Qt Versions Qbs 2.0.1 Configuring Profiles and Preferences Usage Contents Introduction Multiple Qt Builds Managing Qt Versions Introduction If your environment has the right qmake binary in its PATH and is also set up properly for a matching toolchain, then you do not necessarily need a profile to build projects with a Qt dependency. Otherwise, you should create one:
-qbs setup-qt /usr/bin/qmake myqt This will create the myqt profile which can then be used on the command line:" />
+<meta property="og:description" content="Qbs Manual Managing Qt Versions Qbs 1.22.0 Configuring Profiles and Preferences Usage  Contents  Introduction Multiple Qt Builds    Managing Qt Versions    Introduction If your environment has the right qmake binary in its PATH and is also set up properly for a matching toolchain, then you do not necessarily need a profile to build projects with a Qt dependency. Otherwise, you should create one:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/qt-versions/" /><meta property="article:section" content="docs" />
 
 
 
+
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Managing Qt Versions Qbs 2.0.1 Configuring Profiles and Preferences Usage Contents Introduction Multiple Qt Builds Managing Qt Versions Introduction If your environment has the right qmake binary in its PATH and is also set up properly for a matching toolchain, then you do not necessarily need a profile to build projects with a Qt dependency. Otherwise, you should create one:
-qbs setup-qt /usr/bin/qmake myqt This will create the myqt profile which can then be used on the command line:"/>
+<meta name="twitter:description" content="Qbs Manual Managing Qt Versions Qbs 1.22.0 Configuring Profiles and Preferences Usage  Contents  Introduction Multiple Qt Builds    Managing Qt Versions    Introduction If your environment has the right qmake binary in its PATH and is also set up properly for a matching toolchain, then you do not necessarily need a profile to build projects with a Qt dependency. Otherwise, you should create one:"/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -59,7 +57,7 @@ qbs setup-qt /usr/bin/qmake myqt This will create the myqt profile which can the
 <li><a href="https://qbs.io
 /docs">Qbs Manual</a></li>
 <li>Managing Qt Versions</li>
-<li id="buildversion">Qbs 2.0.1</li>
+<li id="buildversion">Qbs 1.22.0</li>
   <link rel="prev" href="https://qbs.io
 /docs/configuring/">
   <link rel="next" href="https://qbs.io
@@ -69,10 +67,10 @@ qbs setup-qt /usr/bin/qmake myqt This will create the myqt profile which can the
 /docs/configuring/">Configuring Profiles and Preferences</a>
 <a class="nextPage" href="https://qbs.io
 /docs/usage/">Usage</a>
-</p>
-<div class="sidebar">
+</p><p>
+</p><div class="sidebar">
 <div class="toc">
-<h3 id="toc">Contents</h3>
+<h3><a name="toc">Contents</a></h3>
 <ul>
 <li class="level1"><a href="#introduction">Introduction</a></li>
 <li class="level1"><a href="#multiple-qt-builds">Multiple Qt Builds</a></li>
@@ -80,8 +78,10 @@ qbs setup-qt /usr/bin/qmake myqt This will create the myqt profile which can the
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
 <div class="content"><h1 class="title">Managing Qt Versions</h1>
+<span class="subtitle"></span>
 <!-- $$$qt-versions.html-description -->
-<div class="descr" id="details">
+<div class="descr"> <a name="details"></a>
+<a name="introduction"></a>
 <h2 id="introduction">Introduction</h2>
 <p>If your environment has the right <code>qmake</code> binary in its <code>PATH</code> and is also set up properly for a matching toolchain, then you do not necessarily need a profile to build projects with a Qt dependency. Otherwise, you should create one:</p>
 <pre class="cpp">qbs setup<span class="operator">-</span>qt <span class="operator">/</span>usr<span class="operator">/</span>bin<span class="operator">/</span>qmake myqt</pre>
@@ -91,6 +91,7 @@ qbs setup-qt /usr/bin/qmake myqt This will create the myqt profile which can the
 <p><b>Note: </b>If the <code>setup-toolchains</code> command has found more than one toolchain, you will need to manually link your Qt profile to one of them, like this:</p>
 </div>
 <pre class="cpp">qbs config profiles<span class="operator">.</span>myqt<span class="operator">.</span>baseProfile <span class="operator">&lt;</span>profile name<span class="operator">&gt;</span></pre>
+<a name="multiple-qt-builds"></a>
 <h2 id="multiple-qt-builds">Multiple Qt Builds</h2>
 <p>To support multiple Qt builds, or in fact any combination of related settings, you need to create several profiles. The following example illustrates how to set up three different profiles, each for a different Qt build:</p>
 <pre class="cpp">qbs setup<span class="operator">-</span>qt <span class="operator">~</span><span class="operator">/</span>dev<span class="operator">/</span>qt<span class="operator">/</span><span class="number">4.7</span><span class="operator">/</span>bin<span class="operator">/</span>qmake qt47

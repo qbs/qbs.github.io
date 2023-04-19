@@ -3,9 +3,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Introduction Qbs 2.0.1 Qbs Manual Setup Contents Features Declarative Paradigm Well-Defined Language Platform and Programming Language Independence Correct and Fast Incremental Builds Extensible Architecture IDE Integration Qt Creator Visual Studio Code Build Process Introduction Qbs is a build automation tool designed to conveniently manage the build process of software projects across multiple platforms.
-Features Qbs provides the following benefits:
-Declarative paradigm Well-defined language Platform and programming language independence Correct and fast incremental builds Extensible architecture Easy integration to IDEs Declarative Paradigm When writing a project, it is important to describe the build tasks and dependencies between them, rather than the build order. ">
+    <meta name="description" content="Qbs Manual Introduction Qbs 1.22.0 Qbs Manual Setup  Contents  Features Declarative Paradigm Well-Defined Language Platform and Programming Language Independence Correct and Fast Incremental Builds Extensible Architecture IDE Integration Qt Creator Visual Studio Code Build Process    Introduction   Qbs is a build automation tool designed to conveniently manage the build process of software projects across multiple platforms.
+ Features Qbs provides the following benefits: ">
     <link rel="canonical" href="https://qbs.io/docs/overview/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -19,19 +18,18 @@ Declarative paradigm Well-defined language Platform and programming language ind
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Introduction Qbs 2.0.1 Qbs Manual Setup Contents Features Declarative Paradigm Well-Defined Language Platform and Programming Language Independence Correct and Fast Incremental Builds Extensible Architecture IDE Integration Qt Creator Visual Studio Code Build Process Introduction Qbs is a build automation tool designed to conveniently manage the build process of software projects across multiple platforms.
-Features Qbs provides the following benefits:
-Declarative paradigm Well-defined language Platform and programming language independence Correct and fast incremental builds Extensible architecture Easy integration to IDEs Declarative Paradigm When writing a project, it is important to describe the build tasks and dependencies between them, rather than the build order." />
+<meta property="og:description" content="Qbs Manual Introduction Qbs 1.22.0 Qbs Manual Setup  Contents  Features Declarative Paradigm Well-Defined Language Platform and Programming Language Independence Correct and Fast Incremental Builds Extensible Architecture IDE Integration Qt Creator Visual Studio Code Build Process    Introduction   Qbs is a build automation tool designed to conveniently manage the build process of software projects across multiple platforms.
+ Features Qbs provides the following benefits:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/overview/" /><meta property="article:section" content="docs" />
 
 
 
+
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Introduction Qbs 2.0.1 Qbs Manual Setup Contents Features Declarative Paradigm Well-Defined Language Platform and Programming Language Independence Correct and Fast Incremental Builds Extensible Architecture IDE Integration Qt Creator Visual Studio Code Build Process Introduction Qbs is a build automation tool designed to conveniently manage the build process of software projects across multiple platforms.
-Features Qbs provides the following benefits:
-Declarative paradigm Well-defined language Platform and programming language independence Correct and fast incremental builds Extensible architecture Easy integration to IDEs Declarative Paradigm When writing a project, it is important to describe the build tasks and dependencies between them, rather than the build order."/>
+<meta name="twitter:description" content="Qbs Manual Introduction Qbs 1.22.0 Qbs Manual Setup  Contents  Features Declarative Paradigm Well-Defined Language Platform and Programming Language Independence Correct and Fast Incremental Builds Extensible Architecture IDE Integration Qt Creator Visual Studio Code Build Process    Introduction   Qbs is a build automation tool designed to conveniently manage the build process of software projects across multiple platforms.
+ Features Qbs provides the following benefits:"/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -62,7 +60,7 @@ Declarative paradigm Well-defined language Platform and programming language ind
 <li><a href="https://qbs.io
 /docs">Qbs Manual</a></li>
 <li>Introduction</li>
-<li id="buildversion">Qbs 2.0.1</li>
+<li id="buildversion">Qbs 1.22.0</li>
   <link rel="prev" href="https://qbs.io
 /docs">
   <link rel="next" href="https://qbs.io
@@ -72,10 +70,10 @@ Declarative paradigm Well-defined language Platform and programming language ind
 /docs">Qbs Manual</a>
 <a class="nextPage" href="https://qbs.io
 /docs/setup/">Setup</a>
-</p>
-<div class="sidebar">
+</p><p>
+</p><div class="sidebar">
 <div class="toc">
-<h3 id="toc">Contents</h3>
+<h3><a name="toc">Contents</a></h3>
 <ul>
 <li class="level1"><a href="#features">Features</a></li>
 <li class="level2"><a href="#declarative-paradigm">Declarative Paradigm</a></li>
@@ -91,9 +89,11 @@ Declarative paradigm Well-defined language Platform and programming language ind
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
 <div class="content"><h1 class="title">Introduction</h1>
+<span class="subtitle"></span>
 <!-- $$$overview.html-description -->
-<div class="descr" id="details">
+<div class="descr"> <a name="details"></a>
 <p>Qbs is a build automation tool designed to conveniently manage the build process of software projects across multiple platforms.</p>
+<a name="features"></a>
 <h2 id="features">Features</h2>
 <p>Qbs provides the following benefits:</p>
 <ul>
@@ -104,12 +104,14 @@ Declarative paradigm Well-defined language Platform and programming language ind
 <li>Extensible architecture</li>
 <li>Easy integration to IDEs</li>
 </ul>
+<a name="declarative-paradigm"></a>
 <h3 id="declarative-paradigm">Declarative Paradigm</h3>
 <p>When writing a project, it is important to describe the build tasks and dependencies between them, rather than the build order. It is difficult to determine the correct build order in complex projects, especially during parallel builds. The build tool should bear that burden, not the developer.</p>
 <p>With a declarative language, Qbs enables you to express intent rather than specifying single build steps. This provides the appropriate level of abstraction for a build system. For example, <i>dependencies</i> can be created between <i>products</i>, such that the target <i>artifacts</i> of the dependency can be used as input to the build <i>rules</i> in the context of the depending product. In addition, you can <i>export</i> dependencies and <i>properties</i> to other products.</p>
 <p>Qbs is modular with clean interfaces between modules. A <i>module</i> is a collection of properties and <i>language items</i> that are used for building a product if the product depends on the module. The properties that can be set for a module are used to control the behavior of the toolchain used to build the module.</p>
 <p>Qbs itself knows nothing about file types or extensions, and therefore all source files in a product are handled equally. However, you can assign <i>file tags</i> to an artifact to act as markers or to specify a file type. Qbs applies a rule to the source files of the project and chooses the ones that match the input file tags specified by the rule. It then creates artifacts in the build graph that have other filenames and file tags.</p>
 <p>Products and projects can contain <i>probes</i> that are run prior to building, for instance to locate dependent headers, libraries, and other files outside the project directory.</p>
+<a name="well-defined-language"></a>
 <h3 id="well-defined-language">Well-Defined Language</h3>
 <p>Qbs projects are specified in a QML dialect. QML is a concise, easy to learn, and intuitive language that is used successfully in the Qt project. Its core is declarative, but it can be extended with JavaScript snippets for extra flexibility.</p>
 <p>Qbs builds applications based on the information in a project file. Each project file specifies one <a href="https://qbs.io
@@ -128,8 +130,10 @@ Declarative paradigm Well-defined language Platform and programming language ind
 }</pre>
 <p>For more information, see <a href="https://qbs.io
 /docs/language-introduction/">Language Introduction</a>.</p>
+<a name="platform-and-programming-language-independence"></a>
 <h3 id="platform-and-programming-language-independence">Platform and Programming Language Independence</h3>
-<p>Qbs can be used for any software project, regardless of programming language, toolkit, or libraries used. Qbs has built-in support for building applications for Windows, Linux, macOS, Android, iOS, tvOS, watchOS, QNX, and FreeBSD, as well as for cross-compilation. It can be easily extended to support further platforms.</p>
+<p>Qbs can be used for any software project, regardless of programming language, toolkit, or libraries used. Qbs has built-in support for building applications for Windows, Linux, <a href="https://qbs.io
+/docs/nolink">macOS</a>, Android, iOS, tvOS, watchOS, QNX, and FreeBSD, as well as for cross-compilation. It can be easily extended to support further platforms.</p>
 <p>Invoking <a href="https://qbs.io
 /docs/cli-build/">qbs build</a> from the command line automatically builds the project for the current host platform using the best available toolchain and settings, unless a default profile is set. You can configure additional profiles for each toolchain you want to use and select the profile to use at build time.</p>
 <p>For example, to build applications for Android devices, you would need to set up a profile for the Android toolchain and select it when you build the application. If you name the profile <i>Android</i>, you would then enter the following command:</p>
@@ -149,10 +153,12 @@ Declarative paradigm Well-defined language Platform and programming language ind
 <p>Additionally, if the sources use Qt, you need a dependency to the <a href="https://qbs.io
 /docs/qml-qbsmodules-qt-core/">Qt.core</a> module, and so on.</p>
 <p>In addition to building projects, Qbs can install the build artifacts to a location from where they can be run on the desktop or on a device. Qbs modules can be used to create installers for the end users of the applications. For example, the <a href="https://qbs.io
-/docs/qml-qbsmodules-dmg/">dmg</a> module contains properties and rules for building Apple Disk Images, which are typically used to distribute applications and installers on macOS. The <a href="https://qbs.io
+/docs/qml-qbsmodules-dmg/">dmg</a> module contains properties and rules for building Apple Disk Images, which are typically used to distribute applications and installers on <a href="https://qbs.io
+/docs/nolink">macOS</a>. The <a href="https://qbs.io
 /docs/qml-qbsmodules-innosetup/">innosetup</a>, <a href="https://qbs.io
 /docs/qml-qbsmodules-nsis/">nsis</a>, and <a href="https://qbs.io
 /docs/qml-qbsmodules-wix/">wix</a> modules contain properties and rules for building installers for Windows platforms.</p>
+<a name="correct-and-fast-incremental-builds"></a>
 <h3 id="correct-and-fast-incremental-builds">Correct and Fast Incremental Builds</h3>
 <p>Qbs is an all-in-one tool that generates a build graph from a high-level project description (like qmake or CMake) and additionally undertakes the task of executing the commands in the low-level build graph (like make).</p>
 <p>Qbs automatically takes advantage of multi-processor and multi-core systems to achieve maximum build parallelization. By default, running <code>qbs</code> without any arguments is roughly equivalent to running <code>make -j&lt;n&gt;</code> where <code>n</code> is the number of CPU cores. Similarly, Qbs allows the number of concurrent jobs to be explicitly specified using its own <code>-j</code> option.</p>
@@ -163,6 +169,7 @@ Declarative paradigm Well-defined language Platform and programming language ind
 <p>Changing properties that do not affect the build, because they are not used by rules, will not cause the project to be rebuilt. The use of properties is tracked. Generated artifacts that cease to exist are deleted to avoid picking outdated generated artifacts and indefinitely increasing the size of the build directory.</p>
 <p>Fast incremental builds are crucial for a fast edit-build-run cycle. Instead of retrieving the timestamps of generated files, Qbs uses the time stamps stored in the build graph. This is especially important on Windows, where file system operations are slow.</p>
 <p>If the project files were not changed, the build graph is loaded from disk. It is stored in a binary format that can be loaded much faster than the real project files. The project files are parsed only if they were changed.</p>
+<a name="extensible-architecture"></a>
 <h3 id="extensible-architecture">Extensible Architecture</h3>
 <p>You can create your own custom <a href="https://qbs.io
 /docs/qbsmodules-qmlmodule/">modules</a> and <a href="https://qbs.io
@@ -173,18 +180,22 @@ Declarative paradigm Well-defined language Platform and programming language ind
     qbsSearchPaths: <span class="string">"my-modules"</span></pre>
 <p>For more information, see <a href="https://qbs.io
 /docs/custom-modules/">Custom Modules and Items</a>.</p>
+<a name="ide-integration"></a>
 <h3 id="ide-integration">IDE Integration</h3>
 <p>Qbs can be used not only from the command line, but also in combination with an IDE, such as Qt Creator or Visual Studio Code. These IDEs directly support Qbs projects using the new Qbs <a href="https://qbs.io
 /docs/cli-session/">session</a> feature. Thus, these IDEs can retrieve all the information required to build a single file or project through a session's JSON protocol <a href="https://qbs.io
 /docs/json-api/">API</a>.</p>
 <p>In addition, Qbs can generate projects for Visual Studio, IAR EW, and Keil uVision, but it still is an experimental option. For more information, see <a href="https://qbs.io
 /docs/generators/">Generators</a>.</p>
+<a name="qt-creator"></a>
 <h4 id="qt-creator">Qt Creator</h4>
 <p><a href="http://doc.qt.io/qtcreator/index.html">Qt Creator</a> provides accurate information about the build progress and displays a project tree that reflects the logical structure of the project, instead of presenting low-level information, such as the file system structure. Adding or removing source files keeps the existing project file structure intact.</p>
 <p>For more information about using Qbs to build projects from Qt Creator, see <a href="http://doc.qt.io/qtcreator/creator-project-qbs.html">Setting Up Qbs</a>.</p>
+<a name="visual-studio-code"></a>
 <h4 id="visual-studio-code">Visual Studio Code</h4>
 <p><a href="https://code.visualstudio.com/">Visual Studio Code</a> provides the <a href="https://marketplace.visualstudio.com/items?itemName=qbs-community.qbs-tools">qbs-community</a> plugin that provides accurate information about the build progress and displays a project tree that reflects the logical structure of the project. Also, it can provide low-level information, such as the file system structure.</p>
 <p>For more information about using Qbs to build projects from Visual Studio Code, see <a href="https://github.com/denis-shienkov/vscode-qbs/blob/master/docs/how-to.md">How To</a>.</p>
+<a name="build-process"></a>
 <h2 id="build-process">Build Process</h2>
 <p class="centerAlign"><img src="https://qbs.io
 /img/docs/qbs-build-process.png" alt=""></p><p>The build process of a product starts by examining the <a href="https://qbs.io

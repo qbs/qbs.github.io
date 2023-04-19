@@ -3,10 +3,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Target Platforms Building for macOS Qbs 2.0.1 Contents Building User Interfaces Creating App Bundles Multiple Architectures and Build Variants Building macOS Disk Images Building for macOS This topic describes the Qbs features specific to macOS.
+    <meta name="description" content="Qbs Manual Target Platforms Building for macOS Qbs 1.22.0 Contents  Building User Interfaces Creating App Bundles Multiple Architectures and Build Variants Building macOS Disk Images    Building for macOS   This topic describes the Qbs features specific to macOS.
 Note: Qbs does not yet support the Swift programming language.
-The xcode module contains properties and rules for Xcode-based development.
-Building User Interfaces The ib module contains properties and rules for building Interface Builder documents, storyboards, asset catalogs, and icon sets. ">
+ The xcode module contains properties and rules for Xcode-based development.
+ Building User Interfaces The ib module contains properties and rules for building Interface Builder documents, storyboards, asset catalogs, and icon sets. ">
     <link rel="canonical" href="https://qbs.io/docs/qbs-target-macos/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -20,21 +20,22 @@ Building User Interfaces The ib module contains properties and rules for buildin
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Target Platforms Building for macOS Qbs 2.0.1 Contents Building User Interfaces Creating App Bundles Multiple Architectures and Build Variants Building macOS Disk Images Building for macOS This topic describes the Qbs features specific to macOS.
+<meta property="og:description" content="Qbs Manual Target Platforms Building for macOS Qbs 1.22.0 Contents  Building User Interfaces Creating App Bundles Multiple Architectures and Build Variants Building macOS Disk Images    Building for macOS   This topic describes the Qbs features specific to macOS.
 Note: Qbs does not yet support the Swift programming language.
-The xcode module contains properties and rules for Xcode-based development.
-Building User Interfaces The ib module contains properties and rules for building Interface Builder documents, storyboards, asset catalogs, and icon sets." />
+ The xcode module contains properties and rules for Xcode-based development.
+ Building User Interfaces The ib module contains properties and rules for building Interface Builder documents, storyboards, asset catalogs, and icon sets." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/qbs-target-macos/" /><meta property="article:section" content="docs" />
 
 
 
+
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Target Platforms Building for macOS Qbs 2.0.1 Contents Building User Interfaces Creating App Bundles Multiple Architectures and Build Variants Building macOS Disk Images Building for macOS This topic describes the Qbs features specific to macOS.
+<meta name="twitter:description" content="Qbs Manual Target Platforms Building for macOS Qbs 1.22.0 Contents  Building User Interfaces Creating App Bundles Multiple Architectures and Build Variants Building macOS Disk Images    Building for macOS   This topic describes the Qbs features specific to macOS.
 Note: Qbs does not yet support the Swift programming language.
-The xcode module contains properties and rules for Xcode-based development.
-Building User Interfaces The ib module contains properties and rules for building Interface Builder documents, storyboards, asset catalogs, and icon sets."/>
+ The xcode module contains properties and rules for Xcode-based development.
+ Building User Interfaces The ib module contains properties and rules for building Interface Builder documents, storyboards, asset catalogs, and icon sets."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -67,10 +68,10 @@ Building User Interfaces The ib module contains properties and rules for buildin
 <li><a href="https://qbs.io
 /docs/platforms/">Target Platforms</a></li>
 <li>Building for macOS</li>
-<li id="buildversion">Qbs 2.0.1</li>
+<li id="buildversion">Qbs 1.22.0</li>
 <div class="sidebar">
 <div class="toc">
-<h3 id="toc">Contents</h3>
+<h3><a name="toc">Contents</a></h3>
 <ul>
 <li class="level1"><a href="#building-user-interfaces">Building User Interfaces</a></li>
 <li class="level1"><a href="#creating-app-bundles">Creating App Bundles</a></li>
@@ -80,17 +81,21 @@ Building User Interfaces The ib module contains properties and rules for buildin
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
 <div class="content"><h1 class="title">Building for macOS</h1>
+<span class="subtitle"></span>
 <!-- $$$qbs-target-macos.html-description -->
-<div class="descr" id="details">
-<p>This topic describes the Qbs features specific to macOS.</p>
+<div class="descr"> <a name="details"></a>
+<p>This topic describes the Qbs features specific to <a href="https://qbs.io
+/docs/nolink">macOS</a>.</p>
 <div class="admonition note">
 <p><b>Note: </b>Qbs does not yet support the Swift programming language.</p>
 </div>
 <p>The <a href="https://qbs.io
 /docs/qml-qbsmodules-xcode/">xcode</a> module contains properties and rules for Xcode-based development.</p>
+<a name="building-user-interfaces"></a>
 <h2 id="building-user-interfaces">Building User Interfaces</h2>
 <p>The <a href="https://qbs.io
 /docs/qml-qbsmodules-ib/">ib</a> module contains properties and rules for building Interface Builder documents, storyboards, asset catalogs, and icon sets.</p>
+<a name="creating-app-bundles"></a>
 <h2 id="creating-app-bundles">Creating App Bundles</h2>
 <p>The <a href="https://qbs.io
 /docs/qml-qbsmodules-bundle/">bundle</a> module contains properties and rules for building and working with Core Foundation bundles (application bundles and frameworks) on Apple platforms.</p>
@@ -101,6 +106,7 @@ bundle<span class="operator">.</span>isBundle: <span class="keyword">true</span>
 <p>Qbs also provides a number of powerful features to assist in creating the Info.plist file that is part of your bundle. In fact, you do not need to provide an Info.plist file at all. Instead, Qbs will generate one automatically with the necessary keys, based on the values of module properties set in the product.</p>
 <p>If you do specify an Info.plist file, Qbs may still inject additional keys into the final output from other sources. One notable source of Info.plist keys are <i>partial</i> Info.plist files which are generated as a result of compiling other resources like asset catalogs, XIBs/NIBs, and storyboards.</p>
 <p>You may also use the <code>bundle.infoPlist</code> property to apply a set of key-value pairs to be added to the final Info.plist. This can be used instead of or in addition to an actual Info.plist file on disk.</p>
+<a name="multiple-architectures-and-build-variants"></a>
 <h2 id="multiple-architectures-and-build-variants">Multiple Architectures and Build Variants</h2>
 <p>Qbs uses <a href="https://qbs.io
 /docs/multiplexing/">multiplexing</a> to create multi-architecture <i>fat</i> binaries and multi-variant frameworks, where a single framework can contain both a release and debug build of a library on Apple platforms.</p>
@@ -110,12 +116,14 @@ bundle<span class="operator">.</span>isBundle: <span class="keyword">true</span>
     condition: qbs<span class="operator">.</span>buildVariant <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"release"</span>
     cpp<span class="operator">.</span>optimization: <span class="string">"small"</span>
 }</pre>
+<a name="building-macos-disk-images"></a>
 <h2 id="building-macos-disk-images">Building macOS Disk Images</h2>
 <p>The <a href="https://qbs.io
 /docs/qml-qbsconvenienceitems-applediskimage/">AppleDiskImage</a> and <a href="https://qbs.io
 /docs/qml-qbsconvenienceitems-appleapplicationdiskimage/">AppleApplicationDiskImage</a> items have a dependency on the <a href="https://qbs.io
 /docs/qml-qbsmodules-dmg/">dmg</a> module. The former represents a product that is a basic Apple disk image, while the latter extends the former to create a drag 'n' drop disk image installer used for installing single application bundles.</p>
-<p>For example, the following code snippet creates a macOS disk image with a custom background and icon layout:</p>
+<p>For example, the following code snippet creates a <a href="https://qbs.io
+/docs/nolink">macOS</a> disk image with a custom background and icon layout:</p>
 <pre class="cpp">AppleApplicationDiskImage {
     targetName: <span class="string">"cocoa-application-"</span> <span class="operator">+</span> version
     version: <span class="string">"1.0"</span>

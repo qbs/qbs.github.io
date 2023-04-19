@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Custom Modules and Items Qbs 2.0.1 Multiplexing Module Providers Contents File System Layout Custom Modules Custom Items Making Qbs Aware of Custom Modules and Items Project-specific Modules and Items Making Custom Modules and Items Available Across Projects Custom Modules and Items Users of Qbs are not limited to the pre-defined modules and items, they can also create their own. Here we describe how to set up custom modules and items so that Qbs will find them. ">
+    <meta name="description" content="Qbs Manual Custom Modules and Items Qbs 1.22.0 Multiplexing Module Providers  Contents  File System Layout Custom Modules Custom Items Making Qbs Aware of Custom Modules and Items Project-specific Modules and Items Making Custom Modules and Items Available Across Projects    Custom Modules and Items   Users of Qbs are not limited to the pre-defined modules and items, they can also create their own. Here we describe how to set up custom modules and items so that Qbs will find them. ">
     <link rel="canonical" href="https://qbs.io/docs/custom-modules/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -17,15 +17,16 @@
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Custom Modules and Items Qbs 2.0.1 Multiplexing Module Providers Contents File System Layout Custom Modules Custom Items Making Qbs Aware of Custom Modules and Items Project-specific Modules and Items Making Custom Modules and Items Available Across Projects Custom Modules and Items Users of Qbs are not limited to the pre-defined modules and items, they can also create their own. Here we describe how to set up custom modules and items so that Qbs will find them." />
+<meta property="og:description" content="Qbs Manual Custom Modules and Items Qbs 1.22.0 Multiplexing Module Providers  Contents  File System Layout Custom Modules Custom Items Making Qbs Aware of Custom Modules and Items Project-specific Modules and Items Making Custom Modules and Items Available Across Projects    Custom Modules and Items   Users of Qbs are not limited to the pre-defined modules and items, they can also create their own. Here we describe how to set up custom modules and items so that Qbs will find them." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/custom-modules/" /><meta property="article:section" content="docs" />
 
 
 
+
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Custom Modules and Items Qbs 2.0.1 Multiplexing Module Providers Contents File System Layout Custom Modules Custom Items Making Qbs Aware of Custom Modules and Items Project-specific Modules and Items Making Custom Modules and Items Available Across Projects Custom Modules and Items Users of Qbs are not limited to the pre-defined modules and items, they can also create their own. Here we describe how to set up custom modules and items so that Qbs will find them."/>
+<meta name="twitter:description" content="Qbs Manual Custom Modules and Items Qbs 1.22.0 Multiplexing Module Providers  Contents  File System Layout Custom Modules Custom Items Making Qbs Aware of Custom Modules and Items Project-specific Modules and Items Making Custom Modules and Items Available Across Projects    Custom Modules and Items   Users of Qbs are not limited to the pre-defined modules and items, they can also create their own. Here we describe how to set up custom modules and items so that Qbs will find them."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -56,7 +57,7 @@
 <li><a href="https://qbs.io
 /docs">Qbs Manual</a></li>
 <li>Custom Modules and Items</li>
-<li id="buildversion">Qbs 2.0.1</li>
+<li id="buildversion">Qbs 1.22.0</li>
   <link rel="prev" href="https://qbs.io
 /docs/multiplexing/">
   <link rel="next" href="https://qbs.io
@@ -66,10 +67,10 @@
 /docs/multiplexing/">Multiplexing</a>
 <a class="nextPage" href="https://qbs.io
 /docs/module-providers/">Module Providers</a>
-</p>
-<div class="sidebar">
+</p><p>
+</p><div class="sidebar">
 <div class="toc">
-<h3 id="toc">Contents</h3>
+<h3><a name="toc">Contents</a></h3>
 <ul>
 <li class="level1"><a href="#file-system-layout">File System Layout</a></li>
 <li class="level1"><a href="#custom-modules">Custom Modules</a></li>
@@ -81,13 +82,16 @@
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
 <div class="content"><h1 class="title">Custom Modules and Items</h1>
+<span class="subtitle"></span>
 <!-- $$$custom-modules.html-description -->
-<div class="descr" id="details">
+<div class="descr"> <a name="details"></a>
 <p>Users of Qbs are not limited to the pre-defined <a href="https://qbs.io
 /docs/qbsmodules-qmlmodule/">modules</a> and <a href="https://qbs.io
 /docs/qbslanguageitems-qmlmodule/">items</a>, they can also create their own. Here we describe how to set up custom modules and items so that Qbs will find them.</p>
+<a name="file-system-layout"></a>
 <h2 id="file-system-layout">File System Layout</h2>
 <p>Items and modules are located under a common base directory, whose name and location is completely arbitrary. We will refer to it as <code>search-path</code> here. This directory has two subdirectories <code>modules</code> and <code>imports</code>, which contain Qbs modules and items, respectively.</p>
+<a name="custom-modules"></a>
 <h2 id="custom-modules">Custom Modules</h2>
 <p>To introduce a custom module <code>mymodule</code>, create a directory <code>search-path/modules/mymodule/</code>.</p>
 <div class="admonition note">
@@ -97,13 +101,16 @@
 /docs/qml-qbslanguageitems-module/">Module</a> in there and give it the <code>.qbs</code> extension. This module will be pulled in if a <a href="https://qbs.io
 /docs/qml-qbslanguageitems-product/">product</a> declares a <a href="https://qbs.io
 /docs/qml-qbslanguageitems-depends/">dependency</a> on <code>mymodule</code>.</p>
+<a name="custom-items"></a>
 <h2 id="custom-items">Custom Items</h2>
 <p>To introduce a custom item <code>MyItem</code>, create the file <code>search-path/imports/MyItem.qbs</code>.</p>
 <div class="admonition note">
 <p><b>Note: </b>Item file names must start with a capital letter due to the fact that type names can only start with a capital letter. Otherwise, the file will be silently ignored.</p>
 </div>
+<a name="making-qbs-aware-of-custom-modules-and-items"></a>
 <h2 id="making-qbs-aware-of-custom-modules-and-items">Making Qbs Aware of Custom Modules and Items</h2>
 <p>To be able to use your custom modules and items, you need to make them known to Qbs. You can do this per project or globally.</p>
+<a name="project-specific-modules-and-items"></a>
 <h3 id="project-specific-modules-and-items">Project-specific Modules and Items</h3>
 <p>Let's assume you have a project that is located in <code>project_dir</code> and you have created some modules in <code>project_dir/custom-stuff/modules/</code> as well as some items in <code>project_dir/custom-stuff/imports/</code> that you want to use in the project. To achieve this, your top-level project file should look like this:</p>
 <pre class="cpp"><span class="comment">// ...</span>
@@ -117,6 +124,7 @@ Project {
 /docs/qml-qbslanguageitems-project/#qbsSearchPaths-prop">Project.qbsSearchPaths</a> property. Any product that wants to make use of them needs to be in a different file that is pulled in via the <a href="https://qbs.io
 /docs/qml-qbslanguageitems-project/#references-prop">Project.references</a> property, for example. This is not a serious limitation, since every well-structured project will be split up in this manner.</p>
 </div>
+<a name="making-custom-modules-and-items-available-across-projects"></a>
 <h3 id="making-custom-modules-and-items-available-across-projects">Making Custom Modules and Items Available Across Projects</h3>
 <p>What if your modules and items are generally useful and you want to access them in several projects? In this case, it is best to add the location to your preferences. For example:</p>
 <pre class="cpp">qbs config preferences<span class="operator">.</span>qbsSearchPaths <span class="operator">/</span>usr<span class="operator">/</span>local<span class="operator">/</span>share<span class="operator">/</span>custom<span class="operator">-</span>qbs<span class="operator">-</span>extensions</pre>

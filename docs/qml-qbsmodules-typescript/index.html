@@ -3,8 +3,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual QbsModules typescript Qbs 2.0.1 Contents Properties Detailed Description typescript QML Type Provides TypeScript support. More...
-Import Statement: import QbsModules Since: Qbs 1.3 List of all members, including inherited members Properties compilerFlags : stringList compilerName : string compilerPath : string generateDeclarations : bool generateSourceMaps : bool moduleLoader : string singleFile : bool stripComments : bool targetVersion : string toolchainInstallPath : path version : string versionBuild : int versionMajor : int versionMinor : int versionParts : list versionPatch : int warningLevel : string Detailed Description The typescript module contains properties and rules for building TypeScript applications and may be used in combination with the nodejs module to run the applications directly from Qbs. ">
+    <meta name="description" content="Qbs Manual Qbs 1.22.0 Contents  Properties Detailed Description    typescript QML Type  Provides TypeScript support. More...
+Import Statement:import QbsModules .Since:Qbs 1.3 List of all members, including inherited members   Properties  compilerFlags : stringList compilerName : string compilerPath : string generateDeclarations : bool generateSourceMaps : bool moduleLoader : string singleFile : bool stripComments : bool targetVersion : string toolchainInstallPath : path version : string versionBuild : int versionMajor : int versionMinor : int versionParts : list versionPatch : int warningLevel : string   Detailed Description The typescript module contains properties and rules for building TypeScript applications and may be used in combination with the nodejs module to run the applications directly from Qbs. ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-typescript/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -18,17 +18,18 @@ Import Statement: import QbsModules Since: Qbs 1.3 List of all members, includin
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual QbsModules typescript Qbs 2.0.1 Contents Properties Detailed Description typescript QML Type Provides TypeScript support. More...
-Import Statement: import QbsModules Since: Qbs 1.3 List of all members, including inherited members Properties compilerFlags : stringList compilerName : string compilerPath : string generateDeclarations : bool generateSourceMaps : bool moduleLoader : string singleFile : bool stripComments : bool targetVersion : string toolchainInstallPath : path version : string versionBuild : int versionMajor : int versionMinor : int versionParts : list versionPatch : int warningLevel : string Detailed Description The typescript module contains properties and rules for building TypeScript applications and may be used in combination with the nodejs module to run the applications directly from Qbs." />
+<meta property="og:description" content="Qbs Manual Qbs 1.22.0 Contents  Properties Detailed Description    typescript QML Type  Provides TypeScript support. More...
+Import Statement:import QbsModules .Since:Qbs 1.3 List of all members, including inherited members   Properties  compilerFlags : stringList compilerName : string compilerPath : string generateDeclarations : bool generateSourceMaps : bool moduleLoader : string singleFile : bool stripComments : bool targetVersion : string toolchainInstallPath : path version : string versionBuild : int versionMajor : int versionMinor : int versionParts : list versionPatch : int warningLevel : string   Detailed Description The typescript module contains properties and rules for building TypeScript applications and may be used in combination with the nodejs module to run the applications directly from Qbs." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-typescript/" /><meta property="article:section" content="docs" />
 
 
 
+
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual QbsModules typescript Qbs 2.0.1 Contents Properties Detailed Description typescript QML Type Provides TypeScript support. More...
-Import Statement: import QbsModules Since: Qbs 1.3 List of all members, including inherited members Properties compilerFlags : stringList compilerName : string compilerPath : string generateDeclarations : bool generateSourceMaps : bool moduleLoader : string singleFile : bool stripComments : bool targetVersion : string toolchainInstallPath : path version : string versionBuild : int versionMajor : int versionMinor : int versionParts : list versionPatch : int warningLevel : string Detailed Description The typescript module contains properties and rules for building TypeScript applications and may be used in combination with the nodejs module to run the applications directly from Qbs."/>
+<meta name="twitter:description" content="Qbs Manual Qbs 1.22.0 Contents  Properties Detailed Description    typescript QML Type  Provides TypeScript support. More...
+Import Statement:import QbsModules .Since:Qbs 1.3 List of all members, including inherited members   Properties  compilerFlags : stringList compilerName : string compilerPath : string generateDeclarations : bool generateSourceMaps : bool moduleLoader : string singleFile : bool stripComments : bool targetVersion : string toolchainInstallPath : path version : string versionBuild : int versionMajor : int versionMinor : int versionParts : list versionPatch : int warningLevel : string   Detailed Description The typescript module contains properties and rules for building TypeScript applications and may be used in combination with the nodejs module to run the applications directly from Qbs."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -58,13 +59,10 @@ Import Statement: import QbsModules Since: Qbs 1.3 List of all members, includin
     
 <li><a href="https://qbs.io
 /docs">Qbs Manual</a></li>
-<li><a href="https://qbs.io
-/docs/qbsmodules-qmlmodule/">QbsModules</a></li>
-<li>typescript</li>
-<li id="buildversion">Qbs 2.0.1</li>
+<li id="buildversion">Qbs 1.22.0</li>
 <div class="sidebar">
 <div class="toc">
-<h3 id="toc">Contents</h3>
+<h3><a name="toc">Contents</a></h3>
 <ul>
 <li class="level1"><a href="#properties">Properties</a></li>
 <li class="level1"><a href="#details">Detailed Description</a></li>
@@ -72,52 +70,55 @@ Import Statement: import QbsModules Since: Qbs 1.3 List of all members, includin
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
 <div class="content"><h1 class="title">typescript QML Type</h1>
+<span class="subtitle"></span>
 <!-- $$$typescript-brief -->
-<p>Provides TypeScript support. <a href="#details">More...</a></p>
+<p>Provides <a href="http://www.typescriptlang.org">TypeScript</a> support. <a href="#details">More...</a></p>
 <!-- @@@typescript -->
 <div class="table"><table class="alignedsummary">
-<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsModules</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.3</td></tr></tbody></table></div><ul>
+<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsModules .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.3</td></tr></tbody></table></div><ul>
 <li><a href="https://qbs.io
 /docs/qml-qbsmodules-typescript-members/">List of all members, including inherited members</a></li>
 </ul>
+<a name="properties"></a>
 <h2 id="properties">Properties</h2>
 <ul>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-typescript/#compilerFlags-prop">compilerFlags</a></b> : stringList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-typescript/#compilerName-prop">compilerName</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-typescript/#compilerPath-prop">compilerPath</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-typescript/#generateDeclarations-prop">generateDeclarations</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-typescript/#generateSourceMaps-prop">generateSourceMaps</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-typescript/#moduleLoader-prop">moduleLoader</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-typescript/#singleFile-prop">singleFile</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-typescript/#stripComments-prop">stripComments</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-typescript/#targetVersion-prop">targetVersion</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-typescript/#toolchainInstallPath-prop">toolchainInstallPath</a></b> : path</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-typescript/#version-prop">version</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-typescript/#versionBuild-prop">versionBuild</a></b> : int</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-typescript/#versionMajor-prop">versionMajor</a></b> : int</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-typescript/#versionMinor-prop">versionMinor</a></b> : int</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-typescript/#versionParts-prop">versionParts</a></b> : list</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-typescript/#versionPatch-prop">versionPatch</a></b> : int</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-typescript/#warningLevel-prop">warningLevel</a></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-typescript/#compilerFlags-prop">compilerFlags</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-typescript/#compilerName-prop">compilerName</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-typescript/#compilerPath-prop">compilerPath</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-typescript/#generateDeclarations-prop">generateDeclarations</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-typescript/#generateSourceMaps-prop">generateSourceMaps</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-typescript/#moduleLoader-prop">moduleLoader</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-typescript/#singleFile-prop">singleFile</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-typescript/#stripComments-prop">stripComments</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-typescript/#targetVersion-prop">targetVersion</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-typescript/#toolchainInstallPath-prop">toolchainInstallPath</a></b></b> : path</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-typescript/#version-prop">version</a></b></b> : string</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-typescript/#versionBuild-prop">versionBuild</a></b></b> : int</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-typescript/#versionMajor-prop">versionMajor</a></b></b> : int</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-typescript/#versionMinor-prop">versionMinor</a></b></b> : int</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-typescript/#versionParts-prop">versionParts</a></b></b> : list</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-typescript/#versionPatch-prop">versionPatch</a></b></b> : int</li>
+<li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-typescript/#warningLevel-prop">warningLevel</a></b></b> : string</li>
 </ul>
 <!-- $$$typescript-description -->
+<a name="details"></a>
 <h2 id="details">Detailed Description</h2>
 <p>The <code>typescript</code> module contains properties and rules for building <a href="http://www.typescriptlang.org">TypeScript</a> applications and may be used in combination with the <a href="https://qbs.io
 /docs/qml-qbsmodules-nodejs/">nodejs</a> module to run the applications directly from Qbs.</p>
@@ -125,7 +126,7 @@ Import Statement: import QbsModules Since: Qbs 1.3 List of all members, includin
 <h2>Property Documentation</h2>
 <!-- $$$compilerFlags -->
 <div class="qmlitem"><h3 class="qmlproto">compilerFlags: stringList</h3>
-<div class="qmldoc"><p>A list of additional flags for the TypeScript compiler.</p>
+<div class="qmldoc"><p>A list of additional flags for the <a href="http://www.typescriptlang.org">TypeScript</a> compiler.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@compilerFlags -->
 <br>
@@ -145,7 +146,7 @@ Import Statement: import QbsModules Since: Qbs 1.3 List of all members, includin
 <br>
 <!-- $$$generateDeclarations -->
 <div class="qmlitem"><h3 class="qmlproto">generateDeclarations: bool</h3>
-<div class="qmldoc"><p>Whether to generate the corresponding <code>.d.ts</code> files during compilation. These are TypeScript's equivalent of header files.</p>
+<div class="qmldoc"><p>Whether to generate the corresponding <code>.d.ts</code> files during compilation. These are <a href="http://www.typescriptlang.org">TypeScript</a>'s equivalent of header files.</p>
 <p>Default: <code>false</code></p>
 </div></div><!-- @@@generateDeclarations -->
 <br>
@@ -158,7 +159,7 @@ Import Statement: import QbsModules Since: Qbs 1.3 List of all members, includin
 <br>
 <!-- $$$moduleLoader -->
 <div class="qmlitem"><h3 class="qmlproto">moduleLoader: string</h3>
-<div class="qmldoc"><p>If TypeScript modules are being used, the JavaScript module loading mechanism to use in the generated JavaScript code.</p>
+<div class="qmldoc"><p>If <a href="http://www.typescriptlang.org">TypeScript</a> modules are being used, the JavaScript module loading mechanism to use in the generated JavaScript code.</p>
 <p>If left undefined, modules are not used.</p>
 <p>See <a href="http://www.typescriptlang.org/docs/handbook/compiler-options.html">Compiler Options</a> for a list of possible values.</p>
 <p>Default: Undefined</p>
@@ -166,8 +167,8 @@ Import Statement: import QbsModules Since: Qbs 1.3 List of all members, includin
 <br>
 <!-- $$$singleFile -->
 <div class="qmlitem"><h3 class="qmlproto">singleFile: bool</h3>
-<div class="qmldoc"><p>Whether to compile all TypeScript source files to a single JavaScript output file.</p>
-<p>The default is to compile each TypeScript file to a corresponding JavaScript file. This property is incompatible with <a href="https://qbs.io
+<div class="qmldoc"><p>Whether to compile all <a href="http://www.typescriptlang.org">TypeScript</a> source files to a single JavaScript output file.</p>
+<p>The default is to compile each <a href="http://www.typescriptlang.org">TypeScript</a> file to a corresponding JavaScript file. This property is incompatible with <a href="https://qbs.io
 /docs/qml-qbsmodules-typescript/">moduleLoader</a>.</p>
 <p>Default: <code>false</code></p>
 </div></div><!-- @@@singleFile -->
@@ -182,59 +183,59 @@ Import Statement: import QbsModules Since: Qbs 1.3 List of all members, includin
 <!-- $$$targetVersion -->
 <div class="qmlitem"><h3 class="qmlproto">targetVersion: string</h3>
 <div class="qmldoc"><p>The ECMAScript target version for generated JavaScript code.</p>
-<p>If left undefined, the TypeScript <a href="http://www.typescriptlang.org/docs/handbook/compiler-options.html">compiler default</a> is used.</p>
+<p>If left undefined, the <a href="http://www.typescriptlang.org">TypeScript</a> <a href="http://www.typescriptlang.org/docs/handbook/compiler-options.html">compiler default</a> is used.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@targetVersion -->
 <br>
 <!-- $$$toolchainInstallPath -->
 <div class="qmlitem"><h3 class="qmlproto">toolchainInstallPath: path</h3>
-<div class="qmldoc"><p>The TypeScript installation directory.</p>
+<div class="qmldoc"><p>The <a href="http://www.typescriptlang.org">TypeScript</a> installation directory.</p>
 <p>This property should not normally need to be changed if <code>tsc</code> is available by searching the PATH environment variable.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@toolchainInstallPath -->
 <br>
 <!-- $$$version -->
 <div class="qmlitem"><h3 class="qmlproto">version: string</h3>
-<div class="qmldoc"><p>The TypeScript version.</p>
+<div class="qmldoc"><p>The <a href="http://www.typescriptlang.org">TypeScript</a> version.</p>
 <p>Consists of four numbers separated by dots. For example, "1.0.0.0".</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@version -->
 <br>
 <!-- $$$versionBuild -->
 <div class="qmlitem"><h3 class="qmlproto">versionBuild: int</h3>
-<div class="qmldoc"><p>The fourth TypeScript version number component.</p>
+<div class="qmldoc"><p>The fourth <a href="http://www.typescriptlang.org">TypeScript</a> version number component.</p>
 <p>Default: <code>versionParts[3]</code></p>
 </div></div><!-- @@@versionBuild -->
 <br>
 <!-- $$$versionMajor -->
 <div class="qmlitem"><h3 class="qmlproto">versionMajor: int</h3>
-<div class="qmldoc"><p>The TypeScript major version.</p>
+<div class="qmldoc"><p>The <a href="http://www.typescriptlang.org">TypeScript</a> major version.</p>
 <p>Default: <code>versionParts[0]</code></p>
 </div></div><!-- @@@versionMajor -->
 <br>
 <!-- $$$versionMinor -->
 <div class="qmlitem"><h3 class="qmlproto">versionMinor: int</h3>
-<div class="qmldoc"><p>The TypeScript minor version.</p>
+<div class="qmldoc"><p>The <a href="http://www.typescriptlang.org">TypeScript</a> minor version.</p>
 <p>Default: <code>versionParts[1]</code></p>
 </div></div><!-- @@@versionMinor -->
 <br>
 <!-- $$$versionParts -->
 <div class="qmlitem"><h3 class="qmlproto">versionParts: list</h3>
-<div class="qmldoc"><p>The TypeScript version as a list.</p>
-<p>For example, TypeScript version 1.0 would correspond to a value of <code>[1, 0, 0, 0]</code>.</p>
+<div class="qmldoc"><p>The <a href="http://www.typescriptlang.org">TypeScript</a> version as a list.</p>
+<p>For example, <a href="http://www.typescriptlang.org">TypeScript</a> version 1.0 would correspond to a value of <code>[1, 0, 0, 0]</code>.</p>
 <p>Default: <code>[]</code></p>
 </div></div><!-- @@@versionParts -->
 <br>
 <!-- $$$versionPatch -->
 <div class="qmlitem"><h3 class="qmlproto">versionPatch: int</h3>
-<div class="qmldoc"><p>The TypeScript patch level.</p>
+<div class="qmldoc"><p>The <a href="http://www.typescriptlang.org">TypeScript</a> patch level.</p>
 <p>Default: <code>versionParts[2]</code></p>
 </div></div><!-- @@@versionPatch -->
 <br>
 <!-- $$$warningLevel -->
 <div class="qmlitem"><h3 class="qmlproto">warningLevel: string</h3>
 <div class="qmldoc"><p>The severity of warnings to emit. The higher the level, the more warnings will be shown.</p>
-<p><code>pedantic</code> causes the TypeScript to emit warnings on expressions and declarations with an implied <i>any</i> type.</p>
+<p><code>pedantic</code> causes the <a href="http://www.typescriptlang.org">TypeScript</a> to emit warnings on expressions and declarations with an implied <i>any</i> type.</p>
 <p>Default: <code>"normal"</code></p>
 </div></div><!-- @@@warningLevel -->
 <br>

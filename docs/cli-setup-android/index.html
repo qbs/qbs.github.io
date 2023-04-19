@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Command-Line Interface setup-android Qbs 2.0.1 Contents Synopsis Description Options --settings-dir &lt;directory&gt; --ndk-dir &lt;directory&gt; --sdk-dir &lt;directory&gt; --qt-dir &lt;directory&gt; --help|-h|-? Examples setup-android Synopsis qbs setup-android [--settings-dir &lt;directory&gt;] [--ndk-dir &lt;directory&gt;] [--sdk-dir &lt;directory&gt;] [--qt-dir &lt;directory&gt;] &lt;profile name&gt; Description Creates Qbs profiles for Android SDK and NDK installations.
+    <meta name="description" content="Qbs Manual Command-Line Interface setup-android Qbs 1.22.0 Contents  Synopsis Description Options --settings-dir &lt;directory&gt; --ndk-dir &lt;directory&gt; --sdk-dir &lt;directory&gt; --qt-dir &lt;directory&gt; --help|-h|-? Examples    setup-android    Synopsis qbs setup-android [--settings-dir &lt;directory&gt;] [--ndk-dir &lt;directory&gt;] [--sdk-dir &lt;directory&gt;] [--qt-dir &lt;directory&gt;] &lt;profile name&gt;  Description Creates Qbs profiles for Android SDK and NDK installations.
 If a Qt path is given, these additional profiles will be suitable for building Qt binaries for the respective architecture, if the Qt installation has support for it. ">
     <link rel="canonical" href="https://qbs.io/docs/cli-setup-android/" />
 
@@ -18,16 +18,17 @@ If a Qt path is given, these additional profiles will be suitable for building Q
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Command-Line Interface setup-android Qbs 2.0.1 Contents Synopsis Description Options --settings-dir &lt;directory&gt; --ndk-dir &lt;directory&gt; --sdk-dir &lt;directory&gt; --qt-dir &lt;directory&gt; --help|-h|-? Examples setup-android Synopsis qbs setup-android [--settings-dir &lt;directory&gt;] [--ndk-dir &lt;directory&gt;] [--sdk-dir &lt;directory&gt;] [--qt-dir &lt;directory&gt;] &lt;profile name&gt; Description Creates Qbs profiles for Android SDK and NDK installations.
+<meta property="og:description" content="Qbs Manual Command-Line Interface setup-android Qbs 1.22.0 Contents  Synopsis Description Options --settings-dir &lt;directory&gt; --ndk-dir &lt;directory&gt; --sdk-dir &lt;directory&gt; --qt-dir &lt;directory&gt; --help|-h|-? Examples    setup-android    Synopsis qbs setup-android [--settings-dir &lt;directory&gt;] [--ndk-dir &lt;directory&gt;] [--sdk-dir &lt;directory&gt;] [--qt-dir &lt;directory&gt;] &lt;profile name&gt;  Description Creates Qbs profiles for Android SDK and NDK installations.
 If a Qt path is given, these additional profiles will be suitable for building Qt binaries for the respective architecture, if the Qt installation has support for it." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/cli-setup-android/" /><meta property="article:section" content="docs" />
 
 
 
+
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Command-Line Interface setup-android Qbs 2.0.1 Contents Synopsis Description Options --settings-dir &lt;directory&gt; --ndk-dir &lt;directory&gt; --sdk-dir &lt;directory&gt; --qt-dir &lt;directory&gt; --help|-h|-? Examples setup-android Synopsis qbs setup-android [--settings-dir &lt;directory&gt;] [--ndk-dir &lt;directory&gt;] [--sdk-dir &lt;directory&gt;] [--qt-dir &lt;directory&gt;] &lt;profile name&gt; Description Creates Qbs profiles for Android SDK and NDK installations.
+<meta name="twitter:description" content="Qbs Manual Command-Line Interface setup-android Qbs 1.22.0 Contents  Synopsis Description Options --settings-dir &lt;directory&gt; --ndk-dir &lt;directory&gt; --sdk-dir &lt;directory&gt; --qt-dir &lt;directory&gt; --help|-h|-? Examples    setup-android    Synopsis qbs setup-android [--settings-dir &lt;directory&gt;] [--ndk-dir &lt;directory&gt;] [--sdk-dir &lt;directory&gt;] [--qt-dir &lt;directory&gt;] &lt;profile name&gt;  Description Creates Qbs profiles for Android SDK and NDK installations.
 If a Qt path is given, these additional profiles will be suitable for building Qt binaries for the respective architecture, if the Qt installation has support for it."/>
 
 </head>
@@ -61,10 +62,10 @@ If a Qt path is given, these additional profiles will be suitable for building Q
 <li><a href="https://qbs.io
 /docs/cli/">Command-Line Interface</a></li>
 <li>setup-android</li>
-<li id="buildversion">Qbs 2.0.1</li>
+<li id="buildversion">Qbs 1.22.0</li>
 <div class="sidebar">
 <div class="toc">
-<h3 id="toc">Contents</h3>
+<h3><a name="toc">Contents</a></h3>
 <ul>
 <li class="level1"><a href="#synopsis">Synopsis</a></li>
 <li class="level1"><a href="#description">Description</a></li>
@@ -79,16 +80,21 @@ If a Qt path is given, these additional profiles will be suitable for building Q
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
 <div class="content"><h1 class="title">setup-android</h1>
+<span class="subtitle"></span>
 <!-- $$$cli-setup-android.html-description -->
-<div class="descr" id="details">
+<div class="descr"> <a name="details"></a>
+<a name="synopsis"></a>
 <h2 id="synopsis">Synopsis</h2>
 <pre class="cpp">qbs setup<span class="operator">-</span>android <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>settings<span class="operator">-</span>dir <span class="operator">&lt;</span>directory<span class="operator">&gt;</span><span class="operator">]</span> <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>ndk<span class="operator">-</span>dir <span class="operator">&lt;</span>directory<span class="operator">&gt;</span><span class="operator">]</span>
                   <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>sdk<span class="operator">-</span>dir <span class="operator">&lt;</span>directory<span class="operator">&gt;</span><span class="operator">]</span> <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>qt<span class="operator">-</span>dir <span class="operator">&lt;</span>directory<span class="operator">&gt;</span><span class="operator">]</span>
                   <span class="operator">&lt;</span>profile name<span class="operator">&gt;</span></pre>
+<a name="description"></a>
 <h2 id="description">Description</h2>
 <p>Creates Qbs profiles for Android SDK and NDK installations.</p>
 <p>If a Qt path is given, these additional profiles will be suitable for building Qt binaries for the respective architecture, if the Qt installation has support for it.</p>
+<a name="options"></a>
 <h2 id="options">Options</h2>
+<a name="op-op-op-op-settings-op-op-dir-op-lt-op-directory-op-gt-op"></a>
 <h3 id="op-op-op-op-settings-op-op-dir-op-lt-op-directory-op-gt-op"><code>--settings-dir &lt;directory&gt;</code></h3>
 <p>Reads all settings (such as <a href="https://qbs.io
 /docs/qml-qbslanguageitems-profile/">profile</a> information) from the specified <code>&lt;directory&gt;</code>. If the directory does not exist, it will be created.</p>
@@ -96,16 +102,22 @@ If a Qt path is given, these additional profiles will be suitable for building Q
 <ul>
 <li>Linux: <code>$HOME/.config/QtProject/qbs</code></li>
 <li>Windows: <code>%APPDATA%\QtProject\qbs</code></li>
-<li>macOS: <code>$HOME/Library/Preferences/qbs</code></li>
+<li><a href="https://qbs.io
+/docs/nolink">macOS</a>: <code>$HOME/Library/Preferences/qbs</code></li>
 </ul>
+<a name="op-op-op-op-ndk-op-op-dir-op-lt-op-directory-op-gt-op"></a>
 <h3 id="op-op-op-op-ndk-op-op-dir-op-lt-op-directory-op-gt-op"><code>--ndk-dir &lt;directory&gt;</code></h3>
 <p>Specifies a <code>&lt;directory&gt;</code> that contains an Android NDK.</p>
+<a name="op-op-op-op-sdk-op-op-dir-op-lt-op-directory-op-gt-op"></a>
 <h3 id="op-op-op-op-sdk-op-op-dir-op-lt-op-directory-op-gt-op"><code>--sdk-dir &lt;directory&gt;</code></h3>
 <p>Specifies a <code>&lt;directory&gt;</code> that contains an Android SDK.</p>
+<a name="op-op-op-op-qt-op-op-dir-op-lt-op-directory-op-gt-op"></a>
 <h3 id="op-op-op-op-qt-op-op-dir-op-lt-op-directory-op-gt-op"><code>--qt-dir &lt;directory&gt;</code></h3>
 <p>Specifies a <code>&lt;directory&gt;</code> that contains a Qt version.</p>
+<a name="op-op-op-op-help-op-op-op-op-h-op-op-op-op-op-op"></a>
 <h3 id="op-op-op-op-help-op-op-op-op-h-op-op-op-op-op-op"><code>--help|-h|-?</code></h3>
 <p>Displays help for the command.</p>
+<a name="examples"></a>
 <h2 id="examples">Examples</h2>
 <p>Creates a profile with the name <code>oreo</code> that specifies the target platforms' <a href="https://qbs.io
 /docs/qml-qbsmodules-qbs/#architectures-prop">architectures</a> and operating systems, as well as the toolchains available:</p>

@@ -3,9 +3,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Installing Files Qbs 2.0.1 Running Applications Target Platforms Installing Files To install your project, specify the necessary information in the project file:
-Application { Group { name: &#34;Runtime resources&#34; files: &#34;*.qml&#34; qbs.install: true qbs.installDir: &#34;share/myproject&#34; } Group { name: &#34;The App itself&#34; fileTagsFilter: &#34;application&#34; qbs.install: true qbs.installDir: &#34;bin&#34; } } In this example, we want to install a couple of QML files and an executable.
-When building, Qbs installs artifacts into the default root folder, namely &lt;build root&gt;/install-root. ">
+    <meta name="description" content="Qbs Manual Installing Files Qbs 1.22.0 Running Applications Target Platforms   Installing Files   To install your project, specify the necessary information in the project file:
+Application { Group { name: &#34;Runtime resources&#34; files: &#34;*.qml&#34; qbs.install: true qbs.installDir: &#34;share/myproject&#34; } Group { name: &#34;The App itself&#34; fileTagsFilter: &#34;application&#34; qbs.install: true qbs.installDir: &#34;bin&#34; } } In this example, we want to install a couple of QML files and an executable. ">
     <link rel="canonical" href="https://qbs.io/docs/installing-files/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -19,19 +18,18 @@ When building, Qbs installs artifacts into the default root folder, namely &lt;b
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Installing Files Qbs 2.0.1 Running Applications Target Platforms Installing Files To install your project, specify the necessary information in the project file:
-Application { Group { name: &#34;Runtime resources&#34; files: &#34;*.qml&#34; qbs.install: true qbs.installDir: &#34;share/myproject&#34; } Group { name: &#34;The App itself&#34; fileTagsFilter: &#34;application&#34; qbs.install: true qbs.installDir: &#34;bin&#34; } } In this example, we want to install a couple of QML files and an executable.
-When building, Qbs installs artifacts into the default root folder, namely &lt;build root&gt;/install-root." />
+<meta property="og:description" content="Qbs Manual Installing Files Qbs 1.22.0 Running Applications Target Platforms   Installing Files   To install your project, specify the necessary information in the project file:
+Application { Group { name: &#34;Runtime resources&#34; files: &#34;*.qml&#34; qbs.install: true qbs.installDir: &#34;share/myproject&#34; } Group { name: &#34;The App itself&#34; fileTagsFilter: &#34;application&#34; qbs.install: true qbs.installDir: &#34;bin&#34; } } In this example, we want to install a couple of QML files and an executable." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/installing-files/" /><meta property="article:section" content="docs" />
 
 
 
+
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Installing Files Qbs 2.0.1 Running Applications Target Platforms Installing Files To install your project, specify the necessary information in the project file:
-Application { Group { name: &#34;Runtime resources&#34; files: &#34;*.qml&#34; qbs.install: true qbs.installDir: &#34;share/myproject&#34; } Group { name: &#34;The App itself&#34; fileTagsFilter: &#34;application&#34; qbs.install: true qbs.installDir: &#34;bin&#34; } } In this example, we want to install a couple of QML files and an executable.
-When building, Qbs installs artifacts into the default root folder, namely &lt;build root&gt;/install-root."/>
+<meta name="twitter:description" content="Qbs Manual Installing Files Qbs 1.22.0 Running Applications Target Platforms   Installing Files   To install your project, specify the necessary information in the project file:
+Application { Group { name: &#34;Runtime resources&#34; files: &#34;*.qml&#34; qbs.install: true qbs.installDir: &#34;share/myproject&#34; } Group { name: &#34;The App itself&#34; fileTagsFilter: &#34;application&#34; qbs.install: true qbs.installDir: &#34;bin&#34; } } In this example, we want to install a couple of QML files and an executable."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -62,7 +60,7 @@ When building, Qbs installs artifacts into the default root folder, namely &lt;b
 <li><a href="https://qbs.io
 /docs">Qbs Manual</a></li>
 <li>Installing Files</li>
-<li id="buildversion">Qbs 2.0.1</li>
+<li id="buildversion">Qbs 1.22.0</li>
   <link rel="prev" href="https://qbs.io
 /docs/running-applications/">
   <link rel="next" href="https://qbs.io
@@ -72,11 +70,12 @@ When building, Qbs installs artifacts into the default root folder, namely &lt;b
 /docs/running-applications/">Running Applications</a>
 <a class="nextPage" href="https://qbs.io
 /docs/platforms/">Target Platforms</a>
-</p>
-<div class="sidebar"><div class="sidebar-content" id="sidebar-content"></div></div>
+</p><p>
+</p><div class="sidebar"><div class="sidebar-content" id="sidebar-content"></div></div>
 <div class="content"><h1 class="title">Installing Files</h1>
+<span class="subtitle"></span>
 <!-- $$$installing-files.html-description -->
-<div class="descr" id="details">
+<div class="descr"> <a name="details"></a>
 <p>To install your project, specify the necessary information in the project file:</p>
 <pre class="cpp">Application {
     Group {

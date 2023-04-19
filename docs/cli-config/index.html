@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Command-Line Interface config Qbs 2.0.1 Contents Synopsis Description Options --settings-dir &lt;directory&gt; --list [&lt;root&gt; ...] --unset &lt;key&gt; --export &lt;file&gt; --import &lt;file&gt; --user --system --help|-h|-? Parameters &lt;key&gt; Examples config Synopsis qbs config [--settings-dir &lt;directory&gt;] [--user|--system] [--list [&lt;root&gt; ...]] [--unset &lt;key&gt;] [--export &lt;file&gt;] [--import &lt;file&gt;] qbs config [--settings-dir &lt;directory&gt;] [--user|--system] &lt;key&gt; qbs config [--settings-dir &lt;directory&gt;] [--user|--system] &lt;key&gt; &lt;value&gt; Description Manages Qbs settings, such as preferences and profiles. You can list all keys and remove the specified key, as well as import settings from a file or export them to a file. ">
+    <meta name="description" content="Qbs Manual Command-Line Interface config Qbs 1.22.0 Contents  Synopsis Description Options --settings-dir &lt;directory&gt; --list [&lt;root&gt; ...] --unset &lt;key&gt; --export &lt;file&gt; --import &lt;file&gt; --user --system --help|-h|-? Parameters &lt;key&gt; Examples    config    Synopsis qbs config [--settings-dir &lt;directory&gt;] [--user|--system] [--list [&lt;root&gt; ...]] [--unset &lt;key&gt;] [--export &lt;file&gt;] [--import &lt;file&gt;] qbs config [--settings-dir &lt;directory&gt;] [--user|--system] &lt;key&gt; qbs config [--settings-dir &lt;directory&gt;] [--user|--system] &lt;key&gt; &lt;value&gt;  Description Manages Qbs settings, such as preferences and profiles. ">
     <link rel="canonical" href="https://qbs.io/docs/cli-config/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -17,15 +17,16 @@
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Command-Line Interface config Qbs 2.0.1 Contents Synopsis Description Options --settings-dir &lt;directory&gt; --list [&lt;root&gt; ...] --unset &lt;key&gt; --export &lt;file&gt; --import &lt;file&gt; --user --system --help|-h|-? Parameters &lt;key&gt; Examples config Synopsis qbs config [--settings-dir &lt;directory&gt;] [--user|--system] [--list [&lt;root&gt; ...]] [--unset &lt;key&gt;] [--export &lt;file&gt;] [--import &lt;file&gt;] qbs config [--settings-dir &lt;directory&gt;] [--user|--system] &lt;key&gt; qbs config [--settings-dir &lt;directory&gt;] [--user|--system] &lt;key&gt; &lt;value&gt; Description Manages Qbs settings, such as preferences and profiles. You can list all keys and remove the specified key, as well as import settings from a file or export them to a file." />
+<meta property="og:description" content="Qbs Manual Command-Line Interface config Qbs 1.22.0 Contents  Synopsis Description Options --settings-dir &lt;directory&gt; --list [&lt;root&gt; ...] --unset &lt;key&gt; --export &lt;file&gt; --import &lt;file&gt; --user --system --help|-h|-? Parameters &lt;key&gt; Examples    config    Synopsis qbs config [--settings-dir &lt;directory&gt;] [--user|--system] [--list [&lt;root&gt; ...]] [--unset &lt;key&gt;] [--export &lt;file&gt;] [--import &lt;file&gt;] qbs config [--settings-dir &lt;directory&gt;] [--user|--system] &lt;key&gt; qbs config [--settings-dir &lt;directory&gt;] [--user|--system] &lt;key&gt; &lt;value&gt;  Description Manages Qbs settings, such as preferences and profiles." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/cli-config/" /><meta property="article:section" content="docs" />
 
 
 
+
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Command-Line Interface config Qbs 2.0.1 Contents Synopsis Description Options --settings-dir &lt;directory&gt; --list [&lt;root&gt; ...] --unset &lt;key&gt; --export &lt;file&gt; --import &lt;file&gt; --user --system --help|-h|-? Parameters &lt;key&gt; Examples config Synopsis qbs config [--settings-dir &lt;directory&gt;] [--user|--system] [--list [&lt;root&gt; ...]] [--unset &lt;key&gt;] [--export &lt;file&gt;] [--import &lt;file&gt;] qbs config [--settings-dir &lt;directory&gt;] [--user|--system] &lt;key&gt; qbs config [--settings-dir &lt;directory&gt;] [--user|--system] &lt;key&gt; &lt;value&gt; Description Manages Qbs settings, such as preferences and profiles. You can list all keys and remove the specified key, as well as import settings from a file or export them to a file."/>
+<meta name="twitter:description" content="Qbs Manual Command-Line Interface config Qbs 1.22.0 Contents  Synopsis Description Options --settings-dir &lt;directory&gt; --list [&lt;root&gt; ...] --unset &lt;key&gt; --export &lt;file&gt; --import &lt;file&gt; --user --system --help|-h|-? Parameters &lt;key&gt; Examples    config    Synopsis qbs config [--settings-dir &lt;directory&gt;] [--user|--system] [--list [&lt;root&gt; ...]] [--unset &lt;key&gt;] [--export &lt;file&gt;] [--import &lt;file&gt;] qbs config [--settings-dir &lt;directory&gt;] [--user|--system] &lt;key&gt; qbs config [--settings-dir &lt;directory&gt;] [--user|--system] &lt;key&gt; &lt;value&gt;  Description Manages Qbs settings, such as preferences and profiles."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -58,10 +59,10 @@
 <li><a href="https://qbs.io
 /docs/cli/">Command-Line Interface</a></li>
 <li>config</li>
-<li id="buildversion">Qbs 2.0.1</li>
+<li id="buildversion">Qbs 1.22.0</li>
 <div class="sidebar">
 <div class="toc">
-<h3 id="toc">Contents</h3>
+<h3><a name="toc">Contents</a></h3>
 <ul>
 <li class="level1"><a href="#synopsis">Synopsis</a></li>
 <li class="level1"><a href="#description">Description</a></li>
@@ -81,13 +82,16 @@
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
 <div class="content"><h1 class="title">config</h1>
+<span class="subtitle"></span>
 <!-- $$$cli-config.html-description -->
-<div class="descr" id="details">
+<div class="descr"> <a name="details"></a>
+<a name="synopsis"></a>
 <h2 id="synopsis">Synopsis</h2>
 <pre class="cpp">qbs config <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>settings<span class="operator">-</span>dir <span class="operator">&lt;</span>directory<span class="operator">&gt;</span><span class="operator">]</span> <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>user<span class="operator">|</span><span class="operator">-</span><span class="operator">-</span>system<span class="operator">]</span> <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>list <span class="operator">[</span><span class="operator">&lt;</span>root<span class="operator">&gt;</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span><span class="operator">]</span><span class="operator">]</span>
            <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>unset <span class="operator">&lt;</span>key<span class="operator">&gt;</span><span class="operator">]</span> <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span><span class="keyword">export</span> <span class="operator">&lt;</span>file<span class="operator">&gt;</span><span class="operator">]</span> <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>import <span class="operator">&lt;</span>file<span class="operator">&gt;</span><span class="operator">]</span>
 qbs config <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>settings<span class="operator">-</span>dir <span class="operator">&lt;</span>directory<span class="operator">&gt;</span><span class="operator">]</span> <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>user<span class="operator">|</span><span class="operator">-</span><span class="operator">-</span>system<span class="operator">]</span> <span class="operator">&lt;</span>key<span class="operator">&gt;</span>
 qbs config <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>settings<span class="operator">-</span>dir <span class="operator">&lt;</span>directory<span class="operator">&gt;</span><span class="operator">]</span> <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>user<span class="operator">|</span><span class="operator">-</span><span class="operator">-</span>system<span class="operator">]</span> <span class="operator">&lt;</span>key<span class="operator">&gt;</span> <span class="operator">&lt;</span>value<span class="operator">&gt;</span></pre>
+<a name="description"></a>
 <h2 id="description">Description</h2>
 <p>Manages Qbs settings, such as preferences and profiles. You can list all keys and remove the specified key, as well as import settings from a file or export them to a file.</p>
 <p>The second form of this command displays the specified <code>&lt;key&gt;</code>.</p>
@@ -105,7 +109,9 @@ qbs config <span class="operator">[</span><span class="operator">-</span><span c
 /docs/language-introduction/#modules">Modules</a>, <a href="https://qbs.io
 /docs/qbsmodules-qmlmodule/">List of Modules</a>, and <a href="https://qbs.io
 /docs/custom-modules/">Custom Modules and Items</a>.</p>
+<a name="options"></a>
 <h2 id="options">Options</h2>
+<a name="op-op-op-op-settings-op-op-dir-op-lt-op-directory-op-gt-op"></a>
 <h3 id="op-op-op-op-settings-op-op-dir-op-lt-op-directory-op-gt-op"><code>--settings-dir &lt;directory&gt;</code></h3>
 <p>Reads all settings (such as <a href="https://qbs.io
 /docs/qml-qbslanguageitems-profile/">profile</a> information) from the specified <code>&lt;directory&gt;</code>. If the directory does not exist, it will be created.</p>
@@ -113,8 +119,10 @@ qbs config <span class="operator">[</span><span class="operator">-</span><span c
 <ul>
 <li>Linux: <code>$HOME/.config/QtProject/qbs</code></li>
 <li>Windows: <code>%APPDATA%\QtProject\qbs</code></li>
-<li>macOS: <code>$HOME/Library/Preferences/qbs</code></li>
+<li><a href="https://qbs.io
+/docs/nolink">macOS</a>: <code>$HOME/Library/Preferences/qbs</code></li>
 </ul>
+<a name="op-op-op-op-list-op-op-op-lt-op-root-op-gt-op-op-op-op-op-op-op-op-op"></a>
 <h3 id="op-op-op-op-list-op-op-op-lt-op-root-op-gt-op-op-op-op-op-op-op-op-op"><code>--list [&lt;root&gt; ...]</code></h3>
 <p>Lists keys under the key <code>&lt;root&gt;</code> or all keys if the root is not specified.</p>
 <p>Possible values are:</p>
@@ -124,21 +132,30 @@ qbs config <span class="operator">[</span><span class="operator">-</span><span c
 <li><code>preferences</code> accepts build preferences as second-level keys</li>
 <li><code>profiles</code> accepts profile names as second-level keys</li>
 </ul>
+<a name="op-op-op-op-unset-op-lt-op-key-op-gt-op"></a>
 <h3 id="op-op-op-op-unset-op-lt-op-key-op-gt-op"><code>--unset &lt;key&gt;</code></h3>
 <p>Removes the specified <code>&lt;key&gt;</code>.</p>
+<a name="op-op-op-op-keyword-export-keyword-op-lt-op-file-op-gt-op"></a>
 <h3 id="op-op-op-op-keyword-export-keyword-op-lt-op-file-op-gt-op"><code>--export &lt;file&gt;</code></h3>
 <p>Exports settings to the specified <code>&lt;file&gt;</code>.</p>
+<a name="op-op-op-op-import-op-lt-op-file-op-gt-op"></a>
 <h3 id="op-op-op-op-import-op-lt-op-file-op-gt-op"><code>--import &lt;file&gt;</code></h3>
 <p>Imports settings from the specified <code>&lt;file&gt;</code>.</p>
+<a name="op-op-op-op-user"></a>
 <h3 id="op-op-op-op-user"><code>--user</code></h3>
 <p>Causes read operations to display only the user-level settings, while the system-level settings are ignored. Write operations will target the user-level settings, which is also the default.</p>
+<a name="op-op-op-op-system"></a>
 <h3 id="op-op-op-op-system"><code>--system</code></h3>
 <p>Read and write operations will consider only the system-level settings.</p>
+<a name="op-op-op-op-help-op-op-op-op-h-op-op-op-op-op-op"></a>
 <h3 id="op-op-op-op-help-op-op-op-op-h-op-op-op-op-op-op"><code>--help|-h|-?</code></h3>
 <p>Displays help for the command.</p>
+<a name="parameters"></a>
 <h2 id="parameters">Parameters</h2>
+<a name="op-lt-op-key-op-gt-op"></a>
 <h3 id="op-lt-op-key-op-gt-op"><code>&lt;key&gt;</code></h3>
 <p>Typically, a <code>&lt;key&gt;</code> consists of several levels separated by periods. The first level shows a <i>root</i> value, such as <i>preferences</i> or <i>profiles</i>. The root determines whether the second-level keys are build preferences or profile names. The lower level keys consist of a module name, followed by a property name.</p>
+<a name="examples"></a>
 <h2 id="examples">Examples</h2>
 <p>Lists the existing profiles:</p>
 <pre class="cpp">qbs config <span class="operator">-</span><span class="operator">-</span>list profiles</pre>
