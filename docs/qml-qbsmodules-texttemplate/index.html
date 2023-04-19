@@ -3,9 +3,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Qbs 1.22.0 Contents  Properties Detailed Description Example Placeholder Syntax Relevant File Tags    texttemplate QML Type  Provides support for text template files. More...
-Import Statement:import QbsModules .Since:Qbs 1.13 List of all members, including inherited members   Properties  dict : var outputFileName : string outputTag : string   Detailed Description The texttemplate module provides support for text template files.
- Example Consider the following text file greeting. ">
+    <meta name="description" content="Qbs Manual QbsModules texttemplate Qbs 2.0.1 Contents Properties Detailed Description Example Placeholder Syntax Relevant File Tags texttemplate QML Type Provides support for text template files. More...
+Import Statement: import QbsModules Since: Qbs 1.13 List of all members, including inherited members Properties dict : var outputFileName : string outputTag : string Detailed Description The texttemplate module provides support for text template files.
+Example Consider the following text file greeting.txt.in.
+${greeting} ${name}! ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-texttemplate/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -15,22 +16,25 @@ Import Statement:import QbsModules .Since:Qbs 1.13 List of all members, includin
 
     
       
-      <link rel="stylesheet" href="/css/main.min.761a6ef2660f6c116654a7b2e12cde896df4bcccaaac3a1e6527ef4bcc1c16e7.css" integrity="sha256-dhpu8mYPbBFmVKey4SzeiW30vMyqrDoeZSfvS8wcFuc="/>
+      <link rel="stylesheet" href="/css/main.min.7d27557bc1f8660bf0e026622019467fd286c7d3eb71497bb1bf1eb961a1697a.css" integrity="sha256-fSdVe8H4Zgvw4CZiIBlGf9KGx9PrcUl7sb8euWGhaXo="/>
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Qbs 1.22.0 Contents  Properties Detailed Description Example Placeholder Syntax Relevant File Tags    texttemplate QML Type  Provides support for text template files. More...
-Import Statement:import QbsModules .Since:Qbs 1.13 List of all members, including inherited members   Properties  dict : var outputFileName : string outputTag : string   Detailed Description The texttemplate module provides support for text template files.
- Example Consider the following text file greeting." />
+<meta property="og:description" content="Qbs Manual QbsModules texttemplate Qbs 2.0.1 Contents Properties Detailed Description Example Placeholder Syntax Relevant File Tags texttemplate QML Type Provides support for text template files. More...
+Import Statement: import QbsModules Since: Qbs 1.13 List of all members, including inherited members Properties dict : var outputFileName : string outputTag : string Detailed Description The texttemplate module provides support for text template files.
+Example Consider the following text file greeting.txt.in.
+${greeting} ${name}!" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-texttemplate/" />
+<meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-texttemplate/" /><meta property="article:section" content="docs" />
+
 
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Qbs 1.22.0 Contents  Properties Detailed Description Example Placeholder Syntax Relevant File Tags    texttemplate QML Type  Provides support for text template files. More...
-Import Statement:import QbsModules .Since:Qbs 1.13 List of all members, including inherited members   Properties  dict : var outputFileName : string outputTag : string   Detailed Description The texttemplate module provides support for text template files.
- Example Consider the following text file greeting."/>
+<meta name="twitter:description" content="Qbs Manual QbsModules texttemplate Qbs 2.0.1 Contents Properties Detailed Description Example Placeholder Syntax Relevant File Tags texttemplate QML Type Provides support for text template files. More...
+Import Statement: import QbsModules Since: Qbs 1.13 List of all members, including inherited members Properties dict : var outputFileName : string outputTag : string Detailed Description The texttemplate module provides support for text template files.
+Example Consider the following text file greeting.txt.in.
+${greeting} ${name}!"/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -60,10 +64,13 @@ Import Statement:import QbsModules .Since:Qbs 1.13 List of all members, includin
     
 <li><a href="https://qbs.io
 /docs">Qbs Manual</a></li>
-<li id="buildversion">Qbs 1.22.0</li>
+<li><a href="https://qbs.io
+/docs/qbsmodules-qmlmodule/">QbsModules</a></li>
+<li>texttemplate</li>
+<li id="buildversion">Qbs 2.0.1</li>
 <div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3 id="toc">Contents</h3>
 <ul>
 <li class="level1"><a href="#properties">Properties</a></li>
 <li class="level1"><a href="#details">Detailed Description</a></li>
@@ -74,30 +81,26 @@ Import Statement:import QbsModules .Since:Qbs 1.13 List of all members, includin
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
 <div class="content"><h1 class="title">texttemplate QML Type</h1>
-<span class="subtitle"></span>
 <!-- $$$texttemplate-brief -->
 <p>Provides support for text template files. <a href="#details">More...</a></p>
 <!-- @@@texttemplate -->
 <div class="table"><table class="alignedsummary">
-<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsModules .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.13</td></tr></tbody></table></div><ul>
+<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsModules</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.13</td></tr></tbody></table></div><ul>
 <li><a href="https://qbs.io
 /docs/qml-qbsmodules-texttemplate-members/">List of all members, including inherited members</a></li>
 </ul>
-<a name="properties"></a>
 <h2 id="properties">Properties</h2>
 <ul>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-texttemplate/#dict-prop">dict</a></b></b> : var</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-texttemplate/#outputFileName-prop">outputFileName</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-texttemplate/#outputTag-prop">outputTag</a></b></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-texttemplate/#dict-prop">dict</a></b> : var</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-texttemplate/#outputFileName-prop">outputFileName</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-texttemplate/#outputTag-prop">outputTag</a></b> : string</li>
 </ul>
 <!-- $$$texttemplate-description -->
-<a name="details"></a>
 <h2 id="details">Detailed Description</h2>
 <p>The <code>texttemplate</code> module provides support for text template files.</p>
-<a name="example"></a>
 <h3 id="example">Example</h3>
 <p>Consider the following text file <i>greeting.txt.in</i>.</p>
 <pre class="cpp">${greeting} ${name}<span class="operator">!</span></pre>
@@ -113,14 +116,12 @@ Import Statement:import QbsModules .Since:Qbs 1.13 List of all members, includin
 }</pre>
 <p>Which will create the file <i>greeting.txt</i>.</p>
 <pre class="cpp">Hello World<span class="operator">!</span></pre>
-<a name="placeholder-syntax"></a>
 <h3 id="placeholder-syntax">Placeholder Syntax</h3>
 <p>A placeholder <code>${foo}</code> is replaced by its corresponding value in <i>texttemplate.dict</i>. Placeholder names consist of alphanumeric characters only.</p>
 <p>The placeholder <code>${$}</code> is always replaced with <code>$</code>. If you need a literal <code>${foo}</code> in your template, use <code>${$}{foo}</code>.</p>
 <p>Placeholders that are not defined in the dictionary will produce an error.</p>
-<a name="relevant-file-tags"></a>
 <h3 id="relevant-file-tags">Relevant File Tags</h3>
-<a name="filetags-texttemplate"></a><div class="table"><table class="generic">
+<span id="filetags-texttemplate"></span><div class="table"><table class="generic">
  <thead><tr class="qt-style"><th>Tag</th><th>Auto-tagged File Names</th><th>Since</th><th>Description</th></tr></thead>
 <tbody><tr valign="top" class="odd"><td><code>"texttemplate.input"</code></td><td><code>*.in</code></td><td>1.13.0</td><td>Source files with this tag serve as inputs for the text template rule.</td></tr>
 </tbody></table></div>

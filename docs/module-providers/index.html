@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Module Providers Qbs 1.22.0 Custom Modules and Items How-tos  Contents  How Qbs Uses Module Providers Selecting Module Providers Parameterizing Module Providers    Module Providers   There are use cases for which a pre-defined module is not flexible enough. For instance, the overall set of modules related to a certain task might depend on some information present on the local platform.
+    <meta name="description" content="Qbs Manual Module Providers Qbs 2.0.1 Custom Modules and Items How-tos Contents How Qbs Uses Module Providers Selecting Module Providers Parameterizing Module Providers Module Providers There are use cases for which a pre-defined module is not flexible enough. For instance, the overall set of modules related to a certain task might depend on some information present on the local platform.
 Note: Module providers are an advanced concept that you will rarely need to use directly. ">
     <link rel="canonical" href="https://qbs.io/docs/module-providers/" />
 
@@ -14,19 +14,20 @@ Note: Module providers are an advanced concept that you will rarely need to use 
 
     
       
-      <link rel="stylesheet" href="/css/main.min.761a6ef2660f6c116654a7b2e12cde896df4bcccaaac3a1e6527ef4bcc1c16e7.css" integrity="sha256-dhpu8mYPbBFmVKey4SzeiW30vMyqrDoeZSfvS8wcFuc="/>
+      <link rel="stylesheet" href="/css/main.min.7d27557bc1f8660bf0e026622019467fd286c7d3eb71497bb1bf1eb961a1697a.css" integrity="sha256-fSdVe8H4Zgvw4CZiIBlGf9KGx9PrcUl7sb8euWGhaXo="/>
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Module Providers Qbs 1.22.0 Custom Modules and Items How-tos  Contents  How Qbs Uses Module Providers Selecting Module Providers Parameterizing Module Providers    Module Providers   There are use cases for which a pre-defined module is not flexible enough. For instance, the overall set of modules related to a certain task might depend on some information present on the local platform.
+<meta property="og:description" content="Qbs Manual Module Providers Qbs 2.0.1 Custom Modules and Items How-tos Contents How Qbs Uses Module Providers Selecting Module Providers Parameterizing Module Providers Module Providers There are use cases for which a pre-defined module is not flexible enough. For instance, the overall set of modules related to a certain task might depend on some information present on the local platform.
 Note: Module providers are an advanced concept that you will rarely need to use directly." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://qbs.io/docs/module-providers/" />
+<meta property="og:url" content="https://qbs.io/docs/module-providers/" /><meta property="article:section" content="docs" />
+
 
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Module Providers Qbs 1.22.0 Custom Modules and Items How-tos  Contents  How Qbs Uses Module Providers Selecting Module Providers Parameterizing Module Providers    Module Providers   There are use cases for which a pre-defined module is not flexible enough. For instance, the overall set of modules related to a certain task might depend on some information present on the local platform.
+<meta name="twitter:description" content="Qbs Manual Module Providers Qbs 2.0.1 Custom Modules and Items How-tos Contents How Qbs Uses Module Providers Selecting Module Providers Parameterizing Module Providers Module Providers There are use cases for which a pre-defined module is not flexible enough. For instance, the overall set of modules related to a certain task might depend on some information present on the local platform.
 Note: Module providers are an advanced concept that you will rarely need to use directly."/>
 
 </head>
@@ -58,7 +59,7 @@ Note: Module providers are an advanced concept that you will rarely need to use 
 <li><a href="https://qbs.io
 /docs">Qbs Manual</a></li>
 <li>Module Providers</li>
-<li id="buildversion">Qbs 1.22.0</li>
+<li id="buildversion">Qbs 2.0.1</li>
   <link rel="prev" href="https://qbs.io
 /docs/custom-modules/">
   <link rel="next" href="https://qbs.io
@@ -68,10 +69,10 @@ Note: Module providers are an advanced concept that you will rarely need to use 
 /docs/custom-modules/">Custom Modules and Items</a>
 <a class="nextPage" href="https://qbs.io
 /docs/howtos/">How-tos</a>
-</p><p>
-</p><div class="sidebar">
+</p>
+<div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3 id="toc">Contents</h3>
 <ul>
 <li class="level1"><a href="#how-qbs-uses-module-providers">How Qbs Uses Module Providers</a></li>
 <li class="level1"><a href="#selecting-module-providers">Selecting Module Providers</a></li>
@@ -80,12 +81,12 @@ Note: Module providers are an advanced concept that you will rarely need to use 
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
 <div class="content"><h1 class="title">Module Providers</h1>
-<span class="subtitle"></span>
 <!-- $$$module-providers.html-description -->
-<div class="descr"> <a name="details"></a>
+<div class="descr" id="details">
 <p>There are use cases for which a pre-defined module is not flexible enough. For instance, the overall set of modules related to a certain task might depend on some information present on the local platform.</p>
+<div class="admonition note">
 <p><b>Note: </b>Module providers are an advanced concept that you will rarely need to use directly. Reading this section is not required for most people's everyday work.</p>
-<a name="how-qbs-uses-module-providers"></a>
+</div>
 <h2 id="how-qbs-uses-module-providers">How Qbs Uses Module Providers</h2>
 <p>If Qbs encounters a <a href="https://qbs.io
 /docs/qml-qbslanguageitems-depends/">Depends</a> item whose name does not match a known module, it checks whether such a module can be generated. This procedure works as follows:</p>
@@ -103,7 +104,6 @@ Note: Module providers are an advanced concept that you will rarely need to use 
 /docs/qml-qbslanguageitems-depends/#enableFallback-prop">Depends</a> item or globally via the <a href="https://qbs.io
 /docs/cli-build/#no-fallback-module-provider">--no-fallback-module-provider</a> option.</li>
 </ol>
-<a name="selecting-module-providers"></a>
 <h2 id="selecting-module-providers">Selecting Module Providers</h2>
 <p>As described above, it is possible to select which providers to run using the <a href="https://qbs.io
 /docs/qml-qbslanguageitems-product/#qbsModuleProviders-prop">qbsModuleProviders</a> property. Providers contribute to the <a href="https://qbs.io
@@ -112,7 +112,6 @@ Note: Module providers are an advanced concept that you will rarely need to use 
 <pre class="cpp">$ qbs resolve project<span class="operator">.</span>qbsModuleProviders:providerA    \ <span class="preprocessor"># sets property globally for the Project</span>
     projects<span class="operator">.</span>SomeProject<span class="operator">.</span>qbsModuleProviders:providerB \ <span class="preprocessor"># overrides property for the specific Project</span>
     products<span class="operator">.</span>SomeProduct<span class="operator">.</span>qbsModuleProviders:providerC \ <span class="preprocessor"># overrides property for the specific Product</span></pre>
-<a name="parameterizing-module-providers"></a>
 <h2 id="parameterizing-module-providers">Parameterizing Module Providers</h2>
 <p>You can pass information to module providers from the command line, via profiles or from within a product, in a similar way as you would do for modules. For instance, the following invocation of Qbs passes information to two module providers <code>a</code> and <code>b</code>:</p>
 <pre class="cpp">$ qbs moduleProviders<span class="operator">.</span>a<span class="operator">.</span>p1:<span class="keyword">true</span> moduleProviders<span class="operator">.</span>a<span class="operator">.</span>p2:<span class="keyword">true</span> moduleProviders<span class="operator">.</span>b<span class="operator">.</span>p:<span class="keyword">false</span></pre>

@@ -3,9 +3,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Building for Android Qbs 1.22.0 Contents  Creating Android Application Packages    Building for Android   To develop applications for Android, you need development tools provided by the Android SDK from Google, and (optionally) a C/C&#43;&#43; toolchain provided by the Android NDK.
+    <meta name="description" content="Qbs Manual Target Platforms Building for Android Qbs 2.0.1 Contents Creating Android Application Packages Building for Android To develop applications for Android, you need development tools provided by the Android SDK from Google, and (optionally) a C/C&#43;&#43; toolchain provided by the Android NDK.
 Note: Qbs does not yet support the Kotlin programming language.
- Creating Android Application Packages On Android, applications are distributed in a specially structured type of ZIP package called an APK. ">
+Creating Android Application Packages On Android, applications are distributed in a specially structured type of ZIP package called an APK. ">
     <link rel="canonical" href="https://qbs.io/docs/qbs-target-android/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -15,22 +15,23 @@ Note: Qbs does not yet support the Kotlin programming language.
 
     
       
-      <link rel="stylesheet" href="/css/main.min.761a6ef2660f6c116654a7b2e12cde896df4bcccaaac3a1e6527ef4bcc1c16e7.css" integrity="sha256-dhpu8mYPbBFmVKey4SzeiW30vMyqrDoeZSfvS8wcFuc="/>
+      <link rel="stylesheet" href="/css/main.min.7d27557bc1f8660bf0e026622019467fd286c7d3eb71497bb1bf1eb961a1697a.css" integrity="sha256-fSdVe8H4Zgvw4CZiIBlGf9KGx9PrcUl7sb8euWGhaXo="/>
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Building for Android Qbs 1.22.0 Contents  Creating Android Application Packages    Building for Android   To develop applications for Android, you need development tools provided by the Android SDK from Google, and (optionally) a C/C&#43;&#43; toolchain provided by the Android NDK.
+<meta property="og:description" content="Qbs Manual Target Platforms Building for Android Qbs 2.0.1 Contents Creating Android Application Packages Building for Android To develop applications for Android, you need development tools provided by the Android SDK from Google, and (optionally) a C/C&#43;&#43; toolchain provided by the Android NDK.
 Note: Qbs does not yet support the Kotlin programming language.
- Creating Android Application Packages On Android, applications are distributed in a specially structured type of ZIP package called an APK." />
+Creating Android Application Packages On Android, applications are distributed in a specially structured type of ZIP package called an APK." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://qbs.io/docs/qbs-target-android/" />
+<meta property="og:url" content="https://qbs.io/docs/qbs-target-android/" /><meta property="article:section" content="docs" />
+
 
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Building for Android Qbs 1.22.0 Contents  Creating Android Application Packages    Building for Android   To develop applications for Android, you need development tools provided by the Android SDK from Google, and (optionally) a C/C&#43;&#43; toolchain provided by the Android NDK.
+<meta name="twitter:description" content="Qbs Manual Target Platforms Building for Android Qbs 2.0.1 Contents Creating Android Application Packages Building for Android To develop applications for Android, you need development tools provided by the Android SDK from Google, and (optionally) a C/C&#43;&#43; toolchain provided by the Android NDK.
 Note: Qbs does not yet support the Kotlin programming language.
- Creating Android Application Packages On Android, applications are distributed in a specially structured type of ZIP package called an APK."/>
+Creating Android Application Packages On Android, applications are distributed in a specially structured type of ZIP package called an APK."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -60,23 +61,25 @@ Note: Qbs does not yet support the Kotlin programming language.
     
 <li><a href="https://qbs.io
 /docs">Qbs Manual</a></li>
+<li><a href="https://qbs.io
+/docs/platforms/">Target Platforms</a></li>
 <li>Building for Android</li>
-<li id="buildversion">Qbs 1.22.0</li>
+<li id="buildversion">Qbs 2.0.1</li>
 <div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3 id="toc">Contents</h3>
 <ul>
 <li class="level1"><a href="#creating-android-application-packages">Creating Android Application Packages</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
 <div class="content"><h1 class="title">Building for Android</h1>
-<span class="subtitle"></span>
 <!-- $$$qbs-target-android.html-description -->
-<div class="descr"> <a name="details"></a>
+<div class="descr" id="details">
 <p>To develop applications for Android, you need development tools provided by the Android SDK from Google, and (optionally) a C/C++ toolchain provided by the Android NDK.</p>
+<div class="admonition note">
 <p><b>Note: </b>Qbs does not yet support the Kotlin programming language.</p>
-<a name="creating-android-application-packages"></a>
+</div>
 <h2 id="creating-android-application-packages">Creating Android Application Packages</h2>
 <p>On Android, applications are distributed in a specially structured type of ZIP package called an APK. The following files should be created and bundled into an APK:</p>
 <ul>

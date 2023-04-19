@@ -3,10 +3,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual TemporaryDir Service Qbs 1.22.0 Contents  Available Operations Constructor isValid path remove    TemporaryDir Service   The TemporaryDir service creates a unique directory for temporary use.
- Available Operations  Constructor TemporaryDir() Allocates and returns a new TemporaryDir object. This method creates the temporary directory.
- isValid isValid(): boolean Returns true if the temporary directory was created successfully.
- path path(): string Returns the path to the temporary directory. ">
+    <meta name="description" content="Qbs Manual List of Built-in Services TemporaryDir Service Qbs 2.0.1 Contents Available Operations Constructor isValid path remove TemporaryDir Service The TemporaryDir service creates a unique directory for temporary use.
+Available Operations Constructor TemporaryDir() Allocates and returns a new TemporaryDir object. This method creates the temporary directory.
+isValid isValid(): boolean Returns true if the temporary directory was created successfully.
+path path(): string Returns the path to the temporary directory. Empty if the temporary directory could not be created. ">
     <link rel="canonical" href="https://qbs.io/docs/jsextension-temporarydir/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -16,24 +16,25 @@
 
     
       
-      <link rel="stylesheet" href="/css/main.min.761a6ef2660f6c116654a7b2e12cde896df4bcccaaac3a1e6527ef4bcc1c16e7.css" integrity="sha256-dhpu8mYPbBFmVKey4SzeiW30vMyqrDoeZSfvS8wcFuc="/>
+      <link rel="stylesheet" href="/css/main.min.7d27557bc1f8660bf0e026622019467fd286c7d3eb71497bb1bf1eb961a1697a.css" integrity="sha256-fSdVe8H4Zgvw4CZiIBlGf9KGx9PrcUl7sb8euWGhaXo="/>
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual TemporaryDir Service Qbs 1.22.0 Contents  Available Operations Constructor isValid path remove    TemporaryDir Service   The TemporaryDir service creates a unique directory for temporary use.
- Available Operations  Constructor TemporaryDir() Allocates and returns a new TemporaryDir object. This method creates the temporary directory.
- isValid isValid(): boolean Returns true if the temporary directory was created successfully.
- path path(): string Returns the path to the temporary directory." />
+<meta property="og:description" content="Qbs Manual List of Built-in Services TemporaryDir Service Qbs 2.0.1 Contents Available Operations Constructor isValid path remove TemporaryDir Service The TemporaryDir service creates a unique directory for temporary use.
+Available Operations Constructor TemporaryDir() Allocates and returns a new TemporaryDir object. This method creates the temporary directory.
+isValid isValid(): boolean Returns true if the temporary directory was created successfully.
+path path(): string Returns the path to the temporary directory. Empty if the temporary directory could not be created." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://qbs.io/docs/jsextension-temporarydir/" />
+<meta property="og:url" content="https://qbs.io/docs/jsextension-temporarydir/" /><meta property="article:section" content="docs" />
+
 
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual TemporaryDir Service Qbs 1.22.0 Contents  Available Operations Constructor isValid path remove    TemporaryDir Service   The TemporaryDir service creates a unique directory for temporary use.
- Available Operations  Constructor TemporaryDir() Allocates and returns a new TemporaryDir object. This method creates the temporary directory.
- isValid isValid(): boolean Returns true if the temporary directory was created successfully.
- path path(): string Returns the path to the temporary directory."/>
+<meta name="twitter:description" content="Qbs Manual List of Built-in Services TemporaryDir Service Qbs 2.0.1 Contents Available Operations Constructor isValid path remove TemporaryDir Service The TemporaryDir service creates a unique directory for temporary use.
+Available Operations Constructor TemporaryDir() Allocates and returns a new TemporaryDir object. This method creates the temporary directory.
+isValid isValid(): boolean Returns true if the temporary directory was created successfully.
+path path(): string Returns the path to the temporary directory. Empty if the temporary directory could not be created."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -63,11 +64,13 @@
     
 <li><a href="https://qbs.io
 /docs">Qbs Manual</a></li>
+<li><a href="https://qbs.io
+/docs/list-of-builtin-services/">List of Built-in Services</a></li>
 <li>TemporaryDir Service</li>
-<li id="buildversion">Qbs 1.22.0</li>
+<li id="buildversion">Qbs 2.0.1</li>
 <div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3 id="toc">Contents</h3>
 <ul>
 <li class="level1"><a href="#available-operations">Available Operations</a></li>
 <li class="level2"><a href="#constructor">Constructor</a></li>
@@ -78,25 +81,19 @@
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
 <div class="content"><h1 class="title">TemporaryDir Service</h1>
-<span class="subtitle"></span>
 <!-- $$$jsextension-temporarydir.html-description -->
-<div class="descr"> <a name="details"></a>
+<div class="descr" id="details">
 <p>The <code>TemporaryDir</code> service creates a unique directory for temporary use.</p>
-<a name="available-operations"></a>
 <h2 id="available-operations">Available Operations</h2>
-<a name="constructor"></a>
 <h3 id="constructor">Constructor</h3>
 <pre class="cpp">TemporaryDir()</pre>
 <p>Allocates and returns a new TemporaryDir object. This method creates the temporary directory.</p>
-<a name="isvalid"></a>
 <h3 id="isvalid">isValid</h3>
 <pre class="cpp">isValid(): boolean</pre>
 <p>Returns <code>true</code> if the temporary directory was created successfully.</p>
-<a name="path"></a>
 <h3 id="path">path</h3>
 <pre class="cpp">path(): string</pre>
 <p>Returns the path to the temporary directory. Empty if the temporary directory could not be created.</p>
-<a name="remove"></a>
 <h3 id="remove">remove</h3>
 <pre class="cpp">remove(): boolean</pre>
 <p>Removes the temporary directory, including all its contents. Returns <code>true</code> if removing was successful. It is recommended to always call this function as soon as you are finished with the temporary directory. The directory will not be removed automatically.</p>

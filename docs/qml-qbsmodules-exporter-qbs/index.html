@@ -3,8 +3,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Qbs 1.22.0 Contents  Properties Detailed Description Relevant File Tags    Exporter.qbs QML Type  Provides support for generating Qbs modules from products. More...
-Import Statement:import QbsModules .Since:Qbs 1.12 List of all members, including inherited members   Properties  additionalContent : string artifactTypes : stringList excludedDependencies : stringList fileName : string   Detailed Description The Exporter.qbs module contains the properties and rules to create a Qbs module from the Export item of a Product. ">
+    <meta name="description" content="Qbs Manual QbsModules Exporter.qbs Qbs 2.0.1 Contents Properties Detailed Description Relevant File Tags Exporter.qbs QML Type Provides support for generating Qbs modules from products. More...
+Import Statement: import QbsModules Since: Qbs 1.12 List of all members, including inherited members Properties additionalContent : string artifactTypes : stringList excludedDependencies : stringList fileName : string Detailed Description The Exporter.qbs module contains the properties and rules to create a Qbs module from the Export item of a Product. ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-exporter-qbs/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -14,20 +14,21 @@ Import Statement:import QbsModules .Since:Qbs 1.12 List of all members, includin
 
     
       
-      <link rel="stylesheet" href="/css/main.min.761a6ef2660f6c116654a7b2e12cde896df4bcccaaac3a1e6527ef4bcc1c16e7.css" integrity="sha256-dhpu8mYPbBFmVKey4SzeiW30vMyqrDoeZSfvS8wcFuc="/>
+      <link rel="stylesheet" href="/css/main.min.7d27557bc1f8660bf0e026622019467fd286c7d3eb71497bb1bf1eb961a1697a.css" integrity="sha256-fSdVe8H4Zgvw4CZiIBlGf9KGx9PrcUl7sb8euWGhaXo="/>
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Qbs 1.22.0 Contents  Properties Detailed Description Relevant File Tags    Exporter.qbs QML Type  Provides support for generating Qbs modules from products. More...
-Import Statement:import QbsModules .Since:Qbs 1.12 List of all members, including inherited members   Properties  additionalContent : string artifactTypes : stringList excludedDependencies : stringList fileName : string   Detailed Description The Exporter.qbs module contains the properties and rules to create a Qbs module from the Export item of a Product." />
+<meta property="og:description" content="Qbs Manual QbsModules Exporter.qbs Qbs 2.0.1 Contents Properties Detailed Description Relevant File Tags Exporter.qbs QML Type Provides support for generating Qbs modules from products. More...
+Import Statement: import QbsModules Since: Qbs 1.12 List of all members, including inherited members Properties additionalContent : string artifactTypes : stringList excludedDependencies : stringList fileName : string Detailed Description The Exporter.qbs module contains the properties and rules to create a Qbs module from the Export item of a Product." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-exporter-qbs/" />
+<meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-exporter-qbs/" /><meta property="article:section" content="docs" />
+
 
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Qbs 1.22.0 Contents  Properties Detailed Description Relevant File Tags    Exporter.qbs QML Type  Provides support for generating Qbs modules from products. More...
-Import Statement:import QbsModules .Since:Qbs 1.12 List of all members, including inherited members   Properties  additionalContent : string artifactTypes : stringList excludedDependencies : stringList fileName : string   Detailed Description The Exporter.qbs module contains the properties and rules to create a Qbs module from the Export item of a Product."/>
+<meta name="twitter:description" content="Qbs Manual QbsModules Exporter.qbs Qbs 2.0.1 Contents Properties Detailed Description Relevant File Tags Exporter.qbs QML Type Provides support for generating Qbs modules from products. More...
+Import Statement: import QbsModules Since: Qbs 1.12 List of all members, including inherited members Properties additionalContent : string artifactTypes : stringList excludedDependencies : stringList fileName : string Detailed Description The Exporter.qbs module contains the properties and rules to create a Qbs module from the Export item of a Product."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -57,10 +58,13 @@ Import Statement:import QbsModules .Since:Qbs 1.12 List of all members, includin
     
 <li><a href="https://qbs.io
 /docs">Qbs Manual</a></li>
-<li id="buildversion">Qbs 1.22.0</li>
+<li><a href="https://qbs.io
+/docs/qbsmodules-qmlmodule/">QbsModules</a></li>
+<li>Exporter.qbs</li>
+<li id="buildversion">Qbs 2.0.1</li>
 <div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3 id="toc">Contents</h3>
 <ul>
 <li class="level1"><a href="#properties">Properties</a></li>
 <li class="level1"><a href="#details">Detailed Description</a></li>
@@ -69,29 +73,26 @@ Import Statement:import QbsModules .Since:Qbs 1.12 List of all members, includin
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
 <div class="content"><h1 class="title">Exporter.qbs QML Type</h1>
-<span class="subtitle"></span>
 <!-- $$$Exporter.qbs-brief -->
 <p>Provides support for generating Qbs modules from products. <a href="#details">More...</a></p>
 <!-- @@@Exporter.qbs -->
 <div class="table"><table class="alignedsummary">
-<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsModules .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.12</td></tr></tbody></table></div><ul>
+<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsModules</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.12</td></tr></tbody></table></div><ul>
 <li><a href="https://qbs.io
 /docs/qml-qbsmodules-exporter-qbs-members/">List of all members, including inherited members</a></li>
 </ul>
-<a name="properties"></a>
 <h2 id="properties">Properties</h2>
 <ul>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-exporter-qbs/#additionalContent-prop">additionalContent</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-exporter-qbs/#artifactTypes-prop">artifactTypes</a></b></b> : stringList</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-exporter-qbs/#excludedDependencies-prop">excludedDependencies</a></b></b> : stringList</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-exporter-qbs/#fileName-prop">fileName</a></b></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-exporter-qbs/#additionalContent-prop">additionalContent</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-exporter-qbs/#artifactTypes-prop">artifactTypes</a></b> : stringList</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-exporter-qbs/#excludedDependencies-prop">excludedDependencies</a></b> : stringList</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-exporter-qbs/#fileName-prop">fileName</a></b> : string</li>
 </ul>
 <!-- $$$Exporter.qbs-description -->
-<a name="details"></a>
 <h2 id="details">Detailed Description</h2>
 <p>The Exporter.qbs module contains the properties and rules to create a Qbs module from the <a href="https://qbs.io
 /docs/qml-qbslanguageitems-export/">Export</a> item of a <a href="https://qbs.io
@@ -115,19 +116,19 @@ Import Statement:import QbsModules .Since:Qbs 1.12 List of all members, includin
     }
     Export {
         Depends { name: <span class="string">"cpp"</span> }
-        cpp<span class="operator">.</span>includePaths: <span class="operator">[</span>product<span class="operator">.</span>sourceDirectory<span class="operator">]</span>
+        cpp<span class="operator">.</span>includePaths: <span class="operator">[</span>exportingProduct<span class="operator">.</span>sourceDirectory<span class="operator">]</span>
         prefixMapping: <span class="operator">[</span>{
-                prefix: product<span class="operator">.</span>sourceDirectory<span class="operator">,</span>
-                replacement: FileInfo<span class="operator">.</span>joinPaths(qbs<span class="operator">.</span>installPrefix<span class="operator">,</span> product<span class="operator">.</span>headersInstallDir)
+                prefix: exportingProduct<span class="operator">.</span>sourceDirectory<span class="operator">,</span>
+                replacement: FileInfo<span class="operator">.</span>joinPaths(exportingProduct<span class="operator">.</span>qbs<span class="operator">.</span>installPrefix<span class="operator">,</span>
+                                                exportingProduct<span class="operator">.</span>headersInstallDir)
             }<span class="operator">]</span>
     }
 }</pre>
 <p>To build against this library, from within your project or any other one, you simply declare a <a href="https://qbs.io
 /docs/qml-qbslanguageitems-depends/">dependency</a>:</p>
 <pre class="cpp">Depends { name: <span class="string">"mylibrary"</span> }</pre>
-<a name="relevant-file-tags"></a>
 <h3 id="relevant-file-tags">Relevant File Tags</h3>
-<a name="filetags-exporter-qbs"></a><div class="table"><table class="generic">
+<span id="filetags-exporter-qbs"></span><div class="table"><table class="generic">
  <thead><tr class="qt-style"><th>Tag</th><th>Since</th><th>Description</th></tr></thead>
 <tbody><tr valign="top" class="odd"><td><code>"Exporter.qbs.module"</code></td><td>1.12.0</td><td>This tag is attached to the generated module file.</td></tr>
 </tbody></table></div>
@@ -144,7 +145,9 @@ Import Statement:import QbsModules .Since:Qbs 1.12 List of all members, includin
 <div class="qmldoc"><p>Artifacts that match these tags will become <a href="https://qbs.io
 /docs/qml-qbslanguageitems-group/#filesAreTargets-prop">target artifacts</a> of the generated module, so they can get picked up by the rules of depending products.</p>
 <p>If you do not specify anything here, all installed artifacts of the product are considered.</p>
+<div class="admonition note">
 <p><b>Note: </b>You can only limit the default set of artifacts by setting this property, but you cannot extend it, because only artifacts that are to be installed are considered.</p>
+</div>
 <p>Default: <code>undefined</code></p>
 </div></div><!-- @@@artifactTypes -->
 <br>
@@ -153,7 +156,9 @@ Import Statement:import QbsModules .Since:Qbs 1.12 List of all members, includin
 <div class="qmldoc"><p>Normally, all <a href="https://qbs.io
 /docs/qml-qbslanguageitems-depends/">Depends</a> items in the <a href="https://qbs.io
 /docs/qml-qbslanguageitems-export/">Export</a> item are copied into the generated module. However, if there are any exported dependencies that only make sense for products in the same project, then you can enter their names into this array, and they will get filtered out.</p>
+<div class="admonition note">
 <p><b>Note: </b>You should strive to structure your projects in such a way that you do not need to set this property.</p>
+</div>
 <p>Default: <code>undefined</code></p>
 </div></div><!-- @@@excludedDependencies -->
 <br>
