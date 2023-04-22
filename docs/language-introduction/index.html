@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Language Introduction Qbs 1.22.0 Usage Building Applications  Contents  The Obligatory Hello World Example Reusing Project File Code Modules Different Properties for a Single File Selecting Files by Properties Property Types Overriding Property Values from the Command Line File Tags and Taggers Rules    Language Introduction   Qbs uses project files (*.qbs) to describe the contents of a project. A project contains one or more products. ">
+    <meta name="description" content="Qbs Manual Language Introduction Qbs 2.0.1 Usage Building Applications  Contents  The Obligatory Hello World Example Reusing Project File Code Modules Different Properties for a Single File Selecting Files by Properties Property Types Overriding Property Values from the Command Line File Tags and Taggers Rules    Language Introduction   Qbs uses project files (*.qbs) to describe the contents of a project. A project contains one or more products. ">
     <link rel="canonical" href="https://qbs.io/docs/language-introduction/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -17,7 +17,7 @@
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Language Introduction Qbs 1.22.0 Usage Building Applications  Contents  The Obligatory Hello World Example Reusing Project File Code Modules Different Properties for a Single File Selecting Files by Properties Property Types Overriding Property Values from the Command Line File Tags and Taggers Rules    Language Introduction   Qbs uses project files (*.qbs) to describe the contents of a project. A project contains one or more products." />
+<meta property="og:description" content="Qbs Manual Language Introduction Qbs 2.0.1 Usage Building Applications  Contents  The Obligatory Hello World Example Reusing Project File Code Modules Different Properties for a Single File Selecting Files by Properties Property Types Overriding Property Values from the Command Line File Tags and Taggers Rules    Language Introduction   Qbs uses project files (*.qbs) to describe the contents of a project. A project contains one or more products." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/language-introduction/" /><meta property="article:section" content="docs" />
 
@@ -26,7 +26,7 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Language Introduction Qbs 1.22.0 Usage Building Applications  Contents  The Obligatory Hello World Example Reusing Project File Code Modules Different Properties for a Single File Selecting Files by Properties Property Types Overriding Property Values from the Command Line File Tags and Taggers Rules    Language Introduction   Qbs uses project files (*.qbs) to describe the contents of a project. A project contains one or more products."/>
+<meta name="twitter:description" content="Qbs Manual Language Introduction Qbs 2.0.1 Usage Building Applications  Contents  The Obligatory Hello World Example Reusing Project File Code Modules Different Properties for a Single File Selecting Files by Properties Property Types Overriding Property Values from the Command Line File Tags and Taggers Rules    Language Introduction   Qbs uses project files (*.qbs) to describe the contents of a project. A project contains one or more products."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -57,7 +57,7 @@
 <li><a href="https://qbs.io
 /docs">Qbs Manual</a></li>
 <li>Language Introduction</li>
-<li id="buildversion">Qbs 1.22.0</li>
+<li id="buildversion">Qbs 2.0.1</li>
   <link rel="prev" href="https://qbs.io
 /docs/usage/">
   <link rel="next" href="https://qbs.io
@@ -221,7 +221,7 @@ Application {
 <h3 id="selecting-files-by-properties">Selecting Files by Properties</h3>
 <p>Sometimes you have a file that is only going to be compiled on a certain platform. This is how you do it:</p>
 <pre class="cpp">Group {
-    condition: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>contains(<span class="string">"windows"</span>)
+    condition: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"windows"</span>)
     files: <span class="operator">[</span>
         <span class="string">"harddiskdeleter_win.cpp"</span><span class="operator">,</span>
         <span class="string">"blowupmonitor_win.cpp"</span><span class="operator">,</span>
@@ -229,7 +229,7 @@ Application {
     <span class="operator">]</span>
 }
 Group {
-    condition: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>contains(<span class="string">"linux"</span>)
+    condition: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"linux"</span>)
     files: <span class="operator">[</span>
         <span class="string">"harddiskdeleter_linux.cpp"</span><span class="operator">,</span>
         <span class="string">"blowupmonitor_linux.cpp"</span><span class="operator">,</span>
@@ -242,8 +242,6 @@ Group {
 <ul>
 <li><a href="https://qbs.io
 /docs/qml-qbsmodules-qbs/#buildVariant-prop">buildVariant</a> that specifies the name of the build variant for the current build.</li>
-<li><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#hostOS-prop">hostOS</a> that is set by Qbs internally and specifies the operating system Qbs is running on.</li>
 <li><a href="https://qbs.io
 /docs/qml-qbsmodules-qbs/#targetOS-prop">targetOS</a> that specifies the operating system you want to build the project for.</li>
 </ul>

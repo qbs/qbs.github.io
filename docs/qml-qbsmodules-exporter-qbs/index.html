@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Qbs 1.22.0 Contents  Properties Detailed Description Relevant File Tags    Exporter.qbs QML Type  Provides support for generating Qbs modules from products. More...
+    <meta name="description" content="Qbs Manual Qbs 2.0.1 Contents  Properties Detailed Description Relevant File Tags    Exporter.qbs QML Type  Provides support for generating Qbs modules from products. More...
 Import Statement:import QbsModules .Since:Qbs 1.12 List of all members, including inherited members   Properties  additionalContent : string artifactTypes : stringList excludedDependencies : stringList fileName : string   Detailed Description The Exporter.qbs module contains the properties and rules to create a Qbs module from the Export item of a Product. ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-exporter-qbs/" />
 
@@ -18,7 +18,7 @@ Import Statement:import QbsModules .Since:Qbs 1.12 List of all members, includin
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Qbs 1.22.0 Contents  Properties Detailed Description Relevant File Tags    Exporter.qbs QML Type  Provides support for generating Qbs modules from products. More...
+<meta property="og:description" content="Qbs Manual Qbs 2.0.1 Contents  Properties Detailed Description Relevant File Tags    Exporter.qbs QML Type  Provides support for generating Qbs modules from products. More...
 Import Statement:import QbsModules .Since:Qbs 1.12 List of all members, including inherited members   Properties  additionalContent : string artifactTypes : stringList excludedDependencies : stringList fileName : string   Detailed Description The Exporter.qbs module contains the properties and rules to create a Qbs module from the Export item of a Product." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-exporter-qbs/" /><meta property="article:section" content="docs" />
@@ -28,7 +28,7 @@ Import Statement:import QbsModules .Since:Qbs 1.12 List of all members, includin
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Qbs 1.22.0 Contents  Properties Detailed Description Relevant File Tags    Exporter.qbs QML Type  Provides support for generating Qbs modules from products. More...
+<meta name="twitter:description" content="Qbs Manual Qbs 2.0.1 Contents  Properties Detailed Description Relevant File Tags    Exporter.qbs QML Type  Provides support for generating Qbs modules from products. More...
 Import Statement:import QbsModules .Since:Qbs 1.12 List of all members, including inherited members   Properties  additionalContent : string artifactTypes : stringList excludedDependencies : stringList fileName : string   Detailed Description The Exporter.qbs module contains the properties and rules to create a Qbs module from the Export item of a Product."/>
 
 </head>
@@ -59,7 +59,7 @@ Import Statement:import QbsModules .Since:Qbs 1.12 List of all members, includin
     
 <li><a href="https://qbs.io
 /docs">Qbs Manual</a></li>
-<li id="buildversion">Qbs 1.22.0</li>
+<li id="buildversion">Qbs 2.0.1</li>
 <div class="sidebar">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
@@ -117,10 +117,11 @@ Import Statement:import QbsModules .Since:Qbs 1.12 List of all members, includin
     }
     Export {
         Depends { name: <span class="string">"cpp"</span> }
-        cpp<span class="operator">.</span>includePaths: <span class="operator">[</span>product<span class="operator">.</span>sourceDirectory<span class="operator">]</span>
+        cpp<span class="operator">.</span>includePaths: <span class="operator">[</span>exportingProduct<span class="operator">.</span>sourceDirectory<span class="operator">]</span>
         prefixMapping: <span class="operator">[</span>{
-                prefix: product<span class="operator">.</span>sourceDirectory<span class="operator">,</span>
-                replacement: FileInfo<span class="operator">.</span>joinPaths(qbs<span class="operator">.</span>installPrefix<span class="operator">,</span> product<span class="operator">.</span>headersInstallDir)
+                prefix: exportingProduct<span class="operator">.</span>sourceDirectory<span class="operator">,</span>
+                replacement: FileInfo<span class="operator">.</span>joinPaths(exportingProduct<span class="operator">.</span>qbs<span class="operator">.</span>installPrefix<span class="operator">,</span>
+                                                exportingProduct<span class="operator">.</span>headersInstallDir)
             }<span class="operator">]</span>
     }
 }</pre>

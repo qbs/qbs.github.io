@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Command-Line Interface resolve Qbs 1.22.0 Contents  Synopsis Description Options --build-directory|-d &lt;directory&gt; --dry-run|-n [--file|-f &lt;file&gt;] --force-probe-execution --less-verbose|-q --log-level &lt;level&gt; --log-time --more-verbose|-v --settings-dir &lt;directory&gt; --show-progress --no-fallback-module-provider Parameters config:configuration-name property:value Examples    resolve    Synopsis qbs resolve [options] [[config:configuration-name] [property:value] ...]  Description Resolves a project in one or more configurations. Run this command to change the properties of an existing build.
+    <meta name="description" content="Qbs Manual Command-Line Interface resolve Qbs 2.0.1 Contents  Synopsis Description Options --build-directory|-d &lt;directory&gt; --dry-run|-n [--file|-f &lt;file&gt;] --force-probe-execution --less-verbose|-q --log-level &lt;level&gt; --log-time --more-verbose|-v --settings-dir &lt;directory&gt; --show-progress --no-fallback-module-provider --deprecation-warnings &lt;mode&gt; Parameters config:configuration-name property:value Examples    resolve    Synopsis qbs resolve [options] [[config:configuration-name] [property:value] ...]  Description Resolves a project in one or more configurations. Run this command to change the properties of an existing build.
  Options  --build-directory|-d &lt;directory&gt; Specifies a &lt;directory&gt; where build artifacts are stored. ">
     <link rel="canonical" href="https://qbs.io/docs/cli-resolve/" />
 
@@ -18,7 +18,7 @@
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Command-Line Interface resolve Qbs 1.22.0 Contents  Synopsis Description Options --build-directory|-d &lt;directory&gt; --dry-run|-n [--file|-f &lt;file&gt;] --force-probe-execution --less-verbose|-q --log-level &lt;level&gt; --log-time --more-verbose|-v --settings-dir &lt;directory&gt; --show-progress --no-fallback-module-provider Parameters config:configuration-name property:value Examples    resolve    Synopsis qbs resolve [options] [[config:configuration-name] [property:value] ...]  Description Resolves a project in one or more configurations. Run this command to change the properties of an existing build.
+<meta property="og:description" content="Qbs Manual Command-Line Interface resolve Qbs 2.0.1 Contents  Synopsis Description Options --build-directory|-d &lt;directory&gt; --dry-run|-n [--file|-f &lt;file&gt;] --force-probe-execution --less-verbose|-q --log-level &lt;level&gt; --log-time --more-verbose|-v --settings-dir &lt;directory&gt; --show-progress --no-fallback-module-provider --deprecation-warnings &lt;mode&gt; Parameters config:configuration-name property:value Examples    resolve    Synopsis qbs resolve [options] [[config:configuration-name] [property:value] ...]  Description Resolves a project in one or more configurations. Run this command to change the properties of an existing build.
  Options  --build-directory|-d &lt;directory&gt; Specifies a &lt;directory&gt; where build artifacts are stored." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/cli-resolve/" /><meta property="article:section" content="docs" />
@@ -28,7 +28,7 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Command-Line Interface resolve Qbs 1.22.0 Contents  Synopsis Description Options --build-directory|-d &lt;directory&gt; --dry-run|-n [--file|-f &lt;file&gt;] --force-probe-execution --less-verbose|-q --log-level &lt;level&gt; --log-time --more-verbose|-v --settings-dir &lt;directory&gt; --show-progress --no-fallback-module-provider Parameters config:configuration-name property:value Examples    resolve    Synopsis qbs resolve [options] [[config:configuration-name] [property:value] ...]  Description Resolves a project in one or more configurations. Run this command to change the properties of an existing build.
+<meta name="twitter:description" content="Qbs Manual Command-Line Interface resolve Qbs 2.0.1 Contents  Synopsis Description Options --build-directory|-d &lt;directory&gt; --dry-run|-n [--file|-f &lt;file&gt;] --force-probe-execution --less-verbose|-q --log-level &lt;level&gt; --log-time --more-verbose|-v --settings-dir &lt;directory&gt; --show-progress --no-fallback-module-provider --deprecation-warnings &lt;mode&gt; Parameters config:configuration-name property:value Examples    resolve    Synopsis qbs resolve [options] [[config:configuration-name] [property:value] ...]  Description Resolves a project in one or more configurations. Run this command to change the properties of an existing build.
  Options  --build-directory|-d &lt;directory&gt; Specifies a &lt;directory&gt; where build artifacts are stored."/>
 
 </head>
@@ -62,7 +62,7 @@
 <li><a href="https://qbs.io
 /docs/cli/">Command-Line Interface</a></li>
 <li>resolve</li>
-<li id="buildversion">Qbs 1.22.0</li>
+<li id="buildversion">Qbs 2.0.1</li>
 <div class="sidebar">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
@@ -81,6 +81,7 @@
 <li class="level2"><a href="#op-op-op-op-settings-op-op-dir-op-lt-op-directory-op-gt-op"><code>--settings-dir &lt;directory&gt;</code></a></li>
 <li class="level2"><a href="#op-op-op-op-show-op-op-progress"><code>--show-progress</code></a></li>
 <li class="level2"><a href="#op-op-op-op-no-op-op-fallback-op-op-module-op-op-provider"><code>--no-fallback-module-provider</code></a></li>
+<li class="level2"><a href="#op-op-op-op-deprecation-op-op-warnings-op-lt-op-mode-op-gt-op"><code>--deprecation-warnings &lt;mode&gt;</code></a></li>
 <li class="level1"><a href="#parameters">Parameters</a></li>
 <li class="level2"><a href="#config-configuration-op-op-name"><code>config:configuration-name</code></a></li>
 <li class="level2"><a href="#property-value"><code>property:value</code></a></li>
@@ -154,8 +155,7 @@
 <ul>
 <li>Linux: <code>$HOME/.config/QtProject/qbs</code></li>
 <li>Windows: <code>%APPDATA%\QtProject\qbs</code></li>
-<li><a href="https://qbs.io
-/docs/nolink">macOS</a>: <code>$HOME/Library/Preferences/qbs</code></li>
+<li>macOS: <code>$HOME/Library/Preferences/qbs</code></li>
 </ul>
 <a name="op-op-op-op-show-op-op-progress"></a>
 <h3 id="op-op-op-op-show-op-op-progress"><code>--show-progress</code></h3>
@@ -165,6 +165,16 @@
 <h3 id="op-op-op-op-no-op-op-fallback-op-op-module-op-op-provider"><code>--no-fallback-module-provider</code></h3>
 <p>If this option is set, then Qbs will not fall back to a pkg-config based <a href="https://qbs.io
 /docs/module-providers/">module provider</a> if a dependency is not found.</p>
+<a name="op-op-op-op-deprecation-op-op-warnings-op-lt-op-mode-op-gt-op"></a>
+<h3 id="op-op-op-op-deprecation-op-op-warnings-op-lt-op-mode-op-gt-op"><code>--deprecation-warnings &lt;mode&gt;</code></h3>
+<p>Uses the specified deprecation warning mode, which controls what to do when deprecated items or properties are encountered in the project. By default, a warning is emitted if the item or property is scheduled for removal in the next minor version of Qbs. Warnings can also be switched on or off unconditionally, and it can be specified that project resolving should abort if deprecated constructs are present.</p>
+<p>Possible values of <code>&lt;mode&gt;</code> are:</p>
+<ul>
+<li><code>error</code></li>
+<li><code>on</code></li>
+<li><code>before-removal</code> (default value)</li>
+<li><code>off</code></li>
+</ul>
 <a name="parameters"></a>
 <h2 id="parameters">Parameters</h2>
 <a name="config-configuration-op-op-name"></a>

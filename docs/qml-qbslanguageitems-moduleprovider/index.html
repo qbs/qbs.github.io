@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Qbs 1.22.0 Module Parameter  Contents  Properties Detailed Description    ModuleProvider QML Type  Creates modules on demand. More...
+    <meta name="description" content="Qbs Manual Qbs 2.0.1 Module Parameter  Contents  Properties Detailed Description    ModuleProvider QML Type  Creates modules on demand. More...
 Import Statement:import QbsLanguageItems . List of all members, including inherited members   Properties  name : string outputBaseDir : string relativeSearchPaths : stringList   Detailed Description The ModuleProvider item implements the module creation part of the procedure described in the Module Providers overview. It is always located in a file called provider. ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbslanguageitems-moduleprovider/" />
 
@@ -18,7 +18,7 @@ Import Statement:import QbsLanguageItems . List of all members, including inheri
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Qbs 1.22.0 Module Parameter  Contents  Properties Detailed Description    ModuleProvider QML Type  Creates modules on demand. More...
+<meta property="og:description" content="Qbs Manual Qbs 2.0.1 Module Parameter  Contents  Properties Detailed Description    ModuleProvider QML Type  Creates modules on demand. More...
 Import Statement:import QbsLanguageItems . List of all members, including inherited members   Properties  name : string outputBaseDir : string relativeSearchPaths : stringList   Detailed Description The ModuleProvider item implements the module creation part of the procedure described in the Module Providers overview. It is always located in a file called provider." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-moduleprovider/" /><meta property="article:section" content="docs" />
@@ -28,7 +28,7 @@ Import Statement:import QbsLanguageItems . List of all members, including inheri
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Qbs 1.22.0 Module Parameter  Contents  Properties Detailed Description    ModuleProvider QML Type  Creates modules on demand. More...
+<meta name="twitter:description" content="Qbs Manual Qbs 2.0.1 Module Parameter  Contents  Properties Detailed Description    ModuleProvider QML Type  Creates modules on demand. More...
 Import Statement:import QbsLanguageItems . List of all members, including inherited members   Properties  name : string outputBaseDir : string relativeSearchPaths : stringList   Detailed Description The ModuleProvider item implements the module creation part of the procedure described in the Module Providers overview. It is always located in a file called provider."/>
 
 </head>
@@ -59,7 +59,7 @@ Import Statement:import QbsLanguageItems . List of all members, including inheri
     
 <li><a href="https://qbs.io
 /docs">Qbs Manual</a></li>
-<li id="buildversion">Qbs 1.22.0</li>
+<li id="buildversion">Qbs 2.0.1</li>
   <link rel="prev" href="https://qbs.io
 /docs/qml-qbslanguageitems-module/">
   <link rel="next" href="https://qbs.io
@@ -106,6 +106,8 @@ Import Statement:import QbsLanguageItems . List of all members, including inheri
 /docs/module-providers/">Module Providers</a> overview. It is always located in a file called <code>provider.qbs</code>.</p>
 <p>The actual module creation is done on the right-hand side of the <a href="https://qbs.io
 /docs/qml-qbslanguageitems-moduleprovider/#relativeSearchPaths-prop">relativeSearchPaths</a> property.</p>
+<p>A ModuleProvider item may contain <a href="https://qbs.io
+/docs/qml-qbslanguageitems-probe/">Probe</a> items.</p>
 <p>Here is a complete minimal example of a module provider. It just creates an empty module. If you put this item into the file <code>module-providers/mymodule/provider.qbs</code> in your project source directory, you will be able to successfully build a product which contains a dependency on the module <code>mymodule</code>.</p>
 <pre class="cpp">import qbs<span class="operator">.</span>File
 import qbs<span class="operator">.</span>FileInfo

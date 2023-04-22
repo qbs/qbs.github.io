@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Introduction Qbs 1.22.0 Qbs Manual Setup  Contents  Features Declarative Paradigm Well-Defined Language Platform and Programming Language Independence Correct and Fast Incremental Builds Extensible Architecture IDE Integration Qt Creator Visual Studio Code Build Process    Introduction   Qbs is a build automation tool designed to conveniently manage the build process of software projects across multiple platforms.
+    <meta name="description" content="Qbs Manual Introduction Qbs 2.0.1 Qbs Manual Setup  Contents  Features Declarative Paradigm Well-Defined Language Platform and Programming Language Independence Correct and Fast Incremental Builds Extensible Architecture IDE Integration Qt Creator Visual Studio Code Build Process    Introduction   Qbs is a build automation tool designed to conveniently manage the build process of software projects across multiple platforms.
  Features Qbs provides the following benefits: ">
     <link rel="canonical" href="https://qbs.io/docs/overview/" />
 
@@ -18,7 +18,7 @@
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Introduction Qbs 1.22.0 Qbs Manual Setup  Contents  Features Declarative Paradigm Well-Defined Language Platform and Programming Language Independence Correct and Fast Incremental Builds Extensible Architecture IDE Integration Qt Creator Visual Studio Code Build Process    Introduction   Qbs is a build automation tool designed to conveniently manage the build process of software projects across multiple platforms.
+<meta property="og:description" content="Qbs Manual Introduction Qbs 2.0.1 Qbs Manual Setup  Contents  Features Declarative Paradigm Well-Defined Language Platform and Programming Language Independence Correct and Fast Incremental Builds Extensible Architecture IDE Integration Qt Creator Visual Studio Code Build Process    Introduction   Qbs is a build automation tool designed to conveniently manage the build process of software projects across multiple platforms.
  Features Qbs provides the following benefits:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/overview/" /><meta property="article:section" content="docs" />
@@ -28,7 +28,7 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Introduction Qbs 1.22.0 Qbs Manual Setup  Contents  Features Declarative Paradigm Well-Defined Language Platform and Programming Language Independence Correct and Fast Incremental Builds Extensible Architecture IDE Integration Qt Creator Visual Studio Code Build Process    Introduction   Qbs is a build automation tool designed to conveniently manage the build process of software projects across multiple platforms.
+<meta name="twitter:description" content="Qbs Manual Introduction Qbs 2.0.1 Qbs Manual Setup  Contents  Features Declarative Paradigm Well-Defined Language Platform and Programming Language Independence Correct and Fast Incremental Builds Extensible Architecture IDE Integration Qt Creator Visual Studio Code Build Process    Introduction   Qbs is a build automation tool designed to conveniently manage the build process of software projects across multiple platforms.
  Features Qbs provides the following benefits:"/>
 
 </head>
@@ -60,7 +60,7 @@
 <li><a href="https://qbs.io
 /docs">Qbs Manual</a></li>
 <li>Introduction</li>
-<li id="buildversion">Qbs 1.22.0</li>
+<li id="buildversion">Qbs 2.0.1</li>
   <link rel="prev" href="https://qbs.io
 /docs">
   <link rel="next" href="https://qbs.io
@@ -132,8 +132,7 @@
 /docs/language-introduction/">Language Introduction</a>.</p>
 <a name="platform-and-programming-language-independence"></a>
 <h3 id="platform-and-programming-language-independence">Platform and Programming Language Independence</h3>
-<p>Qbs can be used for any software project, regardless of programming language, toolkit, or libraries used. Qbs has built-in support for building applications for Windows, Linux, <a href="https://qbs.io
-/docs/nolink">macOS</a>, Android, iOS, tvOS, watchOS, QNX, and FreeBSD, as well as for cross-compilation. It can be easily extended to support further platforms.</p>
+<p>Qbs can be used for any software project, regardless of programming language, toolkit, or libraries used. Qbs has built-in support for building applications for Windows, Linux, macOS, Android, iOS, tvOS, watchOS, QNX, and FreeBSD, as well as for cross-compilation. It can be easily extended to support further platforms.</p>
 <p>Invoking <a href="https://qbs.io
 /docs/cli-build/">qbs build</a> from the command line automatically builds the project for the current host platform using the best available toolchain and settings, unless a default profile is set. You can configure additional profiles for each toolchain you want to use and select the profile to use at build time.</p>
 <p>For example, to build applications for Android devices, you would need to set up a profile for the Android toolchain and select it when you build the application. If you name the profile <i>Android</i>, you would then enter the following command:</p>
@@ -153,8 +152,7 @@
 <p>Additionally, if the sources use Qt, you need a dependency to the <a href="https://qbs.io
 /docs/qml-qbsmodules-qt-core/">Qt.core</a> module, and so on.</p>
 <p>In addition to building projects, Qbs can install the build artifacts to a location from where they can be run on the desktop or on a device. Qbs modules can be used to create installers for the end users of the applications. For example, the <a href="https://qbs.io
-/docs/qml-qbsmodules-dmg/">dmg</a> module contains properties and rules for building Apple Disk Images, which are typically used to distribute applications and installers on <a href="https://qbs.io
-/docs/nolink">macOS</a>. The <a href="https://qbs.io
+/docs/qml-qbsmodules-dmg/">dmg</a> module contains properties and rules for building Apple Disk Images, which are typically used to distribute applications and installers on macOS. The <a href="https://qbs.io
 /docs/qml-qbsmodules-innosetup/">innosetup</a>, <a href="https://qbs.io
 /docs/qml-qbsmodules-nsis/">nsis</a>, and <a href="https://qbs.io
 /docs/qml-qbsmodules-wix/">wix</a> modules contain properties and rules for building installers for Windows platforms.</p>

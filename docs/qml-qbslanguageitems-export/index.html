@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Qbs 1.22.0 Depends FileTagger  Contents  Properties Detailed Description    Export QML Type  Exports dependencies and properties to other products. More...
+    <meta name="description" content="Qbs Manual Qbs 2.0.1 Depends FileTagger  Contents  Properties Detailed Description    Export QML Type  Exports dependencies and properties to other products. More...
 Import Statement:import QbsLanguageItems . List of all members, including inherited members   Properties  prefixMapping : var   Detailed Description An Export item can appear inside a Product item. It defines a Module with the product&#39;s name that can be depended on by other products. ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbslanguageitems-export/" />
 
@@ -18,7 +18,7 @@ Import Statement:import QbsLanguageItems . List of all members, including inheri
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Qbs 1.22.0 Depends FileTagger  Contents  Properties Detailed Description    Export QML Type  Exports dependencies and properties to other products. More...
+<meta property="og:description" content="Qbs Manual Qbs 2.0.1 Depends FileTagger  Contents  Properties Detailed Description    Export QML Type  Exports dependencies and properties to other products. More...
 Import Statement:import QbsLanguageItems . List of all members, including inherited members   Properties  prefixMapping : var   Detailed Description An Export item can appear inside a Product item. It defines a Module with the product&#39;s name that can be depended on by other products." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-export/" /><meta property="article:section" content="docs" />
@@ -28,7 +28,7 @@ Import Statement:import QbsLanguageItems . List of all members, including inheri
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Qbs 1.22.0 Depends FileTagger  Contents  Properties Detailed Description    Export QML Type  Exports dependencies and properties to other products. More...
+<meta name="twitter:description" content="Qbs Manual Qbs 2.0.1 Depends FileTagger  Contents  Properties Detailed Description    Export QML Type  Exports dependencies and properties to other products. More...
 Import Statement:import QbsLanguageItems . List of all members, including inherited members   Properties  prefixMapping : var   Detailed Description An Export item can appear inside a Product item. It defines a Module with the product&#39;s name that can be depended on by other products."/>
 
 </head>
@@ -59,7 +59,7 @@ Import Statement:import QbsLanguageItems . List of all members, including inheri
     
 <li><a href="https://qbs.io
 /docs">Qbs Manual</a></li>
-<li id="buildversion">Qbs 1.22.0</li>
+<li id="buildversion">Qbs 2.0.1</li>
   <link rel="prev" href="https://qbs.io
 /docs/qml-qbslanguageitems-depends/">
   <link rel="next" href="https://qbs.io
@@ -144,14 +144,13 @@ Product {
 <div class="qmlitem"><h3 class="qmlproto">prefixMapping: var</h3>
 <div class="qmldoc"><p>This property allows to provide a translation of exported values between non-deployed and deployed contexts. It is an array of objects with properties <code>prefix</code> and <code>replacement</code>. The array's elements get applied to all other properties set in this item such that if the property's value start with <code>prefix</code>, that prefix gets replaced with <code>replacement</code>. It is typically used for C/C++ include paths. For instance, in a library that provides header files for inclusion both directly from its source directory (when building it as part of a bigger project) and from some installed location (when building an unrelated project against it), you would write something like the following:</p>
 <pre class="cpp">Export {
-    Depends { name: cpp<span class="string">" }
-    cpp.includePaths: [exportingProduct.sourceDirectory]
-    prefixMapping: [{
-            prefix: exportingProduct.sourceDirectory,
-            replacement: FileInfo.joinPaths(qbs.installPrefix, "</span><span class="keyword">include</span><span class="string">")
-    }]
-}
-</span></pre>
+    Depends { name: <span class="string">"cpp"</span> }
+    cpp<span class="operator">.</span>includePaths: <span class="operator">[</span>exportingProduct<span class="operator">.</span>sourceDirectory<span class="operator">]</span>
+    prefixMapping: <span class="operator">[</span>{
+            prefix: exportingProduct<span class="operator">.</span>sourceDirectory<span class="operator">,</span>
+            replacement: FileInfo<span class="operator">.</span>joinPaths(qbs<span class="operator">.</span>installPrefix<span class="operator">,</span> <span class="string">"include"</span>)
+    }<span class="operator">]</span>
+}</pre>
 <p>Default: <code>undefined</code></p>
 <p>This property was introduced in Qt 1.12.</p>
 <p><b>See also </b><a href="https://qbs.io

@@ -3,8 +3,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Qbs 1.22.0 Contents  Properties Detailed Description    Qt.android_support QML Type  Provides Qt support for the Android platform. More...
-Import Statement:import QbsModules . List of all members, including inherited members   Properties  deploymentDependencies : stringList extraLibs : stringList extraPlugins : stringList qmlRootDir : string verboseAndroidDeployQt : bool   Detailed Description The Qt.android_support module provides the glue for Qbs&#39; Qt and Android support. ">
+    <meta name="description" content="Qbs Manual Qbs 2.0.1 Contents  Properties Detailed Description    Qt.android_support QML Type  Provides Qt support for the Android platform. More...
+Import Statement:import QbsModules . List of all members, including inherited members   Properties  deploymentDependencies : stringList extraLibs : stringList extraPlugins : stringList qmlImportPaths : stringList qmlRootDir : string verboseAndroidDeployQt : bool   Detailed Description The Qt.android_support module provides the glue for Qbs&#39; Qt and Android support. ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-qt-android-support/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -18,8 +18,8 @@ Import Statement:import QbsModules . List of all members, including inherited me
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Qbs 1.22.0 Contents  Properties Detailed Description    Qt.android_support QML Type  Provides Qt support for the Android platform. More...
-Import Statement:import QbsModules . List of all members, including inherited members   Properties  deploymentDependencies : stringList extraLibs : stringList extraPlugins : stringList qmlRootDir : string verboseAndroidDeployQt : bool   Detailed Description The Qt.android_support module provides the glue for Qbs&#39; Qt and Android support." />
+<meta property="og:description" content="Qbs Manual Qbs 2.0.1 Contents  Properties Detailed Description    Qt.android_support QML Type  Provides Qt support for the Android platform. More...
+Import Statement:import QbsModules . List of all members, including inherited members   Properties  deploymentDependencies : stringList extraLibs : stringList extraPlugins : stringList qmlImportPaths : stringList qmlRootDir : string verboseAndroidDeployQt : bool   Detailed Description The Qt.android_support module provides the glue for Qbs&#39; Qt and Android support." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-qt-android-support/" /><meta property="article:section" content="docs" />
 
@@ -28,8 +28,8 @@ Import Statement:import QbsModules . List of all members, including inherited me
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Qbs 1.22.0 Contents  Properties Detailed Description    Qt.android_support QML Type  Provides Qt support for the Android platform. More...
-Import Statement:import QbsModules . List of all members, including inherited members   Properties  deploymentDependencies : stringList extraLibs : stringList extraPlugins : stringList qmlRootDir : string verboseAndroidDeployQt : bool   Detailed Description The Qt.android_support module provides the glue for Qbs&#39; Qt and Android support."/>
+<meta name="twitter:description" content="Qbs Manual Qbs 2.0.1 Contents  Properties Detailed Description    Qt.android_support QML Type  Provides Qt support for the Android platform. More...
+Import Statement:import QbsModules . List of all members, including inherited members   Properties  deploymentDependencies : stringList extraLibs : stringList extraPlugins : stringList qmlImportPaths : stringList qmlRootDir : string verboseAndroidDeployQt : bool   Detailed Description The Qt.android_support module provides the glue for Qbs&#39; Qt and Android support."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -59,7 +59,7 @@ Import Statement:import QbsModules . List of all members, including inherited me
     
 <li><a href="https://qbs.io
 /docs">Qbs Manual</a></li>
-<li id="buildversion">Qbs 1.22.0</li>
+<li id="buildversion">Qbs 2.0.1</li>
 <div class="sidebar">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
@@ -89,6 +89,8 @@ Import Statement:import QbsModules . List of all members, including inherited me
 <li class="fn"><b><b><a href="https://qbs.io
 /docs/qml-qbsmodules-qt-android-support/#extraPlugins-prop">extraPlugins</a></b></b> : stringList</li>
 <li class="fn"><b><b><a href="https://qbs.io
+/docs/qml-qbsmodules-qt-android-support/#qmlImportPaths-prop">qmlImportPaths</a></b></b> : stringList</li>
+<li class="fn"><b><b><a href="https://qbs.io
 /docs/qml-qbsmodules-qt-android-support/#qmlRootDir-prop">qmlRootDir</a></b></b> : string</li>
 <li class="fn"><b><b><a href="https://qbs.io
 /docs/qml-qbsmodules-qt-android-support/#verboseAndroidDeployQt-prop">verboseAndroidDeployQt</a></b></b> : bool</li>
@@ -116,6 +118,13 @@ Import Statement:import QbsModules . List of all members, including inherited me
 <div class="qmldoc"><p>Additional non-asset files to be packaged. Corresponds to qmake's ANDROID_EXTRA_PLUGINS.</p>
 <p>Default: <code>undefined</code></p>
 </div></div><!-- @@@extraPlugins -->
+<br>
+<!-- $$$qmlImportPaths -->
+<div class="qmlitem"><h3 class="qmlproto">qmlImportPaths: stringList</h3>
+<div class="qmldoc"><p>Additional directories to search for QML imports.</p>
+<p>Default: <code>undefined</code></p>
+<p>This property was introduced in Qt 1.22.</p>
+</div></div><!-- @@@qmlImportPaths -->
 <br>
 <!-- $$$qmlRootDir -->
 <div class="qmlitem"><h3 class="qmlproto">qmlRootDir: string</h3>

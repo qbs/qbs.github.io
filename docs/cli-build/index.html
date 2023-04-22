@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Command-Line Interface build Qbs 1.22.0 Contents  Synopsis Description Options --all-products --build-directory|-d &lt;directory&gt; --changed-files &lt;file&gt;[,&lt;file&gt;...] --check-outputs --check-timestamps --clean-install-root --command-echo-mode &lt;mode&gt; --dry-run|-n [--file|-f &lt;file&gt;] --force-probe-execution --jobs|-j &lt;n&gt; --job-limits &lt;pool1&gt;:&lt;limit1&gt;[,&lt;pool2&gt;:&lt;limit2&gt;...] --enforce-project-job-limits --keep-going|-k --less-verbose|-q --log-level &lt;level&gt; --log-time --more-verbose|-v --no-install --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; --show-progress --no-fallback-module-provider --wait-lock Parameters config:configuration-name property:value Examples    build    Synopsis qbs build [options] [[config:configuration-name] [property:value] ...]  Description Builds projects in one or more configurations. ">
+    <meta name="description" content="Qbs Manual Command-Line Interface build Qbs 2.0.1 Contents  Synopsis Description Options --all-products --build-directory|-d &lt;directory&gt; --changed-files &lt;file&gt;[,&lt;file&gt;...] --check-outputs --check-timestamps --clean-install-root --command-echo-mode &lt;mode&gt; --dry-run|-n [--file|-f &lt;file&gt;] --force-probe-execution --jobs|-j &lt;n&gt; --job-limits &lt;pool1&gt;:&lt;limit1&gt;[,&lt;pool2&gt;:&lt;limit2&gt;...] --enforce-project-job-limits --keep-going|-k --less-verbose|-q --log-level &lt;level&gt; --log-time --more-verbose|-v --no-install --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; --show-progress --no-fallback-module-provider --wait-lock Parameters config:configuration-name property:value Examples    build    Synopsis qbs build [options] [[config:configuration-name] [property:value] ...]  Description Builds projects in one or more configurations. ">
     <link rel="canonical" href="https://qbs.io/docs/cli-build/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -17,7 +17,7 @@
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Command-Line Interface build Qbs 1.22.0 Contents  Synopsis Description Options --all-products --build-directory|-d &lt;directory&gt; --changed-files &lt;file&gt;[,&lt;file&gt;...] --check-outputs --check-timestamps --clean-install-root --command-echo-mode &lt;mode&gt; --dry-run|-n [--file|-f &lt;file&gt;] --force-probe-execution --jobs|-j &lt;n&gt; --job-limits &lt;pool1&gt;:&lt;limit1&gt;[,&lt;pool2&gt;:&lt;limit2&gt;...] --enforce-project-job-limits --keep-going|-k --less-verbose|-q --log-level &lt;level&gt; --log-time --more-verbose|-v --no-install --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; --show-progress --no-fallback-module-provider --wait-lock Parameters config:configuration-name property:value Examples    build    Synopsis qbs build [options] [[config:configuration-name] [property:value] ...]  Description Builds projects in one or more configurations." />
+<meta property="og:description" content="Qbs Manual Command-Line Interface build Qbs 2.0.1 Contents  Synopsis Description Options --all-products --build-directory|-d &lt;directory&gt; --changed-files &lt;file&gt;[,&lt;file&gt;...] --check-outputs --check-timestamps --clean-install-root --command-echo-mode &lt;mode&gt; --dry-run|-n [--file|-f &lt;file&gt;] --force-probe-execution --jobs|-j &lt;n&gt; --job-limits &lt;pool1&gt;:&lt;limit1&gt;[,&lt;pool2&gt;:&lt;limit2&gt;...] --enforce-project-job-limits --keep-going|-k --less-verbose|-q --log-level &lt;level&gt; --log-time --more-verbose|-v --no-install --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; --show-progress --no-fallback-module-provider --wait-lock Parameters config:configuration-name property:value Examples    build    Synopsis qbs build [options] [[config:configuration-name] [property:value] ...]  Description Builds projects in one or more configurations." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/cli-build/" /><meta property="article:section" content="docs" />
 
@@ -26,7 +26,7 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Command-Line Interface build Qbs 1.22.0 Contents  Synopsis Description Options --all-products --build-directory|-d &lt;directory&gt; --changed-files &lt;file&gt;[,&lt;file&gt;...] --check-outputs --check-timestamps --clean-install-root --command-echo-mode &lt;mode&gt; --dry-run|-n [--file|-f &lt;file&gt;] --force-probe-execution --jobs|-j &lt;n&gt; --job-limits &lt;pool1&gt;:&lt;limit1&gt;[,&lt;pool2&gt;:&lt;limit2&gt;...] --enforce-project-job-limits --keep-going|-k --less-verbose|-q --log-level &lt;level&gt; --log-time --more-verbose|-v --no-install --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; --show-progress --no-fallback-module-provider --wait-lock Parameters config:configuration-name property:value Examples    build    Synopsis qbs build [options] [[config:configuration-name] [property:value] ...]  Description Builds projects in one or more configurations."/>
+<meta name="twitter:description" content="Qbs Manual Command-Line Interface build Qbs 2.0.1 Contents  Synopsis Description Options --all-products --build-directory|-d &lt;directory&gt; --changed-files &lt;file&gt;[,&lt;file&gt;...] --check-outputs --check-timestamps --clean-install-root --command-echo-mode &lt;mode&gt; --dry-run|-n [--file|-f &lt;file&gt;] --force-probe-execution --jobs|-j &lt;n&gt; --job-limits &lt;pool1&gt;:&lt;limit1&gt;[,&lt;pool2&gt;:&lt;limit2&gt;...] --enforce-project-job-limits --keep-going|-k --less-verbose|-q --log-level &lt;level&gt; --log-time --more-verbose|-v --no-install --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; --show-progress --no-fallback-module-provider --wait-lock Parameters config:configuration-name property:value Examples    build    Synopsis qbs build [options] [[config:configuration-name] [property:value] ...]  Description Builds projects in one or more configurations."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -59,7 +59,7 @@
 <li><a href="https://qbs.io
 /docs/cli/">Command-Line Interface</a></li>
 <li>build</li>
-<li id="buildversion">Qbs 1.22.0</li>
+<li id="buildversion">Qbs 2.0.1</li>
 <div class="sidebar">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
@@ -225,8 +225,7 @@
 <ul>
 <li>Linux: <code>$HOME/.config/QtProject/qbs</code></li>
 <li>Windows: <code>%APPDATA%\QtProject\qbs</code></li>
-<li><a href="https://qbs.io
-/docs/nolink">macOS</a>: <code>$HOME/Library/Preferences/qbs</code></li>
+<li>macOS: <code>$HOME/Library/Preferences/qbs</code></li>
 </ul>
 <a name="op-op-op-op-show-op-op-progress"></a>
 <h3 id="op-op-op-op-show-op-op-progress"><code>--show-progress</code></h3>

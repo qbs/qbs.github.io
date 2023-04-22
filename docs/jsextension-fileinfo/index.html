@@ -3,8 +3,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual List of Built-in Services FileInfo Service Qbs 1.22.0 Contents  Available Operations baseName canonicalPath cleanPath completeBaseName completeSuffix fileName fromNativeSeparators fromWindowsSeparators isAbsolutePath joinPaths path relativePath suffix toNativeSeparators toWindowsSeparators    FileInfo Service   The FileInfo service offers various operations on file paths, such as turning absolute paths into relative ones, splitting a path into its components, and so on.
- Available Operations  baseName FileInfo.baseName(filePath: string): string Returns the file name of filePath up to (but not including) the first &#39;. ">
+    <meta name="description" content="Qbs Manual List of Built-in Services FileInfo Service Qbs 2.0.1 Contents  Available Operations baseName canonicalPath cleanPath completeBaseName completeSuffix fileName fromNativeSeparators fromWindowsSeparators isAbsolutePath joinPaths path relativePath suffix toNativeSeparators toWindowsSeparators pathListSeparator pathSeparator executableSuffix    FileInfo Service   The FileInfo service offers various operations on file paths, such as turning absolute paths into relative ones, splitting a path into its components, and so on.
+ Available Operations  baseName FileInfo. ">
     <link rel="canonical" href="https://qbs.io/docs/jsextension-fileinfo/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -18,8 +18,8 @@
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual List of Built-in Services FileInfo Service Qbs 1.22.0 Contents  Available Operations baseName canonicalPath cleanPath completeBaseName completeSuffix fileName fromNativeSeparators fromWindowsSeparators isAbsolutePath joinPaths path relativePath suffix toNativeSeparators toWindowsSeparators    FileInfo Service   The FileInfo service offers various operations on file paths, such as turning absolute paths into relative ones, splitting a path into its components, and so on.
- Available Operations  baseName FileInfo.baseName(filePath: string): string Returns the file name of filePath up to (but not including) the first &#39;." />
+<meta property="og:description" content="Qbs Manual List of Built-in Services FileInfo Service Qbs 2.0.1 Contents  Available Operations baseName canonicalPath cleanPath completeBaseName completeSuffix fileName fromNativeSeparators fromWindowsSeparators isAbsolutePath joinPaths path relativePath suffix toNativeSeparators toWindowsSeparators pathListSeparator pathSeparator executableSuffix    FileInfo Service   The FileInfo service offers various operations on file paths, such as turning absolute paths into relative ones, splitting a path into its components, and so on.
+ Available Operations  baseName FileInfo." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/jsextension-fileinfo/" /><meta property="article:section" content="docs" />
 
@@ -28,8 +28,8 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual List of Built-in Services FileInfo Service Qbs 1.22.0 Contents  Available Operations baseName canonicalPath cleanPath completeBaseName completeSuffix fileName fromNativeSeparators fromWindowsSeparators isAbsolutePath joinPaths path relativePath suffix toNativeSeparators toWindowsSeparators    FileInfo Service   The FileInfo service offers various operations on file paths, such as turning absolute paths into relative ones, splitting a path into its components, and so on.
- Available Operations  baseName FileInfo.baseName(filePath: string): string Returns the file name of filePath up to (but not including) the first &#39;."/>
+<meta name="twitter:description" content="Qbs Manual List of Built-in Services FileInfo Service Qbs 2.0.1 Contents  Available Operations baseName canonicalPath cleanPath completeBaseName completeSuffix fileName fromNativeSeparators fromWindowsSeparators isAbsolutePath joinPaths path relativePath suffix toNativeSeparators toWindowsSeparators pathListSeparator pathSeparator executableSuffix    FileInfo Service   The FileInfo service offers various operations on file paths, such as turning absolute paths into relative ones, splitting a path into its components, and so on.
+ Available Operations  baseName FileInfo."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -62,7 +62,7 @@
 <li><a href="https://qbs.io
 /docs/list-of-builtin-services/">List of Built-in Services</a></li>
 <li>FileInfo Service</li>
-<li id="buildversion">Qbs 1.22.0</li>
+<li id="buildversion">Qbs 2.0.1</li>
 <div class="sidebar">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
@@ -83,6 +83,9 @@
 <li class="level2"><a href="#suffix">suffix</a></li>
 <li class="level2"><a href="#tonativeseparators">toNativeSeparators</a></li>
 <li class="level2"><a href="#towindowsseparators">toWindowsSeparators</a></li>
+<li class="level2"><a href="#pathlistseparator">pathListSeparator</a></li>
+<li class="level2"><a href="#pathseparator">pathSeparator</a></li>
+<li class="level2"><a href="#executablesuffix">executableSuffix</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
@@ -156,6 +159,18 @@
 <h3 id="towindowsseparators">toWindowsSeparators</h3>
 <pre class="cpp">FileInfo<span class="operator">.</span>toWindowsSeparators(filePath: string): string</pre>
 <p>Returns <code>filePath</code> with all '/' characters replaced by '\'.</p>
+<a name="pathlistseparator"></a>
+<h3 id="pathlistseparator">pathListSeparator</h3>
+<pre class="cpp">FileInfo<span class="operator">.</span>pathListSeparator(): string</pre>
+<p>Returns the host operating system separator for a path list that is used in environment variables or other contexts. </p><p>This function was introduced in version 1.22.</p><p></p>
+<a name="pathseparator"></a>
+<h3 id="pathseparator">pathSeparator</h3>
+<pre class="cpp">FileInfo<span class="operator">.</span>pathSeparator(): string</pre>
+<p>Returns the host operating system path separator. </p><p>This function was introduced in version 1.22.</p><p></p>
+<a name="executablesuffix"></a>
+<h3 id="executablesuffix">executableSuffix</h3>
+<pre class="cpp">FileInfo<span class="operator">.</span>executableSuffix(): string</pre>
+<p>Returns the host operating system executable suffix. </p><p>This function was introduced in version 1.23.</p><p></p>
 </div>
 <!-- @@@jsextension-fileinfo.html -->
 </div>

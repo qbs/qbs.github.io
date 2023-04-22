@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Appendix C: The JSON API Qbs 1.22.0 Appendix B: Migrating from Other Build Systems Appendix D: Licenses and Code Attributions  Contents  Packet Format Messages The hello Message Resolving a Project Building a Project Cleaning a Project Installing a Project Canceling an Operation Adding and Removing Source Files The get-run-environment Message The get-generated-files-for-sources Message Closing a Project Closing the Session Progress Messages The task-started Message The task-progress Message The new-max-progress Message Messages for Users The log-data Message The warning Message The protocol-error Message Project Data TopLevelProjectData PlainProjectData ProductData GroupData ArtifactData ModulePropertiesData Other Custom Data Types FilePath Location ErrorInfo DataMode LogLevel Environment    Appendix C: The JSON API   This API is the recommended way to provide Qbs support to an IDE. ">
+    <meta name="description" content="Qbs Manual Appendix C: The JSON API Qbs 2.0.1 Appendix B: Migrating from Other Build Systems Appendix D: Licenses and Code Attributions  Contents  Packet Format Messages The hello Message Resolving a Project Building a Project Cleaning a Project Installing a Project Canceling an Operation Adding and Removing Source Files The get-run-environment Message The get-generated-files-for-sources Message Closing a Project Closing the Session Progress Messages The task-started Message The task-progress Message The new-max-progress Message Messages for Users The log-data Message The warning Message The protocol-error Message Project Data TopLevelProjectData PlainProjectData ProductData GroupData ArtifactData ModulePropertiesData Other Custom Data Types FilePath Location ErrorInfo DataMode LogLevel Environment    Appendix C: The JSON API   This API is the recommended way to provide Qbs support to an IDE. ">
     <link rel="canonical" href="https://qbs.io/docs/json-api/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -17,7 +17,7 @@
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Appendix C: The JSON API Qbs 1.22.0 Appendix B: Migrating from Other Build Systems Appendix D: Licenses and Code Attributions  Contents  Packet Format Messages The hello Message Resolving a Project Building a Project Cleaning a Project Installing a Project Canceling an Operation Adding and Removing Source Files The get-run-environment Message The get-generated-files-for-sources Message Closing a Project Closing the Session Progress Messages The task-started Message The task-progress Message The new-max-progress Message Messages for Users The log-data Message The warning Message The protocol-error Message Project Data TopLevelProjectData PlainProjectData ProductData GroupData ArtifactData ModulePropertiesData Other Custom Data Types FilePath Location ErrorInfo DataMode LogLevel Environment    Appendix C: The JSON API   This API is the recommended way to provide Qbs support to an IDE." />
+<meta property="og:description" content="Qbs Manual Appendix C: The JSON API Qbs 2.0.1 Appendix B: Migrating from Other Build Systems Appendix D: Licenses and Code Attributions  Contents  Packet Format Messages The hello Message Resolving a Project Building a Project Cleaning a Project Installing a Project Canceling an Operation Adding and Removing Source Files The get-run-environment Message The get-generated-files-for-sources Message Closing a Project Closing the Session Progress Messages The task-started Message The task-progress Message The new-max-progress Message Messages for Users The log-data Message The warning Message The protocol-error Message Project Data TopLevelProjectData PlainProjectData ProductData GroupData ArtifactData ModulePropertiesData Other Custom Data Types FilePath Location ErrorInfo DataMode LogLevel Environment    Appendix C: The JSON API   This API is the recommended way to provide Qbs support to an IDE." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/json-api/" /><meta property="article:section" content="docs" />
 
@@ -26,7 +26,7 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Appendix C: The JSON API Qbs 1.22.0 Appendix B: Migrating from Other Build Systems Appendix D: Licenses and Code Attributions  Contents  Packet Format Messages The hello Message Resolving a Project Building a Project Cleaning a Project Installing a Project Canceling an Operation Adding and Removing Source Files The get-run-environment Message The get-generated-files-for-sources Message Closing a Project Closing the Session Progress Messages The task-started Message The task-progress Message The new-max-progress Message Messages for Users The log-data Message The warning Message The protocol-error Message Project Data TopLevelProjectData PlainProjectData ProductData GroupData ArtifactData ModulePropertiesData Other Custom Data Types FilePath Location ErrorInfo DataMode LogLevel Environment    Appendix C: The JSON API   This API is the recommended way to provide Qbs support to an IDE."/>
+<meta name="twitter:description" content="Qbs Manual Appendix C: The JSON API Qbs 2.0.1 Appendix B: Migrating from Other Build Systems Appendix D: Licenses and Code Attributions  Contents  Packet Format Messages The hello Message Resolving a Project Building a Project Cleaning a Project Installing a Project Canceling an Operation Adding and Removing Source Files The get-run-environment Message The get-generated-files-for-sources Message Closing a Project Closing the Session Progress Messages The task-started Message The task-progress Message The new-max-progress Message Messages for Users The log-data Message The warning Message The protocol-error Message Project Data TopLevelProjectData PlainProjectData ProductData GroupData ArtifactData ModulePropertiesData Other Custom Data Types FilePath Location ErrorInfo DataMode LogLevel Environment    Appendix C: The JSON API   This API is the recommended way to provide Qbs support to an IDE."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -57,7 +57,7 @@
 <li><a href="https://qbs.io
 /docs">Qbs Manual</a></li>
 <li>Appendix C: The JSON API</li>
-<li id="buildversion">Qbs 1.22.0</li>
+<li id="buildversion">Qbs 2.0.1</li>
   <link rel="prev" href="https://qbs.io
 /docs/porting-to-qbs/">
   <link rel="next" href="https://qbs.io
@@ -155,23 +155,24 @@
 <tr valign="top" class="even"><td>configuration-name</td><td>string</td><td>no</td></tr>
 <tr valign="top" class="odd"><td>data-mode</td><td><a href="https://qbs.io
 /docs/json-api/#datamode">DataMode</a></td><td>no</td></tr>
-<tr valign="top" class="even"><td>dry-run</td><td>bool</td><td>no</td></tr>
-<tr valign="top" class="odd"><td>environment</td><td><a href="https://qbs.io
+<tr valign="top" class="even"><td>deprecation-warning-mode</td><td>string</td><td>no</td></tr>
+<tr valign="top" class="odd"><td>dry-run</td><td>bool</td><td>no</td></tr>
+<tr valign="top" class="even"><td>environment</td><td><a href="https://qbs.io
 /docs/json-api/#environment">Environment</a></td><td>no</td></tr>
-<tr valign="top" class="even"><td>error-handling-mode</td><td>string</td><td>no</td></tr>
-<tr valign="top" class="odd"><td>fallback-provider-enabled</td><td>bool</td><td>no</td></tr>
-<tr valign="top" class="even"><td>force-probe-execution</td><td>bool</td><td>no</td></tr>
-<tr valign="top" class="odd"><td>log-time</td><td>bool</td><td>no</td></tr>
-<tr valign="top" class="even"><td>log-level</td><td><a href="https://qbs.io
+<tr valign="top" class="odd"><td>error-handling-mode</td><td>string</td><td>no</td></tr>
+<tr valign="top" class="even"><td>fallback-provider-enabled</td><td>bool</td><td>no</td></tr>
+<tr valign="top" class="odd"><td>force-probe-execution</td><td>bool</td><td>no</td></tr>
+<tr valign="top" class="even"><td>log-time</td><td>bool</td><td>no</td></tr>
+<tr valign="top" class="odd"><td>log-level</td><td><a href="https://qbs.io
 /docs/json-api/#loglevel">LogLevel</a></td><td>no</td></tr>
-<tr valign="top" class="odd"><td>module-properties</td><td>list of strings</td><td>no</td></tr>
-<tr valign="top" class="even"><td>overridden-properties</td><td>object</td><td>no</td></tr>
-<tr valign="top" class="odd"><td>project-file-path</td><td><a href="https://qbs.io
+<tr valign="top" class="even"><td>module-properties</td><td>list of strings</td><td>no</td></tr>
+<tr valign="top" class="odd"><td>overridden-properties</td><td>object</td><td>no</td></tr>
+<tr valign="top" class="even"><td>project-file-path</td><td><a href="https://qbs.io
 /docs/json-api/#filepath">FilePath</a></td><td>if resolving from scratch</td></tr>
-<tr valign="top" class="even"><td>restore-behavior</td><td>string</td><td>no</td></tr>
-<tr valign="top" class="odd"><td>settings-directory</td><td>string</td><td>no</td></tr>
-<tr valign="top" class="even"><td>top-level-profile</td><td>string</td><td>no</td></tr>
-<tr valign="top" class="odd"><td>wait-lock-build-graph</td><td>bool</td><td>no</td></tr>
+<tr valign="top" class="odd"><td>restore-behavior</td><td>string</td><td>no</td></tr>
+<tr valign="top" class="even"><td>settings-directory</td><td>string</td><td>no</td></tr>
+<tr valign="top" class="odd"><td>top-level-profile</td><td>string</td><td>no</td></tr>
+<tr valign="top" class="even"><td>wait-lock-build-graph</td><td>bool</td><td>no</td></tr>
 </tbody></table></div>
 <p>The <code>environment</code> property defines the environment to be used for resolving the project, as well as for all subsequent Qbs operations on this project.</p>
 <p>The <code>error-handling-mode</code> specifies how Qbs should deal with issues in project files, such as assigning to an unknown property. The possible values are <code>"strict"</code> and <code>"relaxed"</code>. In strict mode, Qbs will immediately abort and set the reply's <code>error</code> property accordingly. In relaxed mode, Qbs will continue to resolve the project if possible. A <a href="https://qbs.io
@@ -600,7 +601,7 @@
 <p>An <i>ErrorInfo</i> is an object representing error information. Its sole property <code>items</code> is an array of objects with the following structure:</p>
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th>Property</th><th>Type</th><th>Mandatory</th></tr></thead>
-<tbody><tr valign="top" class="odd"><td><code>message</code></td><td>string</td><td>yes</td></tr>
+<tbody><tr valign="top" class="odd"><td>description</td><td>string</td><td>yes</td></tr>
 <tr valign="top" class="even"><td>location</td><td><a href="https://qbs.io
 /docs/json-api/#location">Location</a></td><td>no</td></tr>
 </tbody></table></div>

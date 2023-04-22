@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Qbs 1.22.0 Contents  Properties Detailed Description    PkgConfigProbe QML Type  Retrieves the information about installed packages using the pkg-config binary. More...
+    <meta name="description" content="Qbs Manual Qbs 2.0.1 Contents  Properties Detailed Description    PkgConfigProbe QML Type  Retrieves the information about installed packages using the pkg-config binary. More...
 Import Statement:import QbsProbes . List of all members, including inherited members   Properties  compilerFlags : stringList defines : stringList exactVersion : string executable : string forStaticBuild : bool includePaths : stringList libDirs : stringList libraries : stringList libraryPaths : stringList linkerFlags : stringList maxVersion : string minVersion : string modversion : stringList name : string packageNames : stringList sysroot : string   Detailed Description This probe takes the package name or the list of package names as input and returns the information that is required to compile and link using those packages. ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsprobes-pkgconfigprobe/" />
 
@@ -18,7 +18,7 @@ Import Statement:import QbsProbes . List of all members, including inherited mem
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Qbs 1.22.0 Contents  Properties Detailed Description    PkgConfigProbe QML Type  Retrieves the information about installed packages using the pkg-config binary. More...
+<meta property="og:description" content="Qbs Manual Qbs 2.0.1 Contents  Properties Detailed Description    PkgConfigProbe QML Type  Retrieves the information about installed packages using the pkg-config binary. More...
 Import Statement:import QbsProbes . List of all members, including inherited members   Properties  compilerFlags : stringList defines : stringList exactVersion : string executable : string forStaticBuild : bool includePaths : stringList libDirs : stringList libraries : stringList libraryPaths : stringList linkerFlags : stringList maxVersion : string minVersion : string modversion : stringList name : string packageNames : stringList sysroot : string   Detailed Description This probe takes the package name or the list of package names as input and returns the information that is required to compile and link using those packages." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/qml-qbsprobes-pkgconfigprobe/" /><meta property="article:section" content="docs" />
@@ -28,7 +28,7 @@ Import Statement:import QbsProbes . List of all members, including inherited mem
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Qbs 1.22.0 Contents  Properties Detailed Description    PkgConfigProbe QML Type  Retrieves the information about installed packages using the pkg-config binary. More...
+<meta name="twitter:description" content="Qbs Manual Qbs 2.0.1 Contents  Properties Detailed Description    PkgConfigProbe QML Type  Retrieves the information about installed packages using the pkg-config binary. More...
 Import Statement:import QbsProbes . List of all members, including inherited members   Properties  compilerFlags : stringList defines : stringList exactVersion : string executable : string forStaticBuild : bool includePaths : stringList libDirs : stringList libraries : stringList libraryPaths : stringList linkerFlags : stringList maxVersion : string minVersion : string modversion : stringList name : string packageNames : stringList sysroot : string   Detailed Description This probe takes the package name or the list of package names as input and returns the information that is required to compile and link using those packages."/>
 
 </head>
@@ -59,7 +59,7 @@ Import Statement:import QbsProbes . List of all members, including inherited mem
     
 <li><a href="https://qbs.io
 /docs">Qbs Manual</a></li>
-<li id="buildversion">Qbs 1.22.0</li>
+<li id="buildversion">Qbs 2.0.1</li>
 <div class="sidebar">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
@@ -150,7 +150,7 @@ Import Statement:import QbsProbes . List of all members, including inherited mem
 <br>
 <!-- $$$exactVersion -->
 <div class="qmlitem"><h3 class="qmlproto">exactVersion: string</h3>
-<div class="qmldoc"><p>The exact version of the required package. If set, pkg-config will ignore packages with version greater than the value of this property.</p>
+<div class="qmldoc"><p>The exact version of the required package. If set, pkg-config will ignore packages with version that is not equal to the value of this property.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@exactVersion -->
 <br>
@@ -200,7 +200,7 @@ Import Statement:import QbsProbes . List of all members, including inherited mem
 <br>
 <!-- $$$maxVersion -->
 <div class="qmlitem"><h3 class="qmlproto">maxVersion: string</h3>
-<div class="qmldoc"><p>The maximum version of the required package. If set, pkg-config will ignore packages with version that is not equal to the value of this property.</p>
+<div class="qmldoc"><p>The maximum version of the required package. If set, pkg-config will ignore packages with version greater than the value of this property.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@maxVersion -->
 <br>

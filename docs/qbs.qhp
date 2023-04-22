@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QtHelpProject version="1.0">
-    <namespace>org.qt-project.qbs.1220</namespace>
+    <namespace>org.qt-project.qbs.201</namespace>
     <virtualFolder>doc</virtualFolder>
     <metaData name="version" value=""/>
-    <customFilter name="Qbs 1.22.0">
-        <filterAttribute>1.22.0</filterAttribute>
+    <customFilter name="Qbs 2.0.1">
+        <filterAttribute>2.0.1</filterAttribute>
         <filterAttribute>qbs</filterAttribute>
     </customFilter>
     <filterSection>
-        <filterAttribute>1.22.0</filterAttribute>
+        <filterAttribute>2.0.1</filterAttribute>
         <filterAttribute>qbs</filterAttribute>
         <toc>
             <section ref="index.html" title="Qbs">
@@ -94,6 +94,7 @@
             <keyword name="General Services" id="General Services" ref="jsextensions-general.html"/>
             <keyword name="Generators" id="Generators" ref="generators.html"/>
             <keyword name="Group" id="QML.Group" ref="qml-qbslanguageitems-group.html"/>
+            <keyword name="Host Service" id="Host Service" ref="jsextension-host.html"/>
             <keyword name="How-tos" id="How-tos" ref="howtos.html"/>
             <keyword name="IncludeProbe" id="QML.IncludeProbe" ref="qml-qbsprobes-includeprobe.html"/>
             <keyword name="InnoSetup" id="QML.InnoSetup" ref="qml-qbsconvenienceitems-innosetup.html"/>
@@ -189,9 +190,11 @@
             <keyword name="Qt.scxml" id="QML.Qt.scxml" ref="qml-qbsmodules-qt-scxml.html"/>
             <keyword name="QtApplication" id="QML.QtApplication" ref="qml-qbsconvenienceitems-qtapplication.html"/>
             <keyword name="QtGuiApplication" id="QML.QtGuiApplication" ref="qml-qbsconvenienceitems-qtguiapplication.html"/>
+            <keyword name="QuickJS" id="QuickJS" ref="qbs-attribution-quickjs.html"/>
             <keyword name="Reference" id="Reference" ref="reference.html"/>
             <keyword name="Rule" id="QML.Rule" ref="qml-qbslanguageitems-rule.html"/>
             <keyword name="Running Applications" id="Running Applications" ref="running-applications.html"/>
+            <keyword name="Sanitizers.address" id="QML.Sanitizers.address" ref="qml-qbsmodules-sanitizers-address.html"/>
             <keyword name="Scanner" id="QML.Scanner" ref="qml-qbslanguageitems-scanner.html"/>
             <keyword name="Setup" id="Setup" ref="setup.html"/>
             <keyword name="StaticLibrary" id="QML.StaticLibrary" ref="qml-qbsconvenienceitems-staticlibrary.html"/>
@@ -226,6 +229,7 @@
             <keyword name="alwaysUseLipo" id="cpp::alwaysUseLipo" ref="qml-qbsmodules-cpp.html#alwaysUseLipo-prop"/>
             <keyword name="apkBaseName" id="Android.sdk::apkBaseName" ref="qml-qbsmodules-android-sdk.html#apkBaseName-prop"/>
             <keyword name="appIconName" id="ib::appIconName" ref="qml-qbsmodules-ib.html#appIconName-prop"/>
+            <keyword name="appName" id="freedesktop::appName" ref="qml-qbsmodules-freedesktop.html#appName-prop"/>
             <keyword name="appStl" id="Android.ndk::appStl" ref="qml-qbsmodules-android-ndk.html#appStl-prop"/>
             <keyword name="architecture" id="cpp::architecture" ref="qml-qbsmodules-cpp.html#architecture-prop"/>
             <keyword name="architecture" id="qbs::architecture" ref="qml-qbsmodules-qbs.html#architecture-prop"/>
@@ -390,6 +394,8 @@
             <keyword name="description" id="PropertyOptions::description" ref="qml-qbslanguageitems-propertyoptions.html#description-prop"/>
             <keyword name="desktopKeys" id="freedesktop::desktopKeys" ref="qml-qbsmodules-freedesktop.html#desktopKeys-prop"/>
             <keyword name="destinationDirectory" id="Product::destinationDirectory" ref="qml-qbslanguageitems-product.html#destinationDirectory-prop"/>
+            <keyword name="detectUseAfterReturn" id="Sanitizers.address::detectUseAfterReturn" ref="qml-qbsmodules-sanitizers-address.html#detectUseAfterReturn-prop"/>
+            <keyword name="detectUseAfterScope" id="Sanitizers.address::detectUseAfterScope" ref="qml-qbsmodules-sanitizers-address.html#detectUseAfterScope-prop"/>
             <keyword name="developerPath" id="xcode::developerPath" ref="qml-qbsmodules-xcode.html#developerPath-prop"/>
             <keyword name="dexCompilerName" id="Android.sdk::dexCompilerName" ref="qml-qbsmodules-android-sdk.html#dexCompilerName-prop"/>
             <keyword name="dict" id="texttemplate::dict" ref="qml-qbsmodules-texttemplate.html#dict-prop"/>
@@ -430,6 +436,7 @@
             <keyword name="enableRtti" id="cpp::enableRtti" ref="qml-qbsmodules-cpp.html#enableRtti-prop"/>
             <keyword name="enableSuspiciousLinkerFlagWarnings" id="cpp::enableSuspiciousLinkerFlagWarnings" ref="qml-qbsmodules-cpp.html#enableSuspiciousLinkerFlagWarnings-prop"/>
             <keyword name="enableWarnings" id="java::enableWarnings" ref="qml-qbsmodules-java.html#enableWarnings-prop"/>
+            <keyword name="enabled" id="Sanitizers.address::enabled" ref="qml-qbsmodules-sanitizers-address.html#enabled-prop"/>
             <keyword name="endianness" id="cpp::endianness" ref="qml-qbsmodules-cpp.html#endianness-prop"/>
             <keyword name="entryPoint" id="JavaJarFile::entryPoint" ref="qml-qbsconvenienceitems-javajarfile.html#entryPoint-prop"/>
             <keyword name="entryPoint" id="cpp::entryPoint" ref="qml-qbsmodules-cpp.html#entryPoint-prop"/>
@@ -506,16 +513,7 @@
             <keyword name="hdiutilPath" id="dmg::hdiutilPath" ref="qml-qbsmodules-dmg.html#hdiutilPath-prop"/>
             <keyword name="headerFileName" id="vcs::headerFileName" ref="qml-qbsmodules-vcs.html#headerFileName-prop"/>
             <keyword name="help" id="help" ref="cli-help.html"/>
-            <keyword name="hostArchitecture" id="qbs::hostArchitecture" ref="qml-qbsmodules-qbs.html#hostArchitecture-prop"/>
             <keyword name="hostDir" id="qnx::hostDir" ref="qml-qbsmodules-qnx.html#hostDir-prop"/>
-            <keyword name="hostOS" id="qbs::hostOS" ref="qml-qbsmodules-qbs.html#hostOS-prop"/>
-            <keyword name="hostOSBuildVersion" id="qbs::hostOSBuildVersion" ref="qml-qbsmodules-qbs.html#hostOSBuildVersion-prop"/>
-            <keyword name="hostOSVersion" id="qbs::hostOSVersion" ref="qml-qbsmodules-qbs.html#hostOSVersion-prop"/>
-            <keyword name="hostOSVersionMajor" id="qbs::hostOSVersionMajor" ref="qml-qbsmodules-qbs.html#hostOSVersionMajor-prop"/>
-            <keyword name="hostOSVersionMinor" id="qbs::hostOSVersionMinor" ref="qml-qbsmodules-qbs.html#hostOSVersionMinor-prop"/>
-            <keyword name="hostOSVersionParts" id="qbs::hostOSVersionParts" ref="qml-qbsmodules-qbs.html#hostOSVersionParts-prop"/>
-            <keyword name="hostOSVersionPatch" id="qbs::hostOSVersionPatch" ref="qml-qbsmodules-qbs.html#hostOSVersionPatch-prop"/>
-            <keyword name="hostPlatform" id="qbs::hostPlatform" ref="qml-qbsmodules-qbs.html#hostPlatform-prop"/>
             <keyword name="ib" id="QML.ib" ref="qml-qbsmodules-ib.html"/>
             <keyword name="ibtoolName" id="ib::ibtoolName" ref="qml-qbsmodules-ib.html#ibtoolName-prop"/>
             <keyword name="ibtoolPath" id="ib::ibtoolPath" ref="qml-qbsmodules-ib.html#ibtoolPath-prop"/>
@@ -667,7 +665,6 @@
             <keyword name="name" id="Profile::name" ref="qml-qbslanguageitems-profile.html#name-prop"/>
             <keyword name="name" id="Project::name" ref="qml-qbslanguageitems-project.html#name-prop"/>
             <keyword name="name" id="PropertyOptions::name" ref="qml-qbslanguageitems-propertyoptions.html#name-prop"/>
-            <keyword name="name" id="freedesktop::name" ref="qml-qbsmodules-freedesktop.html#name-prop"/>
             <keyword name="nameEntry" id="Exporter.pkgconfig::nameEntry" ref="qml-qbsmodules-exporter-pkgconfig.html#nameEntry-prop"/>
             <keyword name="nameFilter" id="PathProbe::nameFilter" ref="qml-qbsprobes-pathprobe.html#nameFilter-prop"/>
             <keyword name="nameSuffixes" id="PathProbe::nameSuffixes" ref="qml-qbsprobes-pathprobe.html#nameSuffixes-prop"/>
@@ -681,7 +678,6 @@
             <keyword name="nodejs" id="QML.nodejs" ref="qml-qbsmodules-nodejs.html"/>
             <keyword name="notices" id="ib::notices" ref="qml-qbsmodules-ib.html#notices-prop"/>
             <keyword name="nsis" id="QML.nsis" ref="qml-qbsmodules-nsis.html"/>
-            <keyword name="nullDevice" id="qbs::nullDevice" ref="qml-qbsmodules-qbs.html#nullDevice-prop"/>
             <keyword name="objcFlags" id="cpp::objcFlags" ref="qml-qbsmodules-cpp.html#objcFlags-prop"/>
             <keyword name="objcopyName" id="cpp::objcopyName" ref="qml-qbsmodules-cpp.html#objcopyName-prop"/>
             <keyword name="objcopyPath" id="cpp::objcopyPath" ref="qml-qbsmodules-cpp.html#objcopyPath-prop"/>
@@ -709,7 +705,6 @@
             <keyword name="packageType" id="Android.sdk::packageType" ref="qml-qbsmodules-android-sdk.html#packageType-prop"/>
             <keyword name="packageType" id="bundle::packageType" ref="qml-qbsmodules-bundle.html#packageType-prop"/>
             <keyword name="path" id="PathProbe::path" ref="qml-qbsprobes-pathprobe.html#path-prop"/>
-            <keyword name="pathListSeparator" id="qbs::pathListSeparator" ref="qml-qbsmodules-qbs.html#pathListSeparator-prop"/>
             <keyword name="pathSuffixes" id="PathProbe::pathSuffixes" ref="qml-qbsprobes-pathprobe.html#pathSuffixes-prop"/>
             <keyword name="patterns" id="FileTagger::patterns" ref="qml-qbslanguageitems-filetagger.html#patterns-prop"/>
             <keyword name="pkgInfoPath" id="bundle::pkgInfoPath" ref="qml-qbsmodules-bundle.html#pkgInfoPath-prop"/>
@@ -761,6 +756,7 @@
             <keyword name="qmlCacheGenPath" id="Qt.qml::qmlCacheGenPath" ref="qml-qbsmodules-qt-qml.html#qmlCacheGenPath-prop"/>
             <keyword name="qmlDebugging" id="Qt.declarative::qmlDebugging" ref="qml-qbsmodules-qt-declarative.html#qmlDebugging-prop"/>
             <keyword name="qmlDebugging" id="Qt.quick::qmlDebugging" ref="qml-qbsmodules-qt-quick.html#qmlDebugging-prop"/>
+            <keyword name="qmlImportPaths" id="Qt.android_support::qmlImportPaths" ref="qml-qbsmodules-qt-android-support.html#qmlImportPaths-prop"/>
             <keyword name="qmlImportScannerName" id="Qt.qml::qmlImportScannerName" ref="qml-qbsmodules-qt-qml.html#qmlImportScannerName-prop"/>
             <keyword name="qmlImportsPath" id="Qt.declarative::qmlImportsPath" ref="qml-qbsmodules-qt-declarative.html#qmlImportsPath-prop"/>
             <keyword name="qmlImportsPath" id="Qt.quick::qmlImportsPath" ref="qml-qbsmodules-qt-quick.html#qmlImportsPath-prop"/>
@@ -892,6 +888,7 @@
             <keyword name="update-timestamps" id="update-timestamps" ref="cli-update-timestamps.html"/>
             <keyword name="urlEntry" id="Exporter.pkgconfig::urlEntry" ref="qml-qbsmodules-exporter-pkgconfig.html#urlEntry-prop"/>
             <keyword name="useApksigner" id="codesign::useApksigner" ref="qml-qbsmodules-codesign.html#useApksigner-prop"/>
+            <keyword name="useBuiltinXcodeBuildSpecs" id="bundle::useBuiltinXcodeBuildSpecs" ref="qml-qbsmodules-bundle.html#useBuiltinXcodeBuildSpecs-prop"/>
             <keyword name="useCPrecompiledHeader" id="cpp::useCPrecompiledHeader" ref="qml-qbsmodules-cpp.html#useCPrecompiledHeader-prop"/>
             <keyword name="useCompiler" id="Qt.quick::useCompiler" ref="qml-qbsmodules-qt-quick.html#useCompiler-prop"/>
             <keyword name="useCxxPrecompiledHeader" id="cpp::useCxxPrecompiledHeader" ref="qml-qbsmodules-cpp.html#useCxxPrecompiledHeader-prop"/>
@@ -1038,6 +1035,7 @@
             <file>jsextension-environment.html</file>
             <file>jsextension-file.html</file>
             <file>jsextension-fileinfo.html</file>
+            <file>jsextension-host.html</file>
             <file>jsextension-process.html</file>
             <file>jsextension-propertylist.html</file>
             <file>jsextension-temporarydir.html</file>
@@ -1059,6 +1057,7 @@
             <file>qbs-attribution-dmgbuild.html</file>
             <file>qbs-attribution-ds-store.html</file>
             <file>qbs-attribution-mac-alias.html</file>
+            <file>qbs-attribution-quickjs.html</file>
             <file>qbs-target-android.html</file>
             <file>qbs-target-integrity.html</file>
             <file>qbs-target-ios.html</file>
@@ -1221,6 +1220,8 @@
             <file>qml-qbsmodules-qt-quick.html</file>
             <file>qml-qbsmodules-qt-scxml-members.html</file>
             <file>qml-qbsmodules-qt-scxml.html</file>
+            <file>qml-qbsmodules-sanitizers-address-members.html</file>
+            <file>qml-qbsmodules-sanitizers-address.html</file>
             <file>qml-qbsmodules-texttemplate-members.html</file>
             <file>qml-qbsmodules-texttemplate.html</file>
             <file>qml-qbsmodules-typescript-members.html</file>

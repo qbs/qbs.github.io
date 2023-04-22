@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Target Platforms Building for macOS Qbs 1.22.0 Contents  Building User Interfaces Creating App Bundles Multiple Architectures and Build Variants Building macOS Disk Images    Building for macOS   This topic describes the Qbs features specific to macOS.
+    <meta name="description" content="Qbs Manual Target Platforms Building for macOS Qbs 2.0.1 Contents  Building User Interfaces Creating App Bundles Multiple Architectures and Build Variants Building macOS Disk Images    Building for macOS   This topic describes the Qbs features specific to macOS.
 Note: Qbs does not yet support the Swift programming language.
  The xcode module contains properties and rules for Xcode-based development.
  Building User Interfaces The ib module contains properties and rules for building Interface Builder documents, storyboards, asset catalogs, and icon sets. ">
@@ -20,7 +20,7 @@ Note: Qbs does not yet support the Swift programming language.
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Target Platforms Building for macOS Qbs 1.22.0 Contents  Building User Interfaces Creating App Bundles Multiple Architectures and Build Variants Building macOS Disk Images    Building for macOS   This topic describes the Qbs features specific to macOS.
+<meta property="og:description" content="Qbs Manual Target Platforms Building for macOS Qbs 2.0.1 Contents  Building User Interfaces Creating App Bundles Multiple Architectures and Build Variants Building macOS Disk Images    Building for macOS   This topic describes the Qbs features specific to macOS.
 Note: Qbs does not yet support the Swift programming language.
  The xcode module contains properties and rules for Xcode-based development.
  Building User Interfaces The ib module contains properties and rules for building Interface Builder documents, storyboards, asset catalogs, and icon sets." />
@@ -32,7 +32,7 @@ Note: Qbs does not yet support the Swift programming language.
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Target Platforms Building for macOS Qbs 1.22.0 Contents  Building User Interfaces Creating App Bundles Multiple Architectures and Build Variants Building macOS Disk Images    Building for macOS   This topic describes the Qbs features specific to macOS.
+<meta name="twitter:description" content="Qbs Manual Target Platforms Building for macOS Qbs 2.0.1 Contents  Building User Interfaces Creating App Bundles Multiple Architectures and Build Variants Building macOS Disk Images    Building for macOS   This topic describes the Qbs features specific to macOS.
 Note: Qbs does not yet support the Swift programming language.
  The xcode module contains properties and rules for Xcode-based development.
  Building User Interfaces The ib module contains properties and rules for building Interface Builder documents, storyboards, asset catalogs, and icon sets."/>
@@ -68,7 +68,7 @@ Note: Qbs does not yet support the Swift programming language.
 <li><a href="https://qbs.io
 /docs/platforms/">Target Platforms</a></li>
 <li>Building for macOS</li>
-<li id="buildversion">Qbs 1.22.0</li>
+<li id="buildversion">Qbs 2.0.1</li>
 <div class="sidebar">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
@@ -84,8 +84,7 @@ Note: Qbs does not yet support the Swift programming language.
 <span class="subtitle"></span>
 <!-- $$$qbs-target-macos.html-description -->
 <div class="descr"> <a name="details"></a>
-<p>This topic describes the Qbs features specific to <a href="https://qbs.io
-/docs/nolink">macOS</a>.</p>
+<p>This topic describes the Qbs features specific to macOS.</p>
 <div class="admonition note">
 <p><b>Note: </b>Qbs does not yet support the Swift programming language.</p>
 </div>
@@ -122,8 +121,7 @@ bundle<span class="operator">.</span>isBundle: <span class="keyword">true</span>
 /docs/qml-qbsconvenienceitems-applediskimage/">AppleDiskImage</a> and <a href="https://qbs.io
 /docs/qml-qbsconvenienceitems-appleapplicationdiskimage/">AppleApplicationDiskImage</a> items have a dependency on the <a href="https://qbs.io
 /docs/qml-qbsmodules-dmg/">dmg</a> module. The former represents a product that is a basic Apple disk image, while the latter extends the former to create a drag 'n' drop disk image installer used for installing single application bundles.</p>
-<p>For example, the following code snippet creates a <a href="https://qbs.io
-/docs/nolink">macOS</a> disk image with a custom background and icon layout:</p>
+<p>For example, the following code snippet creates a macOS disk image with a custom background and icon layout:</p>
 <pre class="cpp">AppleApplicationDiskImage {
     targetName: <span class="string">"cocoa-application-"</span> <span class="operator">+</span> version
     version: <span class="string">"1.0"</span>

@@ -3,8 +3,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Qbs 1.22.0 Contents  Properties Detailed Description Example usage Relevant File Tags    freedesktop QML Type  Provides support for some freedesktop.org specifications. More...
-Import Statement:import QbsModules .Since:Qbs 1.16 List of all members, including inherited members   Properties  desktopKeys : var name : string   Detailed Description The freedesktop module contains properties and rules for building and working with applications compliant to freedesktop. ">
+    <meta name="description" content="Qbs Manual Qbs 2.0.1 Contents  Properties Detailed Description Example usage Relevant File Tags    freedesktop QML Type  Provides support for some freedesktop.org specifications. More...
+Import Statement:import QbsModules .Since:Qbs 1.16 List of all members, including inherited members   Properties  appName : string desktopKeys : var   Detailed Description The freedesktop module contains properties and rules for building and working with applications compliant to freedesktop. ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-freedesktop/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -18,8 +18,8 @@ Import Statement:import QbsModules .Since:Qbs 1.16 List of all members, includin
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Qbs 1.22.0 Contents  Properties Detailed Description Example usage Relevant File Tags    freedesktop QML Type  Provides support for some freedesktop.org specifications. More...
-Import Statement:import QbsModules .Since:Qbs 1.16 List of all members, including inherited members   Properties  desktopKeys : var name : string   Detailed Description The freedesktop module contains properties and rules for building and working with applications compliant to freedesktop." />
+<meta property="og:description" content="Qbs Manual Qbs 2.0.1 Contents  Properties Detailed Description Example usage Relevant File Tags    freedesktop QML Type  Provides support for some freedesktop.org specifications. More...
+Import Statement:import QbsModules .Since:Qbs 1.16 List of all members, including inherited members   Properties  appName : string desktopKeys : var   Detailed Description The freedesktop module contains properties and rules for building and working with applications compliant to freedesktop." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-freedesktop/" /><meta property="article:section" content="docs" />
 
@@ -28,8 +28,8 @@ Import Statement:import QbsModules .Since:Qbs 1.16 List of all members, includin
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Qbs 1.22.0 Contents  Properties Detailed Description Example usage Relevant File Tags    freedesktop QML Type  Provides support for some freedesktop.org specifications. More...
-Import Statement:import QbsModules .Since:Qbs 1.16 List of all members, including inherited members   Properties  desktopKeys : var name : string   Detailed Description The freedesktop module contains properties and rules for building and working with applications compliant to freedesktop."/>
+<meta name="twitter:description" content="Qbs Manual Qbs 2.0.1 Contents  Properties Detailed Description Example usage Relevant File Tags    freedesktop QML Type  Provides support for some freedesktop.org specifications. More...
+Import Statement:import QbsModules .Since:Qbs 1.16 List of all members, including inherited members   Properties  appName : string desktopKeys : var   Detailed Description The freedesktop module contains properties and rules for building and working with applications compliant to freedesktop."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -59,7 +59,7 @@ Import Statement:import QbsModules .Since:Qbs 1.16 List of all members, includin
     
 <li><a href="https://qbs.io
 /docs">Qbs Manual</a></li>
-<li id="buildversion">Qbs 1.22.0</li>
+<li id="buildversion">Qbs 2.0.1</li>
 <div class="sidebar">
 <div class="toc">
 <h3><a name="toc">Contents</a></h3>
@@ -85,9 +85,9 @@ Import Statement:import QbsModules .Since:Qbs 1.16 List of all members, includin
 <h2 id="properties">Properties</h2>
 <ul>
 <li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-freedesktop/#desktopKeys-prop">desktopKeys</a></b></b> : var</li>
+/docs/qml-qbsmodules-freedesktop/#appName-prop">appName</a></b></b> : string</li>
 <li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-freedesktop/#name-prop">name</a></b></b> : string</li>
+/docs/qml-qbsmodules-freedesktop/#desktopKeys-prop">desktopKeys</a></b></b> : var</li>
 </ul>
 <!-- $$$freedesktop-description -->
 <a name="details"></a>
@@ -142,19 +142,19 @@ Import Statement:import QbsModules .Since:Qbs 1.16 List of all members, includin
 </tbody></table></div>
 <!-- @@@freedesktop -->
 <h2>Property Documentation</h2>
+<!-- $$$appName -->
+<div class="qmlitem"><h3 class="qmlproto">appName: string</h3>
+<div class="qmldoc"><p>The display name of the application which will be stored in the <code>.desktop</code> file.</p>
+<p>Default: <a href="https://qbs.io
+/docs/qml-qbslanguageitems-product/#name-prop">product.name</a></p>
+</div></div><!-- @@@appName -->
+<br>
 <!-- $$$desktopKeys -->
 <div class="qmlitem"><h3 class="qmlproto">desktopKeys: var</h3>
 <div class="qmldoc"><p>A dictionary of key-value pairs to add to the application's <code>.desktop</code> file.</p>
 <p>The contents of this property will be aggregated with the values from any <code>.desktop</code> file. If this property and any <code>.desktop</code> files contain the same key, this property will take precedence.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@desktopKeys -->
-<br>
-<!-- $$$name -->
-<div class="qmlitem"><h3 class="qmlproto">name: string</h3>
-<div class="qmldoc"><p>The display name of the application which will be stored in the <code>.desktop</code> file.</p>
-<p>Default: <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/#name-prop">product.name</a></p>
-</div></div><!-- @@@name -->
 <br>
 </div>
 

@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual How-tos Qbs 1.22.0 Custom Modules and Items Reference  Contents  How do I build a Qt-based project? How do I make my app build against my library? Choosing Between Dynamic and Statically-built Qt Projects How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled? ">
+    <meta name="description" content="Qbs Manual How-tos Qbs 2.0.1 Custom Modules and Items Reference  Contents  How do I build a Qt-based project? How do I make my app build against my library? Choosing Between Dynamic and Statically-built Qt Projects How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled? ">
     <link rel="canonical" href="https://qbs.io/docs/howtos/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -17,7 +17,7 @@
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual How-tos Qbs 1.22.0 Custom Modules and Items Reference  Contents  How do I build a Qt-based project? How do I make my app build against my library? Choosing Between Dynamic and Statically-built Qt Projects How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled?" />
+<meta property="og:description" content="Qbs Manual How-tos Qbs 2.0.1 Custom Modules and Items Reference  Contents  How do I build a Qt-based project? How do I make my app build against my library? Choosing Between Dynamic and Statically-built Qt Projects How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled?" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/howtos/" /><meta property="article:section" content="docs" />
 
@@ -26,7 +26,7 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual How-tos Qbs 1.22.0 Custom Modules and Items Reference  Contents  How do I build a Qt-based project? How do I make my app build against my library? Choosing Between Dynamic and Statically-built Qt Projects How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled?"/>
+<meta name="twitter:description" content="Qbs Manual How-tos Qbs 2.0.1 Custom Modules and Items Reference  Contents  How do I build a Qt-based project? How do I make my app build against my library? Choosing Between Dynamic and Statically-built Qt Projects How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled?"/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -57,7 +57,7 @@
 <li><a href="https://qbs.io
 /docs">Qbs Manual</a></li>
 <li>How-tos</li>
-<li id="buildversion">Qbs 1.22.0</li>
+<li id="buildversion">Qbs 2.0.1</li>
   <link rel="prev" href="https://qbs.io
 /docs/custom-modules/">
   <link rel="next" href="https://qbs.io
@@ -186,7 +186,7 @@ $ qbs</pre>
         <span class="operator">]</span>
         Export {
             Depends { name: <span class="string">"cpp"</span> }
-            cpp<span class="operator">.</span>includePaths: <span class="operator">[</span>product<span class="operator">.</span>sourceDirectory<span class="operator">]</span>
+            cpp<span class="operator">.</span>includePaths: <span class="operator">[</span>exportingProduct<span class="operator">.</span>sourceDirectory<span class="operator">]</span>
        }
     }
 }</pre>
@@ -239,8 +239,7 @@ $ qbs</pre>
 <p>If you are not using <a href="https://qbs.io
 /docs/qbsconvenienceitems-qmlmodule/">convenience items</a>, you can install debug symbols manually using the <a href="https://qbs.io
 /docs/qml-qbslanguageitems-group/">Group</a> item. If the <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#separateDebugInformation-prop">cpp.separateDebugInformation</a> property is set to <code>true</code>, Qbs will create debugging symbols with the corresponding file tags <code>"debuginfo_app"</code> (for an application), <code>"debuginfo_dll"</code> (for a dynamic library), or <code>"debuginfo_loadablemodule"</code> (for a <a href="https://qbs.io
-/docs/nolink">macOS</a> plugin).</p>
+/docs/qml-qbsmodules-cpp/#separateDebugInformation-prop">cpp.separateDebugInformation</a> property is set to <code>true</code>, Qbs will create debugging symbols with the corresponding file tags <code>"debuginfo_app"</code> (for an application), <code>"debuginfo_dll"</code> (for a dynamic library), or <code>"debuginfo_loadablemodule"</code> (for a macOS plugin).</p>
 <pre class="cpp">Product {
     type: <span class="string">"application"</span>
     Depends { name: <span class="string">"cpp"</span> }
@@ -264,8 +263,7 @@ $ qbs</pre>
         qbs<span class="operator">.</span>installSourceBase: buildDirectory
     }
 }</pre>
-<p>If you're building a <a href="https://qbs.io
-/docs/nolink">macOS</a> plugin, you need to use the <code>"debuginfo_loadablemodule"</code> tag instead:</p>
+<p>If you're building a macOS plugin, you need to use the <code>"debuginfo_loadablemodule"</code> tag instead:</p>
 <pre class="cpp">Product {
     type: <span class="string">"loadablemodule"</span>
     <span class="comment">// ...</span>
@@ -317,10 +315,8 @@ $ qbs</pre>
 }</pre>
 <p>We are setting <a href="https://qbs.io
 /docs/qml-qbsmodules-cpp/#rpaths-prop">cpp.rpaths</a> to <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#rpathOrigin-prop">cpp.rpathOrigin</a> which expands to <code>"$ORIGIN"</code> on Linux and to <code>"@loader_path"</code> on <a href="https://qbs.io
-/docs/nolink">macOS</a>.</p>
-<p>On <a href="https://qbs.io
-/docs/nolink">macOS</a> you also need to set <a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#rpathOrigin-prop">cpp.rpathOrigin</a> which expands to <code>"$ORIGIN"</code> on Linux and to <code>"@loader_path"</code> on macOS.</p>
+<p>On macOS you also need to set <a href="https://qbs.io
 /docs/qml-qbsmodules-cpp/#sonamePrefix-prop">cpp.sonamePrefix</a> to <code>"@rpath"</code> to tell the dynamic linker to use RPATHs when loading this library.</p>
 <p><code>LibraryB</code> looks exactly the same:</p>
 <pre class="cpp">DynamicLibrary {
@@ -432,19 +428,19 @@ Module {
     Depends { name: <span class="string">"cpp"</span> }
     cpp<span class="operator">.</span>includePaths: <span class="operator">[</span><span class="string">"/somewhere/include"</span><span class="operator">]</span>
     Properties {
-        condition: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>contains(<span class="string">"android"</span>)
+        condition: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"android"</span>)
         cpp<span class="operator">.</span>dynamicLibraries: <span class="operator">[</span><span class="string">"/somewhere/android/"</span> <span class="operator">+</span> Android<span class="operator">.</span>ndk<span class="operator">.</span>abi <span class="operator">+</span> <span class="string">"/lib1.so"</span><span class="operator">]</span>
     }
     Properties {
-        condition: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>contains(<span class="string">"macos"</span>)
+        condition: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"macos"</span>)
         cpp<span class="operator">.</span>dynamicLibraries: <span class="operator">[</span><span class="string">"/somewhere/macos/lib1.dylib"</span><span class="operator">]</span>
     }
     Properties {
-        condition: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>contains(<span class="string">"windows"</span>) <span class="operator">&amp;</span><span class="operator">&amp;</span> qbs<span class="operator">.</span>architecture <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"x86"</span>
+        condition: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"windows"</span>) <span class="operator">&amp;</span><span class="operator">&amp;</span> qbs<span class="operator">.</span>architecture <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"x86"</span>
         cpp<span class="operator">.</span>dynamicLibraries: <span class="operator">[</span><span class="string">"/somewhere/windows_x86/lib1.lib"</span><span class="operator">]</span>
     }
     Properties {
-        condition: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>contains(<span class="string">"windows"</span>) <span class="operator">&amp;</span><span class="operator">&amp;</span> qbs<span class="operator">.</span>architecture <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"x86_64"</span>
+        condition: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"windows"</span>) <span class="operator">&amp;</span><span class="operator">&amp;</span> qbs<span class="operator">.</span>architecture <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"x86_64"</span>
         cpp<span class="operator">.</span>dynamicLibraries: <span class="operator">[</span><span class="string">"/somewhere/windows_x86_64/lib1.lib"</span><span class="operator">]</span>
     }
 }</pre>
@@ -535,7 +531,7 @@ Module {
 <pre class="cpp">CppApplication {
     <span class="comment">// ...</span>
 
-    readonly property bool isMsvc: qbs<span class="operator">.</span>toolchain<span class="operator">.</span>contains(<span class="string">"msvc"</span>)
+    readonly property bool isMsvc: qbs<span class="operator">.</span>toolchain<span class="operator">.</span>includes(<span class="string">"msvc"</span>)
 
     cpp<span class="operator">.</span>commonCompilerFlags: isMsvc <span class="operator">?</span> <span class="string">"/wd4996"</span> : <span class="string">"-Wno-deprecated-declarations"</span>
 }</pre>
@@ -679,17 +675,17 @@ TestBase {
 <h2 id="how-do-i-print-the-value-of-a-property">How do I print the value of a property?</h2>
 <p>Use the <a href="https://qbs.io
 /docs/jsextensions-general/#console-api">console API</a>. For example, suppose your project is not built the way you expect it to be, and you suspect that <code>qbs.targetOS</code> has the wrong value:</p>
-<pre class="cpp">readonly property bool unix: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>contains(<span class="string">"unix"</span>)</pre>
+<pre class="cpp">readonly property bool unix: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"unix"</span>)</pre>
 <p>To find out the value of <code>qbs.targetOS</code>, use <code>console.info()</code>:</p>
 <pre class="cpp">readonly property bool unix: {
     console<span class="operator">.</span>info(<span class="string">"qbs.targetOS: "</span> <span class="operator">+</span> qbs<span class="operator">.</span>targetOS)
-    <span class="keyword">return</span> qbs<span class="operator">.</span>targetOS<span class="operator">.</span>contains(<span class="string">"unix"</span>)
+    <span class="keyword">return</span> qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"unix"</span>)
 }</pre>
 <p>It is also possible to throw an exception with the text saying what is wrong - this might be useful if the property contains invalid or unsupported value:</p>
 <pre class="cpp">readonly property bool unix: {
-    <span class="keyword">if</span> (qbs<span class="operator">.</span>targetOS<span class="operator">.</span>contains(<span class="string">"darwin"</span>))
+    <span class="keyword">if</span> (qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"darwin"</span>))
         <span class="keyword">throw</span> <span class="string">"Apple platforms are not supported"</span>;
-    <span class="keyword">return</span> qbs<span class="operator">.</span>targetOS<span class="operator">.</span>contains(<span class="string">"unix"</span>)
+    <span class="keyword">return</span> qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"unix"</span>)
 }</pre>
 <a name="how-do-i-debug-qbs-scripts"></a>
 <h2 id="how-do-i-debug-qbs-scripts">How do I debug Qbs scripts?</h2>
