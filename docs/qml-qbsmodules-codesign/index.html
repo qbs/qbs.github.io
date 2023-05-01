@@ -3,8 +3,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Qbs 2.0.1 Contents  Properties Detailed Description Relevant File Tags    codesign QML Type  Provides code signing support. More...
-Import Statement:import QbsModules .Since:Qbs 1.19 List of all members, including inherited members   Properties  certificatePassword : string certificatePath : string codesignFlags : stringList codesignName : string codesignPath : string crossCertificatePath : string enableCodeSigning : bool hashAlgorithm : string keyAlias : string keyPassword : string keystorePassword : string keystorePath : string provisioningProfile : string provisioningProfilesPath : path rootSubjectName : string signingIdentity : string signingTimestamp : string signingType : string subjectName : string teamIdentifier : string timestampAlgorithm : string useApksigner : bool   Detailed Description The codesign module contains properties and rules for code signing on Apple and Android platforms. ">
+    <meta name="description" content="Qbs Manual QbsModules codesign Qbs 2.0.1 Contents Properties Detailed Description Relevant File Tags codesign QML Type Provides code signing support. More...
+Import Statement: import QbsModules Since: Qbs 1.19 List of all members, including inherited members Properties certificatePassword : string certificatePath : string codesignFlags : stringList codesignName : string codesignPath : string crossCertificatePath : string enableCodeSigning : bool hashAlgorithm : string keyAlias : string keyPassword : string keystorePassword : string keystorePath : string provisioningProfile : string provisioningProfilesPath : path rootSubjectName : string signingIdentity : string signingTimestamp : string signingType : string subjectName : string teamIdentifier : string timestampAlgorithm : string useApksigner : bool Detailed Description The codesign module contains properties and rules for code signing on Apple and Android platforms. ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-codesign/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -18,18 +18,17 @@ Import Statement:import QbsModules .Since:Qbs 1.19 List of all members, includin
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Qbs 2.0.1 Contents  Properties Detailed Description Relevant File Tags    codesign QML Type  Provides code signing support. More...
-Import Statement:import QbsModules .Since:Qbs 1.19 List of all members, including inherited members   Properties  certificatePassword : string certificatePath : string codesignFlags : stringList codesignName : string codesignPath : string crossCertificatePath : string enableCodeSigning : bool hashAlgorithm : string keyAlias : string keyPassword : string keystorePassword : string keystorePath : string provisioningProfile : string provisioningProfilesPath : path rootSubjectName : string signingIdentity : string signingTimestamp : string signingType : string subjectName : string teamIdentifier : string timestampAlgorithm : string useApksigner : bool   Detailed Description The codesign module contains properties and rules for code signing on Apple and Android platforms." />
+<meta property="og:description" content="Qbs Manual QbsModules codesign Qbs 2.0.1 Contents Properties Detailed Description Relevant File Tags codesign QML Type Provides code signing support. More...
+Import Statement: import QbsModules Since: Qbs 1.19 List of all members, including inherited members Properties certificatePassword : string certificatePath : string codesignFlags : stringList codesignName : string codesignPath : string crossCertificatePath : string enableCodeSigning : bool hashAlgorithm : string keyAlias : string keyPassword : string keystorePassword : string keystorePath : string provisioningProfile : string provisioningProfilesPath : path rootSubjectName : string signingIdentity : string signingTimestamp : string signingType : string subjectName : string teamIdentifier : string timestampAlgorithm : string useApksigner : bool Detailed Description The codesign module contains properties and rules for code signing on Apple and Android platforms." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-codesign/" /><meta property="article:section" content="docs" />
 
 
 
-
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Qbs 2.0.1 Contents  Properties Detailed Description Relevant File Tags    codesign QML Type  Provides code signing support. More...
-Import Statement:import QbsModules .Since:Qbs 1.19 List of all members, including inherited members   Properties  certificatePassword : string certificatePath : string codesignFlags : stringList codesignName : string codesignPath : string crossCertificatePath : string enableCodeSigning : bool hashAlgorithm : string keyAlias : string keyPassword : string keystorePassword : string keystorePath : string provisioningProfile : string provisioningProfilesPath : path rootSubjectName : string signingIdentity : string signingTimestamp : string signingType : string subjectName : string teamIdentifier : string timestampAlgorithm : string useApksigner : bool   Detailed Description The codesign module contains properties and rules for code signing on Apple and Android platforms."/>
+<meta name="twitter:description" content="Qbs Manual QbsModules codesign Qbs 2.0.1 Contents Properties Detailed Description Relevant File Tags codesign QML Type Provides code signing support. More...
+Import Statement: import QbsModules Since: Qbs 1.19 List of all members, including inherited members Properties certificatePassword : string certificatePath : string codesignFlags : stringList codesignName : string codesignPath : string crossCertificatePath : string enableCodeSigning : bool hashAlgorithm : string keyAlias : string keyPassword : string keystorePassword : string keystorePath : string provisioningProfile : string provisioningProfilesPath : path rootSubjectName : string signingIdentity : string signingTimestamp : string signingType : string subjectName : string teamIdentifier : string timestampAlgorithm : string useApksigner : bool Detailed Description The codesign module contains properties and rules for code signing on Apple and Android platforms."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -59,10 +58,13 @@ Import Statement:import QbsModules .Since:Qbs 1.19 List of all members, includin
     
 <li><a href="https://qbs.io
 /docs">Qbs Manual</a></li>
+<li><a href="https://qbs.io
+/docs/qbsmodules-qmlmodule/">QbsModules</a></li>
+<li>codesign</li>
 <li id="buildversion">Qbs 2.0.1</li>
 <div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3 id="toc">Contents</h3>
 <ul>
 <li class="level1"><a href="#properties">Properties</a></li>
 <li class="level1"><a href="#details">Detailed Description</a></li>
@@ -71,68 +73,64 @@ Import Statement:import QbsModules .Since:Qbs 1.19 List of all members, includin
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
 <div class="content"><h1 class="title">codesign QML Type</h1>
-<span class="subtitle"></span>
 <!-- $$$codesign-brief -->
 <p>Provides code signing support. <a href="#details">More...</a></p>
 <!-- @@@codesign -->
 <div class="table"><table class="alignedsummary">
-<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsModules .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.19</td></tr></tbody></table></div><ul>
+<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsModules</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.19</td></tr></tbody></table></div><ul>
 <li><a href="https://qbs.io
 /docs/qml-qbsmodules-codesign-members/">List of all members, including inherited members</a></li>
 </ul>
-<a name="properties"></a>
 <h2 id="properties">Properties</h2>
 <ul>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-codesign/#certificatePassword-prop">certificatePassword</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-codesign/#certificatePath-prop">certificatePath</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-codesign/#codesignFlags-prop">codesignFlags</a></b></b> : stringList</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-codesign/#codesignName-prop">codesignName</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-codesign/#codesignPath-prop">codesignPath</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-codesign/#crossCertificatePath-prop">crossCertificatePath</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-codesign/#enableCodeSigning-prop">enableCodeSigning</a></b></b> : bool</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-codesign/#hashAlgorithm-prop">hashAlgorithm</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-codesign/#keyAlias-prop">keyAlias</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-codesign/#keyPassword-prop">keyPassword</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-codesign/#keystorePassword-prop">keystorePassword</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-codesign/#keystorePath-prop">keystorePath</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-codesign/#provisioningProfile-prop">provisioningProfile</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-codesign/#provisioningProfilesPath-prop">provisioningProfilesPath</a></b></b> : path</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-codesign/#rootSubjectName-prop">rootSubjectName</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-codesign/#signingIdentity-prop">signingIdentity</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-codesign/#signingTimestamp-prop">signingTimestamp</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-codesign/#signingType-prop">signingType</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-codesign/#subjectName-prop">subjectName</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-codesign/#teamIdentifier-prop">teamIdentifier</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-codesign/#timestampAlgorithm-prop">timestampAlgorithm</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-codesign/#useApksigner-prop">useApksigner</a></b></b> : bool</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-codesign/#certificatePassword-prop">certificatePassword</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-codesign/#certificatePath-prop">certificatePath</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-codesign/#codesignFlags-prop">codesignFlags</a></b> : stringList</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-codesign/#codesignName-prop">codesignName</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-codesign/#codesignPath-prop">codesignPath</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-codesign/#crossCertificatePath-prop">crossCertificatePath</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-codesign/#enableCodeSigning-prop">enableCodeSigning</a></b> : bool</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-codesign/#hashAlgorithm-prop">hashAlgorithm</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-codesign/#keyAlias-prop">keyAlias</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-codesign/#keyPassword-prop">keyPassword</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-codesign/#keystorePassword-prop">keystorePassword</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-codesign/#keystorePath-prop">keystorePath</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-codesign/#provisioningProfile-prop">provisioningProfile</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-codesign/#provisioningProfilesPath-prop">provisioningProfilesPath</a></b> : path</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-codesign/#rootSubjectName-prop">rootSubjectName</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-codesign/#signingIdentity-prop">signingIdentity</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-codesign/#signingTimestamp-prop">signingTimestamp</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-codesign/#signingType-prop">signingType</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-codesign/#subjectName-prop">subjectName</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-codesign/#teamIdentifier-prop">teamIdentifier</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-codesign/#timestampAlgorithm-prop">timestampAlgorithm</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-codesign/#useApksigner-prop">useApksigner</a></b> : bool</li>
 </ul>
 <!-- $$$codesign-description -->
-<a name="details"></a>
 <h2 id="details">Detailed Description</h2>
 <p>The <code>codesign</code> module contains properties and rules for code signing on Apple and Android platforms.</p>
-<a name="relevant-file-tags"></a>
 <h3 id="relevant-file-tags">Relevant File Tags</h3>
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th>Tag</th><th>Auto-tagged File Names</th><th>Since</th><th>Description</th></tr></thead>
@@ -292,7 +290,6 @@ Import Statement:import QbsModules .Since:Qbs 1.19 List of all members, includin
 <!-- $$$signingType -->
 <div class="qmlitem"><h3 class="qmlproto">signingType: string</h3>
 <div class="qmldoc"><p>Type of code signing to use. This should generally be used in preference to an explicit signing identity like "Mac Developer: John Doe (XXXXXXXXXX)" since it is not user specific and can be set in a project file. Possible values include: <code>"app-store"</code>, <code>"apple-id"</code>, <code>"ad-hoc"</code>, which sign for the App Store or Mac App Store, Developer ID, and Ad-hoc code signing, respectively.</p>
-<a name="relation-between-the-signingtype-and-signingidentity"></a>
 <h4 id="relation-between-the-signingtype-and-signingidentity">Relation between the signingType and signingIdentity</h4>
 <p>The following table shows how the <a href="https://qbs.io
 /docs/qml-qbsmodules-codesign/#signingIdentity-prop">signingIdentity</a>'s default value is calculated.</p>

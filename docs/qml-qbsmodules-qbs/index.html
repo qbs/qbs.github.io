@@ -3,8 +3,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Qbs 2.0.1 Contents  Properties Detailed Description Installation Properties Multiplexing Properties    qbs QML Type  Comprises general properties. More...
-Import Statement:import QbsModules .Since:Qbs 1.0 List of all members, including inherited members   Properties  architecture : string architectures : stringList buildVariant : string buildVariants : stringList configurationName : string debugInformation : bool enableDebugCode : bool install : bool installDir : string installPrefix : string installRoot : string installSourceBase : string optimization : string profiles : stringList shellPath : path sysroot : string targetOS : stringList targetPlatform : string toolchain : stringList toolchainType : string version : string versionMajor : int versionMinor : int versionPatch : int   Detailed Description The qbs module is implicitly loaded in every product. ">
+    <meta name="description" content="Qbs Manual QbsModules qbs Qbs 2.0.1 Contents Properties Detailed Description Installation Properties Multiplexing Properties qbs QML Type Comprises general properties. More...
+Import Statement: import QbsModules Since: Qbs 1.0 List of all members, including inherited members Properties architecture : string architectures : stringList buildVariant : string buildVariants : stringList configurationName : string debugInformation : bool enableDebugCode : bool install : bool installDir : string installPrefix : string installRoot : string installSourceBase : string optimization : string profiles : stringList shellPath : path sysroot : string targetOS : stringList targetPlatform : string toolchain : stringList toolchainType : string version : string versionMajor : int versionMinor : int versionPatch : int Detailed Description The qbs module is implicitly loaded in every product. ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-qbs/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -18,18 +18,17 @@ Import Statement:import QbsModules .Since:Qbs 1.0 List of all members, including
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Qbs 2.0.1 Contents  Properties Detailed Description Installation Properties Multiplexing Properties    qbs QML Type  Comprises general properties. More...
-Import Statement:import QbsModules .Since:Qbs 1.0 List of all members, including inherited members   Properties  architecture : string architectures : stringList buildVariant : string buildVariants : stringList configurationName : string debugInformation : bool enableDebugCode : bool install : bool installDir : string installPrefix : string installRoot : string installSourceBase : string optimization : string profiles : stringList shellPath : path sysroot : string targetOS : stringList targetPlatform : string toolchain : stringList toolchainType : string version : string versionMajor : int versionMinor : int versionPatch : int   Detailed Description The qbs module is implicitly loaded in every product." />
+<meta property="og:description" content="Qbs Manual QbsModules qbs Qbs 2.0.1 Contents Properties Detailed Description Installation Properties Multiplexing Properties qbs QML Type Comprises general properties. More...
+Import Statement: import QbsModules Since: Qbs 1.0 List of all members, including inherited members Properties architecture : string architectures : stringList buildVariant : string buildVariants : stringList configurationName : string debugInformation : bool enableDebugCode : bool install : bool installDir : string installPrefix : string installRoot : string installSourceBase : string optimization : string profiles : stringList shellPath : path sysroot : string targetOS : stringList targetPlatform : string toolchain : stringList toolchainType : string version : string versionMajor : int versionMinor : int versionPatch : int Detailed Description The qbs module is implicitly loaded in every product." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-qbs/" /><meta property="article:section" content="docs" />
 
 
 
-
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Qbs 2.0.1 Contents  Properties Detailed Description Installation Properties Multiplexing Properties    qbs QML Type  Comprises general properties. More...
-Import Statement:import QbsModules .Since:Qbs 1.0 List of all members, including inherited members   Properties  architecture : string architectures : stringList buildVariant : string buildVariants : stringList configurationName : string debugInformation : bool enableDebugCode : bool install : bool installDir : string installPrefix : string installRoot : string installSourceBase : string optimization : string profiles : stringList shellPath : path sysroot : string targetOS : stringList targetPlatform : string toolchain : stringList toolchainType : string version : string versionMajor : int versionMinor : int versionPatch : int   Detailed Description The qbs module is implicitly loaded in every product."/>
+<meta name="twitter:description" content="Qbs Manual QbsModules qbs Qbs 2.0.1 Contents Properties Detailed Description Installation Properties Multiplexing Properties qbs QML Type Comprises general properties. More...
+Import Statement: import QbsModules Since: Qbs 1.0 List of all members, including inherited members Properties architecture : string architectures : stringList buildVariant : string buildVariants : stringList configurationName : string debugInformation : bool enableDebugCode : bool install : bool installDir : string installPrefix : string installRoot : string installSourceBase : string optimization : string profiles : stringList shellPath : path sysroot : string targetOS : stringList targetPlatform : string toolchain : stringList toolchainType : string version : string versionMajor : int versionMinor : int versionPatch : int Detailed Description The qbs module is implicitly loaded in every product."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -59,10 +58,13 @@ Import Statement:import QbsModules .Since:Qbs 1.0 List of all members, including
     
 <li><a href="https://qbs.io
 /docs">Qbs Manual</a></li>
+<li><a href="https://qbs.io
+/docs/qbsmodules-qmlmodule/">QbsModules</a></li>
+<li>qbs</li>
 <li id="buildversion">Qbs 2.0.1</li>
 <div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3 id="toc">Contents</h3>
 <ul>
 <li class="level1"><a href="#properties">Properties</a></li>
 <li class="level1"><a href="#details">Detailed Description</a></li>
@@ -72,72 +74,68 @@ Import Statement:import QbsModules .Since:Qbs 1.0 List of all members, including
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
 <div class="content"><h1 class="title">qbs QML Type</h1>
-<span class="subtitle"></span>
 <!-- $$$qbs-brief -->
 <p>Comprises general properties. <a href="#details">More...</a></p>
 <!-- @@@qbs -->
 <div class="table"><table class="alignedsummary">
-<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsModules .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.0</td></tr></tbody></table></div><ul>
+<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsModules</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.0</td></tr></tbody></table></div><ul>
 <li><a href="https://qbs.io
 /docs/qml-qbsmodules-qbs-members/">List of all members, including inherited members</a></li>
 </ul>
-<a name="properties"></a>
 <h2 id="properties">Properties</h2>
 <ul>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#architecture-prop">architecture</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#architectures-prop">architectures</a></b></b> : stringList</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#buildVariant-prop">buildVariant</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#buildVariants-prop">buildVariants</a></b></b> : stringList</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#configurationName-prop">configurationName</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#debugInformation-prop">debugInformation</a></b></b> : bool</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#enableDebugCode-prop">enableDebugCode</a></b></b> : bool</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#install-prop">install</a></b></b> : bool</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#installDir-prop">installDir</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#installPrefix-prop">installPrefix</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#installRoot-prop">installRoot</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#installSourceBase-prop">installSourceBase</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#optimization-prop">optimization</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#profiles-prop">profiles</a></b></b> : stringList</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#shellPath-prop">shellPath</a></b></b> : path</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#sysroot-prop">sysroot</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#targetOS-prop">targetOS</a></b></b> : stringList</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#targetPlatform-prop">targetPlatform</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#toolchain-prop">toolchain</a></b></b> : stringList</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#toolchainType-prop">toolchainType</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#version-prop">version</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#versionMajor-prop">versionMajor</a></b></b> : int</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#versionMinor-prop">versionMinor</a></b></b> : int</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#versionPatch-prop">versionPatch</a></b></b> : int</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#architecture-prop">architecture</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#architectures-prop">architectures</a></b> : stringList</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#buildVariant-prop">buildVariant</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#buildVariants-prop">buildVariants</a></b> : stringList</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#configurationName-prop">configurationName</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#debugInformation-prop">debugInformation</a></b> : bool</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#enableDebugCode-prop">enableDebugCode</a></b> : bool</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#install-prop">install</a></b> : bool</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#installDir-prop">installDir</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#installPrefix-prop">installPrefix</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#installRoot-prop">installRoot</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#installSourceBase-prop">installSourceBase</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#optimization-prop">optimization</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#profiles-prop">profiles</a></b> : stringList</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#shellPath-prop">shellPath</a></b> : path</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#sysroot-prop">sysroot</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#targetOS-prop">targetOS</a></b> : stringList</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#targetPlatform-prop">targetPlatform</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#toolchain-prop">toolchain</a></b> : stringList</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#toolchainType-prop">toolchainType</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#version-prop">version</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#versionMajor-prop">versionMajor</a></b> : int</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#versionMinor-prop">versionMinor</a></b> : int</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#versionPatch-prop">versionPatch</a></b> : int</li>
 </ul>
 <!-- $$$qbs-description -->
-<a name="details"></a>
 <h2 id="details">Detailed Description</h2>
 <p>The <code>qbs</code> module is implicitly loaded in every product. It contains properties of the current build environment, independent of the used programming languages and toolchains.</p>
-<a name="installation-properties"></a>
 <h3 id="installation-properties">Installation Properties</h3>
 <p>Typically, you use <a href="https://qbs.io
 /docs/qml-qbslanguageitems-group/">Group</a> items to specify the target directories for installing files. To install a group of files, set the <a href="https://qbs.io
@@ -167,7 +165,6 @@ Import Statement:import QbsModules .Since:Qbs 1.0 List of all members, including
 <p>By default, <a href="https://qbs.io
 /docs/qml-qbsmodules-qbs/#installRoot-prop">qbs.installRoot</a> creates the <code>install-root</code> directory in the build directory for packaging the binaries before installation. It is a temporary directory that is usually not available when the application is run, and it should therefore not be set in the project files. You can override the default value from the command line, as described in <a href="https://qbs.io
 /docs/installing-files/">Installing Files</a>.</p>
-<a name="multiplexing-properties"></a>
 <h3 id="multiplexing-properties">Multiplexing Properties</h3>
 <p>The following properties are specific to <a href="https://qbs.io
 /docs/multiplexing/">product multiplexing</a>:</p>
@@ -187,7 +184,6 @@ Import Statement:import QbsModules .Since:Qbs 1.0 List of all members, including
 <p><code>undefined</code> indicates that the target platform is architecture-independent (for example the CLR or JVM).</p>
 <p>This property is typically set in a profile.</p>
 <p>Commonly used values are: <code>"x86"</code>, <code>"x86_64"</code>, and <code>"arm"</code>.</p>
-<a name="supported-processor-architectures"></a>
 <h5 id="supported-processor-architectures">Supported Processor Architectures</h5>
 <p>This table describes the possible values of the architecture property:</p>
 <div class="table"><table class="generic">
@@ -260,7 +256,7 @@ Import Statement:import QbsModules .Since:Qbs 1.0 List of all members, including
 </div></div><!-- @@@buildVariants -->
 <br>
 <!-- $$$configurationName -->
-<div class="qmlitem"><h3 class="qmlproto"><span class="opacity-50">readonly </span>configurationName: string</h3>
+<div class="qmlitem"><h3 class="qmlproto">configurationName: string</h3>
 <div class="qmldoc"><p>The name of the current build configuration.</p>
 <p>The build configuration is set via the command line parameter <code>config</code>. For more information, see <a href="https://qbs.io
 /docs/cli-build/">build</a>.</p>
@@ -380,7 +376,7 @@ Import Statement:import QbsModules .Since:Qbs 1.0 List of all members, including
 </div></div><!-- @@@sysroot -->
 <br>
 <!-- $$$targetOS -->
-<div class="qmlitem"><h3 class="qmlproto"><span class="opacity-50">readonly </span>targetOS: stringList</h3>
+<div class="qmlitem"><h3 class="qmlproto">targetOS: stringList</h3>
 <div class="qmldoc"><p>Contains the list of string values describing the OS and OS family that is used to build a project.</p>
 <p>This property is calculated based on the <a href="https://qbs.io
 /docs/qml-qbsmodules-qbs/#targetPlatform-prop">targetPlatform</a> property and is typically used to test for a particular OS or OS family in conditionals:</p>
@@ -422,7 +418,6 @@ Group {
 <pre class="cpp">profiles<span class="operator">.</span>xcode<span class="operator">-</span>iphonesimulator<span class="operator">.</span>qbs<span class="operator">.</span>targetPlatform: <span class="string">"ios-simulator"</span></pre>
 <p>You should generally treat this property as <i>write-only</i> and avoid using it to test for the current target OS. Instead, use the <a href="https://qbs.io
 /docs/qml-qbsmodules-qbs/#targetOS-prop">targetOS</a> property for conditionals.</p>
-<a name="relation-between-targetplatform-and-targetos"></a>
 <h5 id="relation-between-targetplatform-and-targetos">Relation between targetPlatform and targetOS</h5>
 <p>This table describes the possible values and matching between the <code>targetPlatform</code> and the <a href="https://qbs.io
 /docs/qml-qbsmodules-qbs/#targetOS-prop">targetOS</a> properties:</p>
@@ -487,7 +482,6 @@ Properties {
 <p>use:</p>
 <pre class="cpp">qbs<span class="operator">.</span>toolchain<span class="operator">.</span>includes(<span class="string">"gcc"</span>)</pre>
 <p>since XCode, GCC and Clang belong to the <code>"gcc"</code> family.</p>
-<a name="relation-between-toolchaintype-and-toolchain"></a>
 <h5 id="relation-between-toolchaintype-and-toolchain">Relation between toolchainType and toolchain</h5>
 <p>This table describes the possible values and matching between the <a href="https://qbs.io
 /docs/qml-qbsmodules-qbs/#toolchainType-prop">toolchainType</a> and the <code>toolchain</code> properties:</p>
@@ -537,25 +531,25 @@ Properties {
 </div></div><!-- @@@toolchainType -->
 <br>
 <!-- $$$version -->
-<div class="qmlitem"><h3 class="qmlproto"><span class="opacity-50">readonly </span>version: string</h3>
+<div class="qmlitem"><h3 class="qmlproto">version: string</h3>
 <div class="qmldoc"><p>The version number of Qbs as a string. For example, <code>"1.4.1"</code>.</p>
 <p>This property was introduced in Qbs 1.4.1.</p>
 </div></div><!-- @@@version -->
 <br>
 <!-- $$$versionMajor -->
-<div class="qmlitem"><h3 class="qmlproto"><span class="opacity-50">readonly </span>versionMajor: int</h3>
+<div class="qmlitem"><h3 class="qmlproto">versionMajor: int</h3>
 <div class="qmldoc"><p>The major version number of Qbs.</p>
 <p>This property was introduced in Qbs 1.4.1.</p>
 </div></div><!-- @@@versionMajor -->
 <br>
 <!-- $$$versionMinor -->
-<div class="qmlitem"><h3 class="qmlproto"><span class="opacity-50">readonly </span>versionMinor: int</h3>
+<div class="qmlitem"><h3 class="qmlproto">versionMinor: int</h3>
 <div class="qmldoc"><p>The minor version number of Qbs.</p>
 <p>This property was introduced in Qbs 1.4.1.</p>
 </div></div><!-- @@@versionMinor -->
 <br>
 <!-- $$$versionPatch -->
-<div class="qmlitem"><h3 class="qmlproto"><span class="opacity-50">readonly </span>versionPatch: int</h3>
+<div class="qmlitem"><h3 class="qmlproto">versionPatch: int</h3>
 <div class="qmldoc"><p>The patch version number of Qbs.</p>
 <p>This property was introduced in Qbs 1.4.1.</p>
 </div></div><!-- @@@versionPatch -->

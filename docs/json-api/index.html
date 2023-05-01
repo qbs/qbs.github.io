@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Appendix C: The JSON API Qbs 2.0.1 Appendix B: Migrating from Other Build Systems Appendix D: Licenses and Code Attributions  Contents  Packet Format Messages The hello Message Resolving a Project Building a Project Cleaning a Project Installing a Project Canceling an Operation Adding and Removing Source Files The get-run-environment Message The get-generated-files-for-sources Message Closing a Project Closing the Session Progress Messages The task-started Message The task-progress Message The new-max-progress Message Messages for Users The log-data Message The warning Message The protocol-error Message Project Data TopLevelProjectData PlainProjectData ProductData GroupData ArtifactData ModulePropertiesData Other Custom Data Types FilePath Location ErrorInfo DataMode LogLevel Environment    Appendix C: The JSON API   This API is the recommended way to provide Qbs support to an IDE. ">
+    <meta name="description" content="Qbs Manual Appendix C: The JSON API Qbs 2.0.1 Appendix B: Migrating from Other Build Systems Appendix D: Licenses and Code Attributions Contents Packet Format Messages The hello Message Resolving a Project Building a Project Cleaning a Project Installing a Project Canceling an Operation Adding and Removing Source Files The get-run-environment Message The get-generated-files-for-sources Message Closing a Project Closing the Session Progress Messages The task-started Message The task-progress Message The new-max-progress Message Messages for Users The log-data Message The warning Message The protocol-error Message Project Data TopLevelProjectData PlainProjectData ProductData GroupData ArtifactData ModulePropertiesData Other Custom Data Types FilePath Location ErrorInfo DataMode LogLevel Environment Appendix C: The JSON API This API is the recommended way to provide Qbs support to an IDE. ">
     <link rel="canonical" href="https://qbs.io/docs/json-api/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -17,16 +17,15 @@
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Appendix C: The JSON API Qbs 2.0.1 Appendix B: Migrating from Other Build Systems Appendix D: Licenses and Code Attributions  Contents  Packet Format Messages The hello Message Resolving a Project Building a Project Cleaning a Project Installing a Project Canceling an Operation Adding and Removing Source Files The get-run-environment Message The get-generated-files-for-sources Message Closing a Project Closing the Session Progress Messages The task-started Message The task-progress Message The new-max-progress Message Messages for Users The log-data Message The warning Message The protocol-error Message Project Data TopLevelProjectData PlainProjectData ProductData GroupData ArtifactData ModulePropertiesData Other Custom Data Types FilePath Location ErrorInfo DataMode LogLevel Environment    Appendix C: The JSON API   This API is the recommended way to provide Qbs support to an IDE." />
+<meta property="og:description" content="Qbs Manual Appendix C: The JSON API Qbs 2.0.1 Appendix B: Migrating from Other Build Systems Appendix D: Licenses and Code Attributions Contents Packet Format Messages The hello Message Resolving a Project Building a Project Cleaning a Project Installing a Project Canceling an Operation Adding and Removing Source Files The get-run-environment Message The get-generated-files-for-sources Message Closing a Project Closing the Session Progress Messages The task-started Message The task-progress Message The new-max-progress Message Messages for Users The log-data Message The warning Message The protocol-error Message Project Data TopLevelProjectData PlainProjectData ProductData GroupData ArtifactData ModulePropertiesData Other Custom Data Types FilePath Location ErrorInfo DataMode LogLevel Environment Appendix C: The JSON API This API is the recommended way to provide Qbs support to an IDE." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/json-api/" /><meta property="article:section" content="docs" />
 
 
 
-
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Appendix C: The JSON API Qbs 2.0.1 Appendix B: Migrating from Other Build Systems Appendix D: Licenses and Code Attributions  Contents  Packet Format Messages The hello Message Resolving a Project Building a Project Cleaning a Project Installing a Project Canceling an Operation Adding and Removing Source Files The get-run-environment Message The get-generated-files-for-sources Message Closing a Project Closing the Session Progress Messages The task-started Message The task-progress Message The new-max-progress Message Messages for Users The log-data Message The warning Message The protocol-error Message Project Data TopLevelProjectData PlainProjectData ProductData GroupData ArtifactData ModulePropertiesData Other Custom Data Types FilePath Location ErrorInfo DataMode LogLevel Environment    Appendix C: The JSON API   This API is the recommended way to provide Qbs support to an IDE."/>
+<meta name="twitter:description" content="Qbs Manual Appendix C: The JSON API Qbs 2.0.1 Appendix B: Migrating from Other Build Systems Appendix D: Licenses and Code Attributions Contents Packet Format Messages The hello Message Resolving a Project Building a Project Cleaning a Project Installing a Project Canceling an Operation Adding and Removing Source Files The get-run-environment Message The get-generated-files-for-sources Message Closing a Project Closing the Session Progress Messages The task-started Message The task-progress Message The new-max-progress Message Messages for Users The log-data Message The warning Message The protocol-error Message Project Data TopLevelProjectData PlainProjectData ProductData GroupData ArtifactData ModulePropertiesData Other Custom Data Types FilePath Location ErrorInfo DataMode LogLevel Environment Appendix C: The JSON API This API is the recommended way to provide Qbs support to an IDE."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -67,10 +66,10 @@
 /docs/porting-to-qbs/">Appendix B: Migrating from Other Build Systems</a>
 <a class="nextPage" href="https://qbs.io
 /docs/attributions/">Appendix D: Licenses and Code Attributions</a>
-</p><p>
-</p><div class="sidebar">
+</p>
+<div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3 id="toc">Contents</h3>
 <ul>
 <li class="level1"><a href="#packet-format">Packet Format</a></li>
 <li class="level1"><a href="#messages">Messages</a></li>
@@ -111,17 +110,14 @@
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
 <div class="content"><h1 class="title">Appendix C: The JSON API</h1>
-<span class="subtitle"></span>
 <!-- $$$json-api.html-description -->
-<div class="descr"> <a name="details"></a>
+<div class="descr" id="details">
 <p>This API is the recommended way to provide Qbs support to an IDE. It is accessible via the <a href="https://qbs.io
 /docs/cli-session/">session</a> command.</p>
-<a name="packet-format"></a>
 <h2 id="packet-format">Packet Format</h2>
 <p>All information is exchanged via <i>packets</i>, which have the following structure:</p>
 <pre class="cpp">packet <span class="operator">=</span> <span class="string">"qbsmsg:"</span> <span class="operator">&lt;</span>payload length<span class="operator">&gt;</span> <span class="operator">[</span><span class="operator">&lt;</span>meta data<span class="operator">&gt;</span><span class="operator">]</span> <span class="operator">&lt;</span>line feed<span class="operator">&gt;</span> <span class="operator">&lt;</span>payload<span class="operator">&gt;</span></pre>
 <p>First comes a fixed string indentifying the start of a packet, followed by the size of the actual data in bytes. After that, further meta data might follow. There is none currently, but future extensions might add some. A line feed character marks the end of the meta data section and is followed immediately by the payload, which is a single JSON object encoded in Base64 format. We call this object a <i>message</i>.</p>
-<a name="messages"></a>
 <h2 id="messages">Messages</h2>
 <p>The message data is UTF8-encoded.</p>
 <p>Most messages are either <i>requests</i> or <i>replies</i>. Requests are messages sent to Qbs via the session's standard input channel. Replies are messages sent by Qbs via the session's standard output channel. A reply always corresponds to one specific request. Every request (with the exception of the <a href="https://qbs.io
@@ -134,7 +130,6 @@
 <p>A reply object may carry an <code>error</code> property, indicating that the respective operation has failed. If this property is not present, the request was successful. The format of the <code>error</code> property is described <a href="https://qbs.io
 /docs/json-api/#errorinfo">here</a>.</p>
 <p>In the remainder of this page, we describe the structure of all messages that can be sent to and received from Qbs, respectively. The property tables may have a column titled <i>Mandatory</i>, whose values indicate whether the respective message property is always present. If this column is missing, all properties of the respective message are mandatory, unless otherwise noted.</p>
-<a name="the-hello-message"></a>
 <h2 id="the-hello-message">The <code>hello</code> Message</h2>
 <p>This message is sent by Qbs exactly once, right after the session was started. It is the only message from Qbs that is not a response to a request. The value of the <code>type</code> property is <code>"hello"</code>, the other properties are as follows:</p>
 <div class="table"><table class="generic">
@@ -145,7 +140,6 @@
 <p>The value of <code>api-level</code> is increased whenever the API is extended, for instance by adding new messages or properties.</p>
 <p>The value of <code>api-compat-level</code> is increased whenever incompatible changes are being done to this API. A tool written for API level <code>n</code> should refuse to work with a Qbs version with an API compatibility level greater than <code>n</code>, because it cannot guarantee proper behavior. This value will not change unless it is absolutely necessary.</p>
 <p>The value of <code>api-compat-level</code> is always less than or equal to the value of <code>api-level</code>.</p>
-<a name="resolving-a-project"></a>
 <h2 id="resolving-a-project">Resolving a Project</h2>
 <p>To instruct Qbs to load a project from disk, a request of type <code>resolve-project</code> is sent. The other properties are:</p>
 <div class="table"><table class="generic">
@@ -167,8 +161,7 @@
 /docs/json-api/#loglevel">LogLevel</a></td><td>no</td></tr>
 <tr valign="top" class="even"><td>module-properties</td><td>list of strings</td><td>no</td></tr>
 <tr valign="top" class="odd"><td>overridden-properties</td><td>object</td><td>no</td></tr>
-<tr valign="top" class="even"><td>project-file-path</td><td><a href="https://qbs.io
-/docs/json-api/#filepath">FilePath</a></td><td>if resolving from scratch</td></tr>
+<tr valign="top" class="even"><td>project-file-path</td><td>FilePath</td><td>if resolving from scratch</td></tr>
 <tr valign="top" class="odd"><td>restore-behavior</td><td>string</td><td>no</td></tr>
 <tr valign="top" class="even"><td>settings-directory</td><td>string</td><td>no</td></tr>
 <tr valign="top" class="odd"><td>top-level-profile</td><td>string</td><td>no</td></tr>
@@ -199,7 +192,6 @@
 <p>The <code>error-info</code> property is present if and only if the operation failed. The <code>project-data</code> property is present if and only if the conditions stated by the request's <code>data-mode</code> property are fulfilled.</p>
 <p>All other project-related requests need a resolved project to operate on. If there is none, they will fail.</p>
 <p>There is at most one resolved project per session. If client code wants to open several projects or one project in different configurations, it needs to start additional sessions.</p>
-<a name="building-a-project"></a>
 <h2 id="building-a-project">Building a Project</h2>
 <p>To build a project, a request of type <code>build-project</code> is sent. The other properties, none of which are mandatory, are listed below:</p>
 <div class="table"><table class="generic">
@@ -269,7 +261,6 @@
 <p>The <code>success</code> property is <code>true</code> if the process finished without errors and an exit code of zero.</p>
 <p>The other properties describe the exact command that was executed.</p>
 <p>This message is only emitted if the process failed or it has printed data to one of the output channels.</p>
-<a name="cleaning-a-project"></a>
 <h2 id="cleaning-a-project">Cleaning a Project</h2>
 <p>To remove a project's build artifacts, a request of type <code>clean-project</code> is sent. The other properties are:</p>
 <div class="table"><table class="generic">
@@ -290,7 +281,6 @@
 <p>None of these properties are mandatory.</p>
 <p>After all artifacts have been removed, Qbs replies with a <code>project-cleaned</code> message. If the operation was successful, this message has no properties. Otherwise, a property <code>error</code> of type <a href="https://qbs.io
 /docs/json-api/#errorinfo">ErrorInfo</a> indicates what went wrong.</p>
-<a name="installing-a-project"></a>
 <h2 id="installing-a-project">Installing a Project</h2>
 <p>Installing is normally part of the <a href="https://qbs.io
 /docs/json-api/#building-a-project">build</a> process. To do it in a separate step, the <code>install</code> property is set to <code>false</code> when building and a dedicated <code>install-project</code> message is sent. The other properties are:</p>
@@ -316,11 +306,9 @@
 <p>All other properties correspond to options of the <a href="https://qbs.io
 /docs/cli-install/">install</a> command.</p>
 <p>None of these properties are mandatory.</p>
-<a name="cancel-message"></a><a name="canceling-an-operation"></a>
-<h2 id="canceling-an-operation">Canceling an Operation</h2>
+<span id="cancel-message"></span><h2 id="canceling-an-operation">Canceling an Operation</h2>
 <p>Potentially long-running operations can be aborted using the <code>cancel-job</code> request. This message does not have any properties. There is no dedicated reply message; instead, the usual reply for the request associated with the currently running operation will be sent, with the <code>error</code> property set to indicate that it was canceled.</p>
 <p>If there is no operation in progress, this request will have no effect. In particular, if it arrives after the operation that it was supposed to cancel has already finished (i.e. there is a race condition), the reply received by client code will not contain a cancellation-related error.</p>
-<a name="adding-and-removing-source-files"></a>
 <h2 id="adding-and-removing-source-files">Adding and Removing Source Files</h2>
 <p>Source files can be added to and removed from Qbs project files with the <code>add-files</code> and <code>remove-files</code> messages, respectively. These two requests have the same set of properties:</p>
 <div class="table"><table class="generic">
@@ -344,7 +332,6 @@
 /docs/json-api/#filepath">FilePath</a> list</td><td>no</td></tr>
 </tbody></table></div>
 <p>If the <code>error</code> property is present, the operation has at least partially failed and <code>failed-files</code> will list the files that could not be added or removed.</p>
-<a name="the-get-op-op-run-op-op-environment-message"></a>
 <h2 id="the-get-op-op-run-op-op-environment-message">The <code>get-run-environment</code> Message</h2>
 <p>This request retrieves the full run environment for a specific executable product, taking into account the <a href="https://qbs.io
 /docs/qml-qbslanguageitems-module/#setupRunEnvironment-prop">setupRunEnvironment</a> scripts of all modules pulled in by the product. The properties are as follows:</p>
@@ -364,7 +351,6 @@
 <p>Qbs will reply with a <code>run-environment</code> message. In case of failure, it will contain a property <code>error</code> of type <a href="https://qbs.io
 /docs/json-api/#errorinfo">ErrorInfo</a>, otherwise it will contain a property <code>full-environment</code> of type <a href="https://qbs.io
 /docs/json-api/#environment">Environment</a>.</p>
-<a name="the-get-op-op-generated-op-op-files-op-op-keyword-for-keyword-op-op-sources-message"></a>
 <h2 id="the-get-op-op-generated-op-op-files-op-op-keyword-for-keyword-op-op-sources-message">The <code>get-generated-files-for-sources</code> Message</h2>
 <p>This request allows client code to retrieve information about which artifacts are generated from a given source file. Its sole property is a list <code>products</code>, whose elements are objects with the two properties <code>full-display-name</code> and <code>requests</code>. The first identifies the product to which the requests apply, and it must match the property of the same name in a <a href="https://qbs.io
 /docs/json-api/#productdata">ProductData</a> in the project. The latter is a list of objects with the following properties:</p>
@@ -391,47 +377,35 @@
 <div class="admonition note">
 <p><b>Note: </b>The results may be incomplete if the project has not been fully built.</p>
 </div>
-<a name="closing-a-project"></a>
 <h2 id="closing-a-project">Closing a Project</h2>
 <p>A project is closed with a <code>release-project</code> message. This request has no properties.</p>
 <p>Qbs will reply with a <code>project-released</code> message. If no project was open, the reply will contain an <code>error</code> property of type <a href="https://qbs.io
 /docs/json-api/#errorinfo">ErrorInfo</a>.</p>
-<a name="quit-message"></a><a name="closing-the-session"></a>
-<h2 id="closing-the-session">Closing the Session</h2>
+<span id="quit-message"></span><h2 id="closing-the-session">Closing the Session</h2>
 <p>To close the session, a <code>quit</code> message is sent. This request has no properties.</p>
 <p>Qbs will cancel all currently running operations and then close itself. No reply will be sent.</p>
-<a name="progress-messages"></a>
 <h2 id="progress-messages">Progress Messages</h2>
 <p>While a request is being handled, Qbs may emit progress information in order to enable client code to display a progress bar.</p>
-<a name="task-started"></a><a name="the-task-op-op-started-message"></a>
-<h3 id="the-task-op-op-started-message">The <code>task-started</code> Message</h3>
+<span id="task-started"></span><h3 id="the-task-op-op-started-message">The <code>task-started</code> Message</h3>
 <p>This is always the first progress-related message for a specific request. It appears at most once per request. It consists of a string property <code>description</code>, whose value can be displayed to users, and an integer property <code>max-progress</code> that indicates which progress value corresponds to 100 per cent.</p>
-<a name="task-progress"></a><a name="the-task-op-op-progress-message"></a>
-<h3 id="the-task-op-op-progress-message">The <code>task-progress</code> Message</h3>
+<span id="task-progress"></span><h3 id="the-task-op-op-progress-message">The <code>task-progress</code> Message</h3>
 <p>This message updates the progress via an integer property <code>progress</code>.</p>
-<a name="new-max-progress"></a><a name="the-keyword-new-keyword-op-op-max-op-op-progress-message"></a>
-<h3 id="the-keyword-new-keyword-op-op-max-op-op-progress-message">The <code>new-max-progress</code> Message</h3>
+<span id="new-max-progress"></span><h3 id="the-keyword-new-keyword-op-op-max-op-op-progress-message">The <code>new-max-progress</code> Message</h3>
 <p>This message is emitted if the original estimated maximum progress has to be corrected. Its integer property <code>max-progress</code> updates the value from a preceding <a href="https://qbs.io
 /docs/json-api/#task-started">task-started</a> message.</p>
-<a name="messages-for-users"></a>
 <h2 id="messages-for-users">Messages for Users</h2>
 <p>There are two types of messages that purely contain information to be presented to users.</p>
-<a name="log-data"></a><a name="the-log-op-op-data-message"></a>
-<h3 id="the-log-op-op-data-message">The <code>log-data</code> Message</h3>
+<span id="log-data"></span><h3 id="the-log-op-op-data-message">The <code>log-data</code> Message</h3>
 <p>This object has a string property <code>message</code>, which is the text to be shown to the user.</p>
-<a name="warning-message"></a><a name="the-warning-message"></a>
-<h3 id="the-warning-message">The <code>warning</code> Message</h3>
+<span id="warning-message"></span><h3 id="the-warning-message">The <code>warning</code> Message</h3>
 <p>This message has a single property <code>warning</code> of type <a href="https://qbs.io
 /docs/json-api/#errorinfo">ErrorInfo</a>.</p>
-<a name="the-protocol-op-op-error-message"></a>
 <h2 id="the-protocol-op-op-error-message">The <code>protocol-error</code> Message</h2>
 <p>Qbs sends this message as a reply to a request with an unknown <code>type</code>. It contains an <code>error</code> property of type <a href="https://qbs.io
 /docs/json-api/#errorinfo">ErrorInfo</a>.</p>
-<a name="project-data"></a>
 <h2 id="project-data">Project Data</h2>
 <p>If a request can alter the build graph data, the associated reply may contain a <code>project-data</code> property whose value is of type <a href="https://qbs.io
 /docs/json-api/#toplevelprojectdata">TopLevelProjectData</a>.</p>
-<a name="toplevelprojectdata"></a>
 <h3 id="toplevelprojectdata">TopLevelProjectData</h3>
 <p>This data type represents the entire project. It has the same properties as <a href="https://qbs.io
 /docs/json-api/#plainprojectdata">PlainProjectData</a>. If it is part of a <code>project-resolved</code> message, these additional properties are also present:</p>
@@ -452,7 +426,6 @@
 <p>The value of <code>overridden-properties</code> is the one that was passed in when the project was last <a href="https://qbs.io
 /docs/json-api/#resolving-a-project">resolved</a>.</p>
 <p>The <code>profile-data</code> property maps the names of the profiles used in the project to the respective property maps. Unless profile multiplexing is used, this object will contain exactly one property.</p>
-<a name="plainprojectdata"></a>
 <h3 id="plainprojectdata">PlainProjectData</h3>
 <p>This data type describes a <a href="https://qbs.io
 /docs/qml-qbslanguageitems-project/">Project</a> item. The properties are as follows:</p>
@@ -473,7 +446,6 @@
 /docs/qml-qbslanguageitems-project/">Project</a> item was defined.</p>
 <p>The <code>products</code> and <code>sub-projects</code> are what the project has pulled in via its <a href="https://qbs.io
 /docs/qml-qbslanguageitems-project/#references-prop">references</a> property.</p>
-<a name="productdata"></a>
 <h3 id="productdata">ProductData</h3>
 <p>This data type describes a <a href="https://qbs.io
 /docs/qml-qbslanguageitems-product/">Product</a> item. The properties are as follows:</p>
@@ -524,7 +496,6 @@
 /docs/qml-qbslanguageitems-product/#name-prop">Product item</a>, whereas <code>full-display-name</code> is a name that uniquely identifies the product in the entire project, even in the presence of multiplexing. In the absence of multiplexing, it is the same as <code>name</code>. In either case, it is suitable for being presented to users.</p>
 <p>See the <a href="https://qbs.io
 /docs/qml-qbslanguageitems-product/">Product</a> item documentation for a description of the other properties.</p>
-<a name="groupdata"></a>
 <h3 id="groupdata">GroupData</h3>
 <p>This data type describes a <a href="https://qbs.io
 /docs/qml-qbslanguageitems-group/">Group</a> item. The properties are:</p>
@@ -554,7 +525,6 @@
 /docs/qml-qbslanguageitems-group/#files-prop">files</a> property.</p>
 <p>See the <a href="https://qbs.io
 /docs/qml-qbslanguageitems-group/">Group</a> item documentation for a description of the other properties.</p>
-<a name="artifactdata"></a>
 <h3 id="artifactdata">ArtifactData</h3>
 <p>This data type represents files that occur in the project, either as sources or as outputs of a rules. Qbs project files, on the other hand, are not artifacts. The properties are:</p>
 <div class="table"><table class="generic">
@@ -577,16 +547,12 @@
 /docs/json-api/#resolving-a-project">resolved</a>. This property is only present for generated artifacts. For source artifacts, the value can be retrieved from their <a href="https://qbs.io
 /docs/json-api/#groupdata">group</a>.</p>
 <p>The other properties should be self-explanatory.</p>
-<a name="modulepropertiesdata"></a>
 <h3 id="modulepropertiesdata">ModulePropertiesData</h3>
 <p>This data type maps fully qualified module property names to their respective values.</p>
-<a name="other-custom-data-types"></a>
 <h2 id="other-custom-data-types">Other Custom Data Types</h2>
 <p>There are a number of custom data types that serve as building blocks in various messages. They are described below.</p>
-<a name="filepath"></a>
 <h3 id="filepath">FilePath</h3>
 <p>A <i>FilePath</i> is a string that describes a file or directory. FilePaths are always absolute and use forward slashes for separators, regardless of the host operating system.</p>
-<a name="location"></a>
 <h3 id="location">Location</h3>
 <p>A <i>Location</i> is an object representing a file path and possibly also a position within the respective file. It consists of the following properties:</p>
 <div class="table"><table class="generic">
@@ -596,7 +562,6 @@
 <tr valign="top" class="even"><td>line</td><td>int</td><td>no</td></tr>
 <tr valign="top" class="odd"><td>column</td><td>int</td><td>no</td></tr>
 </tbody></table></div>
-<a name="errorinfo"></a>
 <h3 id="errorinfo">ErrorInfo</h3>
 <p>An <i>ErrorInfo</i> is an object representing error information. Its sole property <code>items</code> is an array of objects with the following structure:</p>
 <div class="table"><table class="generic">
@@ -605,7 +570,6 @@
 <tr valign="top" class="even"><td>location</td><td><a href="https://qbs.io
 /docs/json-api/#location">Location</a></td><td>no</td></tr>
 </tbody></table></div>
-<a name="datamode"></a>
 <h3 id="datamode">DataMode</h3>
 <p>This is the type of the <code>data-mode</code> property in a <a href="https://qbs.io
 /docs/json-api/#resolving-a-project">resolve</a> or <a href="https://qbs.io
@@ -616,7 +580,6 @@
 <li><code>"only-if-changed"</code>: Attach project data to the reply only if it is different from the current project data.</li>
 </ul>
 <p>The default value is <code>"never"</code>.</p>
-<a name="loglevel"></a>
 <h3 id="loglevel">LogLevel</h3>
 <p>This is the type of the <code>log-level</code> property that can occur in various requests. It is used to indicate whether the client would like to receive <a href="https://qbs.io
 /docs/json-api/#log-data">log-data</a> and/or <a href="https://qbs.io
@@ -631,7 +594,6 @@
 <li>"debug": Qbs may emit debug output. No messages will be generated; instead, the standard error output channel will be used.</li>
 </ul>
 <p>The default value is <code>"info"</code>.</p>
-<a name="environment"></a>
 <h3 id="environment">Environment</h3>
 <p>This data type describes a set of environment variables. It is an object whose keys are names of environment variables and whose values are the values of these environment variables.</p>
 </div>

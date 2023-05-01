@@ -3,9 +3,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Qbs 2.0.1 Contents  Properties Detailed Description    PathProbe QML Type  Locates files outside the project. More...
-Import Statement:import QbsProbes .Inherited By:BinaryProbe, FrameworkProbe, IncludeProbe, and LibraryProbe
- List of all members, including inherited members   Properties  allResults : varList candidateFilter : var candidatePaths : stringList environmentPaths : stringList fileName : string filePath : string nameFilter : script nameSuffixes : stringList names : stringList path : string pathSuffixes : stringList platformEnvironmentPaths : stringList platformSearchPaths : pathList searchPaths : pathList selectors : varList   Detailed Description Finds files that have the specified file name suffix, such as . ">
+    <meta name="description" content="Qbs Manual QbsProbes PathProbe Qbs 2.0.1 Contents Properties Detailed Description PathProbe QML Type Locates files outside the project. More...
+Import Statement: import QbsProbes Inherited By: BinaryProbe, FrameworkProbe, IncludeProbe, and LibraryProbe
+List of all members, including inherited members Properties allResults : varList candidateFilter : var candidatePaths : stringList environmentPaths : stringList fileName : string filePath : string nameFilter : script nameSuffixes : stringList names : stringList path : string pathSuffixes : stringList platformEnvironmentPaths : stringList platformSearchPaths : pathList searchPaths : pathList selectors : varList Detailed Description Finds files that have the specified file name suffix, such as . ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsprobes-pathprobe/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -19,20 +19,19 @@ Import Statement:import QbsProbes .Inherited By:BinaryProbe, FrameworkProbe, Inc
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Qbs 2.0.1 Contents  Properties Detailed Description    PathProbe QML Type  Locates files outside the project. More...
-Import Statement:import QbsProbes .Inherited By:BinaryProbe, FrameworkProbe, IncludeProbe, and LibraryProbe
- List of all members, including inherited members   Properties  allResults : varList candidateFilter : var candidatePaths : stringList environmentPaths : stringList fileName : string filePath : string nameFilter : script nameSuffixes : stringList names : stringList path : string pathSuffixes : stringList platformEnvironmentPaths : stringList platformSearchPaths : pathList searchPaths : pathList selectors : varList   Detailed Description Finds files that have the specified file name suffix, such as ." />
+<meta property="og:description" content="Qbs Manual QbsProbes PathProbe Qbs 2.0.1 Contents Properties Detailed Description PathProbe QML Type Locates files outside the project. More...
+Import Statement: import QbsProbes Inherited By: BinaryProbe, FrameworkProbe, IncludeProbe, and LibraryProbe
+List of all members, including inherited members Properties allResults : varList candidateFilter : var candidatePaths : stringList environmentPaths : stringList fileName : string filePath : string nameFilter : script nameSuffixes : stringList names : stringList path : string pathSuffixes : stringList platformEnvironmentPaths : stringList platformSearchPaths : pathList searchPaths : pathList selectors : varList Detailed Description Finds files that have the specified file name suffix, such as ." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/qml-qbsprobes-pathprobe/" /><meta property="article:section" content="docs" />
 
 
 
-
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Qbs 2.0.1 Contents  Properties Detailed Description    PathProbe QML Type  Locates files outside the project. More...
-Import Statement:import QbsProbes .Inherited By:BinaryProbe, FrameworkProbe, IncludeProbe, and LibraryProbe
- List of all members, including inherited members   Properties  allResults : varList candidateFilter : var candidatePaths : stringList environmentPaths : stringList fileName : string filePath : string nameFilter : script nameSuffixes : stringList names : stringList path : string pathSuffixes : stringList platformEnvironmentPaths : stringList platformSearchPaths : pathList searchPaths : pathList selectors : varList   Detailed Description Finds files that have the specified file name suffix, such as ."/>
+<meta name="twitter:description" content="Qbs Manual QbsProbes PathProbe Qbs 2.0.1 Contents Properties Detailed Description PathProbe QML Type Locates files outside the project. More...
+Import Statement: import QbsProbes Inherited By: BinaryProbe, FrameworkProbe, IncludeProbe, and LibraryProbe
+List of all members, including inherited members Properties allResults : varList candidateFilter : var candidatePaths : stringList environmentPaths : stringList fileName : string filePath : string nameFilter : script nameSuffixes : stringList names : stringList path : string pathSuffixes : stringList platformEnvironmentPaths : stringList platformSearchPaths : pathList searchPaths : pathList selectors : varList Detailed Description Finds files that have the specified file name suffix, such as ."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -62,10 +61,13 @@ Import Statement:import QbsProbes .Inherited By:BinaryProbe, FrameworkProbe, Inc
     
 <li><a href="https://qbs.io
 /docs">Qbs Manual</a></li>
+<li><a href="https://qbs.io
+/docs/qbsprobes-qmlmodule/">QbsProbes</a></li>
+<li>PathProbe</li>
 <li id="buildversion">Qbs 2.0.1</li>
 <div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3 id="toc">Contents</h3>
 <ul>
 <li class="level1"><a href="#properties">Properties</a></li>
 <li class="level1"><a href="#details">Detailed Description</a></li>
@@ -73,12 +75,11 @@ Import Statement:import QbsProbes .Inherited By:BinaryProbe, FrameworkProbe, Inc
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
 <div class="content"><h1 class="title">PathProbe QML Type</h1>
-<span class="subtitle"></span>
 <!-- $$$PathProbe-brief -->
 <p>Locates files outside the project. <a href="#details">More...</a></p>
 <!-- @@@PathProbe -->
 <div class="table"><table class="alignedsummary">
-<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsProbes .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherited By:</td><td class="memItemRight bottomAlign"> <p><a href="https://qbs.io
+<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsProbes</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherited By:</td><td class="memItemRight bottomAlign"> <p><a href="https://qbs.io
 /docs/qml-qbsprobes-binaryprobe/">BinaryProbe</a>, <a href="https://qbs.io
 /docs/qml-qbsprobes-frameworkprobe/">FrameworkProbe</a>, <a href="https://qbs.io
 /docs/qml-qbsprobes-includeprobe/">IncludeProbe</a>, and <a href="https://qbs.io
@@ -87,42 +88,40 @@ Import Statement:import QbsProbes .Inherited By:BinaryProbe, FrameworkProbe, Inc
 <li><a href="https://qbs.io
 /docs/qml-qbsprobes-pathprobe-members/">List of all members, including inherited members</a></li>
 </ul>
-<a name="properties"></a>
 <h2 id="properties">Properties</h2>
 <ul>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsprobes-pathprobe/#allResults-prop">allResults</a></b></b> : varList</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsprobes-pathprobe/#candidateFilter-prop">candidateFilter</a></b></b> : var</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsprobes-pathprobe/#candidatePaths-prop">candidatePaths</a></b></b> : stringList</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsprobes-pathprobe/#environmentPaths-prop">environmentPaths</a></b></b> : stringList</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsprobes-pathprobe/#fileName-prop">fileName</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsprobes-pathprobe/#filePath-prop">filePath</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsprobes-pathprobe/#nameFilter-prop">nameFilter</a></b></b> : script</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsprobes-pathprobe/#nameSuffixes-prop">nameSuffixes</a></b></b> : stringList</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsprobes-pathprobe/#names-prop">names</a></b></b> : stringList</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsprobes-pathprobe/#path-prop">path</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsprobes-pathprobe/#pathSuffixes-prop">pathSuffixes</a></b></b> : stringList</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsprobes-pathprobe/#platformEnvironmentPaths-prop">platformEnvironmentPaths</a></b></b> : stringList</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsprobes-pathprobe/#platformSearchPaths-prop">platformSearchPaths</a></b></b> : pathList</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsprobes-pathprobe/#searchPaths-prop">searchPaths</a></b></b> : pathList</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsprobes-pathprobe/#selectors-prop">selectors</a></b></b> : varList</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#allResults-prop">allResults</a></b> : varList</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#candidateFilter-prop">candidateFilter</a></b> : var</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#candidatePaths-prop">candidatePaths</a></b> : stringList</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#environmentPaths-prop">environmentPaths</a></b> : stringList</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#fileName-prop">fileName</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#filePath-prop">filePath</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#nameFilter-prop">nameFilter</a></b> : script</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#nameSuffixes-prop">nameSuffixes</a></b> : stringList</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#names-prop">names</a></b> : stringList</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#path-prop">path</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#pathSuffixes-prop">pathSuffixes</a></b> : stringList</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#platformEnvironmentPaths-prop">platformEnvironmentPaths</a></b> : stringList</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#platformSearchPaths-prop">platformSearchPaths</a></b> : pathList</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#searchPaths-prop">searchPaths</a></b> : pathList</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsprobes-pathprobe/#selectors-prop">selectors</a></b> : varList</li>
 </ul>
 <!-- $$$PathProbe-description -->
-<a name="details"></a>
 <h2 id="details">Detailed Description</h2>
 <p>Finds files that have the specified file name suffix, such as <i>.exe</i>, from the specified locations.</p>
 <p>PathProbe takes as input lists of paths to search files from and file name patterns. The paths are specified by using the <a href="https://qbs.io

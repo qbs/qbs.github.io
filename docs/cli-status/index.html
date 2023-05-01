@@ -3,9 +3,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Command-Line Interface status Qbs 2.0.1 Contents  Synopsis Description Options --build-directory|-d &lt;directory&gt; --settings-dir &lt;directory&gt; Parameters config:configuration-name Examples    status    Synopsis qbs status [options] [config:configuration-name]  Description Lists all the files in the project directory and shows whether they are known to Qbs in the respective configuration.
- Options  --build-directory|-d &lt;directory&gt; Specifies a &lt;directory&gt; where build artifacts are stored.
-The default value is the current directory unless preferences. ">
+    <meta name="description" content="Qbs Manual Command-Line Interface status Qbs 2.0.1 Contents Synopsis Description Options --build-directory|-d &lt;directory&gt; --settings-dir &lt;directory&gt; Parameters config:configuration-name Examples status Synopsis qbs status [options] [config:configuration-name] Description Lists all the files in the project directory and shows whether they are known to Qbs in the respective configuration.
+Options --build-directory|-d &lt;directory&gt; Specifies a &lt;directory&gt; where build artifacts are stored.
+The default value is the current directory unless preferences.defaultBuildDirectory is set.
+Relative paths will be interpreted relative to the current directory. ">
     <link rel="canonical" href="https://qbs.io/docs/cli-status/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -19,20 +20,21 @@ The default value is the current directory unless preferences. ">
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Command-Line Interface status Qbs 2.0.1 Contents  Synopsis Description Options --build-directory|-d &lt;directory&gt; --settings-dir &lt;directory&gt; Parameters config:configuration-name Examples    status    Synopsis qbs status [options] [config:configuration-name]  Description Lists all the files in the project directory and shows whether they are known to Qbs in the respective configuration.
- Options  --build-directory|-d &lt;directory&gt; Specifies a &lt;directory&gt; where build artifacts are stored.
-The default value is the current directory unless preferences." />
+<meta property="og:description" content="Qbs Manual Command-Line Interface status Qbs 2.0.1 Contents Synopsis Description Options --build-directory|-d &lt;directory&gt; --settings-dir &lt;directory&gt; Parameters config:configuration-name Examples status Synopsis qbs status [options] [config:configuration-name] Description Lists all the files in the project directory and shows whether they are known to Qbs in the respective configuration.
+Options --build-directory|-d &lt;directory&gt; Specifies a &lt;directory&gt; where build artifacts are stored.
+The default value is the current directory unless preferences.defaultBuildDirectory is set.
+Relative paths will be interpreted relative to the current directory." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/cli-status/" /><meta property="article:section" content="docs" />
 
 
 
-
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Command-Line Interface status Qbs 2.0.1 Contents  Synopsis Description Options --build-directory|-d &lt;directory&gt; --settings-dir &lt;directory&gt; Parameters config:configuration-name Examples    status    Synopsis qbs status [options] [config:configuration-name]  Description Lists all the files in the project directory and shows whether they are known to Qbs in the respective configuration.
- Options  --build-directory|-d &lt;directory&gt; Specifies a &lt;directory&gt; where build artifacts are stored.
-The default value is the current directory unless preferences."/>
+<meta name="twitter:description" content="Qbs Manual Command-Line Interface status Qbs 2.0.1 Contents Synopsis Description Options --build-directory|-d &lt;directory&gt; --settings-dir &lt;directory&gt; Parameters config:configuration-name Examples status Synopsis qbs status [options] [config:configuration-name] Description Lists all the files in the project directory and shows whether they are known to Qbs in the respective configuration.
+Options --build-directory|-d &lt;directory&gt; Specifies a &lt;directory&gt; where build artifacts are stored.
+The default value is the current directory unless preferences.defaultBuildDirectory is set.
+Relative paths will be interpreted relative to the current directory."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -68,7 +70,7 @@ The default value is the current directory unless preferences."/>
 <li id="buildversion">Qbs 2.0.1</li>
 <div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3 id="toc">Contents</h3>
 <ul>
 <li class="level1"><a href="#synopsis">Synopsis</a></li>
 <li class="level1"><a href="#description">Description</a></li>
@@ -82,18 +84,13 @@ The default value is the current directory unless preferences."/>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
 <div class="content"><h1 class="title">status</h1>
-<span class="subtitle"></span>
 <!-- $$$cli-status.html-description -->
-<div class="descr"> <a name="details"></a>
-<a name="synopsis"></a>
+<div class="descr" id="details">
 <h2 id="synopsis">Synopsis</h2>
 <pre class="cpp">qbs status <span class="operator">[</span>options<span class="operator">]</span> <span class="operator">[</span>config:configuration<span class="operator">-</span>name<span class="operator">]</span></pre>
-<a name="description"></a>
 <h2 id="description">Description</h2>
 <p>Lists all the files in the project directory and shows whether they are known to Qbs in the respective configuration.</p>
-<a name="options"></a>
 <h2 id="options">Options</h2>
-<a name="op-op-op-op-build-op-op-directory-op-op-op-op-d-op-lt-op-directory-op-gt-op"></a>
 <h3 id="op-op-op-op-build-op-op-directory-op-op-op-op-d-op-lt-op-directory-op-gt-op"><code>--build-directory|-d &lt;directory&gt;</code></h3>
 <p>Specifies a <code>&lt;directory&gt;</code> where build artifacts are stored.</p>
 <p>The default value is the current directory unless <code>preferences.defaultBuildDirectory</code> is set.</p>
@@ -103,7 +100,6 @@ The default value is the current directory unless preferences."/>
 <li><code>@project</code> is expanded to the name of the project file excluding the extension <code>.qbs</code>.</li>
 <li><code>@path</code> is expanded to the name of the directory containing the project file.</li>
 </ul>
-<a name="op-op-op-op-settings-op-op-dir-op-lt-op-directory-op-gt-op"></a>
 <h3 id="op-op-op-op-settings-op-op-dir-op-lt-op-directory-op-gt-op"><code>--settings-dir &lt;directory&gt;</code></h3>
 <p>Reads all settings (such as <a href="https://qbs.io
 /docs/qml-qbslanguageitems-profile/">profile</a> information) from the specified <code>&lt;directory&gt;</code>. If the directory does not exist, it will be created.</p>
@@ -113,9 +109,7 @@ The default value is the current directory unless preferences."/>
 <li>Windows: <code>%APPDATA%\QtProject\qbs</code></li>
 <li>macOS: <code>$HOME/Library/Preferences/qbs</code></li>
 </ul>
-<a name="parameters"></a>
 <h2 id="parameters">Parameters</h2>
-<a name="config-configuration-op-op-name"></a>
 <h3 id="config-configuration-op-op-name"><code>config:configuration-name</code></h3>
 <p>Specifies the build configuration to use.</p>
 <p>Qbs can build a project for one or multiple configurations at once, each having a different set of parameters. The <code>config</code> parameter has a special function: with each occurrence a new configuration instance begins and all subsequent parameters until the next <code>config</code> are assigned to this instance. Parameter assignments before the first occurrence of <code>config</code> are applied to all build configurations. Inside products and modules, the current active build configuration can be retrieved via <a href="https://qbs.io
@@ -128,7 +122,6 @@ The default value is the current directory unless preferences."/>
 <li>The first character must be a letter (a-z), an underscore (_), or a dollar sign ($).</li>
 <li>Subsequent characters may be letters, digits, underscores, or dollar signs.</li>
 </ul>
-<a name="examples"></a>
 <h2 id="examples">Examples</h2>
 <p>To list the files in the project directory and view their status:</p>
 <pre class="cpp">qbs status</pre>

@@ -3,9 +3,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual List of Built-in Services Host Service Qbs 2.0.1 Contents  Available Operations architecture os platform osVersion osBuildVersion osVersionParts osVersionMajor osVersionMinor osVersionPatch nullDevice    Host Service   The Host service offers various information about the host environment, such as operating system names, platform name.
- Available Operations  architecture Host.architecture(): string Returns the host operating system architecture.
-See qbs.architecture for the target-specific equivalent property. architecture. This function was introduced in version 1. ">
+    <meta name="description" content="Qbs Manual List of Built-in Services Host Service Qbs 2.0.1 Contents Available Operations architecture os platform osVersion osBuildVersion osVersionParts osVersionMajor osVersionMinor osVersionPatch nullDevice Host Service The Host service offers various information about the host environment, such as operating system names, platform name.
+Available Operations architecture Host.architecture(): string Returns the host operating system architecture.
+See qbs.architecture for the target-specific equivalent property. architecture. This function was introduced in version 1.22.
+os Host. ">
     <link rel="canonical" href="https://qbs.io/docs/jsextension-host/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -19,20 +20,21 @@ See qbs.architecture for the target-specific equivalent property. architecture. 
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual List of Built-in Services Host Service Qbs 2.0.1 Contents  Available Operations architecture os platform osVersion osBuildVersion osVersionParts osVersionMajor osVersionMinor osVersionPatch nullDevice    Host Service   The Host service offers various information about the host environment, such as operating system names, platform name.
- Available Operations  architecture Host.architecture(): string Returns the host operating system architecture.
-See qbs.architecture for the target-specific equivalent property. architecture. This function was introduced in version 1." />
+<meta property="og:description" content="Qbs Manual List of Built-in Services Host Service Qbs 2.0.1 Contents Available Operations architecture os platform osVersion osBuildVersion osVersionParts osVersionMajor osVersionMinor osVersionPatch nullDevice Host Service The Host service offers various information about the host environment, such as operating system names, platform name.
+Available Operations architecture Host.architecture(): string Returns the host operating system architecture.
+See qbs.architecture for the target-specific equivalent property. architecture. This function was introduced in version 1.22.
+os Host." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/jsextension-host/" /><meta property="article:section" content="docs" />
 
 
 
-
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual List of Built-in Services Host Service Qbs 2.0.1 Contents  Available Operations architecture os platform osVersion osBuildVersion osVersionParts osVersionMajor osVersionMinor osVersionPatch nullDevice    Host Service   The Host service offers various information about the host environment, such as operating system names, platform name.
- Available Operations  architecture Host.architecture(): string Returns the host operating system architecture.
-See qbs.architecture for the target-specific equivalent property. architecture. This function was introduced in version 1."/>
+<meta name="twitter:description" content="Qbs Manual List of Built-in Services Host Service Qbs 2.0.1 Contents Available Operations architecture os platform osVersion osBuildVersion osVersionParts osVersionMajor osVersionMinor osVersionPatch nullDevice Host Service The Host service offers various information about the host environment, such as operating system names, platform name.
+Available Operations architecture Host.architecture(): string Returns the host operating system architecture.
+See qbs.architecture for the target-specific equivalent property. architecture. This function was introduced in version 1.22.
+os Host."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -68,7 +70,7 @@ See qbs.architecture for the target-specific equivalent property. architecture. 
 <li id="buildversion">Qbs 2.0.1</li>
 <div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3 id="toc">Contents</h3>
 <ul>
 <li class="level1"><a href="#available-operations">Available Operations</a></li>
 <li class="level2"><a href="#architecture">architecture</a></li>
@@ -85,59 +87,47 @@ See qbs.architecture for the target-specific equivalent property. architecture. 
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
 <div class="content"><h1 class="title">Host Service</h1>
-<span class="subtitle"></span>
 <!-- $$$jsextension-host.html-description -->
-<div class="descr"> <a name="details"></a>
+<div class="descr" id="details">
 <p>The <code>Host</code> service offers various information about the host environment, such as operating system names, platform name.</p>
-<a name="available-operations"></a>
 <h2 id="available-operations">Available Operations</h2>
-<a name="architecture"></a>
 <h3 id="architecture">architecture</h3>
 <pre class="cpp">Host<span class="operator">.</span>architecture(): string</pre>
 <p>Returns the host operating system architecture.</p>
 <p>See <a href="https://qbs.io
 /docs/qml-qbsmodules-qbs/#architecture-prop">qbs.architecture</a> for the target-specific equivalent property. architecture. </p><p>This function was introduced in version 1.22.</p><p></p>
-<a name="os"></a>
 <h3 id="os">os</h3>
 <pre class="cpp">Host<span class="operator">.</span>os(): string<span class="operator">[</span><span class="operator">]</span></pre>
 <p>Returns the host operating system names.</p>
 <p>See the <a href="https://qbs.io
 /docs/qml-qbsmodules-qbs/#targetOS-prop">qbs.targetOS</a> for the target-specific equivalent property. </p><p>This function was introduced in version 1.22.</p><p></p>
-<a name="platform"></a>
 <h3 id="platform">platform</h3>
 <pre class="cpp">Host<span class="operator">.</span>platform(): string</pre>
 <p>Returns the host operating system platform.</p>
 <p>See the <a href="https://qbs.io
 /docs/qml-qbsmodules-qbs/#targetPlatform-prop">qbs.targetPlatform</a> for the target-specific equivalent property. </p><p>This function was introduced in version 1.22.</p><p></p>
-<a name="osversion"></a>
 <h3 id="osversion">osVersion</h3>
 <pre class="cpp">Host<span class="operator">.</span>osVersion(): string</pre>
 <p>Returns the host operating system version. Currently, only defined for Windows and Apple platforms.</p>
 <p>Consists of two or three numbers separated by dots. For example, <code>"10.9"</code> or <code>"6.3.9600"</code>. </p><p>This function was introduced in version 1.22.</p><p></p>
-<a name="osbuildversion"></a>
 <h3 id="osbuildversion">osBuildVersion</h3>
 <pre class="cpp">Host<span class="operator">.</span>osBuildVersion(): string</pre>
 <p>Returns the host operating system build version. Currently, only defined for Windows and Apple platforms.</p>
 <p>On Windows, this is the 4 or 5 digit Windows build number and is equivalent to <a href="https://qbs.io
 /docs/qml-qbsmodules-qbs/#versionPatch-prop">versionPatch</a>. On Apple platforms, this is a standard build number in the Apple versioning scheme. For example, <code>"13C64"</code>. </p><p>This function was introduced in version 1.22.</p><p></p>
-<a name="osversionparts"></a>
 <h3 id="osversionparts">osVersionParts</h3>
 <pre class="cpp">Host<span class="operator">.</span>osVersionParts(): string<span class="operator">[</span><span class="operator">]</span></pre>
 <p>Returns the host operating system version as a list.</p>
 <p>For example, Windows 8.1 (version 6.3.9600) would correspond to a value of <code>[6, 3, 9600]</code>. </p><p>This function was introduced in version 1.22.</p><p></p>
-<a name="osversionmajor"></a>
 <h3 id="osversionmajor">osVersionMajor</h3>
 <pre class="cpp">Host<span class="operator">.</span>osVersionMajor(): number</pre>
 <p>Returns the host operating system major version. </p><p>This function was introduced in version 1.22.</p><p></p>
-<a name="osversionminor"></a>
 <h3 id="osversionminor">osVersionMinor</h3>
 <pre class="cpp">Host<span class="operator">.</span>osVersionMinor(): number</pre>
 <p>Returns the host operating system minor version. </p><p>This function was introduced in version 1.22.</p><p></p>
-<a name="osversionpatch"></a>
 <h3 id="osversionpatch">osVersionPatch</h3>
 <pre class="cpp">Host<span class="operator">.</span>osVersionPatch(): number</pre>
 <p>Returns the host operating system patch level. </p><p>This function was introduced in version 1.22.</p><p></p>
-<a name="nulldevice"></a>
 <h3 id="nulldevice">nullDevice</h3>
 <pre class="cpp">Host<span class="operator">.</span>nullDevice(): string<span class="operator">[</span><span class="operator">]</span></pre>
 <p>Returns the platform-specific file path corresponding to the null device. </p><p>This function was introduced in version 1.22.</p><p></p>

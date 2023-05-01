@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Generators Qbs 2.0.1 Using the Shell Multiplexing  Contents  Generating Microsoft Visual Studio Projects Generating IAR Embedded Workbench Projects KEIL uVision Projects Generating Clang Compilation Databases Generating Makefiles Targets Pre-defined Variables Spaces in Directory Names Platform-specific Differences in Format Limitations    Generators   Generators are a Qbs sub-tool and set of APIs that enable arbitrary processing to be performed on the build graph. Currently, they are used to integrate Qbs with popular IDEs, such as Microsoft Visual Studio, and to generate Clang compilation databases. ">
+    <meta name="description" content="Qbs Manual Generators Qbs 2.0.1 Using the Shell Multiplexing Contents Generating Microsoft Visual Studio Projects Generating IAR Embedded Workbench Projects KEIL uVision Projects Generating Clang Compilation Databases Generating Makefiles Targets Pre-defined Variables Spaces in Directory Names Platform-specific Differences in Format Limitations Generators Generators are a Qbs sub-tool and set of APIs that enable arbitrary processing to be performed on the build graph. Currently, they are used to integrate Qbs with popular IDEs, such as Microsoft Visual Studio, and to generate Clang compilation databases. ">
     <link rel="canonical" href="https://qbs.io/docs/generators/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -17,16 +17,15 @@
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Generators Qbs 2.0.1 Using the Shell Multiplexing  Contents  Generating Microsoft Visual Studio Projects Generating IAR Embedded Workbench Projects KEIL uVision Projects Generating Clang Compilation Databases Generating Makefiles Targets Pre-defined Variables Spaces in Directory Names Platform-specific Differences in Format Limitations    Generators   Generators are a Qbs sub-tool and set of APIs that enable arbitrary processing to be performed on the build graph. Currently, they are used to integrate Qbs with popular IDEs, such as Microsoft Visual Studio, and to generate Clang compilation databases." />
+<meta property="og:description" content="Qbs Manual Generators Qbs 2.0.1 Using the Shell Multiplexing Contents Generating Microsoft Visual Studio Projects Generating IAR Embedded Workbench Projects KEIL uVision Projects Generating Clang Compilation Databases Generating Makefiles Targets Pre-defined Variables Spaces in Directory Names Platform-specific Differences in Format Limitations Generators Generators are a Qbs sub-tool and set of APIs that enable arbitrary processing to be performed on the build graph. Currently, they are used to integrate Qbs with popular IDEs, such as Microsoft Visual Studio, and to generate Clang compilation databases." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/generators/" /><meta property="article:section" content="docs" />
 
 
 
-
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Generators Qbs 2.0.1 Using the Shell Multiplexing  Contents  Generating Microsoft Visual Studio Projects Generating IAR Embedded Workbench Projects KEIL uVision Projects Generating Clang Compilation Databases Generating Makefiles Targets Pre-defined Variables Spaces in Directory Names Platform-specific Differences in Format Limitations    Generators   Generators are a Qbs sub-tool and set of APIs that enable arbitrary processing to be performed on the build graph. Currently, they are used to integrate Qbs with popular IDEs, such as Microsoft Visual Studio, and to generate Clang compilation databases."/>
+<meta name="twitter:description" content="Qbs Manual Generators Qbs 2.0.1 Using the Shell Multiplexing Contents Generating Microsoft Visual Studio Projects Generating IAR Embedded Workbench Projects KEIL uVision Projects Generating Clang Compilation Databases Generating Makefiles Targets Pre-defined Variables Spaces in Directory Names Platform-specific Differences in Format Limitations Generators Generators are a Qbs sub-tool and set of APIs that enable arbitrary processing to be performed on the build graph. Currently, they are used to integrate Qbs with popular IDEs, such as Microsoft Visual Studio, and to generate Clang compilation databases."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -67,10 +66,10 @@
 /docs/shell/">Using the Shell</a>
 <a class="nextPage" href="https://qbs.io
 /docs/multiplexing/">Multiplexing</a>
-</p><p>
-</p><div class="sidebar">
+</p>
+<div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3 id="toc">Contents</h3>
 <ul>
 <li class="level1"><a href="#generating-microsoft-visual-studio-projects">Generating Microsoft Visual Studio Projects</a></li>
 <li class="level1"><a href="#generating-iar-embedded-workbench-projects">Generating IAR Embedded Workbench Projects</a></li>
@@ -86,11 +85,9 @@
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
 <div class="content"><h1 class="title">Generators</h1>
-<span class="subtitle"></span>
 <!-- $$$generators.html-description -->
-<div class="descr"> <a name="details"></a>
+<div class="descr" id="details">
 <p>Generators are a Qbs sub-tool and set of APIs that enable arbitrary processing to be performed on the build graph. Currently, they are used to integrate Qbs with popular IDEs, such as Microsoft Visual Studio, and to generate Clang compilation databases.</p>
-<a name="generating-microsoft-visual-studio-projects"></a>
 <h2 id="generating-microsoft-visual-studio-projects">Generating Microsoft Visual Studio Projects</h2>
 <p>To generate a project for another build system, such as Microsoft Visual Studio, use the <a href="https://qbs.io
 /docs/cli-generate/">qbs generate</a> command and specify a generator using the <a href="https://qbs.io
@@ -103,7 +100,6 @@ qbs generate <span class="operator">-</span>g visualstudio2015</pre>
 <p><b>Note: </b>You cannot modify build system files and expect the changes to be reflected in Qbs. You must edit your Qbs project files and re-run <a href="https://qbs.io
 /docs/cli-generate/">qbs generate</a> in order for the changes to be reflected in your IDE.</p>
 </div>
-<a name="generating-iar-embedded-workbench-projects"></a>
 <h2 id="generating-iar-embedded-workbench-projects">Generating IAR Embedded Workbench Projects</h2>
 <p>To generate a project for <a href="https://www.iar.com/iar-embedded-workbench/">IAR Embedded Workbench</a>, use the <a href="https://qbs.io
 /docs/cli-generate/">qbs generate</a> command and specify a generator using the <a href="https://qbs.io
@@ -125,7 +121,6 @@ qbs generate <span class="operator">-</span>g iarew8 <span class="operator">-</s
 <tr valign="top" class="odd"><td>iarew10</td><td>All 10.x.y versions</td><td>8051 (aka MCS51)</td></tr>
 <tr valign="top" class="even"><td>iarew3</td><td>All 3.x.y versions</td><td>STM8</td></tr>
 </tbody></table></div>
-<a name="keil-uvision-projects"></a>
 <h2 id="keil-uvision-projects">KEIL uVision Projects</h2>
 <p>To generate a project for <a href="https://www2.keil.com/mdk5/uvision/">KEIL uVision</a>, use the <a href="https://qbs.io
 /docs/cli-generate/">qbs generate</a> command and specify a generator using the <a href="https://qbs.io
@@ -144,15 +139,12 @@ qbs generate <span class="operator">-</span>g keiluv5 <span class="operator">-</
  <thead><tr class="qt-style"><th>Generator</th><th>KEIL UV Version</th><th>Target Architecture</th></tr></thead>
 <tbody><tr valign="top" class="odd"><td>keiluv5</td><td>All 5.x.y versions</td><td>8051 (aka MCS51), ARM</td></tr>
 </tbody></table></div>
-<a name="generating-clang-compilation-databases"></a>
 <h2 id="generating-clang-compilation-databases">Generating Clang Compilation Databases</h2>
 <p>To generate a <a href="https://clang.llvm.org/docs/JSONCompilationDatabase.html">Clang compilation database (clangdb)</a>, use the following command:</p>
 <pre class="cpp">qbs generate <span class="operator">-</span><span class="operator">-</span>generator clangdb</pre>
-<a name="generating-makefiles"></a>
 <h2 id="generating-makefiles">Generating Makefiles</h2>
 <p>To generate a Makefile, use the following command:</p>
 <pre class="cpp">qbs generate <span class="operator">-</span><span class="operator">-</span>generator makefile</pre>
-<a name="targets"></a>
 <h3 id="targets">Targets</h3>
 <p>The generated Makefile will contain targets for all output artifacts known to Qbs.</p>
 <p>In addition, the following targets are created for every product:</p>
@@ -168,19 +160,15 @@ qbs generate <span class="operator">-</span>g keiluv5 <span class="operator">-</
 <p><b>Note: </b>The Makefile will not be able to build artifacts created by <a href="https://qbs.io
 /docs/commands/#javascriptcommand">JavaScriptCommands</a>, because there is no command line to run for them.</p>
 </div>
-<a name="pre-defined-variables"></a>
 <h3 id="pre-defined-variables">Pre-defined Variables</h3>
 <p>The build directory and the install root are set to whatever you specified when calling the generator. If you did not specify anything, Qbs' default values are used. You can override these values when invoking the <code>make</code> tool by explicitly setting the <code>BUILD_ROOT</code> and <code>INSTALL_ROOT</code> variables, respectively. For instance:</p>
 <pre class="cpp">$ qbs generate <span class="operator">-</span>g makefile config:make modules<span class="operator">.</span>qbs<span class="operator">.</span>installRoot:<span class="operator">/</span>opt<span class="operator">/</span>mydir
 $ make <span class="operator">-</span>f make<span class="operator">/</span>Makefile                                 <span class="preprocessor"># Will install to /opt/mydir</span>
 $ make <span class="operator">-</span>f make<span class="operator">/</span>Makefile INSTALL_ROOT<span class="operator">=</span><span class="operator">/</span>opt<span class="operator">/</span>myotherdir    <span class="preprocessor"># Will install to /opt/myotherdir</span></pre>
-<a name="spaces-in-directory-names"></a>
 <h3 id="spaces-in-directory-names">Spaces in Directory Names</h3>
 <p>Due to the difficulties involved in making this work correctly, Qbs will refuse to generate a Makefile if the source, build or install root directories contain spaces. It will try to handle spaces in file names of output artifacts, though.</p>
-<a name="platform-specific-differences-in-format"></a>
 <h3 id="platform-specific-differences-in-format">Platform-specific Differences in Format</h3>
 <p>Qbs assumes that the Makefile will be invoked on the current host platform, so that platform's tools will be used for copying and removing files, and path separators will be converted to backslashes on Windows. When dealing with spaces in artifact names, on Unix-like systems compatibility with GNU make is assumed with regards to quoting.</p>
-<a name="limitations"></a>
 <h2 id="limitations">Limitations</h2>
 <p>Due to the high flexibility of the Qbs project format and build engine, some projects may be too complex to produce an equivalent project file for another build system.</p>
 <p>This list of limitations aims to be as small as possible, but one of the most notable (at least for the Microsoft Visual Studio generator) is that certain properties must contain the same value across all build configurations. For example, the following is not allowed:</p>

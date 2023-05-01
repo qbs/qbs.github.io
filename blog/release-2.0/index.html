@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Qbs 2.0 released | Qbs</title>
+    <meta name="description" content="The Qbs build tool version 2.0.0 is available.
+What&rsquo;s new
+If this release looks a bit short on features, that&rsquo;s because a lot of work was spent on one
+rather daunting task, namely:
+New JavaScript backend ">
+    <link rel="canonical" href="https://qbs.io/blog/release-2.0/" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+
+    
+      
+      <link rel="stylesheet" href="/css/main.min.7d27557bc1f8660bf0e026622019467fd286c7d3eb71497bb1bf1eb961a1697a.css" integrity="sha256-fSdVe8H4Zgvw4CZiIBlGf9KGx9PrcUl7sb8euWGhaXo="/>
+    
+
+    <meta property="og:title" content="Qbs 2.0 released" />
+<meta property="og:description" content="The Qbs build tool version 2.0.0 is available.
+What&rsquo;s new
+If this release looks a bit short on features, that&rsquo;s because a lot of work was spent on one
+rather daunting task, namely:
+New JavaScript backend" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://qbs.io/blog/release-2.0/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2023-04-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-04-25T00:00:00+00:00" />
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Qbs 2.0 released"/>
+<meta name="twitter:description" content="The Qbs build tool version 2.0.0 is available.
+What&rsquo;s new
+If this release looks a bit short on features, that&rsquo;s because a lot of work was spent on one
+rather daunting task, namely:
+New JavaScript backend"/>
+
+</head>
+<body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
+    <a class="flex items-center" href="/">
+        <img src="https://qbs.io/img/Cubes.svg" class="h-10 effect-shadow-small">
+        <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
+    </a>
+
+    <div>
+        
+        <a href="/blog" class="ml-2">
+            <span>Blog</span>
+        </a>
+        
+        <a href="/docs" class="ml-2">
+            <span>Documentation</span>
+        </a>
+        
+        <a href="/docs/installing/" class="ml-2">
+            <span>Get Qbs</span>
+        </a>
+        
+    </div>
+</header><main>
+
+<div class="centre-outer content mt-8">
+    <div class="centre-inner">
+        <h1 class="text-4xl font-bold">Qbs 2.0 released</h1>
+        <time>Apr 25, 2023 by Christian Kandeler</time>
+        <article class="content blog">
+            <p>The <a href="http://qbs.io">Qbs build tool</a> version 2.0.0 is available.</p>
+<h2 id="whats-new">What&rsquo;s new</h2>
+<p>If this release looks a bit short on features, that&rsquo;s because a lot of work was spent on one
+rather daunting task, namely:</p>
+<h3 id="new-javascript-backend">New JavaScript backend</h3>
+<p>When the deprecation of QtScript was announced for Qt 6, we quickly started looking for a
+light-weight replacement for our JavaScript backend, as the prospect of maintaining QtScript
+with its complex JavaScriptCore dependency ourselves did not seem particularly appealing. However,
+none of the candidates offered an API to intercept property accesses, which we absolutely require
+for performance reasons. That changed when <a href="https://bellard.org/quickjs/">QuickJS</a> came along, so
+we could finally start porting, and just a couple of <del>days</del> <del>weeks</del> months later we had a
+functional new backend.</p>
+<p>From a user&rsquo;s point of view, there should not be any noticeable changes; in particular, the
+performance appears to be about the same. However, QtScript was rather forgiving about accepting
+undefined values in contexts where it didn&rsquo;t have to, so the new implementation might uncover
+some glitches in your projects.</p>
+<p>As a final point, the magnitude of this change gave us an excuse to bump the major version number, so we did.</p>
+<h3 id="removal-of-qmake-project-files">Removal of qmake project files</h3>
+<p>With our cmake project files having been feature complete for a while now (not to mention the
+qbs ones), the qmake project files became mostly a maintenance burden and were removed.</p>
+<h2 id="whats-kinda-new">What&rsquo;s kinda new</h2>
+<p>Some more relevant changes since our last blog post:</p>
+<ul>
+<li>The new <a href="https://qbs.io/docs/jsextension-host/">Host</a> extension offers information about
+the host system. Most of its functions used to be properties of the qbs module, but did not
+belong there.</li>
+<li>The new <a href="https://qbs.io/docs/qml-qbsmodules-sanitizers-address/">Sanitizers.address</a> module
+provides <a href="https://github.com/google/sanitizers/wiki/AddressSanitizer">ASAN</a> support for projects
+in a convenient manner.</li>
+<li>The FileInfo extension has an executableSuffix function now.</li>
+<li>ModuleProvider items now support Probes.</li>
+<li>We added support for the OpenWatcom toolchain.</li>
+<li>Android multi-arch packages are supported again wth Qt &gt;= 6.3.</li>
+</ul>
+<h2 id="whats-next">What&rsquo;s next</h2>
+<p>While it&rsquo;s still a couple of months away, we can already say that the 2.1 release will see a
+long-overdue rewrite of our project resolving code. If you think that&rsquo;s irrelevant to you as a
+user, you might be surprised by the performance implications. More details in the next blog post.</p>
+<h2 id="try-it">Try it</h2>
+<p>Qbs is available for download on the <a href="https://download.qt.io/official_releases/qbs/1.23.0">download
+page</a>.</p>
+<p>Please report issues in our <a href="https://bugreports.qt.io/browse/QBS/">bug tracker</a>.</p>
+<p>Join our <a href="https://discord.gg/zhMHvC5GNa">Discord server</a> for live discussions.</p>
+<p>The <a href="https://qbs.io/docs/index.html">documentation</a>
+and <a href="https://wiki.qt.io/Qbs">wiki</a> are also good places to get started.</p>
+<p>Qbs is also available from a number of package repositories
+(<a href="https://chocolatey.org/packages/qbs">Chocolatey</a>,
+<a href="https://www.macports.org/ports.php?by=name&amp;substr=qbs">MacPorts</a>,
+<a href="https://formulae.brew.sh/formula/qbs">Homebrew</a>) and is updated on each
+release by the Qbs development team. It can also be installed through
+the native package management system on a number of Linux distributions.
+Please find a complete overview on
+<a href="https://repology.org/project/qbs/versions">repology.org</a>.</p>
+<p>Qbs 2.0.0 is also included in Qt Creator 10.0.0.</p>
+<h3 id="contribute">Contribute</h3>
+<p>If You are a happy user of Qbs, please tell others about it. But maybe you would
+like to contribute something. Everything that makes Qbs better is highly
+appreciated. Contributions may consist of reporting bugs or fixing them right
+away. But also new features are very welcome. Your patches will be automatically
+sanity-checked, built and verified on Linux, macOS and Windows by our CI bot.
+Get started with instructions in the <a href="https://wiki.qt.io/Qbs">Qbs Wiki</a>.</p>
+<p>Thanks to everybody who made the 2.0 release happen:</p>
+<ul>
+<li>Christian Kandeler</li>
+<li>Ivan Komissarov</li>
+<li>Orgad Shaneh</li>
+<li>Pino Toscano</li>
+</ul>
+        </article>
+    </div>
+</div>
+
+
+        </main></body>
+</html>

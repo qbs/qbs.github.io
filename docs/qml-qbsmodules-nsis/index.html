@@ -3,8 +3,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Qbs 2.0.1 Contents  Properties Detailed Description Relevant File Tags    nsis QML Type  Provides Nullsoft Scriptable Install System support. More...
-Import Statement:import QbsModules .Since:Qbs 1.2 List of all members, including inherited members   Properties  compilerFlags : stringList compilerName : string compilerPath : string compressor : string defines : stringList disableConfig : bool enableQbsDefines : bool toolchainInstallPath : path version : string versionBuild : int versionMajor : int versionMinor : int versionParts : list versionPatch : int warningLevel : string   Detailed Description The nsis module contains properties and rules for building EXE installers for Windows using the Nullsoft Scriptable Install System (NSIS). ">
+    <meta name="description" content="Qbs Manual QbsModules nsis Qbs 2.0.1 Contents Properties Detailed Description Relevant File Tags nsis QML Type Provides Nullsoft Scriptable Install System support. More...
+Import Statement: import QbsModules Since: Qbs 1.2 List of all members, including inherited members Properties compilerFlags : stringList compilerName : string compilerPath : string compressor : string defines : stringList disableConfig : bool enableQbsDefines : bool toolchainInstallPath : path version : string versionBuild : int versionMajor : int versionMinor : int versionParts : list versionPatch : int warningLevel : string Detailed Description The nsis module contains properties and rules for building EXE installers for Windows using the Nullsoft Scriptable Install System (NSIS). ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-nsis/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -18,18 +18,17 @@ Import Statement:import QbsModules .Since:Qbs 1.2 List of all members, including
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Qbs 2.0.1 Contents  Properties Detailed Description Relevant File Tags    nsis QML Type  Provides Nullsoft Scriptable Install System support. More...
-Import Statement:import QbsModules .Since:Qbs 1.2 List of all members, including inherited members   Properties  compilerFlags : stringList compilerName : string compilerPath : string compressor : string defines : stringList disableConfig : bool enableQbsDefines : bool toolchainInstallPath : path version : string versionBuild : int versionMajor : int versionMinor : int versionParts : list versionPatch : int warningLevel : string   Detailed Description The nsis module contains properties and rules for building EXE installers for Windows using the Nullsoft Scriptable Install System (NSIS)." />
+<meta property="og:description" content="Qbs Manual QbsModules nsis Qbs 2.0.1 Contents Properties Detailed Description Relevant File Tags nsis QML Type Provides Nullsoft Scriptable Install System support. More...
+Import Statement: import QbsModules Since: Qbs 1.2 List of all members, including inherited members Properties compilerFlags : stringList compilerName : string compilerPath : string compressor : string defines : stringList disableConfig : bool enableQbsDefines : bool toolchainInstallPath : path version : string versionBuild : int versionMajor : int versionMinor : int versionParts : list versionPatch : int warningLevel : string Detailed Description The nsis module contains properties and rules for building EXE installers for Windows using the Nullsoft Scriptable Install System (NSIS)." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-nsis/" /><meta property="article:section" content="docs" />
 
 
 
-
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Qbs 2.0.1 Contents  Properties Detailed Description Relevant File Tags    nsis QML Type  Provides Nullsoft Scriptable Install System support. More...
-Import Statement:import QbsModules .Since:Qbs 1.2 List of all members, including inherited members   Properties  compilerFlags : stringList compilerName : string compilerPath : string compressor : string defines : stringList disableConfig : bool enableQbsDefines : bool toolchainInstallPath : path version : string versionBuild : int versionMajor : int versionMinor : int versionParts : list versionPatch : int warningLevel : string   Detailed Description The nsis module contains properties and rules for building EXE installers for Windows using the Nullsoft Scriptable Install System (NSIS)."/>
+<meta name="twitter:description" content="Qbs Manual QbsModules nsis Qbs 2.0.1 Contents Properties Detailed Description Relevant File Tags nsis QML Type Provides Nullsoft Scriptable Install System support. More...
+Import Statement: import QbsModules Since: Qbs 1.2 List of all members, including inherited members Properties compilerFlags : stringList compilerName : string compilerPath : string compressor : string defines : stringList disableConfig : bool enableQbsDefines : bool toolchainInstallPath : path version : string versionBuild : int versionMajor : int versionMinor : int versionParts : list versionPatch : int warningLevel : string Detailed Description The nsis module contains properties and rules for building EXE installers for Windows using the Nullsoft Scriptable Install System (NSIS)."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -59,10 +58,13 @@ Import Statement:import QbsModules .Since:Qbs 1.2 List of all members, including
     
 <li><a href="https://qbs.io
 /docs">Qbs Manual</a></li>
+<li><a href="https://qbs.io
+/docs/qbsmodules-qmlmodule/">QbsModules</a></li>
+<li>nsis</li>
 <li id="buildversion">Qbs 2.0.1</li>
 <div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3 id="toc">Contents</h3>
 <ul>
 <li class="level1"><a href="#properties">Properties</a></li>
 <li class="level1"><a href="#details">Detailed Description</a></li>
@@ -71,51 +73,48 @@ Import Statement:import QbsModules .Since:Qbs 1.2 List of all members, including
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
 <div class="content"><h1 class="title">nsis QML Type</h1>
-<span class="subtitle"></span>
 <!-- $$$nsis-brief -->
 <p>Provides Nullsoft Scriptable Install System support. <a href="#details">More...</a></p>
 <!-- @@@nsis -->
 <div class="table"><table class="alignedsummary">
-<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsModules .</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.2</td></tr></tbody></table></div><ul>
+<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsModules</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.2</td></tr></tbody></table></div><ul>
 <li><a href="https://qbs.io
 /docs/qml-qbsmodules-nsis-members/">List of all members, including inherited members</a></li>
 </ul>
-<a name="properties"></a>
 <h2 id="properties">Properties</h2>
 <ul>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-nsis/#compilerFlags-prop">compilerFlags</a></b></b> : stringList</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-nsis/#compilerName-prop">compilerName</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-nsis/#compilerPath-prop">compilerPath</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-nsis/#compressor-prop">compressor</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-nsis/#defines-prop">defines</a></b></b> : stringList</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-nsis/#disableConfig-prop">disableConfig</a></b></b> : bool</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-nsis/#enableQbsDefines-prop">enableQbsDefines</a></b></b> : bool</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-nsis/#toolchainInstallPath-prop">toolchainInstallPath</a></b></b> : path</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-nsis/#version-prop">version</a></b></b> : string</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-nsis/#versionBuild-prop">versionBuild</a></b></b> : int</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-nsis/#versionMajor-prop">versionMajor</a></b></b> : int</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-nsis/#versionMinor-prop">versionMinor</a></b></b> : int</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-nsis/#versionParts-prop">versionParts</a></b></b> : list</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-nsis/#versionPatch-prop">versionPatch</a></b></b> : int</li>
-<li class="fn"><b><b><a href="https://qbs.io
-/docs/qml-qbsmodules-nsis/#warningLevel-prop">warningLevel</a></b></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-nsis/#compilerFlags-prop">compilerFlags</a></b> : stringList</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-nsis/#compilerName-prop">compilerName</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-nsis/#compilerPath-prop">compilerPath</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-nsis/#compressor-prop">compressor</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-nsis/#defines-prop">defines</a></b> : stringList</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-nsis/#disableConfig-prop">disableConfig</a></b> : bool</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-nsis/#enableQbsDefines-prop">enableQbsDefines</a></b> : bool</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-nsis/#toolchainInstallPath-prop">toolchainInstallPath</a></b> : path</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-nsis/#version-prop">version</a></b> : string</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-nsis/#versionBuild-prop">versionBuild</a></b> : int</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-nsis/#versionMajor-prop">versionMajor</a></b> : int</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-nsis/#versionMinor-prop">versionMinor</a></b> : int</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-nsis/#versionParts-prop">versionParts</a></b> : list</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-nsis/#versionPatch-prop">versionPatch</a></b> : int</li>
+<li class="fn"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-nsis/#warningLevel-prop">warningLevel</a></b> : string</li>
 </ul>
 <!-- $$$nsis-description -->
-<a name="details"></a>
 <h2 id="details">Detailed Description</h2>
 <p>The <code>nsis</code> module contains properties and rules for building EXE installers for Windows using the Nullsoft Scriptable Install System (NSIS).</p>
 <p>This module is available on all platforms.</p>
@@ -123,9 +122,8 @@ Import Statement:import QbsModules .Since:Qbs 1.2 List of all members, including
 <p><b>Note: </b>A typical NSIS script includes an <code>OutFile</code> command to set the filename of the generated installer executable. However, Qbs overrides any <code>OutFile</code> commands found in the script, and therefore, you must use the <a href="https://qbs.io
 /docs/qml-qbslanguageitems-product/#targetName-prop">product.targetName</a> property to set the filename.</p>
 </div>
-<a name="relevant-file-tags"></a>
 <h3 id="relevant-file-tags">Relevant File Tags</h3>
-<a name="filetags-nsis"></a><div class="table"><table class="generic">
+<span id="filetags-nsis"></span><div class="table"><table class="generic">
  <thead><tr class="qt-style"><th>Tag</th><th>Auto-tagged File Names</th><th>Since</th><th>Description</th></tr></thead>
 <tbody><tr valign="top" class="odd"><td><code>"nsh"</code></td><td><code>*.nsh</code></td><td>1.2</td><td>This tag is attached to NSIS header files.</td></tr>
 <tr valign="top" class="even"><td><code>"nsi"</code></td><td><code>*.nsi</code></td><td>1.2</td><td>This tag is attached to NSIS script files.</td></tr>

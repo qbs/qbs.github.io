@@ -3,13 +3,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual List of Modules Qbs 2.0.1  List of Modules   These are the modules shipped with Qbs.
+    <meta name="description" content="Qbs Manual List of Modules Qbs 2.0.1 List of Modules These are the modules shipped with Qbs.
 For a list of Qbs modules that provide support for Qt modules, see Qt Modules. Only the Qt modules that have properties and relevant file tags are described in separate topics.
- Android.ndk
+Android.ndk
 Provides support for building native Android libraries
- Android.sdk
+Android.sdk
 Provides support for building Android packages
- Exporter. ">
+Exporter.pkgconfig
+Provides support for generating pkg-config files ">
     <link rel="canonical" href="https://qbs.io/docs/qbsmodules-qmlmodule/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -23,28 +24,29 @@ Provides support for building Android packages
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual List of Modules Qbs 2.0.1  List of Modules   These are the modules shipped with Qbs.
+<meta property="og:description" content="Qbs Manual List of Modules Qbs 2.0.1 List of Modules These are the modules shipped with Qbs.
 For a list of Qbs modules that provide support for Qt modules, see Qt Modules. Only the Qt modules that have properties and relevant file tags are described in separate topics.
- Android.ndk
+Android.ndk
 Provides support for building native Android libraries
- Android.sdk
+Android.sdk
 Provides support for building Android packages
- Exporter." />
+Exporter.pkgconfig
+Provides support for generating pkg-config files" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/qbsmodules-qmlmodule/" /><meta property="article:section" content="docs" />
 
 
 
-
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual List of Modules Qbs 2.0.1  List of Modules   These are the modules shipped with Qbs.
+<meta name="twitter:description" content="Qbs Manual List of Modules Qbs 2.0.1 List of Modules These are the modules shipped with Qbs.
 For a list of Qbs modules that provide support for Qt modules, see Qt Modules. Only the Qt modules that have properties and relevant file tags are described in separate topics.
- Android.ndk
+Android.ndk
 Provides support for building native Android libraries
- Android.sdk
+Android.sdk
 Provides support for building Android packages
- Exporter."/>
+Exporter.pkgconfig
+Provides support for generating pkg-config files"/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -78,9 +80,8 @@ Provides support for building Android packages
 <li id="buildversion">Qbs 2.0.1</li>
 <div class="sidebar"><div class="sidebar-content" id="sidebar-content"></div></div>
 <div class="content"><h1 class="title">List of Modules</h1>
-<span class="subtitle"></span>
 <!-- $$$QbsModules-description -->
-<div class="descr"> <a name="details"></a>
+<div class="descr" id="details">
 <p>These are the modules shipped with Qbs.</p>
 <p>For a list of Qbs modules that provide support for Qt modules, see <a href="https://qbs.io
 /docs/qt-modules/">Qt Modules</a>. Only the Qt modules that have properties and relevant file tags are described in separate topics.</p>

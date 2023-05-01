@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Language Introduction Qbs 2.0.1 Usage Building Applications  Contents  The Obligatory Hello World Example Reusing Project File Code Modules Different Properties for a Single File Selecting Files by Properties Property Types Overriding Property Values from the Command Line File Tags and Taggers Rules    Language Introduction   Qbs uses project files (*.qbs) to describe the contents of a project. A project contains one or more products. ">
+    <meta name="description" content="Qbs Manual Language Introduction Qbs 2.0.1 Usage Building Applications Contents The Obligatory Hello World Example Reusing Project File Code Modules Different Properties for a Single File Selecting Files by Properties Property Types Overriding Property Values from the Command Line File Tags and Taggers Rules Language Introduction Qbs uses project files (*.qbs) to describe the contents of a project. A project contains one or more products. A product is the target of a build process, typically an application, library or maybe a tar ball. ">
     <link rel="canonical" href="https://qbs.io/docs/language-introduction/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -17,16 +17,15 @@
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Language Introduction Qbs 2.0.1 Usage Building Applications  Contents  The Obligatory Hello World Example Reusing Project File Code Modules Different Properties for a Single File Selecting Files by Properties Property Types Overriding Property Values from the Command Line File Tags and Taggers Rules    Language Introduction   Qbs uses project files (*.qbs) to describe the contents of a project. A project contains one or more products." />
+<meta property="og:description" content="Qbs Manual Language Introduction Qbs 2.0.1 Usage Building Applications Contents The Obligatory Hello World Example Reusing Project File Code Modules Different Properties for a Single File Selecting Files by Properties Property Types Overriding Property Values from the Command Line File Tags and Taggers Rules Language Introduction Qbs uses project files (*.qbs) to describe the contents of a project. A project contains one or more products. A product is the target of a build process, typically an application, library or maybe a tar ball." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/language-introduction/" /><meta property="article:section" content="docs" />
 
 
 
-
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Language Introduction Qbs 2.0.1 Usage Building Applications  Contents  The Obligatory Hello World Example Reusing Project File Code Modules Different Properties for a Single File Selecting Files by Properties Property Types Overriding Property Values from the Command Line File Tags and Taggers Rules    Language Introduction   Qbs uses project files (*.qbs) to describe the contents of a project. A project contains one or more products."/>
+<meta name="twitter:description" content="Qbs Manual Language Introduction Qbs 2.0.1 Usage Building Applications Contents The Obligatory Hello World Example Reusing Project File Code Modules Different Properties for a Single File Selecting Files by Properties Property Types Overriding Property Values from the Command Line File Tags and Taggers Rules Language Introduction Qbs uses project files (*.qbs) to describe the contents of a project. A project contains one or more products. A product is the target of a build process, typically an application, library or maybe a tar ball."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -67,10 +66,10 @@
 /docs/usage/">Usage</a>
 <a class="nextPage" href="https://qbs.io
 /docs/building-applications/">Building Applications</a>
-</p><p>
-</p><div class="sidebar">
+</p>
+<div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3 id="toc">Contents</h3>
 <ul>
 <li class="level1"><a href="#the-obligatory-hello-world-example">The Obligatory Hello World Example</a></li>
 <li class="level1"><a href="#reusing-project-file-code">Reusing Project File Code</a></li>
@@ -85,15 +84,13 @@
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
 <div class="content"><h1 class="title">Language Introduction</h1>
-<span class="subtitle"></span>
 <!-- $$$language-introduction.html-description -->
-<div class="descr"> <a name="details"></a>
+<div class="descr" id="details">
 <p>Qbs uses project files (*.qbs) to describe the contents of a project. A project contains one or more <a href="https://qbs.io
 /docs/qml-qbslanguageitems-product/">products</a>. A product is the target of a build process, typically an application, library or maybe a tar ball.</p>
 <div class="admonition note">
 <p><b>Note: </b>Qbs source files are assumed to be UTF-8 encoded.</p>
 </div>
-<a name="the-obligatory-hello-world-example"></a>
 <h2 id="the-obligatory-hello-world-example">The Obligatory Hello World Example</h2>
 <p>Qbs project files are written using a QML dialect. A very simple C++ hello world project looks like this:</p>
 <pre class="cpp"><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span>helloworld<span class="operator">.</span>qbs<span class="operator">-</span><span class="operator">-</span><span class="operator">-</span>
@@ -113,7 +110,6 @@ Application {
 <p><i>Depends</i> adds the dependency to the <a href="https://qbs.io
 /docs/qml-qbsmodules-cpp/">cpp</a> module. This is necessary to let Qbs know that we have a C++ project and want to compile main.cpp with a C++ compiler. For more information about Qbs modules, see <a href="https://qbs.io
 /docs/language-introduction/#modules">Modules</a>.</p>
-<a name="reusing-project-file-code"></a>
 <h2 id="reusing-project-file-code">Reusing Project File Code</h2>
 <p>QML-like inheritance works also in Qbs.</p>
 <pre class="cpp"><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span>CrazyProduct<span class="operator">.</span>qbs<span class="operator">-</span><span class="operator">-</span><span class="operator">-</span>
@@ -156,7 +152,6 @@ Product {
 <p>See <a href="https://qbs.io
 /docs/qml-qbslanguageitems-module/#special-property-values">Special Property Values</a> for more details about the <a href="https://qbs.io
 /docs/qml-qbslanguageitems-module/#base">base</a> property.</p>
-<a name="modules"></a>
 <h2 id="modules">Modules</h2>
 <p>A <i>module</i> is a collection of properties and language items that are used for building a product if the product depends on (or loads) the module.</p>
 <p>For example, the <i>cpp</i> module looks like this (simplified):</p>
@@ -205,7 +200,6 @@ Application {
     Depends { name: <span class="string">"cpp"</span> }
     cpp<span class="operator">.</span>optimization: <span class="string">"ludicrousSpeed"</span>
 }</pre>
-<a name="different-properties-for-a-single-file"></a>
 <h3 id="different-properties-for-a-single-file">Different Properties for a Single File</h3>
 <p>Not only the product, but all the source files of the product can have their own set of module properties. For example, assume you have some files that are known to crash your compiler if you turn on optimizations. You want to turn off optimizations for just these files and this is how you do it:</p>
 <pre class="cpp">Application {
@@ -217,7 +211,6 @@ Application {
     }
     Depends { name: <span class="string">"cpp"</span> }
 }</pre>
-<a name="selecting-files-by-properties"></a>
 <h3 id="selecting-files-by-properties">Selecting Files by Properties</h3>
 <p>Sometimes you have a file that is only going to be compiled on a certain platform. This is how you do it:</p>
 <pre class="cpp">Group {
@@ -264,7 +257,6 @@ $ qbs profile:none                <span class="preprocessor"># all module proper
 <p>Or, to use a more QML-like style:</p>
 <pre class="cpp">cpp<span class="operator">.</span>debugInformation: qbs<span class="operator">.</span>buildVariant <span class="operator">=</span><span class="operator">=</span> <span class="string">"debug"</span> <span class="operator">?</span> <span class="keyword">true</span> : <span class="keyword">false</span>
 cpp<span class="operator">.</span>optimization: qbs<span class="operator">.</span>buildVariant <span class="operator">=</span><span class="operator">=</span> <span class="string">"debug"</span> <span class="operator">?</span> <span class="string">"none"</span> : <span class="string">"fast"</span></pre>
-<a name="property-types"></a>
 <h2 id="property-types">Property Types</h2>
 <p>While properties in Qbs generally work the same way as in QML, the set of possible property types has been adapted to reflect the specific needs of a build tool. The supported types are as follows:</p>
 <div class="table"><table class="generic">
@@ -278,7 +270,6 @@ cpp<span class="operator">.</span>optimization: qbs<span class="operator">.</spa
 <tr valign="top" class="odd"><td><code>var</code></td><td><code>property var aMap: ({ key1: "value1", key2: "value2" })</code></td><td>Generic data, as in QML.</td></tr>
 <tr valign="top" class="even"><td><code>varList</code></td><td><code>property var aMapList: [{ key1: "value1", key2: "value2" }, { key1: "value3" }]</code></td><td>A list of generic data, typically JavaScript objects.</td></tr>
 </tbody></table></div>
-<a name="overriding-property-values-from-the-command-line"></a>
 <h2 id="overriding-property-values-from-the-command-line">Overriding Property Values from the Command Line</h2>
 <p>Property values set in project files or profiles can be overridden on the command line. The syntax is <code>&lt;prefix&gt;.&lt;prop-name&gt;:&lt;prop-value&gt;</code>. The following command lines demonstrate how to set different kinds of properties:</p>
 <pre class="cpp">$ qbs projects<span class="operator">.</span>someProject<span class="operator">.</span>projectProperty:<span class="keyword">false</span>          <span class="preprocessor"># set a property of a project</span>
@@ -289,7 +280,6 @@ $ qbs products<span class="operator">.</span>someProduct<span class="operator">.
 <pre class="cpp">$ qbs projects<span class="operator">.</span>someProject<span class="operator">.</span>listProp:<span class="char">'["a", "b", "c"]'</span>
 $ qbs projects<span class="operator">.</span>someProject<span class="operator">.</span>listProp:a<span class="operator">,</span>b<span class="operator">,</span>c               <span class="preprocessor"># same as above</span>
 $ qbs projects<span class="operator">.</span>someProject<span class="operator">.</span>listProp:<span class="char">'["a b", "c"]'</span>      <span class="preprocessor"># no CSV equivalent</span></pre>
-<a name="file-tags-and-taggers"></a>
 <h2 id="file-tags-and-taggers">File Tags and Taggers</h2>
 <p>Qbs itself knows nothing about C++ files or file extensions. All source files in a product are handled equally. However, you can assign <i>file tags</i> to an artifact to act as a marker or to specify a file type.</p>
 <p>An artifact can have multiple file tags. For example, you can use the <i>Group</i> item to group files with the same file tags (or a set of properties).</p>
@@ -333,7 +323,6 @@ $ qbs projects<span class="operator">.</span>someProject<span class="operator">.
     }
     <span class="comment">// ...</span>
 }</pre>
-<a name="rules"></a>
 <h2 id="rules">Rules</h2>
 <p>Qbs applies a <i>rule</i> to a pool of artifacts (in the beginning it is just the set of source files of the project) and chooses the ones that match the input file tags specified by the rule. Then it creates output artifacts in the build graph that have other filenames and file tags. It also creates a script that transforms the input artifacts into the output artifacts. Artifacts created by one rule can (and typically do) serve as inputs to another rule. In this way, rules are connected to one another via their input and output file tags.</p>
 <p>For examples of rules, see the share/qbs/modules directory in the Qbs repository.</p>

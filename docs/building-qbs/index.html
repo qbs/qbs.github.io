@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Appendix A: Building Qbs Qbs 2.0.1 Reference Appendix B: Migrating from Other Build Systems  Contents  Supported Platforms System Requirements Documentation Building Qbs with СMake CMake Configure Options Using ccache with CMake Building Qbs with QMake QMake Configure Options Building Qbs with Qbs Qbs Build Options Using Docker Linux Containers Windows Containers Building Release Packages    Appendix A: Building Qbs   Qbs can be installed from binary packages or built from sources, as described in this appendix. ">
+    <meta name="description" content="Qbs Manual Appendix A: Building Qbs Qbs 2.0.1 Reference Appendix B: Migrating from Other Build Systems Contents Supported Platforms System Requirements Documentation Building Qbs with СMake CMake Configure Options Using ccache with CMake Building Qbs with QMake QMake Configure Options Building Qbs with Qbs Qbs Build Options Using Docker Linux Containers Windows Containers Building Release Packages Appendix A: Building Qbs Qbs can be installed from binary packages or built from sources, as described in this appendix. ">
     <link rel="canonical" href="https://qbs.io/docs/building-qbs/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -17,16 +17,15 @@
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Appendix A: Building Qbs Qbs 2.0.1 Reference Appendix B: Migrating from Other Build Systems  Contents  Supported Platforms System Requirements Documentation Building Qbs with СMake CMake Configure Options Using ccache with CMake Building Qbs with QMake QMake Configure Options Building Qbs with Qbs Qbs Build Options Using Docker Linux Containers Windows Containers Building Release Packages    Appendix A: Building Qbs   Qbs can be installed from binary packages or built from sources, as described in this appendix." />
+<meta property="og:description" content="Qbs Manual Appendix A: Building Qbs Qbs 2.0.1 Reference Appendix B: Migrating from Other Build Systems Contents Supported Platforms System Requirements Documentation Building Qbs with СMake CMake Configure Options Using ccache with CMake Building Qbs with QMake QMake Configure Options Building Qbs with Qbs Qbs Build Options Using Docker Linux Containers Windows Containers Building Release Packages Appendix A: Building Qbs Qbs can be installed from binary packages or built from sources, as described in this appendix." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/building-qbs/" /><meta property="article:section" content="docs" />
 
 
 
-
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Appendix A: Building Qbs Qbs 2.0.1 Reference Appendix B: Migrating from Other Build Systems  Contents  Supported Platforms System Requirements Documentation Building Qbs with СMake CMake Configure Options Using ccache with CMake Building Qbs with QMake QMake Configure Options Building Qbs with Qbs Qbs Build Options Using Docker Linux Containers Windows Containers Building Release Packages    Appendix A: Building Qbs   Qbs can be installed from binary packages or built from sources, as described in this appendix."/>
+<meta name="twitter:description" content="Qbs Manual Appendix A: Building Qbs Qbs 2.0.1 Reference Appendix B: Migrating from Other Build Systems Contents Supported Platforms System Requirements Documentation Building Qbs with СMake CMake Configure Options Using ccache with CMake Building Qbs with QMake QMake Configure Options Building Qbs with Qbs Qbs Build Options Using Docker Linux Containers Windows Containers Building Release Packages Appendix A: Building Qbs Qbs can be installed from binary packages or built from sources, as described in this appendix."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -67,10 +66,10 @@
 /docs/reference/">Reference</a>
 <a class="nextPage" href="https://qbs.io
 /docs/porting-to-qbs/">Appendix B: Migrating from Other Build Systems</a>
-</p><p>
-</p><div class="sidebar">
+</p>
+<div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3 id="toc">Contents</h3>
 <ul>
 <li class="level1"><a href="#supported-platforms">Supported Platforms</a></li>
 <li class="level1"><a href="#system-requirements">System Requirements</a></li>
@@ -90,12 +89,10 @@
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
 <div class="content"><h1 class="title">Appendix A: Building Qbs</h1>
-<span class="subtitle"></span>
 <!-- $$$building-qbs.html-description -->
-<div class="descr"> <a name="details"></a>
+<div class="descr" id="details">
 <p>Qbs can be <a href="https://qbs.io
 /docs/installing/">installed from binary packages</a> or built from sources, as described in this appendix. In addition, this appendix describes how to use Docker images for developing Qbs.</p>
-<a name="supported-platforms"></a>
 <h2 id="supported-platforms">Supported Platforms</h2>
 <p>Qbs can be installed and run on the following platforms:</p>
 <ul>
@@ -103,7 +100,6 @@
 <li>Linux (tested on Debian 8 and 9, Ubuntu 16.04, OpenSuSE 13.2, and Arch Linux)</li>
 <li>macOS 10.7, or later</li>
 </ul>
-<a name="system-requirements"></a>
 <h2 id="system-requirements">System Requirements</h2>
 <p>To build Qbs from the source, you need:</p>
 <ul>
@@ -113,12 +109,10 @@
 <li>macOS: Xcode 6.2, or later</li>
 </ul>
 <p>An installed toolchain has to match the one that Qt was compiled with.</p>
-<a name="documentation"></a>
 <h3 id="documentation">Documentation</h3>
 <p>Building the Qbs documentation requires Python 2.7 or 3.2 or above, as well as some third party Python modules. These can be installed via <code>pip</code>:</p>
 <pre class="cpp">pip install beautifulsoup4 lxml</pre>
 <p>Regenerating the man page requires the <code>help2man</code> tool.</p>
-<a name="building-qbs-with-make"></a>
 <h2 id="building-qbs-with-make">Building Qbs with СMake</h2>
 <p>To build Qbs, enter the following commands:</p>
 <pre class="cpp">mkdir build <span class="operator">&amp;</span><span class="operator">&amp;</span> cd build
@@ -129,7 +123,6 @@ make</pre>
 <p>Alternatively, you can use the <a href="https://cmake.org/cmake/help/latest/generator/Ninja.html">Ninja</a> generator:</p>
 <pre class="cpp">cmake <span class="operator">-</span>GNinja <span class="operator">-</span>DQt5_DIR<span class="operator">=</span>${QT_DIR}<span class="operator">/</span>lib<span class="operator">/</span>cmake<span class="operator">/</span>Qt5<span class="operator">/</span> <span class="operator">.</span><span class="operator">.</span>
 ninja</pre>
-<a name="cmake-configure-options"></a>
 <h3 id="cmake-configure-options">CMake Configure Options</h3>
 <p>Qbs recognizes the following CMake options (passed to CMake in the form of <code>-DOPTION=value</code>) to customize the build:</p>
 <div class="table"><table class="generic">
@@ -138,18 +131,15 @@ ninja</pre>
 <tr valign="top" class="even"><td>WITH_UNIT_TESTS</td><td>Enable additional autotests.</td><td><code>OFF</code></td><td><code>OFF</code></td></tr>
 <tr valign="top" class="odd"><td>INSTALL_PUBLIC_HEADERS</td><td>Whether to install public headers.</td><td><code>ON</code></td></tr>
 </tbody></table></div>
-<a name="using-ccache-with-cmake"></a>
 <h3 id="using-ccache-with-cmake">Using ccache with CMake</h3>
 <p>To enable using <a href="https://ccache.dev">ccache</a> when building Qbs, pass the following options to CMake:</p>
 <pre class="cpp">cmake <span class="operator">-</span>DQt5_DIR<span class="operator">=</span>${QT_DIR}<span class="operator">/</span>lib<span class="operator">/</span>cmake<span class="operator">/</span>Qt5<span class="operator">/</span> <span class="operator">-</span>DCMAKE_C_COMPILER_LAUNCHER<span class="operator">=</span>ccache <span class="operator">-</span>DCMAKE_CXX_COMPILER_LAUNCHER<span class="operator">=</span>ccache <span class="operator">.</span><span class="operator">.</span></pre>
-<a name="building-qbs-with-qmake"></a>
 <h2 id="building-qbs-with-qmake">Building Qbs with QMake</h2>
 <p>To build Qbs, enter the following command:</p>
 <pre class="cpp">qmake <span class="operator">-</span>r qbs<span class="operator">.</span>pro <span class="operator">&amp;</span><span class="operator">&amp;</span> make</pre>
 <p>Depending on your platform, you might use <code>mingw32-make</code>, <code>nmake</code>, or <code>jom</code> instead of <code>make</code>.</p>
 <p>Installation by using <code>make install</code> is usually not needed. It is however possible, by entering the following command.</p>
 <pre class="cpp">make install INSTALL_ROOT<span class="operator">=</span>$INSTALL_DIRECTORY</pre>
-<a name="qmake-configure-options"></a>
 <h3 id="qmake-configure-options">QMake Configure Options</h3>
 <p>Qbs recognizes the following qmake CONFIG options to customize the build:</p>
 <div class="table"><table class="generic">
@@ -160,7 +150,6 @@ ninja</pre>
 <tr valign="top" class="even"><td>qbs_no_man_install</td><td>Exclude the man page from installation.</td></tr>
 </tbody></table></div>
 <p>In addition, you can set the <code>QBS_SYSTEM_SETTINGS_DIR</code> environment variable before running qmake to specify a custom location for Qbs to look for its system-level settings.</p>
-<a name="building-qbs-with-qbs"></a>
 <h2 id="building-qbs-with-qbs">Building Qbs with Qbs</h2>
 <p>It is also possible to build Qbs with the previously installed Qbs version. To build Qbs, enter the following command in the source directory:</p>
 <pre class="cpp">qbs</pre>
@@ -177,7 +166,6 @@ qbs build <span class="operator">-</span>p autotest<span class="operator">-</spa
 <span class="keyword">export</span> QBS_AUTOTEST_PROFILE_BLACKBOX_ANDROID<span class="operator">=</span>pie</pre>
 <p>It might be useful to set up the directory with the Qbs settings to isolate the test environment:</p>
 <pre class="cpp"><span class="keyword">export</span> QBS_AUTOTEST_SETTINGS_DIR<span class="operator">=</span><span class="operator">~</span><span class="operator">/</span>path<span class="operator">/</span>to<span class="operator">/</span>qbs<span class="operator">/</span>settings</pre>
-<a name="qbs-build-options"></a>
 <h3 id="qbs-build-options">Qbs Build Options</h3>
 <p>The <code>qbsbuildconfig</code> module can be used to customize the build. Properties of that module can be passed using command line as follows:</p>
 <pre class="cpp">qbs build modules<span class="operator">.</span>qbsbuildconfig<span class="operator">.</span>enableAddressSanitizer:<span class="keyword">true</span></pre>
@@ -210,13 +198,11 @@ qbs build <span class="operator">-</span>p autotest<span class="operator">-</spa
 <tr valign="top" class="even"><td>resourcesInstallDir</td><td><code>""</code></td><td>Relative directory path under the install prefix path where to put shared resources like documentation, Qbs user modules and items.</td></tr>
 <tr valign="top" class="odd"><td>pluginsInstallDir</td><td><code>libDirName</code> + <code>"/qbs/plugins"</code></td><td>Relative path to the directory where to put plugins to.</td></tr>
 </tbody></table></div>
-<a name="using-docker"></a>
 <h2 id="using-docker">Using Docker</h2>
 <p>A set of Docker images for developing Qbs (which are maintained by the Qbs team) is available <a href="https://hub.docker.com/u/qbsbuild/">on Docker Hub</a>. Both Windows 10 and Debian Linux container types are available.</p>
 <div class="admonition note">
 <p><b>Note: </b>The source code for the Qbs development Docker images is located in the <code>docker/</code> directory of the Qbs source tree, if you wish to build them yourself.</p>
 </div>
-<a name="linux-containers"></a>
 <h3 id="linux-containers">Linux Containers</h3>
 <p>The easiest way to get started is to build Qbs using a Linux container. These types of containers are supported out of the box on all the supported host platforms: Windows, macOS, and Linux.</p>
 <p>The images provide everything that is necessary to build and test Qbs:</p>
@@ -230,7 +216,6 @@ qbs build <span class="operator">-</span>p autotest<span class="operator">-</spa
 <p>You can then create a new container with the Qbs source directory mounted from your host machine's file system, by running:</p>
 <pre class="cpp">docker<span class="operator">-</span>compose run <span class="operator">-</span><span class="operator">-</span>rm focal</pre>
 <p>You will now be in an interactive Linux shell where you can develop and build Qbs.</p>
-<a name="windows-containers"></a>
 <h3 id="windows-containers">Windows Containers</h3>
 <p>To build Qbs for Windows using Windows containers, your host OS must be running Windows 10 Pro and have Hyper-V enabled. <a href="https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers">Switch your Docker environment to use Windows containers</a>.</p>
 <p>We are using docker-compose for building and running the Docker images because it simplifies the Docker command line and ensures that the correct image tag is used. All available images are listed in the <code>docker-compose.yml</code> file in the project root directory.</p>
@@ -242,7 +227,6 @@ qbs build <span class="operator">-</span>p autotest<span class="operator">-</spa
 <p>The <code>docker run</code> command to spawn a Windows container on a Unix host will look slightly different (assuming <code>windows</code> is the name of the Docker machine associated with the Windows container hosting VM):</p>
 <pre class="cpp">eval $(docker<span class="operator">-</span>machine env windows)
 docker<span class="operator">-</span>compose run <span class="operator">-</span><span class="operator">-</span>rm windows</pre>
-<a name="building-release-packages"></a>
 <h3 id="building-release-packages">Building Release Packages</h3>
 <p>Release packages for Qbs for Windows can be built using the following command on Windows:</p>
 <pre class="cpp">docker<span class="operator">-</span>compose run <span class="operator">-</span><span class="operator">-</span>rm windows cmd <span class="operator">/</span>c scripts\make<span class="operator">-</span>release<span class="operator">-</span>archives</pre>
