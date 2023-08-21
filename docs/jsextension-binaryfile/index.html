@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual List of Built-in Services BinaryFile Service Qbs 2.0.1 Contents Related Declarations BinaryFile.OpenMode Available operations Constructor atEof close filePath size resize pos seek read write BinaryFile Service The BinaryFile service allows you to read from and write into binary files.
+    <meta name="description" content="Qbs Manual List of Built-in Services BinaryFile Service Qbs 2.1.1 Contents Related Declarations BinaryFile.OpenMode Available operations Constructor atEof close filePath size resize pos seek read write BinaryFile Service The BinaryFile service allows you to read from and write into binary files.
 Related Declarations BinaryFile.OpenMode enum BinaryFile.OpenMode { ReadOnly, WriteOnly, ReadWrite } List of modes that a file may be opened in.
 The OpenMode values can be combined with the bitwise or operator. ">
     <link rel="canonical" href="https://qbs.io/docs/jsextension-binaryfile/" />
@@ -19,7 +19,7 @@ The OpenMode values can be combined with the bitwise or operator. ">
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual List of Built-in Services BinaryFile Service Qbs 2.0.1 Contents Related Declarations BinaryFile.OpenMode Available operations Constructor atEof close filePath size resize pos seek read write BinaryFile Service The BinaryFile service allows you to read from and write into binary files.
+<meta property="og:description" content="Qbs Manual List of Built-in Services BinaryFile Service Qbs 2.1.1 Contents Related Declarations BinaryFile.OpenMode Available operations Constructor atEof close filePath size resize pos seek read write BinaryFile Service The BinaryFile service allows you to read from and write into binary files.
 Related Declarations BinaryFile.OpenMode enum BinaryFile.OpenMode { ReadOnly, WriteOnly, ReadWrite } List of modes that a file may be opened in.
 The OpenMode values can be combined with the bitwise or operator." />
 <meta property="og:type" content="article" />
@@ -29,7 +29,7 @@ The OpenMode values can be combined with the bitwise or operator." />
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual List of Built-in Services BinaryFile Service Qbs 2.0.1 Contents Related Declarations BinaryFile.OpenMode Available operations Constructor atEof close filePath size resize pos seek read write BinaryFile Service The BinaryFile service allows you to read from and write into binary files.
+<meta name="twitter:description" content="Qbs Manual List of Built-in Services BinaryFile Service Qbs 2.1.1 Contents Related Declarations BinaryFile.OpenMode Available operations Constructor atEof close filePath size resize pos seek read write BinaryFile Service The BinaryFile service allows you to read from and write into binary files.
 Related Declarations BinaryFile.OpenMode enum BinaryFile.OpenMode { ReadOnly, WriteOnly, ReadWrite } List of modes that a file may be opened in.
 The OpenMode values can be combined with the bitwise or operator."/>
 
@@ -60,11 +60,11 @@ The OpenMode values can be combined with the bitwise or operator."/>
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io
-/docs">Qbs Manual</a></li>
+/docs" translate="no">Qbs Manual</a></li>
 <li><a href="https://qbs.io
-/docs/list-of-builtin-services/">List of Built-in Services</a></li>
+/docs/list-of-builtin-services/" translate="no">List of Built-in Services</a></li>
 <li>BinaryFile Service</li>
-<li id="buildversion">Qbs 2.0.1</li>
+<li id="buildversion">Qbs 2.1.1</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -88,46 +88,46 @@ The OpenMode values can be combined with the bitwise or operator."/>
 <div class="content"><h1 class="title">BinaryFile Service</h1>
 <!-- $$$jsextension-binaryfile.html-description -->
 <div class="descr" id="details">
-<p>The <code>BinaryFile</code> service allows you to read from and write into binary files.</p>
+<p>The <code translate="no">BinaryFile</code> service allows you to read from and write into binary files.</p>
 <h2 id="related-declarations">Related Declarations</h2>
 <h3 id="binaryfile-openmode">BinaryFile.OpenMode</h3>
-<pre class="cpp"><span class="keyword">enum</span> BinaryFile<span class="operator">.</span>OpenMode { ReadOnly<span class="operator">,</span> WriteOnly<span class="operator">,</span> ReadWrite }</pre>
+<pre class="cpp" translate="no"><span class="keyword">enum</span> BinaryFile<span class="operator">.</span>OpenMode { ReadOnly<span class="operator">,</span> WriteOnly<span class="operator">,</span> ReadWrite }</pre>
 <p>List of modes that a file may be opened in.</p>
 <p>The OpenMode values can be combined with the bitwise or operator.</p>
 <h2 id="available-operations">Available operations</h2>
 <h3 id="constructor">Constructor</h3>
-<pre class="cpp">BinaryFile(filePath: string<span class="operator">,</span> openMode: OpenMode <span class="operator">=</span> BinaryFile<span class="operator">.</span>ReadOnly)</pre>
-<p>Opens the file at <code>filePath</code> in the given mode and returns the object representing the file.</p>
+<pre class="cpp" translate="no">BinaryFile(filePath: string<span class="operator">,</span> openMode: OpenMode <span class="operator">=</span> BinaryFile<span class="operator">.</span>ReadOnly)</pre>
+<p>Opens the file at <code translate="no">filePath</code> in the given mode and returns the object representing the file.</p>
 <div class="admonition note">
 <p><b>Note: </b>The mode influences which of the operations listed below can actually be used on the file.</p>
 </div>
 <h3 id="ateof">atEof</h3>
-<pre class="cpp">atEof(): boolean</pre>
-<p>Returns <code>true</code> if no more data can be read from the file, <code>false</code> otherwise.</p>
+<pre class="cpp" translate="no">atEof(): boolean</pre>
+<p>Returns <code translate="no">true</code> if no more data can be read from the file, <code translate="no">false</code> otherwise.</p>
 <h3 id="close">close</h3>
-<pre class="cpp">close(): <span class="type">void</span></pre>
+<pre class="cpp" translate="no">close(): <span class="type">void</span></pre>
 <p>Closes the file. It is recommended to always call this function as soon as you are finished with the file, in order to keep the number of in-flight file descriptors as low as possible.</p>
 <h3 id="filepath">filePath</h3>
-<pre class="cpp">filePath(): string</pre>
+<pre class="cpp" translate="no">filePath(): string</pre>
 <p>The absolute path of the file represented by this object.</p>
 <h3 id="size">size</h3>
-<pre class="cpp">size(): number</pre>
+<pre class="cpp" translate="no">size(): number</pre>
 <p>Returns the size of the file (in bytes).</p>
 <h3 id="resize">resize</h3>
-<pre class="cpp">resize(size: number): <span class="type">void</span></pre>
-<p>Sets the file <code>size</code> (in bytes). If <code>size</code> is larger than the file currently is, the new bytes will be set to 0; if <code>size</code> is smaller, the file is truncated.</p>
+<pre class="cpp" translate="no">resize(size: number): <span class="type">void</span></pre>
+<p>Sets the file <code translate="no">size</code> (in bytes). If <code translate="no">size</code> is larger than the file currently is, the new bytes will be set to 0; if <code translate="no">size</code> is smaller, the file is truncated.</p>
 <h3 id="pos">pos</h3>
-<pre class="cpp">pos(): number</pre>
+<pre class="cpp" translate="no">pos(): number</pre>
 <p>Returns the position that data is written to or read from.</p>
 <h3 id="seek">seek</h3>
-<pre class="cpp">seek(pos: number): <span class="type">void</span></pre>
-<p>Sets the current position to <code>pos</code>.</p>
+<pre class="cpp" translate="no">seek(pos: number): <span class="type">void</span></pre>
+<p>Sets the current position to <code translate="no">pos</code>.</p>
 <h3 id="read">read</h3>
-<pre class="cpp">read(size: number): number<span class="operator">[</span><span class="operator">]</span></pre>
-<p>Reads at most <code>size</code> bytes of data from the file and returns it as an array.</p>
+<pre class="cpp" translate="no">read(size: number): number<span class="operator">[</span><span class="operator">]</span></pre>
+<p>Reads at most <code translate="no">size</code> bytes of data from the file and returns it as an array.</p>
 <h3 id="write">write</h3>
-<pre class="cpp">write(data: number<span class="operator">[</span><span class="operator">]</span>): <span class="type">void</span></pre>
-<p>Writes <code>data</code> into the file at the current position.</p>
+<pre class="cpp" translate="no">write(data: number<span class="operator">[</span><span class="operator">]</span>): <span class="type">void</span></pre>
+<p>Writes <code translate="no">data</code> into the file at the current position.</p>
 </div>
 <!-- @@@jsextension-binaryfile.html -->
 </div>

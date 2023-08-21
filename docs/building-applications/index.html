@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Building Applications Qbs 2.0.1 Language Introduction Running Applications Building Applications This section assumes that Qbs is present in PATH. For the details how to install Qbs, see the Installing page.
+    <meta name="description" content="Qbs Manual Building Applications Qbs 2.1.1 Language Introduction Running Applications Building Applications This section assumes that Qbs is present in PATH. For the details how to install Qbs, see the Installing page.
 To build applications from the command line, enter the following commands:
 cd examples/collidingmice qbs By default, Qbs uses all the CPU cores available to achieve maximum build parallelization. To explicitly specify the number of concurrent jobs, use the -j option. ">
     <link rel="canonical" href="https://qbs.io/docs/building-applications/" />
@@ -19,7 +19,7 @@ cd examples/collidingmice qbs By default, Qbs uses all the CPU cores available t
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Building Applications Qbs 2.0.1 Language Introduction Running Applications Building Applications This section assumes that Qbs is present in PATH. For the details how to install Qbs, see the Installing page.
+<meta property="og:description" content="Qbs Manual Building Applications Qbs 2.1.1 Language Introduction Running Applications Building Applications This section assumes that Qbs is present in PATH. For the details how to install Qbs, see the Installing page.
 To build applications from the command line, enter the following commands:
 cd examples/collidingmice qbs By default, Qbs uses all the CPU cores available to achieve maximum build parallelization. To explicitly specify the number of concurrent jobs, use the -j option." />
 <meta property="og:type" content="article" />
@@ -29,7 +29,7 @@ cd examples/collidingmice qbs By default, Qbs uses all the CPU cores available t
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Building Applications Qbs 2.0.1 Language Introduction Running Applications Building Applications This section assumes that Qbs is present in PATH. For the details how to install Qbs, see the Installing page.
+<meta name="twitter:description" content="Qbs Manual Building Applications Qbs 2.1.1 Language Introduction Running Applications Building Applications This section assumes that Qbs is present in PATH. For the details how to install Qbs, see the Installing page.
 To build applications from the command line, enter the following commands:
 cd examples/collidingmice qbs By default, Qbs uses all the CPU cores available to achieve maximum build parallelization. To explicitly specify the number of concurrent jobs, use the -j option."/>
 
@@ -60,9 +60,9 @@ cd examples/collidingmice qbs By default, Qbs uses all the CPU cores available t
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io
-/docs">Qbs Manual</a></li>
+/docs" translate="no">Qbs Manual</a></li>
 <li>Building Applications</li>
-<li id="buildversion">Qbs 2.0.1</li>
+<li id="buildversion">Qbs 2.1.1</li>
   <link rel="prev" href="https://qbs.io
 /docs/language-introduction/">
   <link rel="next" href="https://qbs.io
@@ -77,25 +77,25 @@ cd examples/collidingmice qbs By default, Qbs uses all the CPU cores available t
 <div class="content"><h1 class="title">Building Applications</h1>
 <!-- $$$building-applications.html-description -->
 <div class="descr" id="details">
-<p>This section assumes that Qbs is present in <code>PATH</code>. For the details how to install Qbs, see the <a href="https://qbs.io
-/docs/installing/">Installing</a> page.</p>
+<p>This section assumes that Qbs is present in <code translate="no">PATH</code>. For the details how to install Qbs, see the <a href="https://qbs.io
+/docs/installing/" translate="no">Installing</a> page.</p>
 <p>To build applications from the command line, enter the following commands:</p>
-<pre class="cpp">cd examples<span class="operator">/</span>collidingmice
+<pre class="cpp" translate="no">cd examples<span class="operator">/</span>collidingmice
 qbs</pre>
-<p>By default, Qbs uses all the CPU cores available to achieve maximum build parallelization. To explicitly specify the number of concurrent jobs, use the <code>-j</code> option. For example, to run 4 concurrent jobs, enter the following command:</p>
-<pre class="cpp">qbs <span class="operator">-</span>j4</pre>
+<p>By default, Qbs uses all the CPU cores available to achieve maximum build parallelization. To explicitly specify the number of concurrent jobs, use the <code translate="no">-j</code> option. For example, to run 4 concurrent jobs, enter the following command:</p>
+<pre class="cpp" translate="no">qbs <span class="operator">-</span>j4</pre>
 <p>The application is built using the default build profile that is set up in your Qbs configuration.</p>
 <p>You can use the <a href="https://qbs.io
-/docs/cli-config/">config</a> command to set the max number of jobs per profile. For example, to set four jobs as the default option for a profile named <i>Android</i>, enter the following command:</p>
-<pre class="cpp">qbs config profiles<span class="operator">.</span>Android<span class="operator">.</span>preferences<span class="operator">.</span>jobs <span class="number">4</span></pre>
+/docs/cli-config/" translate="no">config</a> command to set the max number of jobs per profile. For example, to set four jobs as the default option for a profile named <i>Android</i>, enter the following command:</p>
+<pre class="cpp" translate="no">qbs config profiles<span class="operator">.</span>Android<span class="operator">.</span>preferences<span class="operator">.</span>jobs <span class="number">4</span></pre>
 <p>To build with other profiles than the default one, specify options for the <a href="https://qbs.io
-/docs/cli-build/">build</a> command. For example, to build debug and release configurations with the <i>Android</i> profile, enter the following command:</p>
-<pre class="cpp">qbs build profile:Android config:debug config:release</pre>
+/docs/cli-build/" translate="no">build</a> command. For example, to build debug and release configurations with the <i>Android</i> profile, enter the following command:</p>
+<pre class="cpp" translate="no">qbs build profile:Android config:debug config:release</pre>
 <p>The position of the property assignment is important. In the example above, the profile property is set for all build configurations that come afterwards.</p>
 <p>To set a property just for one build configuration, place the assignment after the build configuration name. In the following example, the property <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#treatWarningsAsErrors-prop">cpp.treatWarningsAsErrors</a> is set to <code>true</code> for debug only and <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#optimization-prop">cpp.optimization</a> is set to <code>small</code> for release only.</p>
-<pre class="cpp">qbs build config:debug modules<span class="operator">.</span>cpp<span class="operator">.</span>treatWarningsAsErrors:<span class="keyword">true</span> config:release modules<span class="operator">.</span>cpp<span class="operator">.</span>optimization:small</pre>
+/docs/qml-qbsmodules-cpp/#treatWarningsAsErrors-prop" translate="no">cpp.treatWarningsAsErrors</a> is set to <code translate="no">true</code> for debug only and <a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#optimization-prop" translate="no">cpp.optimization</a> is set to <code translate="no">small</code> for release only.</p>
+<pre class="cpp" translate="no">qbs build config:debug modules<span class="operator">.</span>cpp<span class="operator">.</span>treatWarningsAsErrors:<span class="keyword">true</span> config:release modules<span class="operator">.</span>cpp<span class="operator">.</span>optimization:small</pre>
 <p>Projects are built in the debug build configuration by default.</p>
 </div>
 <!-- @@@building-applications.html -->

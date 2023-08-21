@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Command-Line Interface update-timestamps Qbs 2.0.1 Contents Synopsis Description Options --build-directory|-d &lt;directory&gt; --less-verbose|-q --log-level &lt;level&gt; --more-verbose|-v --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; Parameters config:configuration-name property:value Examples update-timestamps Synopsis qbs update-timestamps [options] [config:configuration-name] ... Description Updates the timestamps of all build artifacts, causing the next builds of the project to do nothing until source files are updated again.
+    <meta name="description" content="Qbs Manual Command-Line Interface update-timestamps Qbs 2.1.1 Contents Synopsis Description Options --build-directory|-d &lt;directory&gt; --less-verbose|-q --log-level &lt;level&gt; --more-verbose|-v --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; Parameters config:configuration-name property:value Examples update-timestamps Synopsis qbs update-timestamps [options] [config:configuration-name] ... Description Updates the timestamps of all build artifacts, causing the next builds of the project to do nothing until source files are updated again.
 This command is useful if you know that the current changes to source files are irrelevant to the build. ">
     <link rel="canonical" href="https://qbs.io/docs/cli-update-timestamps/" />
 
@@ -18,7 +18,7 @@ This command is useful if you know that the current changes to source files are 
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Command-Line Interface update-timestamps Qbs 2.0.1 Contents Synopsis Description Options --build-directory|-d &lt;directory&gt; --less-verbose|-q --log-level &lt;level&gt; --more-verbose|-v --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; Parameters config:configuration-name property:value Examples update-timestamps Synopsis qbs update-timestamps [options] [config:configuration-name] ... Description Updates the timestamps of all build artifacts, causing the next builds of the project to do nothing until source files are updated again.
+<meta property="og:description" content="Qbs Manual Command-Line Interface update-timestamps Qbs 2.1.1 Contents Synopsis Description Options --build-directory|-d &lt;directory&gt; --less-verbose|-q --log-level &lt;level&gt; --more-verbose|-v --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; Parameters config:configuration-name property:value Examples update-timestamps Synopsis qbs update-timestamps [options] [config:configuration-name] ... Description Updates the timestamps of all build artifacts, causing the next builds of the project to do nothing until source files are updated again.
 This command is useful if you know that the current changes to source files are irrelevant to the build." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/cli-update-timestamps/" /><meta property="article:section" content="docs" />
@@ -27,7 +27,7 @@ This command is useful if you know that the current changes to source files are 
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Command-Line Interface update-timestamps Qbs 2.0.1 Contents Synopsis Description Options --build-directory|-d &lt;directory&gt; --less-verbose|-q --log-level &lt;level&gt; --more-verbose|-v --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; Parameters config:configuration-name property:value Examples update-timestamps Synopsis qbs update-timestamps [options] [config:configuration-name] ... Description Updates the timestamps of all build artifacts, causing the next builds of the project to do nothing until source files are updated again.
+<meta name="twitter:description" content="Qbs Manual Command-Line Interface update-timestamps Qbs 2.1.1 Contents Synopsis Description Options --build-directory|-d &lt;directory&gt; --less-verbose|-q --log-level &lt;level&gt; --more-verbose|-v --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; Parameters config:configuration-name property:value Examples update-timestamps Synopsis qbs update-timestamps [options] [config:configuration-name] ... Description Updates the timestamps of all build artifacts, causing the next builds of the project to do nothing until source files are updated again.
 This command is useful if you know that the current changes to source files are irrelevant to the build."/>
 
 </head>
@@ -57,11 +57,11 @@ This command is useful if you know that the current changes to source files are 
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io
-/docs">Qbs Manual</a></li>
+/docs" translate="no">Qbs Manual</a></li>
 <li><a href="https://qbs.io
-/docs/cli/">Command-Line Interface</a></li>
+/docs/cli/" translate="no">Command-Line Interface</a></li>
 <li>update-timestamps</li>
-<li id="buildversion">Qbs 2.0.1</li>
+<li id="buildversion">Qbs 2.1.1</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -69,15 +69,15 @@ This command is useful if you know that the current changes to source files are 
 <li class="level1"><a href="#synopsis">Synopsis</a></li>
 <li class="level1"><a href="#description">Description</a></li>
 <li class="level1"><a href="#options">Options</a></li>
-<li class="level2"><a href="#op-op-op-op-build-op-op-directory-op-op-op-op-d-op-lt-op-directory-op-gt-op"><code>--build-directory|-d &lt;directory&gt;</code></a></li>
-<li class="level2"><a href="#op-op-op-op-less-op-op-verbose-op-op-op-op-q"><code>--less-verbose|-q</code></a></li>
-<li class="level2"><a href="#op-op-op-op-log-op-op-level-op-lt-op-level-op-gt-op"><code>--log-level &lt;level&gt;</code></a></li>
-<li class="level2"><a href="#op-op-op-op-more-op-op-verbose-op-op-op-op-v"><code>--more-verbose|-v</code></a></li>
-<li class="level2"><a href="#op-op-op-op-products-op-op-op-op-p-op-lt-op-name-op-gt-op-op-op-op-op-op-lt-op-name-op-gt-op-op-op-op-op-op-op-op-op"><code>--products|-p &lt;name&gt;[,&lt;name&gt;...]</code></a></li>
-<li class="level2"><a href="#op-op-op-op-settings-op-op-dir-op-lt-op-directory-op-gt-op"><code>--settings-dir &lt;directory&gt;</code></a></li>
+<li class="level2"><a href="#op-op-op-op-build-op-op-directory-op-op-op-op-d-op-lt-op-directory-op-gt-op"><code translate="no">--build-directory|-d &lt;directory&gt;</code></a></li>
+<li class="level2"><a href="#op-op-op-op-less-op-op-verbose-op-op-op-op-q"><code translate="no">--less-verbose|-q</code></a></li>
+<li class="level2"><a href="#op-op-op-op-log-op-op-level-op-lt-op-level-op-gt-op"><code translate="no">--log-level &lt;level&gt;</code></a></li>
+<li class="level2"><a href="#op-op-op-op-more-op-op-verbose-op-op-op-op-v"><code translate="no">--more-verbose|-v</code></a></li>
+<li class="level2"><a href="#op-op-op-op-products-op-op-op-op-p-op-lt-op-name-op-gt-op-op-op-op-op-op-lt-op-name-op-gt-op-op-op-op-op-op-op-op-op"><code translate="no">--products|-p &lt;name&gt;[,&lt;name&gt;...]</code></a></li>
+<li class="level2"><a href="#op-op-op-op-settings-op-op-dir-op-lt-op-directory-op-gt-op"><code translate="no">--settings-dir &lt;directory&gt;</code></a></li>
 <li class="level1"><a href="#parameters">Parameters</a></li>
-<li class="level2"><a href="#config-configuration-op-op-name"><code>config:configuration-name</code></a></li>
-<li class="level2"><a href="#property-value"><code>property:value</code></a></li>
+<li class="level2"><a href="#config-configuration-op-op-name"><code translate="no">config:configuration-name</code></a></li>
+<li class="level2"><a href="#property-value"><code translate="no">property:value</code></a></li>
 <li class="level1"><a href="#examples">Examples</a></li>
 </ul>
 </div>
@@ -86,71 +86,71 @@ This command is useful if you know that the current changes to source files are 
 <!-- $$$cli-update-timestamps.html-description -->
 <div class="descr" id="details">
 <h2 id="synopsis">Synopsis</h2>
-<pre class="cpp">qbs update<span class="operator">-</span>timestamps <span class="operator">[</span>options<span class="operator">]</span> <span class="operator">[</span>config:configuration<span class="operator">-</span>name<span class="operator">]</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span></pre>
+<pre class="cpp" translate="no">qbs update<span class="operator">-</span>timestamps <span class="operator">[</span>options<span class="operator">]</span> <span class="operator">[</span>config:configuration<span class="operator">-</span>name<span class="operator">]</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span></pre>
 <h2 id="description">Description</h2>
 <p>Updates the timestamps of all build <a href="https://qbs.io
-/docs/qml-qbslanguageitems-artifact/">artifacts</a>, causing the next builds of the <a href="https://qbs.io
-/docs/qml-qbslanguageitems-project/">project</a> to do nothing until source files are updated again.</p>
+/docs/qml-qbslanguageitems-artifact/" translate="no">artifacts</a>, causing the next builds of the <a href="https://qbs.io
+/docs/qml-qbslanguageitems-project/" translate="no">project</a> to do nothing until source files are updated again.</p>
 <p>This command is useful if you know that the current changes to source files are irrelevant to the build.</p>
 <div class="admonition note">
 <p><b>Note: </b>Using this command causes a discrepancy between the actual state of source files and the information in the build graph, so be careful.</p>
 </div>
 <h2 id="options">Options</h2>
-<h3 id="op-op-op-op-build-op-op-directory-op-op-op-op-d-op-lt-op-directory-op-gt-op"><code>--build-directory|-d &lt;directory&gt;</code></h3>
-<p>Specifies a <code>&lt;directory&gt;</code> where build artifacts are stored.</p>
-<p>The default value is the current directory unless <code>preferences.defaultBuildDirectory</code> is set.</p>
+<h3 id="op-op-op-op-build-op-op-directory-op-op-op-op-d-op-lt-op-directory-op-gt-op"><code translate="no">--build-directory|-d &lt;directory&gt;</code></h3>
+<p>Specifies a <code translate="no">&lt;directory&gt;</code> where build artifacts are stored.</p>
+<p>The default value is the current directory unless <code translate="no">preferences.defaultBuildDirectory</code> is set.</p>
 <p>Relative paths will be interpreted relative to the current directory.</p>
 <p>You can use the following special values as placeholders:</p>
 <ul>
-<li><code>@project</code> is expanded to the name of the project file excluding the extension <code>.qbs</code>.</li>
-<li><code>@path</code> is expanded to the name of the directory containing the project file.</li>
+<li><code translate="no">@project</code> is expanded to the name of the project file excluding the extension <code translate="no">.qbs</code>.</li>
+<li><code translate="no">@path</code> is expanded to the name of the directory containing the project file.</li>
 </ul>
-<h3 id="op-op-op-op-less-op-op-verbose-op-op-op-op-q"><code>--less-verbose|-q</code></h3>
+<h3 id="op-op-op-op-less-op-op-verbose-op-op-op-op-q"><code translate="no">--less-verbose|-q</code></h3>
 <p>Becomes more quiet by decreasing the log level by one. This option can be given more than once. Excessive occurrences have no effect.</p>
-<p>If the option <code>--log-level</code> appears anywhere on the command line in addition to this option, its value is taken as the base for the decrease.</p>
-<h3 id="op-op-op-op-log-op-op-level-op-lt-op-level-op-gt-op"><code>--log-level &lt;level&gt;</code></h3>
+<p>If the option <code translate="no">--log-level</code> appears anywhere on the command line in addition to this option, its value is taken as the base for the decrease.</p>
+<h3 id="op-op-op-op-log-op-op-level-op-lt-op-level-op-gt-op"><code translate="no">--log-level &lt;level&gt;</code></h3>
 <p>Uses the specified log level.</p>
-<p>Possible values of <code>&lt;level&gt;</code> are:</p>
+<p>Possible values of <code translate="no">&lt;level&gt;</code> are:</p>
 <ul>
-<li><code>error</code></li>
-<li><code>warning</code></li>
-<li><code>info</code> (default value)</li>
-<li><code>debug</code></li>
-<li><code>trace</code></li>
+<li><code translate="no">error</code></li>
+<li><code translate="no">warning</code></li>
+<li><code translate="no">info</code> (default value)</li>
+<li><code translate="no">debug</code></li>
+<li><code translate="no">trace</code></li>
 </ul>
-<h3 id="op-op-op-op-more-op-op-verbose-op-op-op-op-v"><code>--more-verbose|-v</code></h3>
+<h3 id="op-op-op-op-more-op-op-verbose-op-op-op-op-v"><code translate="no">--more-verbose|-v</code></h3>
 <p>Becomes more verbose by increasing the log level by one. This option can be given more than once. Excessive occurrences have no effect.</p>
-<p>If the option <code>--log-level</code> appears anywhere on the command line in addition to this option, its value is taken as the base for the increase.</p>
-<h3 id="op-op-op-op-products-op-op-op-op-p-op-lt-op-name-op-gt-op-op-op-op-op-op-lt-op-name-op-gt-op-op-op-op-op-op-op-op-op"><code>--products|-p &lt;name&gt;[,&lt;name&gt;...]</code></h3>
+<p>If the option <code translate="no">--log-level</code> appears anywhere on the command line in addition to this option, its value is taken as the base for the increase.</p>
+<h3 id="op-op-op-op-products-op-op-op-op-p-op-lt-op-name-op-gt-op-op-op-op-op-op-lt-op-name-op-gt-op-op-op-op-op-op-op-op-op"><code translate="no">--products|-p &lt;name&gt;[,&lt;name&gt;...]</code></h3>
 <p>Takes only the <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/">products</a> specified by <code>&lt;name&gt;</code> and their dependencies into account.</p>
-<h3 id="op-op-op-op-settings-op-op-dir-op-lt-op-directory-op-gt-op"><code>--settings-dir &lt;directory&gt;</code></h3>
+/docs/qml-qbslanguageitems-product/" translate="no">products</a> specified by <code translate="no">&lt;name&gt;</code> and their dependencies into account.</p>
+<h3 id="op-op-op-op-settings-op-op-dir-op-lt-op-directory-op-gt-op"><code translate="no">--settings-dir &lt;directory&gt;</code></h3>
 <p>Reads all settings (such as <a href="https://qbs.io
-/docs/qml-qbslanguageitems-profile/">profile</a> information) from the specified <code>&lt;directory&gt;</code>. If the directory does not exist, it will be created.</p>
+/docs/qml-qbslanguageitems-profile/" translate="no">profile</a> information) from the specified <code translate="no">&lt;directory&gt;</code>. If the directory does not exist, it will be created.</p>
 <p>The default value is system-specific. For example:</p>
 <ul>
-<li>Linux: <code>$HOME/.config/QtProject/qbs</code></li>
-<li>Windows: <code>%APPDATA%\QtProject\qbs</code></li>
-<li>macOS: <code>$HOME/Library/Preferences/qbs</code></li>
+<li>Linux: <code translate="no">$HOME/.config/QtProject/qbs</code></li>
+<li>Windows: <code translate="no">%APPDATA%\QtProject\qbs</code></li>
+<li>macOS: <code translate="no">$HOME/Library/Preferences/qbs</code></li>
 </ul>
 <h2 id="parameters">Parameters</h2>
-<h3 id="config-configuration-op-op-name"><code>config:configuration-name</code></h3>
+<h3 id="config-configuration-op-op-name"><code translate="no">config:configuration-name</code></h3>
 <p>Specifies the build configuration to use.</p>
-<p>Qbs can build a project for one or multiple configurations at once, each having a different set of parameters. The <code>config</code> parameter has a special function: with each occurrence a new configuration instance begins and all subsequent parameters until the next <code>config</code> are assigned to this instance. Parameter assignments before the first occurrence of <code>config</code> are applied to all build configurations. Inside products and modules, the current active build configuration can be retrieved via <a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#configurationName-prop">qbs.configurationName</a>.</p>
-<p>In the following snippet, a profile <code>clang</code> is applied to all configurations while <code>cpp.optimization</code> is different for <code>debug</code> and <code>release</code>:</p>
-<pre class="cpp">profile:clang config:debug cpp<span class="operator">.</span>optimization:none config:release cpp<span class="operator">.</span>optimization:small</pre>
-<p>The value of <code>config</code> determines the name of the build folder and affects the default value of the <a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#buildVariant-prop">qbs.buildVariant</a> property. Qbs knows the <code>config</code> values <code>"debug"</code> and <code>"release"</code>, but in general any name can be chosen. When naming configurations created for special purposes, follow the rules for legal names generally used in programming languages:</p>
+<p>Qbs can build a project for one or multiple configurations at once, each having a different set of parameters. The <code translate="no">config</code> parameter has a special function: with each occurrence a new configuration instance begins and all subsequent parameters until the next <code translate="no">config</code> are assigned to this instance. Parameter assignments before the first occurrence of <code translate="no">config</code> are applied to all build configurations. Inside products and modules, the current active build configuration can be retrieved via <a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#configurationName-prop" translate="no">qbs.configurationName</a>.</p>
+<p>In the following snippet, a profile <code translate="no">clang</code> is applied to all configurations while <code translate="no">cpp.optimization</code> is different for <code translate="no">debug</code> and <code translate="no">release</code>:</p>
+<pre class="cpp" translate="no">profile:clang config:debug cpp<span class="operator">.</span>optimization:none config:release cpp<span class="operator">.</span>optimization:small</pre>
+<p>The value of <code translate="no">config</code> determines the name of the build folder and affects the default value of the <a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#buildVariant-prop" translate="no">qbs.buildVariant</a> property. Qbs knows the <code translate="no">config</code> values <code translate="no">"debug"</code> and <code translate="no">"release"</code>, but in general any name can be chosen. When naming configurations created for special purposes, follow the rules for legal names generally used in programming languages:</p>
 <ul>
 <li>The first character must be a letter (a-z), an underscore (_), or a dollar sign ($).</li>
 <li>Subsequent characters may be letters, digits, underscores, or dollar signs.</li>
 </ul>
-<h3 id="property-value"><code>property:value</code></h3>
+<h3 id="property-value"><code translate="no">property:value</code></h3>
 <p>Property values set in project files or profiles can be overridden on the command line. The syntax is:</p>
-<pre class="cpp"><span class="operator">&lt;</span>prefix<span class="operator">&gt;</span><span class="operator">.</span><span class="operator">&lt;</span>property<span class="operator">-</span>name<span class="operator">&gt;</span>:<span class="operator">&lt;</span>property<span class="operator">-</span>value<span class="operator">&gt;</span></pre>
+<pre class="cpp" translate="no"><span class="operator">&lt;</span>prefix<span class="operator">&gt;</span><span class="operator">.</span><span class="operator">&lt;</span>property<span class="operator">-</span>name<span class="operator">&gt;</span>:<span class="operator">&lt;</span>property<span class="operator">-</span>value<span class="operator">&gt;</span></pre>
 <p>For more information, see <a href="https://qbs.io
-/docs/language-introduction/#overriding-property-values-from-the-command-line">Overriding Property Values from the Command Line</a>.</p>
+/docs/language-introduction/#overriding-property-values-from-the-command-line" translate="no">Overriding Property Values from the Command Line</a>.</p>
 <h2 id="examples">Examples</h2>
 </div>
 <!-- @@@cli-update-timestamps.html -->

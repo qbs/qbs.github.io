@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Command-Line Interface dump-nodes-tree Qbs 2.0.1 Contents Synopsis Description Options --build-directory|-d &lt;directory&gt; --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; Parameters config:configuration-name Examples dump-nodes-tree Synopsis qbs dump-nodes-tree [options] [config:configuration-name] Description Dumps the nodes in the build graph to stdout.
+    <meta name="description" content="Qbs Manual Command-Line Interface dump-nodes-tree Qbs 2.1.1 Contents Synopsis Description Options --build-directory|-d &lt;directory&gt; --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; Parameters config:configuration-name Examples dump-nodes-tree Synopsis qbs dump-nodes-tree [options] [config:configuration-name] Description Dumps the nodes in the build graph to stdout.
 This is an internal command that is used for debugging purposes only.
 Options --build-directory|-d &lt;directory&gt; Specifies a &lt;directory&gt; where build artifacts are stored.
 The default value is the current directory unless preferences.defaultBuildDirectory is set. ">
@@ -20,7 +20,7 @@ The default value is the current directory unless preferences.defaultBuildDirect
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Command-Line Interface dump-nodes-tree Qbs 2.0.1 Contents Synopsis Description Options --build-directory|-d &lt;directory&gt; --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; Parameters config:configuration-name Examples dump-nodes-tree Synopsis qbs dump-nodes-tree [options] [config:configuration-name] Description Dumps the nodes in the build graph to stdout.
+<meta property="og:description" content="Qbs Manual Command-Line Interface dump-nodes-tree Qbs 2.1.1 Contents Synopsis Description Options --build-directory|-d &lt;directory&gt; --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; Parameters config:configuration-name Examples dump-nodes-tree Synopsis qbs dump-nodes-tree [options] [config:configuration-name] Description Dumps the nodes in the build graph to stdout.
 This is an internal command that is used for debugging purposes only.
 Options --build-directory|-d &lt;directory&gt; Specifies a &lt;directory&gt; where build artifacts are stored.
 The default value is the current directory unless preferences.defaultBuildDirectory is set." />
@@ -31,7 +31,7 @@ The default value is the current directory unless preferences.defaultBuildDirect
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Command-Line Interface dump-nodes-tree Qbs 2.0.1 Contents Synopsis Description Options --build-directory|-d &lt;directory&gt; --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; Parameters config:configuration-name Examples dump-nodes-tree Synopsis qbs dump-nodes-tree [options] [config:configuration-name] Description Dumps the nodes in the build graph to stdout.
+<meta name="twitter:description" content="Qbs Manual Command-Line Interface dump-nodes-tree Qbs 2.1.1 Contents Synopsis Description Options --build-directory|-d &lt;directory&gt; --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; Parameters config:configuration-name Examples dump-nodes-tree Synopsis qbs dump-nodes-tree [options] [config:configuration-name] Description Dumps the nodes in the build graph to stdout.
 This is an internal command that is used for debugging purposes only.
 Options --build-directory|-d &lt;directory&gt; Specifies a &lt;directory&gt; where build artifacts are stored.
 The default value is the current directory unless preferences.defaultBuildDirectory is set."/>
@@ -63,11 +63,11 @@ The default value is the current directory unless preferences.defaultBuildDirect
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io
-/docs">Qbs Manual</a></li>
+/docs" translate="no">Qbs Manual</a></li>
 <li><a href="https://qbs.io
-/docs/cli/">Command-Line Interface</a></li>
+/docs/cli/" translate="no">Command-Line Interface</a></li>
 <li>dump-nodes-tree</li>
-<li id="buildversion">Qbs 2.0.1</li>
+<li id="buildversion">Qbs 2.1.1</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -75,11 +75,11 @@ The default value is the current directory unless preferences.defaultBuildDirect
 <li class="level1"><a href="#synopsis">Synopsis</a></li>
 <li class="level1"><a href="#description">Description</a></li>
 <li class="level1"><a href="#options">Options</a></li>
-<li class="level2"><a href="#op-op-op-op-build-op-op-directory-op-op-op-op-d-op-lt-op-directory-op-gt-op"><code>--build-directory|-d &lt;directory&gt;</code></a></li>
-<li class="level2"><a href="#op-op-op-op-products-op-op-op-op-p-op-lt-op-name-op-gt-op-op-op-op-op-op-lt-op-name-op-gt-op-op-op-op-op-op-op-op-op"><code>--products|-p &lt;name&gt;[,&lt;name&gt;...]</code></a></li>
-<li class="level2"><a href="#op-op-op-op-settings-op-op-dir-op-lt-op-directory-op-gt-op"><code>--settings-dir &lt;directory&gt;</code></a></li>
+<li class="level2"><a href="#op-op-op-op-build-op-op-directory-op-op-op-op-d-op-lt-op-directory-op-gt-op"><code translate="no">--build-directory|-d &lt;directory&gt;</code></a></li>
+<li class="level2"><a href="#op-op-op-op-products-op-op-op-op-p-op-lt-op-name-op-gt-op-op-op-op-op-op-lt-op-name-op-gt-op-op-op-op-op-op-op-op-op"><code translate="no">--products|-p &lt;name&gt;[,&lt;name&gt;...]</code></a></li>
+<li class="level2"><a href="#op-op-op-op-settings-op-op-dir-op-lt-op-directory-op-gt-op"><code translate="no">--settings-dir &lt;directory&gt;</code></a></li>
 <li class="level1"><a href="#parameters">Parameters</a></li>
-<li class="level2"><a href="#config-configuration-op-op-name"><code>config:configuration-name</code></a></li>
+<li class="level2"><a href="#config-configuration-op-op-name"><code translate="no">config:configuration-name</code></a></li>
 <li class="level1"><a href="#examples">Examples</a></li>
 </ul>
 </div>
@@ -88,48 +88,48 @@ The default value is the current directory unless preferences.defaultBuildDirect
 <!-- $$$cli-dump-nodes-tree.html-description -->
 <div class="descr" id="details">
 <h2 id="synopsis">Synopsis</h2>
-<pre class="cpp">qbs dump<span class="operator">-</span>nodes<span class="operator">-</span>tree <span class="operator">[</span>options<span class="operator">]</span> <span class="operator">[</span>config:configuration<span class="operator">-</span>name<span class="operator">]</span></pre>
+<pre class="cpp" translate="no">qbs dump<span class="operator">-</span>nodes<span class="operator">-</span>tree <span class="operator">[</span>options<span class="operator">]</span> <span class="operator">[</span>config:configuration<span class="operator">-</span>name<span class="operator">]</span></pre>
 <h2 id="description">Description</h2>
-<p>Dumps the nodes in the build graph to <code>stdout</code>.</p>
+<p>Dumps the nodes in the build graph to <code translate="no">stdout</code>.</p>
 <p>This is an internal command that is used for debugging purposes only.</p>
 <h2 id="options">Options</h2>
-<h3 id="op-op-op-op-build-op-op-directory-op-op-op-op-d-op-lt-op-directory-op-gt-op"><code>--build-directory|-d &lt;directory&gt;</code></h3>
-<p>Specifies a <code>&lt;directory&gt;</code> where build artifacts are stored.</p>
-<p>The default value is the current directory unless <code>preferences.defaultBuildDirectory</code> is set.</p>
+<h3 id="op-op-op-op-build-op-op-directory-op-op-op-op-d-op-lt-op-directory-op-gt-op"><code translate="no">--build-directory|-d &lt;directory&gt;</code></h3>
+<p>Specifies a <code translate="no">&lt;directory&gt;</code> where build artifacts are stored.</p>
+<p>The default value is the current directory unless <code translate="no">preferences.defaultBuildDirectory</code> is set.</p>
 <p>Relative paths will be interpreted relative to the current directory.</p>
 <p>You can use the following special values as placeholders:</p>
 <ul>
-<li><code>@project</code> is expanded to the name of the project file excluding the extension <code>.qbs</code>.</li>
-<li><code>@path</code> is expanded to the name of the directory containing the project file.</li>
+<li><code translate="no">@project</code> is expanded to the name of the project file excluding the extension <code translate="no">.qbs</code>.</li>
+<li><code translate="no">@path</code> is expanded to the name of the directory containing the project file.</li>
 </ul>
-<h3 id="op-op-op-op-products-op-op-op-op-p-op-lt-op-name-op-gt-op-op-op-op-op-op-lt-op-name-op-gt-op-op-op-op-op-op-op-op-op"><code>--products|-p &lt;name&gt;[,&lt;name&gt;...]</code></h3>
+<h3 id="op-op-op-op-products-op-op-op-op-p-op-lt-op-name-op-gt-op-op-op-op-op-op-lt-op-name-op-gt-op-op-op-op-op-op-op-op-op"><code translate="no">--products|-p &lt;name&gt;[,&lt;name&gt;...]</code></h3>
 <p>Takes only the <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/">products</a> specified by <code>&lt;name&gt;</code> and their dependencies into account.</p>
-<h3 id="op-op-op-op-settings-op-op-dir-op-lt-op-directory-op-gt-op"><code>--settings-dir &lt;directory&gt;</code></h3>
+/docs/qml-qbslanguageitems-product/" translate="no">products</a> specified by <code translate="no">&lt;name&gt;</code> and their dependencies into account.</p>
+<h3 id="op-op-op-op-settings-op-op-dir-op-lt-op-directory-op-gt-op"><code translate="no">--settings-dir &lt;directory&gt;</code></h3>
 <p>Reads all settings (such as <a href="https://qbs.io
-/docs/qml-qbslanguageitems-profile/">profile</a> information) from the specified <code>&lt;directory&gt;</code>. If the directory does not exist, it will be created.</p>
+/docs/qml-qbslanguageitems-profile/" translate="no">profile</a> information) from the specified <code translate="no">&lt;directory&gt;</code>. If the directory does not exist, it will be created.</p>
 <p>The default value is system-specific. For example:</p>
 <ul>
-<li>Linux: <code>$HOME/.config/QtProject/qbs</code></li>
-<li>Windows: <code>%APPDATA%\QtProject\qbs</code></li>
-<li>macOS: <code>$HOME/Library/Preferences/qbs</code></li>
+<li>Linux: <code translate="no">$HOME/.config/QtProject/qbs</code></li>
+<li>Windows: <code translate="no">%APPDATA%\QtProject\qbs</code></li>
+<li>macOS: <code translate="no">$HOME/Library/Preferences/qbs</code></li>
 </ul>
 <h2 id="parameters">Parameters</h2>
-<h3 id="config-configuration-op-op-name"><code>config:configuration-name</code></h3>
+<h3 id="config-configuration-op-op-name"><code translate="no">config:configuration-name</code></h3>
 <p>Specifies the build configuration to use.</p>
-<p>Qbs can build a project for one or multiple configurations at once, each having a different set of parameters. The <code>config</code> parameter has a special function: with each occurrence a new configuration instance begins and all subsequent parameters until the next <code>config</code> are assigned to this instance. Parameter assignments before the first occurrence of <code>config</code> are applied to all build configurations. Inside products and modules, the current active build configuration can be retrieved via <a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#configurationName-prop">qbs.configurationName</a>.</p>
-<p>In the following snippet, a profile <code>clang</code> is applied to all configurations while <code>cpp.optimization</code> is different for <code>debug</code> and <code>release</code>:</p>
-<pre class="cpp">profile:clang config:debug cpp<span class="operator">.</span>optimization:none config:release cpp<span class="operator">.</span>optimization:small</pre>
-<p>The value of <code>config</code> determines the name of the build folder and affects the default value of the <a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#buildVariant-prop">qbs.buildVariant</a> property. Qbs knows the <code>config</code> values <code>"debug"</code> and <code>"release"</code>, but in general any name can be chosen. When naming configurations created for special purposes, follow the rules for legal names generally used in programming languages:</p>
+<p>Qbs can build a project for one or multiple configurations at once, each having a different set of parameters. The <code translate="no">config</code> parameter has a special function: with each occurrence a new configuration instance begins and all subsequent parameters until the next <code translate="no">config</code> are assigned to this instance. Parameter assignments before the first occurrence of <code translate="no">config</code> are applied to all build configurations. Inside products and modules, the current active build configuration can be retrieved via <a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#configurationName-prop" translate="no">qbs.configurationName</a>.</p>
+<p>In the following snippet, a profile <code translate="no">clang</code> is applied to all configurations while <code translate="no">cpp.optimization</code> is different for <code translate="no">debug</code> and <code translate="no">release</code>:</p>
+<pre class="cpp" translate="no">profile:clang config:debug cpp<span class="operator">.</span>optimization:none config:release cpp<span class="operator">.</span>optimization:small</pre>
+<p>The value of <code translate="no">config</code> determines the name of the build folder and affects the default value of the <a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#buildVariant-prop" translate="no">qbs.buildVariant</a> property. Qbs knows the <code translate="no">config</code> values <code translate="no">"debug"</code> and <code translate="no">"release"</code>, but in general any name can be chosen. When naming configurations created for special purposes, follow the rules for legal names generally used in programming languages:</p>
 <ul>
 <li>The first character must be a letter (a-z), an underscore (_), or a dollar sign ($).</li>
 <li>Subsequent characters may be letters, digits, underscores, or dollar signs.</li>
 </ul>
 <h2 id="examples">Examples</h2>
-<p>Dumps the nodes tree into a file called <code>nodes-tree.log</code>:</p>
-<pre class="cpp">qbs dump<span class="operator">-</span>nodes<span class="operator">-</span>tree <span class="operator">&gt;</span>nodes<span class="operator">-</span>tree<span class="operator">.</span>log</pre>
+<p>Dumps the nodes tree into a file called <code translate="no">nodes-tree.log</code>:</p>
+<pre class="cpp" translate="no">qbs dump<span class="operator">-</span>nodes<span class="operator">-</span>tree <span class="operator">&gt;</span>nodes<span class="operator">-</span>tree<span class="operator">.</span>log</pre>
 </div>
 <!-- @@@cli-dump-nodes-tree.html -->
 </div>

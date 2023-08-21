@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual List of Built-in Services Utilities Service Qbs 2.0.1 Contents Available Operations cStringQuote getHash rfc1034Identifier versionCompare Utilities Service The Utilities service offers miscellaneous operations.
+    <meta name="description" content="Qbs Manual List of Built-in Services Utilities Service Qbs 2.1.1 Contents Available Operations cStringQuote getHash rfc1034Identifier versionCompare Utilities Service The Utilities service offers miscellaneous operations.
 Available Operations cStringQuote Utilities.cStringQuote(str: string): string Takes a string and escapes special characters in a way that the result is suitable for use as a C/C&#43;&#43; string literal. This function is typically used to specify values for cpp.defines.
 getHash Utilities.getHash(key: string): string Calculates a 16-byte hash of the input and returns it. ">
     <link rel="canonical" href="https://qbs.io/docs/jsextension-utilities/" />
@@ -19,7 +19,7 @@ getHash Utilities.getHash(key: string): string Calculates a 16-byte hash of the 
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual List of Built-in Services Utilities Service Qbs 2.0.1 Contents Available Operations cStringQuote getHash rfc1034Identifier versionCompare Utilities Service The Utilities service offers miscellaneous operations.
+<meta property="og:description" content="Qbs Manual List of Built-in Services Utilities Service Qbs 2.1.1 Contents Available Operations cStringQuote getHash rfc1034Identifier versionCompare Utilities Service The Utilities service offers miscellaneous operations.
 Available Operations cStringQuote Utilities.cStringQuote(str: string): string Takes a string and escapes special characters in a way that the result is suitable for use as a C/C&#43;&#43; string literal. This function is typically used to specify values for cpp.defines.
 getHash Utilities.getHash(key: string): string Calculates a 16-byte hash of the input and returns it." />
 <meta property="og:type" content="article" />
@@ -29,7 +29,7 @@ getHash Utilities.getHash(key: string): string Calculates a 16-byte hash of the 
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual List of Built-in Services Utilities Service Qbs 2.0.1 Contents Available Operations cStringQuote getHash rfc1034Identifier versionCompare Utilities Service The Utilities service offers miscellaneous operations.
+<meta name="twitter:description" content="Qbs Manual List of Built-in Services Utilities Service Qbs 2.1.1 Contents Available Operations cStringQuote getHash rfc1034Identifier versionCompare Utilities Service The Utilities service offers miscellaneous operations.
 Available Operations cStringQuote Utilities.cStringQuote(str: string): string Takes a string and escapes special characters in a way that the result is suitable for use as a C/C&#43;&#43; string literal. This function is typically used to specify values for cpp.defines.
 getHash Utilities.getHash(key: string): string Calculates a 16-byte hash of the input and returns it."/>
 
@@ -60,11 +60,11 @@ getHash Utilities.getHash(key: string): string Calculates a 16-byte hash of the 
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io
-/docs">Qbs Manual</a></li>
+/docs" translate="no">Qbs Manual</a></li>
 <li><a href="https://qbs.io
-/docs/list-of-builtin-services/">List of Built-in Services</a></li>
+/docs/list-of-builtin-services/" translate="no">List of Built-in Services</a></li>
 <li>Utilities Service</li>
-<li id="buildversion">Qbs 2.0.1</li>
+<li id="buildversion">Qbs 2.1.1</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -80,21 +80,21 @@ getHash Utilities.getHash(key: string): string Calculates a 16-byte hash of the 
 <div class="content"><h1 class="title">Utilities Service</h1>
 <!-- $$$jsextension-utilities.html-description -->
 <div class="descr" id="details">
-<p>The <code>Utilities</code> service offers miscellaneous operations.</p>
+<p>The <code translate="no">Utilities</code> service offers miscellaneous operations.</p>
 <h2 id="available-operations">Available Operations</h2>
 <h3 id="cstringquote">cStringQuote</h3>
-<pre class="cpp plain">Utilities.cStringQuote(str: string): string</pre>
+<pre class="cpp plain" translate="no">Utilities.cStringQuote(str: string): string</pre>
 <p>Takes a string and escapes special characters in a way that the result is suitable for use as a C/C++ string literal. This function is typically used to specify values for <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#defines-prop">cpp.defines</a>.</p>
+/docs/qml-qbsmodules-cpp/#defines-prop" translate="no">cpp.defines</a>.</p>
 <h3 id="gethash">getHash</h3>
-<pre class="cpp plain">Utilities.getHash(key: string): string</pre>
+<pre class="cpp plain" translate="no">Utilities.getHash(key: string): string</pre>
 <p>Calculates a 16-byte hash of the input and returns it. Rules in modules should use this function to find unique locations for output artifacts in the build directory without duplicating the whole directory structure of the respective input file (to deal with the case of two files with the same name in different subdirectories of the same product).</p>
 <h3 id="rfc1034identifier">rfc1034Identifier</h3>
-<pre class="cpp plain">Utilities.rfc1034Identifier(str: string): string</pre>
-<p>Returns an RFC-1034 compliant identifier based on the given string by replacing each character that is not Latin alphanumeric or <code>.</code> with <code>-</code>.</p>
+<pre class="cpp plain" translate="no">Utilities.rfc1034Identifier(str: string): string</pre>
+<p>Returns an RFC-1034 compliant identifier based on the given string by replacing each character that is not Latin alphanumeric or <code translate="no">.</code> with <code translate="no">-</code>.</p>
 <h3 id="versioncompare">versionCompare</h3>
-<pre class="cpp plain">Utilities.versionCompare(version1: string, version2: string): number</pre>
-<p>Interprets the two arguments as version numbers and returns a number that is smaller than, equal to, or greater than zero if <code>version1</code> is smaller than, equal to, or greater than <code>version2</code>, respectively.</p>
+<pre class="cpp plain" translate="no">Utilities.versionCompare(version1: string, version2: string): number</pre>
+<p>Interprets the two arguments as version numbers and returns a number that is smaller than, equal to, or greater than zero if <code translate="no">version1</code> is smaller than, equal to, or greater than <code translate="no">version2</code>, respectively.</p>
 <p>The version strings consist of up to three numbers separated by dots.</p>
 </div>
 <!-- @@@jsextension-utilities.html -->

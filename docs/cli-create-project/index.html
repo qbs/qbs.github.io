@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Command-Line Interface create-project Qbs 2.0.1 Contents Synopsis Description Options --blacklist &lt;blacklist&gt; --whitelist &lt;whitelist&gt; --flat --help|-h|-? Examples create-project Synopsis qbs create-project [--blacklist &lt;blacklist&gt;] [--whitelist &lt;whitelist&gt;] [--flat] Description Automatically generates Qbs project files from an arbitrary directory structure. You can filter the files to add to the project by blacklisting or whitelisting them. The command creates nested project files, unless you use the --flat option.
+    <meta name="description" content="Qbs Manual Command-Line Interface create-project Qbs 2.1.1 Contents Synopsis Description Options --blacklist &lt;blacklist&gt; --whitelist &lt;whitelist&gt; --flat --help|-h|-? Examples create-project Synopsis qbs create-project [--blacklist &lt;blacklist&gt;] [--whitelist &lt;whitelist&gt;] [--flat] Description Automatically generates Qbs project files from an arbitrary directory structure. You can filter the files to add to the project by blacklisting or whitelisting them. The command creates nested project files, unless you use the --flat option.
 This is a useful starting point when migrating from other build tools, such as qmake or CMake. ">
     <link rel="canonical" href="https://qbs.io/docs/cli-create-project/" />
 
@@ -18,7 +18,7 @@ This is a useful starting point when migrating from other build tools, such as q
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Command-Line Interface create-project Qbs 2.0.1 Contents Synopsis Description Options --blacklist &lt;blacklist&gt; --whitelist &lt;whitelist&gt; --flat --help|-h|-? Examples create-project Synopsis qbs create-project [--blacklist &lt;blacklist&gt;] [--whitelist &lt;whitelist&gt;] [--flat] Description Automatically generates Qbs project files from an arbitrary directory structure. You can filter the files to add to the project by blacklisting or whitelisting them. The command creates nested project files, unless you use the --flat option.
+<meta property="og:description" content="Qbs Manual Command-Line Interface create-project Qbs 2.1.1 Contents Synopsis Description Options --blacklist &lt;blacklist&gt; --whitelist &lt;whitelist&gt; --flat --help|-h|-? Examples create-project Synopsis qbs create-project [--blacklist &lt;blacklist&gt;] [--whitelist &lt;whitelist&gt;] [--flat] Description Automatically generates Qbs project files from an arbitrary directory structure. You can filter the files to add to the project by blacklisting or whitelisting them. The command creates nested project files, unless you use the --flat option.
 This is a useful starting point when migrating from other build tools, such as qmake or CMake." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/cli-create-project/" /><meta property="article:section" content="docs" />
@@ -27,7 +27,7 @@ This is a useful starting point when migrating from other build tools, such as q
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Command-Line Interface create-project Qbs 2.0.1 Contents Synopsis Description Options --blacklist &lt;blacklist&gt; --whitelist &lt;whitelist&gt; --flat --help|-h|-? Examples create-project Synopsis qbs create-project [--blacklist &lt;blacklist&gt;] [--whitelist &lt;whitelist&gt;] [--flat] Description Automatically generates Qbs project files from an arbitrary directory structure. You can filter the files to add to the project by blacklisting or whitelisting them. The command creates nested project files, unless you use the --flat option.
+<meta name="twitter:description" content="Qbs Manual Command-Line Interface create-project Qbs 2.1.1 Contents Synopsis Description Options --blacklist &lt;blacklist&gt; --whitelist &lt;whitelist&gt; --flat --help|-h|-? Examples create-project Synopsis qbs create-project [--blacklist &lt;blacklist&gt;] [--whitelist &lt;whitelist&gt;] [--flat] Description Automatically generates Qbs project files from an arbitrary directory structure. You can filter the files to add to the project by blacklisting or whitelisting them. The command creates nested project files, unless you use the --flat option.
 This is a useful starting point when migrating from other build tools, such as qmake or CMake."/>
 
 </head>
@@ -57,11 +57,11 @@ This is a useful starting point when migrating from other build tools, such as q
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io
-/docs">Qbs Manual</a></li>
+/docs" translate="no">Qbs Manual</a></li>
 <li><a href="https://qbs.io
-/docs/cli/">Command-Line Interface</a></li>
+/docs/cli/" translate="no">Command-Line Interface</a></li>
 <li>create-project</li>
-<li id="buildversion">Qbs 2.0.1</li>
+<li id="buildversion">Qbs 2.1.1</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -69,10 +69,10 @@ This is a useful starting point when migrating from other build tools, such as q
 <li class="level1"><a href="#synopsis">Synopsis</a></li>
 <li class="level1"><a href="#description">Description</a></li>
 <li class="level1"><a href="#options">Options</a></li>
-<li class="level2"><a href="#op-op-op-op-blacklist-op-lt-op-blacklist-op-gt-op"><code>--blacklist &lt;blacklist&gt;</code></a></li>
-<li class="level2"><a href="#op-op-op-op-whitelist-op-lt-op-whitelist-op-gt-op"><code>--whitelist &lt;whitelist&gt;</code></a></li>
-<li class="level2"><a href="#op-op-op-op-flat"><code>--flat</code></a></li>
-<li class="level2"><a href="#op-op-op-op-help-op-op-op-op-h-op-op-op-op-op-op"><code>--help|-h|-?</code></a></li>
+<li class="level2"><a href="#op-op-op-op-blacklist-op-lt-op-blacklist-op-gt-op"><code translate="no">--blacklist &lt;blacklist&gt;</code></a></li>
+<li class="level2"><a href="#op-op-op-op-whitelist-op-lt-op-whitelist-op-gt-op"><code translate="no">--whitelist &lt;whitelist&gt;</code></a></li>
+<li class="level2"><a href="#op-op-op-op-flat"><code translate="no">--flat</code></a></li>
+<li class="level2"><a href="#op-op-op-op-help-op-op-op-op-h-op-op-op-op-op-op"><code translate="no">--help|-h|-?</code></a></li>
 <li class="level1"><a href="#examples">Examples</a></li>
 </ul>
 </div>
@@ -81,29 +81,29 @@ This is a useful starting point when migrating from other build tools, such as q
 <!-- $$$cli-create-project.html-description -->
 <div class="descr" id="details">
 <h2 id="synopsis">Synopsis</h2>
-<pre class="cpp">qbs create<span class="operator">-</span>project <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>blacklist <span class="operator">&lt;</span>blacklist<span class="operator">&gt;</span><span class="operator">]</span> <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>whitelist <span class="operator">&lt;</span>whitelist<span class="operator">&gt;</span><span class="operator">]</span>
+<pre class="cpp" translate="no">qbs create<span class="operator">-</span>project <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>blacklist <span class="operator">&lt;</span>blacklist<span class="operator">&gt;</span><span class="operator">]</span> <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>whitelist <span class="operator">&lt;</span>whitelist<span class="operator">&gt;</span><span class="operator">]</span>
                    <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>flat<span class="operator">]</span></pre>
 <h2 id="description">Description</h2>
-<p>Automatically generates Qbs project files from an arbitrary directory structure. You can filter the files to add to the project by blacklisting or whitelisting them. The command creates nested project files, unless you use the <code>--flat</code> option.</p>
+<p>Automatically generates Qbs project files from an arbitrary directory structure. You can filter the files to add to the project by blacklisting or whitelisting them. The command creates nested project files, unless you use the <code translate="no">--flat</code> option.</p>
 <p>This is a useful starting point when migrating from other build tools, such as qmake or CMake.</p>
 <div class="admonition note">
 <p><b>Note: </b>Run this command from the project directory.</p>
 </div>
 <p>After generating the initial .qbs files, add the missing configuration variables and functions to them.</p>
 <h2 id="options">Options</h2>
-<h3 id="op-op-op-op-blacklist-op-lt-op-blacklist-op-gt-op"><code>--blacklist &lt;blacklist&gt;</code></h3>
-<p>Ignores files whose names match the patterns specified by <code>&lt;blacklist&gt;</code>. The list entries can contain wildcards and are separated by commas.</p>
+<h3 id="op-op-op-op-blacklist-op-lt-op-blacklist-op-gt-op"><code translate="no">--blacklist &lt;blacklist&gt;</code></h3>
+<p>Ignores files whose names match the patterns specified by <code translate="no">&lt;blacklist&gt;</code>. The list entries can contain wildcards and are separated by commas.</p>
 <p>By default, no files are ignored.</p>
-<h3 id="op-op-op-op-whitelist-op-lt-op-whitelist-op-gt-op"><code>--whitelist &lt;whitelist&gt;</code></h3>
-<p>Considers only files whose names match the patterns specified by <code>&lt;whitelist&gt;</code>. The list entries can contain wildcards and are separated by commas.</p>
+<h3 id="op-op-op-op-whitelist-op-lt-op-whitelist-op-gt-op"><code translate="no">--whitelist &lt;whitelist&gt;</code></h3>
+<p>Considers only files whose names match the patterns specified by <code translate="no">&lt;whitelist&gt;</code>. The list entries can contain wildcards and are separated by commas.</p>
 <p>By default, all files are considered.</p>
-<h3 id="op-op-op-op-flat"><code>--flat</code></h3>
+<h3 id="op-op-op-op-flat"><code translate="no">--flat</code></h3>
 <p>Does not create nested project files, even if there are subdirectories and the top-level directory does not contain any files.</p>
-<h3 id="op-op-op-op-help-op-op-op-op-h-op-op-op-op-op-op"><code>--help|-h|-?</code></h3>
+<h3 id="op-op-op-op-help-op-op-op-op-h-op-op-op-op-op-op"><code translate="no">--help|-h|-?</code></h3>
 <p>Displays help for the command.</p>
 <h2 id="examples">Examples</h2>
-<p>Creates <code>.qbs</code> files in the project directory when run from there:</p>
-<pre class="cpp">qbs create<span class="operator">-</span>project</pre>
+<p>Creates <code translate="no">.qbs</code> files in the project directory when run from there:</p>
+<pre class="cpp" translate="no">qbs create<span class="operator">-</span>project</pre>
 </div>
 <!-- @@@cli-create-project.html -->
 </div>

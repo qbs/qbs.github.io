@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual QbsModules cpp Qbs 2.0.1 Contents Properties Detailed Description Setting Up the Run Environment Dependency Parameters Relevant File Tags Relevant Job Pools cpp QML Type Provides C/C&#43;&#43; support. More...
+    <meta name="description" content="Qbs Manual QbsModules cpp Qbs 2.1.1 Contents Properties Detailed Description Setting Up the Run Environment Dependency Parameters Relevant File Tags Relevant Job Pools cpp QML Type Provides C/C&#43;&#43; support. More...
 Import Statement: import QbsModules Since: Qbs 1.0 List of all members, including inherited members Deprecated members Properties allowUnresolvedSymbols : bool alwaysUseLipo : bool architecture : string archiverName : string archiverPath : string assemblerFlags : stringList assemblerListingSuffix : string assemblerName : string assemblerPath : string automaticReferenceCounting : bool cFlags : stringList cLanguageVersion : stringList combineCSources : bool combineCxxSources : bool combineObjcSources : bool combineObjcxxSources : bool commonCompilerFlags : stringList compilerDefinesByLanguage : var compilerFrameworkPaths : pathList compilerIncludePaths : pathList compilerLibraryPaths : pathList compilerListingSuffix : string compilerName : string compilerPath : string compilerPathByLanguage : var compilerVersion : string compilerVersionMajor : int compilerVersionMinor : int compilerVersionPatch : int compilerWrapper : stringList cppFlags : stringList createSymlinks : bool cxxFlags : stringList cxxLanguageVersion : stringList cxxStandardLibrary : string debugInfoBundleSuffix : string debugInfoSuffix : string debugInformation : bool defines : stringList discardUnusedData : bool distributionFrameworkPaths : pathList distributionIncludePaths : pathList distributionLibraryPaths : pathList driverFlags : stringList driverLinkerFlags : stringList dsymutilFlags : stringList dsymutilPath : string dynamicLibraries : stringList dynamicLibraryImportSuffix : string dynamicLibraryPrefix : string dynamicLibrarySuffix : string enableCompilerDefinesByLanguage : stringList enableCxxLanguageMacro : string enableExceptions : bool enableReproducibleBuilds : bool enableRtti : bool enableSuspiciousLinkerFlagWarnings : bool endianness : string entryPoint : string exceptionHandlingModel : string executablePrefix : string executableSuffix : string exportedSymbolsCheckMode : string frameworkPaths : pathList frameworks : stringList generateAssemblerListingFiles : bool generateCompilerListingFiles : bool generateLinkerMapFile : bool generateManifestFile : bool includePaths : pathList libraryPaths : pathList linkerFlags : stringList linkerMapSuffix : string linkerMode : string linkerName : string linkerPath : string linkerVariant : string linkerWrapper : stringList lipoPath : string loadableModulePrefix : string loadableModuleSuffix : string minimumIosVersion : string minimumMacosVersion : string minimumTvosVersion : string minimumWatchosVersion : string minimumWindowsVersion : string nmName : string nmPath : string objcFlags : stringList objcopyName : string objcopyPath : string objcxxFlags : stringList objectSuffix : string optimization : string platformDefines : stringList positionIndependentCode : bool prefixHeaders : pathList removeDuplicateLibraries : bool requireAppContainer : bool requireAppExtensionSafeApi : bool rpathLinkFlag : string rpathOrigin : string rpaths : stringList runtimeLibrary : string separateDebugInformation : bool soVersion : string sonamePrefix : string staticLibraries : stringList staticLibraryPrefix : string staticLibrarySuffix : string stripName : string stripPath : string systemFrameworkPaths : pathList systemIncludePaths : pathList systemRunPaths : stringList toolchainInstallPath : string treatSystemHeadersAsDependencies : bool treatWarningsAsErrors : bool useCPrecompiledHeader : bool useCxxPrecompiledHeader : bool useLanguageVersionFallback : bool useObjcPrecompiledHeader : bool useObjcxxPrecompiledHeader : bool useRPathLink : bool useRPaths : bool variantSuffix : string visibility : string warningLevel : string weakFrameworks : stringList windowsApiAdditionalPartitions : stringList windowsApiCharacterSet : string windowsApiFamily : string windowsSdkVersion : string Detailed Description The cpp module contains the properties and rules for toolchains of the C/C&#43;&#43; family. ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-cpp/" />
 
@@ -18,7 +18,7 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual QbsModules cpp Qbs 2.0.1 Contents Properties Detailed Description Setting Up the Run Environment Dependency Parameters Relevant File Tags Relevant Job Pools cpp QML Type Provides C/C&#43;&#43; support. More...
+<meta property="og:description" content="Qbs Manual QbsModules cpp Qbs 2.1.1 Contents Properties Detailed Description Setting Up the Run Environment Dependency Parameters Relevant File Tags Relevant Job Pools cpp QML Type Provides C/C&#43;&#43; support. More...
 Import Statement: import QbsModules Since: Qbs 1.0 List of all members, including inherited members Deprecated members Properties allowUnresolvedSymbols : bool alwaysUseLipo : bool architecture : string archiverName : string archiverPath : string assemblerFlags : stringList assemblerListingSuffix : string assemblerName : string assemblerPath : string automaticReferenceCounting : bool cFlags : stringList cLanguageVersion : stringList combineCSources : bool combineCxxSources : bool combineObjcSources : bool combineObjcxxSources : bool commonCompilerFlags : stringList compilerDefinesByLanguage : var compilerFrameworkPaths : pathList compilerIncludePaths : pathList compilerLibraryPaths : pathList compilerListingSuffix : string compilerName : string compilerPath : string compilerPathByLanguage : var compilerVersion : string compilerVersionMajor : int compilerVersionMinor : int compilerVersionPatch : int compilerWrapper : stringList cppFlags : stringList createSymlinks : bool cxxFlags : stringList cxxLanguageVersion : stringList cxxStandardLibrary : string debugInfoBundleSuffix : string debugInfoSuffix : string debugInformation : bool defines : stringList discardUnusedData : bool distributionFrameworkPaths : pathList distributionIncludePaths : pathList distributionLibraryPaths : pathList driverFlags : stringList driverLinkerFlags : stringList dsymutilFlags : stringList dsymutilPath : string dynamicLibraries : stringList dynamicLibraryImportSuffix : string dynamicLibraryPrefix : string dynamicLibrarySuffix : string enableCompilerDefinesByLanguage : stringList enableCxxLanguageMacro : string enableExceptions : bool enableReproducibleBuilds : bool enableRtti : bool enableSuspiciousLinkerFlagWarnings : bool endianness : string entryPoint : string exceptionHandlingModel : string executablePrefix : string executableSuffix : string exportedSymbolsCheckMode : string frameworkPaths : pathList frameworks : stringList generateAssemblerListingFiles : bool generateCompilerListingFiles : bool generateLinkerMapFile : bool generateManifestFile : bool includePaths : pathList libraryPaths : pathList linkerFlags : stringList linkerMapSuffix : string linkerMode : string linkerName : string linkerPath : string linkerVariant : string linkerWrapper : stringList lipoPath : string loadableModulePrefix : string loadableModuleSuffix : string minimumIosVersion : string minimumMacosVersion : string minimumTvosVersion : string minimumWatchosVersion : string minimumWindowsVersion : string nmName : string nmPath : string objcFlags : stringList objcopyName : string objcopyPath : string objcxxFlags : stringList objectSuffix : string optimization : string platformDefines : stringList positionIndependentCode : bool prefixHeaders : pathList removeDuplicateLibraries : bool requireAppContainer : bool requireAppExtensionSafeApi : bool rpathLinkFlag : string rpathOrigin : string rpaths : stringList runtimeLibrary : string separateDebugInformation : bool soVersion : string sonamePrefix : string staticLibraries : stringList staticLibraryPrefix : string staticLibrarySuffix : string stripName : string stripPath : string systemFrameworkPaths : pathList systemIncludePaths : pathList systemRunPaths : stringList toolchainInstallPath : string treatSystemHeadersAsDependencies : bool treatWarningsAsErrors : bool useCPrecompiledHeader : bool useCxxPrecompiledHeader : bool useLanguageVersionFallback : bool useObjcPrecompiledHeader : bool useObjcxxPrecompiledHeader : bool useRPathLink : bool useRPaths : bool variantSuffix : string visibility : string warningLevel : string weakFrameworks : stringList windowsApiAdditionalPartitions : stringList windowsApiCharacterSet : string windowsApiFamily : string windowsSdkVersion : string Detailed Description The cpp module contains the properties and rules for toolchains of the C/C&#43;&#43; family." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-cpp/" /><meta property="article:section" content="docs" />
@@ -27,7 +27,7 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual QbsModules cpp Qbs 2.0.1 Contents Properties Detailed Description Setting Up the Run Environment Dependency Parameters Relevant File Tags Relevant Job Pools cpp QML Type Provides C/C&#43;&#43; support. More...
+<meta name="twitter:description" content="Qbs Manual QbsModules cpp Qbs 2.1.1 Contents Properties Detailed Description Setting Up the Run Environment Dependency Parameters Relevant File Tags Relevant Job Pools cpp QML Type Provides C/C&#43;&#43; support. More...
 Import Statement: import QbsModules Since: Qbs 1.0 List of all members, including inherited members Deprecated members Properties allowUnresolvedSymbols : bool alwaysUseLipo : bool architecture : string archiverName : string archiverPath : string assemblerFlags : stringList assemblerListingSuffix : string assemblerName : string assemblerPath : string automaticReferenceCounting : bool cFlags : stringList cLanguageVersion : stringList combineCSources : bool combineCxxSources : bool combineObjcSources : bool combineObjcxxSources : bool commonCompilerFlags : stringList compilerDefinesByLanguage : var compilerFrameworkPaths : pathList compilerIncludePaths : pathList compilerLibraryPaths : pathList compilerListingSuffix : string compilerName : string compilerPath : string compilerPathByLanguage : var compilerVersion : string compilerVersionMajor : int compilerVersionMinor : int compilerVersionPatch : int compilerWrapper : stringList cppFlags : stringList createSymlinks : bool cxxFlags : stringList cxxLanguageVersion : stringList cxxStandardLibrary : string debugInfoBundleSuffix : string debugInfoSuffix : string debugInformation : bool defines : stringList discardUnusedData : bool distributionFrameworkPaths : pathList distributionIncludePaths : pathList distributionLibraryPaths : pathList driverFlags : stringList driverLinkerFlags : stringList dsymutilFlags : stringList dsymutilPath : string dynamicLibraries : stringList dynamicLibraryImportSuffix : string dynamicLibraryPrefix : string dynamicLibrarySuffix : string enableCompilerDefinesByLanguage : stringList enableCxxLanguageMacro : string enableExceptions : bool enableReproducibleBuilds : bool enableRtti : bool enableSuspiciousLinkerFlagWarnings : bool endianness : string entryPoint : string exceptionHandlingModel : string executablePrefix : string executableSuffix : string exportedSymbolsCheckMode : string frameworkPaths : pathList frameworks : stringList generateAssemblerListingFiles : bool generateCompilerListingFiles : bool generateLinkerMapFile : bool generateManifestFile : bool includePaths : pathList libraryPaths : pathList linkerFlags : stringList linkerMapSuffix : string linkerMode : string linkerName : string linkerPath : string linkerVariant : string linkerWrapper : stringList lipoPath : string loadableModulePrefix : string loadableModuleSuffix : string minimumIosVersion : string minimumMacosVersion : string minimumTvosVersion : string minimumWatchosVersion : string minimumWindowsVersion : string nmName : string nmPath : string objcFlags : stringList objcopyName : string objcopyPath : string objcxxFlags : stringList objectSuffix : string optimization : string platformDefines : stringList positionIndependentCode : bool prefixHeaders : pathList removeDuplicateLibraries : bool requireAppContainer : bool requireAppExtensionSafeApi : bool rpathLinkFlag : string rpathOrigin : string rpaths : stringList runtimeLibrary : string separateDebugInformation : bool soVersion : string sonamePrefix : string staticLibraries : stringList staticLibraryPrefix : string staticLibrarySuffix : string stripName : string stripPath : string systemFrameworkPaths : pathList systemIncludePaths : pathList systemRunPaths : stringList toolchainInstallPath : string treatSystemHeadersAsDependencies : bool treatWarningsAsErrors : bool useCPrecompiledHeader : bool useCxxPrecompiledHeader : bool useLanguageVersionFallback : bool useObjcPrecompiledHeader : bool useObjcxxPrecompiledHeader : bool useRPathLink : bool useRPaths : bool variantSuffix : string visibility : string warningLevel : string weakFrameworks : stringList windowsApiAdditionalPartitions : stringList windowsApiCharacterSet : string windowsApiFamily : string windowsSdkVersion : string Detailed Description The cpp module contains the properties and rules for toolchains of the C/C&#43;&#43; family."/>
 
 </head>
@@ -57,11 +57,11 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io
-/docs">Qbs Manual</a></li>
+/docs" translate="no">Qbs Manual</a></li>
 <li><a href="https://qbs.io
-/docs/qbsmodules-qmlmodule/">QbsModules</a></li>
+/docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>cpp</li>
-<li id="buildversion">Qbs 2.0.1</li>
+<li id="buildversion">Qbs 2.1.1</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -75,11 +75,11 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<div class="content"><h1 class="title">cpp QML Type</h1>
+<div class="content"><h1 class="title" translate="no">cpp QML Type</h1>
 <!-- $$$cpp-brief -->
 <p>Provides C/C++ support. <a href="#details">More...</a></p>
 <!-- @@@cpp -->
-<div class="table"><table class="alignedsummary">
+<div class="table"><table class="alignedsummary" translate="no">
 <tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsModules</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.0</td></tr></tbody></table></div><ul>
 <li><a href="https://qbs.io
 /docs/qml-qbsmodules-cpp-members/">List of all members, including inherited members</a></li>
@@ -88,332 +88,332 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 </ul>
 <h2 id="properties">Properties</h2>
 <ul>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#allowUnresolvedSymbols-prop">allowUnresolvedSymbols</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#alwaysUseLipo-prop">alwaysUseLipo</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#architecture-prop">architecture</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#archiverName-prop">archiverName</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#archiverPath-prop">archiverPath</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#assemblerFlags-prop">assemblerFlags</a></b> : stringList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#assemblerListingSuffix-prop">assemblerListingSuffix</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#assemblerName-prop">assemblerName</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#assemblerPath-prop">assemblerPath</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#automaticReferenceCounting-prop">automaticReferenceCounting</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#cFlags-prop">cFlags</a></b> : stringList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#cLanguageVersion-prop">cLanguageVersion</a></b> : stringList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#combineCSources-prop">combineCSources</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#combineCxxSources-prop">combineCxxSources</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#combineObjcSources-prop">combineObjcSources</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#combineObjcxxSources-prop">combineObjcxxSources</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#commonCompilerFlags-prop">commonCompilerFlags</a></b> : stringList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#compilerDefinesByLanguage-prop">compilerDefinesByLanguage</a></b> : var</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#compilerFrameworkPaths-prop">compilerFrameworkPaths</a></b> : pathList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#compilerIncludePaths-prop">compilerIncludePaths</a></b> : pathList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#compilerLibraryPaths-prop">compilerLibraryPaths</a></b> : pathList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#compilerListingSuffix-prop">compilerListingSuffix</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#compilerName-prop">compilerName</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#compilerPath-prop">compilerPath</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#compilerPathByLanguage-prop">compilerPathByLanguage</a></b> : var</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#compilerVersion-prop">compilerVersion</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#compilerVersionMajor-prop">compilerVersionMajor</a></b> : int</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#compilerVersionMinor-prop">compilerVersionMinor</a></b> : int</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#compilerVersionPatch-prop">compilerVersionPatch</a></b> : int</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#compilerWrapper-prop">compilerWrapper</a></b> : stringList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#cppFlags-prop">cppFlags</a></b> : stringList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#createSymlinks-prop">createSymlinks</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#cxxFlags-prop">cxxFlags</a></b> : stringList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#cxxLanguageVersion-prop">cxxLanguageVersion</a></b> : stringList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#cxxStandardLibrary-prop">cxxStandardLibrary</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#debugInfoBundleSuffix-prop">debugInfoBundleSuffix</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#debugInfoSuffix-prop">debugInfoSuffix</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#debugInformation-prop">debugInformation</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#defines-prop">defines</a></b> : stringList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#discardUnusedData-prop">discardUnusedData</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#distributionFrameworkPaths-prop">distributionFrameworkPaths</a></b> : pathList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#distributionIncludePaths-prop">distributionIncludePaths</a></b> : pathList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#distributionLibraryPaths-prop">distributionLibraryPaths</a></b> : pathList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#driverFlags-prop">driverFlags</a></b> : stringList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#driverLinkerFlags-prop">driverLinkerFlags</a></b> : stringList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#dsymutilFlags-prop">dsymutilFlags</a></b> : stringList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#dsymutilPath-prop">dsymutilPath</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#dynamicLibraries-prop">dynamicLibraries</a></b> : stringList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#dynamicLibraryImportSuffix-prop">dynamicLibraryImportSuffix</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#dynamicLibraryPrefix-prop">dynamicLibraryPrefix</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#dynamicLibrarySuffix-prop">dynamicLibrarySuffix</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#enableCompilerDefinesByLanguage-prop">enableCompilerDefinesByLanguage</a></b> : stringList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#enableCxxLanguageMacro-prop">enableCxxLanguageMacro</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#enableExceptions-prop">enableExceptions</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#enableReproducibleBuilds-prop">enableReproducibleBuilds</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#enableRtti-prop">enableRtti</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#enableSuspiciousLinkerFlagWarnings-prop">enableSuspiciousLinkerFlagWarnings</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#endianness-prop">endianness</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#entryPoint-prop">entryPoint</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#exceptionHandlingModel-prop">exceptionHandlingModel</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#executablePrefix-prop">executablePrefix</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#executableSuffix-prop">executableSuffix</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#exportedSymbolsCheckMode-prop">exportedSymbolsCheckMode</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#frameworkPaths-prop">frameworkPaths</a></b> : pathList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#frameworks-prop">frameworks</a></b> : stringList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#generateAssemblerListingFiles-prop">generateAssemblerListingFiles</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#generateCompilerListingFiles-prop">generateCompilerListingFiles</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#generateLinkerMapFile-prop">generateLinkerMapFile</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#generateManifestFile-prop">generateManifestFile</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#includePaths-prop">includePaths</a></b> : pathList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#libraryPaths-prop">libraryPaths</a></b> : pathList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#linkerFlags-prop">linkerFlags</a></b> : stringList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#linkerMapSuffix-prop">linkerMapSuffix</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#linkerMode-prop">linkerMode</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#linkerName-prop">linkerName</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#linkerPath-prop">linkerPath</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#linkerVariant-prop">linkerVariant</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#linkerWrapper-prop">linkerWrapper</a></b> : stringList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#lipoPath-prop">lipoPath</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#loadableModulePrefix-prop">loadableModulePrefix</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#loadableModuleSuffix-prop">loadableModuleSuffix</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#minimumIosVersion-prop">minimumIosVersion</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#minimumMacosVersion-prop">minimumMacosVersion</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#minimumTvosVersion-prop">minimumTvosVersion</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#minimumWatchosVersion-prop">minimumWatchosVersion</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#minimumWindowsVersion-prop">minimumWindowsVersion</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#nmName-prop">nmName</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#nmPath-prop">nmPath</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#objcFlags-prop">objcFlags</a></b> : stringList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#objcopyName-prop">objcopyName</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#objcopyPath-prop">objcopyPath</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#objcxxFlags-prop">objcxxFlags</a></b> : stringList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#objectSuffix-prop">objectSuffix</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#optimization-prop">optimization</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#platformDefines-prop">platformDefines</a></b> : stringList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#positionIndependentCode-prop">positionIndependentCode</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#prefixHeaders-prop">prefixHeaders</a></b> : pathList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#removeDuplicateLibraries-prop">removeDuplicateLibraries</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#requireAppContainer-prop">requireAppContainer</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#requireAppExtensionSafeApi-prop">requireAppExtensionSafeApi</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#rpathLinkFlag-prop">rpathLinkFlag</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#rpathOrigin-prop">rpathOrigin</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#rpaths-prop">rpaths</a></b> : stringList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#runtimeLibrary-prop">runtimeLibrary</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#separateDebugInformation-prop">separateDebugInformation</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#soVersion-prop">soVersion</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#sonamePrefix-prop">sonamePrefix</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#staticLibraries-prop">staticLibraries</a></b> : stringList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#staticLibraryPrefix-prop">staticLibraryPrefix</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#staticLibrarySuffix-prop">staticLibrarySuffix</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#stripName-prop">stripName</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#stripPath-prop">stripPath</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#systemFrameworkPaths-prop">systemFrameworkPaths</a></b> : pathList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#systemIncludePaths-prop">systemIncludePaths</a></b> : pathList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#systemRunPaths-prop">systemRunPaths</a></b> : stringList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#toolchainInstallPath-prop">toolchainInstallPath</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#treatSystemHeadersAsDependencies-prop">treatSystemHeadersAsDependencies</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#treatWarningsAsErrors-prop">treatWarningsAsErrors</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#useCPrecompiledHeader-prop">useCPrecompiledHeader</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#useCxxPrecompiledHeader-prop">useCxxPrecompiledHeader</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#useLanguageVersionFallback-prop">useLanguageVersionFallback</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#useObjcPrecompiledHeader-prop">useObjcPrecompiledHeader</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#useObjcxxPrecompiledHeader-prop">useObjcxxPrecompiledHeader</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#useRPathLink-prop">useRPathLink</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#useRPaths-prop">useRPaths</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#variantSuffix-prop">variantSuffix</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#visibility-prop">visibility</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#warningLevel-prop">warningLevel</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#weakFrameworks-prop">weakFrameworks</a></b> : stringList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#windowsApiAdditionalPartitions-prop">windowsApiAdditionalPartitions</a></b> : stringList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#windowsApiCharacterSet-prop">windowsApiCharacterSet</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#windowsApiFamily-prop">windowsApiFamily</a></b> : string</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#windowsSdkVersion-prop">windowsSdkVersion</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#allowUnresolvedSymbols-prop" translate="no">allowUnresolvedSymbols</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#alwaysUseLipo-prop" translate="no">alwaysUseLipo</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#architecture-prop" translate="no">architecture</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#archiverName-prop" translate="no">archiverName</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#archiverPath-prop" translate="no">archiverPath</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#assemblerFlags-prop" translate="no">assemblerFlags</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#assemblerListingSuffix-prop" translate="no">assemblerListingSuffix</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#assemblerName-prop" translate="no">assemblerName</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#assemblerPath-prop" translate="no">assemblerPath</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#automaticReferenceCounting-prop" translate="no">automaticReferenceCounting</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#cFlags-prop" translate="no">cFlags</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#cLanguageVersion-prop" translate="no">cLanguageVersion</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#combineCSources-prop" translate="no">combineCSources</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#combineCxxSources-prop" translate="no">combineCxxSources</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#combineObjcSources-prop" translate="no">combineObjcSources</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#combineObjcxxSources-prop" translate="no">combineObjcxxSources</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#commonCompilerFlags-prop" translate="no">commonCompilerFlags</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#compilerDefinesByLanguage-prop" translate="no">compilerDefinesByLanguage</a></b> : var</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#compilerFrameworkPaths-prop" translate="no">compilerFrameworkPaths</a></b> : pathList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#compilerIncludePaths-prop" translate="no">compilerIncludePaths</a></b> : pathList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#compilerLibraryPaths-prop" translate="no">compilerLibraryPaths</a></b> : pathList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#compilerListingSuffix-prop" translate="no">compilerListingSuffix</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#compilerName-prop" translate="no">compilerName</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#compilerPath-prop" translate="no">compilerPath</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#compilerPathByLanguage-prop" translate="no">compilerPathByLanguage</a></b> : var</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#compilerVersion-prop" translate="no">compilerVersion</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#compilerVersionMajor-prop" translate="no">compilerVersionMajor</a></b> : int</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#compilerVersionMinor-prop" translate="no">compilerVersionMinor</a></b> : int</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#compilerVersionPatch-prop" translate="no">compilerVersionPatch</a></b> : int</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#compilerWrapper-prop" translate="no">compilerWrapper</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#cppFlags-prop" translate="no">cppFlags</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#createSymlinks-prop" translate="no">createSymlinks</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#cxxFlags-prop" translate="no">cxxFlags</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#cxxLanguageVersion-prop" translate="no">cxxLanguageVersion</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#cxxStandardLibrary-prop" translate="no">cxxStandardLibrary</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#debugInfoBundleSuffix-prop" translate="no">debugInfoBundleSuffix</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#debugInfoSuffix-prop" translate="no">debugInfoSuffix</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#debugInformation-prop" translate="no">debugInformation</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#defines-prop" translate="no">defines</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#discardUnusedData-prop" translate="no">discardUnusedData</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#distributionFrameworkPaths-prop" translate="no">distributionFrameworkPaths</a></b> : pathList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#distributionIncludePaths-prop" translate="no">distributionIncludePaths</a></b> : pathList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#distributionLibraryPaths-prop" translate="no">distributionLibraryPaths</a></b> : pathList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#driverFlags-prop" translate="no">driverFlags</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#driverLinkerFlags-prop" translate="no">driverLinkerFlags</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#dsymutilFlags-prop" translate="no">dsymutilFlags</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#dsymutilPath-prop" translate="no">dsymutilPath</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#dynamicLibraries-prop" translate="no">dynamicLibraries</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#dynamicLibraryImportSuffix-prop" translate="no">dynamicLibraryImportSuffix</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#dynamicLibraryPrefix-prop" translate="no">dynamicLibraryPrefix</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#dynamicLibrarySuffix-prop" translate="no">dynamicLibrarySuffix</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#enableCompilerDefinesByLanguage-prop" translate="no">enableCompilerDefinesByLanguage</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#enableCxxLanguageMacro-prop" translate="no">enableCxxLanguageMacro</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#enableExceptions-prop" translate="no">enableExceptions</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#enableReproducibleBuilds-prop" translate="no">enableReproducibleBuilds</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#enableRtti-prop" translate="no">enableRtti</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#enableSuspiciousLinkerFlagWarnings-prop" translate="no">enableSuspiciousLinkerFlagWarnings</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#endianness-prop" translate="no">endianness</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#entryPoint-prop" translate="no">entryPoint</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#exceptionHandlingModel-prop" translate="no">exceptionHandlingModel</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#executablePrefix-prop" translate="no">executablePrefix</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#executableSuffix-prop" translate="no">executableSuffix</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#exportedSymbolsCheckMode-prop" translate="no">exportedSymbolsCheckMode</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#frameworkPaths-prop" translate="no">frameworkPaths</a></b> : pathList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#frameworks-prop" translate="no">frameworks</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#generateAssemblerListingFiles-prop" translate="no">generateAssemblerListingFiles</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#generateCompilerListingFiles-prop" translate="no">generateCompilerListingFiles</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#generateLinkerMapFile-prop" translate="no">generateLinkerMapFile</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#generateManifestFile-prop" translate="no">generateManifestFile</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#includePaths-prop" translate="no">includePaths</a></b> : pathList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#libraryPaths-prop" translate="no">libraryPaths</a></b> : pathList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#linkerFlags-prop" translate="no">linkerFlags</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#linkerMapSuffix-prop" translate="no">linkerMapSuffix</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#linkerMode-prop" translate="no">linkerMode</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#linkerName-prop" translate="no">linkerName</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#linkerPath-prop" translate="no">linkerPath</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#linkerVariant-prop" translate="no">linkerVariant</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#linkerWrapper-prop" translate="no">linkerWrapper</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#lipoPath-prop" translate="no">lipoPath</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#loadableModulePrefix-prop" translate="no">loadableModulePrefix</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#loadableModuleSuffix-prop" translate="no">loadableModuleSuffix</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#minimumIosVersion-prop" translate="no">minimumIosVersion</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#minimumMacosVersion-prop" translate="no">minimumMacosVersion</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#minimumTvosVersion-prop" translate="no">minimumTvosVersion</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#minimumWatchosVersion-prop" translate="no">minimumWatchosVersion</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#minimumWindowsVersion-prop" translate="no">minimumWindowsVersion</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#nmName-prop" translate="no">nmName</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#nmPath-prop" translate="no">nmPath</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#objcFlags-prop" translate="no">objcFlags</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#objcopyName-prop" translate="no">objcopyName</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#objcopyPath-prop" translate="no">objcopyPath</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#objcxxFlags-prop" translate="no">objcxxFlags</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#objectSuffix-prop" translate="no">objectSuffix</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#optimization-prop" translate="no">optimization</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#platformDefines-prop" translate="no">platformDefines</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#positionIndependentCode-prop" translate="no">positionIndependentCode</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#prefixHeaders-prop" translate="no">prefixHeaders</a></b> : pathList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#removeDuplicateLibraries-prop" translate="no">removeDuplicateLibraries</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#requireAppContainer-prop" translate="no">requireAppContainer</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#requireAppExtensionSafeApi-prop" translate="no">requireAppExtensionSafeApi</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#rpathLinkFlag-prop" translate="no">rpathLinkFlag</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#rpathOrigin-prop" translate="no">rpathOrigin</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#rpaths-prop" translate="no">rpaths</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#runtimeLibrary-prop" translate="no">runtimeLibrary</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#separateDebugInformation-prop" translate="no">separateDebugInformation</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#soVersion-prop" translate="no">soVersion</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#sonamePrefix-prop" translate="no">sonamePrefix</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#staticLibraries-prop" translate="no">staticLibraries</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#staticLibraryPrefix-prop" translate="no">staticLibraryPrefix</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#staticLibrarySuffix-prop" translate="no">staticLibrarySuffix</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#stripName-prop" translate="no">stripName</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#stripPath-prop" translate="no">stripPath</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#systemFrameworkPaths-prop" translate="no">systemFrameworkPaths</a></b> : pathList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#systemIncludePaths-prop" translate="no">systemIncludePaths</a></b> : pathList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#systemRunPaths-prop" translate="no">systemRunPaths</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#toolchainInstallPath-prop" translate="no">toolchainInstallPath</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#treatSystemHeadersAsDependencies-prop" translate="no">treatSystemHeadersAsDependencies</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#treatWarningsAsErrors-prop" translate="no">treatWarningsAsErrors</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#useCPrecompiledHeader-prop" translate="no">useCPrecompiledHeader</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#useCxxPrecompiledHeader-prop" translate="no">useCxxPrecompiledHeader</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#useLanguageVersionFallback-prop" translate="no">useLanguageVersionFallback</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#useObjcPrecompiledHeader-prop" translate="no">useObjcPrecompiledHeader</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#useObjcxxPrecompiledHeader-prop" translate="no">useObjcxxPrecompiledHeader</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#useRPathLink-prop" translate="no">useRPathLink</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#useRPaths-prop" translate="no">useRPaths</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#variantSuffix-prop" translate="no">variantSuffix</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#visibility-prop" translate="no">visibility</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#warningLevel-prop" translate="no">warningLevel</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#weakFrameworks-prop" translate="no">weakFrameworks</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#windowsApiAdditionalPartitions-prop" translate="no">windowsApiAdditionalPartitions</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#windowsApiCharacterSet-prop" translate="no">windowsApiCharacterSet</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#windowsApiFamily-prop" translate="no">windowsApiFamily</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#windowsSdkVersion-prop" translate="no">windowsSdkVersion</a></b> : string</li>
 </ul>
 <!-- $$$cpp-description -->
 <h2 id="details">Detailed Description</h2>
-<p>The <code>cpp</code> module contains the properties and rules for toolchains of the C/C++ family. On Apple platforms, this includes support for Objective-C/C++.</p>
+<p>The <code translate="no">cpp</code> module contains the properties and rules for toolchains of the C/C++ family. On Apple platforms, this includes support for Objective-C/C++.</p>
 <h3 id="setting-up-the-run-environment">Setting Up the Run Environment</h3>
 <p>When running an application that has dependencies on dynamic libraries, the script specified by <a href="https://qbs.io
-/docs/qml-qbslanguageitems-module/#setupRunEnvironment-prop">Module.setupRunEnvironment</a> automatically adds the locations of the libraries to the environment. That is, to <code>PATH</code> on Windows, <code>DYLD_LIBRARY_PATH</code> on macOS, and <code>LD_LIBRARY_PATH</code> on Linux and other Unix platforms. If the value <code>"ignore-lib-dependencies"</code> shows up in the <code>config</code> array, this behavior is disabled. Users can set the value via the <a href="https://qbs.io
-/docs/cli-run/">run</a> command.</p>
+/docs/qml-qbslanguageitems-module/#setupRunEnvironment-prop" translate="no">Module.setupRunEnvironment</a> automatically adds the locations of the libraries to the environment. That is, to <code translate="no">PATH</code> on Windows, <code translate="no">DYLD_LIBRARY_PATH</code> on macOS, and <code translate="no">LD_LIBRARY_PATH</code> on Linux and other Unix platforms. If the value <code translate="no">"ignore-lib-dependencies"</code> shows up in the <code translate="no">config</code> array, this behavior is disabled. Users can set the value via the <a href="https://qbs.io
+/docs/cli-run/" translate="no">run</a> command.</p>
 <span id="dependency-parameters-cpp"></span><h3 id="dependency-parameters">Dependency Parameters</h3>
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th>Parameter</th><th>Type</th><th>Since</th><th>Default</th><th>Description</th></tr></thead>
-<tbody><tr valign="top" class="odd"><td><code>link</code></td><td><code>bool</code></td><td>1.9</td><td>undefined</td><td>If <code>false</code>, the dependency will not be linked, even if it is a valid input for a linker rule. This property affects library dependencies only.</td></tr>
-<tr valign="top" class="even"><td><code>linkWholeArchive</code></td><td><code>bool</code></td><td>1.9</td><td>undefined</td><td>If <code>true</code>, then if the dependency is a static library, all of its objects will be pulled into target binary, even if their symbols do not appear to be used. This parameter is mainly useful when creating a dynamic library from static libraries.</td></tr>
-<tr valign="top" class="odd"><td><code>symbolLinkMode</code></td><td><code>string</code></td><td>1.9</td><td>undefined</td><td>Attribute specifying how the library or framework will be linked. May contain the values: "weak", "lazy", "reexport", and "upward"; refer to the Apple ld64 man page for full details. <code>undefined</code> uses normal linking. Currently only applies when linking for Apple platforms.</td></tr>
+<tbody><tr valign="top" class="odd"><td><code translate="no">link</code></td><td><code translate="no">bool</code></td><td>1.9</td><td>undefined</td><td>If <code translate="no">false</code>, the dependency will not be linked, even if it is a valid input for a linker rule. This property affects library dependencies only.</td></tr>
+<tr valign="top" class="even"><td><code translate="no">linkWholeArchive</code></td><td><code translate="no">bool</code></td><td>1.9</td><td>undefined</td><td>If <code translate="no">true</code>, then if the dependency is a static library, all of its objects will be pulled into target binary, even if their symbols do not appear to be used. This parameter is mainly useful when creating a dynamic library from static libraries.</td></tr>
+<tr valign="top" class="odd"><td><code translate="no">symbolLinkMode</code></td><td><code translate="no">string</code></td><td>1.9</td><td>undefined</td><td>Attribute specifying how the library or framework will be linked. May contain the values: "weak", "lazy", "reexport", and "upward"; refer to the Apple ld64 man page for full details. <code translate="no">undefined</code> uses normal linking. Currently only applies when linking for Apple platforms.</td></tr>
 </tbody></table></div>
 <h3 id="relevant-file-tags">Relevant File Tags</h3>
 <span id="filetags-cpp"></span><div class="table"><table class="generic">
  <thead><tr class="qt-style"><th>Tag</th><th>Auto-tagged File Names</th><th>Since</th><th>Description</th></tr></thead>
-<tbody><tr valign="top" class="odd"><td><code>"application"</code></td><td>n/a</td><td>1.0.1</td><td>The rule that creates executable files (typically via a linker) attaches this tag to its output artifact.</td></tr>
-<tr valign="top" class="even"><td><code>"asm"</code></td><td><code>*.s</code> (for GCC-like toolchains), <code>*.asm</code> (for MSVC)</td><td>1.1.0</td><td>Source files with this tag serve as inputs to a rule invoking the toolchain's assembler. One object file is generated for each such file.</td></tr>
-<tr valign="top" class="odd"><td><code>"asm_cpp"</code></td><td><code>*.S</code>, <code>*.sx</code></td><td>1.1.0</td><td>Like <code>"asm"</code>, but for source files that need preprocessing. This tag only has an effect with GCC-like toolchains.</td></tr>
-<tr valign="top" class="even"><td><code>"c"</code></td><td><code>*.c</code> (if <code>combineCSources</code> is not enabled)</td><td>1.0.1</td><td>Source files with this tag serve as inputs to a rule invoking the toolchain's C compiler. One object file is generated for each such file.</td></tr>
-<tr valign="top" class="odd"><td><code>"c.combine"</code></td><td><code>*.c</code> (if <code>combineCSources</code> is enabled)</td><td>1.8</td><td>Source files with this tag serve as inputs to a rule combining them into a single C file, which will then be compiled.</td></tr>
-<tr valign="top" class="even"><td><code>"cpp"</code></td><td><code>*.C</code>, <code>*.cpp</code>, <code>*.cxx</code>, <code>*.c++</code>, <code>*.cc</code> (if <code>combineCxxSources</code> is not enabled)</td><td>1.0.1</td><td>Source files with this tag serve as inputs to a rule invoking the toolchain's C++ compiler. One object file is generated for each such file.</td></tr>
-<tr valign="top" class="odd"><td><code>"cpp.combine"</code></td><td><code>*.C</code>, <code>*.cpp</code>, <code>*.cxx</code>, <code>*.c++</code>, <code>*.cc</code> (if <code>combineCxxSources</code> is enabled)</td><td>1.8</td><td>Source files with this tag serve as inputs to a rule combining them into a single C++ file, which will then be compiled.</td></tr>
-<tr valign="top" class="even"><td><code>"c_pch_src"</code>, <code>"cpp_pch_src"</code>, <code>"objc_pch_src"</code>, <code>"objcpp_pch_src"</code></td><td>-</td><td>1.5</td><td>Files with this tag will be turned into precompiled headers for C, C++, Objective-C and Objective-C++, respectively. There can be only one such file per product and language.</td></tr>
-<tr valign="top" class="odd"><td><code>"def"</code></td><td>-</td><td>1.17.0</td><td>This tag is used for a module-definition file (.def) to be passed to the linker. Such a file provides the linker with information about exports, attributes, and other information about the program to be linked. This file tag only has an effect with the MSVC toolchain.</td></tr>
-<tr valign="top" class="even"><td><code>"dynamiclibrary"</code></td><td>n/a</td><td>1.0.1</td><td>The rule that creates dynamic libraries (typically via a linker) attaches this tag to its output artifact.</td></tr>
-<tr valign="top" class="odd"><td><code>"dynamiclibrary_import"</code></td><td>n/a</td><td>1.0.0</td><td>This tag is used for import libraries of dynamic libraries. For example, the MSVC linker rule creates a <code>dynamiclibrary_import</code> artifact <code>foo.lib</code> in addition to a <code>dynamiclibrary</code> artifact <code>foo.dll</code>.</td></tr>
-<tr valign="top" class="even"><td><code>"hpp"</code></td><td><code>*.h</code>, <code>*.H</code>, <code>*.hpp</code>, <code>*.hxx</code>, <code>*.h++</code></td><td>1.0.1</td><td>This tag is used for header files (C, C++, Objective-C and Objective-C++). No rule in this module generates output artifacts from such files directly, but the compiler rule will have a dependency on all rules that create such files.</td></tr>
-<tr valign="top" class="odd"><td><code>"linkerscript"</code></td><td>-</td><td>1.5.0</td><td>This tag is used for <code>ld</code> linker scripts. You can provide such a file if you need to replace the default linker script. This file tag only has an effect with GCC-like toolchains. The linker needs to be <code>ld</code>-compatible.</td></tr>
-<tr valign="top" class="even"><td><code>"obj"</code></td><td>n/a</td><td>1.0.1</td><td>The rule that creates object files (typically via a compiler) attaches this tag to its output artifacts. Such files are usually intermediate artifacts of the build process and rarely need to be referenced in project files.</td></tr>
-<tr valign="top" class="odd"><td><code>"objc"</code></td><td><code>*.m</code> (if <code>combineObjcSources</code> is not enabled)</td><td>1.1.0</td><td>Source files with this tag serve as inputs to a rule invoking the toolchain's Objective-C compiler. One object file is generated for each such file.</td></tr>
-<tr valign="top" class="even"><td><code>"objc.combine"</code></td><td><code>*.m</code> (if <code>combineObjcSources</code> is enabled)</td><td>1.8</td><td>Source files with this tag serve as inputs to a rule combining them into a single Objective-C file, which will then be compiled.</td></tr>
-<tr valign="top" class="odd"><td><code>"objcpp"</code></td><td><code>*.mm</code> (if <code>combineObjcxxSources</code> is not enabled)</td><td>1.1.0</td><td>Source files with this tag serve as inputs to a rule invoking the toolchain's Objective-C++ compiler. One object file is generated for each such file.</td></tr>
-<tr valign="top" class="even"><td><code>"objcpp.combine"</code></td><td><code>*.mm</code> (if <code>combineObjcxxSources</code> is enabled)</td><td>1.8</td><td>Source files with this tag serve as inputs to a rule combining them into a single Objective-C++ file, which will then be compiled.</td></tr>
-<tr valign="top" class="odd"><td><code>"rc"</code></td><td><code>*.rc</code></td><td>1.1.0</td><td>Files with this tag serve as inputs to the Windows resource compiler. One object file is generated for each such file. The tag has no effect on target platforms other than Windows.</td></tr>
-<tr valign="top" class="even"><td><code>"staticlibrary"</code></td><td>n/a</td><td>1.0.1</td><td>The rule that creates static libraries (typically via a linker) attaches this tag to its output artifact.</td></tr>
-<tr valign="top" class="odd"><td><code>"versionscript"</code></td><td>-</td><td>1.5.0</td><td>This tag is used for <code>ld</code> linker scripts. You can provide such a file if you need fine-grained control over the symbols present in a shared library. This file tag only has an effect with GCC-like toolchains. The linker needs to be <code>ld</code>-compatible.</td></tr>
+<tbody><tr valign="top" class="odd"><td><code translate="no">"application"</code></td><td>n/a</td><td>1.0.1</td><td>The rule that creates executable files (typically via a linker) attaches this tag to its output artifact.</td></tr>
+<tr valign="top" class="even"><td><code translate="no">"asm"</code></td><td><code translate="no">*.s</code> (for GCC-like toolchains), <code translate="no">*.asm</code> (for MSVC)</td><td>1.1.0</td><td>Source files with this tag serve as inputs to a rule invoking the toolchain's assembler. One object file is generated for each such file.</td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"asm_cpp"</code></td><td><code translate="no">*.S</code>, <code translate="no">*.sx</code></td><td>1.1.0</td><td>Like <code translate="no">"asm"</code>, but for source files that need preprocessing. This tag only has an effect with GCC-like toolchains.</td></tr>
+<tr valign="top" class="even"><td><code translate="no">"c"</code></td><td><code translate="no">*.c</code> (if <code translate="no">combineCSources</code> is not enabled)</td><td>1.0.1</td><td>Source files with this tag serve as inputs to a rule invoking the toolchain's C compiler. One object file is generated for each such file.</td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"c.combine"</code></td><td><code translate="no">*.c</code> (if <code translate="no">combineCSources</code> is enabled)</td><td>1.8</td><td>Source files with this tag serve as inputs to a rule combining them into a single C file, which will then be compiled.</td></tr>
+<tr valign="top" class="even"><td><code translate="no">"cpp"</code></td><td><code translate="no">*.C</code>, <code translate="no">*.cpp</code>, <code translate="no">*.cxx</code>, <code translate="no">*.c++</code>, <code translate="no">*.cc</code> (if <code translate="no">combineCxxSources</code> is not enabled)</td><td>1.0.1</td><td>Source files with this tag serve as inputs to a rule invoking the toolchain's C++ compiler. One object file is generated for each such file.</td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"cpp.combine"</code></td><td><code translate="no">*.C</code>, <code translate="no">*.cpp</code>, <code translate="no">*.cxx</code>, <code translate="no">*.c++</code>, <code translate="no">*.cc</code> (if <code translate="no">combineCxxSources</code> is enabled)</td><td>1.8</td><td>Source files with this tag serve as inputs to a rule combining them into a single C++ file, which will then be compiled.</td></tr>
+<tr valign="top" class="even"><td><code translate="no">"c_pch_src"</code>, <code translate="no">"cpp_pch_src"</code>, <code translate="no">"objc_pch_src"</code>, <code translate="no">"objcpp_pch_src"</code></td><td>-</td><td>1.5</td><td>Files with this tag will be turned into precompiled headers for C, C++, Objective-C and Objective-C++, respectively. There can be only one such file per product and language.</td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"def"</code></td><td>-</td><td>1.17.0</td><td>This tag is used for a module-definition file (.def) to be passed to the linker. Such a file provides the linker with information about exports, attributes, and other information about the program to be linked. This file tag only has an effect with the MSVC toolchain.</td></tr>
+<tr valign="top" class="even"><td><code translate="no">"dynamiclibrary"</code></td><td>n/a</td><td>1.0.1</td><td>The rule that creates dynamic libraries (typically via a linker) attaches this tag to its output artifact.</td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"dynamiclibrary_import"</code></td><td>n/a</td><td>1.0.0</td><td>This tag is used for import libraries of dynamic libraries. For example, the MSVC linker rule creates a <code translate="no">dynamiclibrary_import</code> artifact <code translate="no">foo.lib</code> in addition to a <code translate="no">dynamiclibrary</code> artifact <code translate="no">foo.dll</code>.</td></tr>
+<tr valign="top" class="even"><td><code translate="no">"hpp"</code></td><td><code translate="no">*.h</code>, <code translate="no">*.H</code>, <code translate="no">*.hpp</code>, <code translate="no">*.hxx</code>, <code translate="no">*.h++</code></td><td>1.0.1</td><td>This tag is used for header files (C, C++, Objective-C and Objective-C++). No rule in this module generates output artifacts from such files directly, but the compiler rule will have a dependency on all rules that create such files.</td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"linkerscript"</code></td><td>-</td><td>1.5.0</td><td>This tag is used for <code translate="no">ld</code> linker scripts. You can provide such a file if you need to replace the default linker script. This file tag only has an effect with GCC-like toolchains. The linker needs to be <code translate="no">ld</code>-compatible.</td></tr>
+<tr valign="top" class="even"><td><code translate="no">"obj"</code></td><td>n/a</td><td>1.0.1</td><td>The rule that creates object files (typically via a compiler) attaches this tag to its output artifacts. Such files are usually intermediate artifacts of the build process and rarely need to be referenced in project files.</td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"objc"</code></td><td><code translate="no">*.m</code> (if <code translate="no">combineObjcSources</code> is not enabled)</td><td>1.1.0</td><td>Source files with this tag serve as inputs to a rule invoking the toolchain's Objective-C compiler. One object file is generated for each such file.</td></tr>
+<tr valign="top" class="even"><td><code translate="no">"objc.combine"</code></td><td><code translate="no">*.m</code> (if <code translate="no">combineObjcSources</code> is enabled)</td><td>1.8</td><td>Source files with this tag serve as inputs to a rule combining them into a single Objective-C file, which will then be compiled.</td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"objcpp"</code></td><td><code translate="no">*.mm</code> (if <code translate="no">combineObjcxxSources</code> is not enabled)</td><td>1.1.0</td><td>Source files with this tag serve as inputs to a rule invoking the toolchain's Objective-C++ compiler. One object file is generated for each such file.</td></tr>
+<tr valign="top" class="even"><td><code translate="no">"objcpp.combine"</code></td><td><code translate="no">*.mm</code> (if <code translate="no">combineObjcxxSources</code> is enabled)</td><td>1.8</td><td>Source files with this tag serve as inputs to a rule combining them into a single Objective-C++ file, which will then be compiled.</td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"rc"</code></td><td><code translate="no">*.rc</code></td><td>1.1.0</td><td>Files with this tag serve as inputs to the Windows resource compiler. One object file is generated for each such file. The tag has no effect on target platforms other than Windows.</td></tr>
+<tr valign="top" class="even"><td><code translate="no">"staticlibrary"</code></td><td>n/a</td><td>1.0.1</td><td>The rule that creates static libraries (typically via a linker) attaches this tag to its output artifact.</td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"versionscript"</code></td><td>-</td><td>1.5.0</td><td>This tag is used for <code translate="no">ld</code> linker scripts. You can provide such a file if you need fine-grained control over the symbols present in a shared library. This file tag only has an effect with GCC-like toolchains. The linker needs to be <code translate="no">ld</code>-compatible.</td></tr>
 </tbody></table></div>
 <h3 id="relevant-job-pools">Relevant Job Pools</h3>
 <span id="cpp-job-pools"></span><div class="table"><table class="generic">
  <thead><tr class="qt-style"><th>Pool</th><th>Since</th><th>Description</th></tr></thead>
-<tbody><tr valign="top" class="odd"><td><code>"assembler"</code></td><td>1.13</td><td>The job pool used by rules that run the toolchain's assembler. This is only relevant for direct invocations of the assembler binary, not for running it indirectly via the compiler.</td></tr>
-<tr valign="top" class="even"><td><code>"compiler"</code></td><td>1.13</td><td>The job pool used by rules that run a compiler. All language variants use the same pool.</td></tr>
-<tr valign="top" class="odd"><td><code>"linker"</code></td><td>1.13</td><td>The job pool used by rules that run a linker.</td></tr>
+<tbody><tr valign="top" class="odd"><td><code translate="no">"assembler"</code></td><td>1.13</td><td>The job pool used by rules that run the toolchain's assembler. This is only relevant for direct invocations of the assembler binary, not for running it indirectly via the compiler.</td></tr>
+<tr valign="top" class="even"><td><code translate="no">"compiler"</code></td><td>1.13</td><td>The job pool used by rules that run a compiler. All language variants use the same pool.</td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"linker"</code></td><td>1.13</td><td>The job pool used by rules that run a linker.</td></tr>
 </tbody></table></div>
 <!-- @@@cpp -->
 <h2>Property Documentation</h2>
 <!-- $$$allowUnresolvedSymbols -->
 <div class="qmlitem"><h3 class="qmlproto">allowUnresolvedSymbols: bool</h3>
-<div class="qmldoc"><p>Set to <code>true</code> if you want the linking step to succeed even if the resulting binary contains unresolved symbols. Normally, this makes little sense, but in special cases it is possible that the respective symbols will be available at load time even if they are not present during linking.</p>
+<div class="qmldoc"><p>Set to <code translate="no">true</code> if you want the linking step to succeed even if the resulting binary contains unresolved symbols. Normally, this makes little sense, but in special cases it is possible that the respective symbols will be available at load time even if they are not present during linking.</p>
 <p>Default: Undefined</p>
 <p>This property was introduced in Qbs 1.2.</p>
 </div></div><!-- @@@allowUnresolvedSymbols -->
 <br>
 <!-- $$$alwaysUseLipo -->
 <div class="qmlitem"><h3 class="qmlproto">alwaysUseLipo: bool</h3>
-<div class="qmldoc"><p>Whether to always use <code>lipo</code> when combining Mach-O output files on Apple platforms, even if there is only one CPU architecture. This value should not normally need to be changed.</p>
-<p>Default: <code>false</code></p>
+<div class="qmldoc"><p>Whether to always use <code translate="no">lipo</code> when combining Mach-O output files on Apple platforms, even if there is only one CPU architecture. This value should not normally need to be changed.</p>
+<p>Default: <code translate="no">false</code></p>
 <p>This property was introduced in Qbs 1.9.</p>
 </div></div><!-- @@@alwaysUseLipo -->
 <br>
@@ -421,14 +421,14 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <div class="qmlitem"><h3 class="qmlproto">architecture: string</h3>
 <div class="qmldoc"><p>The target architecture.</p>
 <p>Default: <a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#architecture-prop">qbs.architecture</a></p>
+/docs/qml-qbsmodules-qbs/#architecture-prop" translate="no">qbs.architecture</a></p>
 </div></div><!-- @@@architecture -->
 <br>
 <!-- $$$archiverName -->
 <div class="qmlitem"><h3 class="qmlproto">archiverName: string</h3>
 <div class="qmldoc"><p>This property is specific to Unix platforms.</p>
 <p>The name of the archiver binary. This property is set in the build profile.</p>
-<p>Default: <code>"ar"</code></p>
+<p>Default: <code translate="no">"ar"</code></p>
 </div></div><!-- @@@archiverName -->
 <br>
 <!-- $$$archiverPath -->
@@ -436,7 +436,7 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <div class="qmldoc"><p>This property is specific to Unix platforms.</p>
 <p>The full path of the archiver binary. This property is set in the build profile.</p>
 <p>Default: Determined by <a href="https://qbs.io
-/docs/cli-setup-toolchains/">qbs setup-toolchains</a>.</p>
+/docs/cli-setup-toolchains/" translate="no">qbs setup-toolchains</a>.</p>
 </div></div><!-- @@@archiverPath -->
 <br>
 <!-- $$$assemblerFlags -->
@@ -450,14 +450,14 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <div class="qmlitem"><h3 class="qmlproto">assemblerListingSuffix: string</h3>
 <div class="qmldoc"><p>A string to append to the generated assembler listing files.</p>
 <p>Default: <a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#toolchain-prop">toolchain</a>-dependent, typical value is <code>".lst"</code></p>
+/docs/qml-qbsmodules-qbs/#toolchain-prop" translate="no">toolchain</a>-dependent, typical value is <code translate="no">".lst"</code></p>
 </div></div><!-- @@@assemblerListingSuffix -->
 <br>
 <!-- $$$assemblerName -->
 <div class="qmlitem"><h3 class="qmlproto">assemblerName: string</h3>
 <div class="qmldoc"><p>The name of the assembler binary. This property is set in the build profile.</p>
 <p>Default: Determined by <a href="https://qbs.io
-/docs/cli-setup-toolchains/">qbs setup-toolchains</a>.</p>
+/docs/cli-setup-toolchains/" translate="no">qbs setup-toolchains</a>.</p>
 <p>This property was introduced in Qbs 1.5.</p>
 </div></div><!-- @@@assemblerName -->
 <br>
@@ -465,7 +465,7 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <div class="qmlitem"><h3 class="qmlproto">assemblerPath: string</h3>
 <div class="qmldoc"><p>The full path of the assembler binary. This property is set in the build profile.</p>
 <p>Default: Determined by <a href="https://qbs.io
-/docs/cli-setup-toolchains/">qbs setup-toolchains</a>.</p>
+/docs/cli-setup-toolchains/" translate="no">qbs setup-toolchains</a>.</p>
 <p>This property was introduced in Qbs 1.5.</p>
 </div></div><!-- @@@assemblerPath -->
 <br>
@@ -473,7 +473,7 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <div class="qmlitem"><h3 class="qmlproto">automaticReferenceCounting: bool</h3>
 <div class="qmldoc"><p>This property is specific to Apple platforms.</p>
 <p>Whether to enable Automatic Reference Counting (ARC) for Objective-C and Objective-C++ source code.</p>
-<p>If left undefined, uses the compiler default (probably <code>false</code>).</p>
+<p>If left undefined, uses the compiler default (probably <code translate="no">false</code>).</p>
 <p>Default: Undefined</p>
 <p>This property was introduced in Qbs 1.4.</p>
 </div></div><!-- @@@automaticReferenceCounting -->
@@ -489,7 +489,7 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <div class="qmldoc"><p>The version of the C standard with which the code must comply.</p>
 <p>If this property is set, the corresponding compiler and linker flags will be added, depending on the toolchain.</p>
 <p>If the value is left undefined, the compiler default will be used. If the list contains more than one value, the highest version is chosen.</p>
-<p>Possible values include: <code>"c89"</code>, <code>"c99"</code>, <code>"c11"</code>, <code>"c17"</code>, <code>"c2x"</code>.</p>
+<p>Possible values include: <code translate="no">"c89"</code>, <code translate="no">"c99"</code>, <code translate="no">"c11"</code>, <code translate="no">"c17"</code>, <code translate="no">"c2x"</code>.</p>
 <p>Default: Undefined</p>
 <p>This property was introduced in Qbs 1.4.</p>
 </div></div><!-- @@@cLanguageVersion -->
@@ -497,50 +497,50 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <!-- $$$combineCSources -->
 <div class="qmlitem"><h3 class="qmlproto">combineCSources: bool</h3>
 <div class="qmldoc"><p>Enabling this property on a <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/">product</a> instructs the <a href="https://qbs.io
-/docs/qml-qbslanguageitems-filetagger/">file tagger</a> to attach the tag <code>"c.combine"</code> to C sources, rather than <code>"c"</code>. As a result, all C sources of the product will be combined into a single file, which is then compiled.</p>
+/docs/qml-qbslanguageitems-product/" translate="no">product</a> instructs the <a href="https://qbs.io
+/docs/qml-qbslanguageitems-filetagger/" translate="no">file tagger</a> to attach the tag <code translate="no">"c.combine"</code> to C sources, rather than <code translate="no">"c"</code>. As a result, all C sources of the product will be combined into a single file, which is then compiled.</p>
 <p>This can speed up initial compilation significantly, but is of course detrimental in the context of incremental builds. Also, perfectly legal code may fail to compile with this option due to the merging of translation units.</p>
 <p>To enable this property in a product that has sources that cannot be merged, put the sources into a dedicated <a href="https://qbs.io
-/docs/qml-qbslanguageitems-group/">Group</a> and set their <a href="https://qbs.io
-/docs/qml-qbslanguageitems-group/#fileTags-prop">fileTags</a> property to <code>"c"</code>, overriding the file tagger.</p>
+/docs/qml-qbslanguageitems-group/" translate="no">Group</a> and set their <a href="https://qbs.io
+/docs/qml-qbslanguageitems-group/#fileTags-prop" translate="no">fileTags</a> property to <code translate="no">"c"</code>, overriding the file tagger.</p>
 <div class="admonition note">
 <p><b>Note: </b>Module properties set on specific source files (that is, at the Group level) will not be taken into account when building the combined file. You either need to set these properties at the product level or prevent the respective files from getting combined via the mechanism described above.</p>
 </div>
-<p>Default: <code>false</code></p>
+<p>Default: <code translate="no">false</code></p>
 <p>This property was introduced in Qbs 1.8.</p>
 </div></div><!-- @@@combineCSources -->
 <br>
 <!-- $$$combineCxxSources -->
 <div class="qmlitem"><h3 class="qmlproto">combineCxxSources: bool</h3>
 <div class="qmldoc"><p>Like <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#combineCSources-prop">combineCSources</a>, but for C++. The <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#filetags-cpp">relevant file tags</a> are <code>"cpp"</code> and <code>"cpp.combine"</code>.</p>
-<p>Default: <code>false</code></p>
+/docs/qml-qbsmodules-cpp/#combineCSources-prop" translate="no">combineCSources</a>, but for C++. The <a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#filetags-cpp" translate="no">relevant file tags</a> are <code translate="no">"cpp"</code> and <code translate="no">"cpp.combine"</code>.</p>
+<p>Default: <code translate="no">false</code></p>
 <p>This property was introduced in Qbs 1.8.</p>
 <p><b>See also </b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#combineCSources-prop">combineCSources</a>.</p>
+/docs/qml-qbsmodules-cpp/#combineCSources-prop" translate="no">combineCSources</a>.</p>
 </div></div><!-- @@@combineCxxSources -->
 <br>
 <!-- $$$combineObjcSources -->
 <div class="qmlitem"><h3 class="qmlproto">combineObjcSources: bool</h3>
 <div class="qmldoc"><p>Like <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#combineCSources-prop">combineCSources</a>, but for Objective-C. The <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#filetags-cpp">relevant file tags</a> are <code>"objc"</code> and <code>"objc.combine"</code>.</p>
-<p>Default: <code>false</code></p>
+/docs/qml-qbsmodules-cpp/#combineCSources-prop" translate="no">combineCSources</a>, but for Objective-C. The <a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#filetags-cpp" translate="no">relevant file tags</a> are <code translate="no">"objc"</code> and <code translate="no">"objc.combine"</code>.</p>
+<p>Default: <code translate="no">false</code></p>
 <p>This property was introduced in Qbs 1.8.</p>
 <p><b>See also </b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#combineCSources-prop">combineCSources</a>.</p>
+/docs/qml-qbsmodules-cpp/#combineCSources-prop" translate="no">combineCSources</a>.</p>
 </div></div><!-- @@@combineObjcSources -->
 <br>
 <!-- $$$combineObjcxxSources -->
 <div class="qmlitem"><h3 class="qmlproto">combineObjcxxSources: bool</h3>
 <div class="qmldoc"><p>Like <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#combineCSources-prop">combineCSources</a>, but for Objective-C++. The <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#filetags-cpp">relevant file tags</a> are <code>"objcpp"</code> and <code>"objcpp.combine"</code>.</p>
-<p>Default: <code>false</code></p>
+/docs/qml-qbsmodules-cpp/#combineCSources-prop" translate="no">combineCSources</a>, but for Objective-C++. The <a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#filetags-cpp" translate="no">relevant file tags</a> are <code translate="no">"objcpp"</code> and <code translate="no">"objcpp.combine"</code>.</p>
+<p>Default: <code translate="no">false</code></p>
 <p>This property was introduced in Qbs 1.8.</p>
 <p><b>See also </b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#combineCSources-prop">combineCSources</a>.</p>
+/docs/qml-qbsmodules-cpp/#combineCSources-prop" translate="no">combineCSources</a>.</p>
 </div></div><!-- @@@combineObjcxxSources -->
 <br>
 <!-- $$$commonCompilerFlags -->
@@ -552,11 +552,11 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <br>
 <!-- $$$compilerDefinesByLanguage -->
 <div class="qmlitem"><h3 class="qmlproto">compilerDefinesByLanguage: var</h3>
-<div class="qmldoc"><p>A <code>string</code> to <code>string</code> to <code>string</code> map of language tags to list of preprocessor macros that are used for all projects that are using the current toolchain.</p>
+<div class="qmldoc"><p>A <code translate="no">string</code> to <code translate="no">string</code> to <code translate="no">string</code> map of language tags to list of preprocessor macros that are used for all projects that are using the current toolchain.</p>
 <p>User project files usually do not set this property.</p>
 <div class="admonition note">
 <p><b>Note: </b>This property will not be usable without also setting <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#enableCompilerDefinesByLanguage-prop">enableCompilerDefinesByLanguage</a>.</p>
+/docs/qml-qbsmodules-cpp/#enableCompilerDefinesByLanguage-prop" translate="no">enableCompilerDefinesByLanguage</a>.</p>
 </div>
 <p>Default: Undefined</p>
 <p>This property was introduced in Qbs 1.10.</p>
@@ -572,7 +572,7 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <br>
 <!-- $$$compilerIncludePaths -->
 <div class="qmlitem"><h3 class="qmlproto">compilerIncludePaths: pathList</h3>
-<div class="qmldoc"><p>A list of <code>#include</code> search paths that are used for all projects that are using the current toolchain.</p>
+<div class="qmldoc"><p>A list of <code translate="no">#include</code> search paths that are used for all projects that are using the current toolchain.</p>
 <p>User project files usually do not set this property.</p>
 <p>Default: Determined automatically by probing the compiler.</p>
 <p>This property was introduced in Qbs 1.6.</p>
@@ -590,30 +590,30 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <div class="qmlitem"><h3 class="qmlproto">compilerListingSuffix: string</h3>
 <div class="qmldoc"><p>A string to append to the generated compiler listing files.</p>
 <p>Default: <a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#toolchain-prop">toolchain</a>-dependent, typical value is <code>".lst"</code></p>
+/docs/qml-qbsmodules-qbs/#toolchain-prop" translate="no">toolchain</a>-dependent, typical value is <code translate="no">".lst"</code></p>
 </div></div><!-- @@@compilerListingSuffix -->
 <br>
 <!-- $$$compilerName -->
 <div class="qmlitem"><h3 class="qmlproto">compilerName: string</h3>
 <div class="qmldoc"><p>The name of the main compiler binary. This property is set in the build profile.</p>
 <p>Default: Determined by <a href="https://qbs.io
-/docs/cli-setup-toolchains/">qbs setup-toolchains</a>.</p>
+/docs/cli-setup-toolchains/" translate="no">qbs setup-toolchains</a>.</p>
 </div></div><!-- @@@compilerName -->
 <br>
 <!-- $$$compilerPath -->
 <div class="qmlitem"><h3 class="qmlproto">compilerPath: string</h3>
 <div class="qmldoc"><p>The full path of the main compiler binary. This property is set in the build profile.</p>
 <p>If the toolchain provides different compilers for different languages, <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#compilerPathByLanguage-prop">compilerPathByLanguage</a> is used.</p>
+/docs/qml-qbsmodules-cpp/#compilerPathByLanguage-prop" translate="no">compilerPathByLanguage</a> is used.</p>
 <p>Default: Determined by <a href="https://qbs.io
-/docs/cli-setup-toolchains/">qbs setup-toolchains</a>.</p>
+/docs/cli-setup-toolchains/" translate="no">qbs setup-toolchains</a>.</p>
 </div></div><!-- @@@compilerPath -->
 <br>
 <!-- $$$compilerPathByLanguage -->
 <div class="qmlitem"><h3 class="qmlproto">compilerPathByLanguage: var</h3>
-<div class="qmldoc"><p>A <code>string</code> to <code>string</code> map that maps file tags to full paths of compiler binaries. This property is set in the build profile.</p>
+<div class="qmldoc"><p>A <code translate="no">string</code> to <code translate="no">string</code> map that maps file tags to full paths of compiler binaries. This property is set in the build profile.</p>
 <p>Default: Determined by <a href="https://qbs.io
-/docs/cli-setup-toolchains/">qbs setup-toolchains</a>.</p>
+/docs/cli-setup-toolchains/" translate="no">qbs setup-toolchains</a>.</p>
 <p>This property was introduced in Qbs 1.3.</p>
 </div></div><!-- @@@compilerPathByLanguage -->
 <br>
@@ -646,7 +646,7 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <br>
 <!-- $$$compilerWrapper -->
 <div class="qmlitem"><h3 class="qmlproto">compilerWrapper: stringList</h3>
-<div class="qmldoc"><p>A wrapper binary and its arguments for wrapping compiler calls. This is useful for compiler wrappers, such as <code>ccache</code>.</p>
+<div class="qmldoc"><p>A wrapper binary and its arguments for wrapping compiler calls. This is useful for compiler wrappers, such as <code translate="no">ccache</code>.</p>
 <p>Default: Undefined</p>
 <p>This property was introduced in Qbs 1.1.</p>
 </div></div><!-- @@@compilerWrapper -->
@@ -661,7 +661,7 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <div class="qmlitem"><h3 class="qmlproto">createSymlinks: bool</h3>
 <div class="qmldoc"><p>This property is specific to Unix platforms.</p>
 <p>Whether to create version alias symlinks when building a dynamic library.</p>
-<p>Default: <code>true</code></p>
+<p>Default: <code translate="no">true</code></p>
 </div></div><!-- @@@createSymlinks -->
 <br>
 <!-- $$$cxxFlags -->
@@ -675,7 +675,7 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <div class="qmldoc"><p>The version of the C++ standard with which the code must comply.</p>
 <p>If this property is set, the corresponding compiler and linker flags will be added, depending on the toolchain.</p>
 <p>If the value is left undefined, the compiler default will be used. If the list contains more than one value, the highest version is chosen.</p>
-<p>Possible values include: <code>"c++98"</code>, <code>"c++11"</code>, <code>"c++14"</code>, <code>"c++17"</code>, <code>"c++20"</code>, <code>"c++23"</code>.</p>
+<p>Possible values include: <code translate="no">"c++98"</code>, <code translate="no">"c++11"</code>, <code translate="no">"c++14"</code>, <code translate="no">"c++17"</code>, <code translate="no">"c++20"</code>, <code translate="no">"c++23"</code>.</p>
 <p>Default: Undefined</p>
 <p>This property was introduced in Qbs 1.4.</p>
 </div></div><!-- @@@cxxLanguageVersion -->
@@ -685,7 +685,7 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <div class="qmldoc"><p>The C++ standard library to link to.</p>
 <p>If this property is set, the corresponding compiler and linker flags will be added, assuming the value is valid for the current toolchain.</p>
 <p>If the value is left undefined, the compiler default will be used.</p>
-<p>Possible values include: <code>"libstdc++"</code>, <code>"libc++"</code>.</p>
+<p>Possible values include: <code translate="no">"libstdc++"</code>, <code translate="no">"libc++"</code>.</p>
 <p>Default: Undefined</p>
 <p>This property was introduced in Qbs 1.4.</p>
 </div></div><!-- @@@cxxStandardLibrary -->
@@ -694,34 +694,34 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <div class="qmlitem"><h3 class="qmlproto">debugInfoBundleSuffix: string</h3>
 <div class="qmldoc"><p>This property is specific to Apple platforms.</p>
 <p>A string to append to the debug information bundle name.</p>
-<p>Default: <code>".dSYM"</code></p>
+<p>Default: <code translate="no">".dSYM"</code></p>
 </div></div><!-- @@@debugInfoBundleSuffix -->
 <br>
 <!-- $$$debugInfoSuffix -->
 <div class="qmlitem"><h3 class="qmlproto">debugInfoSuffix: string</h3>
 <div class="qmldoc"><p>A string to append to the debug information file name.</p>
 <p>Default: <a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#toolchain-prop">toolchain</a>-dependent, typical values are <code>".debug"</code>, <code>".pdb"</code> or <code>".dwarf"</code></p>
+/docs/qml-qbsmodules-qbs/#toolchain-prop" translate="no">toolchain</a>-dependent, typical values are <code translate="no">".debug"</code>, <code translate="no">".pdb"</code> or <code translate="no">".dwarf"</code></p>
 </div></div><!-- @@@debugInfoSuffix -->
 <br>
 <!-- $$$debugInformation -->
 <div class="qmlitem"><h3 class="qmlproto">debugInformation: bool</h3>
 <div class="qmldoc"><p>Whether to generate debug information.</p>
 <p>Default: <a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#debugInformation-prop">qbs.debugInformation</a></p>
+/docs/qml-qbsmodules-qbs/#debugInformation-prop" translate="no">qbs.debugInformation</a></p>
 </div></div><!-- @@@debugInformation -->
 <br>
 <!-- $$$defines -->
 <div class="qmlitem"><h3 class="qmlproto">defines: stringList</h3>
 <div class="qmldoc"><p>A list of preprocessor macros that gets passed to the compiler.</p>
 <p>To set macro values, use the following syntax:</p>
-<pre class="cpp">cpp<span class="operator">.</span>defines: <span class="operator">[</span><span class="string">"USE_COLORS=1"</span><span class="operator">,</span> <span class="char">'COLOR_STR="blanched almond"'</span><span class="operator">]</span></pre>
+<pre class="cpp" translate="no">cpp<span class="operator">.</span>defines: <span class="operator">[</span><span class="string">"USE_COLORS=1"</span><span class="operator">,</span> <span class="char">'COLOR_STR="blanched almond"'</span><span class="operator">]</span></pre>
 <p>Default: Undefined</p>
 </div></div><!-- @@@defines -->
 <br>
 <!-- $$$discardUnusedData -->
 <div class="qmlitem"><h3 class="qmlproto">discardUnusedData: bool</h3>
-<div class="qmldoc"><p>If this property is <code>true</code>, the linker will discard data from objects that it determines to be unused. With MSVC and on Apple platforms, the granularity is per symbol, elsewhere it is per section.</p>
+<div class="qmldoc"><p>If this property is <code translate="no">true</code>, the linker will discard data from objects that it determines to be unused. With MSVC and on Apple platforms, the granularity is per symbol, elsewhere it is per section.</p>
 <p>Default: Undefined</p>
 <p>This property was introduced in Qbs 1.10.</p>
 </div></div><!-- @@@discardUnusedData -->
@@ -729,7 +729,7 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <!-- $$$distributionFrameworkPaths -->
 <div class="qmlitem"><h3 class="qmlproto">distributionFrameworkPaths: pathList</h3>
 <div class="qmldoc"><p>A list of distribution-specific framework search paths, prioritized after <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#systemFrameworkPaths-prop">systemFrameworkPaths</a>.</p>
+/docs/qml-qbsmodules-cpp/#systemFrameworkPaths-prop" translate="no">systemFrameworkPaths</a>.</p>
 <p>Intended for use by module authors implementing support for new operating systems or distributions.</p>
 <p>User project files should not set this property.</p>
 <p>Default: Undefined</p>
@@ -739,7 +739,7 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <!-- $$$distributionIncludePaths -->
 <div class="qmlitem"><h3 class="qmlproto">distributionIncludePaths: pathList</h3>
 <div class="qmldoc"><p>A list of distribution-specific include paths that are passed as system include paths to the compiler, prioritized after <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#systemIncludePaths-prop">systemIncludePaths</a>.</p>
+/docs/qml-qbsmodules-cpp/#systemIncludePaths-prop" translate="no">systemIncludePaths</a>.</p>
 <p>Intended for use by module authors implementing support for new operating systems or distributions.</p>
 <p>User project files should not set this property.</p>
 <p>Default: Undefined</p>
@@ -772,10 +772,10 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <!-- $$$dsymutilFlags -->
 <div class="qmlitem"><h3 class="qmlproto">dsymutilFlags: stringList</h3>
 <div class="qmldoc"><p>This property is specific to Apple platforms.</p>
-<p>Additional flags for the <code>dsymutil</code> tool.</p>
+<p>Additional flags for the <code translate="no">dsymutil</code> tool.</p>
 <div class="admonition note">
-<p><b>Note: </b>If this property contains the <code>-f</code> or <code>--flat</code> options, this will cause Qbs to generate "flat" (single-file) <code>.dwarf</code> debug symbol files instead of <code>.dSYM</code> bundles (directories) when <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#separateDebugInformation-prop">separateDebugInformation</a> is set to <code>true</code>.</p>
+<p><b>Note: </b>If this property contains the <code translate="no">-f</code> or <code translate="no">--flat</code> options, this will cause Qbs to generate "flat" (single-file) <code translate="no">.dwarf</code> debug symbol files instead of <code translate="no">.dSYM</code> bundles (directories) when <a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#separateDebugInformation-prop" translate="no">separateDebugInformation</a> is set to <code translate="no">true</code>.</p>
 </div>
 <p>Default: Undefined</p>
 <p>This property was introduced in Qbs 1.4.1.</p>
@@ -784,9 +784,9 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <!-- $$$dsymutilPath -->
 <div class="qmlitem"><h3 class="qmlproto">dsymutilPath: string</h3>
 <div class="qmldoc"><p>This property is specific to Apple platforms.</p>
-<p>The full path of the <code>dsymutil</code> binary. This property is set in the build profile.</p>
+<p>The full path of the <code translate="no">dsymutil</code> binary. This property is set in the build profile.</p>
 <p>Default: Determined by <a href="https://qbs.io
-/docs/cli-setup-toolchains/">qbs setup-toolchains</a>.</p>
+/docs/cli-setup-toolchains/" translate="no">qbs setup-toolchains</a>.</p>
 <p>This property was introduced in Qbs 1.4.</p>
 </div></div><!-- @@@dsymutilPath -->
 <br>
@@ -794,49 +794,49 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <div class="qmlitem"><h3 class="qmlproto">dynamicLibraries: stringList</h3>
 <div class="qmldoc"><p>A List of dynamic libraries to be linked.</p>
 <p>If the library is part of your project, consider using a <a href="https://qbs.io
-/docs/qml-qbslanguageitems-depends/">Depends</a> item instead.</p>
+/docs/qml-qbslanguageitems-depends/" translate="no">Depends</a> item instead.</p>
 <p>Each library can be specified in one of two ways:</p>
 <ul>
-<li>An absolute file path (for example, <code>"/foo/bar.lib"</code>), in which case it is passed directly to the linker, ignoring <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#libraryPaths-prop">libraryPaths</a>.</li>
-<li>A library basename (for example, <code>"bar"</code>), in which case the directory that contains the library must be provided via <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#libraryPaths-prop">libraryPaths</a>.</li>
+<li>An absolute file path (for example, <code translate="no">"/foo/bar.lib"</code>), in which case it is passed directly to the linker, ignoring <a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#libraryPaths-prop" translate="no">libraryPaths</a>.</li>
+<li>A library basename (for example, <code translate="no">"bar"</code>), in which case the directory that contains the library must be provided via <a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#libraryPaths-prop" translate="no">libraryPaths</a>.</li>
 </ul>
-<p>Relative paths (<code>"foo/bar.lib"</code>) are not allowed.</p>
+<p>Relative paths (<code translate="no">"foo/bar.lib"</code>) are not allowed.</p>
 <p>Default: Undefined</p>
 <p><b>See also </b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#libraryPaths-prop">libraryPaths</a> and <a href="https://qbs.io
-/docs/howtos/#how-do-i-create-a-module-for-a-third-party-library">How do I create a module for a third-party library?</a>.</p>
+/docs/qml-qbsmodules-cpp/#libraryPaths-prop" translate="no">libraryPaths</a> and <a href="https://qbs.io
+/docs/howtos/#how-do-i-create-a-module-for-a-third-party-library" translate="no">How do I create a module for a third-party library?</a>.</p>
 </div></div><!-- @@@dynamicLibraries -->
 <br>
 <!-- $$$dynamicLibraryImportSuffix -->
 <div class="qmlitem"><h3 class="qmlproto">dynamicLibraryImportSuffix: string</h3>
 <div class="qmldoc"><p>This property is specific to Windows.</p>
 <p>A string to append to the dynamic library import file <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/#targetName-prop">name</a>.</p>
-<p>Default: <code>".lib"</code></p>
+/docs/qml-qbslanguageitems-product/#targetName-prop" translate="no">name</a>.</p>
+<p>Default: <code translate="no">".lib"</code></p>
 </div></div><!-- @@@dynamicLibraryImportSuffix -->
 <br>
 <!-- $$$dynamicLibraryPrefix -->
 <div class="qmlitem"><h3 class="qmlproto">dynamicLibraryPrefix: string</h3>
 <div class="qmldoc"><p>A string to prepend to the dynamic library file <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/#targetName-prop">name</a>.</p>
+/docs/qml-qbslanguageitems-product/#targetName-prop" translate="no">name</a>.</p>
 <p>Default: <a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#toolchain-prop">toolchain</a>-dependent, typical values are <code>""</code> or <code>"lib"</code></p>
+/docs/qml-qbsmodules-qbs/#toolchain-prop" translate="no">toolchain</a>-dependent, typical values are <code translate="no">""</code> or <code translate="no">"lib"</code></p>
 </div></div><!-- @@@dynamicLibraryPrefix -->
 <br>
 <!-- $$$dynamicLibrarySuffix -->
 <div class="qmlitem"><h3 class="qmlproto">dynamicLibrarySuffix: string</h3>
 <div class="qmldoc"><p>A string to append to the dynamic library file <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/#targetName-prop">name</a>.</p>
+/docs/qml-qbslanguageitems-product/#targetName-prop" translate="no">name</a>.</p>
 <p>Default: <a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#toolchain-prop">toolchain</a>-dependent, typical values are <code>".so"</code>, <code>".dll"</code> or <code>"dylib"</code></p>
+/docs/qml-qbsmodules-qbs/#toolchain-prop" translate="no">toolchain</a>-dependent, typical values are <code translate="no">".so"</code>, <code translate="no">".dll"</code> or <code translate="no">"dylib"</code></p>
 </div></div><!-- @@@dynamicLibrarySuffix -->
 <br>
 <!-- $$$enableCompilerDefinesByLanguage -->
 <div class="qmlitem"><h3 class="qmlproto">enableCompilerDefinesByLanguage: stringList</h3>
-<div class="qmldoc"><p>A list of languages (one or more of <code>"c"</code>, <code>"cpp"</code>, <code>"objc"</code>, <code>"objcpp"</code>) to extract the list of default compiler defines for in <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#compilerDefinesByLanguage-prop">compilerDefinesByLanguage</a>.</p>
+<div class="qmldoc"><p>A list of languages (one or more of <code translate="no">"c"</code>, <code translate="no">"cpp"</code>, <code translate="no">"objc"</code>, <code translate="no">"objcpp"</code>) to extract the list of default compiler defines for in <a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#compilerDefinesByLanguage-prop" translate="no">compilerDefinesByLanguage</a>.</p>
 <p>Because this has performance implications, no languages are enabled by default.</p>
 <p>Default: Undefined</p>
 <p>This property was introduced in Qbs 1.10.</p>
@@ -844,24 +844,24 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <br>
 <!-- $$$enableCxxLanguageMacro -->
 <div class="qmlitem"><h3 class="qmlproto">enableCxxLanguageMacro: string</h3>
-<div class="qmldoc"><p>Whether to set the <code>/Zc:__cplusplus</code> macro (<a href="https://docs.microsoft.com/en-us/cpp/build/reference/zc-cplusplus">https://docs.microsoft.com/en-us/cpp/build/reference/zc-cplusplus</a>)</p>
+<div class="qmldoc"><p>Whether to set the <code translate="no">/Zc:__cplusplus</code> macro (<a href="https://docs.microsoft.com/en-us/cpp/build/reference/zc-cplusplus" translate="no">https://docs.microsoft.com/en-us/cpp/build/reference/zc-cplusplus</a>)</p>
 <p>This property only applies to MSVC toolchain. clang-cl also supports this option, but it has no effect.</p>
-<p>This property is specific to Windows. Default: <code>true</code> for MSVC, <code>false</code> for clang-cl</p>
+<p>This property is specific to Windows. Default: <code translate="no">true</code> for MSVC, <code translate="no">false</code> for clang-cl</p>
 <p>This property was introduced in Qbs 1.20.</p>
 </div></div><!-- @@@enableCxxLanguageMacro -->
 <br>
 <!-- $$$enableExceptions -->
 <div class="qmlitem"><h3 class="qmlproto">enableExceptions: bool</h3>
 <div class="qmldoc"><p>Whether to enable exceptions in C++ code.</p>
-<p>Default: <code>true</code></p>
+<p>Default: <code translate="no">true</code></p>
 <p>This property was introduced in Qbs 1.5.</p>
 </div></div><!-- @@@enableExceptions -->
 <br>
 <!-- $$$enableReproducibleBuilds -->
 <div class="qmlitem"><h3 class="qmlproto">enableReproducibleBuilds: bool</h3>
 <div class="qmldoc"><p>Whether the compiler should try to generate reproducible object files.</p>
-<p>Some compilers (notably GCC) use random numbers for generating symbol names that have to be different in every compilation unit. This is avoided by setting this property to <code>true</code>.</p>
-<p>Default: <code>false</code></p>
+<p>Some compilers (notably GCC) use random numbers for generating symbol names that have to be different in every compilation unit. This is avoided by setting this property to <code translate="no">true</code>.</p>
+<p>Default: <code translate="no">false</code></p>
 <p>This property was introduced in Qbs 1.5.</p>
 </div></div><!-- @@@enableReproducibleBuilds -->
 <br>
@@ -874,14 +874,14 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <br>
 <!-- $$$enableSuspiciousLinkerFlagWarnings -->
 <div class="qmlitem"><h3 class="qmlproto">enableSuspiciousLinkerFlagWarnings: bool</h3>
-<div class="qmldoc"><p>Whether to print warnings about escaped linker flags (such as <code>-Xlinker</code> and <code>-Wl</code>).</p>
-<p>Default: <code>true</code></p>
+<div class="qmldoc"><p>Whether to print warnings about escaped linker flags (such as <code translate="no">-Xlinker</code> and <code translate="no">-Wl</code>).</p>
+<p>Default: <code translate="no">true</code></p>
 <p>This property was introduced in Qbs 1.8.</p>
 </div></div><!-- @@@enableSuspiciousLinkerFlagWarnings -->
 <br>
 <!-- $$$endianness -->
 <div class="qmlitem"><h3 class="qmlproto">endianness: string</h3>
-<div class="qmldoc"><p>Specifies the endianness of the target platform's processor architecture (<code>"big"</code> or <code>"little"</code>).</p>
+<div class="qmldoc"><p>Specifies the endianness of the target platform's processor architecture (<code translate="no">"big"</code> or <code translate="no">"little"</code>).</p>
 <p>The value is automatically detected from the compiler's default values, but can also be manually set in order to select a specific endianness when targeting bi-endian architectures like MIPS and PowerPC.</p>
 <p>Default: Compiler default value.</p>
 <p>This property was introduced in Qbs 1.9.</p>
@@ -898,32 +898,32 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <!-- $$$exceptionHandlingModel -->
 <div class="qmlitem"><h3 class="qmlproto">exceptionHandlingModel: string</h3>
 <div class="qmldoc"><p>The exception handling model to use.</p>
-<p>For MSVC, this can be <code>"default"</code>, <code>"seh"</code> or <code>"externc"</code>. For all other compilers, <code>"default"</code> indicates the default or the only exception handling model.</p>
-<p>Default: <code>"default"</code></p>
+<p>For MSVC, this can be <code translate="no">"default"</code>, <code translate="no">"seh"</code> or <code translate="no">"externc"</code>. For all other compilers, <code translate="no">"default"</code> indicates the default or the only exception handling model.</p>
+<p>Default: <code translate="no">"default"</code></p>
 <p>This property was introduced in Qbs 1.5.</p>
 </div></div><!-- @@@exceptionHandlingModel -->
 <br>
 <!-- $$$executablePrefix -->
 <div class="qmlitem"><h3 class="qmlproto">executablePrefix: string</h3>
 <div class="qmldoc"><p>A string to prepend to the executable file <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/#targetName-prop">name</a>.</p>
-<p>Default: <code>""</code></p>
+/docs/qml-qbslanguageitems-product/#targetName-prop" translate="no">name</a>.</p>
+<p>Default: <code translate="no">""</code></p>
 </div></div><!-- @@@executablePrefix -->
 <br>
 <!-- $$$executableSuffix -->
 <div class="qmlitem"><h3 class="qmlproto">executableSuffix: string</h3>
 <div class="qmldoc"><p>A string to append to the executable file <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/#targetName-prop">name</a>.</p>
+/docs/qml-qbslanguageitems-product/#targetName-prop" translate="no">name</a>.</p>
 <p>Default: <a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#toolchain-prop">toolchain</a>-dependent, typical values are <code>""</code> or <code>".exe"</code></p>
+/docs/qml-qbsmodules-qbs/#toolchain-prop" translate="no">toolchain</a>-dependent, typical values are <code translate="no">""</code> or <code translate="no">".exe"</code></p>
 </div></div><!-- @@@executableSuffix -->
 <br>
 <!-- $$$exportedSymbolsCheckMode -->
 <div class="qmlitem"><h3 class="qmlproto">exportedSymbolsCheckMode: string</h3>
 <div class="qmldoc"><p>This property is specific to Unix platforms.</p>
 <p>Controls how Qbs determines whether an updated dynamic library causes relinking of dependents.</p>
-<p>The default value is <code>"ignore-undefined"</code>, which means that undefined symbols being added or removed do not cause any relinking. If that should happen, for example because dependent products are linked with an option such as <code>"--no-undefined"</code>, this property can be set to <code>"strict"</code>.</p>
-<p>Default: <code>"ignore-undefined"</code></p>
+<p>The default value is <code translate="no">"ignore-undefined"</code>, which means that undefined symbols being added or removed do not cause any relinking. If that should happen, for example because dependent products are linked with an option such as <code translate="no">"--no-undefined"</code>, this property can be set to <code translate="no">"strict"</code>.</p>
+<p>Default: <code translate="no">"ignore-undefined"</code></p>
 <p>This property was introduced in Qbs 1.4.1.</p>
 </div></div><!-- @@@exportedSymbolsCheckMode -->
 <br>
@@ -931,7 +931,7 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <div class="qmlitem"><h3 class="qmlproto">frameworkPaths: pathList</h3>
 <div class="qmldoc"><p>This property is specific to Apple platforms.</p>
 <p>A list of framework search paths.</p>
-<p>Relative paths are considered to be relative to the <code>.qbs</code> product file they are used in.</p>
+<p>Relative paths are considered to be relative to the <code translate="no">.qbs</code> product file they are used in.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@frameworkPaths -->
 <br>
@@ -940,7 +940,7 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <div class="qmldoc"><p>This property is specific to Apple platforms.</p>
 <p>A list of frameworks to be linked.</p>
 <p>If the framework is part of your project, consider using a <a href="https://qbs.io
-/docs/qml-qbslanguageitems-depends/">Depends</a> item instead.</p>
+/docs/qml-qbslanguageitems-depends/" translate="no">Depends</a> item instead.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@frameworks -->
 <br>
@@ -948,21 +948,21 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <div class="qmlitem"><h3 class="qmlproto">generateAssemblerListingFiles: bool</h3>
 <div class="qmldoc"><p>This property is specific to bare-metal platforms.</p>
 <p>Whether to auto-generate an assembler listing files.</p>
-<p>Default: <code>false</code></p>
+<p>Default: <code translate="no">false</code></p>
 <p>This property was introduced in Qbs 1.15.</p>
 </div></div><!-- @@@generateAssemblerListingFiles -->
 <br>
 <!-- $$$generateCompilerListingFiles -->
 <div class="qmlitem"><h3 class="qmlproto">generateCompilerListingFiles: bool</h3>
 <div class="qmldoc"><p>Whether to auto-generate compiler listing files.</p>
-<p>Default: <code>false</code></p>
+<p>Default: <code translate="no">false</code></p>
 <p>This property was introduced in Qbs 1.15.</p>
 </div></div><!-- @@@generateCompilerListingFiles -->
 <br>
 <!-- $$$generateLinkerMapFile -->
 <div class="qmlitem"><h3 class="qmlproto">generateLinkerMapFile: bool</h3>
 <div class="qmldoc"><p>Whether to auto-generate a linker map file.</p>
-<p>Default: <code>false</code></p>
+<p>Default: <code translate="no">false</code></p>
 <p>This property was introduced in Qbs 1.13.</p>
 </div></div><!-- @@@generateLinkerMapFile -->
 <br>
@@ -970,55 +970,55 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <div class="qmlitem"><h3 class="qmlproto">generateManifestFile: bool</h3>
 <div class="qmldoc"><p>This property is specific to Windows.</p>
 <p>Whether to auto-generate a manifest file and include it in the binary.</p>
-<p>Set this property to <code>false</code> if you provide your own <code>rc</code> file.</p>
-<p>Default: <code>true</code></p>
+<p>Set this property to <code translate="no">false</code> if you provide your own <code translate="no">rc</code> file.</p>
+<p>Default: <code translate="no">true</code></p>
 <p>This property was introduced in Qbs 1.5.0.</p>
 </div></div><!-- @@@generateManifestFile -->
 <br>
 <!-- $$$includePaths -->
 <div class="qmlitem"><h3 class="qmlproto">includePaths: pathList</h3>
 <div class="qmldoc"><p>A list of include paths.</p>
-<p>Relative paths are considered to be relative to the <code>.qbs</code> product file they are used in.</p>
+<p>Relative paths are considered to be relative to the <code translate="no">.qbs</code> product file they are used in.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@includePaths -->
 <br>
 <!-- $$$libraryPaths -->
 <div class="qmlitem"><h3 class="qmlproto">libraryPaths: pathList</h3>
 <div class="qmldoc"><p>A list of library search paths.</p>
-<p>The paths will be passed to the linker in the appropriate way. For example, the <code>-L</code> argument will be used when using <code>ld</code>-like linkers.</p>
-<p>Relative paths are considered to be relative to the <code>.qbs</code> product file they are used in.</p>
+<p>The paths will be passed to the linker in the appropriate way. For example, the <code translate="no">-L</code> argument will be used when using <code translate="no">ld</code>-like linkers.</p>
+<p>Relative paths are considered to be relative to the <code translate="no">.qbs</code> product file they are used in.</p>
 <p>Default: Undefined</p>
 <p><b>See also </b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#dynamicLibraries-prop">dynamicLibraries</a> and <a href="https://qbs.io
-/docs/howtos/#how-do-i-create-a-module-for-a-third-party-library">How do I create a module for a third-party library?</a>.</p>
+/docs/qml-qbsmodules-cpp/#dynamicLibraries-prop" translate="no">dynamicLibraries</a> and <a href="https://qbs.io
+/docs/howtos/#how-do-i-create-a-module-for-a-third-party-library" translate="no">How do I create a module for a third-party library?</a>.</p>
 </div></div><!-- @@@libraryPaths -->
 <br>
 <!-- $$$linkerFlags -->
 <div class="qmlitem"><h3 class="qmlproto">linkerFlags: stringList</h3>
 <div class="qmldoc"><p>A list of additional flags for the linker.</p>
-<p>These flags should <i>not</i> be escaped using the <code>-Wl</code> or <code>-Xlinker</code> syntaxes, as Qbs will do this automatically based on the linker being used.</p>
+<p>These flags should <i>not</i> be escaped using the <code translate="no">-Wl</code> or <code translate="no">-Xlinker</code> syntaxes, as Qbs will do this automatically based on the linker being used.</p>
 <p>Default: Undefined</p>
 <p><b>See also </b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#linkerMode-prop">linkerMode</a>.</p>
+/docs/qml-qbsmodules-cpp/#linkerMode-prop" translate="no">linkerMode</a>.</p>
 </div></div><!-- @@@linkerFlags -->
 <br>
 <!-- $$$linkerMapSuffix -->
 <div class="qmlitem"><h3 class="qmlproto">linkerMapSuffix: string</h3>
 <div class="qmldoc"><p>A string to append to the generated linker memory map files.</p>
 <p>Default: <a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#toolchain-prop">toolchain</a>-dependent, typical value is <code>".map"</code></p>
+/docs/qml-qbsmodules-qbs/#toolchain-prop" translate="no">toolchain</a>-dependent, typical value is <code translate="no">".map"</code></p>
 </div></div><!-- @@@linkerMapSuffix -->
 <br>
 <!-- $$$linkerMode -->
 <div class="qmlitem"><h3 class="qmlproto">linkerMode: string</h3>
 <div class="qmldoc"><p>Controls whether to automatically use an appropriate compiler frontend instead of the system linker when linking binaries.</p>
-<p>The default is <code>"automatic"</code>, which chooses either the C++ compiler, C compiler, or system linker specified by the <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#linkerName-prop">linkerName</a> and <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#linkerPath-prop">linkerPath</a> properties, depending on the type of object files present on the linker command line.</p>
-<p>Set this property to <code>"manual"</code> to explicitly specify the linker using the <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#linkerName-prop">linkerName</a> and <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#linkerPath-prop">linkerPath</a> properties.</p>
-<p>Default: <code>"automatic"</code></p>
+<p>The default is <code translate="no">"automatic"</code>, which chooses either the C++ compiler, C compiler, or system linker specified by the <a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#linkerName-prop" translate="no">linkerName</a> and <a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#linkerPath-prop" translate="no">linkerPath</a> properties, depending on the type of object files present on the linker command line.</p>
+<p>Set this property to <code translate="no">"manual"</code> to explicitly specify the linker using the <a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#linkerName-prop" translate="no">linkerName</a> and <a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#linkerPath-prop" translate="no">linkerPath</a> properties.</p>
+<p>Default: <code translate="no">"automatic"</code></p>
 <p>This property was introduced in Qbs 1.6.</p>
 </div></div><!-- @@@linkerMode -->
 <br>
@@ -1026,7 +1026,7 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <div class="qmlitem"><h3 class="qmlproto">linkerName: string</h3>
 <div class="qmldoc"><p>The name of the linker binary. This property is set in the build profile.</p>
 <p>Default: Determined by <a href="https://qbs.io
-/docs/cli-setup-toolchains/">qbs setup-toolchains</a>.</p>
+/docs/cli-setup-toolchains/" translate="no">qbs setup-toolchains</a>.</p>
 <p>This property was introduced in Qbs 1.1.1.</p>
 </div></div><!-- @@@linkerName -->
 <br>
@@ -1034,16 +1034,16 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <div class="qmlitem"><h3 class="qmlproto">linkerPath: string</h3>
 <div class="qmldoc"><p>The full path of the linker binary. This property is set in the build profile.</p>
 <p>Default: Determined by <a href="https://qbs.io
-/docs/cli-setup-toolchains/">qbs setup-toolchains</a>.</p>
+/docs/cli-setup-toolchains/" translate="no">qbs setup-toolchains</a>.</p>
 <p>This property was introduced in Qbs 1.1.1.</p>
 </div></div><!-- @@@linkerPath -->
 <br>
 <!-- $$$linkerVariant -->
 <div class="qmlitem"><h3 class="qmlproto">linkerVariant: string</h3>
-<div class="qmldoc"><p>Set this property to force the use of a specific linker. A non-empty value will result in the <code>-fuse-ld</code> option being emitted when linking with <code>gcc</code>, <code>clang</code> or <code>clang-cl</code>. Other toolchains do not support this property.</p>
-<p>The possible values for <code>clang</code> and <code>gcc</code> are <code>"bfd"</code>, <code>"gold"</code> and <code>"lld"</code>, the possible values for <code>clang-cl</code> are <code>"link"</code> and <code>"lld"</code>.</p>
+<div class="qmldoc"><p>Set this property to force the use of a specific linker. A non-empty value will result in the <code translate="no">-fuse-ld</code> option being emitted when linking with <code translate="no">gcc</code>, <code translate="no">clang</code> or <code translate="no">clang-cl</code>. Other toolchains do not support this property.</p>
+<p>The possible values for <code translate="no">clang</code> and <code translate="no">gcc</code> are <code translate="no">"bfd"</code>, <code translate="no">"gold"</code> and <code translate="no">"lld"</code>, the possible values for <code translate="no">clang-cl</code> are <code translate="no">"link"</code> and <code translate="no">"lld"</code>.</p>
 <p>The following example demonstrates how to change the linker for different toolchains:</p>
-<pre class="cpp">Properties {
+<pre class="cpp" translate="no">Properties {
     condition: qbs<span class="operator">.</span>toolchain<span class="operator">.</span>includes(<span class="string">"gcc"</span>)
     cpp<span class="operator">.</span>linkerVariant: <span class="string">"gold"</span>
 }
@@ -1065,7 +1065,7 @@ Properties {
 <!-- $$$lipoPath -->
 <div class="qmlitem"><h3 class="qmlproto">lipoPath: string</h3>
 <div class="qmldoc"><p>This property is specific to Apple platforms.</p>
-<p>The full path of the <code>lipo</code> binary.</p>
+<p>The full path of the <code translate="no">lipo</code> binary.</p>
 <p>Default: Determined automatically.</p>
 <p>This property was introduced in Qbs 1.9.</p>
 </div></div><!-- @@@lipoPath -->
@@ -1074,35 +1074,35 @@ Properties {
 <div class="qmlitem"><h3 class="qmlproto">loadableModulePrefix: string</h3>
 <div class="qmldoc"><p>This property is specific to Apple platforms.</p>
 <p>A string to prepend to the Darwin loadable module file <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/#targetName-prop">name</a>.</p>
-<p>Default: <code>""</code></p>
+/docs/qml-qbslanguageitems-product/#targetName-prop" translate="no">name</a>.</p>
+<p>Default: <code translate="no">""</code></p>
 </div></div><!-- @@@loadableModulePrefix -->
 <br>
 <!-- $$$loadableModuleSuffix -->
 <div class="qmlitem"><h3 class="qmlproto">loadableModuleSuffix: string</h3>
 <div class="qmldoc"><p>This property is specific to Apple platforms.</p>
 <p>A string to append to the Darwin loadable module file <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/#targetName-prop">name</a>.</p>
-<p>Default: <code>".bundle"</code></p>
+/docs/qml-qbslanguageitems-product/#targetName-prop" translate="no">name</a>.</p>
+<p>Default: <code translate="no">".bundle"</code></p>
 </div></div><!-- @@@loadableModuleSuffix -->
 <br>
 <!-- $$$minimumIosVersion -->
 <div class="qmlitem"><h3 class="qmlproto">minimumIosVersion: string</h3>
 <div class="qmldoc"><p>This property is specific to Apple platforms.</p>
-<p>A version number in the format <code>[major].[minor]</code> indicating the earliest version of iOS that the product should run on.</p>
-<p>Passes <code>-miphoneos-version-min=&lt;version&gt;</code> to the compiler.</p>
+<p>A version number in the format <code translate="no">[major].[minor]</code> indicating the earliest version of iOS that the product should run on.</p>
+<p>Passes <code translate="no">-miphoneos-version-min=&lt;version&gt;</code> to the compiler.</p>
 <p>If set to undefined, compiler defaults will be used.</p>
 <div class="admonition note">
-<p><b>Note: </b>Qbs sets minimum version to <code>"6.0"</code> for <code>armv7a</code> because earlier iOS versions are broken in recent XCode installations.</p>
+<p><b>Note: </b>Qbs sets minimum version to <code translate="no">"6.0"</code> for <code translate="no">armv7a</code> because earlier iOS versions are broken in recent XCode installations.</p>
 </div>
-<p>Default: <code>"6.0"</code> for <code>armv7a</code>, <code>undefined</code> otherwise</p>
+<p>Default: <code translate="no">"6.0"</code> for <code translate="no">armv7a</code>, <code translate="no">undefined</code> otherwise</p>
 </div></div><!-- @@@minimumIosVersion -->
 <br>
 <!-- $$$minimumMacosVersion -->
 <div class="qmlitem"><h3 class="qmlproto">minimumMacosVersion: string</h3>
 <div class="qmldoc"><p>This property is specific to Apple platforms.</p>
-<p>A version number in the format <code>[major].[minor]</code>indicating the earliest version of macOS that the product should run on.</p>
-<p>Passes <code>-mmacosx-version-min=&lt;version&gt;</code> to the compiler.</p>
+<p>A version number in the format <code translate="no">[major].[minor]</code>indicating the earliest version of macOS that the product should run on.</p>
+<p>Passes <code translate="no">-mmacosx-version-min=&lt;version&gt;</code> to the compiler.</p>
 <p>If left undefined, compiler defaults will be used.</p>
 <p>Default: Undefined</p>
 <p>This property was introduced in Qbs 1.5.2.</p>
@@ -1111,19 +1111,19 @@ Properties {
 <!-- $$$minimumTvosVersion -->
 <div class="qmlitem"><h3 class="qmlproto">minimumTvosVersion: string</h3>
 <div class="qmldoc"><p>This property is specific to Apple platforms.</p>
-<p>A version number in the format <code>[major].[minor]</code> indicating the earliest version of Apple tvOS that the product should run on.</p>
+<p>A version number in the format <code translate="no">[major].[minor]</code> indicating the earliest version of Apple tvOS that the product should run on.</p>
 <p>If left undefined, compiler defaults will be used.</p>
 <div class="admonition note">
-<p><b>Note: </b>Qbs sets the minimum version to <code>"6.0"</code>, because earlier tvOS versions are not supported by recent XCode installations by default.</p>
+<p><b>Note: </b>Qbs sets the minimum version to <code translate="no">"6.0"</code>, because earlier tvOS versions are not supported by recent XCode installations by default.</p>
 </div>
-<p>Default: <code>"6.0</code></p>
+<p>Default: <code translate="no">"6.0</code></p>
 <p>This property was introduced in Qbs 1.5.</p>
 </div></div><!-- @@@minimumTvosVersion -->
 <br>
 <!-- $$$minimumWatchosVersion -->
 <div class="qmlitem"><h3 class="qmlproto">minimumWatchosVersion: string</h3>
 <div class="qmldoc"><p>This property is specific to Apple platforms.</p>
-<p>A version number in the format <code>[major].[minor]</code> indicating the earliest version of Apple watchOS that the product should run on.</p>
+<p>A version number in the format <code translate="no">[major].[minor]</code> indicating the earliest version of Apple watchOS that the product should run on.</p>
 <p>If left undefined, compiler defaults will be used.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@minimumWatchosVersion -->
@@ -1131,8 +1131,8 @@ Properties {
 <!-- $$$minimumWindowsVersion -->
 <div class="qmlitem"><h3 class="qmlproto">minimumWindowsVersion: string</h3>
 <div class="qmldoc"><p>This property is specific to Windows.</p>
-<p>A version number in the format <code>[major].[minor]</code> indicating the earliest version of Windows that the product should run on.</p>
-<p>Defines <code>WINVER</code>, <code>_WIN32_WINNT</code>, and <code>_WIN32_WINDOWS</code>, and applies a version number to the linker flags <code>/SUBSYSTEM</code> and <code>/OSVERSION</code> for MSVC or <code>--major-subsystem-version</code>, <code>--minor-subsystem-version</code>, <code>--major-os-version</code>, and <code>--minor-os-version</code> for MinGW.</p>
+<p>A version number in the format <code translate="no">[major].[minor]</code> indicating the earliest version of Windows that the product should run on.</p>
+<p>Defines <code translate="no">WINVER</code>, <code translate="no">_WIN32_WINNT</code>, and <code translate="no">_WIN32_WINDOWS</code>, and applies a version number to the linker flags <code translate="no">/SUBSYSTEM</code> and <code translate="no">/OSVERSION</code> for MSVC or <code translate="no">--major-subsystem-version</code>, <code translate="no">--minor-subsystem-version</code>, <code translate="no">--major-os-version</code>, and <code translate="no">--minor-os-version</code> for MinGW.</p>
 <p>If left undefined, compiler defaults will be used.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@minimumWindowsVersion -->
@@ -1140,17 +1140,17 @@ Properties {
 <!-- $$$nmName -->
 <div class="qmlitem"><h3 class="qmlproto">nmName: string</h3>
 <div class="qmldoc"><p>This property is specific to Unix platforms.</p>
-<p>The name of the <code>nm</code> binary. This property is set in the build profile.</p>
-<p>Default: <code>"nm"</code></p>
+<p>The name of the <code translate="no">nm</code> binary. This property is set in the build profile.</p>
+<p>Default: <code translate="no">"nm"</code></p>
 <p>This property was introduced in Qbs 1.2.</p>
 </div></div><!-- @@@nmName -->
 <br>
 <!-- $$$nmPath -->
 <div class="qmlitem"><h3 class="qmlproto">nmPath: string</h3>
 <div class="qmldoc"><p>This property is specific to Unix platforms.</p>
-<p>The full path of the <code>nm</code> binary. This property is set in the build profile.</p>
+<p>The full path of the <code translate="no">nm</code> binary. This property is set in the build profile.</p>
 <p>Default: Determined by <a href="https://qbs.io
-/docs/cli-setup-toolchains/">qbs setup-toolchains</a>.</p>
+/docs/cli-setup-toolchains/" translate="no">qbs setup-toolchains</a>.</p>
 <p>This property was introduced in Qbs 1.2.</p>
 </div></div><!-- @@@nmPath -->
 <br>
@@ -1163,17 +1163,17 @@ Properties {
 <!-- $$$objcopyName -->
 <div class="qmlitem"><h3 class="qmlproto">objcopyName: string</h3>
 <div class="qmldoc"><p>This property is specific to Unix platforms.</p>
-<p>The name of the <code>objcopy</code> binary. This property is set in the build profile.</p>
-<p>Default: <code>"objcopy"</code></p>
+<p>The name of the <code translate="no">objcopy</code> binary. This property is set in the build profile.</p>
+<p>Default: <code translate="no">"objcopy"</code></p>
 <p>This property was introduced in Qbs 1.4.</p>
 </div></div><!-- @@@objcopyName -->
 <br>
 <!-- $$$objcopyPath -->
 <div class="qmlitem"><h3 class="qmlproto">objcopyPath: string</h3>
 <div class="qmldoc"><p>This property is specific to Unix platforms.</p>
-<p>The full path of the <code>objcopy</code> binary. This property is set in the build profile.</p>
+<p>The full path of the <code translate="no">objcopy</code> binary. This property is set in the build profile.</p>
 <p>Default: Determined by <a href="https://qbs.io
-/docs/cli-setup-toolchains/">qbs setup-toolchains</a>.</p>
+/docs/cli-setup-toolchains/" translate="no">qbs setup-toolchains</a>.</p>
 <p>This property was introduced in Qbs 1.4.</p>
 </div></div><!-- @@@objcopyPath -->
 <br>
@@ -1187,14 +1187,14 @@ Properties {
 <div class="qmlitem"><h3 class="qmlproto">objectSuffix: string</h3>
 <div class="qmldoc"><p>A string to append to the generated object files.</p>
 <p>Default: <a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#toolchain-prop">toolchain</a>-dependent, typical values are <code>".o"</code> or <code>".obj"</code></p>
+/docs/qml-qbsmodules-qbs/#toolchain-prop" translate="no">toolchain</a>-dependent, typical values are <code translate="no">".o"</code> or <code translate="no">".obj"</code></p>
 </div></div><!-- @@@objectSuffix -->
 <br>
 <!-- $$$optimization -->
 <div class="qmlitem"><h3 class="qmlproto">optimization: string</h3>
 <div class="qmldoc"><p>The optimization level.</p>
 <p>Default: <a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#optimization-prop">qbs.optimization</a></p>
+/docs/qml-qbsmodules-qbs/#optimization-prop" translate="no">qbs.optimization</a></p>
 </div></div><!-- @@@optimization -->
 <br>
 <!-- $$$platformDefines -->
@@ -1214,7 +1214,7 @@ Properties {
 <!-- $$$prefixHeaders -->
 <div class="qmlitem"><h3 class="qmlproto">prefixHeaders: pathList</h3>
 <div class="qmldoc"><p>A list of files to automatically include at the beginning of each source file in the <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/">product</a>.</p>
+/docs/qml-qbslanguageitems-product/" translate="no">product</a>.</p>
 <p>Default: Undefined</p>
 <p>This property was introduced in Qbs 1.0.1.</p>
 </div></div><!-- @@@prefixHeaders -->
@@ -1222,14 +1222,14 @@ Properties {
 <!-- $$$removeDuplicateLibraries -->
 <div class="qmlitem"><h3 class="qmlproto">removeDuplicateLibraries: bool</h3>
 <div class="qmldoc"><p>Whether the list of the objects and libraries is reduced to a list of unique values before being passed to the linker.</p>
-<p>Default: <code>true</code></p>
+<p>Default: <code translate="no">true</code></p>
 <p>This property was introduced in Qbs 1.16.</p>
 </div></div><!-- @@@removeDuplicateLibraries -->
 <br>
 <!-- $$$requireAppContainer -->
 <div class="qmlitem"><h3 class="qmlproto">requireAppContainer: bool</h3>
 <div class="qmldoc"><p>This property is specific to Windows.</p>
-<p>Whether the generated executable or dynamic-link library <i>requires</i> an AppContainer execution environment. Set to <code>true</code> when creating Universal Windows Platform applications.</p>
+<p>Whether the generated executable or dynamic-link library <i>requires</i> an AppContainer execution environment. Set to <code translate="no">true</code> when creating Universal Windows Platform applications.</p>
 <p>Default: Undefined</p>
 <p>This property was introduced in Qbs 1.10.</p>
 </div></div><!-- @@@requireAppContainer -->
@@ -1238,7 +1238,7 @@ Properties {
 <div class="qmlitem"><h3 class="qmlproto">requireAppExtensionSafeApi: bool</h3>
 <div class="qmldoc"><p>This property is specific to Apple platforms.</p>
 <p>Whether to enforce the use of only app-extension-safe APIs on Apple platforms. This is necessary for building Application Extensions in OS X Yosemite and iOS 8 and above.</p>
-<p>If left undefined, uses the compiler and linker defaults (probably <code>false</code>).</p>
+<p>If left undefined, uses the compiler and linker defaults (probably <code translate="no">false</code>).</p>
 <p>Default: Undefined</p>
 <p>This property was introduced in Qbs 1.4.</p>
 </div></div><!-- @@@requireAppExtensionSafeApi -->
@@ -1247,55 +1247,55 @@ Properties {
 <div class="qmlitem"><h3 class="qmlproto">rpathLinkFlag: string</h3>
 <div class="qmldoc"><p>The rpath link flag used by the linker.</p>
 <p>Default: <a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#toolchain-prop">toolchain</a>-dependent, typical values are <code>"-rpath-link="</code> or <code>"-L"</code></p>
+/docs/qml-qbsmodules-qbs/#toolchain-prop" translate="no">toolchain</a>-dependent, typical values are <code translate="no">"-rpath-link="</code> or <code translate="no">"-L"</code></p>
 <p>This property was introduced in Qbs 1.9.</p>
 </div></div><!-- @@@rpathLinkFlag -->
 <br>
 <!-- $$$rpathOrigin -->
 <div class="qmlitem"><h3 class="qmlproto">rpathOrigin: string</h3>
 <div class="qmldoc"><p>This property is specific to Unix platforms.</p>
-<p>A placeholder value used in an <code>rpath</code> string to refer to the directory containing the referring executable or shared library.</p>
-<p>Default: <code>"@loader_path"</code> on Mach-O based platforms (macOS, iOS, tvOS, watchOS); <code>"$ORIGIN"</code> on ELF based platforms (Linux and most other Unix-like platforms).</p>
+<p>A placeholder value used in an <code translate="no">rpath</code> string to refer to the directory containing the referring executable or shared library.</p>
+<p>Default: <code translate="no">"@loader_path"</code> on Mach-O based platforms (macOS, iOS, tvOS, watchOS); <code translate="no">"$ORIGIN"</code> on ELF based platforms (Linux and most other Unix-like platforms).</p>
 <p>This property was introduced in Qbs 1.11.</p>
 </div></div><!-- @@@rpathOrigin -->
 <br>
 <!-- $$$rpaths -->
 <div class="qmlitem"><h3 class="qmlproto">rpaths: stringList</h3>
 <div class="qmldoc"><p>This property is specific to Unix platforms.</p>
-<p>A list of <code>rpaths</code> that are passed to the linker. Paths that also appear in <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#systemRunPaths-prop">systemRunPaths</a> are ignored.</p>
+<p>A list of <code translate="no">rpaths</code> that are passed to the linker. Paths that also appear in <a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#systemRunPaths-prop" translate="no">systemRunPaths</a> are ignored.</p>
 <p>Default: Undefined</p>
 <p><b>See also </b><a href="https://qbs.io
-/docs/howtos/#how-do-i-make-use-of-rpaths">How do I make use of rpaths?</a>.</p>
+/docs/howtos/#how-do-i-make-use-of-rpaths" translate="no">How do I make use of rpaths?</a>.</p>
 </div></div><!-- @@@rpaths -->
 <br>
 <!-- $$$runtimeLibrary -->
 <div class="qmlitem"><h3 class="qmlproto">runtimeLibrary: string</h3>
 <div class="qmldoc"><p>The type of the runtime library used.</p>
-<p>Accepted values are <code>"static"</code> and <code>"dynamic"</code>.</p>
-<p>If this property is set to <code>undefined</code>, the default runtime library of the toolchain is used.</p>
+<p>Accepted values are <code translate="no">"static"</code> and <code translate="no">"dynamic"</code>.</p>
+<p>If this property is set to <code translate="no">undefined</code>, the default runtime library of the toolchain is used.</p>
 <div class="admonition note">
 <p><b>Note: </b>This property is only functional for MSVC and MinGW.</p>
 </div>
-<p>Default: <code>"dynamic"</code> for MSVC and MinGW, <code>undefined</code> for other compilers.</p>
+<p>Default: <code translate="no">"dynamic"</code> for MSVC and MinGW, <code translate="no">undefined</code> for other compilers.</p>
 <p>This property was introduced in Qbs 1.3.3.</p>
 </div></div><!-- @@@runtimeLibrary -->
 <br>
 <!-- $$$separateDebugInformation -->
 <div class="qmlitem"><h3 class="qmlproto">separateDebugInformation: bool</h3>
 <div class="qmldoc"><p>Whether to store debug information in an external file or bundle instead of within the binary.</p>
-<p>The type of files that will be generated when this property is <code>true</code> is dependent on the compiler and target platform:</p>
+<p>The type of files that will be generated when this property is <code translate="no">true</code> is dependent on the compiler and target platform:</p>
 <ul>
-<li>With MSVC, this property controls the generation of <code>.pdb</code> (Program Debug Database) files.</li>
-<li>On Apple platforms with GCC or Clang, this property controls the generation of <code>.dSYM</code> (DWARF Symbol) bundles or, if <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#dsymutilFlags-prop">dsymutilFlags</a> contains the <code>-f</code> or <code>--flat</code> flags, <code>.dwarf</code> symbol files.</li>
-<li>On other platforms with GCC or Clang (including Windows/MinGW), this property controls the generation of <code>.debug</code> symbol files.</li>
+<li>With MSVC, this property controls the generation of <code translate="no">.pdb</code> (Program Debug Database) files.</li>
+<li>On Apple platforms with GCC or Clang, this property controls the generation of <code translate="no">.dSYM</code> (DWARF Symbol) bundles or, if <a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#dsymutilFlags-prop" translate="no">dsymutilFlags</a> contains the <code translate="no">-f</code> or <code translate="no">--flat</code> flags, <code translate="no">.dwarf</code> symbol files.</li>
+<li>On other platforms with GCC or Clang (including Windows/MinGW), this property controls the generation of <code translate="no">.debug</code> symbol files.</li>
 </ul>
-<p>Default: <code>true</code> for MSVC and with GCC or Clang on Apple platforms, otherwise <code>false</code>.</p>
+<p>Default: <code translate="no">true</code> for MSVC and with GCC or Clang on Apple platforms, otherwise <code translate="no">false</code>.</p>
 <p>This property was introduced in Qbs 1.4.</p>
 <p><b>See also </b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#debugInformation-prop">debugInformation</a> and <a href="https://qbs.io
-/docs/howtos/#how-do-i-separate-and-install-debugging-symbols">How do I separate and install debugging symbols?</a>.</p>
+/docs/qml-qbsmodules-cpp/#debugInformation-prop" translate="no">debugInformation</a> and <a href="https://qbs.io
+/docs/howtos/#how-do-i-separate-and-install-debugging-symbols" translate="no">How do I separate and install debugging symbols?</a>.</p>
 </div></div><!-- @@@separateDebugInformation -->
 <br>
 <!-- $$$soVersion -->
@@ -1303,7 +1303,7 @@ Properties {
 <div class="qmldoc"><p>This property is specific to Unix platforms.</p>
 <p>The version number to be appended to the soname in ELF shared libraries.</p>
 <p>Default: The major part of <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/#version-prop">product.version</a> if a version is set, otherwise <code>[]</code>.</p>
+/docs/qml-qbslanguageitems-product/#version-prop" translate="no">product.version</a> if a version is set, otherwise <code translate="no">[]</code>.</p>
 <p>This property was introduced in Qbs 1.7.</p>
 </div></div><!-- @@@soVersion -->
 <br>
@@ -1311,59 +1311,59 @@ Properties {
 <div class="qmlitem"><h3 class="qmlproto">sonamePrefix: string</h3>
 <div class="qmldoc"><p>This property is specific to Unix platforms.</p>
 <p>A library name or full library path.</p>
-<p>If defined, the value of this property is used as a path to be prepended to the built shared library's <code>SONAME</code> identifier. The <code>SONAME</code> (<code>LC_ID_DYLIB</code> on Apple platforms, <code>DT_SONAME</code> on other Unix-like platforms) is the identifier that the dynamic linker will later use to reference the library.</p>
+<p>If defined, the value of this property is used as a path to be prepended to the built shared library's <code translate="no">SONAME</code> identifier. The <code translate="no">SONAME</code> (<code translate="no">LC_ID_DYLIB</code> on Apple platforms, <code translate="no">DT_SONAME</code> on other Unix-like platforms) is the identifier that the dynamic linker will later use to reference the library.</p>
 <p>On Apple platforms, the path may contain the following placeholders:</p>
 <ul>
-<li><code>@rpath</code> - Expands to paths defined by <code>LC_RPATH</code> Mach-O commands in the current process executable or the referring libraries.</li>
-<li><code>@executable_path</code> - Expands to the current process executable location.</li>
-<li><code>@loader_path</code> - Expands to the referring executable or library location.</li>
+<li><code translate="no">@rpath</code> - Expands to paths defined by <code translate="no">LC_RPATH</code> Mach-O commands in the current process executable or the referring libraries.</li>
+<li><code translate="no">@executable_path</code> - Expands to the current process executable location.</li>
+<li><code translate="no">@loader_path</code> - Expands to the referring executable or library location.</li>
 </ul>
-<p>In most cases, using <code>@rpath</code> is sufficient and recommended. However, the prefix may be also specified using different placeholders, or an absolute path.</p>
-<p>For more information, see the <a href="https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man1/dyld.1.html">DYLD documentation</a> on dynamic library install names.</p>
+<p>In most cases, using <code translate="no">@rpath</code> is sufficient and recommended. However, the prefix may be also specified using different placeholders, or an absolute path.</p>
+<p>For more information, see the <a href="https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man1/dyld.1.html" translate="no">DYLD documentation</a> on dynamic library install names.</p>
 <p>Default: Undefined</p>
 <p>This property was introduced in Qbs 1.5.</p>
 <p><b>See also </b><a href="https://qbs.io
-/docs/howtos/#how-do-i-make-use-of-rpaths">How do I make use of rpaths?</a>.</p>
+/docs/howtos/#how-do-i-make-use-of-rpaths" translate="no">How do I make use of rpaths?</a>.</p>
 </div></div><!-- @@@sonamePrefix -->
 <br>
 <!-- $$$staticLibraries -->
 <div class="qmlitem"><h3 class="qmlproto">staticLibraries: stringList</h3>
 <div class="qmldoc"><p>A list of static libraries to be linked.</p>
 <p>If the library is part of your project, consider using a <a href="https://qbs.io
-/docs/qml-qbslanguageitems-depends/">Depends</a> item instead.</p>
+/docs/qml-qbslanguageitems-depends/" translate="no">Depends</a> item instead.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@staticLibraries -->
 <br>
 <!-- $$$staticLibraryPrefix -->
 <div class="qmlitem"><h3 class="qmlproto">staticLibraryPrefix: string</h3>
 <div class="qmldoc"><p>A string to prepend to the static library file <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/#targetName-prop">name</a>.</p>
+/docs/qml-qbslanguageitems-product/#targetName-prop" translate="no">name</a>.</p>
 <p>Default: <a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#toolchain-prop">toolchain</a>-dependent, typical values are <code>""</code> or <code>"lib"</code></p>
+/docs/qml-qbsmodules-qbs/#toolchain-prop" translate="no">toolchain</a>-dependent, typical values are <code translate="no">""</code> or <code translate="no">"lib"</code></p>
 </div></div><!-- @@@staticLibraryPrefix -->
 <br>
 <!-- $$$staticLibrarySuffix -->
 <div class="qmlitem"><h3 class="qmlproto">staticLibrarySuffix: string</h3>
 <div class="qmldoc"><p>A string to append to the executable file <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/#targetName-prop">name</a>.</p>
+/docs/qml-qbslanguageitems-product/#targetName-prop" translate="no">name</a>.</p>
 <p>Default: <a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#toolchain-prop">toolchain</a>-dependent, typical values are <code>".a"</code> or <code>".lib"</code></p>
+/docs/qml-qbsmodules-qbs/#toolchain-prop" translate="no">toolchain</a>-dependent, typical values are <code translate="no">".a"</code> or <code translate="no">".lib"</code></p>
 </div></div><!-- @@@staticLibrarySuffix -->
 <br>
 <!-- $$$stripName -->
 <div class="qmlitem"><h3 class="qmlproto">stripName: string</h3>
 <div class="qmldoc"><p>This property is specific to Unix platforms.</p>
-<p>The name of the <code>strip</code> binary. This property is set in the build profile.</p>
-<p>Default: <code>"strip"</code></p>
+<p>The name of the <code translate="no">strip</code> binary. This property is set in the build profile.</p>
+<p>Default: <code translate="no">"strip"</code></p>
 <p>This property was introduced in Qbs 1.4.</p>
 </div></div><!-- @@@stripName -->
 <br>
 <!-- $$$stripPath -->
 <div class="qmlitem"><h3 class="qmlproto">stripPath: string</h3>
 <div class="qmldoc"><p>This property is specific to Unix platforms.</p>
-<p>The full path of the <code>strip</code> binary. This property is set in the build profile.</p>
+<p>The full path of the <code translate="no">strip</code> binary. This property is set in the build profile.</p>
 <p>Default: Determined by <a href="https://qbs.io
-/docs/cli-setup-toolchains/">qbs setup-toolchains</a>.</p>
+/docs/cli-setup-toolchains/" translate="no">qbs setup-toolchains</a>.</p>
 <p>This property was introduced in Qbs 1.4.</p>
 </div></div><!-- @@@stripPath -->
 <br>
@@ -1371,7 +1371,7 @@ Properties {
 <div class="qmlitem"><h3 class="qmlproto">systemFrameworkPaths: pathList</h3>
 <div class="qmldoc"><p>This property is specific to Apple platforms.</p>
 <p>A list of framework search paths.</p>
-<p>Relative paths are considered to be relative to the <code>.qbs</code> product file they are used in. Header files in frameworks in those paths will not cause warnings.</p>
+<p>Relative paths are considered to be relative to the <code translate="no">.qbs</code> product file they are used in. Header files in frameworks in those paths will not cause warnings.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@systemFrameworkPaths -->
 <br>
@@ -1379,14 +1379,14 @@ Properties {
 <div class="qmlitem"><h3 class="qmlproto">systemIncludePaths: pathList</h3>
 <div class="qmldoc"><p>A list of include paths that are passed as system include paths to the compiler.</p>
 <p>For header files in those paths, warnings will be ignored.</p>
-<p>Relative paths are considered to be relative to the <code>.qbs</code> product file they are used in.</p>
+<p>Relative paths are considered to be relative to the <code translate="no">.qbs</code> product file they are used in.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@systemIncludePaths -->
 <br>
 <!-- $$$systemRunPaths -->
 <div class="qmlitem"><h3 class="qmlproto">systemRunPaths: stringList</h3>
 <div class="qmldoc"><p>The paths the dynamic linker uses on process start-up to locate dynamic libraries.</p>
-<p>Default: Auto-detected for host builds on Linux via <code>ldconfig</code>, <code>["/lib", "/usr/lib"]</code> otherwise on Unix, <code>[]</code> on Windows.</p>
+<p>Default: Auto-detected for host builds on Linux via <code translate="no">ldconfig</code>, <code translate="no">["/lib", "/usr/lib"]</code> otherwise on Unix, <code translate="no">[]</code> on Windows.</p>
 <p>This property was introduced in Qbs 1.6.</p>
 </div></div><!-- @@@systemRunPaths -->
 <br>
@@ -1395,42 +1395,42 @@ Properties {
 <div class="qmldoc"><p>The directory path where the toolchain is installed. This property is set in the build profile.</p>
 <p>This is usually the base property from which all compiler and tool paths are automatically derived.</p>
 <p>Default: Determined by <a href="https://qbs.io
-/docs/cli-setup-toolchains/">qbs setup-toolchains</a>.</p>
+/docs/cli-setup-toolchains/" translate="no">qbs setup-toolchains</a>.</p>
 </div></div><!-- @@@toolchainInstallPath -->
 <br>
 <!-- $$$treatSystemHeadersAsDependencies -->
 <div class="qmlitem"><h3 class="qmlproto">treatSystemHeadersAsDependencies: bool</h3>
 <div class="qmldoc"><p>Whether included header files found via <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#systemIncludePaths-prop">systemIncludePaths</a>, <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#distributionIncludePaths-prop">distributionIncludePaths</a>, or <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#compilerIncludePaths-prop">compilerIncludePaths</a> will be added to the dependencies of the respective object file.</p>
+/docs/qml-qbsmodules-cpp/#systemIncludePaths-prop" translate="no">systemIncludePaths</a>, <a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#distributionIncludePaths-prop" translate="no">distributionIncludePaths</a>, or <a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#compilerIncludePaths-prop" translate="no">compilerIncludePaths</a> will be added to the dependencies of the respective object file.</p>
 <p>This means that modification of such header files (or any of the headers they include) will cause recompilation.</p>
-<p>Default: <code>false</code></p>
+<p>Default: <code translate="no">false</code></p>
 <p>This property was introduced in Qbs 1.8.</p>
 </div></div><!-- @@@treatSystemHeadersAsDependencies -->
 <br>
 <!-- $$$treatWarningsAsErrors -->
 <div class="qmlitem"><h3 class="qmlproto">treatWarningsAsErrors: bool</h3>
 <div class="qmldoc"><p>Whether warnings will be handled as errors and cause the build to fail.</p>
-<p>Default: <code>false</code></p>
+<p>Default: <code translate="no">false</code></p>
 </div></div><!-- @@@treatWarningsAsErrors -->
 <br>
 <!-- $$$useCPrecompiledHeader -->
 <div class="qmlitem"><h3 class="qmlproto">useCPrecompiledHeader: bool</h3>
 <div class="qmldoc"><p>Whether to use a precompiled header for compiling C sources if one is present.</p>
-<p>Set this property to <code>false</code> in a <a href="https://qbs.io
-/docs/qml-qbslanguageitems-group/">Group</a> item to disable precompiled headers for some sources even though a precompiled header is present in the product.</p>
+<p>Set this property to <code translate="no">false</code> in a <a href="https://qbs.io
+/docs/qml-qbslanguageitems-group/" translate="no">Group</a> item to disable precompiled headers for some sources even though a precompiled header is present in the product.</p>
 <p>See <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#filetags-cpp">Relevant File Tags</a> for the associated file tags.</p>
-<p>Default: <code>true</code></p>
+/docs/qml-qbsmodules-cpp/#filetags-cpp" translate="no">Relevant File Tags</a> for the associated file tags.</p>
+<p>Default: <code translate="no">true</code></p>
 <p>This property was introduced in Qbs 1.5.</p>
 </div></div><!-- @@@useCPrecompiledHeader -->
 <br>
 <!-- $$$useCxxPrecompiledHeader -->
 <div class="qmlitem"><h3 class="qmlproto">useCxxPrecompiledHeader: bool</h3>
 <div class="qmldoc"><p>Like <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#useCPrecompiledHeader-prop">useCPrecompiledHeader</a>, but for C++.</p>
-<p>Default: <code>true</code></p>
+/docs/qml-qbsmodules-cpp/#useCPrecompiledHeader-prop" translate="no">useCPrecompiledHeader</a>, but for C++.</p>
+<p>Default: <code translate="no">true</code></p>
 <p>This property was introduced in Qbs 1.5.</p>
 </div></div><!-- @@@useCxxPrecompiledHeader -->
 <br>
@@ -1438,8 +1438,8 @@ Properties {
 <div class="qmlitem"><h3 class="qmlproto">useLanguageVersionFallback: bool</h3>
 <div class="qmldoc"><p>Whether to explicitly use the language standard version fallback values in compiler command line invocations.</p>
 <p>By default, Qbs will automatically substitute fallback values for the C and C++ language standard versions specified by the <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#cLanguageVersion-prop">cLanguageVersion</a> and <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#cxxLanguageVersion-prop">cxxLanguageVersion</a> properties, which are passed to the <code>-std=</code> compiler command line option with GNU-compatible toolchains, if it detects that you are using an older toolchain which does not support the standard values. The substitutions are made as follows:</p>
+/docs/qml-qbsmodules-cpp/#cLanguageVersion-prop" translate="no">cLanguageVersion</a> and <a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#cxxLanguageVersion-prop" translate="no">cxxLanguageVersion</a> properties, which are passed to the <code translate="no">-std=</code> compiler command line option with GNU-compatible toolchains, if it detects that you are using an older toolchain which does not support the standard values. The substitutions are made as follows:</p>
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th>Value</th><th>Substitute</th></tr></thead>
 <tbody><tr valign="top" class="odd"><td>c++11</td><td>c++0x</td></tr>
@@ -1447,8 +1447,8 @@ Properties {
 <tr valign="top" class="odd"><td>c++14</td><td>c++1y</td></tr>
 <tr valign="top" class="even"><td>c++17</td><td>c++1z</td></tr>
 </tbody></table></div>
-<p>If this property is explicitly set to <code>true</code>, Qbs will always use the fallback values.</p>
-<p>If this property is explicitly set to <code>false</code>, Qbs will never use the fallback values.</p>
+<p>If this property is explicitly set to <code translate="no">true</code>, Qbs will always use the fallback values.</p>
+<p>If this property is explicitly set to <code translate="no">false</code>, Qbs will never use the fallback values.</p>
 <p>This property has no effect with the Microsoft Visual C++ compiler.</p>
 <p>Default: Undefined</p>
 <p>This property was introduced in Qbs 1.11.</p>
@@ -1457,44 +1457,44 @@ Properties {
 <!-- $$$useObjcPrecompiledHeader -->
 <div class="qmlitem"><h3 class="qmlproto">useObjcPrecompiledHeader: bool</h3>
 <div class="qmldoc"><p>Like <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#useCPrecompiledHeader-prop">useCPrecompiledHeader</a>, but for Objective-C.</p>
-<p>Default: <code>true</code></p>
+/docs/qml-qbsmodules-cpp/#useCPrecompiledHeader-prop" translate="no">useCPrecompiledHeader</a>, but for Objective-C.</p>
+<p>Default: <code translate="no">true</code></p>
 <p>This property was introduced in Qbs 1.5.</p>
 </div></div><!-- @@@useObjcPrecompiledHeader -->
 <br>
 <!-- $$$useObjcxxPrecompiledHeader -->
 <div class="qmlitem"><h3 class="qmlproto">useObjcxxPrecompiledHeader: bool</h3>
 <div class="qmldoc"><p>Like <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#useCPrecompiledHeader-prop">useCPrecompiledHeader</a>, but for Objective-C++.</p>
-<p>Default: <code>true</code></p>
+/docs/qml-qbsmodules-cpp/#useCPrecompiledHeader-prop" translate="no">useCPrecompiledHeader</a>, but for Objective-C++.</p>
+<p>Default: <code translate="no">true</code></p>
 <p>This property was introduced in Qbs 1.5.</p>
 </div></div><!-- @@@useObjcxxPrecompiledHeader -->
 <br>
 <!-- $$$useRPathLink -->
 <div class="qmlitem"><h3 class="qmlproto">useRPathLink: bool</h3>
 <div class="qmldoc"><p>This property is specific to Unix platforms.</p>
-<p>Whether to use the <code>-rpath-link</code> linker option for transitive shared objects.</p>
-<p>Default: <code>true</code> on non-Darwin Unix platforms or when targeting macOS 10.4.x and older.</p>
+<p>Whether to use the <code translate="no">-rpath-link</code> linker option for transitive shared objects.</p>
+<p>Default: <code translate="no">true</code> on non-Darwin Unix platforms or when targeting macOS 10.4.x and older.</p>
 <p>This property was introduced in Qbs 1.8.</p>
 </div></div><!-- @@@useRPathLink -->
 <br>
 <!-- $$$useRPaths -->
 <div class="qmlitem"><h3 class="qmlproto">useRPaths: bool</h3>
 <div class="qmldoc"><p>This property is specific to Unix platforms.</p>
-<p>If <code>false</code>, prevents the linker from writing <code>rpaths</code> to the binary.</p>
-<p>Default: <code>true</code></p>
+<p>If <code translate="no">false</code>, prevents the linker from writing <code translate="no">rpaths</code> to the binary.</p>
+<p>Default: <code translate="no">true</code></p>
 <p>This property was introduced in Qbs 1.3.</p>
 </div></div><!-- @@@useRPaths -->
 <br>
 <!-- $$$variantSuffix -->
 <div class="qmlitem"><h3 class="qmlproto">variantSuffix: string</h3>
 <div class="qmldoc"><p>A suffix to add to a product's target name if that product is of the <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/#type-prop">type</a> <code>staticlibrary</code> or <code>dynamiclibrary</code>.</p>
+/docs/qml-qbslanguageitems-product/#type-prop" translate="no">type</a> <code translate="no">staticlibrary</code> or <code translate="no">dynamiclibrary</code>.</p>
 <p>On Darwin platforms, applications and loadable modules are also affected.</p>
 <p>By default, this property is left empty on all platforms unless the product is multiplexed over the <a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#buildVariants-prop">qbs.buildVariants</a> property. In that case, for the debug variant of the product, the default value is <code>"d"</code> on Windows and <code>"_debug"</code> on Darwin platforms, such as macOS. On all other platforms and in release mode, the default value is <code>[]</code>.</p>
-<p>For example, building a dynamic library called <code>MyLib</code> that is multiplexed over the <a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#buildVariants-prop">qbs.buildVariants</a> property with MSVC will produce files called <code>MyLib.dll</code> (for the release version of the product) and <code>MyLibd.dll</code> (for the debug version).</p>
+/docs/qml-qbsmodules-qbs/#buildVariants-prop" translate="no">qbs.buildVariants</a> property. In that case, for the debug variant of the product, the default value is <code translate="no">"d"</code> on Windows and <code translate="no">"_debug"</code> on Darwin platforms, such as macOS. On all other platforms and in release mode, the default value is <code translate="no">[]</code>.</p>
+<p>For example, building a dynamic library called <code translate="no">MyLib</code> that is multiplexed over the <a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#buildVariants-prop" translate="no">qbs.buildVariants</a> property with MSVC will produce files called <code translate="no">MyLib.dll</code> (for the release version of the product) and <code translate="no">MyLibd.dll</code> (for the debug version).</p>
 <p>Default: Platform-specific.</p>
 <p>This property was introduced in Qbs 1.10.</p>
 </div></div><!-- @@@variantSuffix -->
@@ -1503,14 +1503,14 @@ Properties {
 <div class="qmlitem"><h3 class="qmlproto">visibility: string</h3>
 <div class="qmldoc"><p>This property is specific to Unix platforms.</p>
 <p>The visibility level for exported symbols.</p>
-<p>Possible values include: <code>"default"</code>, <code>"hidden"</code>, <code>"hiddenInlines"</code>, and <code>"minimal"</code>, which combines <code>"hidden"</code> and <code>"hiddenInlines"</code>.</p>
-<p>Default: <code>"default"</code></p>
+<p>Possible values include: <code translate="no">"default"</code>, <code translate="no">"hidden"</code>, <code translate="no">"hiddenInlines"</code>, and <code translate="no">"minimal"</code>, which combines <code translate="no">"hidden"</code> and <code translate="no">"hiddenInlines"</code>.</p>
+<p>Default: <code translate="no">"default"</code></p>
 </div></div><!-- @@@visibility -->
 <br>
 <!-- $$$warningLevel -->
 <div class="qmlitem"><h3 class="qmlproto">warningLevel: string</h3>
-<div class="qmldoc"><p>The warning level for the compiler: <code>"none"</code> or <code>"all"</code>.</p>
-<p>Default: <code>"all"</code></p>
+<div class="qmldoc"><p>The warning level for the compiler: <code translate="no">"none"</code> or <code translate="no">"all"</code>.</p>
+<p>Default: <code translate="no">"all"</code></p>
 </div></div><!-- @@@warningLevel -->
 <br>
 <!-- $$$weakFrameworks -->
@@ -1518,7 +1518,7 @@ Properties {
 <div class="qmldoc"><p>This property is specific to Apple platforms.</p>
 <p>A list of frameworks to be weakly linked.</p>
 <p>If the framework is part of your project, consider using a <a href="https://qbs.io
-/docs/qml-qbslanguageitems-depends/">Depends</a> item instead.</p>
+/docs/qml-qbslanguageitems-depends/" translate="no">Depends</a> item instead.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@weakFrameworks -->
 <br>
@@ -1526,22 +1526,22 @@ Properties {
 <div class="qmlitem"><h3 class="qmlproto">windowsApiAdditionalPartitions: stringList</h3>
 <div class="qmldoc"><p>This property is specific to Windows.</p>
 <p>A list of additional Windows API partitions to enable in addition to the ones implicitly enabled by the value of <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#windowsApiFamily-prop">windowsApiFamily</a> (<code>WINAPI_FAMILY</code>).</p>
+/docs/qml-qbsmodules-cpp/#windowsApiFamily-prop" translate="no">windowsApiFamily</a> (<code translate="no">WINAPI_FAMILY</code>).</p>
 <p>This value is used when building Windows Store applications. For example, setting <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#windowsApiFamily-prop">windowsApiFamily</a> to <code>"pc"</code> and this property to <code>["phone"]</code> will allow you to create Windows Store applications that target all Universal Windows Platform device families (<code>"Universal"</code> apps).</p>
-<p>Possible values include: <code>"app"</code>, <code>"desktop"</code>, <code>"pc"</code>, <code>"phone"</code>, <code>"server"</code>, and <code>"system"</code>, which are mapped to the corresponding set of possible <code>WINAPI_PARTITION_*</code> preprocessor defines in the Windows SDK.</p>
-<p>Default: Undefined, which lets the Windows SDK headers determine the default partitions based on the value of <code>WINAPI_FAMILY</code>.</p>
+/docs/qml-qbsmodules-cpp/#windowsApiFamily-prop" translate="no">windowsApiFamily</a> to <code translate="no">"pc"</code> and this property to <code translate="no">["phone"]</code> will allow you to create Windows Store applications that target all Universal Windows Platform device families (<code translate="no">"Universal"</code> apps).</p>
+<p>Possible values include: <code translate="no">"app"</code>, <code translate="no">"desktop"</code>, <code translate="no">"pc"</code>, <code translate="no">"phone"</code>, <code translate="no">"server"</code>, and <code translate="no">"system"</code>, which are mapped to the corresponding set of possible <code translate="no">WINAPI_PARTITION_*</code> preprocessor defines in the Windows SDK.</p>
+<p>Default: Undefined, which lets the Windows SDK headers determine the default partitions based on the value of <code translate="no">WINAPI_FAMILY</code>.</p>
 <p>This property was introduced in Qbs 1.10.</p>
 <p><b>See also </b><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#windowsApiFamily-prop">windowsApiFamily</a>.</p>
+/docs/qml-qbsmodules-cpp/#windowsApiFamily-prop" translate="no">windowsApiFamily</a>.</p>
 </div></div><!-- @@@windowsApiAdditionalPartitions -->
 <br>
 <!-- $$$windowsApiCharacterSet -->
 <div class="qmlitem"><h3 class="qmlproto">windowsApiCharacterSet: string</h3>
 <div class="qmldoc"><p>This property is specific to Windows.</p>
 <p>The character set used in the Win32 API.</p>
-<p>The value <code>"unicode"</code> defines the preprocessor symbols <code>UNICODE</code> and <code>_UNICODE</code>, <code>"mbcs"</code> defines <code>_MBCS</code>, and setting the value to <code>undefined</code> will use the default character set.</p>
-<p>Default: <code>"unicode"</code></p>
+<p>The value <code translate="no">"unicode"</code> defines the preprocessor symbols <code translate="no">UNICODE</code> and <code translate="no">_UNICODE</code>, <code translate="no">"mbcs"</code> defines <code translate="no">_MBCS</code>, and setting the value to <code translate="no">undefined</code> will use the default character set.</p>
+<p>Default: <code translate="no">"unicode"</code></p>
 <p>This property was introduced in Qbs 1.0.1.</p>
 </div></div><!-- @@@windowsApiCharacterSet -->
 <br>
@@ -1550,7 +1550,7 @@ Properties {
 <div class="qmldoc"><p>This property is specific to Windows.</p>
 <p>The Windows API family that the application or library is targeting.</p>
 <p>This value is used when building Universal Windows Platform applications.</p>
-<p>Possible values include: <code>"desktop"</code>, <code>"pc"</code>, <code>"phone"</code>, <code>"server"</code>, and <code>"system"</code>, which are mapped to the corresponding set of possible values for the <code>WINAPI_FAMILY</code> preprocessor define in the Windows SDK.</p>
+<p>Possible values include: <code translate="no">"desktop"</code>, <code translate="no">"pc"</code>, <code translate="no">"phone"</code>, <code translate="no">"server"</code>, and <code translate="no">"system"</code>, which are mapped to the corresponding set of possible values for the <code translate="no">WINAPI_FAMILY</code> preprocessor define in the Windows SDK.</p>
 <p>Default: Undefined, which lets the Windows SDK headers determine the default.</p>
 <p>This property was introduced in Qbs 1.10.</p>
 </div></div><!-- @@@windowsApiFamily -->

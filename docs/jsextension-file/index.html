@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual List of Built-in Services File Service Qbs 2.0.1 Contents Available Operations copy exists directoryEntries lastModified makePath move remove File Service The File service offers limited access to the file system for operations such as copying or removing files.
+    <meta name="description" content="Qbs Manual List of Built-in Services File Service Qbs 2.1.1 Contents Available Operations copy exists directoryEntries lastModified makePath move remove File Service The File service offers limited access to the file system for operations such as copying or removing files.
 Available Operations copy File.copy(sourceFilePath: string, targetFilePath: string): boolean Copies sourceFilePath to targetFilePath. Any directory components in targetFilePath that do not yet exist will be created. If sourceFilePath is a directory, a recursive copy will be made. ">
     <link rel="canonical" href="https://qbs.io/docs/jsextension-file/" />
 
@@ -18,7 +18,7 @@ Available Operations copy File.copy(sourceFilePath: string, targetFilePath: stri
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual List of Built-in Services File Service Qbs 2.0.1 Contents Available Operations copy exists directoryEntries lastModified makePath move remove File Service The File service offers limited access to the file system for operations such as copying or removing files.
+<meta property="og:description" content="Qbs Manual List of Built-in Services File Service Qbs 2.1.1 Contents Available Operations copy exists directoryEntries lastModified makePath move remove File Service The File service offers limited access to the file system for operations such as copying or removing files.
 Available Operations copy File.copy(sourceFilePath: string, targetFilePath: string): boolean Copies sourceFilePath to targetFilePath. Any directory components in targetFilePath that do not yet exist will be created. If sourceFilePath is a directory, a recursive copy will be made." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/jsextension-file/" /><meta property="article:section" content="docs" />
@@ -27,7 +27,7 @@ Available Operations copy File.copy(sourceFilePath: string, targetFilePath: stri
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual List of Built-in Services File Service Qbs 2.0.1 Contents Available Operations copy exists directoryEntries lastModified makePath move remove File Service The File service offers limited access to the file system for operations such as copying or removing files.
+<meta name="twitter:description" content="Qbs Manual List of Built-in Services File Service Qbs 2.1.1 Contents Available Operations copy exists directoryEntries lastModified makePath move remove File Service The File service offers limited access to the file system for operations such as copying or removing files.
 Available Operations copy File.copy(sourceFilePath: string, targetFilePath: string): boolean Copies sourceFilePath to targetFilePath. Any directory components in targetFilePath that do not yet exist will be created. If sourceFilePath is a directory, a recursive copy will be made."/>
 
 </head>
@@ -57,11 +57,11 @@ Available Operations copy File.copy(sourceFilePath: string, targetFilePath: stri
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io
-/docs">Qbs Manual</a></li>
+/docs" translate="no">Qbs Manual</a></li>
 <li><a href="https://qbs.io
-/docs/list-of-builtin-services/">List of Built-in Services</a></li>
+/docs/list-of-builtin-services/" translate="no">List of Built-in Services</a></li>
 <li>File Service</li>
-<li id="buildversion">Qbs 2.0.1</li>
+<li id="buildversion">Qbs 2.1.1</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -80,35 +80,35 @@ Available Operations copy File.copy(sourceFilePath: string, targetFilePath: stri
 <div class="content"><h1 class="title">File Service</h1>
 <!-- $$$jsextension-file.html-description -->
 <div class="descr" id="details">
-<p>The <code>File</code> service offers limited access to the file system for operations such as copying or removing files.</p>
+<p>The <code translate="no">File</code> service offers limited access to the file system for operations such as copying or removing files.</p>
 <h2 id="available-operations">Available Operations</h2>
 <h3 id="copy">copy</h3>
-<pre class="cpp">File<span class="operator">.</span>copy(sourceFilePath: string<span class="operator">,</span> targetFilePath: string): boolean</pre>
-<p>Copies <code>sourceFilePath</code> to <code>targetFilePath</code>. Any directory components in <code>targetFilePath</code> that do not yet exist will be created. If <code>sourceFilePath</code> is a directory, a recursive copy will be made. If an error occurs, a JavaScript exception will be thrown.</p>
+<pre class="cpp" translate="no">File<span class="operator">.</span>copy(sourceFilePath: string<span class="operator">,</span> targetFilePath: string): boolean</pre>
+<p>Copies <code translate="no">sourceFilePath</code> to <code translate="no">targetFilePath</code>. Any directory components in <code translate="no">targetFilePath</code> that do not yet exist will be created. If <code translate="no">sourceFilePath</code> is a directory, a recursive copy will be made. If an error occurs, a JavaScript exception will be thrown.</p>
 <div class="admonition note">
-<p><b>Note: </b><code>targetFilePath</code> must be the counterpart of <code>sourceFilePath</code> at the new location, <b>not</b> the new parent directory. This allows the copy to have a different name and is true even if <code>sourceFilePath</code> is a directory.</p>
+<p><b>Note: </b><code translate="no">targetFilePath</code> must be the counterpart of <code translate="no">sourceFilePath</code> at the new location, <b>not</b> the new parent directory. This allows the copy to have a different name and is true even if <code translate="no">sourceFilePath</code> is a directory.</p>
 </div>
 <div class="admonition note">
 <p><b>Note: </b>The file is not copied if the source file timestamp is older than the destination file timestamp. If you want to replace the newer file, you need to remove it first via File.remove().</p>
 </div>
 <h3 id="exists">exists</h3>
-<pre class="cpp">File<span class="operator">.</span>exists(filePath: string): boolean</pre>
-<p>Returns true if and only if there is a file at <code>filePath</code>.</p>
+<pre class="cpp" translate="no">File<span class="operator">.</span>exists(filePath: string): boolean</pre>
+<p>Returns true if and only if there is a file at <code translate="no">filePath</code>.</p>
 <h3 id="directoryentries">directoryEntries</h3>
-<pre class="cpp">File<span class="operator">.</span>directoryEntries(path: string<span class="operator">,</span> filter: File<span class="operator">.</span>Filter): string<span class="operator">[</span><span class="operator">]</span></pre>
-<p>Returns a sorted list of the directory <code>path</code>'s contents non-recursively, filtered by <code>filter</code>. The values of <code>filter</code> are equivalent to Qt's <code>QDir::Filter</code>.</p>
+<pre class="cpp" translate="no">File<span class="operator">.</span>directoryEntries(path: string<span class="operator">,</span> filter: File<span class="operator">.</span>Filter): string<span class="operator">[</span><span class="operator">]</span></pre>
+<p>Returns a sorted list of the directory <code translate="no">path</code>'s contents non-recursively, filtered by <code translate="no">filter</code>. The values of <code translate="no">filter</code> are equivalent to Qt's <code translate="no">QDir::Filter</code>.</p>
 <h3 id="lastmodified">lastModified</h3>
-<pre class="cpp">File<span class="operator">.</span>lastModified(filePath: string): number</pre>
-<p>Returns the time of last modification for the file at <code>filePath</code>. The concrete semantics of the returned value are platform-specific. You should only rely on the property that a smaller value indicates an older timestamp.</p>
+<pre class="cpp" translate="no">File<span class="operator">.</span>lastModified(filePath: string): number</pre>
+<p>Returns the time of last modification for the file at <code translate="no">filePath</code>. The concrete semantics of the returned value are platform-specific. You should only rely on the property that a smaller value indicates an older timestamp.</p>
 <h3 id="makepath">makePath</h3>
-<pre class="cpp">File<span class="operator">.</span>makePath(path: string): boolean</pre>
-<p>Makes the directory at <code>path</code>, creating intermediate directories if necessary. Conceptually equivalent to <code>mkdir -p</code></p>
+<pre class="cpp" translate="no">File<span class="operator">.</span>makePath(path: string): boolean</pre>
+<p>Makes the directory at <code translate="no">path</code>, creating intermediate directories if necessary. Conceptually equivalent to <code translate="no">mkdir -p</code></p>
 <h3 id="move">move</h3>
-<pre class="cpp">File<span class="operator">.</span>move(oldPath: string<span class="operator">,</span> newPath: string<span class="operator">,</span> overwrite: boolean <span class="operator">=</span> <span class="keyword">true</span>): boolean</pre>
-<p>Renames the file <code>oldPath</code> to <code>newPath</code>. Returns <code>true</code> if successful; otherwise returns <code>false</code>. If a file with the name <code>newPath</code> already exists, and <code>overwrite</code> is <code>false</code>, <code>move()</code> returns <code>false</code> (that is, the file will not be overwritten).</p>
+<pre class="cpp" translate="no">File<span class="operator">.</span>move(oldPath: string<span class="operator">,</span> newPath: string<span class="operator">,</span> overwrite: boolean <span class="operator">=</span> <span class="keyword">true</span>): boolean</pre>
+<p>Renames the file <code translate="no">oldPath</code> to <code translate="no">newPath</code>. Returns <code translate="no">true</code> if successful; otherwise returns <code translate="no">false</code>. If a file with the name <code translate="no">newPath</code> already exists, and <code translate="no">overwrite</code> is <code translate="no">false</code>, <code translate="no">move()</code> returns <code translate="no">false</code> (that is, the file will not be overwritten).</p>
 <h3 id="remove">remove</h3>
-<pre class="cpp">File<span class="operator">.</span>remove(filePath: string): boolean</pre>
-<p>Removes the file at <code>filePath</code>. In case of a directory, it will be removed recursively.</p>
+<pre class="cpp" translate="no">File<span class="operator">.</span>remove(filePath: string): boolean</pre>
+<p>Removes the file at <code translate="no">filePath</code>. In case of a directory, it will be removed recursively.</p>
 </div>
 <!-- @@@jsextension-file.html -->
 </div>

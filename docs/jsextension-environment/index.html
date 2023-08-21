@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual List of Built-in Services Environment Service Qbs 2.0.1 Contents Available Operations currentEnv getEnv putEnv unsetEnv Environment Service The Environment service offers access to the system environment or process environment.
+    <meta name="description" content="Qbs Manual List of Built-in Services Environment Service Qbs 2.1.1 Contents Available Operations currentEnv getEnv putEnv unsetEnv Environment Service The Environment service offers access to the system environment or process environment.
 Available Operations currentEnv Environment.currentEnv(): { [key: string]: string; } Returns the environment of Qbs in the current context as an object whose properties are the environment variables.
 getEnv Environment.getEnv(key: string): string Tries to find a variable with the given name in the current context&#39;s environment and returns its value. ">
     <link rel="canonical" href="https://qbs.io/docs/jsextension-environment/" />
@@ -19,7 +19,7 @@ getEnv Environment.getEnv(key: string): string Tries to find a variable with the
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual List of Built-in Services Environment Service Qbs 2.0.1 Contents Available Operations currentEnv getEnv putEnv unsetEnv Environment Service The Environment service offers access to the system environment or process environment.
+<meta property="og:description" content="Qbs Manual List of Built-in Services Environment Service Qbs 2.1.1 Contents Available Operations currentEnv getEnv putEnv unsetEnv Environment Service The Environment service offers access to the system environment or process environment.
 Available Operations currentEnv Environment.currentEnv(): { [key: string]: string; } Returns the environment of Qbs in the current context as an object whose properties are the environment variables.
 getEnv Environment.getEnv(key: string): string Tries to find a variable with the given name in the current context&#39;s environment and returns its value." />
 <meta property="og:type" content="article" />
@@ -29,7 +29,7 @@ getEnv Environment.getEnv(key: string): string Tries to find a variable with the
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual List of Built-in Services Environment Service Qbs 2.0.1 Contents Available Operations currentEnv getEnv putEnv unsetEnv Environment Service The Environment service offers access to the system environment or process environment.
+<meta name="twitter:description" content="Qbs Manual List of Built-in Services Environment Service Qbs 2.1.1 Contents Available Operations currentEnv getEnv putEnv unsetEnv Environment Service The Environment service offers access to the system environment or process environment.
 Available Operations currentEnv Environment.currentEnv(): { [key: string]: string; } Returns the environment of Qbs in the current context as an object whose properties are the environment variables.
 getEnv Environment.getEnv(key: string): string Tries to find a variable with the given name in the current context&#39;s environment and returns its value."/>
 
@@ -60,11 +60,11 @@ getEnv Environment.getEnv(key: string): string Tries to find a variable with the
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io
-/docs">Qbs Manual</a></li>
+/docs" translate="no">Qbs Manual</a></li>
 <li><a href="https://qbs.io
-/docs/list-of-builtin-services/">List of Built-in Services</a></li>
+/docs/list-of-builtin-services/" translate="no">List of Built-in Services</a></li>
 <li>Environment Service</li>
-<li id="buildversion">Qbs 2.0.1</li>
+<li id="buildversion">Qbs 2.1.1</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -80,20 +80,20 @@ getEnv Environment.getEnv(key: string): string Tries to find a variable with the
 <div class="content"><h1 class="title">Environment Service</h1>
 <!-- $$$jsextension-environment.html-description -->
 <div class="descr" id="details">
-<p>The <code>Environment</code> service offers access to the system environment or process environment.</p>
+<p>The <code translate="no">Environment</code> service offers access to the system environment or process environment.</p>
 <h2 id="available-operations">Available Operations</h2>
 <h3 id="currentenv">currentEnv</h3>
-<pre class="cpp">Environment<span class="operator">.</span>currentEnv(): { <span class="operator">[</span>key: string<span class="operator">]</span>: string; }</pre>
+<pre class="cpp" translate="no">Environment<span class="operator">.</span>currentEnv(): { <span class="operator">[</span>key: string<span class="operator">]</span>: string; }</pre>
 <p>Returns the environment of Qbs in the current context as an object whose properties are the environment variables.</p>
 <h3 id="getenv">getEnv</h3>
-<pre class="cpp">Environment<span class="operator">.</span>getEnv(key: string): string</pre>
-<p>Tries to find a variable with the given name in the current context's environment and returns its value. If no such variable could be found, <code>undefined</code> is returned.</p>
+<pre class="cpp" translate="no">Environment<span class="operator">.</span>getEnv(key: string): string</pre>
+<p>Tries to find a variable with the given name in the current context's environment and returns its value. If no such variable could be found, <code translate="no">undefined</code> is returned.</p>
 <h3 id="putenv">putEnv</h3>
-<pre class="cpp">Environment<span class="operator">.</span>putEnv(key: string<span class="operator">,</span> value: string): <span class="type">void</span></pre>
-<p>Sets the value of the environment variable with the given name in the build or run environment. This method is only available in the <code>Module.setupBuildEnvironment</code> and <code>Module.setupRunEnvironment</code> scripts.</p>
+<pre class="cpp" translate="no">Environment<span class="operator">.</span>putEnv(key: string<span class="operator">,</span> value: string): <span class="type">void</span></pre>
+<p>Sets the value of the environment variable with the given name in the build or run environment. This method is only available in the <code translate="no">Module.setupBuildEnvironment</code> and <code translate="no">Module.setupRunEnvironment</code> scripts.</p>
 <h3 id="unsetenv">unsetEnv</h3>
-<pre class="cpp">Environment<span class="operator">.</span>unsetEnv(key: string): <span class="type">void</span></pre>
-<p>Unsets the environment variable with the given name from the build or run environment. This method is only available in the <code>Module.setupBuildEnvironment</code> and <code>Module.setupRunEnvironment</code> scripts.</p>
+<pre class="cpp" translate="no">Environment<span class="operator">.</span>unsetEnv(key: string): <span class="type">void</span></pre>
+<p>Unsets the environment variable with the given name from the build or run environment. This method is only available in the <code translate="no">Module.setupBuildEnvironment</code> and <code translate="no">Module.setupRunEnvironment</code> scripts.</p>
 </div>
 <!-- @@@jsextension-environment.html -->
 </div>

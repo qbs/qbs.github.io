@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual List of Built-in Services TextFile Service Qbs 2.0.1 Contents Related Declarations TextFile.OpenMode Available operations Constructor atEof close filePath readAll readLine setCodec truncate write writeLine TextFile Service The TextFile service allows you to read from and write into text files.
+    <meta name="description" content="Qbs Manual List of Built-in Services TextFile Service Qbs 2.1.1 Contents Related Declarations TextFile.OpenMode Available operations Constructor atEof close filePath readAll readLine setCodec truncate write writeLine TextFile Service The TextFile service allows you to read from and write into text files.
 Related Declarations TextFile.OpenMode enum TextFile.OpenMode { ReadOnly, WriteOnly, ReadWrite, Append } List of modes that a file may be opened in.
 The OpenMode values can be combined with the bitwise or operator. ">
     <link rel="canonical" href="https://qbs.io/docs/jsextension-textfile/" />
@@ -19,7 +19,7 @@ The OpenMode values can be combined with the bitwise or operator. ">
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual List of Built-in Services TextFile Service Qbs 2.0.1 Contents Related Declarations TextFile.OpenMode Available operations Constructor atEof close filePath readAll readLine setCodec truncate write writeLine TextFile Service The TextFile service allows you to read from and write into text files.
+<meta property="og:description" content="Qbs Manual List of Built-in Services TextFile Service Qbs 2.1.1 Contents Related Declarations TextFile.OpenMode Available operations Constructor atEof close filePath readAll readLine setCodec truncate write writeLine TextFile Service The TextFile service allows you to read from and write into text files.
 Related Declarations TextFile.OpenMode enum TextFile.OpenMode { ReadOnly, WriteOnly, ReadWrite, Append } List of modes that a file may be opened in.
 The OpenMode values can be combined with the bitwise or operator." />
 <meta property="og:type" content="article" />
@@ -29,7 +29,7 @@ The OpenMode values can be combined with the bitwise or operator." />
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual List of Built-in Services TextFile Service Qbs 2.0.1 Contents Related Declarations TextFile.OpenMode Available operations Constructor atEof close filePath readAll readLine setCodec truncate write writeLine TextFile Service The TextFile service allows you to read from and write into text files.
+<meta name="twitter:description" content="Qbs Manual List of Built-in Services TextFile Service Qbs 2.1.1 Contents Related Declarations TextFile.OpenMode Available operations Constructor atEof close filePath readAll readLine setCodec truncate write writeLine TextFile Service The TextFile service allows you to read from and write into text files.
 Related Declarations TextFile.OpenMode enum TextFile.OpenMode { ReadOnly, WriteOnly, ReadWrite, Append } List of modes that a file may be opened in.
 The OpenMode values can be combined with the bitwise or operator."/>
 
@@ -60,11 +60,11 @@ The OpenMode values can be combined with the bitwise or operator."/>
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io
-/docs">Qbs Manual</a></li>
+/docs" translate="no">Qbs Manual</a></li>
 <li><a href="https://qbs.io
-/docs/list-of-builtin-services/">List of Built-in Services</a></li>
+/docs/list-of-builtin-services/" translate="no">List of Built-in Services</a></li>
 <li>TextFile Service</li>
-<li id="buildversion">Qbs 2.0.1</li>
+<li id="buildversion">Qbs 2.1.1</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -88,46 +88,46 @@ The OpenMode values can be combined with the bitwise or operator."/>
 <div class="content"><h1 class="title">TextFile Service</h1>
 <!-- $$$jsextension-textfile.html-description -->
 <div class="descr" id="details">
-<p>The <code>TextFile</code> service allows you to read from and write into text files.</p>
+<p>The <code translate="no">TextFile</code> service allows you to read from and write into text files.</p>
 <h2 id="related-declarations">Related Declarations</h2>
 <h3 id="textfile-openmode">TextFile.OpenMode</h3>
-<pre class="cpp"><span class="keyword">enum</span> TextFile<span class="operator">.</span>OpenMode { ReadOnly<span class="operator">,</span> WriteOnly<span class="operator">,</span> ReadWrite<span class="operator">,</span> Append }</pre>
+<pre class="cpp" translate="no"><span class="keyword">enum</span> TextFile<span class="operator">.</span>OpenMode { ReadOnly<span class="operator">,</span> WriteOnly<span class="operator">,</span> ReadWrite<span class="operator">,</span> Append }</pre>
 <p>List of modes that a file may be opened in.</p>
 <p>The OpenMode values can be combined with the bitwise or operator.</p>
 <h2 id="available-operations">Available operations</h2>
 <h3 id="constructor">Constructor</h3>
-<pre class="cpp">TextFile(filePath: string<span class="operator">,</span> openMode: OpenMode <span class="operator">=</span> TextFile<span class="operator">.</span>ReadOnly)</pre>
-<p>Opens the file at <code>filePath</code> in the given mode and returns the object representing the file.</p>
+<pre class="cpp" translate="no">TextFile(filePath: string<span class="operator">,</span> openMode: OpenMode <span class="operator">=</span> TextFile<span class="operator">.</span>ReadOnly)</pre>
+<p>Opens the file at <code translate="no">filePath</code> in the given mode and returns the object representing the file.</p>
 <div class="admonition note">
 <p><b>Note: </b>The mode influences which of the operations listed below can actually be used on the file.</p>
 </div>
 <h3 id="ateof">atEof</h3>
-<pre class="cpp">atEof(): boolean</pre>
-<p>Returns <code>true</code> if no more data can be read from the file, <code>false</code> otherwise.</p>
+<pre class="cpp" translate="no">atEof(): boolean</pre>
+<p>Returns <code translate="no">true</code> if no more data can be read from the file, <code translate="no">false</code> otherwise.</p>
 <h3 id="close">close</h3>
-<pre class="cpp">close(): <span class="type">void</span></pre>
+<pre class="cpp" translate="no">close(): <span class="type">void</span></pre>
 <p>Closes the file. It is recommended to always call this function as soon as you are finished with the file, in order to keep the number of in-flight file descriptors as low as possible.</p>
 <h3 id="filepath">filePath</h3>
-<pre class="cpp">filePath(): string</pre>
+<pre class="cpp" translate="no">filePath(): string</pre>
 <p>The absolute path of the file represented by this object.</p>
 <h3 id="readall">readAll</h3>
-<pre class="cpp">readAll(): string</pre>
+<pre class="cpp" translate="no">readAll(): string</pre>
 <p>Reads all data from the file and returns it.</p>
 <h3 id="readline">readLine</h3>
-<pre class="cpp">readLine(): string</pre>
+<pre class="cpp" translate="no">readLine(): string</pre>
 <p>Reads one line of text from the file and returns it. The returned string does not contain the newline characters.</p>
 <h3 id="setcodec">setCodec</h3>
-<pre class="cpp">setCodec(codec: string): <span class="type">void</span></pre>
-<p>Sets the text codec to <code>codec</code>. The supported codecs are the same as for <code>QTextCodec</code>, for example: "UTF-8", "UTF-16", and "ISO 8859-1".</p>
+<pre class="cpp" translate="no">setCodec(codec: string): <span class="type">void</span></pre>
+<p>Sets the text codec to <code translate="no">codec</code>. The supported codecs are the same as for <code translate="no">QTextCodec</code>, for example: "UTF-8", "UTF-16", and "ISO 8859-1".</p>
 <h3 id="truncate">truncate</h3>
-<pre class="cpp">truncate(): <span class="type">void</span></pre>
+<pre class="cpp" translate="no">truncate(): <span class="type">void</span></pre>
 <p>Truncates the file, that is, gives it the size of zero, removing all content.</p>
 <h3 id="write">write</h3>
-<pre class="cpp">write(data: string): <span class="type">void</span></pre>
-<p>Writes <code>data</code> into the file at the current position.</p>
+<pre class="cpp" translate="no">write(data: string): <span class="type">void</span></pre>
+<p>Writes <code translate="no">data</code> into the file at the current position.</p>
 <h3 id="writeline">writeLine</h3>
-<pre class="cpp">writeLine(data: string): <span class="type">void</span></pre>
-<p>Writes <code>data</code> into the file at the current position and appends the newline character(s).</p>
+<pre class="cpp" translate="no">writeLine(data: string): <span class="type">void</span></pre>
+<p>Writes <code translate="no">data</code> into the file at the current position and appends the newline character(s).</p>
 </div>
 <!-- @@@jsextension-textfile.html -->
 </div>

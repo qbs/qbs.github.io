@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Appendix B: Migrating from Other Build Systems Qbs 2.0.1 Appendix A: Building Qbs Appendix C: The JSON API Contents Migrating from qmake CONFIG console ordered qt DEFINES DESTDIR HEADERS, SOURCES, FORMS, RESOURCES, OTHER_FILES ICON INCLUDEPATH LIBS OUT_PWD PWD _PRO_FILE_ _PRO_FILE_PWD_ QMAKE_ASSET_CATALOGS QMAKE_BUNDLE_DATA QMAKE_BUNDLE_EXTENSION QMAKE_{C,CXX,OBJECTIVE}_CFLAGS{_DEBUG,_RELEASE} QMAKE_FRAMEWORK_BUNDLE_NAME QMAKE_FRAMEWORK_VERSION QMAKE_INFO_PLIST QMAKE_LFLAGS QMAKE_{MACOSX,IOS,TVOS,WATCHOS}_DEPLOYMENT_TARGET QMAKE_RPATHDIR QMAKE_SONAME_PREFIX QML_IMPORT_PATH QT QTPLUGIN RC_FILE TARGET TEMPLATE app lib subdirs message(), warning(), error(), log() Appendix B: Migrating from Other Build Systems You can use the qbs create-project command to automatically generate Qbs project files from an arbitrary directory structure. ">
+    <meta name="description" content="Qbs Manual Appendix B: Migrating from Other Build Systems Qbs 2.1.1 Appendix A: Building Qbs Appendix C: The JSON API Contents Migrating from qmake CONFIG console ordered qt DEFINES DESTDIR HEADERS, SOURCES, FORMS, RESOURCES, OTHER_FILES ICON INCLUDEPATH LIBS OUT_PWD PWD _PRO_FILE_ _PRO_FILE_PWD_ QMAKE_ASSET_CATALOGS QMAKE_BUNDLE_DATA QMAKE_BUNDLE_EXTENSION QMAKE_{C,CXX,OBJECTIVE}_CFLAGS{_DEBUG,_RELEASE} QMAKE_FRAMEWORK_BUNDLE_NAME QMAKE_FRAMEWORK_VERSION QMAKE_INFO_PLIST QMAKE_LFLAGS QMAKE_{MACOSX,IOS,TVOS,WATCHOS}_DEPLOYMENT_TARGET QMAKE_RPATHDIR QMAKE_SONAME_PREFIX QML_IMPORT_PATH QT QTPLUGIN RC_FILE TARGET TEMPLATE app lib subdirs message(), warning(), error(), log() Appendix B: Migrating from Other Build Systems You can use the qbs create-project command to automatically generate Qbs project files from an arbitrary directory structure. ">
     <link rel="canonical" href="https://qbs.io/docs/porting-to-qbs/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -17,7 +17,7 @@
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Appendix B: Migrating from Other Build Systems Qbs 2.0.1 Appendix A: Building Qbs Appendix C: The JSON API Contents Migrating from qmake CONFIG console ordered qt DEFINES DESTDIR HEADERS, SOURCES, FORMS, RESOURCES, OTHER_FILES ICON INCLUDEPATH LIBS OUT_PWD PWD _PRO_FILE_ _PRO_FILE_PWD_ QMAKE_ASSET_CATALOGS QMAKE_BUNDLE_DATA QMAKE_BUNDLE_EXTENSION QMAKE_{C,CXX,OBJECTIVE}_CFLAGS{_DEBUG,_RELEASE} QMAKE_FRAMEWORK_BUNDLE_NAME QMAKE_FRAMEWORK_VERSION QMAKE_INFO_PLIST QMAKE_LFLAGS QMAKE_{MACOSX,IOS,TVOS,WATCHOS}_DEPLOYMENT_TARGET QMAKE_RPATHDIR QMAKE_SONAME_PREFIX QML_IMPORT_PATH QT QTPLUGIN RC_FILE TARGET TEMPLATE app lib subdirs message(), warning(), error(), log() Appendix B: Migrating from Other Build Systems You can use the qbs create-project command to automatically generate Qbs project files from an arbitrary directory structure." />
+<meta property="og:description" content="Qbs Manual Appendix B: Migrating from Other Build Systems Qbs 2.1.1 Appendix A: Building Qbs Appendix C: The JSON API Contents Migrating from qmake CONFIG console ordered qt DEFINES DESTDIR HEADERS, SOURCES, FORMS, RESOURCES, OTHER_FILES ICON INCLUDEPATH LIBS OUT_PWD PWD _PRO_FILE_ _PRO_FILE_PWD_ QMAKE_ASSET_CATALOGS QMAKE_BUNDLE_DATA QMAKE_BUNDLE_EXTENSION QMAKE_{C,CXX,OBJECTIVE}_CFLAGS{_DEBUG,_RELEASE} QMAKE_FRAMEWORK_BUNDLE_NAME QMAKE_FRAMEWORK_VERSION QMAKE_INFO_PLIST QMAKE_LFLAGS QMAKE_{MACOSX,IOS,TVOS,WATCHOS}_DEPLOYMENT_TARGET QMAKE_RPATHDIR QMAKE_SONAME_PREFIX QML_IMPORT_PATH QT QTPLUGIN RC_FILE TARGET TEMPLATE app lib subdirs message(), warning(), error(), log() Appendix B: Migrating from Other Build Systems You can use the qbs create-project command to automatically generate Qbs project files from an arbitrary directory structure." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/porting-to-qbs/" /><meta property="article:section" content="docs" />
 
@@ -25,7 +25,7 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Appendix B: Migrating from Other Build Systems Qbs 2.0.1 Appendix A: Building Qbs Appendix C: The JSON API Contents Migrating from qmake CONFIG console ordered qt DEFINES DESTDIR HEADERS, SOURCES, FORMS, RESOURCES, OTHER_FILES ICON INCLUDEPATH LIBS OUT_PWD PWD _PRO_FILE_ _PRO_FILE_PWD_ QMAKE_ASSET_CATALOGS QMAKE_BUNDLE_DATA QMAKE_BUNDLE_EXTENSION QMAKE_{C,CXX,OBJECTIVE}_CFLAGS{_DEBUG,_RELEASE} QMAKE_FRAMEWORK_BUNDLE_NAME QMAKE_FRAMEWORK_VERSION QMAKE_INFO_PLIST QMAKE_LFLAGS QMAKE_{MACOSX,IOS,TVOS,WATCHOS}_DEPLOYMENT_TARGET QMAKE_RPATHDIR QMAKE_SONAME_PREFIX QML_IMPORT_PATH QT QTPLUGIN RC_FILE TARGET TEMPLATE app lib subdirs message(), warning(), error(), log() Appendix B: Migrating from Other Build Systems You can use the qbs create-project command to automatically generate Qbs project files from an arbitrary directory structure."/>
+<meta name="twitter:description" content="Qbs Manual Appendix B: Migrating from Other Build Systems Qbs 2.1.1 Appendix A: Building Qbs Appendix C: The JSON API Contents Migrating from qmake CONFIG console ordered qt DEFINES DESTDIR HEADERS, SOURCES, FORMS, RESOURCES, OTHER_FILES ICON INCLUDEPATH LIBS OUT_PWD PWD _PRO_FILE_ _PRO_FILE_PWD_ QMAKE_ASSET_CATALOGS QMAKE_BUNDLE_DATA QMAKE_BUNDLE_EXTENSION QMAKE_{C,CXX,OBJECTIVE}_CFLAGS{_DEBUG,_RELEASE} QMAKE_FRAMEWORK_BUNDLE_NAME QMAKE_FRAMEWORK_VERSION QMAKE_INFO_PLIST QMAKE_LFLAGS QMAKE_{MACOSX,IOS,TVOS,WATCHOS}_DEPLOYMENT_TARGET QMAKE_RPATHDIR QMAKE_SONAME_PREFIX QML_IMPORT_PATH QT QTPLUGIN RC_FILE TARGET TEMPLATE app lib subdirs message(), warning(), error(), log() Appendix B: Migrating from Other Build Systems You can use the qbs create-project command to automatically generate Qbs project files from an arbitrary directory structure."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -54,9 +54,9 @@
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io
-/docs">Qbs Manual</a></li>
+/docs" translate="no">Qbs Manual</a></li>
 <li>Appendix B: Migrating from Other Build Systems</li>
-<li id="buildversion">Qbs 2.0.1</li>
+<li id="buildversion">Qbs 2.1.1</li>
   <link rel="prev" href="https://qbs.io
 /docs/building-qbs/">
   <link rel="next" href="https://qbs.io
@@ -114,8 +114,8 @@
 <!-- $$$porting-to-qbs.html-description -->
 <div class="descr" id="details">
 <p>You can use the <a href="https://qbs.io
-/docs/cli-create-project/">qbs create-project</a> command to automatically generate Qbs project files from an arbitrary directory structure. This is a useful starting point when migrating from other build tools, such as qmake or CMake.</p>
-<p>To use the tool, switch to the project directory and run the <code>qbs create-project</code> command, which is located in the <code>bin</code> directory of the Qbs installation directory (or the Qt Creator installation directory).</p>
+/docs/cli-create-project/" translate="no">qbs create-project</a> command to automatically generate Qbs project files from an arbitrary directory structure. This is a useful starting point when migrating from other build tools, such as qmake or CMake.</p>
+<p>To use the tool, switch to the project directory and run the <code translate="no">qbs create-project</code> command, which is located in the <code translate="no">bin</code> directory of the Qbs installation directory (or the Qt Creator installation directory).</p>
 <p>After generating the initial .qbs file, add the missing configuration variables and functions to it, as described in the following sections.</p>
 <h2 id="migrating-from-qmake">Migrating from qmake</h2>
 <p>The following sections describe the Qbs equivalents of qmake variable values.</p>
@@ -123,11 +123,11 @@
 <p>Specify project configuration and compiler options.</p>
 <h4 id="console">console</h4>
 <p>Set the <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/#consoleApplication-prop">Product.consoleApplication</a> property to <code>true</code> for the <a href="https://qbs.io
-/docs/qml-qbsconvenienceitems-application/">Application</a>, <a href="https://qbs.io
-/docs/qml-qbsconvenienceitems-cppapplication/">CppApplication</a>,or <a href="https://qbs.io
-/docs/qml-qbsconvenienceitems-qtapplication/">QtApplication</a> item. For example:</p>
-<pre class="cpp">Application {
+/docs/qml-qbslanguageitems-product/#consoleApplication-prop" translate="no">Product.consoleApplication</a> property to <code translate="no">true</code> for the <a href="https://qbs.io
+/docs/qml-qbsconvenienceitems-application/" translate="no">Application</a>, <a href="https://qbs.io
+/docs/qml-qbsconvenienceitems-cppapplication/" translate="no">CppApplication</a>,or <a href="https://qbs.io
+/docs/qml-qbsconvenienceitems-qtapplication/" translate="no">QtApplication</a> item. For example:</p>
+<pre class="cpp" translate="no">Application {
     name: <span class="string">"helloworld"</span>
     files: <span class="string">"main.cpp"</span>
     Depends { name: <span class="string">"cpp"</span> }
@@ -135,37 +135,37 @@
 }</pre>
 <h4 id="ordered">ordered</h4>
 <p>This qmake variable has no direct equivalent in Qbs. Instead, the build order is determined by implicit and explicit dependencies between products. To add an explicit dependency, add a <a href="https://qbs.io
-/docs/qml-qbslanguageitems-depends/">Depends</a> item to a <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/">product</a>:</p>
-<pre class="cpp">CppApplication {
+/docs/qml-qbslanguageitems-depends/" translate="no">Depends</a> item to a <a href="https://qbs.io
+/docs/qml-qbslanguageitems-product/" translate="no">product</a>:</p>
+<pre class="cpp" translate="no">CppApplication {
     name: <span class="string">"myapp"</span>
     Depends { name: <span class="string">"mylib"</span> }
 }</pre>
-<p>The <code>myapp</code> product depends on and links to the <code>mylib</code> product, and is therefore built after it.</p>
+<p>The <code translate="no">myapp</code> product depends on and links to the <code translate="no">mylib</code> product, and is therefore built after it.</p>
 <h4 id="qt">qt</h4>
-<p>In qmake, the Qt dependency is implicit, whereas in Qbs it is not. If <code>CONFIG -= qt</code>, add a <a href="https://qbs.io
-/docs/qml-qbslanguageitems-depends/">Depends</a> item to specify that the <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/">product</a> depends on the <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/">cpp</a> module:</p>
-<pre class="cpp">Product {
+<p>In qmake, the Qt dependency is implicit, whereas in Qbs it is not. If <code translate="no">CONFIG -= qt</code>, add a <a href="https://qbs.io
+/docs/qml-qbslanguageitems-depends/" translate="no">Depends</a> item to specify that the <a href="https://qbs.io
+/docs/qml-qbslanguageitems-product/" translate="no">product</a> depends on the <a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/" translate="no">cpp</a> module:</p>
+<pre class="cpp" translate="no">Product {
     Depends { name: <span class="string">"cpp"</span> }
 }</pre>
 <h3 id="defines">DEFINES</h3>
 <p>Set the <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#defines-prop">cpp.defines</a> property for the <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/">product</a>.</p>
+/docs/qml-qbsmodules-cpp/#defines-prop" translate="no">cpp.defines</a> property for the <a href="https://qbs.io
+/docs/qml-qbslanguageitems-product/" translate="no">product</a>.</p>
 <div class="admonition note">
-<p><b>Note: </b>To reference <code>cpp.defines</code>, you must specify a dependency on the <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/">cpp</a> module.</p>
+<p><b>Note: </b>To reference <code translate="no">cpp.defines</code>, you must specify a dependency on the <a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/" translate="no">cpp</a> module.</p>
 </div>
-<pre class="cpp">Product {
+<pre class="cpp" translate="no">Product {
     Depends { name: <span class="string">"cpp"</span> }
     cpp<span class="operator">.</span>defines: <span class="operator">[</span><span class="string">"SUPPORT_MY_FEATURES"</span><span class="operator">]</span>
 }</pre>
 <h3 id="destdir">DESTDIR</h3>
 <p>We recommend that you use the <a href="https://qbs.io
-/docs/installing-files/">installation mechanism</a> to specify the location of the target file:</p>
-<pre class="cpp">Application {
+/docs/installing-files/" translate="no">installation mechanism</a> to specify the location of the target file:</p>
+<pre class="cpp" translate="no">Application {
     Group {
         name: <span class="string">"Runtime resources"</span>
         files: <span class="string">"*.qml"</span>
@@ -180,215 +180,215 @@
     }
 }</pre>
 <p>If that is not possible, you can use the <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/#destinationDirectory-prop">destinationDirectory</a> property:</p>
-<pre class="cpp">DynamicLibrary {
+/docs/qml-qbslanguageitems-product/#destinationDirectory-prop" translate="no">destinationDirectory</a> property:</p>
+<pre class="cpp" translate="no">DynamicLibrary {
     name: <span class="string">"mydll"</span>
     destinationDirectory: <span class="string">"libDir"</span>
 }</pre>
 <h3 id="headers-sources-forms-resources-other-files">HEADERS, SOURCES, FORMS, RESOURCES, OTHER_FILES</h3>
 <p>Include header, source, form, and resource files as well as any other files as values of a <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/#files-prop">Product.files</a> or <a href="https://qbs.io
-/docs/qml-qbslanguageitems-group/#files-prop">Group.files</a> property:</p>
-<pre class="cpp"><span class="type"><a href="https://qbs.io
-/docs/qml-qbsconvenienceitems-qtapplication/">QtApplication</a></span> {
+/docs/qml-qbslanguageitems-product/#files-prop" translate="no">Product.files</a> or <a href="https://qbs.io
+/docs/qml-qbslanguageitems-group/#files-prop" translate="no">Group.files</a> property:</p>
+<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io
+/docs/qml-qbsconvenienceitems-qtapplication/" translate="no">QtApplication</a></span> {
     name: <span class="string">"myapp"</span>
     files: <span class="operator">[</span><span class="string">"myapp.h"</span><span class="operator">,</span> <span class="string">"myapp.cpp"</span><span class="operator">,</span> <span class="string">"myapp.ui"</span><span class="operator">,</span> <span class="string">"myapp.qrc"</span><span class="operator">,</span> <span class="string">"readme.txt"</span><span class="operator">]</span>
 }</pre>
 <p>Qbs uses <a href="https://qbs.io
-/docs/qml-qbslanguageitems-filetagger/">file taggers</a> to figure out what kind of file it is dealing with.</p>
+/docs/qml-qbslanguageitems-filetagger/" translate="no">file taggers</a> to figure out what kind of file it is dealing with.</p>
 <h3 id="icon">ICON</h3>
 <p>There is no direct equivalent in Qbs. If you add a <a href="https://qbs.io
-/docs/qml-qbslanguageitems-depends/">dependency</a> to the <a href="https://qbs.io
-/docs/qml-qbsmodules-ib/">ib</a> module and add the <code>.xcassets</code> directory as a value of the <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/#files-prop">Product.files</a> property, Qbs takes care of setting the application icon automatically when building for Apple platforms:</p>
-<pre class="cpp">Application {
+/docs/qml-qbslanguageitems-depends/" translate="no">dependency</a> to the <a href="https://qbs.io
+/docs/qml-qbsmodules-ib/" translate="no">ib</a> module and add the <code translate="no">.xcassets</code> directory as a value of the <a href="https://qbs.io
+/docs/qml-qbslanguageitems-product/#files-prop" translate="no">Product.files</a> property, Qbs takes care of setting the application icon automatically when building for Apple platforms:</p>
+<pre class="cpp" translate="no">Application {
     name: <span class="string">"myapp"</span>
     files <span class="operator">[</span><span class="string">".xcassets"</span><span class="operator">]</span>
     Depends { name: <span class="string">"ib"</span> }
 }</pre>
 <p>Alternatively, you can set the icon name as the value of the <a href="https://qbs.io
-/docs/qml-qbsmodules-bundle/#infoPlist-prop">bundle.infoPlist</a> parameter, specify a dependency to the <a href="https://qbs.io
-/docs/qml-qbsmodules-ib/">ib</a> module, and add the application <code>.icns</code> file as a value of the <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/#files-prop">files</a> property:</p>
-<pre class="cpp">Application {
+/docs/qml-qbsmodules-bundle/#infoPlist-prop" translate="no">bundle.infoPlist</a> parameter, specify a dependency to the <a href="https://qbs.io
+/docs/qml-qbsmodules-ib/" translate="no">ib</a> module, and add the application <code translate="no">.icns</code> file as a value of the <a href="https://qbs.io
+/docs/qml-qbslanguageitems-product/#files-prop" translate="no">files</a> property:</p>
+<pre class="cpp" translate="no">Application {
     name: <span class="string">"myapp"</span>
     files <span class="operator">[</span><span class="string">"myapp.icns"</span><span class="operator">]</span>
     Depends { name: <span class="string">"ib"</span> }
     bundle<span class="operator">.</span>infoPlist: ({<span class="string">"CFBundleIconFile"</span>: <span class="string">"myapp"</span>})</pre>
 <h3 id="includepath">INCLUDEPATH</h3>
 <p>Add the paths to the include files as values of the <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#includePaths-prop">cpp.includePaths</a> property:</p>
-<pre class="cpp">CppApplication {
+/docs/qml-qbsmodules-cpp/#includePaths-prop" translate="no">cpp.includePaths</a> property:</p>
+<pre class="cpp" translate="no">CppApplication {
     cpp<span class="operator">.</span>includePaths: <span class="operator">[</span><span class="string">".."</span><span class="operator">,</span> <span class="string">"some/other/dir"</span><span class="operator">]</span>
 }</pre>
 <h3 id="libs">LIBS</h3>
 <p>For libraries that are part of the project, use <a href="https://qbs.io
-/docs/qml-qbslanguageitems-depends/">Depends</a> items.</p>
+/docs/qml-qbslanguageitems-depends/" translate="no">Depends</a> items.</p>
 <p>To pull in external libraries, use the <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#libraryPaths-prop">cpp.libraryPaths</a> property for the Unix <code>-L</code> (library path) flags and the <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#dynamicLibraries-prop">cpp.dynamicLibraries</a> and <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#staticLibraries-prop">cpp.staticLibraries</a> properties for the <code>-l</code> (library) flags.</p>
-<p>For example, <code>LIBS += -L/usr/local/lib -lm</code> would become:</p>
-<pre class="cpp">CppApplication {
+/docs/qml-qbsmodules-cpp/#libraryPaths-prop" translate="no">cpp.libraryPaths</a> property for the Unix <code translate="no">-L</code> (library path) flags and the <a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#dynamicLibraries-prop" translate="no">cpp.dynamicLibraries</a> and <a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#staticLibraries-prop" translate="no">cpp.staticLibraries</a> properties for the <code translate="no">-l</code> (library) flags.</p>
+<p>For example, <code translate="no">LIBS += -L/usr/local/lib -lm</code> would become:</p>
+<pre class="cpp" translate="no">CppApplication {
     cpp<span class="operator">.</span>libraryPaths: <span class="operator">[</span><span class="string">"/usr/local/lib"</span><span class="operator">]</span>
     cpp<span class="operator">.</span>dynamicLibraries: <span class="operator">[</span><span class="string">"m"</span><span class="operator">]</span>
 }</pre>
 <h3 id="out-pwd">OUT_PWD</h3>
 <p>Use the <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/#buildDirectory-prop">Product.buildDirectory</a> property to refer to the base output directory of the generated artifacts.</p>
+/docs/qml-qbslanguageitems-product/#buildDirectory-prop" translate="no">Product.buildDirectory</a> property to refer to the base output directory of the generated artifacts.</p>
 <h3 id="pwd">PWD</h3>
-<p>Corresponds to the the file-scope variable <code>path</code>.</p>
+<p>Corresponds to the the file-scope variable <code translate="no">path</code>.</p>
 <h3 id="pro-file">_PRO_FILE_</h3>
-<p>Corresponds to the file-scope variable <code>filePath</code> when used in a <a href="https://qbs.io
-/docs/qml-qbslanguageitems-project/">project</a> or <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/">product</a>.</p>
+<p>Corresponds to the file-scope variable <code translate="no">filePath</code> when used in a <a href="https://qbs.io
+/docs/qml-qbslanguageitems-project/" translate="no">project</a> or <a href="https://qbs.io
+/docs/qml-qbslanguageitems-product/" translate="no">product</a>.</p>
 <h3 id="pro-file-pwd">_PRO_FILE_PWD_</h3>
 <p>Corresponds to the <a href="https://qbs.io
-/docs/qml-qbslanguageitems-project/#sourceDirectory-prop">Project.sourceDirectory</a> or <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/#sourceDirectory-prop">Product.sourceDirectory</a> property.</p>
+/docs/qml-qbslanguageitems-project/#sourceDirectory-prop" translate="no">Project.sourceDirectory</a> or <a href="https://qbs.io
+/docs/qml-qbslanguageitems-product/#sourceDirectory-prop" translate="no">Product.sourceDirectory</a> property.</p>
 <h3 id="qmake-asset-catalogs">QMAKE_ASSET_CATALOGS</h3>
 <p>Add a <a href="https://qbs.io
-/docs/qml-qbslanguageitems-depends/">dependency</a> to the <a href="https://qbs.io
-/docs/qml-qbsmodules-ib/">ib</a> module and add the <code>.xcassets</code> directory as a value of the <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/#files-prop">files</a> property:</p>
-<pre class="cpp">Application {
+/docs/qml-qbslanguageitems-depends/" translate="no">dependency</a> to the <a href="https://qbs.io
+/docs/qml-qbsmodules-ib/" translate="no">ib</a> module and add the <code translate="no">.xcassets</code> directory as a value of the <a href="https://qbs.io
+/docs/qml-qbslanguageitems-product/#files-prop" translate="no">files</a> property:</p>
+<pre class="cpp" translate="no">Application {
     name: <span class="string">"myapp"</span>
     files <span class="operator">[</span><span class="string">".xcassets"</span><span class="operator">]</span>
     Depends { name: <span class="string">"ib"</span> }
 }</pre>
 <h3 id="qmake-bundle-data">QMAKE_BUNDLE_DATA</h3>
 <p>For the time being, you can manually place files in the appropriate location using the <a href="https://qbs.io
-/docs/installing-files/">installation mechanism</a>. Better solutions are under development.</p>
+/docs/installing-files/" translate="no">installation mechanism</a>. Better solutions are under development.</p>
 <h3 id="qmake-bundle-extension">QMAKE_BUNDLE_EXTENSION</h3>
 <p>Set the <a href="https://qbs.io
-/docs/qml-qbsmodules-bundle/#extension-prop">bundle.extension</a> property.</p>
+/docs/qml-qbsmodules-bundle/#extension-prop" translate="no">bundle.extension</a> property.</p>
 <div class="admonition note">
 <p><b>Note: </b>Unlike qmake, Qbs automatically prepends a period (.) to the property value.</p>
 </div>
 <h3 id="qmake-c-cxx-objective-cflags-debug-release">QMAKE_{C,CXX,OBJECTIVE}_CFLAGS{_DEBUG,_RELEASE}</h3>
 <p>Use the <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#commonCompilerFlags-prop">cpp.commonCompilerFlags</a> property or the properties corresponding to each compiler flags variable:</p>
+/docs/qml-qbsmodules-cpp/#commonCompilerFlags-prop" translate="no">cpp.commonCompilerFlags</a> property or the properties corresponding to each compiler flags variable:</p>
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th>qmake Variable</th><th>cpp Module Property</th></tr></thead>
-<tbody><tr valign="top" class="odd"><td><code>QMAKE_CFLAGS_DEBUG</code><p><code>QMAKE_CFLAGS_RELEASE</code></p>
+<tbody><tr valign="top" class="odd"><td><code translate="no">QMAKE_CFLAGS_DEBUG</code><p><code translate="no">QMAKE_CFLAGS_RELEASE</code></p>
 </td><td><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#cFlags-prop">cpp.cFlags</a></td></tr>
-<tr valign="top" class="even"><td><code>QMAKE_CXXFLAGS_DEBUG</code><p><code>QMAKE_CXXFLAGS_RELEASE</code></p>
+/docs/qml-qbsmodules-cpp/#cFlags-prop" translate="no">cpp.cFlags</a></td></tr>
+<tr valign="top" class="even"><td><code translate="no">QMAKE_CXXFLAGS_DEBUG</code><p><code translate="no">QMAKE_CXXFLAGS_RELEASE</code></p>
 </td><td><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#cxxFlags-prop">cpp.cxxFlags</a></td></tr>
-<tr valign="top" class="odd"><td><code>QMAKE_OBJECTIVE_CFLAGS</code></td><td><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#objcFlags-prop">cpp.objcFlags</a><p><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#objcxxFlags-prop">cpp.objcxxFlags</a></p>
+/docs/qml-qbsmodules-cpp/#cxxFlags-prop" translate="no">cpp.cxxFlags</a></td></tr>
+<tr valign="top" class="odd"><td><code translate="no">QMAKE_OBJECTIVE_CFLAGS</code></td><td><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#objcFlags-prop" translate="no">cpp.objcFlags</a><p><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#objcxxFlags-prop" translate="no">cpp.objcxxFlags</a></p>
 </td></tr>
 </tbody></table></div>
 <p>Use <a href="https://qbs.io
-/docs/commands/#properties">Properties</a> items or simple conditionals as values of the <a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#buildVariant-prop">qbs.buildVariant</a> property to simulate the <code>_DEBUG</code> and <code>_RELEASE</code> variants of the qmake variables.</p>
+/docs/qml-qbslanguageitems-properties/" translate="no">Properties</a> items or simple conditionals as values of the <a href="https://qbs.io
+/docs/qml-qbsmodules-qbs/#buildVariant-prop" translate="no">qbs.buildVariant</a> property to simulate the <code translate="no">_DEBUG</code> and <code translate="no">_RELEASE</code> variants of the qmake variables.</p>
 <h3 id="qmake-framework-bundle-name">QMAKE_FRAMEWORK_BUNDLE_NAME</h3>
 <p>Set the <a href="https://qbs.io
-/docs/qml-qbsmodules-bundle/#bundleName-prop">bundle.bundleName</a> property (which is derived from <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/#targetName-prop">Product.targetName</a>) combined with <a href="https://qbs.io
-/docs/qml-qbsmodules-bundle/#extension-prop">bundle.extension</a>.</p>
+/docs/qml-qbsmodules-bundle/#bundleName-prop" translate="no">bundle.bundleName</a> property (which is derived from <a href="https://qbs.io
+/docs/qml-qbslanguageitems-product/#targetName-prop" translate="no">Product.targetName</a>) combined with <a href="https://qbs.io
+/docs/qml-qbsmodules-bundle/#extension-prop" translate="no">bundle.extension</a>.</p>
 <h3 id="qmake-framework-version">QMAKE_FRAMEWORK_VERSION</h3>
 <p>Set the <a href="https://qbs.io
-/docs/qml-qbsmodules-bundle/#frameworkVersion-prop">bundle.frameworkVersion</a> property.</p>
+/docs/qml-qbsmodules-bundle/#frameworkVersion-prop" translate="no">bundle.frameworkVersion</a> property.</p>
 <h3 id="qmake-info-plist">QMAKE_INFO_PLIST</h3>
-<p>Include the <code>info.plist</code> file as a value of <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/#files-prop">files</a> property and specify a dependency to the <a href="https://qbs.io
-/docs/qml-qbsmodules-bundle/">bundle</a> module:</p>
-<pre class="cpp">Application {
+<p>Include the <code translate="no">info.plist</code> file as a value of <a href="https://qbs.io
+/docs/qml-qbslanguageitems-product/#files-prop" translate="no">files</a> property and specify a dependency to the <a href="https://qbs.io
+/docs/qml-qbsmodules-bundle/" translate="no">bundle</a> module:</p>
+<pre class="cpp" translate="no">Application {
     name: <span class="string">"myapp"</span>
     files <span class="operator">[</span><span class="string">"info.plist"</span><span class="operator">]</span>
     Depends { name: <span class="string">"bundle"</span> }
 }</pre>
-<p>Qbs will automatically add any necessary properties to your <code>Info.plist</code> file. Typically, it determines the appropriate values from the other properties in the project, and therefore you do not need to use the <code>Info.plist.in &gt; Info.plist</code> configuration mechanism. Further, you almost never need to embed placeholders into the source <code>Info.plist</code> file. Set the <a href="https://qbs.io
-/docs/qml-qbsmodules-bundle/#processInfoPlist-prop">bundle.processInfoPlist</a> property to <code>false</code> to disable this behavior:</p>
-<pre class="cpp">\\ <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+<p>Qbs will automatically add any necessary properties to your <code translate="no">Info.plist</code> file. Typically, it determines the appropriate values from the other properties in the project, and therefore you do not need to use the <code translate="no">Info.plist.in &gt; Info.plist</code> configuration mechanism. Further, you almost never need to embed placeholders into the source <code translate="no">Info.plist</code> file. Set the <a href="https://qbs.io
+/docs/qml-qbsmodules-bundle/#processInfoPlist-prop" translate="no">bundle.processInfoPlist</a> property to <code translate="no">false</code> to disable this behavior:</p>
+<pre class="cpp" translate="no">\\ <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
     bundle<span class="operator">.</span>processInfoPlist: <span class="keyword">false</span></pre>
-<p>In addition to, or instead of, using an actual <code>Info.plist</code> file, you can add <code>Info.plist</code> properties using the <a href="https://qbs.io
-/docs/qml-qbsmodules-bundle/#infoPlist-prop">bundle.infoPlist</a> property. For example:</p>
-<pre class="cpp">\\ <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+<p>In addition to, or instead of, using an actual <code translate="no">Info.plist</code> file, you can add <code translate="no">Info.plist</code> properties using the <a href="https://qbs.io
+/docs/qml-qbsmodules-bundle/#infoPlist-prop" translate="no">bundle.infoPlist</a> property. For example:</p>
+<pre class="cpp" translate="no">\\ <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
     bundle<span class="operator">.</span>infoPlist: ({
         <span class="string">"NSHumanReadableCopyright"</span>: <span class="string">"Copyright (c) 2017 Bob Inc"</span><span class="operator">,</span>
         <span class="string">"Some other key"</span><span class="operator">,</span> <span class="string">"Some other value, &amp; XML special characters are no problem! &gt;;) 非凡!"</span>
     })</pre>
 <h3 id="qmake-lflags">QMAKE_LFLAGS</h3>
 <p>Set the <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#linkerFlags-prop">cpp.linkerFlags</a> property for the <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/">product</a>.</p>
+/docs/qml-qbsmodules-cpp/#linkerFlags-prop" translate="no">cpp.linkerFlags</a> property for the <a href="https://qbs.io
+/docs/qml-qbslanguageitems-product/" translate="no">product</a>.</p>
 <h3 id="qmake-macosx-ios-tvos-watchos-deployment-target">QMAKE_{MACOSX,IOS,TVOS,WATCHOS}_DEPLOYMENT_TARGET</h3>
 <p>For each qmake deployment target variable, use the corresponding property of the <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/">cpp</a> module:</p>
+/docs/qml-qbsmodules-cpp/" translate="no">cpp</a> module:</p>
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th>qmake Variable</th><th>cpp Module Property</th></tr></thead>
-<tbody><tr valign="top" class="odd"><td><code>QMAKE_MACOSX_DEPLOYMENT_TARGET</code></td><td><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#minimumMacosVersion-prop">cpp.minimumMacosVersion</a></td></tr>
-<tr valign="top" class="even"><td><code>QMAKE_IOS_DEPLOYMENT_TARGET</code></td><td><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#minimumIosVersion-prop">cpp.minimumIosVersion</a></td></tr>
-<tr valign="top" class="odd"><td><code>QMAKE_TVOS_DEPLOYMENT_TARGET</code></td><td><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#minimumTvosVersion-prop">cpp.minimumTvosVersion</a></td></tr>
-<tr valign="top" class="even"><td><code>QMAKE_WATCHOS_DEPLOYMENT_TARGET</code></td><td><a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#minimumWatchosVersion-prop">cpp.minimumWatchosVersion</a></td></tr>
+<tbody><tr valign="top" class="odd"><td><code translate="no">QMAKE_MACOSX_DEPLOYMENT_TARGET</code></td><td><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#minimumMacosVersion-prop" translate="no">cpp.minimumMacosVersion</a></td></tr>
+<tr valign="top" class="even"><td><code translate="no">QMAKE_IOS_DEPLOYMENT_TARGET</code></td><td><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#minimumIosVersion-prop" translate="no">cpp.minimumIosVersion</a></td></tr>
+<tr valign="top" class="odd"><td><code translate="no">QMAKE_TVOS_DEPLOYMENT_TARGET</code></td><td><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#minimumTvosVersion-prop" translate="no">cpp.minimumTvosVersion</a></td></tr>
+<tr valign="top" class="even"><td><code translate="no">QMAKE_WATCHOS_DEPLOYMENT_TARGET</code></td><td><a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/#minimumWatchosVersion-prop" translate="no">cpp.minimumWatchosVersion</a></td></tr>
 </tbody></table></div>
 <h3 id="qmake-rpathdir">QMAKE_RPATHDIR</h3>
 <p>Set the <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#rpaths-prop">cpp.rpaths</a> property for the <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/">product</a>.</p>
+/docs/qml-qbsmodules-cpp/#rpaths-prop" translate="no">cpp.rpaths</a> property for the <a href="https://qbs.io
+/docs/qml-qbslanguageitems-product/" translate="no">product</a>.</p>
 <h3 id="qmake-soname-prefix">QMAKE_SONAME_PREFIX</h3>
 <p>Use the <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/#sonamePrefix-prop">cpp.sonamePrefix</a> property for the <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/">product</a>.</p>
+/docs/qml-qbsmodules-cpp/#sonamePrefix-prop" translate="no">cpp.sonamePrefix</a> property for the <a href="https://qbs.io
+/docs/qml-qbslanguageitems-product/" translate="no">product</a>.</p>
 <h3 id="qml-import-path">QML_IMPORT_PATH</h3>
 <p>Used only for Qt Creator QML syntax highlighting. Inside a <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/">Product</a>, <a href="https://qbs.io
-/docs/qml-qbsconvenienceitems-application/">Application</a>, <a href="https://qbs.io
-/docs/qml-qbsconvenienceitems-cppapplication/">CppApplication</a>, or <a href="https://qbs.io
-/docs/qml-qbsconvenienceitems-qtapplication/">QtApplication</a>, create a <code>qmlImportPaths</code> property:</p>
-<pre class="cpp">Product {
+/docs/qml-qbslanguageitems-product/" translate="no">Product</a>, <a href="https://qbs.io
+/docs/qml-qbsconvenienceitems-application/" translate="no">Application</a>, <a href="https://qbs.io
+/docs/qml-qbsconvenienceitems-cppapplication/" translate="no">CppApplication</a>, or <a href="https://qbs.io
+/docs/qml-qbsconvenienceitems-qtapplication/" translate="no">QtApplication</a>, create a <code translate="no">qmlImportPaths</code> property:</p>
+<pre class="cpp" translate="no">Product {
     name: <span class="string">"myProduct"</span>
     property stringList qmlImportPaths: <span class="operator">[</span>sourceDirectory <span class="operator">+</span> <span class="string">"/path/to/qml/"</span><span class="operator">]</span>
 }</pre>
 <h3 id="qt">QT</h3>
 <p>Add a <a href="https://qbs.io
-/docs/qml-qbslanguageitems-depends/">Depends</a> item to the <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/">product</a> that specifies the dependencies to <a href="https://qbs.io
-/docs/porting-to-qbs/#qt">Qt</a> modules. For example:</p>
-<pre class="cpp"><span class="type"><a href="https://qbs.io
-/docs/qml-qbsconvenienceitems-qtapplication/">QtApplication</a></span> {
+/docs/qml-qbslanguageitems-depends/" translate="no">Depends</a> item to the <a href="https://qbs.io
+/docs/qml-qbslanguageitems-product/" translate="no">product</a> that specifies the dependencies to <a href="https://qbs.io
+/docs/qml-qbsmoduleproviders-qt/" translate="no">Qt</a> modules. For example:</p>
+<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io
+/docs/qml-qbsconvenienceitems-qtapplication/" translate="no">QtApplication</a></span> {
     Depends { name: <span class="string">"Qt.widgets"</span> }
 }</pre>
 <p>You could also use the following form that is equivalent to the previous one:</p>
-<pre class="cpp"><span class="type"><a href="https://qbs.io
-/docs/qml-qbsconvenienceitems-qtapplication/">QtApplication</a></span> {
+<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io
+/docs/qml-qbsconvenienceitems-qtapplication/" translate="no">QtApplication</a></span> {
     Depends { name: <span class="string">"Qt"</span>; submodules: <span class="string">"widgets"</span> }
 }</pre>
 <h3 id="qtplugin">QTPLUGIN</h3>
-<p>Building static applications often requires linking to static QPA plugins, such as <code>qminimal</code>. You can use the following syntax to enable Qbs to link to the required plugins:</p>
-<pre class="cpp"><span class="type"><a href="https://qbs.io
-/docs/qml-qbsconvenienceitems-qtapplication/">QtApplication</a></span> {
+<p>Building static applications often requires linking to static QPA plugins, such as <code translate="no">qminimal</code>. You can use the following syntax to enable Qbs to link to the required plugins:</p>
+<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io
+/docs/qml-qbsconvenienceitems-qtapplication/" translate="no">QtApplication</a></span> {
     name: <span class="string">"myapp"</span>
     Depends { name: <span class="string">"Qt"</span>; submodules: <span class="operator">[</span><span class="string">"core"</span><span class="operator">,</span> <span class="string">"gui"</span><span class="operator">,</span> <span class="string">"widgets"</span><span class="operator">]</span> }
     Depends { name: <span class="string">"Qt.qminimal"</span>; condition: <span class="type"><a href="https://qbs.io
-/docs/qml-qbsmoduleproviders-qt/">Qt</a></span><span class="operator">.</span>core<span class="operator">.</span>staticBuild }
+/docs/qml-qbsmoduleproviders-qt/" translate="no">Qt</a></span><span class="operator">.</span>core<span class="operator">.</span>staticBuild }
 }</pre>
 <h3 id="rc-file">RC_FILE</h3>
 <p>Add Windows resource files to the value of the <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/#files-prop">Product.files</a> property.</p>
+/docs/qml-qbslanguageitems-product/#files-prop" translate="no">Product.files</a> property.</p>
 <h3 id="target">TARGET</h3>
 <p>Use the <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/#targetName-prop">Product.targetName</a> property to specify the base file name of target artifacts.</p>
+/docs/qml-qbslanguageitems-product/#targetName-prop" translate="no">Product.targetName</a> property to specify the base file name of target artifacts.</p>
 <h3 id="template">TEMPLATE</h3>
 <h4 id="app">app</h4>
 <p>Use <a href="https://qbs.io
-/docs/qml-qbsconvenienceitems-application/">Application</a> or <a href="https://qbs.io
-/docs/qml-qbsconvenienceitems-cppapplication/">CppApplication</a> as the <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/">product</a>:</p>
-<pre class="cpp">CppApplication {
+/docs/qml-qbsconvenienceitems-application/" translate="no">Application</a> or <a href="https://qbs.io
+/docs/qml-qbsconvenienceitems-cppapplication/" translate="no">CppApplication</a> as the <a href="https://qbs.io
+/docs/qml-qbslanguageitems-product/" translate="no">product</a>:</p>
+<pre class="cpp" translate="no">CppApplication {
     name: <span class="string">"helloworld"</span>
     files: <span class="string">"main.cpp"</span>
 }</pre>
 <p>This is roughly equivalent to:</p>
-<pre class="cpp">Product {
+<pre class="cpp" translate="no">Product {
     name: <span class="string">"helloworld"</span>
     type: <span class="string">"application"</span>
     files: <span class="string">"main.cpp"</span>
@@ -396,19 +396,19 @@
 }</pre>
 <h4 id="lib">lib</h4>
 <p>Use either <a href="https://qbs.io
-/docs/qml-qbsconvenienceitems-dynamiclibrary/">DynamicLibrary</a> or <a href="https://qbs.io
-/docs/qml-qbsconvenienceitems-staticlibrary/">StaticLibrary</a> as the <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/">product</a>, depending on whether the value of <code>CONFIG</code> in the .pro file is <code>shared</code> or <code>static</code>. For example, if the value is <code>shared</code>:</p>
-<pre class="cpp">DynamicLibrary {
+/docs/qml-qbsconvenienceitems-dynamiclibrary/" translate="no">DynamicLibrary</a> or <a href="https://qbs.io
+/docs/qml-qbsconvenienceitems-staticlibrary/" translate="no">StaticLibrary</a> as the <a href="https://qbs.io
+/docs/qml-qbslanguageitems-product/" translate="no">product</a>, depending on whether the value of <code translate="no">CONFIG</code> in the .pro file is <code translate="no">shared</code> or <code translate="no">static</code>. For example, if the value is <code translate="no">shared</code>:</p>
+<pre class="cpp" translate="no">DynamicLibrary {
     name: <span class="string">"mydll"</span>
     files: <span class="operator">[</span><span class="string">"mySourceFile.cpp"</span><span class="operator">]</span>
     Depends { name: <span class="string">"cpp"</span> }
 }</pre>
 <h4 id="subdirs">subdirs</h4>
 <p>In a <a href="https://qbs.io
-/docs/qml-qbslanguageitems-project/">Project</a> item, specify subdirectories as values of the <a href="https://qbs.io
-/docs/qml-qbslanguageitems-project/#references-prop">references</a> property:</p>
-<pre class="cpp">Project {
+/docs/qml-qbslanguageitems-project/" translate="no">Project</a> item, specify subdirectories as values of the <a href="https://qbs.io
+/docs/qml-qbslanguageitems-project/#references-prop" translate="no">references</a> property:</p>
+<pre class="cpp" translate="no">Project {
     references: <span class="operator">[</span>
         <span class="string">"app/app.qbs"</span><span class="operator">,</span>
         <span class="string">"lib/lib.qbs"</span>
@@ -416,8 +416,8 @@
 }</pre>
 <h3 id="message-warning-error-log">message(), warning(), error(), log()</h3>
 <p>You can use the <a href="https://qbs.io
-/docs/jsextensions-general/#console-api">Console API</a> to print info, warning, error, and log messages to the console.</p>
-<pre class="cpp">Product {
+/docs/jsextensions-general/#console-api" translate="no">Console API</a> to print info, warning, error, and log messages to the console.</p>
+<pre class="cpp" translate="no">Product {
     name: {
         console<span class="operator">.</span>info(<span class="string">"--&gt; now evaluating the product name"</span>);
         <span class="keyword">return</span> <span class="string">"theName"</span>;

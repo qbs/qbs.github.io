@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual QbsModuleProviders Qt Qbs 2.0.1 Contents Properties Detailed Description Qt QML Type Module provider that generates Qt modules. More...
+    <meta name="description" content="Qbs Manual QbsModuleProviders Qt Qbs 2.1.1 Contents Properties Detailed Description Qt QML Type Module provider that generates Qt modules. More...
 Import Statement: import QbsModuleProviders List of all members, including inherited members Properties qmakeFilePaths : stringList Detailed Description Looking up a Qt installation happens via a module provider. By default, if a dependency to a Qt module is encountered, Qbs collects all Qt installations it can find. This lookup happens by searching for qmake executables in the PATH environment variable. ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmoduleproviders-qt/" />
 
@@ -18,7 +18,7 @@ Import Statement: import QbsModuleProviders List of all members, including inher
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual QbsModuleProviders Qt Qbs 2.0.1 Contents Properties Detailed Description Qt QML Type Module provider that generates Qt modules. More...
+<meta property="og:description" content="Qbs Manual QbsModuleProviders Qt Qbs 2.1.1 Contents Properties Detailed Description Qt QML Type Module provider that generates Qt modules. More...
 Import Statement: import QbsModuleProviders List of all members, including inherited members Properties qmakeFilePaths : stringList Detailed Description Looking up a Qt installation happens via a module provider. By default, if a dependency to a Qt module is encountered, Qbs collects all Qt installations it can find. This lookup happens by searching for qmake executables in the PATH environment variable." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/qml-qbsmoduleproviders-qt/" /><meta property="article:section" content="docs" />
@@ -27,7 +27,7 @@ Import Statement: import QbsModuleProviders List of all members, including inher
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual QbsModuleProviders Qt Qbs 2.0.1 Contents Properties Detailed Description Qt QML Type Module provider that generates Qt modules. More...
+<meta name="twitter:description" content="Qbs Manual QbsModuleProviders Qt Qbs 2.1.1 Contents Properties Detailed Description Qt QML Type Module provider that generates Qt modules. More...
 Import Statement: import QbsModuleProviders List of all members, including inherited members Properties qmakeFilePaths : stringList Detailed Description Looking up a Qt installation happens via a module provider. By default, if a dependency to a Qt module is encountered, Qbs collects all Qt installations it can find. This lookup happens by searching for qmake executables in the PATH environment variable."/>
 
 </head>
@@ -57,11 +57,11 @@ Import Statement: import QbsModuleProviders List of all members, including inher
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io
-/docs">Qbs Manual</a></li>
+/docs" translate="no">Qbs Manual</a></li>
 <li><a href="https://qbs.io
-/docs/qbsmoduleproviders-qmlmodule/">QbsModuleProviders</a></li>
+/docs/qbsmoduleproviders-qmlmodule/" translate="no">QbsModuleProviders</a></li>
 <li>Qt</li>
-<li id="buildversion">Qbs 2.0.1</li>
+<li id="buildversion">Qbs 2.1.1</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -71,49 +71,53 @@ Import Statement: import QbsModuleProviders List of all members, including inher
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<div class="content"><h1 class="title">Qt QML Type</h1>
+<div class="content"><h1 class="title" translate="no">Qt QML Type</h1>
 <!-- $$$Qt-brief -->
 <p>Module provider that generates Qt modules. <a href="#details">More...</a></p>
 <!-- @@@Qt -->
-<div class="table"><table class="alignedsummary">
+<div class="table"><table class="alignedsummary" translate="no">
 <tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsModuleProviders</td></tr></tbody></table></div><ul>
 <li><a href="https://qbs.io
 /docs/qml-qbsmoduleproviders-qt-members/">List of all members, including inherited members</a></li>
 </ul>
 <h2 id="properties">Properties</h2>
 <ul>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbsmoduleproviders-qt/#qmakeFilePaths-prop">qmakeFilePaths</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbsmoduleproviders-qt/#qmakeFilePaths-prop" translate="no">qmakeFilePaths</a></b> : stringList</li>
 </ul>
 <!-- $$$Qt-description -->
 <h2 id="details">Detailed Description</h2>
 <p>Looking up a Qt installation happens via a <a href="https://qbs.io
-/docs/module-providers/">module provider</a>. By default, if a dependency to a Qt module is encountered, Qbs collects all Qt installations it can find. This lookup happens by searching for <code>qmake</code> executables in the <code>PATH</code> environment variable. Alternatively, you can explicitly tell Qbs which Qt installations it should consider by setting the <a href="https://qbs.io
-/docs/qml-qbsmoduleproviders-qt/#qmakeFilePaths-prop">qmakeFilePaths</a> module provider <a href="https://qbs.io
-/docs/module-providers/#parameterizing-module-providers">property</a>. In that case, the environment will be ignored. For instance, with the following Linux command line, Qbs will build the project against a custom Qt instead of the standard one in <code>/usr/bin</code>:</p>
-<pre class="cpp">$ qbs moduleProviders<span class="operator">.</span><span class="type"><a href="https://qbs.io
-/docs/qml-qbsmoduleproviders-qt/">Qt</a></span><span class="operator">.</span>qmakeFilePaths:<span class="operator">/</span>opt<span class="operator">/</span>myqt<span class="operator">/</span>bin<span class="operator">/</span>qmake</pre>
+/docs/module-providers/" translate="no">module provider</a>. By default, if a dependency to a Qt module is encountered, Qbs collects all Qt installations it can find. This lookup happens by searching for <code translate="no">qmake</code> executables in the <code translate="no">PATH</code> environment variable. Alternatively, you can explicitly tell Qbs which Qt installations it should consider by setting the <a href="https://qbs.io
+/docs/qml-qbsmoduleproviders-qt/#qmakeFilePaths-prop" translate="no">qmakeFilePaths</a> module provider <a href="https://qbs.io
+/docs/module-providers/#parameterizing-module-providers" translate="no">property</a>. In that case, the environment will be ignored. For instance, with the following Linux command line, Qbs will build the project against a custom Qt instead of the standard one in <code translate="no">/usr/bin</code>:</p>
+<pre class="cpp" translate="no">$ qbs moduleProviders<span class="operator">.</span><span class="type"><a href="https://qbs.io
+/docs/qml-qbsmoduleproviders-qt/" translate="no">Qt</a></span><span class="operator">.</span>qmakeFilePaths:<span class="operator">/</span>opt<span class="operator">/</span>myqt<span class="operator">/</span>bin<span class="operator">/</span>qmake</pre>
 <p>You can also set the module provider property in a profile. The simplest way to do this is via the <a href="https://qbs.io
-/docs/cli-setup-qt/">setup-qt</a> tool. For examples of how to use this tool, see the <a href="https://qbs.io
-/docs/qt-versions/">Managing Qt Versions</a> section.</p>
+/docs/cli-setup-qt/" translate="no">setup-qt</a> tool. For examples of how to use this tool, see the <a href="https://qbs.io
+/docs/qt-versions/" translate="no">Managing Qt Versions</a> section.</p>
 <p>This provider is activated automatically when encountering a dependency on the Qt module and the <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/#qbsModuleProviders-prop">qbsModuleProviders</a> property is <code>undefined</code>:</p>
-<pre class="cpp">CppApplication {
-    Depends { name: <span class="string">"Qt.core"</span> }
-    files: <span class="string">"main.cpp"</span>
+/docs/qml-qbslanguageitems-product/#qbsModuleProviders-prop" translate="no">qbsModuleProviders</a> property is <code translate="no">undefined</code>:</p>
+<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io
+/docs/qml-qbsconvenienceitems-cppapplication/" translate="no">CppApplication</a></span> {
+    <span class="type"><a href="https://qbs.io
+/docs/qml-qbslanguageitems-depends/" translate="no">Depends</a></span> { <span class="name">name</span>: <span class="string">"Qt.core"</span> }
+    <span class="name">files</span>: <span class="string">"main.cpp"</span>
 }</pre>
 <p>Alternatively, you can activate this provider explicitly via the <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/#qbsModuleProviders-prop">qbsModuleProviders</a> property:</p>
-<pre class="cpp">CppApplication {
-    Depends { name: <span class="string">"Qt.core"</span> }
-    files: <span class="string">"main.cpp"</span>
-    qbsModuleProviders: <span class="string">"Qt"</span>
+/docs/qml-qbslanguageitems-product/#qbsModuleProviders-prop" translate="no">qbsModuleProviders</a> property:</p>
+<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io
+/docs/qml-qbsconvenienceitems-cppapplication/" translate="no">CppApplication</a></span> {
+    <span class="type"><a href="https://qbs.io
+/docs/qml-qbslanguageitems-depends/" translate="no">Depends</a></span> { <span class="name">name</span>: <span class="string">"Qt.core"</span> }
+    <span class="name">files</span>: <span class="string">"main.cpp"</span>
+    <span class="name">qbsModuleProviders</span>: <span class="string">"Qt"</span>
 }</pre>
 <!-- @@@Qt -->
 <h2>Property Documentation</h2>
 <!-- $$$qmakeFilePaths -->
 <div class="qmlitem"><h3 class="qmlproto">qmakeFilePaths: stringList</h3>
-<div class="qmldoc"><p>List of paths to <code>qmake</code> executables.</p>
+<div class="qmldoc"><p>List of paths to <code translate="no">qmake</code> executables.</p>
 <p>Default: undefined</p>
 </div></div><!-- @@@qmakeFilePaths -->
 <br>

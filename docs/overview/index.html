@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Introduction Qbs 2.0.1 Qbs Manual Setup Contents Features Declarative Paradigm Well-Defined Language Platform and Programming Language Independence Correct and Fast Incremental Builds Extensible Architecture IDE Integration Qt Creator Visual Studio Code Build Process Introduction Qbs is a build automation tool designed to conveniently manage the build process of software projects across multiple platforms.
+    <meta name="description" content="Qbs Manual Introduction Qbs 2.1.1 Qbs Manual Setup Contents Features Declarative Paradigm Well-Defined Language Platform and Programming Language Independence Correct and Fast Incremental Builds Extensible Architecture IDE Integration Qt Creator Visual Studio Code Build Process Introduction Qbs is a build automation tool designed to conveniently manage the build process of software projects across multiple platforms.
 Features Qbs provides the following benefits:
 Declarative paradigm Well-defined language Platform and programming language independence Correct and fast incremental builds Extensible architecture Easy integration to IDEs Declarative Paradigm When writing a project, it is important to describe the build tasks and dependencies between them, rather than the build order. ">
     <link rel="canonical" href="https://qbs.io/docs/overview/" />
@@ -19,7 +19,7 @@ Declarative paradigm Well-defined language Platform and programming language ind
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Introduction Qbs 2.0.1 Qbs Manual Setup Contents Features Declarative Paradigm Well-Defined Language Platform and Programming Language Independence Correct and Fast Incremental Builds Extensible Architecture IDE Integration Qt Creator Visual Studio Code Build Process Introduction Qbs is a build automation tool designed to conveniently manage the build process of software projects across multiple platforms.
+<meta property="og:description" content="Qbs Manual Introduction Qbs 2.1.1 Qbs Manual Setup Contents Features Declarative Paradigm Well-Defined Language Platform and Programming Language Independence Correct and Fast Incremental Builds Extensible Architecture IDE Integration Qt Creator Visual Studio Code Build Process Introduction Qbs is a build automation tool designed to conveniently manage the build process of software projects across multiple platforms.
 Features Qbs provides the following benefits:
 Declarative paradigm Well-defined language Platform and programming language independence Correct and fast incremental builds Extensible architecture Easy integration to IDEs Declarative Paradigm When writing a project, it is important to describe the build tasks and dependencies between them, rather than the build order." />
 <meta property="og:type" content="article" />
@@ -29,7 +29,7 @@ Declarative paradigm Well-defined language Platform and programming language ind
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Introduction Qbs 2.0.1 Qbs Manual Setup Contents Features Declarative Paradigm Well-Defined Language Platform and Programming Language Independence Correct and Fast Incremental Builds Extensible Architecture IDE Integration Qt Creator Visual Studio Code Build Process Introduction Qbs is a build automation tool designed to conveniently manage the build process of software projects across multiple platforms.
+<meta name="twitter:description" content="Qbs Manual Introduction Qbs 2.1.1 Qbs Manual Setup Contents Features Declarative Paradigm Well-Defined Language Platform and Programming Language Independence Correct and Fast Incremental Builds Extensible Architecture IDE Integration Qt Creator Visual Studio Code Build Process Introduction Qbs is a build automation tool designed to conveniently manage the build process of software projects across multiple platforms.
 Features Qbs provides the following benefits:
 Declarative paradigm Well-defined language Platform and programming language independence Correct and fast incremental builds Extensible architecture Easy integration to IDEs Declarative Paradigm When writing a project, it is important to describe the build tasks and dependencies between them, rather than the build order."/>
 
@@ -60,9 +60,9 @@ Declarative paradigm Well-defined language Platform and programming language ind
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io
-/docs">Qbs Manual</a></li>
+/docs" translate="no">Qbs Manual</a></li>
 <li>Introduction</li>
-<li id="buildversion">Qbs 2.0.1</li>
+<li id="buildversion">Qbs 2.1.1</li>
   <link rel="prev" href="https://qbs.io
 /docs">
   <link rel="next" href="https://qbs.io
@@ -113,91 +113,91 @@ Declarative paradigm Well-defined language Platform and programming language ind
 <h3 id="well-defined-language">Well-Defined Language</h3>
 <p>Qbs projects are specified in a QML dialect. QML is a concise, easy to learn, and intuitive language that is used successfully in the Qt project. Its core is declarative, but it can be extended with JavaScript snippets for extra flexibility.</p>
 <p>Qbs builds applications based on the information in a project file. Each project file specifies one <a href="https://qbs.io
-/docs/qml-qbslanguageitems-project/">project</a> that can contain several <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/">products</a>. You specify the type of the product, such as an <i>application</i>, and the dependencies the product has on other products.</p>
+/docs/qml-qbslanguageitems-project/" translate="no">project</a> that can contain several <a href="https://qbs.io
+/docs/qml-qbslanguageitems-product/" translate="no">products</a>. You specify the type of the product, such as an <i>application</i>, and the dependencies the product has on other products.</p>
 <p>The product type determines the set of <a href="https://qbs.io
-/docs/qml-qbslanguageitems-rule/">rules</a> that Qbs applies to produce artifacts from input files. The input files can be divided into <a href="https://qbs.io
-/docs/qml-qbslanguageitems-group/">groups</a> according to their type or purpose, for example. A group can also be used to attach <a href="https://qbs.io
-/docs/commands/#properties">properties</a> to products.</p>
+/docs/qml-qbslanguageitems-rule/" translate="no">rules</a> that Qbs applies to produce artifacts from input files. The input files can be divided into <a href="https://qbs.io
+/docs/qml-qbslanguageitems-group/" translate="no">groups</a> according to their type or purpose, for example. A group can also be used to attach <a href="https://qbs.io
+/docs/qml-qbslanguageitems-properties/" translate="no">properties</a> to products.</p>
 <p>The following is an example of a minimal project file that specifies the product type, application name, source file, and a dependency on the <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/">cpp</a> module:</p>
-<pre class="cpp">Application {
+/docs/qml-qbsmodules-cpp/" translate="no">cpp</a> module:</p>
+<pre class="cpp" translate="no">Application {
     name: <span class="string">"helloworld"</span>
     files: <span class="string">"main.cpp"</span>
     Depends { name: <span class="string">"cpp"</span> }
 }</pre>
 <p>For more information, see <a href="https://qbs.io
-/docs/language-introduction/">Language Introduction</a>.</p>
+/docs/language-introduction/" translate="no">Language Introduction</a>.</p>
 <h3 id="platform-and-programming-language-independence">Platform and Programming Language Independence</h3>
 <p>Qbs can be used for any software project, regardless of programming language, toolkit, or libraries used. Qbs has built-in support for building applications for Windows, Linux, macOS, Android, iOS, tvOS, watchOS, QNX, and FreeBSD, as well as for cross-compilation. It can be easily extended to support further platforms.</p>
 <p>Invoking <a href="https://qbs.io
-/docs/cli-build/">qbs build</a> from the command line automatically builds the project for the current host platform using the best available toolchain and settings, unless a default profile is set. You can configure additional profiles for each toolchain you want to use and select the profile to use at build time.</p>
+/docs/cli-build/" translate="no">qbs build</a> from the command line automatically builds the project for the current host platform using the best available toolchain and settings, unless a default profile is set. You can configure additional profiles for each toolchain you want to use and select the profile to use at build time.</p>
 <p>For example, to build applications for Android devices, you would need to set up a profile for the Android toolchain and select it when you build the application. If you name the profile <i>Android</i>, you would then enter the following command:</p>
-<pre class="cpp">qbs build profile:Android</pre>
+<pre class="cpp" translate="no">qbs build profile:Android</pre>
 <p>For more information, see <a href="https://qbs.io
-/docs/building-applications/">Building Applications</a>.</p>
+/docs/building-applications/" translate="no">Building Applications</a>.</p>
 <p>Platform and programming language support is implemented as a set of <a href="https://qbs.io
-/docs/qbsmodules-qmlmodule/">modules</a> that your product depends on. In the language example above, the dependency on the <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/">cpp</a> module determines that the C++ sources are compiled and linked into a binary.</p>
+/docs/qbsmodules-qmlmodule/" translate="no">modules</a> that your product depends on. In the language example above, the dependency on the <a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/" translate="no">cpp</a> module determines that the C++ sources are compiled and linked into a binary.</p>
 <p>Alternatively, you could use the <a href="https://qbs.io
-/docs/qml-qbsconvenienceitems-cppapplication/">CppApplication</a> convenience item that implies a dependency on the <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/">cpp</a> module:</p>
-<pre class="cpp">CppApplication {
+/docs/qml-qbsconvenienceitems-cppapplication/" translate="no">CppApplication</a> convenience item that implies a dependency on the <a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/" translate="no">cpp</a> module:</p>
+<pre class="cpp" translate="no">CppApplication {
     name: <span class="string">"helloworld"</span>
     files: <span class="string">"main.cpp"</span>
 }</pre>
 <p>Additionally, if the sources use Qt, you need a dependency to the <a href="https://qbs.io
-/docs/qml-qbsmodules-qt-core/">Qt.core</a> module, and so on.</p>
+/docs/qml-qbsmodules-qt-core/" translate="no">Qt.core</a> module, and so on.</p>
 <p>In addition to building projects, Qbs can install the build artifacts to a location from where they can be run on the desktop or on a device. Qbs modules can be used to create installers for the end users of the applications. For example, the <a href="https://qbs.io
-/docs/qml-qbsmodules-dmg/">dmg</a> module contains properties and rules for building Apple Disk Images, which are typically used to distribute applications and installers on macOS. The <a href="https://qbs.io
-/docs/qml-qbsmodules-innosetup/">innosetup</a>, <a href="https://qbs.io
-/docs/qml-qbsmodules-nsis/">nsis</a>, and <a href="https://qbs.io
-/docs/qml-qbsmodules-wix/">wix</a> modules contain properties and rules for building installers for Windows platforms.</p>
+/docs/qml-qbsmodules-dmg/" translate="no">dmg</a> module contains properties and rules for building Apple Disk Images, which are typically used to distribute applications and installers on macOS. The <a href="https://qbs.io
+/docs/qml-qbsmodules-innosetup/" translate="no">innosetup</a>, <a href="https://qbs.io
+/docs/qml-qbsmodules-nsis/" translate="no">nsis</a>, and <a href="https://qbs.io
+/docs/qml-qbsmodules-wix/" translate="no">wix</a> modules contain properties and rules for building installers for Windows platforms.</p>
 <h3 id="correct-and-fast-incremental-builds">Correct and Fast Incremental Builds</h3>
 <p>Qbs is an all-in-one tool that generates a build graph from a high-level project description (like qmake or CMake) and additionally undertakes the task of executing the commands in the low-level build graph (like make).</p>
-<p>Qbs automatically takes advantage of multi-processor and multi-core systems to achieve maximum build parallelization. By default, running <code>qbs</code> without any arguments is roughly equivalent to running <code>make -j&lt;n&gt;</code> where <code>n</code> is the number of CPU cores. Similarly, Qbs allows the number of concurrent jobs to be explicitly specified using its own <code>-j</code> option.</p>
+<p>Qbs automatically takes advantage of multi-processor and multi-core systems to achieve maximum build parallelization. By default, running <code translate="no">qbs</code> without any arguments is roughly equivalent to running <code translate="no">make -j&lt;n&gt;</code> where <code translate="no">n</code> is the number of CPU cores. Similarly, Qbs allows the number of concurrent jobs to be explicitly specified using its own <code translate="no">-j</code> option.</p>
 <p>Qbs has knowledge about the whole project, and therefore builds remain correct even when you build sub-projects, because Qbs ensures that all dependencies are built too. This virtually eliminates the need for clean builds.</p>
 <p>Qbs uses dynamic build graphs with build rules that can generate a variable number of files and that are executed only when needed. When figuring out which rules to execute, Qbs starts at the product type and then looks for a way to produce artifacts with matching file tags from source files, using a chain of rules that are connected by their respective input and output tags. For an example of how rules are applied when building products, see <a href="https://qbs.io
-/docs/qml-qbslanguageitems-rule/#rules-and-product-types">Rules and Product Types</a>.</p>
+/docs/qml-qbslanguageitems-rule/#rules-and-product-types" translate="no">Rules and Product Types</a>.</p>
 <p>The Qbs build rules can produce a variable number of outputs. If the input changes, only the required rules are applied at build time. If a rule is applied, all the dependent rules are applied as well, but only those. This feature ensures the correctness of the build graph after source code changes without having to re-configure the whole project.</p>
 <p>Changing properties that do not affect the build, because they are not used by rules, will not cause the project to be rebuilt. The use of properties is tracked. Generated artifacts that cease to exist are deleted to avoid picking outdated generated artifacts and indefinitely increasing the size of the build directory.</p>
 <p>Fast incremental builds are crucial for a fast edit-build-run cycle. Instead of retrieving the timestamps of generated files, Qbs uses the time stamps stored in the build graph. This is especially important on Windows, where file system operations are slow.</p>
 <p>If the project files were not changed, the build graph is loaded from disk. It is stored in a binary format that can be loaded much faster than the real project files. The project files are parsed only if they were changed.</p>
 <h3 id="extensible-architecture">Extensible Architecture</h3>
 <p>You can create your own custom <a href="https://qbs.io
-/docs/qbsmodules-qmlmodule/">modules</a> and <a href="https://qbs.io
-/docs/qbslanguageitems-qmlmodule/">items</a> and make Qbs aware of them.</p>
+/docs/qbsmodules-qmlmodule/" translate="no">modules</a> and <a href="https://qbs.io
+/docs/qbslanguageitems-qmlmodule/" translate="no">items</a> and make Qbs aware of them.</p>
 <p>You store the custom modules and items in a subdirectory of the project directory and specify the path to the subdirectory as a value of the <a href="https://qbs.io
-/docs/qml-qbslanguageitems-project/#qbsSearchPaths-prop">qbsSearchPaths</a> property. For example, if the custom module is located at <code>my-modules/modules/modulename/modulename.qbs</code>, you would specify it in the project file as follows:</p>
-<pre class="cpp">Project {
+/docs/qml-qbslanguageitems-project/#qbsSearchPaths-prop" translate="no">qbsSearchPaths</a> property. For example, if the custom module is located at <code translate="no">my-modules/modules/modulename/modulename.qbs</code>, you would specify it in the project file as follows:</p>
+<pre class="cpp" translate="no">Project {
     qbsSearchPaths: <span class="string">"my-modules"</span></pre>
 <p>For more information, see <a href="https://qbs.io
-/docs/custom-modules/">Custom Modules and Items</a>.</p>
+/docs/custom-modules/" translate="no">Custom Modules and Items</a>.</p>
 <h3 id="ide-integration">IDE Integration</h3>
 <p>Qbs can be used not only from the command line, but also in combination with an IDE, such as Qt Creator or Visual Studio Code. These IDEs directly support Qbs projects using the new Qbs <a href="https://qbs.io
-/docs/cli-session/">session</a> feature. Thus, these IDEs can retrieve all the information required to build a single file or project through a session's JSON protocol <a href="https://qbs.io
-/docs/json-api/">API</a>.</p>
+/docs/cli-session/" translate="no">session</a> feature. Thus, these IDEs can retrieve all the information required to build a single file or project through a session's JSON protocol <a href="https://qbs.io
+/docs/json-api/" translate="no">API</a>.</p>
 <p>In addition, Qbs can generate projects for Visual Studio, IAR EW, and Keil uVision, but it still is an experimental option. For more information, see <a href="https://qbs.io
-/docs/generators/">Generators</a>.</p>
+/docs/generators/" translate="no">Generators</a>.</p>
 <h4 id="qt-creator">Qt Creator</h4>
-<p><a href="http://doc.qt.io/qtcreator/index.html">Qt Creator</a> provides accurate information about the build progress and displays a project tree that reflects the logical structure of the project, instead of presenting low-level information, such as the file system structure. Adding or removing source files keeps the existing project file structure intact.</p>
-<p>For more information about using Qbs to build projects from Qt Creator, see <a href="http://doc.qt.io/qtcreator/creator-project-qbs.html">Setting Up Qbs</a>.</p>
+<p><a href="http://doc.qt.io/qtcreator/index.html" translate="no">Qt Creator</a> provides accurate information about the build progress and displays a project tree that reflects the logical structure of the project, instead of presenting low-level information, such as the file system structure. Adding or removing source files keeps the existing project file structure intact.</p>
+<p>For more information about using Qbs to build projects from Qt Creator, see <a href="http://doc.qt.io/qtcreator/creator-project-qbs.html" translate="no">Setting Up Qbs</a>.</p>
 <h4 id="visual-studio-code">Visual Studio Code</h4>
-<p><a href="https://code.visualstudio.com/">Visual Studio Code</a> provides the <a href="https://marketplace.visualstudio.com/items?itemName=qbs-community.qbs-tools">qbs-community</a> plugin that provides accurate information about the build progress and displays a project tree that reflects the logical structure of the project. Also, it can provide low-level information, such as the file system structure.</p>
-<p>For more information about using Qbs to build projects from Visual Studio Code, see <a href="https://github.com/denis-shienkov/vscode-qbs/blob/master/docs/how-to.md">How To</a>.</p>
+<p><a href="https://code.visualstudio.com/" translate="no">Visual Studio Code</a> provides the <a href="https://marketplace.visualstudio.com/items?itemName=qbs-community.qbs-tools" translate="no">qbs-community</a> plugin that provides accurate information about the build progress and displays a project tree that reflects the logical structure of the project. Also, it can provide low-level information, such as the file system structure.</p>
+<p>For more information about using Qbs to build projects from Visual Studio Code, see <a href="https://github.com/denis-shienkov/vscode-qbs/blob/master/docs/how-to.md" translate="no">How To</a>.</p>
 <h2 id="build-process">Build Process</h2>
 <p class="centerAlign"><img src="https://qbs.io
 /img/docs/qbs-build-process.png" alt=""></p><p>The build process of a product starts by examining the <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/#type-prop">type</a> property of the product. It contains a list of <i>file tags</i> that are similar to MIME types.</p>
+/docs/qml-qbslanguageitems-product/#type-prop" translate="no">type</a> property of the product. It contains a list of <i>file tags</i> that are similar to MIME types.</p>
 <p>The following example product contains one file tag, <i>application</i>:</p>
-<pre class="cpp">Product {
+<pre class="cpp" translate="no">Product {
     Depends { name: <span class="string">"cpp"</span> }
     type: <span class="operator">[</span><span class="string">"application"</span><span class="operator">]</span>
     files: <span class="operator">[</span><span class="string">"main.cpp"</span><span class="operator">,</span> <span class="string">"class.cpp"</span><span class="operator">,</span> <span class="string">"class.h"</span><span class="operator">]</span>
 }</pre>
-<p>Qbs then searches through all <i>rules</i> available in the context, meaning rules that are defined in the project or those that are made available through the dependency on a module, such as the compiler and linker rules pulled in from the <code>cpp</code> dependency in the example.</p>
-<p>When Qbs finds a rule that produces one or more artifacts with the relevant file tag, it looks at the depencencies of that rule and finds out that it produces artifacts tagged <code>obj</code>. It then finds a rule that produces <code>obj</code> artifacts that takes <code>.cpp</code> artifacts as input.</p>
-<pre class="cpp">Module {
+<p>Qbs then searches through all <i>rules</i> available in the context, meaning rules that are defined in the project or those that are made available through the dependency on a module, such as the compiler and linker rules pulled in from the <code translate="no">cpp</code> dependency in the example.</p>
+<p>When Qbs finds a rule that produces one or more artifacts with the relevant file tag, it looks at the depencencies of that rule and finds out that it produces artifacts tagged <code translate="no">obj</code>. It then finds a rule that produces <code translate="no">obj</code> artifacts that takes <code translate="no">.cpp</code> artifacts as input.</p>
+<pre class="cpp" translate="no">Module {
     <span class="comment">// ...</span>
     Rule {
         inputs: <span class="operator">[</span><span class="string">"cpp"</span><span class="operator">]</span>
@@ -211,10 +211,10 @@ Declarative paradigm Well-defined language Platform and programming language ind
     }
     <span class="comment">//...</span>
 }</pre>
-<p>There is no rule in the current context that produces <code>.cpp</code> files, but we have defined <code>.cpp</code> files as inputs for the product. When we added a dependency on the <a href="https://qbs.io
-/docs/qml-qbsmodules-cpp/">cpp</a> module, that dependency also pulled in another Qbs primitive called the <a href="https://qbs.io
-/docs/qml-qbslanguageitems-filetagger/">file tagger</a>. The file tagger looked for files matching the pattern <code>*.cpp</code>, and then applied the <code>cpp</code> tag to those input files:</p>
-<pre class="cpp">Module {
+<p>There is no rule in the current context that produces <code translate="no">.cpp</code> files, but we have defined <code translate="no">.cpp</code> files as inputs for the product. When we added a dependency on the <a href="https://qbs.io
+/docs/qml-qbsmodules-cpp/" translate="no">cpp</a> module, that dependency also pulled in another Qbs primitive called the <a href="https://qbs.io
+/docs/qml-qbslanguageitems-filetagger/" translate="no">file tagger</a>. The file tagger looked for files matching the pattern <code translate="no">*.cpp</code>, and then applied the <code translate="no">cpp</code> tag to those input files:</p>
+<pre class="cpp" translate="no">Module {
     <span class="comment">// ...</span>
     FileTagger {
         patterns: <span class="string">"*.cpp"</span>
@@ -222,11 +222,11 @@ Declarative paradigm Well-defined language Platform and programming language ind
     }
     <span class="comment">//...</span>
 }</pre>
-<p>Since the <code>.cpp</code> files are input files, they by definition have no other dependencies, and we can go back the opposite way in the tree starting with the compiler rule described above.</p>
-<p>This design works well for generated files. The <code>.cpp</code> artifacts could come from another rule that produced them by processing some other input, either instead of or in addition to the raw files listed in the product.</p>
-<p>The compiler rule will be invoked twice, once for each <code>.cpp</code> file, producing a separate object file for each one. Then the linker rule will be invoked. Its <code>multiplex</code> property is set to <code>true</code>, which means that instead of producing one output per input and invoking the rule multiple times, all input will be collected before invoking the rule only once to produce the final application object.</p>
+<p>Since the <code translate="no">.cpp</code> files are input files, they by definition have no other dependencies, and we can go back the opposite way in the tree starting with the compiler rule described above.</p>
+<p>This design works well for generated files. The <code translate="no">.cpp</code> artifacts could come from another rule that produced them by processing some other input, either instead of or in addition to the raw files listed in the product.</p>
+<p>The compiler rule will be invoked twice, once for each <code translate="no">.cpp</code> file, producing a separate object file for each one. Then the linker rule will be invoked. Its <code translate="no">multiplex</code> property is set to <code translate="no">true</code>, which means that instead of producing one output per input and invoking the rule multiple times, all input will be collected before invoking the rule only once to produce the final application object.</p>
 <p>The standard versus multiplex rules map well to the compiler and linker processes. The compiler takes one input file to produce one output file, whereas the linker takes multiple input files to produce one output file.</p>
-<p>Finally, after the linker rule has been invoked, it produces an artifact tagged <code>application</code>. Because the product's type property did not contain other file tags, the build process is now complete.</p>
+<p>Finally, after the linker rule has been invoked, it produces an artifact tagged <code translate="no">application</code>. Because the product's type property did not contain other file tags, the build process is now complete.</p>
 </div>
 <!-- @@@overview.html -->
 <p class="naviNextPrevious footerNavi">

@@ -3,8 +3,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual QbsLanguageItems Module Qbs 2.0.1 JobLimit ModuleProvider Contents Properties Detailed Description Accessing Product and Module Properties Accessing Properties of the Current Module Properties of the Dependent Modules Accessing Properties of the Dependent Product Special Property Values base original outer Dependency Parameters Module QML Type Represents a collection of properties and items that can be loaded into a product. More...
-Import Statement: import QbsLanguageItems List of all members, including inherited members Properties additionalProductTypes : stringList condition : bool present : bool priority : int setupBuildEnvironment : script setupRunEnvironment : script validate : script version : string Detailed Description A Module item is a collection of properties and language items. ">
+    <meta name="description" content="Qbs Manual QbsLanguageItems Module Qbs 2.1.1 JobLimit ModuleProvider Contents Properties Detailed Description Accessing Product and Module Properties Accessing Properties of the Current Module Properties of the Dependent Modules Accessing Properties of the Dependent Product Special Property Values Dependency Parameters Module QML Type Represents a collection of properties and items that can be loaded into a product. More...
+Import Statement: import QbsLanguageItems List of all members, including inherited members Module is part of List of All Items. ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbslanguageitems-module/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -18,8 +18,8 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual QbsLanguageItems Module Qbs 2.0.1 JobLimit ModuleProvider Contents Properties Detailed Description Accessing Product and Module Properties Accessing Properties of the Current Module Properties of the Dependent Modules Accessing Properties of the Dependent Product Special Property Values base original outer Dependency Parameters Module QML Type Represents a collection of properties and items that can be loaded into a product. More...
-Import Statement: import QbsLanguageItems List of all members, including inherited members Properties additionalProductTypes : stringList condition : bool present : bool priority : int setupBuildEnvironment : script setupRunEnvironment : script validate : script version : string Detailed Description A Module item is a collection of properties and language items." />
+<meta property="og:description" content="Qbs Manual QbsLanguageItems Module Qbs 2.1.1 JobLimit ModuleProvider Contents Properties Detailed Description Accessing Product and Module Properties Accessing Properties of the Current Module Properties of the Dependent Modules Accessing Properties of the Dependent Product Special Property Values Dependency Parameters Module QML Type Represents a collection of properties and items that can be loaded into a product. More...
+Import Statement: import QbsLanguageItems List of all members, including inherited members Module is part of List of All Items." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-module/" /><meta property="article:section" content="docs" />
 
@@ -27,8 +27,8 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual QbsLanguageItems Module Qbs 2.0.1 JobLimit ModuleProvider Contents Properties Detailed Description Accessing Product and Module Properties Accessing Properties of the Current Module Properties of the Dependent Modules Accessing Properties of the Dependent Product Special Property Values base original outer Dependency Parameters Module QML Type Represents a collection of properties and items that can be loaded into a product. More...
-Import Statement: import QbsLanguageItems List of all members, including inherited members Properties additionalProductTypes : stringList condition : bool present : bool priority : int setupBuildEnvironment : script setupRunEnvironment : script validate : script version : string Detailed Description A Module item is a collection of properties and language items."/>
+<meta name="twitter:description" content="Qbs Manual QbsLanguageItems Module Qbs 2.1.1 JobLimit ModuleProvider Contents Properties Detailed Description Accessing Product and Module Properties Accessing Properties of the Current Module Properties of the Dependent Modules Accessing Properties of the Dependent Product Special Property Values Dependency Parameters Module QML Type Represents a collection of properties and items that can be loaded into a product. More...
+Import Statement: import QbsLanguageItems List of all members, including inherited members Module is part of List of All Items."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -57,11 +57,11 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io
-/docs">Qbs Manual</a></li>
+/docs" translate="no">Qbs Manual</a></li>
 <li><a href="https://qbs.io
-/docs/qbslanguageitems-qmlmodule/">QbsLanguageItems</a></li>
+/docs/qbslanguageitems-qmlmodule/" translate="no">QbsLanguageItems</a></li>
 <li>Module</li>
-<li id="buildversion">Qbs 2.0.1</li>
+<li id="buildversion">Qbs 2.1.1</li>
   <link rel="prev" href="https://qbs.io
 /docs/qml-qbslanguageitems-joblimit/">
   <link rel="next" href="https://qbs.io
@@ -82,89 +82,88 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
 <li class="level3"><a href="#accessing-properties-of-the-current-module">Accessing Properties of the Current Module</a></li>
 <li class="level3"><a href="#properties-of-the-dependent-modules">Properties of the Dependent Modules</a></li>
 <li class="level3"><a href="#accessing-properties-of-the-dependent-product">Accessing Properties of the Dependent Product</a></li>
-<li class="level2"><a href="#special-property-values">Special Property Values</a></li>
-<li class="level3"><a href="#base"><code>base</code></a></li>
-<li class="level3"><a href="#original"><code>original</code></a></li>
-<li class="level3"><a href="#outer"><code>outer</code></a></li>
+<li class="level3"><a href="#special-property-values">Special Property Values</a></li>
 <li class="level2"><a href="#dependency-parameters">Dependency Parameters</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<div class="content"><h1 class="title">Module QML Type</h1>
+<div class="content"><h1 class="title" translate="no">Module QML Type</h1>
 <!-- $$$Module-brief -->
 <p>Represents a collection of properties and items that can be loaded into a product. <a href="#details">More...</a></p>
 <!-- @@@Module -->
-<div class="table"><table class="alignedsummary">
+<div class="table"><table class="alignedsummary" translate="no">
 <tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsLanguageItems</td></tr></tbody></table></div><ul>
 <li><a href="https://qbs.io
 /docs/qml-qbslanguageitems-module-members/">List of all members, including inherited members</a></li>
+<li>Module is part of <a href="https://qbs.io
+/docs/list-of-items/">List of All Items</a>.</li>
 </ul>
 <h2 id="properties">Properties</h2>
 <ul>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbslanguageitems-module/#additionalProductTypes-prop">additionalProductTypes</a></b> : stringList</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbslanguageitems-module/#condition-prop">condition</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbslanguageitems-module/#present-prop">present</a></b> : bool</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbslanguageitems-module/#priority-prop">priority</a></b> : int</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbslanguageitems-module/#setupBuildEnvironment-prop">setupBuildEnvironment</a></b> : script</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbslanguageitems-module/#setupRunEnvironment-prop">setupRunEnvironment</a></b> : script</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbslanguageitems-module/#validate-prop">validate</a></b> : script</li>
-<li class="fn"><b><a href="https://qbs.io
-/docs/qml-qbslanguageitems-module/#version-prop">version</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbslanguageitems-module/#additionalProductTypes-prop" translate="no">additionalProductTypes</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbslanguageitems-module/#condition-prop" translate="no">condition</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbslanguageitems-module/#present-prop" translate="no">present</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbslanguageitems-module/#priority-prop" translate="no">priority</a></b> : int</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbslanguageitems-module/#setupBuildEnvironment-prop" translate="no">setupBuildEnvironment</a></b> : script</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbslanguageitems-module/#setupRunEnvironment-prop" translate="no">setupRunEnvironment</a></b> : script</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbslanguageitems-module/#validate-prop" translate="no">validate</a></b> : script</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io
+/docs/qml-qbslanguageitems-module/#version-prop" translate="no">version</a></b> : string</li>
 </ul>
 <!-- $$$Module-description -->
 <h2 id="details">Detailed Description</h2>
 <p>A Module item is a collection of properties and language items. It contributes to building a product if the product has a <a href="https://qbs.io
-/docs/qml-qbslanguageitems-depends/">dependency</a> on the module. Modules may contain the following items:</p>
+/docs/qml-qbslanguageitems-depends/" translate="no">dependency</a> on the module. Modules may contain the following items:</p>
 <ul>
 <li><a href="https://qbs.io
-/docs/qml-qbslanguageitems-depends/">Depends</a></li>
+/docs/qml-qbslanguageitems-depends/" translate="no">Depends</a></li>
 <li><a href="https://qbs.io
-/docs/qml-qbslanguageitems-filetagger/">FileTagger</a></li>
+/docs/qml-qbslanguageitems-filetagger/" translate="no">FileTagger</a></li>
 <li><a href="https://qbs.io
-/docs/qml-qbslanguageitems-group/">Group</a></li>
+/docs/qml-qbslanguageitems-group/" translate="no">Group</a></li>
 <li><a href="https://qbs.io
-/docs/qml-qbslanguageitems-joblimit/">JobLimit</a></li>
+/docs/qml-qbslanguageitems-joblimit/" translate="no">JobLimit</a></li>
 <li><a href="https://qbs.io
-/docs/qml-qbslanguageitems-parameter/">Parameter</a></li>
+/docs/qml-qbslanguageitems-parameter/" translate="no">Parameter</a></li>
 <li><a href="https://qbs.io
-/docs/qml-qbslanguageitems-probe/">Probe</a></li>
+/docs/qml-qbslanguageitems-probe/" translate="no">Probe</a></li>
 <li><a href="https://qbs.io
-/docs/qml-qbslanguageitems-propertyoptions/">PropertyOptions</a></li>
+/docs/qml-qbslanguageitems-propertyoptions/" translate="no">PropertyOptions</a></li>
 <li><a href="https://qbs.io
-/docs/qml-qbslanguageitems-rule/">Rule</a></li>
+/docs/qml-qbslanguageitems-rule/" translate="no">Rule</a></li>
 <li><a href="https://qbs.io
-/docs/qml-qbslanguageitems-scanner/">Scanner</a></li>
+/docs/qml-qbslanguageitems-scanner/" translate="no">Scanner</a></li>
 </ul>
 <p>When a product expresses a dependency on a module, Qbs will create an instance of the module item in the scope of the product. The product can then read and write properties from and to the loaded module, respectively.</p>
 <p>Modules in different products are isolated from each other, just as products cannot access each other's properties. However, products can use the <a href="https://qbs.io
-/docs/qml-qbslanguageitems-export/">Export</a> item to pass dependencies and properties of modules to other dependent products.</p>
-<p>The following (somewhat artificial) module pre-processes text files by removing certain characters from them. The module's name is <code>txt_processor</code>.</p>
-<pre class="qml">import qbs.FileInfo
+/docs/qml-qbslanguageitems-export/" translate="no">Export</a> item to pass dependencies and properties of modules to other dependent products.</p>
+<p>The following (somewhat artificial) module pre-processes text files by removing certain characters from them. The module's name is <code translate="no">txt_processor</code>.</p>
+<pre class="qml" translate="no">import qbs.FileInfo
 import qbs.TextFile
 
 <span class="type"><a href="https://qbs.io
-/docs/qml-qbslanguageitems-module/">Module</a></span> {
+/docs/qml-qbslanguageitems-module/" translate="no">Module</a></span> {
     property <span class="type">stringList</span> <span class="name">unwantedCharacters</span>: []
 
     <span class="type"><a href="https://qbs.io
-/docs/qml-qbslanguageitems-filetagger/">FileTagger</a></span> {
+/docs/qml-qbslanguageitems-filetagger/" translate="no">FileTagger</a></span> {
         <span class="name">patterns</span>: [<span class="string">"*.raw"</span>]
         <span class="name">fileTags</span>: [<span class="string">"raw-txt"</span>]
     }
 
     <span class="type"><a href="https://qbs.io
-/docs/qml-qbslanguageitems-rule/">Rule</a></span> {
+/docs/qml-qbslanguageitems-rule/" translate="no">Rule</a></span> {
         <span class="name">inputs</span>: [<span class="string">"raw-txt"</span>]
 
         <span class="type"><a href="https://qbs.io
-/docs/qml-qbslanguageitems-artifact/">Artifact</a></span> {
+/docs/qml-qbslanguageitems-artifact/" translate="no">Artifact</a></span> {
             <span class="name">filePath</span>: <span class="name">FileInfo</span>.<span class="name">relativePath</span>(<span class="name">input</span>.<span class="name">filePath</span>, <span class="name">product</span>.<span class="name">sourceDirectory</span>) <span class="operator">+</span>
                        <span class="string">"/"</span> <span class="operator">+</span> <span class="name">input</span>.<span class="name">fileName</span> <span class="operator">+</span> <span class="string">".processed"</span>
             <span class="name">fileTags</span>: [<span class="string">"processed-txt"</span>]
@@ -189,22 +188,22 @@ import qbs.TextFile
     }
 }</pre>
 <p>And this is how a <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/">Product</a> would use the module:</p>
-<pre class="qml"><span class="type"><a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/">Product</a></span> {
+/docs/qml-qbslanguageitems-product/" translate="no">Product</a> would use the module:</p>
+<pre class="qml" translate="no"><span class="type"><a href="https://qbs.io
+/docs/qml-qbslanguageitems-product/" translate="no">Product</a></span> {
     <span class="name">type</span>: <span class="string">"processed-txt"</span>
     <span class="type"><a href="https://qbs.io
-/docs/qml-qbslanguageitems-depends/">Depends</a></span> { <span class="name">name</span>: <span class="string">"txt_processor"</span> }
+/docs/qml-qbslanguageitems-depends/" translate="no">Depends</a></span> { <span class="name">name</span>: <span class="string">"txt_processor"</span> }
     <span class="name">txt_processor</span>.unwantedCharacters: [<span class="string">"\r"</span>]
     <span class="name">files</span>: [
         <span class="string">"file1.raw"</span>,
         <span class="string">"file2.raw"</span>
     ]
 }</pre>
-<p>The resulting files are tagged with <code>processed-txt</code> and might be consumed by a rule in another module. That is possible if another rule has <code>processed-txt</code> in its <a href="https://qbs.io
-/docs/qml-qbslanguageitems-rule/#inputs-prop">inputs</a> property.</p>
+<p>The resulting files are tagged with <code translate="no">processed-txt</code> and might be consumed by a rule in another module. That is possible if another rule has <code translate="no">processed-txt</code> in its <a href="https://qbs.io
+/docs/qml-qbslanguageitems-rule/#inputs-prop" translate="no">inputs</a> property.</p>
 <p>For more information about how you make your own modules available to Qbs, see <a href="https://qbs.io
-/docs/custom-modules/">Custom Modules and Items</a>.</p>
+/docs/custom-modules/" translate="no">Custom Modules and Items</a>.</p>
 <h2 id="accessing-product-and-module-properties">Accessing Product and Module Properties</h2>
 <p>When defining a property in a module item, the right-hand side expression is a binding. Bindings may reference other properties of:</p>
 <ul>
@@ -215,76 +214,36 @@ import qbs.TextFile
 <p>Please note that this applies to bindings in modules only. Property access in rules and other nested items is different.</p>
 <h3 id="accessing-properties-of-the-current-module">Accessing Properties of the Current Module</h3>
 <p>Sibling properties in the same module can be accessed directly by their name:</p>
-<pre class="qml"><span class="type"><a href="https://qbs.io
-/docs/qml-qbslanguageitems-module/">Module</a></span> {
+<pre class="qml" translate="no"><span class="type"><a href="https://qbs.io
+/docs/qml-qbslanguageitems-module/" translate="no">Module</a></span> {
     property <span class="type">stringList</span> <span class="name">windowsDefaults</span>: [<span class="string">"\r"</span>]
     property <span class="type">stringList</span> <span class="name">unwantedCharacters</span>: <span class="name">windowsDefaults</span>
 }</pre>
 <h3 id="properties-of-the-dependent-modules">Properties of the Dependent Modules</h3>
 <p>When a module loads another module through a <a href="https://qbs.io
-/docs/qml-qbslanguageitems-depends/">Depends</a> element, it can access properties of the other module through its name. Assuming there was a module <code>OtherModule</code> with a property <code>otherProperty</code>, such an access would look like this:</p>
-<pre class="qml"><span class="type"><a href="https://qbs.io
-/docs/qml-qbslanguageitems-module/">Module</a></span> {
+/docs/qml-qbslanguageitems-depends/" translate="no">Depends</a> element, it can access properties of the other module through its name. Assuming there was a module <code translate="no">OtherModule</code> with a property <code translate="no">otherProperty</code>, such an access would look like this:</p>
+<pre class="qml" translate="no"><span class="type"><a href="https://qbs.io
+/docs/qml-qbslanguageitems-module/" translate="no">Module</a></span> {
     <span class="type"><a href="https://qbs.io
-/docs/qml-qbslanguageitems-depends/">Depends</a></span> { <span class="name">name</span>: <span class="string">"OtherModule"</span> }
+/docs/qml-qbslanguageitems-depends/" translate="no">Depends</a></span> { <span class="name">name</span>: <span class="string">"OtherModule"</span> }
     property <span class="type">string</span> <span class="name">myProperty</span>: <span class="string">"something-"</span> <span class="operator">+</span> <span class="name">OtherModule</span>.<span class="name">otherProperty</span>
 }</pre>
 <h3 id="accessing-properties-of-the-dependent-product">Accessing Properties of the Dependent Product</h3>
-<pre class="qml"><span class="type"><a href="https://qbs.io
-/docs/qml-qbslanguageitems-module/">Module</a></span> {
+<pre class="qml" translate="no"><span class="type"><a href="https://qbs.io
+/docs/qml-qbslanguageitems-module/" translate="no">Module</a></span> {
     property <span class="type">bool</span> <span class="name">featureEnabled</span>:
             (<span class="name">product</span>.<span class="name">type</span>.<span class="name">includes</span>(<span class="string">"application"</span>)) ?  <span class="number">true</span> : <span class="number">false</span>
 }</pre>
-<h2 id="special-property-values">Special Property Values</h2>
-<p>For every property defined in a module, Qbs provides the following special built-in values:</p>
-<ul>
-<li><a href="https://qbs.io
-/docs/qml-qbslanguageitems-module/#base">base</a></li>
-<li><a href="https://qbs.io
-/docs/qml-qbslanguageitems-module/#original">original</a></li>
-<li><a href="https://qbs.io
-/docs/qml-qbslanguageitems-module/#outer">outer</a></li>
-</ul>
-<h3 id="base"><code>base</code></h3>
-<p>This value is useful when making use of inheritance. It stands for the value of the respective property in the item one level up in the inheritance chain. For instance:</p>
-<pre class="cpp">Product { <span class="comment">// defined in MyProduct.qbs</span>
-    Depends { name: <span class="string">"mymodule"</span> }
-    mymodule<span class="operator">.</span>someProperty: <span class="operator">[</span><span class="string">"value1"</span><span class="operator">]</span>
-}
-<span class="operator">-</span><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span> some other file <span class="operator">-</span><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span>
-MyProduct {
-    mymodule<span class="operator">.</span>someProperty: base<span class="operator">.</span>concat(<span class="operator">[</span><span class="string">"value2"</span><span class="operator">]</span>) <span class="comment">// =&gt; ["value1", "value2"]</span>
-}</pre>
-<h3 id="original"><code>original</code></h3>
-<p>This is the value of the property in the module itself (possibly overridden from a profile or the command line). Use it to set a module property conditionally:</p>
-<pre class="cpp">Module { <span class="comment">// This is mymodule</span>
-    property string aProperty: <span class="string">"z"</span>
-}
-<span class="operator">-</span><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span>
-Product {
-    Depends { name: <span class="string">"mymodule"</span> }
-    Depends { name: <span class="string">"myothermodule"</span> }
-    mymodule<span class="operator">.</span>aProperty: myothermodule<span class="operator">.</span>anotherProperty <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"x"</span> <span class="operator">?</span> <span class="string">"y"</span> : original <span class="comment">// =&gt; "y" if myothermodule.anotherProperty is "x", "z" otherwise</span></pre>
-<h3 id="outer"><code>outer</code></h3>
-<p>This value is used in nested items, where it refers to the value of the respective property in the surrounding item. It is only valid in <a href="https://qbs.io
-/docs/qml-qbslanguageitems-group/">Group</a> and <a href="https://qbs.io
-/docs/commands/#properties">Properties</a> items:</p>
-<pre class="cpp">Product {
-    Depends { name: <span class="string">"mymodule"</span> }
-    mymodule<span class="operator">.</span>someProperty: <span class="operator">[</span><span class="string">"value1"</span><span class="operator">]</span>
-    Group {
-        name: <span class="string">"special files"</span>
-        files: <span class="operator">[</span><span class="string">"somefile1"</span><span class="operator">,</span> <span class="string">"somefile2"</span><span class="operator">]</span>
-        mymodule<span class="operator">.</span>someProperty: outer<span class="operator">.</span>concat(<span class="operator">[</span><span class="string">"value"</span><span class="operator">]</span>) <span class="comment">// =&gt; ["value1", "value2"]</span>
-    }
-}</pre>
+<h3 id="special-property-values">Special Property Values</h3>
+<p>For every property defined in a module, Qbs provides the special <a href="https://qbs.io
+/docs/special-property-values/#original" translate="no">original</a> value containing the value of the property in the module itself (possibly overridden from a profile).</p>
 <h2 id="dependency-parameters">Dependency Parameters</h2>
 <p>Modules can declare dependency parameters. Those parameters can be set within <a href="https://qbs.io
-/docs/qml-qbslanguageitems-depends/">Depends</a> items. <a href="https://qbs.io
-/docs/qml-qbslanguageitems-rule/">Rules</a> of the module can read the parameters of dependencies and act accordingly.</p>
-<p>In the following example, the module <i>foo</i> declares the parameter <code>ignore</code>. A dependency to <code>bar</code> then sets the parameter <code>foo.ignore</code> to <code>true</code>. A rule in <code>foo</code> ignores all dependencies that have <code>foo.ignore</code> set to true.</p>
-<pre class="cpp">Module {    <span class="comment">// Definition of module 'foo'.</span>
-    Parameter { property bool ignore }
+/docs/qml-qbslanguageitems-depends/" translate="no">Depends</a> items. <a href="https://qbs.io
+/docs/qml-qbslanguageitems-rule/" translate="no">Rules</a> of the module can read the parameters of dependencies and act accordingly.</p>
+<p>In the following example, the module <i>foo</i> declares the parameter <code translate="no">ignore</code>. A dependency to <code translate="no">bar</code> then sets the parameter <code translate="no">foo.ignore</code> to <code translate="no">true</code>. A rule in <code translate="no">foo</code> ignores all dependencies that have <code translate="no">foo.ignore</code> set to true.</p>
+<pre class="cpp" translate="no">Module {    <span class="comment">// Definition of module 'foo'.</span>
+    Parameter { property <span class="type">bool</span> ignore }
     Rule {
         <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
         prepare: {
@@ -308,22 +267,22 @@ Product {
 <!-- $$$additionalProductTypes -->
 <div class="qmlitem"><h3 class="qmlproto">additionalProductTypes: stringList</h3>
 <div class="qmldoc"><p>A list of elements that will be added to the <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/#type-prop">type</a> property of a product that has a dependency on the module.</p>
-<p>Default: <code>[]</code></p>
+/docs/qml-qbslanguageitems-product/#type-prop" translate="no">type</a> property of a product that has a dependency on the module.</p>
+<p>Default: <code translate="no">[]</code></p>
 </div></div><!-- @@@additionalProductTypes -->
 <br>
 <!-- $$$condition -->
 <div class="qmlitem"><h3 class="qmlproto">condition: bool</h3>
-<div class="qmldoc"><p>Whether the module is enabled. If this property is <code>false</code>, the surrounding Module item will not be considered in the module look-up.</p>
-<p>Default: <code>true</code></p>
+<div class="qmldoc"><p>Whether the module is enabled. If this property is <code translate="no">false</code>, the surrounding Module item will not be considered in the module look-up.</p>
+<p>Default: <code translate="no">true</code></p>
 </div></div><!-- @@@condition -->
 <br>
 <!-- $$$present -->
 <div class="qmlitem"><h3 class="qmlproto">present: bool</h3>
-<div class="qmldoc"><p>This property is <code>false</code> if and only if the respective <a href="https://qbs.io
-/docs/qml-qbslanguageitems-depends/">Depends</a> item had its <a href="https://qbs.io
-/docs/qml-qbslanguageitems-depends/#required-prop">required</a> property set to <code>false</code> and the module was not found.</p>
-<p>Default: <code>true</code></p>
+<div class="qmldoc"><p>This property is <code translate="no">false</code> if and only if the respective <a href="https://qbs.io
+/docs/qml-qbslanguageitems-depends/" translate="no">Depends</a> item had its <a href="https://qbs.io
+/docs/qml-qbslanguageitems-depends/#required-prop" translate="no">required</a> property set to <code translate="no">false</code> and the module was not found.</p>
+<p>Default: <code translate="no">true</code></p>
 </div></div><!-- @@@present -->
 <br>
 <!-- $$$priority -->
@@ -335,9 +294,9 @@ Product {
 <!-- $$$setupBuildEnvironment -->
 <div class="qmlitem"><h3 class="qmlproto">setupBuildEnvironment: script</h3>
 <div class="qmldoc"><p>A script for setting up the environment in which a product is built.</p>
-<p>The code in this script is treated as a function with the signature <code>function(project, product)</code>.</p>
+<p>The code in this script is treated as a function with the signature <code translate="no">function(project, product)</code>.</p>
 <p>Use the <a href="https://qbs.io
-/docs/jsextension-environment/">Environment</a> functions to alter the environment.</p>
+/docs/jsextension-environment/" translate="no">Environment</a> functions to alter the environment.</p>
 <p>The return value of this script is ignored.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@setupBuildEnvironment -->
@@ -345,11 +304,11 @@ Product {
 <!-- $$$setupRunEnvironment -->
 <div class="qmlitem"><h3 class="qmlproto">setupRunEnvironment: script</h3>
 <div class="qmldoc"><p>A script for setting up the environment in which a product is run.</p>
-<p>The code in this script is treated as a function with the signature <code>function(project, product, config)</code>.</p>
-<p>The <code>config</code> parameter is a list of arbitrary strings that can be passed via the <a href="https://qbs.io
-/docs/cli-run/">run</a> command. The values supported by specific modules are listed in their respective documentation.</p>
+<p>The code in this script is treated as a function with the signature <code translate="no">function(project, product, config)</code>.</p>
+<p>The <code translate="no">config</code> parameter is a list of arbitrary strings that can be passed via the <a href="https://qbs.io
+/docs/cli-run/" translate="no">run</a> command. The values supported by specific modules are listed in their respective documentation.</p>
 <p>Use the <a href="https://qbs.io
-/docs/jsextension-environment/">Environment</a> functions to alter the environment.</p>
+/docs/jsextension-environment/" translate="no">Environment</a> functions to alter the environment.</p>
 <p>The return value of this script is ignored.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@setupRunEnvironment -->
@@ -363,7 +322,7 @@ Product {
 <!-- $$$version -->
 <div class="qmlitem"><h3 class="qmlproto">version: string</h3>
 <div class="qmldoc"><p>The module's version. It consists of integer values separated by dots. You can check for specific values of this property in a <a href="https://qbs.io
-/docs/qml-qbslanguageitems-depends/">Depends</a> item.</p>
+/docs/qml-qbslanguageitems-depends/" translate="no">Depends</a> item.</p>
 </div></div><!-- @@@version -->
 <br>
 <p class="naviNextPrevious footerNavi">

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Qbs</title>
+    <meta name="description" content="Qbs Manual Special Property Values Qbs 2.1.1 Custom Modules and Items Module Providers Contents base exportingProduct filePath importingProduct original outer path product project Special Property Values Depending on the context, Qbs provides the following special values for use in property bindings and JavaScript code:
+base exportingProduct filePath importingProduct original outer path product project base This value is useful when making use of inheritance. It stands for the value of the respective property in the item one level up in the inheritance chain. ">
+    <link rel="canonical" href="https://qbs.io/docs/special-property-values/" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+
+    
+      
+      <link rel="stylesheet" href="/css/main.min.7d27557bc1f8660bf0e026622019467fd286c7d3eb71497bb1bf1eb961a1697a.css" integrity="sha256-fSdVe8H4Zgvw4CZiIBlGf9KGx9PrcUl7sb8euWGhaXo="/>
+    
+
+    <meta property="og:title" content="" />
+<meta property="og:description" content="Qbs Manual Special Property Values Qbs 2.1.1 Custom Modules and Items Module Providers Contents base exportingProduct filePath importingProduct original outer path product project Special Property Values Depending on the context, Qbs provides the following special values for use in property bindings and JavaScript code:
+base exportingProduct filePath importingProduct original outer path product project base This value is useful when making use of inheritance. It stands for the value of the respective property in the item one level up in the inheritance chain." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://qbs.io/docs/special-property-values/" /><meta property="article:section" content="docs" />
+
+
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Qbs Manual Special Property Values Qbs 2.1.1 Custom Modules and Items Module Providers Contents base exportingProduct filePath importingProduct original outer path product project Special Property Values Depending on the context, Qbs provides the following special values for use in property bindings and JavaScript code:
+base exportingProduct filePath importingProduct original outer path product project base This value is useful when making use of inheritance. It stands for the value of the respective property in the item one level up in the inheritance chain."/>
+
+</head>
+<body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
+    <a class="flex items-center" href="/">
+        <img src="https://qbs.io/img/Cubes.svg" class="h-10 effect-shadow-small">
+        <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
+    </a>
+
+    <div>
+        
+        <a href="/blog" class="ml-2">
+            <span>Blog</span>
+        </a>
+        
+        <a href="/docs" class="ml-2">
+            <span>Documentation</span>
+        </a>
+        
+        <a href="/docs/installing/" class="ml-2">
+            <span>Get Qbs</span>
+        </a>
+        
+    </div>
+</header><main>
+<div class="centre-outer">
+    <article class="centre-inner docs">
+    
+<li><a href="https://qbs.io
+/docs" translate="no">Qbs Manual</a></li>
+<li>Special Property Values</li>
+<li id="buildversion">Qbs 2.1.1</li>
+  <link rel="prev" href="https://qbs.io
+/docs/custom-modules/">
+  <link rel="next" href="https://qbs.io
+/docs/module-providers/">
+<p class="naviNextPrevious headerNavi">
+<a class="prevPage" href="https://qbs.io
+/docs/custom-modules/">Custom Modules and Items</a>
+<a class="nextPage" href="https://qbs.io
+/docs/module-providers/">Module Providers</a>
+</p>
+<div class="sidebar">
+<div class="toc">
+<h3 id="toc">Contents</h3>
+<ul>
+<li class="level2"><a href="#base"><code translate="no">base</code></a></li>
+<li class="level2"><a href="#exportingproduct"><code translate="no">exportingProduct</code></a></li>
+<li class="level2"><a href="#filepath"><code translate="no">filePath</code></a></li>
+<li class="level2"><a href="#importingproduct"><code translate="no">importingProduct</code></a></li>
+<li class="level2"><a href="#original"><code translate="no">original</code></a></li>
+<li class="level2"><a href="#outer"><code translate="no">outer</code></a></li>
+<li class="level2"><a href="#path"><code translate="no">path</code></a></li>
+<li class="level2"><a href="#product"><code translate="no">product</code></a></li>
+<li class="level2"><a href="#project"><code translate="no">project</code></a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<div class="content"><h1 class="title">Special Property Values</h1>
+<!-- $$$special-property-values.html-description -->
+<div class="descr" id="details">
+<p>Depending on the context, Qbs provides the following special values for use in property bindings and JavaScript code:</p>
+<ul>
+<li><a href="https://qbs.io
+/docs/special-property-values/#base" translate="no">base</a></li>
+<li><a href="https://qbs.io
+/docs/special-property-values/#exportingproduct" translate="no">exportingProduct</a></li>
+<li><a href="https://qbs.io
+/docs/jsextension-textfile/#filepath" translate="no">filePath</a></li>
+<li><a href="https://qbs.io
+/docs/special-property-values/#importingproduct" translate="no">importingProduct</a></li>
+<li><a href="https://qbs.io
+/docs/special-property-values/#original" translate="no">original</a></li>
+<li><a href="https://qbs.io
+/docs/special-property-values/#outer" translate="no">outer</a></li>
+<li><a href="https://qbs.io
+/docs/jsextension-temporarydir/#path" translate="no">path</a></li>
+<li><a href="https://qbs.io
+/docs/special-property-values/#product" translate="no">product</a></li>
+<li><a href="https://qbs.io
+/docs/special-property-values/#project" translate="no">project</a></li>
+</ul>
+<h3 id="base"><code translate="no">base</code></h3>
+<p>This value is useful when making use of inheritance. It stands for the value of the respective property in the item one level up in the inheritance chain. For instance:</p>
+<pre class="cpp" translate="no">Product { <span class="comment">// defined in MyProduct.qbs</span>
+    Depends { name: <span class="string">"mymodule"</span> }
+    mymodule<span class="operator">.</span>someProperty: <span class="operator">[</span><span class="string">"value1"</span><span class="operator">]</span>
+}
+<span class="operator">-</span><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span> some other file <span class="operator">-</span><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span>
+MyProduct {
+    mymodule<span class="operator">.</span>someProperty: base<span class="operator">.</span>concat(<span class="operator">[</span><span class="string">"value2"</span><span class="operator">]</span>) <span class="comment">// =&gt; ["value1", "value2"]</span>
+}</pre>
+<h3 id="exportingproduct"><code translate="no">exportingProduct</code></h3>
+<p>Within an <a href="https://qbs.io
+/docs/qml-qbslanguageitems-export/" translate="no">Export</a> item, you can use the <code translate="no">exportingProduct</code> variable to refer to the product which defines the Export item:</p>
+<pre class="cpp" translate="no">Product {
+    Export {
+        Depends { name: <span class="string">"cpp"</span> }
+        cpp<span class="operator">.</span>includePaths: exportingProduct<span class="operator">.</span>sourceDirectory
+    }
+}</pre>
+<h3 id="filepath"><code translate="no">filePath</code></h3>
+<p>This value holds the full file path to the <code translate="no">.qbs</code> file it appears in. This property is rarely used, but might be useful when debugging:</p>
+<pre class="cpp" translate="no">Product {
+    property <span class="type">bool</span> dummy: {
+        console<span class="operator">.</span>info(<span class="string">"I'm located at "</span> <span class="operator">+</span> filePath);
+    }
+}</pre>
+<h3 id="importingproduct"><code translate="no">importingProduct</code></h3>
+<p>Within an <a href="https://qbs.io
+/docs/qml-qbslanguageitems-export/" translate="no">Export</a> item, you can use the <code translate="no">importingProduct</code> variable to refer to the product that pulls in the resulting module:</p>
+<pre class="cpp" translate="no">Product {
+    Export {
+        Depends { name: <span class="string">"cpp"</span> }
+        cpp<span class="operator">.</span>includePaths: importingProduct<span class="operator">.</span>buildDirectory
+    }
+}</pre>
+<p>Usually, you should use the <a href="https://qbs.io
+/docs/special-property-values/#product" translate="no">product</a> variable instead for consistency with <a href="https://qbs.io
+/docs/qml-qbslanguageitems-module/" translate="no">Module</a> items.</p>
+<h3 id="original"><code translate="no">original</code></h3>
+<p>On the right-hand side of a module property binding, this refers to the value of the property in the module itself (possibly overridden from a profile). Use it to set a module property conditionally:</p>
+<pre class="cpp" translate="no">Module { <span class="comment">// This is mymodule</span>
+    property string aProperty: <span class="string">"z"</span>
+}
+<span class="operator">-</span><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span>
+Product {
+    Depends { name: <span class="string">"mymodule"</span> }
+    Depends { name: <span class="string">"myothermodule"</span> }
+    <span class="comment">// "y" if myothermodule.anotherProperty is "x", "z" otherwise:</span>
+    mymodule<span class="operator">.</span>aProperty: myothermodule<span class="operator">.</span>anotherProperty <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"x"</span> <span class="operator">?</span> <span class="string">"y"</span> : original
+}</pre>
+<h3 id="outer"><code translate="no">outer</code></h3>
+<p>This value is used in nested items, where it refers to the value of the respective property in the surrounding item. It is only valid in <a href="https://qbs.io
+/docs/qml-qbslanguageitems-group/" translate="no">Group</a> and <a href="https://qbs.io
+/docs/qml-qbslanguageitems-properties/" translate="no">Properties</a> items:</p>
+<pre class="cpp" translate="no">Product {
+    Depends { name: <span class="string">"mymodule"</span> }
+    mymodule<span class="operator">.</span>someProperty: <span class="operator">[</span><span class="string">"value1"</span><span class="operator">]</span>
+    Group {
+        name: <span class="string">"special files"</span>
+        files: <span class="operator">[</span><span class="string">"somefile1"</span><span class="operator">,</span> <span class="string">"somefile2"</span><span class="operator">]</span>
+        mymodule<span class="operator">.</span>someProperty: outer<span class="operator">.</span>concat(<span class="operator">[</span><span class="string">"value"</span><span class="operator">]</span>) <span class="comment">// =&gt; ["value1", "value2"]</span>
+    }
+}</pre>
+<h3 id="path"><code translate="no">path</code></h3>
+<p>This value holds the path to the folder where the <code translate="no">.qbs</code> file is located. Use it to e.g. add the product's directory to file paths:</p>
+<pre class="cpp" translate="no">Product {
+    Depends { name: <span class="string">"cpp"</span> }
+    cpp<span class="operator">.</span>includePaths: path
+}</pre>
+<h3 id="product"><code translate="no">product</code></h3>
+<p>This value holds the properties of the product that contains the current item or pulls in the current module:</p>
+<pre class="cpp" translate="no">Module {
+    Rule {
+        Artifact {
+            fileTags: product<span class="operator">.</span>type
+            filePath: {
+                var result <span class="operator">=</span> input<span class="operator">.</span>fileName;
+                <span class="comment">// module properties are available as well</span>
+                <span class="keyword">if</span> (product<span class="operator">.</span>qbs<span class="operator">.</span>buildVariant <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"debug"</span>)
+                    result <span class="operator">=</span> result <span class="operator">+</span> <span class="string">"_debug"</span>;
+                result <span class="operator">=</span> result <span class="operator">+</span> <span class="string">".out"</span>;
+                <span class="keyword">return</span> result;
+            }
+        }
+    }
+}</pre>
+<p>Within the <a href="https://qbs.io
+/docs/qml-qbslanguageitems-export/" translate="no">Export</a> item, same as <a href="https://qbs.io
+/docs/special-property-values/#importingproduct" translate="no">importingProduct</a>.</p>
+<h3 id="project"><code translate="no">project</code></h3>
+<p>This value holds the properties of the project that references the current item or pulls in the current module:</p>
+<pre class="cpp" translate="no">Project {
+    property <span class="type">bool</span> enableProduct: <span class="keyword">true</span>
+    Product {
+        name: <span class="string">"theProduct"</span>
+        condition: project<span class="operator">.</span>enableProduct
+    }
+}</pre>
+<p>If the nearest project in the project tree does not have the desired property, Qbs looks it up in the parent project, potentially all the way up to the top-level project.</p>
+</div>
+<!-- @@@special-property-values.html -->
+<p class="naviNextPrevious footerNavi">
+<a class="prevPage" href="https://qbs.io
+/docs/custom-modules/">Custom Modules and Items</a>
+<a class="nextPage" href="https://qbs.io
+/docs/module-providers/">Module Providers</a>
+</p>
+</div>
+
+
+    </article>
+</div>
+
+        </main></body>
+</html>
