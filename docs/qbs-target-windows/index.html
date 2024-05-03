@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Target Platforms Building for Windows Qbs 2.1.1 Contents Windows Resources Universal Windows Platform Building Windows Installers Building for Windows This topic describes the Qbs features specific to Windows.
+    <meta name="description" content="Qbs Manual Target Platforms Building for Windows Qbs 2.3.0 Contents Windows Resources Universal Windows Platform Building Windows Installers Building for Windows This topic describes the Qbs features specific to Windows.
 Note: Qbs does not currently support building applications using .NET technologies and languages such as C#, F#, and Visual Basic. At this time we recommend that you use MSBuild and the tools shipped with the various implementations of the . ">
     <link rel="canonical" href="https://qbs.io/docs/qbs-target-windows/" />
 
@@ -18,22 +18,21 @@ Note: Qbs does not currently support building applications using .NET technologi
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Target Platforms Building for Windows Qbs 2.1.1 Contents Windows Resources Universal Windows Platform Building Windows Installers Building for Windows This topic describes the Qbs features specific to Windows.
+<meta property="og:description" content="Qbs Manual Target Platforms Building for Windows Qbs 2.3.0 Contents Windows Resources Universal Windows Platform Building Windows Installers Building for Windows This topic describes the Qbs features specific to Windows.
 Note: Qbs does not currently support building applications using .NET technologies and languages such as C#, F#, and Visual Basic. At this time we recommend that you use MSBuild and the tools shipped with the various implementations of the ." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/qbs-target-windows/" /><meta property="article:section" content="docs" />
 
 
 
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Target Platforms Building for Windows Qbs 2.1.1 Contents Windows Resources Universal Windows Platform Building Windows Installers Building for Windows This topic describes the Qbs features specific to Windows.
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Qbs Manual Target Platforms Building for Windows Qbs 2.3.0 Contents Windows Resources Universal Windows Platform Building Windows Installers Building for Windows This topic describes the Qbs features specific to Windows.
 Note: Qbs does not currently support building applications using .NET technologies and languages such as C#, F#, and Visual Basic. At this time we recommend that you use MSBuild and the tools shipped with the various implementations of the ."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
     <a class="flex items-center" href="/">
-        <img src="https://qbs.io/img/Cubes.svg" class="h-10 effect-shadow-small">
+        <img src="https://qbs.io//img/Cubes.svg" class="h-10 effect-shadow-small">
         <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
     </a>
 
@@ -56,12 +55,12 @@ Note: Qbs does not currently support building applications using .NET technologi
 <div class="centre-outer">
     <article class="centre-inner docs">
     
-<li><a href="https://qbs.io
+<li><a href="https://qbs.io/
 /docs" translate="no">Qbs Manual</a></li>
-<li><a href="https://qbs.io
+<li><a href="https://qbs.io/
 /docs/platforms/" translate="no">Target Platforms</a></li>
 <li>Building for Windows</li>
-<li id="buildversion">Qbs 2.1.1</li>
+<li id="buildversion">Qbs 2.3.0</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -80,20 +79,20 @@ Note: Qbs does not currently support building applications using .NET technologi
 <p><b>Note: </b>Qbs does not currently support building applications using .NET technologies and languages such as C#, F#, and Visual Basic. At this time we recommend that you use MSBuild and the tools shipped with the various implementations of the .NET platform.</p>
 </div>
 <h2 id="windows-resources">Windows Resources</h2>
-<p>The <a href="https://qbs.io
+<p>The <a href="https://qbs.io/
 /docs/qml-qbsmodules-ico/" translate="no">ico</a> module contains rules and properties for building Windows icon (.ico) and cursor (.cur) files from a set of raw PNGs.</p>
 <h2 id="universal-windows-platform">Universal Windows Platform</h2>
 <p>Building applications for the Universal Windows Platform is currently only partially supported. Notably, support for building APPX packages is missing, but will be added in a future release.</p>
 <p>Relevant properties include:</p>
 <ul>
-<li><a href="https://qbs.io
+<li><a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#windowsApiFamily-prop" translate="no">cpp.windowsApiFamily</a></li>
-<li><a href="https://qbs.io
+<li><a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#windowsApiAdditionalPartitions-prop" translate="no">cpp.windowsApiAdditionalPartitions</a></li>
-<li><a href="https://qbs.io
+<li><a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#requireAppContainer-prop" translate="no">cpp.requireAppContainer</a></li>
 </ul>
-<p>See the <a href="https://qbs.io
+<p>See the <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/" translate="no">cpp</a> module for more information.</p>
 <div class="admonition note">
 <p><b>Note: </b>Qbs does not (and will not) support building Windows Runtime applications targeting Windows 8 or Windows 8.1. We encourage users to instead build desktop applications for older versions of Windows, or migrate to Windows 10 and the Universal Windows Platform.</p>
@@ -101,11 +100,11 @@ Note: Qbs does not currently support building applications using .NET technologi
 <h2 id="building-windows-installers">Building Windows Installers</h2>
 <p>The following modules contain properties and rules for building Windows installers using a number of different technologies:</p>
 <ul>
-<li><a href="https://qbs.io
+<li><a href="https://qbs.io/
 /docs/qml-qbsmodules-innosetup/" translate="no">innosetup</a> - Inno Setup</li>
-<li><a href="https://qbs.io
+<li><a href="https://qbs.io/
 /docs/qml-qbsmodules-nsis/" translate="no">nsis</a> - Nullsoft Scriptable Install System</li>
-<li><a href="https://qbs.io
+<li><a href="https://qbs.io/
 /docs/qml-qbsmodules-wix/" translate="no">wix</a> - Windows Installer XML Toolset</li>
 </ul>
 </div>

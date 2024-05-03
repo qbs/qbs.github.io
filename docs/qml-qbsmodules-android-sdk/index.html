@@ -3,8 +3,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual QbsModules Android.sdk Qbs 2.1.1 Contents Properties Detailed Description Relevant File Tags Android.sdk QML Type Provides support for building Android packages. More...
-Import Statement: import QbsModules Since: Qbs 1.4 List of all members, including inherited members Properties aaptName : string aidlSearchPaths : stringList apkBaseName : string assetsDir : path automaticSources : bool buildToolsVersion : string dexCompilerName : string embedJar : bool manifestFile : string minimumVersion : string ndkDir : string packageName : string packageType : string platform : string resourcesDir : path sdkDir : string sourcesDir : path targetVersion : string versionCode : string versionName : string Detailed Description The Android. ">
+    <meta name="description" content="Qbs Manual QbsModules Android.sdk Qbs 2.3.0 Contents Properties Detailed Description Relevant File Tags Android.sdk QML Type Provides support for building Android packages. More...
+Import Statement: import QbsModules Since: Qbs 1.4 List of all members, including inherited members Properties aaptName : string (since Qbs 1.17) aidlSearchPaths : stringList apkBaseName : string assetsDir : path automaticSources : bool buildToolsVersion : string dexCompilerName : string (since Qbs 1.20) embedJar : bool (since Qbs 1. ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-android-sdk/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -18,22 +18,21 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual QbsModules Android.sdk Qbs 2.1.1 Contents Properties Detailed Description Relevant File Tags Android.sdk QML Type Provides support for building Android packages. More...
-Import Statement: import QbsModules Since: Qbs 1.4 List of all members, including inherited members Properties aaptName : string aidlSearchPaths : stringList apkBaseName : string assetsDir : path automaticSources : bool buildToolsVersion : string dexCompilerName : string embedJar : bool manifestFile : string minimumVersion : string ndkDir : string packageName : string packageType : string platform : string resourcesDir : path sdkDir : string sourcesDir : path targetVersion : string versionCode : string versionName : string Detailed Description The Android." />
+<meta property="og:description" content="Qbs Manual QbsModules Android.sdk Qbs 2.3.0 Contents Properties Detailed Description Relevant File Tags Android.sdk QML Type Provides support for building Android packages. More...
+Import Statement: import QbsModules Since: Qbs 1.4 List of all members, including inherited members Properties aaptName : string (since Qbs 1.17) aidlSearchPaths : stringList apkBaseName : string assetsDir : path automaticSources : bool buildToolsVersion : string dexCompilerName : string (since Qbs 1.20) embedJar : bool (since Qbs 1." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-android-sdk/" /><meta property="article:section" content="docs" />
 
 
 
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual QbsModules Android.sdk Qbs 2.1.1 Contents Properties Detailed Description Relevant File Tags Android.sdk QML Type Provides support for building Android packages. More...
-Import Statement: import QbsModules Since: Qbs 1.4 List of all members, including inherited members Properties aaptName : string aidlSearchPaths : stringList apkBaseName : string assetsDir : path automaticSources : bool buildToolsVersion : string dexCompilerName : string embedJar : bool manifestFile : string minimumVersion : string ndkDir : string packageName : string packageType : string platform : string resourcesDir : path sdkDir : string sourcesDir : path targetVersion : string versionCode : string versionName : string Detailed Description The Android."/>
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Qbs Manual QbsModules Android.sdk Qbs 2.3.0 Contents Properties Detailed Description Relevant File Tags Android.sdk QML Type Provides support for building Android packages. More...
+Import Statement: import QbsModules Since: Qbs 1.4 List of all members, including inherited members Properties aaptName : string (since Qbs 1.17) aidlSearchPaths : stringList apkBaseName : string assetsDir : path automaticSources : bool buildToolsVersion : string dexCompilerName : string (since Qbs 1.20) embedJar : bool (since Qbs 1."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
     <a class="flex items-center" href="/">
-        <img src="https://qbs.io/img/Cubes.svg" class="h-10 effect-shadow-small">
+        <img src="https://qbs.io//img/Cubes.svg" class="h-10 effect-shadow-small">
         <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
     </a>
 
@@ -56,12 +55,12 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <div class="centre-outer">
     <article class="centre-inner docs">
     
-<li><a href="https://qbs.io
+<li><a href="https://qbs.io/
 /docs" translate="no">Qbs Manual</a></li>
-<li><a href="https://qbs.io
+<li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>Android.sdk</li>
-<li id="buildversion">Qbs 2.1.1</li>
+<li id="buildversion">Qbs 2.3.0</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -78,64 +77,64 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <!-- @@@Android.sdk -->
 <div class="table"><table class="alignedsummary" translate="no">
 <tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsModules</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.4</td></tr></tbody></table></div><ul>
-<li><a href="https://qbs.io
+<li><a href="https://qbs.io/
 /docs/qml-qbsmodules-android-sdk-members/">List of all members, including inherited members</a></li>
 </ul>
 <h2 id="properties">Properties</h2>
 <ul>
-<li class="fn" translate="no"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-android-sdk/#aaptName-prop" translate="no">aaptName</a></b> : string</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-android-sdk/#aaptName-prop" translate="no">aaptName</a></b> : string <code class="summary extra" translate="no">(since Qbs 1.17)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-android-sdk/#aidlSearchPaths-prop" translate="no">aidlSearchPaths</a></b> : stringList</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-android-sdk/#apkBaseName-prop" translate="no">apkBaseName</a></b> : string</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-android-sdk/#assetsDir-prop" translate="no">assetsDir</a></b> : path</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-android-sdk/#automaticSources-prop" translate="no">automaticSources</a></b> : bool</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-android-sdk/#buildToolsVersion-prop" translate="no">buildToolsVersion</a></b> : string</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-android-sdk/#dexCompilerName-prop" translate="no">dexCompilerName</a></b> : string</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-android-sdk/#embedJar-prop" translate="no">embedJar</a></b> : bool</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-android-sdk/#dexCompilerName-prop" translate="no">dexCompilerName</a></b> : string <code class="summary extra" translate="no">(since Qbs 1.20)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-android-sdk/#embedJar-prop" translate="no">embedJar</a></b> : bool <code class="summary extra" translate="no">(since Qbs 1.10)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-android-sdk/#manifestFile-prop" translate="no">manifestFile</a></b> : string</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-android-sdk/#minimumVersion-prop" translate="no">minimumVersion</a></b> : string</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-android-sdk/#minimumVersion-prop" translate="no">minimumVersion</a></b> : string <code class="summary extra" translate="no">(since Qbs 1.17)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-android-sdk/#ndkDir-prop" translate="no">ndkDir</a></b> : string</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-android-sdk/#packageName-prop" translate="no">packageName</a></b> : string</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-android-sdk/#packageType-prop" translate="no">packageType</a></b> : string</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-android-sdk/#packageType-prop" translate="no">packageType</a></b> : string <code class="summary extra" translate="no">(since Qbs 1.17)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-android-sdk/#platform-prop" translate="no">platform</a></b> : string</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-android-sdk/#resourcesDir-prop" translate="no">resourcesDir</a></b> : path</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-android-sdk/#sdkDir-prop" translate="no">sdkDir</a></b> : string</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-android-sdk/#sourcesDir-prop" translate="no">sourcesDir</a></b> : path</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-android-sdk/#targetVersion-prop" translate="no">targetVersion</a></b> : string</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-android-sdk/#targetVersion-prop" translate="no">targetVersion</a></b> : string <code class="summary extra" translate="no">(since Qbs 1.17)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-android-sdk/#versionCode-prop" translate="no">versionCode</a></b> : string</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-android-sdk/#versionName-prop" translate="no">versionName</a></b> : string</li>
 </ul>
 <!-- $$$Android.sdk-description -->
 <h2 id="details">Detailed Description</h2>
-<p>The Android.sdk module contains the properties and rules to create Android application packages from Java sources, resources, and so on. It is usually pulled in indirectly by declaring an <a href="https://qbs.io
-/docs/qml-qbsconvenienceitems-application/" translate="no">Application</a> product.</p>
+<p>The Android.sdk module contains the properties and rules to create Android application packages from Java sources, resources, and so on. It is usually pulled in indirectly by declaring an <a href="https://qbs.io/
+/docs/tutorial-1/" translate="no">Application</a> product.</p>
 <h3 id="relevant-file-tags">Relevant File Tags</h3>
 <span id="filetags-android-sdk"></span><div class="table"><table class="generic">
  <thead><tr class="qt-style"><th>Tag</th><th>Auto-tagged File Names</th><th>Since</th><th>Description</th></tr></thead>
 <tbody><tr valign="top" class="odd"><td><code translate="no">"android.aidl"</code></td><td><code translate="no">*.aidl</code></td><td>1.4.0</td><td>Attached to Android AIDL files. One Java source file will be generated for each such file.</td></tr>
-<tr valign="top" class="even"><td><code translate="no">"android.assets"</code></td><td>-</td><td>1.4.0</td><td>Attached to Android assets, which are typically located in an <code translate="no">assets/</code> subdirectory. These files are tagged automatically if the <a href="https://qbs.io
+<tr valign="top" class="even"><td><code translate="no">"android.assets"</code></td><td>-</td><td>1.4.0</td><td>Attached to Android assets, which are typically located in an <code translate="no">assets/</code> subdirectory. These files are tagged automatically if the <a href="https://qbs.io/
 /docs/qml-qbsmodules-android-sdk/#automaticSources-prop" translate="no">automaticSources</a> property is enabled.</td></tr>
 <tr valign="top" class="odd"><td><code translate="no">"android.manifest"</code></td><td><code translate="no">AndroidManifest.xml</code></td><td>1.4.0</td><td>Attached to the Android manifest. There must be one such file for every Android app.</td></tr>
-<tr valign="top" class="even"><td><code translate="no">"android.resources"</code></td><td>-</td><td>1.4.0</td><td>Attached to Android resources, which are typically located in a <code translate="no">res/</code> subdirectory. These files are tagged automatically if the <a href="https://qbs.io
+<tr valign="top" class="even"><td><code translate="no">"android.resources"</code></td><td>-</td><td>1.4.0</td><td>Attached to Android resources, which are typically located in a <code translate="no">res/</code> subdirectory. These files are tagged automatically if the <a href="https://qbs.io/
 /docs/qml-qbsmodules-android-sdk/#automaticSources-prop" translate="no">automaticSources</a> property is enabled.</td></tr>
 </tbody></table></div>
 <!-- @@@Android.sdk -->
@@ -155,7 +154,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <!-- $$$apkBaseName -->
 <div class="qmlitem"><h3 class="qmlproto">apkBaseName: string</h3>
 <div class="qmldoc"><p>The base name of the APK file to to be built, that is, the file name without the ".apk" extension.</p>
-<p>Default: <a href="https://qbs.io
+<p>Default: <a href="https://qbs.io/
 /docs/qml-qbsmodules-android-sdk/#packageName-prop" translate="no">packageName</a></p>
 </div></div><!-- @@@apkBaseName -->
 <br>
@@ -196,7 +195,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <br>
 <!-- $$$manifestFile -->
 <div class="qmlitem"><h3 class="qmlproto">manifestFile: string</h3>
-<div class="qmldoc"><p>The file path to the Android manifest file. This property is only relevant if <a href="https://qbs.io
+<div class="qmldoc"><p>The file path to the Android manifest file. This property is only relevant if <a href="https://qbs.io/
 /docs/qml-qbsmodules-android-sdk/#automaticSources-prop" translate="no">automaticSources</a> is enabled.</p>
 <div class="admonition note">
 <p><b>Note: </b>Android requires that the file name is always "AndroidManifest.xml".</p>
@@ -253,7 +252,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <br>
 <!-- $$$sourcesDir -->
 <div class="qmlitem"><h3 class="qmlproto">sourcesDir: path</h3>
-<div class="qmldoc"><p>The base directory for Java sources. This property is only relevant if <a href="https://qbs.io
+<div class="qmldoc"><p>The base directory for Java sources. This property is only relevant if <a href="https://qbs.io/
 /docs/qml-qbsmodules-android-sdk/#automaticSources-prop" translate="no">automaticSources</a> is enabled.</p>
 <p>Default: <code translate="no">"src/main/java"</code> in the product source directory</p>
 </div></div><!-- @@@sourcesDir -->

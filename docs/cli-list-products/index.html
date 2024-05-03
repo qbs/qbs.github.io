@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Command-Line Interface list-products Qbs 2.1.1 Contents Synopsis Description Options [--file|-f &lt;file&gt;] --build-directory|-d &lt;directory&gt; --settings-dir &lt;directory&gt; Parameters config:configuration-name Examples list-products Synopsis qbs list-products [options] [config:configuration-name] Description Lists all products that exist in a project.
+    <meta name="description" content="Qbs Manual Command-Line Interface list-products Qbs 2.3.0 Contents Synopsis Description Options [--file|-f &lt;file&gt;] --build-directory|-d &lt;directory&gt; --settings-dir &lt;directory&gt; Parameters config:configuration-name Examples list-products Synopsis qbs list-products [options] [config:configuration-name] Description Lists all products that exist in a project.
 Options [--file|-f &lt;file&gt;] Uses &lt;file&gt; as the project file. If &lt;file&gt; is a directory and it contains a single file with the extension .qbs, that file will be used.
 If this option is not given at all, the behavior is the same as for -f &lt;working-dir&gt;. ">
     <link rel="canonical" href="https://qbs.io/docs/cli-list-products/" />
@@ -19,7 +19,7 @@ If this option is not given at all, the behavior is the same as for -f &lt;worki
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Command-Line Interface list-products Qbs 2.1.1 Contents Synopsis Description Options [--file|-f &lt;file&gt;] --build-directory|-d &lt;directory&gt; --settings-dir &lt;directory&gt; Parameters config:configuration-name Examples list-products Synopsis qbs list-products [options] [config:configuration-name] Description Lists all products that exist in a project.
+<meta property="og:description" content="Qbs Manual Command-Line Interface list-products Qbs 2.3.0 Contents Synopsis Description Options [--file|-f &lt;file&gt;] --build-directory|-d &lt;directory&gt; --settings-dir &lt;directory&gt; Parameters config:configuration-name Examples list-products Synopsis qbs list-products [options] [config:configuration-name] Description Lists all products that exist in a project.
 Options [--file|-f &lt;file&gt;] Uses &lt;file&gt; as the project file. If &lt;file&gt; is a directory and it contains a single file with the extension .qbs, that file will be used.
 If this option is not given at all, the behavior is the same as for -f &lt;working-dir&gt;." />
 <meta property="og:type" content="article" />
@@ -27,16 +27,15 @@ If this option is not given at all, the behavior is the same as for -f &lt;worki
 
 
 
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Command-Line Interface list-products Qbs 2.1.1 Contents Synopsis Description Options [--file|-f &lt;file&gt;] --build-directory|-d &lt;directory&gt; --settings-dir &lt;directory&gt; Parameters config:configuration-name Examples list-products Synopsis qbs list-products [options] [config:configuration-name] Description Lists all products that exist in a project.
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Qbs Manual Command-Line Interface list-products Qbs 2.3.0 Contents Synopsis Description Options [--file|-f &lt;file&gt;] --build-directory|-d &lt;directory&gt; --settings-dir &lt;directory&gt; Parameters config:configuration-name Examples list-products Synopsis qbs list-products [options] [config:configuration-name] Description Lists all products that exist in a project.
 Options [--file|-f &lt;file&gt;] Uses &lt;file&gt; as the project file. If &lt;file&gt; is a directory and it contains a single file with the extension .qbs, that file will be used.
 If this option is not given at all, the behavior is the same as for -f &lt;working-dir&gt;."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
     <a class="flex items-center" href="/">
-        <img src="https://qbs.io/img/Cubes.svg" class="h-10 effect-shadow-small">
+        <img src="https://qbs.io//img/Cubes.svg" class="h-10 effect-shadow-small">
         <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
     </a>
 
@@ -59,12 +58,12 @@ If this option is not given at all, the behavior is the same as for -f &lt;worki
 <div class="centre-outer">
     <article class="centre-inner docs">
     
-<li><a href="https://qbs.io
+<li><a href="https://qbs.io/
 /docs" translate="no">Qbs Manual</a></li>
-<li><a href="https://qbs.io
+<li><a href="https://qbs.io/
 /docs/cli/" translate="no">Command-Line Interface</a></li>
 <li>list-products</li>
-<li id="buildversion">Qbs 2.1.1</li>
+<li id="buildversion">Qbs 2.3.0</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -102,7 +101,7 @@ If this option is not given at all, the behavior is the same as for -f &lt;worki
 <li><code translate="no">@path</code> is expanded to the name of the directory containing the project file.</li>
 </ul>
 <h3 id="op-op-op-op-settings-op-op-dir-op-lt-op-directory-op-gt-op"><code translate="no">--settings-dir &lt;directory&gt;</code></h3>
-<p>Reads all settings (such as <a href="https://qbs.io
+<p>Reads all settings (such as <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-profile/" translate="no">profile</a> information) from the specified <code translate="no">&lt;directory&gt;</code>. If the directory does not exist, it will be created.</p>
 <p>The default value is system-specific. For example:</p>
 <ul>
@@ -113,11 +112,11 @@ If this option is not given at all, the behavior is the same as for -f &lt;worki
 <h2 id="parameters">Parameters</h2>
 <h3 id="config-configuration-op-op-name"><code translate="no">config:configuration-name</code></h3>
 <p>Specifies the build configuration to use.</p>
-<p>Qbs can build a project for one or multiple configurations at once, each having a different set of parameters. The <code translate="no">config</code> parameter has a special function: with each occurrence a new configuration instance begins and all subsequent parameters until the next <code translate="no">config</code> are assigned to this instance. Parameter assignments before the first occurrence of <code translate="no">config</code> are applied to all build configurations. Inside products and modules, the current active build configuration can be retrieved via <a href="https://qbs.io
+<p>Qbs can build a project for one or multiple configurations at once, each having a different set of parameters. The <code translate="no">config</code> parameter has a special function: with each occurrence a new configuration instance begins and all subsequent parameters until the next <code translate="no">config</code> are assigned to this instance. Parameter assignments before the first occurrence of <code translate="no">config</code> are applied to all build configurations. Inside products and modules, the current active build configuration can be retrieved via <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#configurationName-prop" translate="no">qbs.configurationName</a>.</p>
 <p>In the following snippet, a profile <code translate="no">clang</code> is applied to all configurations while <code translate="no">cpp.optimization</code> is different for <code translate="no">debug</code> and <code translate="no">release</code>:</p>
 <pre class="cpp" translate="no">profile:clang config:debug cpp<span class="operator">.</span>optimization:none config:release cpp<span class="operator">.</span>optimization:small</pre>
-<p>The value of <code translate="no">config</code> determines the name of the build folder and affects the default value of the <a href="https://qbs.io
+<p>The value of <code translate="no">config</code> determines the name of the build folder and affects the default value of the <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#buildVariant-prop" translate="no">qbs.buildVariant</a> property. Qbs knows the <code translate="no">config</code> values <code translate="no">"debug"</code> and <code translate="no">"release"</code>, but in general any name can be chosen. When naming configurations created for special purposes, follow the rules for legal names generally used in programming languages:</p>
 <ul>
 <li>The first character must be a letter (a-z), an underscore (_), or a dollar sign ($).</li>

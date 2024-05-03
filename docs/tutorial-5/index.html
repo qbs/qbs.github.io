@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Qbs</title>
+    <meta name="description" content="Qbs Manual Autotest Qbs 2.3.0 Convenience Items Project Properties Autotest Now that we can re-use our base items, let&#39;s add a simple autotest. We inherit the new item from the MyApplication item and add an &#34;autotest&#34; type:
+// qbs/imports/MyAutoTest.qbs MyApplication { type: base.concat([&#34;autotest&#34;]) } This additional type is required for the helper AutotestRunner item. This item runs all products with the &#34;autotest&#34; type when it is being built. It also implicitly depends on all such products, so they will be built before running as well. ">
+    <link rel="canonical" href="https://qbs.io/docs/tutorial-5/" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+
+    
+      
+      <link rel="stylesheet" href="/css/main.min.7d27557bc1f8660bf0e026622019467fd286c7d3eb71497bb1bf1eb961a1697a.css" integrity="sha256-fSdVe8H4Zgvw4CZiIBlGf9KGx9PrcUl7sb8euWGhaXo="/>
+    
+
+    <meta property="og:title" content="" />
+<meta property="og:description" content="Qbs Manual Autotest Qbs 2.3.0 Convenience Items Project Properties Autotest Now that we can re-use our base items, let&#39;s add a simple autotest. We inherit the new item from the MyApplication item and add an &#34;autotest&#34; type:
+// qbs/imports/MyAutoTest.qbs MyApplication { type: base.concat([&#34;autotest&#34;]) } This additional type is required for the helper AutotestRunner item. This item runs all products with the &#34;autotest&#34; type when it is being built. It also implicitly depends on all such products, so they will be built before running as well." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://qbs.io/docs/tutorial-5/" /><meta property="article:section" content="docs" />
+
+
+
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Qbs Manual Autotest Qbs 2.3.0 Convenience Items Project Properties Autotest Now that we can re-use our base items, let&#39;s add a simple autotest. We inherit the new item from the MyApplication item and add an &#34;autotest&#34; type:
+// qbs/imports/MyAutoTest.qbs MyApplication { type: base.concat([&#34;autotest&#34;]) } This additional type is required for the helper AutotestRunner item. This item runs all products with the &#34;autotest&#34; type when it is being built. It also implicitly depends on all such products, so they will be built before running as well."/>
+
+</head>
+<body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
+    <a class="flex items-center" href="/">
+        <img src="https://qbs.io//img/Cubes.svg" class="h-10 effect-shadow-small">
+        <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
+    </a>
+
+    <div>
+        
+        <a href="/blog" class="ml-2">
+            <span>Blog</span>
+        </a>
+        
+        <a href="/docs" class="ml-2">
+            <span>Documentation</span>
+        </a>
+        
+        <a href="/docs/installing/" class="ml-2">
+            <span>Get Qbs</span>
+        </a>
+        
+    </div>
+</header><main>
+<div class="centre-outer">
+    <article class="centre-inner docs">
+    
+<li><a href="https://qbs.io/
+/docs" translate="no">Qbs Manual</a></li>
+<li>Autotest</li>
+<li id="buildversion">Qbs 2.3.0</li>
+  <link rel="prev" href="https://qbs.io/
+/docs/tutorial-4/">
+  <link rel="next" href="https://qbs.io/
+/docs/tutorial-6/">
+<p class="naviNextPrevious headerNavi">
+<a class="prevPage" href="https://qbs.io/
+/docs/tutorial-4/">Convenience Items</a>
+<a class="nextPage" href="https://qbs.io/
+/docs/tutorial-6/">Project Properties</a>
+</p>
+<div class="sidebar"><div class="sidebar-content" id="sidebar-content"></div></div>
+<div class="content"><h1 class="title">Autotest</h1>
+<!-- $$$tutorial-5.html-description -->
+<div class="descr" id="details">
+<p>Now that we can re-use our base items, let's add a simple autotest. We inherit the new item from the <code translate="no">MyApplication</code> item and add an <code translate="no">"autotest"</code> type:</p>
+<pre class="cpp" translate="no">// qbs/imports/MyAutoTest.qbs
+
+MyApplication {
+    type: base.concat(["autotest"])
+}</pre>
+<p>This additional type is required for the helper <a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-autotestrunner/" translate="no">AutotestRunner</a> item. This item runs all products with the <code translate="no">"autotest"</code> type when it is being built. It also implicitly depends on all such products, so they will be built before running as well.</p>
+<p>Let's add this item to our top-level <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-project/" translate="no">Project</a> item:</p>
+<pre class="cpp" translate="no">Project {
+    name: <span class="string">"My Project"</span>
+    minimumQbsVersion: <span class="string">"2.0"</span>
+    <span class="comment">// ...</span>
+    AutotestRunner {
+        timeout: <span class="number">60</span>
+    }
+}</pre>
+<p>Here we set the <a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-autotestrunner/#timeout-prop" translate="no">timeout</a> property to 60 seconds so that our runner kills tests that run way too long.</p>
+<p>Now we need to add our first test. Let's create a new product with the following content:</p>
+<pre class="cpp" translate="no">// test/test.qbs
+
+MyAutoTest {
+    Depends { name: "mylib" }
+    name: "mytest"
+    files: "test.c"
+}</pre>
+<p>Here we depend on our library (which we are going to test), set the product <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-product/#name-prop" translate="no">name</a>, and specify the source file, which looks like this:</p>
+<pre class="cpp" translate="no"><span class="comment">// test/test.c</span>
+
+<span class="preprocessor">#include "lib.h"</span>
+
+<span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<span class="preprocessor">#include &lt;string.h&gt;</span>
+
+<span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span>argv<span class="operator">[</span><span class="operator">]</span>)
+{
+    <span class="keyword">if</span> (argc <span class="operator">&gt;</span> <span class="number">2</span>) {
+        printf(<span class="string">"usage: test [value]\n"</span>);
+        <span class="keyword">return</span> <span class="number">1</span>;
+    }
+    <span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span>expected <span class="operator">=</span> argc <span class="operator">=</span><span class="operator">=</span> <span class="number">2</span> <span class="operator">?</span> argv<span class="operator">[</span><span class="number">1</span><span class="operator">]</span> : <span class="string">"Hello from library"</span>;
+    <span class="keyword">if</span> (strcmp(get_string()<span class="operator">,</span> expected) <span class="operator">!</span><span class="operator">=</span> <span class="number">0</span>) {
+        printf(<span class="string">"text differs\n"</span>);
+        <span class="keyword">return</span> <span class="number">1</span>;
+    }
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</pre>
+<p>The test compares the value from the library with the value from the command line.</p>
+<p>Don't forget to add the new test product to the references property in the Project:</p>
+<pre class="cpp" translate="no">references: [
+    "app/app.qbs",
+    "lib/lib.qbs",
+    "test/test.qbs",
+]</pre>
+<p>Now we can build the autotest product - this will also launch our test:</p>
+<pre class="cpp" translate="no">$ qbs build <span class="operator">-</span>p <span class="string">"autotest-runner"</span>
+<span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+running test mytest <span class="operator">[</span>autotest<span class="operator">-</span>runner<span class="operator">]</span>
+Build done <span class="keyword">for</span> configuration <span class="keyword">default</span><span class="operator">.</span></pre>
+</div>
+<!-- @@@tutorial-5.html -->
+<p class="naviNextPrevious footerNavi">
+<a class="prevPage" href="https://qbs.io/
+/docs/tutorial-4/">Convenience Items</a>
+<a class="nextPage" href="https://qbs.io/
+/docs/tutorial-6/">Project Properties</a>
+</p>
+</div>
+
+
+    </article>
+</div>
+
+        </main></body>
+</html>

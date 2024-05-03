@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Target Platforms Building for QNX Qbs 2.1.1 Building for QNX To develop applications for the QNX Neutrino RTOS, you need to install the QNX Software Development Platform (SDP) on a Linux, macOS, or Windows development host. You can deploy the QNX Neutrino RTOS on a target system, such as embedded hardware, a virtual machine, or a PC.
+    <meta name="description" content="Qbs Manual Target Platforms Building for QNX Qbs 2.3.0 Building for QNX To develop applications for the QNX Neutrino RTOS, you need to install the QNX Software Development Platform (SDP) on a Linux, macOS, or Windows development host. You can deploy the QNX Neutrino RTOS on a target system, such as embedded hardware, a virtual machine, or a PC.
 Qbs automatically determines the location of the SDP base directory if the SDP is installed at one of the standard locations, such as ~/qnx700, /opt/qnx700, or C:\qnx700. ">
     <link rel="canonical" href="https://qbs.io/docs/qbs-target-qnx/" />
 
@@ -18,22 +18,21 @@ Qbs automatically determines the location of the SDP base directory if the SDP i
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Target Platforms Building for QNX Qbs 2.1.1 Building for QNX To develop applications for the QNX Neutrino RTOS, you need to install the QNX Software Development Platform (SDP) on a Linux, macOS, or Windows development host. You can deploy the QNX Neutrino RTOS on a target system, such as embedded hardware, a virtual machine, or a PC.
+<meta property="og:description" content="Qbs Manual Target Platforms Building for QNX Qbs 2.3.0 Building for QNX To develop applications for the QNX Neutrino RTOS, you need to install the QNX Software Development Platform (SDP) on a Linux, macOS, or Windows development host. You can deploy the QNX Neutrino RTOS on a target system, such as embedded hardware, a virtual machine, or a PC.
 Qbs automatically determines the location of the SDP base directory if the SDP is installed at one of the standard locations, such as ~/qnx700, /opt/qnx700, or C:\qnx700." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/qbs-target-qnx/" /><meta property="article:section" content="docs" />
 
 
 
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Target Platforms Building for QNX Qbs 2.1.1 Building for QNX To develop applications for the QNX Neutrino RTOS, you need to install the QNX Software Development Platform (SDP) on a Linux, macOS, or Windows development host. You can deploy the QNX Neutrino RTOS on a target system, such as embedded hardware, a virtual machine, or a PC.
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Qbs Manual Target Platforms Building for QNX Qbs 2.3.0 Building for QNX To develop applications for the QNX Neutrino RTOS, you need to install the QNX Software Development Platform (SDP) on a Linux, macOS, or Windows development host. You can deploy the QNX Neutrino RTOS on a target system, such as embedded hardware, a virtual machine, or a PC.
 Qbs automatically determines the location of the SDP base directory if the SDP is installed at one of the standard locations, such as ~/qnx700, /opt/qnx700, or C:\qnx700."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
     <a class="flex items-center" href="/">
-        <img src="https://qbs.io/img/Cubes.svg" class="h-10 effect-shadow-small">
+        <img src="https://qbs.io//img/Cubes.svg" class="h-10 effect-shadow-small">
         <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
     </a>
 
@@ -56,20 +55,20 @@ Qbs automatically determines the location of the SDP base directory if the SDP i
 <div class="centre-outer">
     <article class="centre-inner docs">
     
-<li><a href="https://qbs.io
+<li><a href="https://qbs.io/
 /docs" translate="no">Qbs Manual</a></li>
-<li><a href="https://qbs.io
+<li><a href="https://qbs.io/
 /docs/platforms/" translate="no">Target Platforms</a></li>
 <li>Building for QNX</li>
-<li id="buildversion">Qbs 2.1.1</li>
+<li id="buildversion">Qbs 2.3.0</li>
 <div class="sidebar"><div class="sidebar-content" id="sidebar-content"></div></div>
 <div class="content"><h1 class="title">Building for QNX</h1>
 <!-- $$$qbs-target-qnx.html-description -->
 <div class="descr" id="details">
 <p>To develop applications for the QNX Neutrino RTOS, you need to install the QNX Software Development Platform (SDP) on a Linux, macOS, or Windows development host. You can deploy the QNX Neutrino RTOS on a target system, such as embedded hardware, a virtual machine, or a PC.</p>
 <p>Qbs automatically determines the location of the SDP base directory if the SDP is installed at one of the standard locations, such as <code translate="no">~/qnx700</code>, <code translate="no">/opt/qnx700</code>, or <code translate="no">C:\qnx700</code>. In addition, Qbs uses the SDP and the information it has about the host operating system to determine the location of the QNX host and target directories.</p>
-<p>If the QNX SDP path could not be determined automatically, you must add a dependency to the <a href="https://qbs.io
-/docs/qml-qbsmodules-qnx/" translate="no">qnx</a> module to your application and set the <a href="https://qbs.io
+<p>If the QNX SDP path could not be determined automatically, you must add a dependency to the <a href="https://qbs.io/
+/docs/qml-qbsmodules-qnx/" translate="no">qnx</a> module to your application and set the <a href="https://qbs.io/
 /docs/qml-qbsmodules-qnx/#sdkDir-prop" translate="no">qnx.sdkDir</a> property:</p>
 <pre class="cpp" translate="no">Application {
     name: <span class="string">"helloworld"</span>

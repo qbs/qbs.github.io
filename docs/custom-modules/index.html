@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Custom Modules and Items Qbs 2.1.1 Multiplexing Special Property Values Contents File System Layout Custom Modules Custom Items Making Qbs Aware of Custom Modules and Items Project-specific Modules and Items Making Custom Modules and Items Available Across Projects Custom Modules and Items Users of Qbs are not limited to the pre-defined modules and items, they can also create their own. Here we describe how to set up custom modules and items so that Qbs will find them. ">
+    <meta name="description" content="Qbs Manual Custom Modules and Items Qbs 2.3.0 Multiplexing Special Property Values Contents File System Layout Custom Modules Custom Items Making Qbs Aware of Custom Modules and Items Project-specific Modules and Items Making Custom Modules and Items Available Across Projects Custom Modules and Items Users of Qbs are not limited to the pre-defined modules and items, they can also create their own. Here we describe how to set up custom modules and items so that Qbs will find them. ">
     <link rel="canonical" href="https://qbs.io/docs/custom-modules/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -17,20 +17,19 @@
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Custom Modules and Items Qbs 2.1.1 Multiplexing Special Property Values Contents File System Layout Custom Modules Custom Items Making Qbs Aware of Custom Modules and Items Project-specific Modules and Items Making Custom Modules and Items Available Across Projects Custom Modules and Items Users of Qbs are not limited to the pre-defined modules and items, they can also create their own. Here we describe how to set up custom modules and items so that Qbs will find them." />
+<meta property="og:description" content="Qbs Manual Custom Modules and Items Qbs 2.3.0 Multiplexing Special Property Values Contents File System Layout Custom Modules Custom Items Making Qbs Aware of Custom Modules and Items Project-specific Modules and Items Making Custom Modules and Items Available Across Projects Custom Modules and Items Users of Qbs are not limited to the pre-defined modules and items, they can also create their own. Here we describe how to set up custom modules and items so that Qbs will find them." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/custom-modules/" /><meta property="article:section" content="docs" />
 
 
 
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Custom Modules and Items Qbs 2.1.1 Multiplexing Special Property Values Contents File System Layout Custom Modules Custom Items Making Qbs Aware of Custom Modules and Items Project-specific Modules and Items Making Custom Modules and Items Available Across Projects Custom Modules and Items Users of Qbs are not limited to the pre-defined modules and items, they can also create their own. Here we describe how to set up custom modules and items so that Qbs will find them."/>
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Qbs Manual Custom Modules and Items Qbs 2.3.0 Multiplexing Special Property Values Contents File System Layout Custom Modules Custom Items Making Qbs Aware of Custom Modules and Items Project-specific Modules and Items Making Custom Modules and Items Available Across Projects Custom Modules and Items Users of Qbs are not limited to the pre-defined modules and items, they can also create their own. Here we describe how to set up custom modules and items so that Qbs will find them."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
     <a class="flex items-center" href="/">
-        <img src="https://qbs.io/img/Cubes.svg" class="h-10 effect-shadow-small">
+        <img src="https://qbs.io//img/Cubes.svg" class="h-10 effect-shadow-small">
         <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
     </a>
 
@@ -53,18 +52,18 @@
 <div class="centre-outer">
     <article class="centre-inner docs">
     
-<li><a href="https://qbs.io
+<li><a href="https://qbs.io/
 /docs" translate="no">Qbs Manual</a></li>
 <li>Custom Modules and Items</li>
-<li id="buildversion">Qbs 2.1.1</li>
-  <link rel="prev" href="https://qbs.io
+<li id="buildversion">Qbs 2.3.0</li>
+  <link rel="prev" href="https://qbs.io/
 /docs/multiplexing/">
-  <link rel="next" href="https://qbs.io
+  <link rel="next" href="https://qbs.io/
 /docs/special-property-values/">
 <p class="naviNextPrevious headerNavi">
-<a class="prevPage" href="https://qbs.io
+<a class="prevPage" href="https://qbs.io/
 /docs/multiplexing/">Multiplexing</a>
-<a class="nextPage" href="https://qbs.io
+<a class="nextPage" href="https://qbs.io/
 /docs/special-property-values/">Special Property Values</a>
 </p>
 <div class="sidebar">
@@ -83,8 +82,8 @@
 <div class="content"><h1 class="title">Custom Modules and Items</h1>
 <!-- $$$custom-modules.html-description -->
 <div class="descr" id="details">
-<p>Users of Qbs are not limited to the pre-defined <a href="https://qbs.io
-/docs/qbsmodules-qmlmodule/" translate="no">modules</a> and <a href="https://qbs.io
+<p>Users of Qbs are not limited to the pre-defined <a href="https://qbs.io/
+/docs/qbsmodules-qmlmodule/" translate="no">modules</a> and <a href="https://qbs.io/
 /docs/qbslanguageitems-qmlmodule/" translate="no">items</a>, they can also create their own. Here we describe how to set up custom modules and items so that Qbs will find them.</p>
 <h2 id="file-system-layout">File System Layout</h2>
 <p>Items and modules are located under a common base directory, whose name and location is completely arbitrary. We will refer to it as <code translate="no">search-path</code> here. This directory has two subdirectories <code translate="no">modules</code> and <code translate="no">imports</code>, which contain Qbs modules and items, respectively.</p>
@@ -93,9 +92,9 @@
 <div class="admonition note">
 <p><b>Note: </b>Module names are case-sensitive, and this also goes for the corresponding directory name.</p>
 </div>
-<p>Then, put a file containing an instance of the <a href="https://qbs.io
-/docs/qml-qbslanguageitems-module/" translate="no">Module</a> in there and give it the <code translate="no">.qbs</code> extension. This module will be pulled in if a <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/" translate="no">product</a> declares a <a href="https://qbs.io
+<p>Then, put a file containing an instance of the <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-module/" translate="no">Module</a> in there and give it the <code translate="no">.qbs</code> extension. This module will be pulled in if a <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-product/" translate="no">product</a> declares a <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-depends/" translate="no">dependency</a> on <code translate="no">mymodule</code>.</p>
 <h2 id="custom-items">Custom Items</h2>
 <p>To introduce a custom item <code translate="no">MyItem</code>, create the file <code translate="no">search-path/imports/MyItem.qbs</code>.</p>
@@ -113,8 +112,8 @@ Project {
     <span class="comment">// ..</span>
 }</pre>
 <div class="admonition note">
-<p><b>Note: </b>For technical reasons, the custom modules and items will not be available in the file that contains the <a href="https://qbs.io
-/docs/qml-qbslanguageitems-project/#qbsSearchPaths-prop" translate="no">Project.qbsSearchPaths</a> property. Any product that wants to make use of them needs to be in a different file that is pulled in via the <a href="https://qbs.io
+<p><b>Note: </b>For technical reasons, the custom modules and items will not be available in the file that contains the <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-project/#qbsSearchPaths-prop" translate="no">Project.qbsSearchPaths</a> property. Any product that wants to make use of them needs to be in a different file that is pulled in via the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-project/#references-prop" translate="no">Project.references</a> property, for example. This is not a serious limitation, since every well-structured project will be split up in this manner.</p>
 </div>
 <h3 id="making-custom-modules-and-items-available-across-projects">Making Custom Modules and Items Available Across Projects</h3>
@@ -123,9 +122,9 @@ Project {
 </div>
 <!-- @@@custom-modules.html -->
 <p class="naviNextPrevious footerNavi">
-<a class="prevPage" href="https://qbs.io
+<a class="prevPage" href="https://qbs.io/
 /docs/multiplexing/">Multiplexing</a>
-<a class="nextPage" href="https://qbs.io
+<a class="nextPage" href="https://qbs.io/
 /docs/special-property-values/">Special Property Values</a>
 </p>
 </div>

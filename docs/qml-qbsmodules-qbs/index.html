@@ -3,8 +3,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual QbsModules qbs Qbs 2.1.1 Contents Properties Detailed Description Installation Properties Multiplexing Properties qbs QML Type Comprises general properties. More...
-Import Statement: import QbsModules Since: Qbs 1.0 List of all members, including inherited members Properties architecture : string architectures : stringList buildVariant : string buildVariants : stringList configurationName : string debugInformation : bool enableDebugCode : bool install : bool installDir : string installPrefix : string installRoot : string installSourceBase : string optimization : string profiles : stringList shellPath : path sysroot : string targetOS : stringList targetPlatform : string toolchain : stringList toolchainType : string version : string versionMajor : int versionMinor : int versionPatch : int Detailed Description The qbs module is implicitly loaded in every product. ">
+    <meta name="description" content="Qbs Manual QbsModules qbs Qbs 2.3.0 Contents Properties Detailed Description Installation Properties Multiplexing Properties qbs QML Type Comprises general properties. More...
+Import Statement: import QbsModules Since: Qbs 1.0 List of all members, including inherited members Properties architecture : string architectures : stringList (since Qbs 1.9) buildVariant : string buildVariants : stringList (since Qbs 1.9) configurationName : string (since Qbs 1.6) debugInformation : bool enableDebugCode : bool install : bool installDir : string installPrefix : string (since Qbs 1. ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-qbs/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -18,22 +18,21 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual QbsModules qbs Qbs 2.1.1 Contents Properties Detailed Description Installation Properties Multiplexing Properties qbs QML Type Comprises general properties. More...
-Import Statement: import QbsModules Since: Qbs 1.0 List of all members, including inherited members Properties architecture : string architectures : stringList buildVariant : string buildVariants : stringList configurationName : string debugInformation : bool enableDebugCode : bool install : bool installDir : string installPrefix : string installRoot : string installSourceBase : string optimization : string profiles : stringList shellPath : path sysroot : string targetOS : stringList targetPlatform : string toolchain : stringList toolchainType : string version : string versionMajor : int versionMinor : int versionPatch : int Detailed Description The qbs module is implicitly loaded in every product." />
+<meta property="og:description" content="Qbs Manual QbsModules qbs Qbs 2.3.0 Contents Properties Detailed Description Installation Properties Multiplexing Properties qbs QML Type Comprises general properties. More...
+Import Statement: import QbsModules Since: Qbs 1.0 List of all members, including inherited members Properties architecture : string architectures : stringList (since Qbs 1.9) buildVariant : string buildVariants : stringList (since Qbs 1.9) configurationName : string (since Qbs 1.6) debugInformation : bool enableDebugCode : bool install : bool installDir : string installPrefix : string (since Qbs 1." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-qbs/" /><meta property="article:section" content="docs" />
 
 
 
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual QbsModules qbs Qbs 2.1.1 Contents Properties Detailed Description Installation Properties Multiplexing Properties qbs QML Type Comprises general properties. More...
-Import Statement: import QbsModules Since: Qbs 1.0 List of all members, including inherited members Properties architecture : string architectures : stringList buildVariant : string buildVariants : stringList configurationName : string debugInformation : bool enableDebugCode : bool install : bool installDir : string installPrefix : string installRoot : string installSourceBase : string optimization : string profiles : stringList shellPath : path sysroot : string targetOS : stringList targetPlatform : string toolchain : stringList toolchainType : string version : string versionMajor : int versionMinor : int versionPatch : int Detailed Description The qbs module is implicitly loaded in every product."/>
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Qbs Manual QbsModules qbs Qbs 2.3.0 Contents Properties Detailed Description Installation Properties Multiplexing Properties qbs QML Type Comprises general properties. More...
+Import Statement: import QbsModules Since: Qbs 1.0 List of all members, including inherited members Properties architecture : string architectures : stringList (since Qbs 1.9) buildVariant : string buildVariants : stringList (since Qbs 1.9) configurationName : string (since Qbs 1.6) debugInformation : bool enableDebugCode : bool install : bool installDir : string installPrefix : string (since Qbs 1."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
     <a class="flex items-center" href="/">
-        <img src="https://qbs.io/img/Cubes.svg" class="h-10 effect-shadow-small">
+        <img src="https://qbs.io//img/Cubes.svg" class="h-10 effect-shadow-small">
         <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
     </a>
 
@@ -56,12 +55,12 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <div class="centre-outer">
     <article class="centre-inner docs">
     
-<li><a href="https://qbs.io
+<li><a href="https://qbs.io/
 /docs" translate="no">Qbs Manual</a></li>
-<li><a href="https://qbs.io
+<li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>qbs</li>
-<li id="buildversion">Qbs 2.1.1</li>
+<li id="buildversion">Qbs 2.3.0</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -79,68 +78,68 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <!-- @@@qbs -->
 <div class="table"><table class="alignedsummary" translate="no">
 <tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsModules</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.0</td></tr></tbody></table></div><ul>
-<li><a href="https://qbs.io
+<li><a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs-members/">List of all members, including inherited members</a></li>
 </ul>
 <h2 id="properties">Properties</h2>
 <ul>
-<li class="fn" translate="no"><b><a href="https://qbs.io
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#architecture-prop" translate="no">architecture</a></b> : string</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#architectures-prop" translate="no">architectures</a></b> : stringList</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#architectures-prop" translate="no">architectures</a></b> : stringList <code class="summary extra" translate="no">(since Qbs 1.9)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#buildVariant-prop" translate="no">buildVariant</a></b> : string</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#buildVariants-prop" translate="no">buildVariants</a></b> : stringList</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#configurationName-prop" translate="no">configurationName</a></b> : string</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#buildVariants-prop" translate="no">buildVariants</a></b> : stringList <code class="summary extra" translate="no">(since Qbs 1.9)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#configurationName-prop" translate="no">configurationName</a></b> : string <code class="summary extra" translate="no">(since Qbs 1.6)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#debugInformation-prop" translate="no">debugInformation</a></b> : bool</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#enableDebugCode-prop" translate="no">enableDebugCode</a></b> : bool</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#install-prop" translate="no">install</a></b> : bool</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#installDir-prop" translate="no">installDir</a></b> : string</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#installPrefix-prop" translate="no">installPrefix</a></b> : string</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#installRoot-prop" translate="no">installRoot</a></b> : string</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#installSourceBase-prop" translate="no">installSourceBase</a></b> : string</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#installPrefix-prop" translate="no">installPrefix</a></b> : string <code class="summary extra" translate="no">(since Qbs 1.1)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#installRoot-prop" translate="no">installRoot</a></b> : string <code class="summary extra" translate="no">(since Qbs 1.4)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#installSourceBase-prop" translate="no">installSourceBase</a></b> : string <code class="summary extra" translate="no">(since Qbs 1.4)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#optimization-prop" translate="no">optimization</a></b> : string</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#profiles-prop" translate="no">profiles</a></b> : stringList</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#shellPath-prop" translate="no">shellPath</a></b> : path</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#profiles-prop" translate="no">profiles</a></b> : stringList <code class="summary extra" translate="no">(since Qbs 1.9)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#shellPath-prop" translate="no">shellPath</a></b> : path <code class="summary extra" translate="no">(since Qbs 1.5)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#sysroot-prop" translate="no">sysroot</a></b> : string</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#targetOS-prop" translate="no">targetOS</a></b> : stringList</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#targetPlatform-prop" translate="no">targetPlatform</a></b> : string</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#targetPlatform-prop" translate="no">targetPlatform</a></b> : string <code class="summary extra" translate="no">(since 1.11)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#toolchain-prop" translate="no">toolchain</a></b> : stringList</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#toolchainType-prop" translate="no">toolchainType</a></b> : string</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#version-prop" translate="no">version</a></b> : string</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#versionMajor-prop" translate="no">versionMajor</a></b> : int</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#versionMinor-prop" translate="no">versionMinor</a></b> : int</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#versionPatch-prop" translate="no">versionPatch</a></b> : int</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#toolchainType-prop" translate="no">toolchainType</a></b> : string <code class="summary extra" translate="no">(since Qbs 1.11)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#version-prop" translate="no">version</a></b> : string <code class="summary extra" translate="no">(since Qbs 1.4.1)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#versionMajor-prop" translate="no">versionMajor</a></b> : int <code class="summary extra" translate="no">(since Qbs 1.4.1)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#versionMinor-prop" translate="no">versionMinor</a></b> : int <code class="summary extra" translate="no">(since Qbs 1.4.1)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#versionPatch-prop" translate="no">versionPatch</a></b> : int <code class="summary extra" translate="no">(since Qbs 1.4.1)</code></li>
 </ul>
 <!-- $$$qbs-description -->
 <h2 id="details">Detailed Description</h2>
 <p>The <code translate="no">qbs</code> module is implicitly loaded in every product. It contains properties of the current build environment, independent of the used programming languages and toolchains.</p>
 <h3 id="installation-properties">Installation Properties</h3>
-<p>Typically, you use <a href="https://qbs.io
-/docs/qml-qbslanguageitems-group/" translate="no">Group</a> items to specify the target directories for installing files. To install a group of files, set the <a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#install-prop" translate="no">qbs.install</a> property of the Group to <code translate="no">true</code>. The value of <a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#installDir-prop" translate="no">qbs.installDir</a> specifies the path to the directory where the files will be installed. You can specify a base directory for all installation directories as the value of <a href="https://qbs.io
+<p>Typically, you use <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-group/" translate="no">Group</a> items to specify the target directories for installing files. To install a group of files, set the <a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#install-prop" translate="no">qbs.install</a> property of the Group to <code translate="no">true</code>. The value of <a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#installDir-prop" translate="no">qbs.installDir</a> specifies the path to the directory where the files will be installed. You can specify a base directory for all installation directories as the value of <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#installPrefix-prop" translate="no">qbs.installPrefix</a>.</p>
 <p>For example, the following properties specify where a set of QML files and an application executable are installed on Windows and Linux:</p>
 <pre class="cpp plain" translate="no">Application {
@@ -162,18 +161,18 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
         ? "usr/local" : "MyApp"
 }</pre>
 <p>On Windows, the QML files will ultimately get installed in <code translate="no">MyApp\resources</code> and the application executable in <code translate="no">MyApp\bin</code>, for instance under <code translate="no">C:\Program Files</code>. On Linux, the QML files will be installed in <code translate="no">/usr/local/share/myapp</code> and the executable in <code translate="no">/usr/local/bin</code>.</p>
-<p>By default, <a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#installRoot-prop" translate="no">qbs.installRoot</a> creates the <code translate="no">install-root</code> directory in the build directory for packaging the binaries before installation. It is a temporary directory that is usually not available when the application is run, and it should therefore not be set in the project files. You can override the default value from the command line, as described in <a href="https://qbs.io
+<p>By default, <a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#installRoot-prop" translate="no">qbs.installRoot</a> creates the <code translate="no">install-root</code> directory in the build directory for packaging the binaries before installation. It is a temporary directory that is usually not available when the application is run, and it should therefore not be set in the project files. You can override the default value from the command line, as described in <a href="https://qbs.io/
 /docs/installing-files/" translate="no">Installing Files</a>.</p>
 <h3 id="multiplexing-properties">Multiplexing Properties</h3>
-<p>The following properties are specific to <a href="https://qbs.io
+<p>The following properties are specific to <a href="https://qbs.io/
 /docs/multiplexing/" translate="no">product multiplexing</a>:</p>
 <ul>
-<li><a href="https://qbs.io
+<li><a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#architectures-prop" translate="no">architectures</a></li>
-<li><a href="https://qbs.io
+<li><a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#buildVariants-prop" translate="no">buildVariants</a></li>
-<li><a href="https://qbs.io
+<li><a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#profiles-prop" translate="no">profiles</a></li>
 </ul>
 <!-- @@@qbs -->
@@ -244,7 +243,7 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <div class="qmlitem"><h3 class="qmlproto">buildVariant: string</h3>
 <div class="qmldoc"><p>The name of the build variant for the current build.</p>
 <p>Possible values are <code translate="no">"debug"</code>, <code translate="no">"release"</code> and <code translate="no">"profiling"</code>. A debug build usually contains additional debug symbols that are needed for debugging the application and has optimizations turned off. A profiling build usually contains debug symbols and has optimizations turned on. This is useful for profiling tools or when you need to retain debug symbols in a release build. A release build is a build without debug information and with optimizations enabled.</p>
-<p>Default: <code translate="no">"release"</code> if <a href="https://qbs.io
+<p>Default: <code translate="no">"release"</code> if <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#configurationName-prop" translate="no">qbs.configurationName</a> is <code translate="no">"release"</code>. Otherwise <code translate="no">"debug"</code></p>
 </div></div><!-- @@@buildVariant -->
 <br>
@@ -258,7 +257,7 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <!-- $$$configurationName -->
 <div class="qmlitem"><h3 class="qmlproto">configurationName: string</h3>
 <div class="qmldoc"><p>The name of the current build configuration.</p>
-<p>The build configuration is set via the command line parameter <code translate="no">config</code>. For more information, see <a href="https://qbs.io
+<p>The build configuration is set via the command line parameter <code translate="no">config</code>. For more information, see <a href="https://qbs.io/
 /docs/cli-build/" translate="no">build</a>.</p>
 <p>Default: <code translate="no">"default"</code></p>
 <p>This property was introduced in Qbs 1.6.</p>
@@ -267,7 +266,7 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <!-- $$$debugInformation -->
 <div class="qmlitem"><h3 class="qmlproto">debugInformation: bool</h3>
 <div class="qmldoc"><p>Whether to generate debug information.</p>
-<p>Default: <code translate="no">true</code> if <a href="https://qbs.io
+<p>Default: <code translate="no">true</code> if <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#buildVariant-prop" translate="no">qbs.buildVariant</a> is <code translate="no">"debug"</code> or <code translate="no">"profiling"</code>. Otherwise <code translate="no">false</code>.</p>
 </div></div><!-- @@@debugInformation -->
 <br>
@@ -289,7 +288,7 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <!-- $$$install -->
 <div class="qmlitem"><h3 class="qmlproto">install: bool</h3>
 <div class="qmldoc"><p>Whether to install a certain set of files.</p>
-<p>This property is typically set in a <a href="https://qbs.io
+<p>This property is typically set in a <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-group/" translate="no">Group</a> item to mark a number of files as installable.</p>
 <div class="admonition note">
 <p><b>Note: </b>Artifacts for which this property is enabled automatically receive the file tag <code translate="no">"installable"</code>. This is useful for writing packaging-related rules.</p>
@@ -299,19 +298,19 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <br>
 <!-- $$$installDir -->
 <div class="qmlitem"><h3 class="qmlproto">installDir: string</h3>
-<div class="qmldoc"><p>The installation directory for the files of a <a href="https://qbs.io
-/docs/qml-qbslanguageitems-product/" translate="no">product</a> or a <a href="https://qbs.io
+<div class="qmldoc"><p>The installation directory for the files of a <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-product/" translate="no">product</a> or a <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-group/" translate="no">Group</a>.</p>
-<p>The value of this property is a path that is relative to <a href="https://qbs.io
+<p>The value of this property is a path that is relative to <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#installPrefix-prop" translate="no">installPrefix</a>.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@installDir -->
 <br>
 <!-- $$$installPrefix -->
 <div class="qmlitem"><h3 class="qmlproto">installPrefix: string</h3>
-<div class="qmldoc"><p>The global installation prefix. It is implicitly prepended to all values of <a href="https://qbs.io
+<div class="qmldoc"><p>The global installation prefix. It is implicitly prepended to all values of <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#installDir-prop" translate="no">installDir</a>.</p>
-<p>The value of this property itself is relative to the <a href="https://qbs.io
+<p>The value of this property itself is relative to the <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#installRoot-prop" translate="no">installRoot</a> in the context of installation.</p>
 <p>Default: <code translate="no">"/usr/local"</code> on Unix, <code translate="no">""</code> otherwise</p>
 <p>This property was introduced in Qbs 1.1.</p>
@@ -319,11 +318,11 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <br>
 <!-- $$$installRoot -->
 <div class="qmlitem"><h3 class="qmlproto">installRoot: string</h3>
-<div class="qmldoc"><p>The global installation root. It is implicitly prepended to all values of <a href="https://qbs.io
+<div class="qmldoc"><p>The global installation root. It is implicitly prepended to all values of <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#installPrefix-prop" translate="no">installPrefix</a> in the context of installation.</p>
 <div class="admonition note">
-<p><b>Note: </b>This property is fundamentally different from <a href="https://qbs.io
-/docs/qml-qbsmodules-qbs/#installDir-prop" translate="no">installDir</a> and <a href="https://qbs.io
+<p><b>Note: </b>This property is fundamentally different from <a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#installDir-prop" translate="no">installDir</a> and <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#installPrefix-prop" translate="no">installPrefix</a> in that it must not be visible to the code being built. In fact, the install root is often just a temporary location used to package the binaries, which should therefore not assume they will be in that location at run-time. For the same reason, this property is usually not set from within project files.</p>
 </div>
 <p>Default: <code translate="no">&lt;build dir&gt;/install-root</code></p>
@@ -332,7 +331,7 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <br>
 <!-- $$$installSourceBase -->
 <div class="qmlitem"><h3 class="qmlproto">installSourceBase: string</h3>
-<div class="qmldoc"><p>The base directory of the local files that are going to be installed. The source base directory is omitted from the target directory path specified in <a href="https://qbs.io
+<div class="qmldoc"><p>The base directory of the local files that are going to be installed. The source base directory is omitted from the target directory path specified in <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#installDir-prop" translate="no">installDir</a>.</p>
 <p>Default: The directory of the current file to be installed, relative to the product's source directory.</p>
 <p>This property was introduced in Qbs 1.4.</p>
@@ -347,7 +346,7 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <li><code translate="no">"none"</code></li>
 <li><code translate="no">"small"</code></li>
 </ul>
-<p>Default: <code translate="no">"none"</code> if <a href="https://qbs.io
+<p>Default: <code translate="no">"none"</code> if <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#buildVariant-prop" translate="no">qbs.buildVariant</a> is <code translate="no">"debug"</code>. Otherwise <code translate="no">"fast"</code>.</p>
 </div></div><!-- @@@optimization -->
 <br>
@@ -355,7 +354,7 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <div class="qmlitem"><h3 class="qmlproto">profiles: stringList</h3>
 <div class="qmldoc"><p>The profiles for which the product should be built.</p>
 <p>For each profile listed here, one instance of the product will be built according to the properties set in the respective profile.</p>
-<p>Default: <a href="https://qbs.io
+<p>Default: <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-project/#profile-prop" translate="no">[project.profile]</a></p>
 <p>This property was introduced in Qbs 1.9.</p>
 </div></div><!-- @@@profiles -->
@@ -378,7 +377,7 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <!-- $$$targetOS -->
 <div class="qmlitem"><h3 class="qmlproto">targetOS: stringList</h3>
 <div class="qmldoc"><p>Contains the list of string values describing the OS and OS family that is used to build a project.</p>
-<p>This property is calculated based on the <a href="https://qbs.io
+<p>This property is calculated based on the <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#targetPlatform-prop" translate="no">targetPlatform</a> property and is typically used to test for a particular OS or OS family in conditionals:</p>
 <pre class="cpp" translate="no">Group {
     <span class="comment">// Includes all Unix-like platforms, such as: Linux, BSD, Apple platforms and others.</span>
@@ -395,17 +394,17 @@ Group {
     condition: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"macos"</span>)
     files: <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
 }</pre>
-<p>Avoid using <a href="https://qbs.io
+<p>Avoid using <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#targetPlatform-prop" translate="no">targetPlatform</a> for this purpose. For example, instead of:</p>
 <pre class="cpp" translate="no">qbs<span class="operator">.</span>targetPlatform <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"macos"</span> <span class="operator">|</span><span class="operator">|</span> qbs<span class="operator">.</span>targetPlatform <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"ios"</span> <span class="operator">|</span><span class="operator">|</span> qbs<span class="operator">.</span>targetPlatform <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"tvos"</span> <span class="operator">|</span><span class="operator">|</span> qbs<span class="operator">.</span>targetPlatform <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"watchos"</span></pre>
 <p>use</p>
 <pre class="cpp" translate="no">qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"darwin"</span>)</pre>
-<p>However, in some cases using <a href="https://qbs.io
+<p>However, in some cases using <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#targetPlatform-prop" translate="no">targetPlatform</a> would be acceptable, such as when the resulting condition would be simpler while still being correct:</p>
 <pre class="cpp" translate="no">qbs<span class="operator">.</span>targetPlatform <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"linux"</span></pre>
 <p>versus</p>
 <pre class="cpp" translate="no">qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"linux"</span>) <span class="operator">&amp;</span><span class="operator">&amp;</span> <span class="operator">!</span>qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"android"</span>)</pre>
-<p>For the complete list of possible values, see <a href="https://qbs.io
+<p>For the complete list of possible values, see <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#relation-between-targetplatform-and-targetos" translate="no">Relation between targetPlatform and targetOS</a>.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@targetOS -->
@@ -416,10 +415,10 @@ Group {
 <p>This property is typically set in a profile or for a particular product where the target OS is always known (such as an Apple Watch app written in native code).</p>
 <p>For example, a profile used for building for the iOS Simulator platform will have this property set to the <code translate="no">ios-simulator</code> value:</p>
 <pre class="cpp" translate="no">profiles<span class="operator">.</span>xcode<span class="operator">-</span>iphonesimulator<span class="operator">.</span>qbs<span class="operator">.</span>targetPlatform: <span class="string">"ios-simulator"</span></pre>
-<p>You should generally treat this property as <i>write-only</i> and avoid using it to test for the current target OS. Instead, use the <a href="https://qbs.io
+<p>You should generally treat this property as <i>write-only</i> and avoid using it to test for the current target OS. Instead, use the <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#targetOS-prop" translate="no">targetOS</a> property for conditionals.</p>
 <h5 id="relation-between-targetplatform-and-targetos">Relation between targetPlatform and targetOS</h5>
-<p>This table describes the possible values and matching between the <code translate="no">targetPlatform</code> and the <a href="https://qbs.io
+<p>This table describes the possible values and matching between the <code translate="no">targetPlatform</code> and the <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#targetOS-prop" translate="no">targetOS</a> properties:</p>
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th>Target Platform</th><th>Target OS</th></tr></thead>
@@ -454,17 +453,17 @@ Group {
 <div class="admonition note">
 <p><b>Note: </b>The "none" value is usually used for a bare-metal platforms.</p>
 </div>
-<p>Default: <a href="https://qbs.io
+<p>Default: <a href="https://qbs.io/
 /docs/jsextension-host/#platform" translate="no">Host.platform()</a></p>
 <p>This property was introduced in Qt 1.11.</p>
-<p><b>See also </b><a href="https://qbs.io
+<p><b>See also </b><a href="https://qbs.io/
 /docs/platforms/" translate="no">Target Platforms</a>.</p>
 </div></div><!-- @@@targetPlatform -->
 <br>
 <!-- $$$toolchain -->
 <div class="qmlitem"><h3 class="qmlproto">toolchain: stringList</h3>
 <div class="qmldoc"><p>Contains the list of string values describing the toolchain and toolchain family that is used to build a project.</p>
-<p>This property is deduced from the <a href="https://qbs.io
+<p>This property is deduced from the <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#toolchainType-prop" translate="no">toolchainType</a> property and is typically used to test for a particular toolchain or toolchain family in conditionals:</p>
 <pre class="cpp" translate="no">Properties {
     <span class="comment">// flags for GCC</span>
@@ -476,14 +475,14 @@ Properties {
     condition: qbs<span class="operator">.</span>toolchain<span class="operator">.</span>includes(<span class="string">"msvc"</span>)
     cpp<span class="operator">.</span>commonCompilerFlags: <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
 }</pre>
-<p>Unlike <a href="https://qbs.io
+<p>Unlike <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#toolchainType-prop" translate="no">toolchainType</a>, which contains a single value, <code translate="no">qbs.toolchain</code> is a string list which also contains the toolchain family. This allows to make conditions and checks simpler. For example, instead of:</p>
 <pre class="cpp" translate="no">(qbs<span class="operator">.</span>toolchainType <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"xcode"</span> <span class="operator">|</span><span class="operator">|</span> qbs<span class="operator">.</span>toolchainType <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"clang"</span> <span class="operator">|</span><span class="operator">|</span> qbs<span class="operator">.</span>toolchainType <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"gcc"</span>)</pre>
 <p>use:</p>
 <pre class="cpp" translate="no">qbs<span class="operator">.</span>toolchain<span class="operator">.</span>includes(<span class="string">"gcc"</span>)</pre>
 <p>since XCode, GCC and Clang belong to the <code translate="no">"gcc"</code> family.</p>
 <h5 id="relation-between-toolchaintype-and-toolchain">Relation between toolchainType and toolchain</h5>
-<p>This table describes the possible values and matching between the <a href="https://qbs.io
+<p>This table describes the possible values and matching between the <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#toolchainType-prop" translate="no">toolchainType</a> and the <code translate="no">toolchain</code> properties:</p>
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th>Toolchain Type</th><th>Toolchain</th></tr></thead>
@@ -510,11 +509,11 @@ Properties {
 <div class="qmldoc"><p>The toolchain that is going to be used for this build.</p>
 <p>For example, to build a project using the <code translate="no">"clang"</code> toolchain, simply do</p>
 <pre class="cpp" translate="no">qbs build qbs<span class="operator">.</span>toolchainType:clang</pre>
-<p>You should generally treat this property as <i>write-only</i> and avoid using it to test for the current toolchain. Instead, use the <a href="https://qbs.io
+<p>You should generally treat this property as <i>write-only</i> and avoid using it to test for the current toolchain. Instead, use the <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#toolchain-prop" translate="no">toolchain</a> property for conditionals.</p>
-<p>Typical values include: <code translate="no">"gcc"</code>, <code translate="no">"clang"</code>, <code translate="no">"clang-cl"</code>, <code translate="no">"mingw"</code>, <code translate="no">"msvc"</code>, and <code translate="no">"xcode"</code>. Also see <a href="https://qbs.io
+<p>Typical values include: <code translate="no">"gcc"</code>, <code translate="no">"clang"</code>, <code translate="no">"clang-cl"</code>, <code translate="no">"mingw"</code>, <code translate="no">"msvc"</code>, and <code translate="no">"xcode"</code>. Also see <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#relation-between-toolchaintype-and-toolchain" translate="no">Relation between toolchainType and toolchain</a>.</p>
-<p>By default, <code translate="no">qbs.toolchainType</code> is automatically detected based on the <a href="https://qbs.io
+<p>By default, <code translate="no">qbs.toolchainType</code> is automatically detected based on the <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#targetOS-prop" translate="no">targetOS</a> property:</p>
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th>Target OS</th><th>Toolchain</th></tr></thead>

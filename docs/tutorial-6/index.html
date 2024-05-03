@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Qbs</title>
+    <meta name="description" content="Qbs Manual Project Properties Qbs 2.3.0 Autotest Buildconfig Module Project Properties It would be nice if our project was configurable. Let&#39;s add some properties to our root project file:
+Project { property string version: &#34;1.0.0&#34; property bool installDebugInformation: true property bool withTests: false property stringList autotestArguments: [] property stringList autotestWrapper: [] name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; // ... Now we can use those properties in our helper items and in products: ">
+    <link rel="canonical" href="https://qbs.io/docs/tutorial-6/" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+
+    
+      
+      <link rel="stylesheet" href="/css/main.min.7d27557bc1f8660bf0e026622019467fd286c7d3eb71497bb1bf1eb961a1697a.css" integrity="sha256-fSdVe8H4Zgvw4CZiIBlGf9KGx9PrcUl7sb8euWGhaXo="/>
+    
+
+    <meta property="og:title" content="" />
+<meta property="og:description" content="Qbs Manual Project Properties Qbs 2.3.0 Autotest Buildconfig Module Project Properties It would be nice if our project was configurable. Let&#39;s add some properties to our root project file:
+Project { property string version: &#34;1.0.0&#34; property bool installDebugInformation: true property bool withTests: false property stringList autotestArguments: [] property stringList autotestWrapper: [] name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; // ... Now we can use those properties in our helper items and in products:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://qbs.io/docs/tutorial-6/" /><meta property="article:section" content="docs" />
+
+
+
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Qbs Manual Project Properties Qbs 2.3.0 Autotest Buildconfig Module Project Properties It would be nice if our project was configurable. Let&#39;s add some properties to our root project file:
+Project { property string version: &#34;1.0.0&#34; property bool installDebugInformation: true property bool withTests: false property stringList autotestArguments: [] property stringList autotestWrapper: [] name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; // ... Now we can use those properties in our helper items and in products:"/>
+
+</head>
+<body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
+    <a class="flex items-center" href="/">
+        <img src="https://qbs.io//img/Cubes.svg" class="h-10 effect-shadow-small">
+        <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
+    </a>
+
+    <div>
+        
+        <a href="/blog" class="ml-2">
+            <span>Blog</span>
+        </a>
+        
+        <a href="/docs" class="ml-2">
+            <span>Documentation</span>
+        </a>
+        
+        <a href="/docs/installing/" class="ml-2">
+            <span>Get Qbs</span>
+        </a>
+        
+    </div>
+</header><main>
+<div class="centre-outer">
+    <article class="centre-inner docs">
+    
+<li><a href="https://qbs.io/
+/docs" translate="no">Qbs Manual</a></li>
+<li>Project Properties</li>
+<li id="buildversion">Qbs 2.3.0</li>
+  <link rel="prev" href="https://qbs.io/
+/docs/tutorial-5/">
+  <link rel="next" href="https://qbs.io/
+/docs/tutorial-7/">
+<p class="naviNextPrevious headerNavi">
+<a class="prevPage" href="https://qbs.io/
+/docs/tutorial-5/">Autotest</a>
+<a class="nextPage" href="https://qbs.io/
+/docs/tutorial-7/">Buildconfig Module</a>
+</p>
+<div class="sidebar"><div class="sidebar-content" id="sidebar-content"></div></div>
+<div class="content"><h1 class="title">Project Properties</h1>
+<!-- $$$tutorial-6.html-description -->
+<div class="descr" id="details">
+<p>It would be nice if our project was configurable. Let's add some properties to our root project file:</p>
+<pre class="cpp" translate="no">Project {
+    property string version: "1.0.0"
+    property bool installDebugInformation: true
+    property bool withTests: false
+    property stringList autotestArguments: []
+    property stringList autotestWrapper: []
+
+    name: "My Project"
+    minimumQbsVersion: "2.0"
+    // ...</pre>
+<p>Now we can use those properties in our helper items and in products:</p>
+<pre class="cpp" translate="no">CppApplication {
+    version: project.version
+    consoleApplication: true
+    install: true
+    installDebugInformation: project.installDebugInformation
+    // ...</pre>
+<p>Here, we access the project file using the special <a href="https://qbs.io/
+/docs/special-property-values/#project" translate="no">project</a> value. If the nearest project in the project tree does not have the desired property, Qbs looks it up in the parent project, potentially all the way up to the top-level project. We also use the <a href="https://qbs.io/
+/docs/tutorial-1/" translate="no">installDebugInformation</a> property here. By default, it has the same value as <a href="https://qbs.io/
+/docs/tutorial-1/" translate="no">install</a> but we want to make the debug information install optional.</p>
+<p>Let's now disable the tests if <code translate="no">project.withTests</code> is <code translate="no">false</code>:</p>
+<pre class="cpp" translate="no">SubProject {
+    filePath: "test/test.qbs"
+    Properties {
+        condition: parent.withTests
+    }
+}</pre>
+<p>Here we use the <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-properties/" translate="no">Properties</a> item within the <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-subproject/" translate="no">SubProject</a> item. This item allows to override a subproject's properties which can be useful when adding some other Qbs project as a Git submodule. Of course, it is not very useful in our particular case since we only set the <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-project/#condition-prop" translate="no">Project.condition</a> property. We could achieve the same effect by setting the <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-subproject/#condition-prop" translate="no">condition</a> property of the <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-subproject/" translate="no">SubProject</a> item:</p>
+<pre class="cpp" translate="no">SubProject {
+    filePath: <span class="string">"test/test.qbs"</span>
+    condition: parent<span class="operator">.</span>withTests
+}</pre>
+<p>Another way would be to disable the test product. That way, an IDE would still show the whole project tree including disabled tests:</p>
+<pre class="cpp" translate="no"><span class="comment">// qbs/imports/MyAutoTest.qbs</span>
+MyApplication {
+    condition: project<span class="operator">.</span>withTests
+    type: base<span class="operator">.</span>concat(<span class="operator">[</span><span class="string">"autotest"</span><span class="operator">]</span>)
+}</pre>
+<p>Let's finally make our <a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-autotestrunner/" translate="no">AutotestRunner</a> configurable too:</p>
+<pre class="cpp" translate="no">AutotestRunner {
+    condition: parent.withTests
+    arguments: parent.autotestArguments
+    wrapper: parent.autotestWrapper
+}</pre>
+<p>There are several ways to override project properties from the command line. First, the special <code translate="no">project</code> variable can be used to set the properties of the top-level project:</p>
+<pre class="cpp" translate="no">$ qbs resolve project<span class="operator">.</span>withTests:<span class="keyword">false</span></pre>
+<p>You can also refer to properties using project's <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-project/#name-prop" translate="no">name</a>:</p>
+<pre class="cpp" translate="no">$ qbs resolve <span class="string">"projects.My Project.withTests:false"</span></pre>
+<p>This can again be useful for accessing the properties of external sub-projects. Note that since the project name contains spaces, we use quotes here.</p>
+</div>
+<!-- @@@tutorial-6.html -->
+<p class="naviNextPrevious footerNavi">
+<a class="prevPage" href="https://qbs.io/
+/docs/tutorial-5/">Autotest</a>
+<a class="nextPage" href="https://qbs.io/
+/docs/tutorial-7/">Buildconfig Module</a>
+</p>
+</div>
+
+
+    </article>
+</div>
+
+        </main></body>
+</html>

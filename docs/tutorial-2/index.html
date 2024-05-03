@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Qbs</title>
+    <meta name="description" content="Qbs Manual Static Library Qbs 2.3.0 Application Dynamic Library Static Library Let&#39;s add a static library to our project so we can reuse some code. Analogous to what we did for the application, we put the file into the lib directory and add it to the references property in our project. The modified project may look like this:
+Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references: [ &#34;app/app.qbs&#34;, &#34;lib/lib.qbs&#34; ] } Let&#39;s take a look at the the library file now: ">
+    <link rel="canonical" href="https://qbs.io/docs/tutorial-2/" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+
+    
+      
+      <link rel="stylesheet" href="/css/main.min.7d27557bc1f8660bf0e026622019467fd286c7d3eb71497bb1bf1eb961a1697a.css" integrity="sha256-fSdVe8H4Zgvw4CZiIBlGf9KGx9PrcUl7sb8euWGhaXo="/>
+    
+
+    <meta property="og:title" content="" />
+<meta property="og:description" content="Qbs Manual Static Library Qbs 2.3.0 Application Dynamic Library Static Library Let&#39;s add a static library to our project so we can reuse some code. Analogous to what we did for the application, we put the file into the lib directory and add it to the references property in our project. The modified project may look like this:
+Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references: [ &#34;app/app.qbs&#34;, &#34;lib/lib.qbs&#34; ] } Let&#39;s take a look at the the library file now:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://qbs.io/docs/tutorial-2/" /><meta property="article:section" content="docs" />
+
+
+
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Qbs Manual Static Library Qbs 2.3.0 Application Dynamic Library Static Library Let&#39;s add a static library to our project so we can reuse some code. Analogous to what we did for the application, we put the file into the lib directory and add it to the references property in our project. The modified project may look like this:
+Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references: [ &#34;app/app.qbs&#34;, &#34;lib/lib.qbs&#34; ] } Let&#39;s take a look at the the library file now:"/>
+
+</head>
+<body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
+    <a class="flex items-center" href="/">
+        <img src="https://qbs.io//img/Cubes.svg" class="h-10 effect-shadow-small">
+        <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
+    </a>
+
+    <div>
+        
+        <a href="/blog" class="ml-2">
+            <span>Blog</span>
+        </a>
+        
+        <a href="/docs" class="ml-2">
+            <span>Documentation</span>
+        </a>
+        
+        <a href="/docs/installing/" class="ml-2">
+            <span>Get Qbs</span>
+        </a>
+        
+    </div>
+</header><main>
+<div class="centre-outer">
+    <article class="centre-inner docs">
+    
+<li><a href="https://qbs.io/
+/docs" translate="no">Qbs Manual</a></li>
+<li>Static Library</li>
+<li id="buildversion">Qbs 2.3.0</li>
+  <link rel="prev" href="https://qbs.io/
+/docs/tutorial-1/">
+  <link rel="next" href="https://qbs.io/
+/docs/tutorial-3/">
+<p class="naviNextPrevious headerNavi">
+<a class="prevPage" href="https://qbs.io/
+/docs/tutorial-1/">Application</a>
+<a class="nextPage" href="https://qbs.io/
+/docs/tutorial-3/">Dynamic Library</a>
+</p>
+<div class="sidebar"><div class="sidebar-content" id="sidebar-content"></div></div>
+<div class="content"><h1 class="title">Static Library</h1>
+<!-- $$$tutorial-2.html-description -->
+<div class="descr" id="details">
+<p>Let's add a static library to our project so we can reuse some code. Analogous to what we did for the application, we put the file into the <code translate="no">lib</code> directory and add it to the <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-project/#references-prop" translate="no">references</a> property in our project. The modified project may look like this:</p>
+<pre class="cpp" translate="no">Project {
+   name: "My Project"
+   minimumQbsVersion: "2.0"
+   references: [
+       "app/app.qbs",
+       "lib/lib.qbs"
+   ]
+}</pre>
+<p>Let's take a look at the the library file now:</p>
+<pre class="cpp" translate="no">StaticLibrary {
+    name: "mylib"
+    files: [
+        "lib.c",
+        "lib.h",
+    ]
+    version: "1.0.0"
+    install: true
+
+    Depends { name: 'cpp' }
+    cpp.defines: ['CRUCIAL_DEFINE']
+
+    Export {
+        Depends { name: "cpp" }
+        cpp.includePaths: [exportingProduct.sourceDirectory]
+    }
+
+    Depends { name: 'bundle' }
+    bundle.isBundle: false
+}</pre>
+<p>It contains the <a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-staticlibrary/" translate="no">StaticLibrary</a> item which sets the <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-product/#type-prop" translate="no">type</a> of the product to <code translate="no">"staticlibrary"</code> and sets some defaults like where to install that library. As before, we set the <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-product/#files-prop" translate="no">files</a> property with a header:</p>
+<pre class="cpp" translate="no"><span class="comment">// lib/lib.h</span>
+<span class="preprocessor">#ifndef LIB_H</span>
+<span class="preprocessor">#define LIB_H</span>
+
+<span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span>get_string();
+
+<span class="preprocessor">#endif // LIB_H</span></pre>
+<p>And we set the implementation file of our library:</p>
+<pre class="cpp" translate="no"><span class="comment">// lib/lib.cpp</span>
+<span class="preprocessor">#include "lib.h"</span>
+
+<span class="preprocessor">#ifndef CRUCIAL_DEFINE</span>
+<span class="preprocessor">#   error CRUCIAL_DEFINE not defined</span>
+<span class="preprocessor">#endif</span>
+
+<span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span>get_string()
+{
+    <span class="keyword">return</span> <span class="string">"Hello from library"</span>;
+}</pre>
+<p>We will keep our library really simple - it only contains one function, which we will later use in our application. The source file requires a <code translate="no">"CRUCIAL_DEFINE"</code> to be passed to a preprocessor. That is why we set the <a href="https://qbs.io/
+/docs/qml-qbsmodules-cpp/#defines-prop" translate="no">cpp.defines</a> property:</p>
+<pre class="cpp" translate="no">Depends { name: 'cpp' }
+cpp.defines: ['CRUCIAL_DEFINE']</pre>
+<p>Note that unlike the <a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-cppapplication/" translate="no">CppApplication</a> item, the <a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-staticlibrary/" translate="no">StaticLibrary</a> does not pull in the dependency on the <a href="https://qbs.io/
+/docs/qml-qbsmodules-cpp/" translate="no">cpp</a> module automatically - that is why we have to pull it in manually using the <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-depends/" translate="no">Depends</a> item. Without the <a href="https://qbs.io/
+/docs/qml-qbsmodules-cpp/" translate="no">cpp</a> module, Qbs would not know how to turn a <code translate="no">.c</code> file into an object file and the object file into a library. See <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-rule/#rules-and-product-types" translate="no">Rules and Product Types</a> for details.</p>
+<p>Next, we need to tell Qbs where to look for public headers of our library when building products that depend on it. By default, Qbs knows nothing about the layout of our library, so we tell it to look for headers in the library's source directory using the <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-export/" translate="no">Export</a> item:</p>
+<pre class="cpp" translate="no">Export {
+    Depends { name: "cpp" }
+    cpp.includePaths: [exportingProduct.sourceDirectory]
+}</pre>
+<p>You can export any <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-module/" translate="no">Module</a> property within the <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-export/" translate="no">Export</a> item - it will be merged in the depending product with other properties. For example, you can export <a href="https://qbs.io/
+/docs/qml-qbsmodules-cpp/#defines-prop" translate="no">cpp.defines</a> or specific <a href="https://qbs.io/
+/docs/qml-qbsmodules-cpp/#commonCompilerFlags-prop" translate="no">compiler flags</a> that are required to use this product.</p>
+<p>We depend on the <a href="https://qbs.io/
+/docs/qml-qbsmodules-cpp/" translate="no">cpp</a> module twice - once within the <a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-staticlibrary/" translate="no">StaticLibrary</a> item and once in the <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-export/" translate="no">Export</a> item. This is because by default Qbs does not export anything when depending on this product and the dependencies in this item (as well as properties set in this item) are private to this product while dependencies and properties set in the <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-export/" translate="no">Export</a> item are for export only.</p>
+<p>Finally, we have some Apple-specific settings. You can skip this part of the tutorial if you are using some other platform. We depend on the <a href="https://qbs.io/
+/docs/qml-qbsmodules-bundle/" translate="no">bundle</a> module and set the <a href="https://qbs.io/
+/docs/qml-qbsmodules-bundle/#isBundle-prop" translate="no">bundle.isBundle</a> to false:</p>
+<pre class="cpp" translate="no">Depends { name: 'bundle' }
+bundle.isBundle: false</pre>
+<p>By default, Qbs builds static and dynamic libraries as <a href="https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPFrameworks/Concepts/WhatAreFrameworks.html" translate="no">Frameworks</a> on macOS. So, to keep things simple, we disable the framework build and build a plain old static library file here.</p>
+</div>
+<!-- @@@tutorial-2.html -->
+<p class="naviNextPrevious footerNavi">
+<a class="prevPage" href="https://qbs.io/
+/docs/tutorial-1/">Application</a>
+<a class="nextPage" href="https://qbs.io/
+/docs/tutorial-3/">Dynamic Library</a>
+</p>
+</div>
+
+
+    </article>
+</div>
+
+        </main></body>
+</html>

@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Command and JavaScriptCommand Qbs 2.1.1 Contents Command JavaScriptCommand Properties Common Properties Command Properties JavaScriptCommand Properties Command and JavaScriptCommand A command is what Qbs executes at build time. It is represented in the language by an object of type Command, which runs a process, or JavaScriptCommand, which executes arbitrary JavaScript code. A command is always created in the prepare script of a Rule.
+    <meta name="description" content="Qbs Manual Command and JavaScriptCommand Qbs 2.3.0 Contents Command JavaScriptCommand Properties Common Properties Command Properties JavaScriptCommand Properties Command and JavaScriptCommand A command is what Qbs executes at build time. It is represented in the language by an object of type Command, which runs a process, or JavaScriptCommand, which executes arbitrary JavaScript code. A command is always created in the prepare script of a Rule.
 Command A Command represents a process that will be invoked at build time. ">
     <link rel="canonical" href="https://qbs.io/docs/commands/" />
 
@@ -18,22 +18,21 @@ Command A Command represents a process that will be invoked at build time. ">
     
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual Command and JavaScriptCommand Qbs 2.1.1 Contents Command JavaScriptCommand Properties Common Properties Command Properties JavaScriptCommand Properties Command and JavaScriptCommand A command is what Qbs executes at build time. It is represented in the language by an object of type Command, which runs a process, or JavaScriptCommand, which executes arbitrary JavaScript code. A command is always created in the prepare script of a Rule.
+<meta property="og:description" content="Qbs Manual Command and JavaScriptCommand Qbs 2.3.0 Contents Command JavaScriptCommand Properties Common Properties Command Properties JavaScriptCommand Properties Command and JavaScriptCommand A command is what Qbs executes at build time. It is represented in the language by an object of type Command, which runs a process, or JavaScriptCommand, which executes arbitrary JavaScript code. A command is always created in the prepare script of a Rule.
 Command A Command represents a process that will be invoked at build time." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qbs.io/docs/commands/" /><meta property="article:section" content="docs" />
 
 
 
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual Command and JavaScriptCommand Qbs 2.1.1 Contents Command JavaScriptCommand Properties Common Properties Command Properties JavaScriptCommand Properties Command and JavaScriptCommand A command is what Qbs executes at build time. It is represented in the language by an object of type Command, which runs a process, or JavaScriptCommand, which executes arbitrary JavaScript code. A command is always created in the prepare script of a Rule.
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Qbs Manual Command and JavaScriptCommand Qbs 2.3.0 Contents Command JavaScriptCommand Properties Common Properties Command Properties JavaScriptCommand Properties Command and JavaScriptCommand A command is what Qbs executes at build time. It is represented in the language by an object of type Command, which runs a process, or JavaScriptCommand, which executes arbitrary JavaScript code. A command is always created in the prepare script of a Rule.
 Command A Command represents a process that will be invoked at build time."/>
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
     <a class="flex items-center" href="/">
-        <img src="https://qbs.io/img/Cubes.svg" class="h-10 effect-shadow-small">
+        <img src="https://qbs.io//img/Cubes.svg" class="h-10 effect-shadow-small">
         <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
     </a>
 
@@ -56,10 +55,10 @@ Command A Command represents a process that will be invoked at build time."/>
 <div class="centre-outer">
     <article class="centre-inner docs">
     
-<li><a href="https://qbs.io
+<li><a href="https://qbs.io/
 /docs" translate="no">Qbs Manual</a></li>
 <li>Command and JavaScriptCommand</li>
-<li id="buildversion">Qbs 2.1.1</li>
+<li id="buildversion">Qbs 2.3.0</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -80,7 +79,7 @@ Command A Command represents a process that will be invoked at build time."/>
 <h2 id="command">Command</h2>
 <p>A <code translate="no">Command</code> represents a process that will be invoked at build time. Its constructor arguments are the binary to run and a list of command-line arguments. For instance:</p>
 <pre class="cpp" translate="no">var insaneCommand <span class="operator">=</span> <span class="keyword">new</span> Command(<span class="string">"rm"</span><span class="operator">,</span> <span class="operator">[</span><span class="string">"-r"</span><span class="operator">,</span> <span class="string">"/"</span><span class="operator">]</span>);</pre>
-<p>The <a href="https://qbs.io
+<p>The <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-rule/" translate="no">Rule</a> item documentation shows a <code translate="no">Command</code> in context.</p>
 <h2 id="javascriptcommand">JavaScriptCommand</h2>
 <p>A <code translate="no">JavaScriptCommand</code> represents a chunk of JavaScript code that is run at build time. For instance:</p>
@@ -90,7 +89,7 @@ cmd<span class="operator">.</span>sourceCode <span class="operator">=</span> fun
     console<span class="operator">.</span>info(<span class="string">"I'm a rather pointless command."</span>);
     console<span class="operator">.</span>info(apology);
 };</pre>
-<p>Within the source code, the special identifiers <code translate="no">project</code> and <code translate="no">product</code> (giving access to project and product properties, respectively) as well as <code translate="no">inputs</code> and <code translate="no">outputs</code> are available. As the example shows, arbitrary properties can be set on the command object and then used within the source code. This technique is typically used to forward values from the prepare script to the command. The <a href="https://qbs.io
+<p>Within the source code, the special identifiers <code translate="no">project</code> and <code translate="no">product</code> (giving access to project and product properties, respectively) as well as <code translate="no">inputs</code> and <code translate="no">outputs</code> are available. As the example shows, arbitrary properties can be set on the command object and then used within the source code. This technique is typically used to forward values from the prepare script to the command. The <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-rule/" translate="no">Rule</a> item documentation shows a <code translate="no">JavaScriptCommand</code> in context.</p>
 <h2 id="properties">Properties</h2>
 <h3 id="common-properties">Common Properties</h3>
@@ -107,8 +106,8 @@ cmd<span class="operator">.</span>sourceCode <span class="operator">=</span> fun
 </ul>
 <p>All other values are mapped to the default color.</p>
 </td></tr>
-<tr valign="top" class="even"><td><code translate="no">jobPool</code></td><td>string</td><td>empty</td><td>Determines which job pool the command will use. An empty string, which is the default, stands for the global job pool. See <a href="https://qbs.io
-/docs/qml-qbslanguageitems-joblimit/" translate="no">here</a> and <a href="https://qbs.io
+<tr valign="top" class="even"><td><code translate="no">jobPool</code></td><td>string</td><td>empty</td><td>Determines which job pool the command will use. An empty string, which is the default, stands for the global job pool. See <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-joblimit/" translate="no">here</a> and <a href="https://qbs.io/
 /docs/howtos/#job-pool-howto" translate="no">here</a> for more information on job pools.</td></tr>
 <tr valign="top" class="odd"><td><code translate="no">silent</code></td><td>bool</td><td>false</td><td>A flag that controls whether the <code translate="no">description</code> is printed. Set it to <code translate="no">true</code> for commands that users need not know about.<div class="admonition note">
 <p><b>Note: </b>If this property is <code translate="no">false</code>, then <code translate="no">description</code> must not be empty.</p>
