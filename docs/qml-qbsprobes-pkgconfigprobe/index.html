@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual QbsProbes PkgConfigProbe Qbs 2.3.0 Contents Properties Detailed Description PkgConfigProbe QML Type Retrieves the information about installed packages using the pkg-config binary. More...
+    <meta name="description" content="Qbs Manual QbsProbes PkgConfigProbe Qbs 2.3.1 Contents Properties Detailed Description PkgConfigProbe QML Type Retrieves the information about installed packages using the pkg-config binary. More...
 Import Statement: import QbsProbes List of all members, including inherited members PkgConfigProbe is part of List of All Items. Properties compilerFlags : stringList defines : stringList exactVersion : string executable : string forStaticBuild : bool includePaths : stringList libDirs : stringList libraries : stringList libraryPaths : stringList linkerFlags : stringList maxVersion : string minVersion : string modversion : stringList name : string packageNames : stringList sysroot : string Detailed Description This probe takes the package name or the list of package names as input and returns the information that is required to compile and link using those packages. ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsprobes-pkgconfigprobe/" />
 
@@ -17,17 +17,18 @@ Import Statement: import QbsProbes List of all members, including inherited memb
       <link rel="stylesheet" href="/css/main.min.7d27557bc1f8660bf0e026622019467fd286c7d3eb71497bb1bf1eb961a1697a.css" integrity="sha256-fSdVe8H4Zgvw4CZiIBlGf9KGx9PrcUl7sb8euWGhaXo="/>
     
 
-    <meta property="og:title" content="" />
-<meta property="og:description" content="Qbs Manual QbsProbes PkgConfigProbe Qbs 2.3.0 Contents Properties Detailed Description PkgConfigProbe QML Type Retrieves the information about installed packages using the pkg-config binary. More...
-Import Statement: import QbsProbes List of all members, including inherited members PkgConfigProbe is part of List of All Items. Properties compilerFlags : stringList defines : stringList exactVersion : string executable : string forStaticBuild : bool includePaths : stringList libDirs : stringList libraries : stringList libraryPaths : stringList linkerFlags : stringList maxVersion : string minVersion : string modversion : stringList name : string packageNames : stringList sysroot : string Detailed Description This probe takes the package name or the list of package names as input and returns the information that is required to compile and link using those packages." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://qbs.io/docs/qml-qbsprobes-pkgconfigprobe/" /><meta property="article:section" content="docs" />
+    <meta property="og:url" content="https://qbs.io/docs/qml-qbsprobes-pkgconfigprobe/">
+  <meta property="og:site_name" content="Qbs">
+  <meta property="og:title" content="Qbs">
+  <meta property="og:description" content="Qbs Manual QbsProbes PkgConfigProbe Qbs 2.3.1 Contents Properties Detailed Description PkgConfigProbe QML Type Retrieves the information about installed packages using the pkg-config binary. More...
+Import Statement: import QbsProbes List of all members, including inherited members PkgConfigProbe is part of List of All Items. Properties compilerFlags : stringList defines : stringList exactVersion : string executable : string forStaticBuild : bool includePaths : stringList libDirs : stringList libraries : stringList libraryPaths : stringList linkerFlags : stringList maxVersion : string minVersion : string modversion : stringList name : string packageNames : stringList sysroot : string Detailed Description This probe takes the package name or the list of package names as input and returns the information that is required to compile and link using those packages.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
 
-
-
-    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Qbs Manual QbsProbes PkgConfigProbe Qbs 2.3.0 Contents Properties Detailed Description PkgConfigProbe QML Type Retrieves the information about installed packages using the pkg-config binary. More...
-Import Statement: import QbsProbes List of all members, including inherited members PkgConfigProbe is part of List of All Items. Properties compilerFlags : stringList defines : stringList exactVersion : string executable : string forStaticBuild : bool includePaths : stringList libDirs : stringList libraries : stringList libraryPaths : stringList linkerFlags : stringList maxVersion : string minVersion : string modversion : stringList name : string packageNames : stringList sysroot : string Detailed Description This probe takes the package name or the list of package names as input and returns the information that is required to compile and link using those packages."/>
+    <meta name="twitter:card" content="summary"><meta name="twitter:title" content="">
+<meta name="twitter:description" content="Qbs Manual QbsProbes PkgConfigProbe Qbs 2.3.1 Contents Properties Detailed Description PkgConfigProbe QML Type Retrieves the information about installed packages using the pkg-config binary. More...
+Import Statement: import QbsProbes List of all members, including inherited members PkgConfigProbe is part of List of All Items. Properties compilerFlags : stringList defines : stringList exactVersion : string executable : string forStaticBuild : bool includePaths : stringList libDirs : stringList libraries : stringList libraryPaths : stringList linkerFlags : stringList maxVersion : string minVersion : string modversion : stringList name : string packageNames : stringList sysroot : string Detailed Description This probe takes the package name or the list of package names as input and returns the information that is required to compile and link using those packages.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -60,7 +61,7 @@ Import Statement: import QbsProbes List of all members, including inherited memb
 <li><a href="https://qbs.io/
 /docs/qbsprobes-qmlmodule/" translate="no">QbsProbes</a></li>
 <li>PkgConfigProbe</li>
-<li id="buildversion">Qbs 2.3.0</li>
+<li id="buildversion">Qbs 2.3.1</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -132,8 +133,12 @@ Import Statement: import QbsProbes List of all members, including inherited memb
         <span class="name">maxVersion</span>: <span class="string">'5.99.99'</span>
     }
     <span class="name">files</span>: <span class="string">'main.cpp'</span>
-    <span class="name">cpp</span>.cxxFlags: <span class="name">pkgConfig</span>.<span class="name">cflags</span>
-    <span class="name">cpp</span>.linkerFlags: <span class="name">pkgConfig</span>.<span class="name">libs</span>
+    <span class="name">cpp</span>.defines : <span class="name">pkgConfig</span>.<span class="name">defines</span>
+    <span class="name">cpp</span>.includePaths: <span class="name">pkgConfig</span>.<span class="name">includePaths</span>
+    <span class="name">cpp</span>.dynamicLibraries: <span class="name">pkgConfig</span>.<span class="name">libraries</span>
+    <span class="name">cpp</span>.libraryPaths: <span class="name">pkgConfig</span>.<span class="name">libraryPaths</span>
+    <span class="name">cpp</span>.commonCompilerFlags: <span class="name">pkgConfig</span>.<span class="name">compilerFlags</span>
+    <span class="name">cpp</span>.linkerFlags: <span class="name">pkgConfig</span>.<span class="name">linkerFlags</span>
 }</pre>
 <!-- @@@PkgConfigProbe -->
 <h2>Property Documentation</h2>
@@ -189,7 +194,6 @@ Import Statement: import QbsProbes List of all members, including inherited memb
 <!-- $$$libraryPaths -->
 <div class="qmlitem"><h3 class="qmlproto">libraryPaths: stringList</h3>
 <div class="qmldoc"><p>This output property contains the list of library paths that should be passed to a linker when using requested package.</p>
-<p>This property sets the value of the PKG_CONFIG_LIBDIR environment variable passed to the <code translate="no">pkg-config</code> binary.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@libraryPaths -->
 <br>

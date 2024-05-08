@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Qbs 2.2 released | Qbs</title>
+    <meta name="description" content="The Qbs build tool version 2.2 is available.
+What&rsquo;s new
+As already hinted at last time, the main
+feature in this release is the parallelization of the project resolving phase. ">
+    <link rel="canonical" href="https://qbs.io/blog/release-2.2.1/" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+
+    
+      
+      <link rel="stylesheet" href="/css/main.min.7d27557bc1f8660bf0e026622019467fd286c7d3eb71497bb1bf1eb961a1697a.css" integrity="sha256-fSdVe8H4Zgvw4CZiIBlGf9KGx9PrcUl7sb8euWGhaXo="/>
+    
+
+    <meta property="og:url" content="https://qbs.io/blog/release-2.2.1/">
+  <meta property="og:site_name" content="Qbs">
+  <meta property="og:title" content="Qbs 2.2 released">
+  <meta property="og:description" content="The Qbs build tool version 2.2 is available.
+What’s new As already hinted at last time, the main feature in this release is the parallelization of the project resolving phase.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2023-12-16T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-12-16T00:00:00+00:00">
+
+    <meta name="twitter:card" content="summary"><meta name="twitter:title" content="Qbs 2.2 released">
+<meta name="twitter:description" content="The Qbs build tool version 2.2 is available.
+What&rsquo;s new
+As already hinted at last time, the main
+feature in this release is the parallelization of the project resolving phase.">
+
+</head>
+<body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
+    <a class="flex items-center" href="/">
+        <img src="https://qbs.io//img/Cubes.svg" class="h-10 effect-shadow-small">
+        <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
+    </a>
+
+    <div>
+        
+        <a href="/blog" class="ml-2">
+            <span>Blog</span>
+        </a>
+        
+        <a href="/docs" class="ml-2">
+            <span>Documentation</span>
+        </a>
+        
+        <a href="/docs/installing/" class="ml-2">
+            <span>Get Qbs</span>
+        </a>
+        
+    </div>
+</header><main>
+
+<div class="centre-outer content mt-8">
+    <div class="centre-inner">
+        <h1 class="text-4xl font-bold">Qbs 2.2 released</h1>
+        <time>Dec 16, 2023 by Christian Kandeler</time>
+        <article class="content blog">
+            <p>The <a href="http://qbs.io">Qbs build tool</a> version 2.2 is available.</p>
+<h2 id="whats-new">What&rsquo;s new</h2>
+<p>As already <a href="https://qbs.io/blog/release-2.1.0/">hinted</a> at last time, the main
+feature in this release is the parallelization of the project resolving phase.</p>
+<h3 id="employing-multiple-cores-for-project-resolving">Employing multiple cores for project resolving</h3>
+<p>Of course, any build tool compiles the sources you give to it on all the CPUs it can get its hands
+on, possibly even on remote machines. However, the initial process of translating the on-disk
+project description into a build graph usually does not lend itself to parallelization as easily.
+Still, as this step can take a non-trivial amount of time for larger projects, it seemed at least
+worth a try to parallelize it as well.</p>
+<p>Our approach was to set up each product (i.e. application, library etc) in a dedicated thread, and
+we are quite happy with the results, as for larger projects we are seeing an overall speed-up by
+a factor of two to three across all host platforms. Combined with the considerable speed-up already
+achieved in the previous version, project resolving is finally no longer a bottleneck when editing
+project files in IDEs like Qt Creator.</p>
+<h3 id="other-noteworthy-changes">Other noteworthy changes</h3>
+<ul>
+<li>Probe execution on macOS has become significantly faster.</li>
+<li>Modules can now contain Parameters items.</li>
+<li>ModuleProviders can now contain PropertyOptions items.</li>
+<li>The on-demand creation of Qt modules now happens only for those modules that the project actually
+requests.</li>
+</ul>
+<h2 id="whats-next">What&rsquo;s next</h2>
+<p>Having finished our performance improvement endeavor, we are now looking into tooling: If you feel
+that IDEs such as  Qt Creator do not offer enough convenience functionality for Qbs project files –
+say, in the area of code navigation or auto-completion – then you are not alone. We have some ideas
+regarding this issue and are currently looking into employing the Language Server Protocol for a
+client-independent solution.</p>
+<h2 id="try-it">Try it</h2>
+<p>Qbs is available for download on the
+<a href="https://download.qt.io/official_releases/qbs/2.2.1/">download page</a>.</p>
+<p>Please report issues in our <a href="https://bugreports.qt.io/browse/QBS/">bug tracker</a>.</p>
+<p>Join our <a href="https://discord.gg/zhMHvC5GNa">Discord server</a> for live discussions.</p>
+<p>You can use our <a href="https://lists.qt-project.org/mailman/listinfo/qbs">mailing list</a> for questions
+and discussions.</p>
+<p>The <a href="https://qbs.io/docs/index.html">documentation</a>
+and <a href="https://wiki.qt.io/Qbs">wiki</a> are also good places to get started.</p>
+<p>Qbs is also available from a number of package repositories
+(<a href="https://chocolatey.org/packages/qbs">Chocolatey</a>,
+<a href="https://www.macports.org/ports.php?by=name&amp;substr=qbs">MacPorts</a>,
+<a href="https://formulae.brew.sh/formula/qbs">Homebrew</a>) and is updated on each
+release by the Qbs development team. It can also be installed through
+the native package management system on a number of Linux distributions.
+Please find a complete overview on
+<a href="https://repology.org/project/qbs/versions">repology.org</a>.</p>
+<p>Qbs 2.2.1 is also included in Qt Creator 12.0.1.</p>
+<h3 id="contribute">Contribute</h3>
+<p>If You are a happy user of Qbs, please tell others about it. But maybe you would
+like to contribute something. Everything that makes Qbs better is highly
+appreciated. Contributions may consist of reporting bugs or fixing them right
+away. But also new features are very welcome. Your patches will be automatically
+sanity-checked, built and verified on Linux, macOS and Windows by our CI bot.
+Get started with instructions in the <a href="https://wiki.qt.io/Qbs">Qbs Wiki</a>.</p>
+<p>Thanks to everybody who made the 2.2 release happen:</p>
+<ul>
+<li>Christian Kandeler</li>
+<li>Dmitrii Meshkov</li>
+<li>Ivan Komissarov</li>
+<li>Nick Karg</li>
+<li>Serhii Olendarenko</li>
+<li>Thiemo van Engelen</li>
+<li>Thorbjørn Lindeijer</li>
+</ul>
+        </article>
+    </div>
+</div>
+
+
+        </main></body>
+</html>
