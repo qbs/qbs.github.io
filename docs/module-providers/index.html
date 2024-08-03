@@ -3,8 +3,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Module Providers Qbs 2.3.1 Special Property Values Tutorial Contents How Qbs Uses Module Providers Selecting Module Providers Parameterizing Module Providers Module Providers There are use cases for which a pre-defined module is not flexible enough. For instance, the overall set of modules related to a certain task might depend on some information present on the local platform.
-Note: Module providers are an advanced concept that you will rarely need to use directly. ">
+    <meta name="description" content="Qbs Manual Module Providers Qbs 2.4.0 Special Property Values Tutorial Contents Lookup Based on Module Name Provider Eagerness Selecting Module Providers Parameterizing Module Providers How Qbs Uses Module Providers Module Providers There are use cases for which a pre-defined module is not flexible enough. For instance, the overall set of modules related to a certain task might depend on some information present on the local platform.
+Use Module Providers to create new modules during the resolve stage, for example when locating external dependencies such as libraries. ">
     <link rel="canonical" href="https://qbs.io/docs/module-providers/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -20,8 +20,8 @@ Note: Module providers are an advanced concept that you will rarely need to use 
     <meta property="og:url" content="https://qbs.io/docs/module-providers/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual Module Providers Qbs 2.3.1 Special Property Values Tutorial Contents How Qbs Uses Module Providers Selecting Module Providers Parameterizing Module Providers Module Providers There are use cases for which a pre-defined module is not flexible enough. For instance, the overall set of modules related to a certain task might depend on some information present on the local platform.
-Note: Module providers are an advanced concept that you will rarely need to use directly.">
+  <meta property="og:description" content="Qbs Manual Module Providers Qbs 2.4.0 Special Property Values Tutorial Contents Lookup Based on Module Name Provider Eagerness Selecting Module Providers Parameterizing Module Providers How Qbs Uses Module Providers Module Providers There are use cases for which a pre-defined module is not flexible enough. For instance, the overall set of modules related to a certain task might depend on some information present on the local platform.
+Use Module Providers to create new modules during the resolve stage, for example when locating external dependencies such as libraries.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -29,8 +29,8 @@ Note: Module providers are an advanced concept that you will rarely need to use 
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual Module Providers Qbs 2.3.1 Special Property Values Tutorial Contents How Qbs Uses Module Providers Selecting Module Providers Parameterizing Module Providers Module Providers There are use cases for which a pre-defined module is not flexible enough. For instance, the overall set of modules related to a certain task might depend on some information present on the local platform.
-Note: Module providers are an advanced concept that you will rarely need to use directly.">
+  <meta name="twitter:description" content="Qbs Manual Module Providers Qbs 2.4.0 Special Property Values Tutorial Contents Lookup Based on Module Name Provider Eagerness Selecting Module Providers Parameterizing Module Providers How Qbs Uses Module Providers Module Providers There are use cases for which a pre-defined module is not flexible enough. For instance, the overall set of modules related to a certain task might depend on some information present on the local platform.
+Use Module Providers to create new modules during the resolve stage, for example when locating external dependencies such as libraries.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -65,7 +65,7 @@ Note: Module providers are an advanced concept that you will rarely need to use 
 <li><a href="https://qbs.io/
 /docs" translate="no">Qbs Manual</a></li>
 <li>Module Providers</li>
-<li id="buildversion">Qbs 2.3.1</li>
+<li id="buildversion">Qbs 2.4.0</li>
   <link rel="prev" href="https://qbs.io/
 /docs/special-property-values/">
   <link rel="next" href="https://qbs.io/
@@ -80,9 +80,11 @@ Note: Module providers are an advanced concept that you will rarely need to use 
 <div class="toc">
 <h3 id="toc">Contents</h3>
 <ul>
-<li class="level1"><a href="#how-qbs-uses-module-providers">How Qbs Uses Module Providers</a></li>
+<li class="level1"><a href="#lookup-based-on-module-name">Lookup Based on Module Name</a></li>
+<li class="level1"><a href="#provider-eagerness">Provider Eagerness</a></li>
 <li class="level1"><a href="#selecting-module-providers">Selecting Module Providers</a></li>
 <li class="level1"><a href="#parameterizing-module-providers">Parameterizing Module Providers</a></li>
+<li class="level1"><a href="#how-qbs-uses-module-providers">How Qbs Uses Module Providers</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
@@ -90,8 +92,45 @@ Note: Module providers are an advanced concept that you will rarely need to use 
 <!-- $$$module-providers.html-description -->
 <div class="descr" id="details">
 <p>There are use cases for which a pre-defined module is not flexible enough. For instance, the overall set of modules related to a certain task might depend on some information present on the local platform.</p>
+<p>Use Module Providers to create new modules during the <code translate="no">resolve</code> stage, for example when locating external dependencies such as libraries.</p>
+<p>Consider the following example:</p>
+<pre class="cpp" translate="no">CppApplication {
+    files: <span class="string">"main.cpp"</span>
+    Depends { name: <span class="string">"zlib"</span> }
+    qbsModuleProviders: <span class="operator">[</span><span class="string">"conan"</span><span class="operator">,</span> <span class="string">"qbspkgconfig"</span><span class="operator">]</span>
+}</pre>
+<p>Here, we want to use the <a href="https://www.zlib.net" translate="no">zlib</a> compression library in our application. Since there is no pre-defined module called <code translate="no">"zlib"</code>, Qbs will try to create it using Module Providers. Qbs will invoke all providers specified in the <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-product/#qbsModuleProviders-prop" translate="no">qbsModuleProviders</a> property and those providers will create the requested module if possible. Providers contribute to the <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-product/#qbsSearchPaths-prop" translate="no">qbsSearchPaths</a> in the order specified by this property, so modules generated by providers specified earlier are prioritised. In the example above, modules created by the <a href="https://qbs.io/
+/docs/qml-qbsmoduleproviders-conan/" translate="no">conan</a> provider have higher priority than modules created by <code translate="no">qbspkgconfig</code>.</p>
+<h2 id="lookup-based-on-module-name">Lookup Based on Module Name</h2>
+<p>Originally, the <a href="https://qbs.io/
+/docs/qml-qbsmoduleproviders-qt/" translate="no">Qt</a> module provider was a the only provider in Qbs and we wanted to make its usage transparent to users. Thus, it was implemented by automatically kicking in when Qbs saw the dependency on the <code translate="no">Qt</code> module such as "Qt.core". It is also possible to specify the order of providers explicitly:</p>
+<pre class="cpp" translate="no">CppApplication {
+    files: <span class="string">"main.cpp"</span>
+    Depends { name: <span class="string">"Qt.core"</span> }
+    qbsModuleProviders: <span class="operator">[</span><span class="string">"Qt"</span><span class="operator">,</span> <span class="string">"qbspkgconfig"</span><span class="operator">]</span>
+}</pre>
+<p>That way, users have more control over the module priorities.</p>
+<p>Note that setting the <code translate="no">qbsModuleProviders</code> property disables the lookup based on the module name entirely.</p>
+<h2 id="provider-eagerness">Provider Eagerness</h2>
+<p>Historically, providers were implemented in an <i>eager</i> way meaning that once a provider is called, it creates as many modules as it can. For example, when called, the <a href="https://qbs.io/
+/docs/qml-qbsmoduleproviders-qbspkgconfig/" translate="no">qbspkgconfig</a> provider created a module for each .pc file found in the system. Even though providers are quite fast, this violates the zero-overhead principle (you don't pay for what you don't use). Thus, we introduced non-eager providers which only create one module at a time when that module is requested by the <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-depends/" translate="no">Depends</a> item. This behavior is controlled by the <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-moduleprovider/#isEager-prop" translate="no">isEager</a> property. We advise against using eager providers in new code.</p>
+<h2 id="selecting-module-providers">Selecting Module Providers</h2>
+<p>As described above, you can select which providers to run using the <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-product/#qbsModuleProviders-prop" translate="no">qbsModuleProviders</a> property. This property can be set on the Product as well as the <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-project/#qbsModuleProviders-prop" translate="no">Project</a> level:</p>
+<pre class="cpp" translate="no">$ qbs resolve project<span class="operator">.</span>qbsModuleProviders:providerA    \ <span class="preprocessor"># sets property globally for the Project</span>
+    projects<span class="operator">.</span>SomeProject<span class="operator">.</span>qbsModuleProviders:providerB \ <span class="preprocessor"># overrides property for the specific Project</span>
+    products<span class="operator">.</span>SomeProduct<span class="operator">.</span>qbsModuleProviders:providerC \ <span class="preprocessor"># overrides property for the specific Product</span></pre>
+<h2 id="parameterizing-module-providers">Parameterizing Module Providers</h2>
+<p>You can pass information to module providers from the command line, via profiles or from within a product, in a similar way as you would do for modules. For instance, the following invocation of Qbs passes information to two module providers <code translate="no">a</code> and <code translate="no">b</code>:</p>
+<pre class="cpp" translate="no">$ qbs moduleProviders<span class="operator">.</span>a<span class="operator">.</span>p1:<span class="keyword">true</span> moduleProviders<span class="operator">.</span>a<span class="operator">.</span>p2:<span class="keyword">true</span> moduleProviders<span class="operator">.</span>b<span class="operator">.</span>p:<span class="keyword">false</span></pre>
+<p>Qbs will set the properties of the respective module providers accordingly. In the above example, module provider <code translate="no">a</code> needs to declare two boolean properties <code translate="no">p1</code> and <code translate="no">p2</code>, and they will be set to <code translate="no">true</code> and <code translate="no">false</code>, respectively.</p>
 <div class="admonition note">
-<p><b>Note: </b>Module providers are an advanced concept that you will rarely need to use directly. Reading this section is not required for most people's everyday work.</p>
+<p><b>Note: </b>The following section contains some implementation details. Reading this section is not required for most people's everyday work.</p>
 </div>
 <h2 id="how-qbs-uses-module-providers">How Qbs Uses Module Providers</h2>
 <p>If Qbs encounters a <a href="https://qbs.io/
@@ -107,18 +146,6 @@ Note: Module providers are an advanced concept that you will rarely need to use 
 /docs/qml-qbslanguageitems-moduleprovider/" translate="no">ModuleProvider</a> documentation.</li>
 <li>If a matching module provider was found and provided new search paths, a second attempt will be made to locate the dependency using the new paths. The search for a matching module provider ends as soon as one was found, regardless of whether it created any modules or not.</li>
 </ol>
-<h2 id="selecting-module-providers">Selecting Module Providers</h2>
-<p>As described above, it is possible to select which providers to run using the <a href="https://qbs.io/
-/docs/qml-qbslanguageitems-product/#qbsModuleProviders-prop" translate="no">qbsModuleProviders</a> property. Providers contribute to the <a href="https://qbs.io/
-/docs/qml-qbslanguageitems-product/#qbsSearchPaths-prop" translate="no">qbsSearchPaths</a> in the order specified by this property, so modules generated by providers specified earlier are prioritized. This property can be set on the Product as well as the <a href="https://qbs.io/
-/docs/qml-qbslanguageitems-project/#qbsModuleProviders-prop" translate="no">Project</a> level:</p>
-<pre class="cpp" translate="no">$ qbs resolve project<span class="operator">.</span>qbsModuleProviders:providerA    \ <span class="preprocessor"># sets property globally for the Project</span>
-    projects<span class="operator">.</span>SomeProject<span class="operator">.</span>qbsModuleProviders:providerB \ <span class="preprocessor"># overrides property for the specific Project</span>
-    products<span class="operator">.</span>SomeProduct<span class="operator">.</span>qbsModuleProviders:providerC \ <span class="preprocessor"># overrides property for the specific Product</span></pre>
-<h2 id="parameterizing-module-providers">Parameterizing Module Providers</h2>
-<p>You can pass information to module providers from the command line, via profiles or from within a product, in a similar way as you would do for modules. For instance, the following invocation of Qbs passes information to two module providers <code translate="no">a</code> and <code translate="no">b</code>:</p>
-<pre class="cpp" translate="no">$ qbs moduleProviders<span class="operator">.</span>a<span class="operator">.</span>p1:<span class="keyword">true</span> moduleProviders<span class="operator">.</span>a<span class="operator">.</span>p2:<span class="keyword">true</span> moduleProviders<span class="operator">.</span>b<span class="operator">.</span>p:<span class="keyword">false</span></pre>
-<p>Qbs will set the properties of the respective module providers accordingly. In the above example, module provider <code translate="no">a</code> needs to declare two boolean properties <code translate="no">p1</code> and <code translate="no">p2</code>, and they will be set to <code translate="no">true</code> and <code translate="no">false</code>, respectively.</p>
 </div>
 <!-- @@@module-providers.html -->
 <p class="naviNextPrevious footerNavi">

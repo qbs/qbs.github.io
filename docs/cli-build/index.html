@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Command-Line Interface build Qbs 2.3.1 Contents Synopsis Description Options --all-products --build-directory|-d &lt;directory&gt; --changed-files &lt;file&gt;[,&lt;file&gt;...] --check-outputs --check-timestamps --clean-install-root --command-echo-mode &lt;mode&gt; --dry-run|-n [--file|-f &lt;file&gt;] --force-probe-execution --jobs|-j &lt;n&gt; --job-limits &lt;pool1&gt;:&lt;limit1&gt;[,&lt;pool2&gt;:&lt;limit2&gt;...] --enforce-project-job-limits --keep-going|-k --less-verbose|-q --log-level &lt;level&gt; --log-time --more-verbose|-v --no-install --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; --show-progress --no-fallback-module-provider --wait-lock Parameters config:configuration-name property:value Examples build Synopsis qbs build [options] [[config:configuration-name] [property:value] ...] Description Builds projects in one or more configurations.
+    <meta name="description" content="Qbs Manual Command-Line Interface build Qbs 2.4.0 Contents Synopsis Description Options --all-products --build-directory|-d &lt;directory&gt; --changed-files &lt;file&gt;[,&lt;file&gt;...] --check-outputs --check-timestamps --clean-install-root --command-echo-mode &lt;mode&gt; --dry-run|-n [--file|-f &lt;file&gt;] --force-probe-execution --jobs|-j &lt;n&gt; --job-limits &lt;pool1&gt;:&lt;limit1&gt;[,&lt;pool2&gt;:&lt;limit2&gt;...] --enforce-project-job-limits --keep-going|-k --less-verbose|-q --log-level &lt;level&gt; --log-time --more-verbose|-v --no-install --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; --show-progress --wait-lock Parameters config:configuration-name property:value Examples build Synopsis qbs build [options] [[config:configuration-name] [property:value] ...] Description Builds projects in one or more configurations.
 You can specify project, product, or module properties, as well as a profile separately for each configuration. ">
     <link rel="canonical" href="https://qbs.io/docs/cli-build/" />
 
@@ -20,7 +20,7 @@ You can specify project, product, or module properties, as well as a profile sep
     <meta property="og:url" content="https://qbs.io/docs/cli-build/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual Command-Line Interface build Qbs 2.3.1 Contents Synopsis Description Options --all-products --build-directory|-d &lt;directory&gt; --changed-files &lt;file&gt;[,&lt;file&gt;...] --check-outputs --check-timestamps --clean-install-root --command-echo-mode &lt;mode&gt; --dry-run|-n [--file|-f &lt;file&gt;] --force-probe-execution --jobs|-j &lt;n&gt; --job-limits &lt;pool1&gt;:&lt;limit1&gt;[,&lt;pool2&gt;:&lt;limit2&gt;...] --enforce-project-job-limits --keep-going|-k --less-verbose|-q --log-level &lt;level&gt; --log-time --more-verbose|-v --no-install --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; --show-progress --no-fallback-module-provider --wait-lock Parameters config:configuration-name property:value Examples build Synopsis qbs build [options] [[config:configuration-name] [property:value] ...] Description Builds projects in one or more configurations.
+  <meta property="og:description" content="Qbs Manual Command-Line Interface build Qbs 2.4.0 Contents Synopsis Description Options --all-products --build-directory|-d &lt;directory&gt; --changed-files &lt;file&gt;[,&lt;file&gt;...] --check-outputs --check-timestamps --clean-install-root --command-echo-mode &lt;mode&gt; --dry-run|-n [--file|-f &lt;file&gt;] --force-probe-execution --jobs|-j &lt;n&gt; --job-limits &lt;pool1&gt;:&lt;limit1&gt;[,&lt;pool2&gt;:&lt;limit2&gt;...] --enforce-project-job-limits --keep-going|-k --less-verbose|-q --log-level &lt;level&gt; --log-time --more-verbose|-v --no-install --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; --show-progress --wait-lock Parameters config:configuration-name property:value Examples build Synopsis qbs build [options] [[config:configuration-name] [property:value] ...] Description Builds projects in one or more configurations.
 You can specify project, product, or module properties, as well as a profile separately for each configuration.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
@@ -29,7 +29,7 @@ You can specify project, product, or module properties, as well as a profile sep
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual Command-Line Interface build Qbs 2.3.1 Contents Synopsis Description Options --all-products --build-directory|-d &lt;directory&gt; --changed-files &lt;file&gt;[,&lt;file&gt;...] --check-outputs --check-timestamps --clean-install-root --command-echo-mode &lt;mode&gt; --dry-run|-n [--file|-f &lt;file&gt;] --force-probe-execution --jobs|-j &lt;n&gt; --job-limits &lt;pool1&gt;:&lt;limit1&gt;[,&lt;pool2&gt;:&lt;limit2&gt;...] --enforce-project-job-limits --keep-going|-k --less-verbose|-q --log-level &lt;level&gt; --log-time --more-verbose|-v --no-install --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; --show-progress --no-fallback-module-provider --wait-lock Parameters config:configuration-name property:value Examples build Synopsis qbs build [options] [[config:configuration-name] [property:value] ...] Description Builds projects in one or more configurations.
+  <meta name="twitter:description" content="Qbs Manual Command-Line Interface build Qbs 2.4.0 Contents Synopsis Description Options --all-products --build-directory|-d &lt;directory&gt; --changed-files &lt;file&gt;[,&lt;file&gt;...] --check-outputs --check-timestamps --clean-install-root --command-echo-mode &lt;mode&gt; --dry-run|-n [--file|-f &lt;file&gt;] --force-probe-execution --jobs|-j &lt;n&gt; --job-limits &lt;pool1&gt;:&lt;limit1&gt;[,&lt;pool2&gt;:&lt;limit2&gt;...] --enforce-project-job-limits --keep-going|-k --less-verbose|-q --log-level &lt;level&gt; --log-time --more-verbose|-v --no-install --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; --show-progress --wait-lock Parameters config:configuration-name property:value Examples build Synopsis qbs build [options] [[config:configuration-name] [property:value] ...] Description Builds projects in one or more configurations.
 You can specify project, product, or module properties, as well as a profile separately for each configuration.">
 
 </head>
@@ -67,7 +67,7 @@ You can specify project, product, or module properties, as well as a profile sep
 <li><a href="https://qbs.io/
 /docs/cli/" translate="no">Command-Line Interface</a></li>
 <li>build</li>
-<li id="buildversion">Qbs 2.3.1</li>
+<li id="buildversion">Qbs 2.4.0</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -97,7 +97,6 @@ You can specify project, product, or module properties, as well as a profile sep
 <li class="level2"><a href="#op-op-op-op-products-op-op-op-op-p-op-lt-op-name-op-gt-op-op-op-op-op-op-lt-op-name-op-gt-op-op-op-op-op-op-op-op-op"><code translate="no">--products|-p &lt;name&gt;[,&lt;name&gt;...]</code></a></li>
 <li class="level2"><a href="#op-op-op-op-settings-op-op-dir-op-lt-op-directory-op-gt-op"><code translate="no">--settings-dir &lt;directory&gt;</code></a></li>
 <li class="level2"><a href="#op-op-op-op-show-op-op-progress"><code translate="no">--show-progress</code></a></li>
-<li class="level2"><a href="#op-op-op-op-no-op-op-fallback-op-op-module-op-op-provider"><code translate="no">--no-fallback-module-provider</code></a></li>
 <li class="level2"><a href="#op-op-op-op-wait-op-op-lock"><code translate="no">--wait-lock</code></a></li>
 <li class="level1"><a href="#parameters">Parameters</a></li>
 <li class="level2"><a href="#config-configuration-op-op-name"><code translate="no">config:configuration-name</code></a></li>
@@ -213,9 +212,6 @@ You can specify project, product, or module properties, as well as a profile sep
 <h3 id="op-op-op-op-show-op-op-progress"><code translate="no">--show-progress</code></h3>
 <p>Shows how command execution is progressing.</p>
 <p>This option is mutually exclusive with <code translate="no">--log-time</code>.</p>
-<span id="no-fallback-module-provider"></span><h3 id="op-op-op-op-no-op-op-fallback-op-op-module-op-op-provider"><code translate="no">--no-fallback-module-provider</code></h3>
-<p>If this option is set, then Qbs will not fall back to a pkg-config based <a href="https://qbs.io/
-/docs/module-providers/" translate="no">module provider</a> if a dependency is not found.</p>
 <h3 id="op-op-op-op-wait-op-op-lock"><code translate="no">--wait-lock</code></h3>
 <p>Waits indefinitely for other processes to release the build graph lock.</p>
 <p>This option is typically used by <a href="https://qbs.io/

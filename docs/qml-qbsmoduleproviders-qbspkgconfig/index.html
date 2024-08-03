@@ -3,8 +3,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual QbsModuleProviders qbspkgconfig Qbs 2.3.1 Contents Properties Detailed Description qbspkgconfig QML Type Module provider based on the qbspkg-config library. More...
-Import Statement: import QbsModuleProviders Since: Qt 1.20 List of all members, including inherited members Properties definePrefix : bool executableFilePath : string extraPaths : stringList libDirs : stringList staticMode : bool sysroot : path Detailed Description Qbs uses a built-in parser of the *.pc files and does not require the presence of the pkg-config tool in the system. ">
+    <meta name="description" content="Qbs Manual QbsModuleProviders qbspkgconfig Qbs 2.4.0 Contents Properties Detailed Description qbspkgconfig QML Type Module provider based on the qbspkg-config library. More...
+Import Statement: import QbsModuleProviders Since: Qt 1.20 List of all members, including inherited members Properties definePrefix : bool executableFilePath : string executableNames : stringList extraPaths : stringList libDirs : stringList staticMode : bool sysroot : path Detailed Description Qbs uses a built-in parser of the *.pc files and does not require the presence of the pkg-config tool in the system. ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmoduleproviders-qbspkgconfig/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -20,8 +20,8 @@ Import Statement: import QbsModuleProviders Since: Qt 1.20 List of all members, 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmoduleproviders-qbspkgconfig/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual QbsModuleProviders qbspkgconfig Qbs 2.3.1 Contents Properties Detailed Description qbspkgconfig QML Type Module provider based on the qbspkg-config library. More...
-Import Statement: import QbsModuleProviders Since: Qt 1.20 List of all members, including inherited members Properties definePrefix : bool executableFilePath : string extraPaths : stringList libDirs : stringList staticMode : bool sysroot : path Detailed Description Qbs uses a built-in parser of the *.pc files and does not require the presence of the pkg-config tool in the system.">
+  <meta property="og:description" content="Qbs Manual QbsModuleProviders qbspkgconfig Qbs 2.4.0 Contents Properties Detailed Description qbspkgconfig QML Type Module provider based on the qbspkg-config library. More...
+Import Statement: import QbsModuleProviders Since: Qt 1.20 List of all members, including inherited members Properties definePrefix : bool executableFilePath : string executableNames : stringList extraPaths : stringList libDirs : stringList staticMode : bool sysroot : path Detailed Description Qbs uses a built-in parser of the *.pc files and does not require the presence of the pkg-config tool in the system.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -29,8 +29,8 @@ Import Statement: import QbsModuleProviders Since: Qt 1.20 List of all members, 
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual QbsModuleProviders qbspkgconfig Qbs 2.3.1 Contents Properties Detailed Description qbspkgconfig QML Type Module provider based on the qbspkg-config library. More...
-Import Statement: import QbsModuleProviders Since: Qt 1.20 List of all members, including inherited members Properties definePrefix : bool executableFilePath : string extraPaths : stringList libDirs : stringList staticMode : bool sysroot : path Detailed Description Qbs uses a built-in parser of the *.pc files and does not require the presence of the pkg-config tool in the system.">
+  <meta name="twitter:description" content="Qbs Manual QbsModuleProviders qbspkgconfig Qbs 2.4.0 Contents Properties Detailed Description qbspkgconfig QML Type Module provider based on the qbspkg-config library. More...
+Import Statement: import QbsModuleProviders Since: Qt 1.20 List of all members, including inherited members Properties definePrefix : bool executableFilePath : string executableNames : stringList extraPaths : stringList libDirs : stringList staticMode : bool sysroot : path Detailed Description Qbs uses a built-in parser of the *.pc files and does not require the presence of the pkg-config tool in the system.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -67,7 +67,7 @@ Import Statement: import QbsModuleProviders Since: Qt 1.20 List of all members, 
 <li><a href="https://qbs.io/
 /docs/qbsmoduleproviders-qmlmodule/" translate="no">QbsModuleProviders</a></li>
 <li>qbspkgconfig</li>
-<li id="buildversion">Qbs 2.3.1</li>
+<li id="buildversion">Qbs 2.4.0</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -92,6 +92,8 @@ Import Statement: import QbsModuleProviders Since: Qt 1.20 List of all members, 
 /docs/qml-qbsmoduleproviders-qbspkgconfig/#definePrefix-prop" translate="no">definePrefix</a></b> : bool</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmoduleproviders-qbspkgconfig/#executableFilePath-prop" translate="no">executableFilePath</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmoduleproviders-qbspkgconfig/#executableNames-prop" translate="no">executableNames</a></b> : stringList</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmoduleproviders-qbspkgconfig/#extraPaths-prop" translate="no">extraPaths</a></b> : stringList</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
@@ -129,6 +131,13 @@ Import Statement: import QbsModuleProviders Since: Qt 1.20 List of all members, 
 <div class="qmldoc"><p>The path to the <code translate="no">pkg-config</code> executable. If not set, the pkg-config from PATH is used.</p>
 <p>Default: undefined</p>
 </div></div><!-- @@@executableFilePath -->
+<br>
+<!-- $$$executableNames -->
+<div class="qmlitem"><h3 class="qmlproto">executableNames: stringList</h3>
+<div class="qmldoc"><p>The names of the <code translate="no">pkg-config</code> executable to search for.</p>
+<p>Note that since newer distributions use <a href="http://pkgconf.org" translate="no">pkgconf</a> by default, it has higher priority over <code translate="no">pkg-config</code>.</p>
+<p>Default: <code translate="no">["pkgconf", "pkg-config"]</code></p>
+</div></div><!-- @@@executableNames -->
 <br>
 <!-- $$$extraPaths -->
 <div class="qmlitem"><h3 class="qmlproto">extraPaths: stringList</h3>

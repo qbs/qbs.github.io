@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Command-Line Interface install Qbs 2.3.1 Contents Synopsis Description Options --all-products --build-directory|-d &lt;directory&gt; --changed-files &lt;file&gt;[,&lt;file&gt;...] --check-outputs --check-timestamps --clean-install-root --command-echo-mode &lt;mode&gt; --dry-run|-n [--file|-f &lt;file&gt;] --force-probe-execution --install-root &lt;directory&gt; --jobs|-j &lt;n&gt; --keep-going|-k --less-verbose|-q --log-level &lt;level&gt; --log-time --more-verbose|-v --no-build --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; --wait-lock Parameters config:configuration-name property:value Examples install Synopsis qbs install [options] [[config:configuration-name] [property:value] ...] Description Install all files marked as installable to their respective destinations. The project is built first, if necessary, unless the --no-build option is given. ">
+    <meta name="description" content="Qbs Manual Command-Line Interface install Qbs 2.4.0 Contents Synopsis Description Options --all-products --build-directory|-d &lt;directory&gt; --changed-files &lt;file&gt;[,&lt;file&gt;...] --check-outputs --check-timestamps --clean-install-root --command-echo-mode &lt;mode&gt; --dry-run|-n [--file|-f &lt;file&gt;] --force-probe-execution --install-root &lt;directory&gt; --jobs|-j &lt;n&gt; --keep-going|-k --less-verbose|-q --log-level &lt;level&gt; --log-time --more-verbose|-v --no-build --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; --wait-lock Parameters config:configuration-name property:value Examples install Synopsis qbs install [options] [[config:configuration-name] [property:value] ...] Description Install all files marked as installable to their respective destinations. The project is built first, if necessary, unless the --no-build option is given. ">
     <link rel="canonical" href="https://qbs.io/docs/cli-install/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -19,7 +19,7 @@
     <meta property="og:url" content="https://qbs.io/docs/cli-install/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual Command-Line Interface install Qbs 2.3.1 Contents Synopsis Description Options --all-products --build-directory|-d &lt;directory&gt; --changed-files &lt;file&gt;[,&lt;file&gt;...] --check-outputs --check-timestamps --clean-install-root --command-echo-mode &lt;mode&gt; --dry-run|-n [--file|-f &lt;file&gt;] --force-probe-execution --install-root &lt;directory&gt; --jobs|-j &lt;n&gt; --keep-going|-k --less-verbose|-q --log-level &lt;level&gt; --log-time --more-verbose|-v --no-build --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; --wait-lock Parameters config:configuration-name property:value Examples install Synopsis qbs install [options] [[config:configuration-name] [property:value] ...] Description Install all files marked as installable to their respective destinations. The project is built first, if necessary, unless the --no-build option is given.">
+  <meta property="og:description" content="Qbs Manual Command-Line Interface install Qbs 2.4.0 Contents Synopsis Description Options --all-products --build-directory|-d &lt;directory&gt; --changed-files &lt;file&gt;[,&lt;file&gt;...] --check-outputs --check-timestamps --clean-install-root --command-echo-mode &lt;mode&gt; --dry-run|-n [--file|-f &lt;file&gt;] --force-probe-execution --install-root &lt;directory&gt; --jobs|-j &lt;n&gt; --keep-going|-k --less-verbose|-q --log-level &lt;level&gt; --log-time --more-verbose|-v --no-build --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; --wait-lock Parameters config:configuration-name property:value Examples install Synopsis qbs install [options] [[config:configuration-name] [property:value] ...] Description Install all files marked as installable to their respective destinations. The project is built first, if necessary, unless the --no-build option is given.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -27,7 +27,7 @@
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual Command-Line Interface install Qbs 2.3.1 Contents Synopsis Description Options --all-products --build-directory|-d &lt;directory&gt; --changed-files &lt;file&gt;[,&lt;file&gt;...] --check-outputs --check-timestamps --clean-install-root --command-echo-mode &lt;mode&gt; --dry-run|-n [--file|-f &lt;file&gt;] --force-probe-execution --install-root &lt;directory&gt; --jobs|-j &lt;n&gt; --keep-going|-k --less-verbose|-q --log-level &lt;level&gt; --log-time --more-verbose|-v --no-build --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; --wait-lock Parameters config:configuration-name property:value Examples install Synopsis qbs install [options] [[config:configuration-name] [property:value] ...] Description Install all files marked as installable to their respective destinations. The project is built first, if necessary, unless the --no-build option is given.">
+  <meta name="twitter:description" content="Qbs Manual Command-Line Interface install Qbs 2.4.0 Contents Synopsis Description Options --all-products --build-directory|-d &lt;directory&gt; --changed-files &lt;file&gt;[,&lt;file&gt;...] --check-outputs --check-timestamps --clean-install-root --command-echo-mode &lt;mode&gt; --dry-run|-n [--file|-f &lt;file&gt;] --force-probe-execution --install-root &lt;directory&gt; --jobs|-j &lt;n&gt; --keep-going|-k --less-verbose|-q --log-level &lt;level&gt; --log-time --more-verbose|-v --no-build --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; --wait-lock Parameters config:configuration-name property:value Examples install Synopsis qbs install [options] [[config:configuration-name] [property:value] ...] Description Install all files marked as installable to their respective destinations. The project is built first, if necessary, unless the --no-build option is given.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -64,7 +64,7 @@
 <li><a href="https://qbs.io/
 /docs/cli/" translate="no">Command-Line Interface</a></li>
 <li>install</li>
-<li id="buildversion">Qbs 2.3.1</li>
+<li id="buildversion">Qbs 2.4.0</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>

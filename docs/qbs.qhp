@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QtHelpProject version="1.0">
-    <namespace>org.qt-project.qbs.231</namespace>
+    <namespace>org.qt-project.qbs.240</namespace>
     <virtualFolder>doc</virtualFolder>
     <metaData name="version" value=""/>
-    <customFilter name="Qbs 2.3.1">
-        <filterAttribute>2.3.1</filterAttribute>
+    <customFilter name="Qbs 2.4.0">
+        <filterAttribute>2.4.0</filterAttribute>
         <filterAttribute>qbs</filterAttribute>
     </customFilter>
     <filterSection>
-        <filterAttribute>2.3.1</filterAttribute>
+        <filterAttribute>2.4.0</filterAttribute>
         <filterAttribute>qbs</filterAttribute>
         <toc>
             <section ref="index.html" title="Qbs">
@@ -32,7 +32,7 @@
                     <section ref="module-providers.html" title="Module Providers"/>
                 </section>
                 <section ref="tutorial.html" title="Tutorial">
-                    <section ref="tutorial-1.html" title="Application"/>
+                    <section ref="tutorial-1.html" title="Console Application"/>
                     <section ref="tutorial-2.html" title="Static Library"/>
                     <section ref="tutorial-3.html" title="Dynamic Library"/>
                     <section ref="tutorial-4.html" title="Convenience Items"/>
@@ -40,6 +40,7 @@
                     <section ref="tutorial-6.html" title="Project Properties"/>
                     <section ref="tutorial-7.html" title="Buildconfig Module"/>
                     <section ref="tutorial-8.html" title="Configurable Library"/>
+                    <section ref="tutorial-9.html" title="Version Header"/>
                 </section>
                 <section ref="howtos.html" title="How-tos"/>
                 <section ref="reference.html" title="Reference">
@@ -75,7 +76,6 @@
             <keyword name="AppleDiskImage" id="QML.QbsConvenienceItems.AppleDiskImage" ref="qml-qbsconvenienceitems-applediskimage.html"/>
             <keyword name="Application" id="QML.Application" ref="qml-qbsconvenienceitems-application.html"/>
             <keyword name="Application" id="QML.QbsConvenienceItems.Application" ref="qml-qbsconvenienceitems-application.html"/>
-            <keyword name="Application" id="Application" ref="tutorial-1.html"/>
             <keyword name="ApplicationExtension" id="QML.ApplicationExtension" ref="qml-qbsconvenienceitems-applicationextension.html"/>
             <keyword name="ApplicationExtension" id="QML.QbsConvenienceItems.ApplicationExtension" ref="qml-qbsconvenienceitems-applicationextension.html"/>
             <keyword name="Artifact" id="QML.Artifact" ref="qml-qbslanguageitems-artifact.html"/>
@@ -104,6 +104,7 @@
             <keyword name="ConanfileProbe" id="QML.QbsProbes.ConanfileProbe" ref="qml-qbsprobes-conanfileprobe.html"/>
             <keyword name="Configurable Library" id="Configurable Library" ref="tutorial-8.html"/>
             <keyword name="Configuring Profiles and Preferences" id="Configuring Profiles and Preferences" ref="configuring.html"/>
+            <keyword name="Console Application" id="Console Application" ref="tutorial-1.html"/>
             <keyword name="Convenience Items" id="Convenience Items" ref="tutorial-4.html"/>
             <keyword name="CppApplication" id="QML.CppApplication" ref="qml-qbsconvenienceitems-cppapplication.html"/>
             <keyword name="CppApplication" id="QML.QbsConvenienceItems.CppApplication" ref="qml-qbsconvenienceitems-cppapplication.html"/>
@@ -285,6 +286,7 @@
             <keyword name="Usage" id="Usage" ref="usage.html"/>
             <keyword name="Using the Shell" id="Using the Shell" ref="shell.html"/>
             <keyword name="Utilities Service" id="Utilities Service" ref="jsextension-utilities.html"/>
+            <keyword name="Version Header" id="Version Header" ref="tutorial-9.html"/>
             <keyword name="XPCService" id="QML.XPCService" ref="qml-qbsconvenienceitems-xpcservice.html"/>
             <keyword name="XPCService" id="QML.QbsConvenienceItems.XPCService" ref="qml-qbsconvenienceitems-xpcservice.html"/>
             <keyword name="Xml Service" id="Xml Service" ref="jsextension-xml.html"/>
@@ -397,6 +399,8 @@
             <keyword name="compilerListingSuffix" id="cpp::compilerListingSuffix" ref="qml-qbsmodules-cpp.html#compilerListingSuffix-prop"/>
             <keyword name="compilerName" id="capnproto.cpp::compilerName" ref="qml-qbsmodules-capnproto-cpp.html#compilerName-prop"/>
             <keyword name="compilerName" id="cpp::compilerName" ref="qml-qbsmodules-cpp.html#compilerName-prop"/>
+            <keyword name="compilerName" id="flatbuf.c::compilerName" ref="qml-qbsmodules-flatbuf-c.html#compilerName-prop"/>
+            <keyword name="compilerName" id="flatbuf.cpp::compilerName" ref="qml-qbsmodules-flatbuf-cpp.html#compilerName-prop"/>
             <keyword name="compilerName" id="innosetup::compilerName" ref="qml-qbsmodules-innosetup.html#compilerName-prop"/>
             <keyword name="compilerName" id="java::compilerName" ref="qml-qbsmodules-java.html#compilerName-prop"/>
             <keyword name="compilerName" id="nsis::compilerName" ref="qml-qbsmodules-nsis.html#compilerName-prop"/>
@@ -407,6 +411,8 @@
             <keyword name="compilerName" id="wix::compilerName" ref="qml-qbsmodules-wix.html#compilerName-prop"/>
             <keyword name="compilerPath" id="capnproto.cpp::compilerPath" ref="qml-qbsmodules-capnproto-cpp.html#compilerPath-prop"/>
             <keyword name="compilerPath" id="cpp::compilerPath" ref="qml-qbsmodules-cpp.html#compilerPath-prop"/>
+            <keyword name="compilerPath" id="flatbuf.c::compilerPath" ref="qml-qbsmodules-flatbuf-c.html#compilerPath-prop"/>
+            <keyword name="compilerPath" id="flatbuf.cpp::compilerPath" ref="qml-qbsmodules-flatbuf-cpp.html#compilerPath-prop"/>
             <keyword name="compilerPath" id="innosetup::compilerPath" ref="qml-qbsmodules-innosetup.html#compilerPath-prop"/>
             <keyword name="compilerPath" id="nsis::compilerPath" ref="qml-qbsmodules-nsis.html#compilerPath-prop"/>
             <keyword name="compilerPath" id="protobuf.cpp::compilerPath" ref="qml-qbsmodules-protobuf-cpp.html#compilerPath-prop"/>
@@ -425,6 +431,8 @@
             <keyword name="compressionLevel" id="dmg::compressionLevel" ref="qml-qbsmodules-dmg.html#compressionLevel-prop"/>
             <keyword name="compressionType" id="archiver::compressionType" ref="qml-qbsmodules-archiver.html#compressionType-prop"/>
             <keyword name="compressor" id="nsis::compressor" ref="qml-qbsmodules-nsis.html#compressor-prop"/>
+            <keyword name="conan" id="QML.conan" ref="qml-qbsmoduleproviders-conan.html"/>
+            <keyword name="conan" id="QML.QbsModuleProviders.conan" ref="qml-qbsmoduleproviders-conan.html"/>
             <keyword name="conanfilePath" id="ConanfileProbe::conanfilePath" ref="qml-qbsprobes-conanfileprobe.html#conanfilePath-prop"/>
             <keyword name="condition" id="Depends::condition" ref="qml-qbslanguageitems-depends.html#condition-prop"/>
             <keyword name="condition" id="Group::condition" ref="qml-qbslanguageitems-group.html#condition-prop"/>
@@ -490,6 +498,7 @@
             <keyword name="dexCompilerName" id="Android.sdk::dexCompilerName" ref="qml-qbsmodules-android-sdk.html#dexCompilerName-prop"/>
             <keyword name="dict" id="texttemplate::dict" ref="qml-qbsmodules-texttemplate.html#dict-prop"/>
             <keyword name="disableConfig" id="nsis::disableConfig" ref="qml-qbsmodules-nsis.html#disableConfig-prop"/>
+            <keyword name="disabledFeatures" id="Qt.core::disabledFeatures" ref="qml-qbsmodules-qt-core.html#disabledFeatures-prop"/>
             <keyword name="discardUnusedData" id="cpp::discardUnusedData" ref="qml-qbsmodules-cpp.html#discardUnusedData-prop"/>
             <keyword name="distributionFrameworkPaths" id="cpp::distributionFrameworkPaths" ref="qml-qbsmodules-cpp.html#distributionFrameworkPaths-prop"/>
             <keyword name="distributionIncludePaths" id="cpp::distributionIncludePaths" ref="qml-qbsmodules-cpp.html#distributionIncludePaths-prop"/>
@@ -527,6 +536,7 @@
             <keyword name="enableSuspiciousLinkerFlagWarnings" id="cpp::enableSuspiciousLinkerFlagWarnings" ref="qml-qbsmodules-cpp.html#enableSuspiciousLinkerFlagWarnings-prop"/>
             <keyword name="enableWarnings" id="java::enableWarnings" ref="qml-qbsmodules-java.html#enableWarnings-prop"/>
             <keyword name="enabled" id="Sanitizers.address::enabled" ref="qml-qbsmodules-sanitizers-address.html#enabled-prop"/>
+            <keyword name="enabledFeatures" id="Qt.core::enabledFeatures" ref="qml-qbsmodules-qt-core.html#enabledFeatures-prop"/>
             <keyword name="endianness" id="cpp::endianness" ref="qml-qbsmodules-cpp.html#endianness-prop"/>
             <keyword name="entryPoint" id="JavaJarFile::entryPoint" ref="qml-qbsconvenienceitems-javajarfile.html#entryPoint-prop"/>
             <keyword name="entryPoint" id="cpp::entryPoint" ref="qml-qbsmodules-cpp.html#entryPoint-prop"/>
@@ -545,6 +555,7 @@
             <keyword name="executableFilePath" id="qbspkgconfig::executableFilePath" ref="qml-qbsmoduleproviders-qbspkgconfig.html#executableFilePath-prop"/>
             <keyword name="executableFilePath" id="pkgconfig::executableFilePath" ref="qml-qbsmodules-pkgconfig.html#executableFilePath-prop"/>
             <keyword name="executableFolderPath" id="bundle::executableFolderPath" ref="qml-qbsmodules-bundle.html#executableFolderPath-prop"/>
+            <keyword name="executableNames" id="qbspkgconfig::executableNames" ref="qml-qbsmoduleproviders-qbspkgconfig.html#executableNames-prop"/>
             <keyword name="executablePath" id="bundle::executablePath" ref="qml-qbsmodules-bundle.html#executablePath-prop"/>
             <keyword name="executablePrefix" id="cpp::executablePrefix" ref="qml-qbsmodules-cpp.html#executablePrefix-prop"/>
             <keyword name="executableSuffix" id="cpp::executableSuffix" ref="qml-qbsmodules-cpp.html#executableSuffix-prop"/>
@@ -568,11 +579,17 @@
             <keyword name="fileTags" id="FileTagger::fileTags" ref="qml-qbslanguageitems-filetagger.html#fileTags-prop"/>
             <keyword name="fileTags" id="Group::fileTags" ref="qml-qbslanguageitems-group.html#fileTags-prop"/>
             <keyword name="fileTagsFilter" id="Group::fileTagsFilter" ref="qml-qbslanguageitems-group.html#fileTagsFilter-prop"/>
+            <keyword name="filenameExtension" id="flatbuf.cpp::filenameExtension" ref="qml-qbsmodules-flatbuf-cpp.html#filenameExtension-prop"/>
+            <keyword name="filenameSuffix" id="flatbuf.cpp::filenameSuffix" ref="qml-qbsmodules-flatbuf-cpp.html#filenameSuffix-prop"/>
             <keyword name="files" id="Group::files" ref="qml-qbslanguageitems-group.html#files-prop"/>
             <keyword name="files" id="Product::files" ref="qml-qbslanguageitems-product.html#files-prop"/>
             <keyword name="filesAreTargets" id="Group::filesAreTargets" ref="qml-qbslanguageitems-group.html#filesAreTargets-prop"/>
             <keyword name="flags" id="archiver::flags" ref="qml-qbsmodules-archiver.html#flags-prop"/>
             <keyword name="flags" id="ib::flags" ref="qml-qbsmodules-ib.html#flags-prop"/>
+            <keyword name="flatbuf.c" id="QML.flatbuf.c" ref="qml-qbsmodules-flatbuf-c.html"/>
+            <keyword name="flatbuf.c" id="QML.QbsModules.flatbuf.c" ref="qml-qbsmodules-flatbuf-c.html"/>
+            <keyword name="flatbuf.cpp" id="QML.flatbuf.cpp" ref="qml-qbsmodules-flatbuf-cpp.html"/>
+            <keyword name="flatbuf.cpp" id="QML.QbsModules.flatbuf.cpp" ref="qml-qbsmodules-flatbuf-cpp.html"/>
             <keyword name="flatten" id="ib::flatten" ref="qml-qbsmodules-ib.html#flatten-prop"/>
             <keyword name="forStaticBuild" id="PkgConfigProbe::forStaticBuild" ref="qml-qbsprobes-pkgconfigprobe.html#forStaticBuild-prop"/>
             <keyword name="format" id="dmg::format" ref="qml-qbsmodules-dmg.html#format-prop"/>
@@ -622,9 +639,12 @@
             <keyword name="importLibInstallDir" id="Library::importLibInstallDir" ref="qml-qbsconvenienceitems-library.html#importLibInstallDir-prop"/>
             <keyword name="importName" id="Qt.qml::importName" ref="qml-qbsmodules-qt-qml.html#importName-prop"/>
             <keyword name="importPaths" id="capnproto.cpp::importPaths" ref="qml-qbsmodules-capnproto-cpp.html#importPaths-prop"/>
+            <keyword name="importPaths" id="flatbuf.c::importPaths" ref="qml-qbsmodules-flatbuf-c.html#importPaths-prop"/>
+            <keyword name="importPaths" id="flatbuf.cpp::importPaths" ref="qml-qbsmodules-flatbuf-cpp.html#importPaths-prop"/>
             <keyword name="importPaths" id="protobuf.cpp::importPaths" ref="qml-qbsmodules-protobuf-cpp.html#importPaths-prop"/>
             <keyword name="importPaths" id="protobuf.nanopb::importPaths" ref="qml-qbsmodules-protobuf-nanopb.html#importPaths-prop"/>
             <keyword name="importPaths" id="protobuf.objc::importPaths" ref="qml-qbsmodules-protobuf-objc.html#importPaths-prop"/>
+            <keyword name="importPrivateLibraries" id="cpp::importPrivateLibraries" ref="qml-qbsmodules-cpp.html#importPrivateLibraries-prop"/>
             <keyword name="importVersion" id="Qt.qml::importVersion" ref="qml-qbsmodules-qt-qml.html#importVersion-prop"/>
             <keyword name="incPath" id="Qt.core::incPath" ref="qml-qbsmodules-qt-core.html#incPath-prop"/>
             <keyword name="includePath" id="protobuf.nanopb::includePath" ref="qml-qbsmodules-protobuf-nanopb.html#includePath-prop"/>
@@ -633,6 +653,7 @@
             <keyword name="includePaths" id="innosetup::includePaths" ref="qml-qbsmodules-innosetup.html#includePaths-prop"/>
             <keyword name="includePaths" id="wix::includePaths" ref="qml-qbsmodules-wix.html#includePaths-prop"/>
             <keyword name="includePaths" id="PkgConfigProbe::includePaths" ref="qml-qbsprobes-pkgconfigprobe.html#includePaths-prop"/>
+            <keyword name="includePrefix" id="flatbuf.cpp::includePrefix" ref="qml-qbsmodules-flatbuf-cpp.html#includePrefix-prop"/>
             <keyword name="infoPlist" id="bundle::infoPlist" ref="qml-qbsmodules-bundle.html#infoPlist-prop"/>
             <keyword name="infoPlistFormat" id="bundle::infoPlistFormat" ref="qml-qbsmodules-bundle.html#infoPlistFormat-prop"/>
             <keyword name="infoPlistPath" id="bundle::infoPlistPath" ref="qml-qbsmodules-bundle.html#infoPlistPath-prop"/>
@@ -652,6 +673,7 @@
             <keyword name="installDir" id="Application::installDir" ref="qml-qbsconvenienceitems-application.html#installDir-prop"/>
             <keyword name="installDir" id="Library::installDir" ref="qml-qbsconvenienceitems-library.html#installDir-prop"/>
             <keyword name="installDir" id="qbs::installDir" ref="qml-qbsmodules-qbs.html#installDir-prop"/>
+            <keyword name="installDirectory" id="conan::installDirectory" ref="qml-qbsmoduleproviders-conan.html#installDirectory-prop"/>
             <keyword name="installImportLib" id="Library::installImportLib" ref="qml-qbsconvenienceitems-library.html#installImportLib-prop"/>
             <keyword name="installPrefix" id="qbs::installPrefix" ref="qml-qbsmodules-qbs.html#installPrefix-prop"/>
             <keyword name="installRoot" id="qbs::installRoot" ref="qml-qbsmodules-qbs.html#installRoot-prop"/>
@@ -671,6 +693,7 @@
             <keyword name="jobCount" id="JobLimit::jobCount" ref="qml-qbslanguageitems-joblimit.html#jobCount-prop"/>
             <keyword name="jobPool" id="JobLimit::jobPool" ref="qml-qbslanguageitems-joblimit.html#jobPool-prop"/>
             <keyword name="json" id="ConanfileProbe::json" ref="qml-qbsprobes-conanfileprobe.html#json-prop"/>
+            <keyword name="keepPrefix" id="flatbuf.cpp::keepPrefix" ref="qml-qbsmodules-flatbuf-cpp.html#keepPrefix-prop"/>
             <keyword name="keyAlias" id="codesign::keyAlias" ref="qml-qbsmodules-codesign.html#keyAlias-prop"/>
             <keyword name="keyPassword" id="codesign::keyPassword" ref="qml-qbsmodules-codesign.html#keyPassword-prop"/>
             <keyword name="keystorePassword" id="codesign::keystorePassword" ref="qml-qbsmodules-codesign.html#keystorePassword-prop"/>
@@ -1258,6 +1281,8 @@
             <file>qml-qbslanguageitems-scanner.html</file>
             <file>qml-qbslanguageitems-subproject-members.html</file>
             <file>qml-qbslanguageitems-subproject.html</file>
+            <file>qml-qbsmoduleproviders-conan-members.html</file>
+            <file>qml-qbsmoduleproviders-conan.html</file>
             <file>qml-qbsmoduleproviders-qbspkgconfig-members.html</file>
             <file>qml-qbsmoduleproviders-qbspkgconfig.html</file>
             <file>qml-qbsmoduleproviders-qt-members.html</file>
@@ -1289,6 +1314,10 @@
             <file>qml-qbsmodules-exporter-pkgconfig.html</file>
             <file>qml-qbsmodules-exporter-qbs-members.html</file>
             <file>qml-qbsmodules-exporter-qbs.html</file>
+            <file>qml-qbsmodules-flatbuf-c-members.html</file>
+            <file>qml-qbsmodules-flatbuf-c.html</file>
+            <file>qml-qbsmodules-flatbuf-cpp-members.html</file>
+            <file>qml-qbsmodules-flatbuf-cpp.html</file>
             <file>qml-qbsmodules-freedesktop-members.html</file>
             <file>qml-qbsmodules-freedesktop.html</file>
             <file>qml-qbsmodules-ib-members.html</file>
@@ -1376,6 +1405,7 @@
             <file>tutorial-6.html</file>
             <file>tutorial-7.html</file>
             <file>tutorial-8.html</file>
+            <file>tutorial-9.html</file>
             <file>tutorial.html</file>
             <file>usage.html</file>
         </files>

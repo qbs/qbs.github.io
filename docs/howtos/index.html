@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual How-tos Qbs 2.3.1 Configurable Library Reference Contents How do I build a Qt-based project? How do I make my app build against my library? Choosing Between Dynamic and Statically-built Qt Projects How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled? ">
+    <meta name="description" content="Qbs Manual How-tos Qbs 2.4.0 Configurable Library Reference Contents How do I build a Qt-based project? How do I make my app build against my library? Choosing Between Dynamic and Statically-built Qt Projects How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled? ">
     <link rel="canonical" href="https://qbs.io/docs/howtos/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -19,7 +19,7 @@
     <meta property="og:url" content="https://qbs.io/docs/howtos/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual How-tos Qbs 2.3.1 Configurable Library Reference Contents How do I build a Qt-based project? How do I make my app build against my library? Choosing Between Dynamic and Statically-built Qt Projects How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled?">
+  <meta property="og:description" content="Qbs Manual How-tos Qbs 2.4.0 Configurable Library Reference Contents How do I build a Qt-based project? How do I make my app build against my library? Choosing Between Dynamic and Statically-built Qt Projects How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled?">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -27,7 +27,7 @@
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual How-tos Qbs 2.3.1 Configurable Library Reference Contents How do I build a Qt-based project? How do I make my app build against my library? Choosing Between Dynamic and Statically-built Qt Projects How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled?">
+  <meta name="twitter:description" content="Qbs Manual How-tos Qbs 2.4.0 Configurable Library Reference Contents How do I build a Qt-based project? How do I make my app build against my library? Choosing Between Dynamic and Statically-built Qt Projects How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled?">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -62,7 +62,7 @@
 <li><a href="https://qbs.io/
 /docs" translate="no">Qbs Manual</a></li>
 <li>How-tos</li>
-<li id="buildversion">Qbs 2.3.1</li>
+<li id="buildversion">Qbs 2.4.0</li>
   <link rel="prev" href="https://qbs.io/
 /docs/tutorial-8/">
   <link rel="next" href="https://qbs.io/
@@ -225,7 +225,7 @@ $ qbs</pre>
     cpp<span class="operator">.</span>separateDebugInformation: <span class="keyword">true</span>
 }</pre>
 <p>Now, you can install your <a href="https://qbs.io/
-/docs/tutorial-1/" translate="no">application</a>, <a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-application/" translate="no">application</a>, <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-dynamiclibrary/" translate="no">dynamic library</a> or <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-loadablemodule/" translate="no">loadable module</a> among with its debugging symbols as follows:</p>
 <pre class="cpp" translate="no">CppApplication {
@@ -468,7 +468,7 @@ Module {
 /docs/qml-qbsconvenienceitems-staticlibrary/" translate="no">StaticLibrary</a> item in the example above.</p>
 <div class="admonition note">
 <p><b>Note: </b>When using the <a href="https://qbs.io/
-/docs/tutorial-1/" translate="no">Application</a> item (or convenience items, such as <a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-application/" translate="no">Application</a> item (or convenience items, such as <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-cppapplication/" translate="no">CppApplication</a>, <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-dynamiclibrary/" translate="no">DynamicLibrary</a>, and <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-staticlibrary/" translate="no">StaticLibrary</a>), your products will be built as bundles on Apple platforms by default (this behavior is subject to change in a future release).</p>

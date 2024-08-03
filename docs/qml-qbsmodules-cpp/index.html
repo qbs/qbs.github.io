@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual QbsModules cpp Qbs 2.3.1 Contents Properties Detailed Description Setting Up the Run Environment Dependency Parameters Relevant File Tags Relevant Job Pools cpp QML Type Provides C/C&#43;&#43; support. More...
+    <meta name="description" content="Qbs Manual QbsModules cpp Qbs 2.4.0 Contents Properties Detailed Description Setting Up the Run Environment Dependency Parameters Relevant File Tags Relevant Job Pools cpp QML Type Provides C/C&#43;&#43; support. More...
 Import Statement: import QbsModules Since: Qbs 1.0 List of all members, including inherited members Deprecated members Properties allowUnresolvedSymbols : bool (since Qbs 1.2) alwaysUseLipo : bool (since Qbs 1.9) architecture : string archiverName : string archiverPath : string assemblerFlags : stringList (since Qbs 1. ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-cpp/" />
 
@@ -20,7 +20,7 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-cpp/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual QbsModules cpp Qbs 2.3.1 Contents Properties Detailed Description Setting Up the Run Environment Dependency Parameters Relevant File Tags Relevant Job Pools cpp QML Type Provides C/C&#43;&#43; support. More...
+  <meta property="og:description" content="Qbs Manual QbsModules cpp Qbs 2.4.0 Contents Properties Detailed Description Setting Up the Run Environment Dependency Parameters Relevant File Tags Relevant Job Pools cpp QML Type Provides C/C&#43;&#43; support. More...
 Import Statement: import QbsModules Since: Qbs 1.0 List of all members, including inherited members Deprecated members Properties allowUnresolvedSymbols : bool (since Qbs 1.2) alwaysUseLipo : bool (since Qbs 1.9) architecture : string archiverName : string archiverPath : string assemblerFlags : stringList (since Qbs 1.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
@@ -29,7 +29,7 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual QbsModules cpp Qbs 2.3.1 Contents Properties Detailed Description Setting Up the Run Environment Dependency Parameters Relevant File Tags Relevant Job Pools cpp QML Type Provides C/C&#43;&#43; support. More...
+  <meta name="twitter:description" content="Qbs Manual QbsModules cpp Qbs 2.4.0 Contents Properties Detailed Description Setting Up the Run Environment Dependency Parameters Relevant File Tags Relevant Job Pools cpp QML Type Provides C/C&#43;&#43; support. More...
 Import Statement: import QbsModules Since: Qbs 1.0 List of all members, including inherited members Deprecated members Properties allowUnresolvedSymbols : bool (since Qbs 1.2) alwaysUseLipo : bool (since Qbs 1.9) architecture : string archiverName : string archiverPath : string assemblerFlags : stringList (since Qbs 1.">
 
 </head>
@@ -67,7 +67,7 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>cpp</li>
-<li id="buildversion">Qbs 2.3.1</li>
+<li id="buildversion">Qbs 2.4.0</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -232,6 +232,8 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 /docs/qml-qbsmodules-cpp/#generateLinkerMapFile-prop" translate="no">generateLinkerMapFile</a></b> : bool <code class="summary extra" translate="no">(since Qbs 1.13)</code></li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#generateManifestFile-prop" translate="no">generateManifestFile</a></b> : bool <code class="summary extra" translate="no">(since Qbs 1.5.0)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-cpp/#importPrivateLibraries-prop" translate="no">importPrivateLibraries</a></b> : string <code class="summary extra" translate="no">(since Qbs 2.4)</code></li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#includePaths-prop" translate="no">includePaths</a></b> : pathList</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
@@ -980,6 +982,38 @@ Import Statement: import QbsModules Since: Qbs 1.0 List of all members, includin
 <p>Default: <code translate="no">true</code></p>
 <p>This property was introduced in Qbs 1.5.0.</p>
 </div></div><!-- @@@generateManifestFile -->
+<br>
+<!-- $$$importPrivateLibraries -->
+<div class="qmlitem"><h3 class="qmlproto">importPrivateLibraries: string</h3>
+<div class="qmldoc"><p>Whether to automatically import external libraries from dependencies.</p>
+<p>If set to true in the product that depends on the static library, the external dependencies (such as <a href="https://qbs.io/
+/docs/qml-qbsmodules-cpp/#staticLibraries-prop" translate="no">staticLibraries</a> and <a href="https://qbs.io/
+/docs/qml-qbsmodules-cpp/#dynamicLibraries-prop" translate="no">dynamicLibraries</a>) of this library are also added to products that depend on this library.</p>
+<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-staticlibrary/" translate="no">StaticLibrary</a></span> {
+    <span class="name">files</span>: <span class="string">"lib.cpp"</span>
+    <span class="name">cpp</span>.staticLibraries: [<span class="string">"l"</span>, <span class="string">"y"</span>]
+}</pre>
+<p>If set to false, the explicit <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-export/" translate="no">Export</a> item is required:</p>
+<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-staticlibrary/" translate="no">StaticLibrary</a></span> {
+    <span class="name">files</span>: <span class="string">"lib.cpp"</span>
+    <span class="type"><a href="https://qbs.io/
+/docs/qml-qbslanguageitems-export/" translate="no">Export</a></span> {
+        <span class="type"><a href="https://qbs.io/
+/docs/qml-qbslanguageitems-depends/" translate="no">Depends</a></span> { <span class="name">name</span>: <span class="string">"cpp"</span> }
+        <span class="name">cpp</span>.staticLibraries: [<span class="string">"l"</span>, <span class="string">"y"</span>]
+    }
+}</pre>
+<p>We recommend using the <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-export/" translate="no">Export</a> item as it provides more flexibility.</p>
+<div class="admonition note">
+<p><b>Note: </b>The default value is subject to change.</p>
+</div>
+<p>Default: <code translate="no">true</code></p>
+<p>This property was introduced in Qbs 2.4.</p>
+</div></div><!-- @@@importPrivateLibraries -->
 <br>
 <!-- $$$includePaths -->
 <div class="qmlitem"><h3 class="qmlproto">includePaths: pathList</h3>

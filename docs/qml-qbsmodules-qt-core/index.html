@@ -3,8 +3,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual QbsModules Qt.core Qbs 2.3.1 Contents Properties Detailed Description Relevant File Tags Qt.core QML Type Provides Qt Core support. More...
-Import Statement: import QbsModules List of all members, including inherited members Properties availableBuildVariants : stringList binPath : path combineMocOutput : bool config : stringList docPath : path enableBigResources : bool enableKeywords : bool frameworkBuild : bool generateMetaTypesFile : bool (since Qbs 1.16) generatedHeadersDir : string incPath : path libInfix : string libPath : path lreleaseMultiplexMode : bool lreleaseName : string metaTypesInstallDir : bool (since Qbs 1. ">
+    <meta name="description" content="Qbs Manual QbsModules Qt.core Qbs 2.4.0 Contents Properties Detailed Description Relevant File Tags Qt.core QML Type Provides Qt Core support. More...
+Import Statement: import QbsModules List of all members, including inherited members Properties availableBuildVariants : stringList binPath : path combineMocOutput : bool config : stringList disabledFeatures : stringList docPath : path enableBigResources : bool enableKeywords : bool enabledFeatures : stringList frameworkBuild : bool generateMetaTypesFile : bool (since Qbs 1.16) generatedHeadersDir : string incPath : path libInfix : string libPath : path lreleaseMultiplexMode : bool lreleaseName : string metaTypesInstallDir : bool (since Qbs 1. ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-qt-core/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -20,8 +20,8 @@ Import Statement: import QbsModules List of all members, including inherited mem
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-qt-core/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual QbsModules Qt.core Qbs 2.3.1 Contents Properties Detailed Description Relevant File Tags Qt.core QML Type Provides Qt Core support. More...
-Import Statement: import QbsModules List of all members, including inherited members Properties availableBuildVariants : stringList binPath : path combineMocOutput : bool config : stringList docPath : path enableBigResources : bool enableKeywords : bool frameworkBuild : bool generateMetaTypesFile : bool (since Qbs 1.16) generatedHeadersDir : string incPath : path libInfix : string libPath : path lreleaseMultiplexMode : bool lreleaseName : string metaTypesInstallDir : bool (since Qbs 1.">
+  <meta property="og:description" content="Qbs Manual QbsModules Qt.core Qbs 2.4.0 Contents Properties Detailed Description Relevant File Tags Qt.core QML Type Provides Qt Core support. More...
+Import Statement: import QbsModules List of all members, including inherited members Properties availableBuildVariants : stringList binPath : path combineMocOutput : bool config : stringList disabledFeatures : stringList docPath : path enableBigResources : bool enableKeywords : bool enabledFeatures : stringList frameworkBuild : bool generateMetaTypesFile : bool (since Qbs 1.16) generatedHeadersDir : string incPath : path libInfix : string libPath : path lreleaseMultiplexMode : bool lreleaseName : string metaTypesInstallDir : bool (since Qbs 1.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -29,8 +29,8 @@ Import Statement: import QbsModules List of all members, including inherited mem
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual QbsModules Qt.core Qbs 2.3.1 Contents Properties Detailed Description Relevant File Tags Qt.core QML Type Provides Qt Core support. More...
-Import Statement: import QbsModules List of all members, including inherited members Properties availableBuildVariants : stringList binPath : path combineMocOutput : bool config : stringList docPath : path enableBigResources : bool enableKeywords : bool frameworkBuild : bool generateMetaTypesFile : bool (since Qbs 1.16) generatedHeadersDir : string incPath : path libInfix : string libPath : path lreleaseMultiplexMode : bool lreleaseName : string metaTypesInstallDir : bool (since Qbs 1.">
+  <meta name="twitter:description" content="Qbs Manual QbsModules Qt.core Qbs 2.4.0 Contents Properties Detailed Description Relevant File Tags Qt.core QML Type Provides Qt Core support. More...
+Import Statement: import QbsModules List of all members, including inherited members Properties availableBuildVariants : stringList binPath : path combineMocOutput : bool config : stringList disabledFeatures : stringList docPath : path enableBigResources : bool enableKeywords : bool enabledFeatures : stringList frameworkBuild : bool generateMetaTypesFile : bool (since Qbs 1.16) generatedHeadersDir : string incPath : path libInfix : string libPath : path lreleaseMultiplexMode : bool lreleaseName : string metaTypesInstallDir : bool (since Qbs 1.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -67,7 +67,7 @@ Import Statement: import QbsModules List of all members, including inherited mem
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>Qt.core</li>
-<li id="buildversion">Qbs 2.3.1</li>
+<li id="buildversion">Qbs 2.4.0</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -98,11 +98,15 @@ Import Statement: import QbsModules List of all members, including inherited mem
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-qt-core/#config-prop" translate="no">config</a></b> : stringList</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-core/#disabledFeatures-prop" translate="no">disabledFeatures</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-qt-core/#docPath-prop" translate="no">docPath</a></b> : path</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-qt-core/#enableBigResources-prop" translate="no">enableBigResources</a></b> : bool</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-qt-core/#enableKeywords-prop" translate="no">enableKeywords</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-core/#enabledFeatures-prop" translate="no">enabledFeatures</a></b> : stringList</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-qt-core/#frameworkBuild-prop" translate="no">frameworkBuild</a></b> : bool</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
@@ -222,6 +226,11 @@ Import Statement: import QbsModules List of all members, including inherited mem
 <p>Default: <code translate="no">[]</code></p>
 </div></div><!-- @@@config -->
 <br>
+<!-- $$$disabledFeatures -->
+<div class="qmlitem"><h3 class="qmlproto">disabledFeatures: stringList</h3>
+<div class="qmldoc"><p>Corresponds to cmake's <code translate="no">QT_DISABLED_PUBLIC_FEATURES</code> variable.</p>
+</div></div><!-- @@@disabledFeatures -->
+<br>
 <!-- $$$docPath -->
 <div class="qmlitem"><h3 class="qmlproto">docPath: path</h3>
 <div class="qmldoc"><p>The path in which the Qt documentation is located.</p>
@@ -239,6 +248,11 @@ Import Statement: import QbsModules List of all members, including inherited mem
 <div class="qmldoc"><p>Set this property to <code translate="no">false</code> if you do not want Qt to define the symbols <code translate="no">signals</code>, <code translate="no">slots</code>, and <code translate="no">emit</code>. This can be necessary if your project interacts with code that also defines such symbols.</p>
 <p>Default: <code translate="no">true</code></p>
 </div></div><!-- @@@enableKeywords -->
+<br>
+<!-- $$$enabledFeatures -->
+<div class="qmlitem"><h3 class="qmlproto">enabledFeatures: stringList</h3>
+<div class="qmldoc"><p>Corresponds to cmake's <code translate="no">QT_ENABLED_PUBLIC_FEATURES</code> variable.</p>
+</div></div><!-- @@@enabledFeatures -->
 <br>
 <!-- $$$frameworkBuild -->
 <div class="qmlitem"><h3 class="qmlproto">frameworkBuild: bool</h3>
