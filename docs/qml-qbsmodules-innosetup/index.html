@@ -14,7 +14,7 @@ Since: Qbs 1.7 List of all members, including inherited members Properties compi
 
     
       
-      <link rel="stylesheet" href="/css/main.min.7d27557bc1f8660bf0e026622019467fd286c7d3eb71497bb1bf1eb961a1697a.css" integrity="sha256-fSdVe8H4Zgvw4CZiIBlGf9KGx9PrcUl7sb8euWGhaXo="/>
+      <link rel="stylesheet" href="/css/main.min.9eb57175d713a80c8893d0f38bf8a299fef2d9bf4dfd914b40688b581afa80bd.css" integrity="sha256-nrVxddcTqAyIk9Dzi/iimf7y2b9N/ZFLQGiLWBr6gL0="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-innosetup/">
@@ -131,27 +131,47 @@ Since: Qbs 1.7 List of all members, including inherited members Properties compi
 <!-- @@@innosetup -->
 <h2>Property Documentation</h2>
 <!-- $$$compilerFlags -->
-<div class="qmlitem"><h3 class="qmlproto">compilerFlags: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="compilerFlags-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">compilerFlags</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>A list of additional flags for the Inno Setup compiler.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@compilerFlags -->
 <br>
 <!-- $$$compilerName -->
-<div class="qmlitem"><h3 class="qmlproto">compilerName: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="compilerName-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">compilerName</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The name of the compiler binary.</p>
 <p>This property should not normally need to be changed.</p>
 <p>Default: <code translate="no">"ISCC.exe"</code></p>
 </div></div><!-- @@@compilerName -->
 <br>
 <!-- $$$compilerPath -->
-<div class="qmlitem"><h3 class="qmlproto">compilerPath: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="compilerPath-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">compilerPath</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The full path of the compiler binary.</p>
 <p>This property should not normally need to be changed.</p>
 <p>Default: <code translate="no">compilerName</code></p>
 </div></div><!-- @@@compilerPath -->
 <br>
 <!-- $$$defines -->
-<div class="qmlitem"><h3 class="qmlproto">defines: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="defines-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">defines</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>A list of preprocessor macros that get passed to the compiler.</p>
 <p>To set macro values, use the following syntax:</p>
 <pre class="cpp plain" translate="no">innosetup.defines: ["USE_COLORS=1", 'COLOR_STR="blanched almond"']</pre>
@@ -159,14 +179,24 @@ Since: Qbs 1.7 List of all members, including inherited members Properties compi
 </div></div><!-- @@@defines -->
 <br>
 <!-- $$$includePaths -->
-<div class="qmlitem"><h3 class="qmlproto">includePaths: pathList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="includePaths-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">includePaths</span> : <span class="type">pathList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>A list of include paths.</p>
 <p>Relative paths are considered to be relative to the <code translate="no">.qbs</code> product file they are used in.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@includePaths -->
 <br>
 <!-- $$$toolchainInstallPath -->
-<div class="qmlitem"><h3 class="qmlproto">toolchainInstallPath: path</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="toolchainInstallPath-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">toolchainInstallPath</span> : <span class="type">path</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The Inno Setup installation directory.</p>
 <p>Determined by searching the registry for the latest version.</p>
 <p>This property should not normally need to be changed.</p>
@@ -174,39 +204,69 @@ Since: Qbs 1.7 List of all members, including inherited members Properties compi
 </div></div><!-- @@@toolchainInstallPath -->
 <br>
 <!-- $$$verboseOutput -->
-<div class="qmlitem"><h3 class="qmlproto">verboseOutput: bool</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="verboseOutput-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">verboseOutput</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Whether to display verbose output from the Inno Setup compiler.</p>
 <p>Default: <code translate="no">false</code></p>
 </div></div><!-- @@@verboseOutput -->
 <br>
 <!-- $$$version -->
-<div class="qmlitem"><h3 class="qmlproto">version: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="version-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">version</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The Inno Setup version.</p>
 <p>Consists of three numbers separated by dots, for instance <code translate="no">"5.5.9"</code>.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@version -->
 <br>
 <!-- $$$versionMajor -->
-<div class="qmlitem"><h3 class="qmlproto">versionMajor: int</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="versionMajor-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">versionMajor</span> : <span class="type">int</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The Inno Setup major version.</p>
 <p>Default: <code translate="no">versionParts[0]</code></p>
 </div></div><!-- @@@versionMajor -->
 <br>
 <!-- $$$versionMinor -->
-<div class="qmlitem"><h3 class="qmlproto">versionMinor: int</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="versionMinor-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">versionMinor</span> : <span class="type">int</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The Inno Setup minor version.</p>
 <p>Default: <code translate="no">versionParts[1]</code></p>
 </div></div><!-- @@@versionMinor -->
 <br>
 <!-- $$$versionParts -->
-<div class="qmlitem"><h3 class="qmlproto">versionParts: list</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="versionParts-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">versionParts</span> : <span class="type">list</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The Inno Setup version as a list.</p>
 <p>For instance, Inno Setup version 5.5.9 would correspond to a value of <code translate="no">[5, 5, 9]</code>.</p>
 <p>Default: <code translate="no">[]</code></p>
 </div></div><!-- @@@versionParts -->
 <br>
 <!-- $$$versionPatch -->
-<div class="qmlitem"><h3 class="qmlproto">versionPatch: int</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="versionPatch-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">versionPatch</span> : <span class="type">int</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The Inno Setup patch level.</p>
 <p>Default: <code translate="no">versionParts[2]</code></p>
 </div></div><!-- @@@versionPatch -->

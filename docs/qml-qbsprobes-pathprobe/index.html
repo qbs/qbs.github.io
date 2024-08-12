@@ -15,7 +15,7 @@ List of all members, including inherited members PathProbe is part of List of Al
 
     
       
-      <link rel="stylesheet" href="/css/main.min.7d27557bc1f8660bf0e026622019467fd286c7d3eb71497bb1bf1eb961a1697a.css" integrity="sha256-fSdVe8H4Zgvw4CZiIBlGf9KGx9PrcUl7sb8euWGhaXo="/>
+      <link rel="stylesheet" href="/css/main.min.9eb57175d713a80c8893d0f38bf8a299fef2d9bf4dfd914b40688b581afa80bd.css" integrity="sha256-nrVxddcTqAyIk9Dzi/iimf7y2b9N/ZFLQGiLWBr6gL0="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsprobes-pathprobe/">
@@ -156,7 +156,12 @@ List of all members, including inherited members PathProbe is part of List of Al
 <!-- @@@PathProbe -->
 <h2>Property Documentation</h2>
 <!-- $$$allResults -->
-<div class="qmlitem"><h3 class="qmlproto">allResults: varList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="allResults-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">allResults</span> : <span class="type">varList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>This property contains the list of objects, each object representing a single found file:</p>
 <pre class="cpp" translate="no">{
     found: <span class="keyword">true</span><span class="operator">,</span>
@@ -172,7 +177,12 @@ List of all members, including inherited members PathProbe is part of List of Al
 </div></div><!-- @@@allResults -->
 <br>
 <!-- $$$candidateFilter -->
-<div class="qmlitem"><h3 class="qmlproto">candidateFilter: var</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="candidateFilter-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">candidateFilter</span> : <span class="type">var</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>This property holds the function that can be used to filter out unsuitable candidates. For example, when searching for a library, it might be necessary to check its architecture:</p>
 <pre class="cpp" translate="no">PathProbe {
     pathSuffixes: <span class="operator">[</span><span class="string">".so"</span><span class="operator">,</span> <span class="string">".dll"</span><span class="operator">,</span> <span class="string">".dylib"</span><span class="operator">]</span>
@@ -187,7 +197,12 @@ List of all members, including inherited members PathProbe is part of List of Al
 </div></div><!-- @@@candidateFilter -->
 <br>
 <!-- $$$candidatePaths -->
-<div class="qmlitem"><h3 class="qmlproto">candidatePaths: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="candidatePaths-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">candidatePaths</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>This property contains the result list of all paths that were checked before a file was found (including the file names).</p>
 <p>This property is set even if the Probe didn't find anything and can be used to give the user a hint what went wrong:</p>
 <pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
@@ -208,76 +223,136 @@ List of all members, including inherited members PathProbe is part of List of Al
 </div></div><!-- @@@candidatePaths -->
 <br>
 <!-- $$$environmentPaths -->
-<div class="qmlitem"><h3 class="qmlproto">environmentPaths: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="environmentPaths-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">environmentPaths</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The list of environment variables that contains paths where to search files. Paths in the environment variable should be separated using <a href="https://qbs.io/
 /docs/jsextension-fileinfo/#pathlistseparator" translate="no">FileInfo.pathListSeparator()</a>.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@environmentPaths -->
 <br>
 <!-- $$$fileName -->
-<div class="qmlitem"><h3 class="qmlproto">fileName: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="fileName-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">fileName</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>This property contains the found file's name (excluding the path).</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@fileName -->
 <br>
 <!-- $$$filePath -->
-<div class="qmlitem"><h3 class="qmlproto">filePath: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="filePath-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">filePath</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>This property contains the full path to the found file, including the file name.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@filePath -->
 <br>
 <!-- $$$nameFilter -->
-<div class="qmlitem"><h3 class="qmlproto">nameFilter: script</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="nameFilter-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">nameFilter</span> : <span class="type">script</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>A script that is executed for each file name before prepending file suffixes. Can be used to transform file names.</p>
 </div></div><!-- @@@nameFilter -->
 <br>
 <!-- $$$nameSuffixes -->
-<div class="qmlitem"><h3 class="qmlproto">nameSuffixes: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="nameSuffixes-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">nameSuffixes</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The list of file suffixes to search for. These suffixes are appended to every file name passed via the <a href="https://qbs.io/
 /docs/qml-qbsprobes-pathprobe/#names-prop" translate="no">names</a> property.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@nameSuffixes -->
 <br>
 <!-- $$$names -->
-<div class="qmlitem"><h3 class="qmlproto">names: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="names-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">names</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The list of file names to search for.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@names -->
 <br>
 <!-- $$$path -->
-<div class="qmlitem"><h3 class="qmlproto">path: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="path-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">path</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>This property contains the full path where the found file is located (that is, the file directory).</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@path -->
 <br>
 <!-- $$$pathSuffixes -->
-<div class="qmlitem"><h3 class="qmlproto">pathSuffixes: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="pathSuffixes-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">pathSuffixes</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>A list of relative paths that are appended to each path where <a href="https://qbs.io/
 /docs/qml-qbsprobes-pathprobe/" translate="no">PathProbe</a> searches for files. That is, the file should be located within one of the subfolders passed using this property.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@pathSuffixes -->
 <br>
 <!-- $$$platformEnvironmentPaths -->
-<div class="qmlitem"><h3 class="qmlproto">platformEnvironmentPaths: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="platformEnvironmentPaths-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">platformEnvironmentPaths</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The list of platform environment variables that contains paths where to search files. Paths in the environment variable should be separated using <a href="https://qbs.io/
 /docs/jsextension-fileinfo/#pathlistseparator" translate="no">FileInfo.pathListSeparator()</a>.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@platformEnvironmentPaths -->
 <br>
 <!-- $$$platformSearchPaths -->
-<div class="qmlitem"><h3 class="qmlproto">platformSearchPaths: pathList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="platformSearchPaths-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">platformSearchPaths</span> : <span class="type">pathList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The list of platform paths where to search files.</p>
 <p>Default: <code translate="no">['/usr', '/usr/local']</code> on Unix hosts, empty otherwise</p>
 </div></div><!-- @@@platformSearchPaths -->
 <br>
 <!-- $$$searchPaths -->
-<div class="qmlitem"><h3 class="qmlproto">searchPaths: pathList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="searchPaths-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">searchPaths</span> : <span class="type">pathList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The list of paths where to search files.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@searchPaths -->
 <br>
 <!-- $$$selectors -->
-<div class="qmlitem"><h3 class="qmlproto">selectors: varList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="selectors-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">selectors</span> : <span class="type">varList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>This property should be used to search for multiple files. It contains the list of selectors each of which describes a single file to search for. A selector can be either a string, a stringList, or a dictionary.</p>
 <p>The following example searches for three files and illustrates different ways to specify selectors:</p>
 <pre class="cpp" translate="no">selectors: <span class="operator">[</span>

@@ -14,7 +14,7 @@ List of all members, including inherited members Properties availableBuildVarian
 
     
       
-      <link rel="stylesheet" href="/css/main.min.7d27557bc1f8660bf0e026622019467fd286c7d3eb71497bb1bf1eb961a1697a.css" integrity="sha256-fSdVe8H4Zgvw4CZiIBlGf9KGx9PrcUl7sb8euWGhaXo="/>
+      <link rel="stylesheet" href="/css/main.min.9eb57175d713a80c8893d0f38bf8a299fef2d9bf4dfd914b40688b581afa80bd.css" integrity="sha256-nrVxddcTqAyIk9Dzi/iimf7y2b9N/ZFLQGiLWBr6gL0="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-qt-core/">
@@ -201,74 +201,134 @@ List of all members, including inherited members Properties availableBuildVarian
 <!-- @@@Qt.core -->
 <h2>Property Documentation</h2>
 <!-- $$$availableBuildVariants -->
-<div class="qmlitem"><h3 class="qmlproto">availableBuildVariants: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="availableBuildVariants-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">availableBuildVariants</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The build variants that this Qt installation offers.</p>
 <p>Default: Set by <a href="https://qbs.io/
 /docs/cli-setup-qt/" translate="no">setup-qt</a>.</p>
 </div></div><!-- @@@availableBuildVariants -->
 <br>
 <!-- $$$binPath -->
-<div class="qmlitem"><h3 class="qmlproto">binPath: path</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="binPath-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">binPath</span> : <span class="type">path</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The path in which Qt tools such as <code translate="no">qmake</code>, <code translate="no">moc</code>, and so on are located.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@binPath -->
 <br>
 <!-- $$$combineMocOutput -->
-<div class="qmlitem"><h3 class="qmlproto">combineMocOutput: bool</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="combineMocOutput-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">combineMocOutput</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Whether the C++ sources created by <code translate="no">moc</code> are combined into a single C++ file per product. For projects where many header files are to be handled by <code translate="no">moc</code>, this can speed up compilation considerably. However, side effects may occur as a result of merging translation units.</p>
 <p>Default: <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#combineCxxSources-prop" translate="no">cpp.combineCxxSources</a></p>
 </div></div><!-- @@@combineMocOutput -->
 <br>
 <!-- $$$config -->
-<div class="qmlitem"><h3 class="qmlproto">config: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="config-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">config</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Corresponds to the default value of qmake's <code translate="no">CONFIG</code> variable.</p>
 <p>Default: <code translate="no">[]</code></p>
 </div></div><!-- @@@config -->
 <br>
 <!-- $$$disabledFeatures -->
-<div class="qmlitem"><h3 class="qmlproto">disabledFeatures: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="disabledFeatures-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">disabledFeatures</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Corresponds to cmake's <code translate="no">QT_DISABLED_PUBLIC_FEATURES</code> variable.</p>
 </div></div><!-- @@@disabledFeatures -->
 <br>
 <!-- $$$docPath -->
-<div class="qmlitem"><h3 class="qmlproto">docPath: path</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="docPath-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">docPath</span> : <span class="type">path</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The path in which the Qt documentation is located.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@docPath -->
 <br>
 <!-- $$$enableBigResources -->
-<div class="qmlitem"><h3 class="qmlproto">enableBigResources: bool</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="enableBigResources-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">enableBigResources</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Whether the Qt resource compiler is run in a two-pass fashion that supports the creation of big resources.</p>
 <p>Default: <code translate="no">false</code></p>
 </div></div><!-- @@@enableBigResources -->
 <br>
 <!-- $$$enableKeywords -->
-<div class="qmlitem"><h3 class="qmlproto">enableKeywords: bool</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="enableKeywords-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">enableKeywords</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Set this property to <code translate="no">false</code> if you do not want Qt to define the symbols <code translate="no">signals</code>, <code translate="no">slots</code>, and <code translate="no">emit</code>. This can be necessary if your project interacts with code that also defines such symbols.</p>
 <p>Default: <code translate="no">true</code></p>
 </div></div><!-- @@@enableKeywords -->
 <br>
 <!-- $$$enabledFeatures -->
-<div class="qmlitem"><h3 class="qmlproto">enabledFeatures: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="enabledFeatures-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">enabledFeatures</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Corresponds to cmake's <code translate="no">QT_ENABLED_PUBLIC_FEATURES</code> variable.</p>
 </div></div><!-- @@@enabledFeatures -->
 <br>
 <!-- $$$frameworkBuild -->
-<div class="qmlitem"><h3 class="qmlproto">frameworkBuild: bool</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="frameworkBuild-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">frameworkBuild</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Whether Qt was built as a framework. This is only relevant for Darwin systems.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@frameworkBuild -->
 <br>
 <!-- $$$generateMetaTypesFile -->
-<div class="qmlitem"><h3 class="qmlproto">generateMetaTypesFile: bool</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="generateMetaTypesFile-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">generateMetaTypesFile</span> : <span class="type">bool</span> <code class="details extra" translate="no">[since Qbs 1.16]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>If this property is enabled, a JSON file tagged as <code translate="no">"qt.core.metatypes"</code> will potentially be generated from metatype information collected by <code translate="no">moc</code>.</p>
 <p>Default: Undefined</p>
 <p>This property was introduced in Qbs 1.16.</p>
 </div></div><!-- @@@generateMetaTypesFile -->
 <br>
 <!-- $$$generatedHeadersDir -->
-<div class="qmlitem"><h3 class="qmlproto">generatedHeadersDir: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="generatedHeadersDir-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">generatedHeadersDir</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The directory where tools that generate headers (such as <code translate="no">moc</code> or <code translate="no">uic</code>) put resulting files.</p>
 <p>Normally, you don't need to change this property. The one use-case is when there are several files with the same file name in the Product. The file name produced by <code translate="no">moc</code> is based only on the source file's base file name (without the directory path) which leads to a conflict in the mentioned case. You can resolve the conflict by setting this property to a non-default value for one of the files. For example:</p>
 <pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
@@ -285,38 +345,68 @@ List of all members, including inherited members Properties availableBuildVarian
 </div></div><!-- @@@generatedHeadersDir -->
 <br>
 <!-- $$$incPath -->
-<div class="qmlitem"><h3 class="qmlproto">incPath: path</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="incPath-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">incPath</span> : <span class="type">path</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The base path of the Qt headers.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@incPath -->
 <br>
 <!-- $$$libInfix -->
-<div class="qmlitem"><h3 class="qmlproto">libInfix: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="libInfix-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">libInfix</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The library infix can be set at Qt build time to change the name of Qt's libraries.</p>
 <p>For example, if the infix is <code translate="no">"Test"</code>, on Unix systems, the Qt Core library will be in a file called <code translate="no">libQt5CoreTest.so</code> instead of the default <code translate="no">libQt5Core.so</code>.</p>
 <p>Default: <code translate="no">[]</code></p>
 </div></div><!-- @@@libInfix -->
 <br>
 <!-- $$$libPath -->
-<div class="qmlitem"><h3 class="qmlproto">libPath: path</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="libPath-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">libPath</span> : <span class="type">path</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The path in which the Qt libraries are located.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@libPath -->
 <br>
 <!-- $$$lreleaseMultiplexMode -->
-<div class="qmlitem"><h3 class="qmlproto">lreleaseMultiplexMode: bool</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="lreleaseMultiplexMode-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">lreleaseMultiplexMode</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>If this property is <code translate="no">true</code>, <code translate="no">lrelease</code> will merge all <code translate="no">.ts</code> files into one <code translate="no">.qm</code> file. Otherwise, one <code translate="no">.qm</code> file will be created for each <code translate="no">.ts</code> file.</p>
 <p>Default: <code translate="no">false</code></p>
 </div></div><!-- @@@lreleaseMultiplexMode -->
 <br>
 <!-- $$$lreleaseName -->
-<div class="qmlitem"><h3 class="qmlproto">lreleaseName: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="lreleaseName-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">lreleaseName</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The base name of the <code translate="no">lrelease</code> tool. Set this if your system uses a name such as <code translate="no">"lrelease-qt4"</code>.</p>
 <p>Default: <code translate="no">"lrelease"</code></p>
 </div></div><!-- @@@lreleaseName -->
 <br>
 <!-- $$$metaTypesInstallDir -->
-<div class="qmlitem"><h3 class="qmlproto">metaTypesInstallDir: bool</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="metaTypesInstallDir-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">metaTypesInstallDir</span> : <span class="type">bool</span> <code class="details extra" translate="no">[since Qbs 1.16]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The directory to install the metatypes file into. If this property is empty or undefined, the metatypes file will not be installed. If the <a href="https://qbs.io/
 /docs/qml-qbsmodules-qt-core/#generateMetaTypesFile-prop" translate="no">generateMetaTypesFile</a> property is not <code translate="no">true</code>, then this property has no effect.</p>
 <p>Default: Undefined</p>
@@ -324,34 +414,59 @@ List of all members, including inherited members Properties availableBuildVarian
 </div></div><!-- @@@metaTypesInstallDir -->
 <br>
 <!-- $$$mkspecPath -->
-<div class="qmlitem"><h3 class="qmlproto">mkspecPath: path</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="mkspecPath-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">mkspecPath</span> : <span class="type">path</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The path in which the Qt <code translate="no">mkspecs</code> are located.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@mkspecPath -->
 <br>
 <!-- $$$mocFlags -->
-<div class="qmlitem"><h3 class="qmlproto">mocFlags: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="mocFlags-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">mocFlags</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>A list of additional flags to <code translate="no">moc</code>.</p>
 <p>You will rarely need to set this property.</p>
 <p>Default: <code translate="no">[]</code></p>
 </div></div><!-- @@@mocFlags -->
 <br>
 <!-- $$$mocName -->
-<div class="qmlitem"><h3 class="qmlproto">mocName: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="mocName-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">mocName</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The base name of the <code translate="no">moc</code> tool.</p>
 <p>Set this if your system uses a name such as <code translate="no">"moc-qt4"</code>.</p>
 <p>Default: <code translate="no">"moc"</code></p>
 </div></div><!-- @@@mocName -->
 <br>
 <!-- $$$namespace -->
-<div class="qmlitem"><h3 class="qmlproto">namespace: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="namespace-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">namespace</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The Qt namespace that can be set at build time via the <code translate="no">configure</code> script.</p>
 <p>By default, Qt is not built in a namespace.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@namespace -->
 <br>
 <!-- $$$pluginMetaData -->
-<div class="qmlitem"><h3 class="qmlproto">pluginMetaData: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="pluginMetaData-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">pluginMetaData</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>A list of additional plugin metadata.</p>
 <p>The elements of the list are key-value pairs separated by the <code translate="no">=</code> character.</p>
 <p>A possible use case is to set the plugin URI when building a static QML plugin:</p>
@@ -360,31 +475,56 @@ List of all members, including inherited members Properties availableBuildVarian
 </div></div><!-- @@@pluginMetaData -->
 <br>
 <!-- $$$pluginPath -->
-<div class="qmlitem"><h3 class="qmlproto">pluginPath: path</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="pluginPath-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">pluginPath</span> : <span class="type">path</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The path in which the Qt plugins are located.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@pluginPath -->
 <br>
 <!-- $$$qdocEnvironment -->
-<div class="qmlitem"><h3 class="qmlproto">qdocEnvironment: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="qdocEnvironment-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">qdocEnvironment</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The environment for calls to <code translate="no">qdoc</code>. Typically, you will need to set some variables here when running <code translate="no">qdoc</code> to build your project documentation.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@qdocEnvironment -->
 <br>
 <!-- $$$qdocName -->
-<div class="qmlitem"><h3 class="qmlproto">qdocName: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="qdocName-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">qdocName</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The base name of the <code translate="no">qdoc</code> tool.</p>
 <p>Default: <code translate="no">"qdoc3"</code> for Qt 4, <code translate="no">"qdoc"</code> otherwise.</p>
 </div></div><!-- @@@qdocName -->
 <br>
 <!-- $$$qdocOutputDir -->
-<div class="qmlitem"><h3 class="qmlproto">qdocOutputDir: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="qdocOutputDir-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">qdocOutputDir</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The directory name where the <code translate="no">qdoc</code> tool writes its output.</p>
 <p>Default: <code translate="no">product.buildDirectory + "/qdoc_html"</code></p>
 </div></div><!-- @@@qdocOutputDir -->
 <br>
 <!-- $$$qmBaseName -->
-<div class="qmlitem"><h3 class="qmlproto">qmBaseName: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="qmBaseName-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">qmBaseName</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The base name of the <code translate="no">.qm</code> file to be built from the <code translate="no">.ts</code> files in the product.</p>
 <p>This property is ignored if <a href="https://qbs.io/
 /docs/qml-qbsmodules-qt-core/#lreleaseMultiplexMode-prop" translate="no">lreleaseMultiplexMode</a> is <code translate="no">false</code>.</p>
@@ -393,14 +533,24 @@ List of all members, including inherited members Properties availableBuildVarian
 </div></div><!-- @@@qmBaseName -->
 <br>
 <!-- $$$qmDir -->
-<div class="qmlitem"><h3 class="qmlproto">qmDir: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="qmDir-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">qmDir</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The directory name where to put the <code translate="no">.qm</code> file to be built.</p>
 <p>Default: <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#destinationDirectory-prop" translate="no">product.destinationDirectory</a></p>
 </div></div><!-- @@@qmDir -->
 <br>
 <!-- $$$qtBuildVariant -->
-<div class="qmlitem"><h3 class="qmlproto">qtBuildVariant: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="qtBuildVariant-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">qtBuildVariant</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Specifies the type of Qt libraries to build against: <code translate="no">"debug"</code> or <code translate="no">"release"</code>.</p>
 <div class="admonition note">
 <p><b>Note: </b>On some systems, it is not possible to link code built in debug mode against libraries built in release mode and vice versa.</p>
@@ -409,13 +559,23 @@ List of all members, including inherited members Properties availableBuildVarian
 </div></div><!-- @@@qtBuildVariant -->
 <br>
 <!-- $$$qtConfig -->
-<div class="qmlitem"><h3 class="qmlproto">qtConfig: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="qtConfig-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">qtConfig</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Corresponds to the default value of qmake's <code translate="no">QT_CONFIG</code> variable.</p>
 <p>Default: <code translate="no">[]</code></p>
 </div></div><!-- @@@qtConfig -->
 <br>
 <!-- $$$resourceFileBaseName -->
-<div class="qmlitem"><h3 class="qmlproto">resourceFileBaseName: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="resourceFileBaseName-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">resourceFileBaseName</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>For files tagged as <a href="https://qbs.io/
 /docs/qml-qbsmodules-qt-core/#filetags-qtcore" translate="no">qt.core.resource_data</a>, this property determines the base name of the generated <code translate="no">.qrc</code> file.</p>
 <p>If this property needs to be changed, it must be set in the corresponding <a href="https://qbs.io/
@@ -426,27 +586,47 @@ List of all members, including inherited members Properties availableBuildVarian
 </div></div><!-- @@@resourceFileBaseName -->
 <br>
 <!-- $$$resourcePrefix -->
-<div class="qmlitem"><h3 class="qmlproto">resourcePrefix: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="resourcePrefix-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">resourcePrefix</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>For files tagged as <a href="https://qbs.io/
 /docs/qml-qbsmodules-qt-core/#filetags-qtcore" translate="no">qt.core.resource_data</a>, this property determines the prefix under which they will be available in the generated <code translate="no">.qrc</code> file.</p>
 <p>Default: <code translate="no">"/"</code></p>
 </div></div><!-- @@@resourcePrefix -->
 <br>
 <!-- $$$resourceSourceBase -->
-<div class="qmlitem"><h3 class="qmlproto">resourceSourceBase: path</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="resourceSourceBase-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">resourceSourceBase</span> : <span class="type">path</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>For files tagged as <a href="https://qbs.io/
 /docs/qml-qbsmodules-qt-core/#filetags-qtcore" translate="no">qt.core.resource_data</a>, this property determines which part of their path will end up in the generated <code translate="no">.qrc</code> file. If this property is set to <code translate="no">undefined</code>, only the file name is used.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@resourceSourceBase -->
 <br>
 <!-- $$$staticBuild -->
-<div class="qmlitem"><h3 class="qmlproto">staticBuild: bool</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="staticBuild-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">staticBuild</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Whether Qt was built statically.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@staticBuild -->
 <br>
 <!-- $$$useRPaths -->
-<div class="qmlitem"><h3 class="qmlproto">useRPaths: bool</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="useRPaths-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">useRPaths</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Whether to add <a href="https://qbs.io/
 /docs/qml-qbsmodules-qt-core/#libPath-prop" translate="no">Qt.core.libPath</a> to <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#rpaths-prop" translate="no">cpp.rpaths</a>.</p>
@@ -454,33 +634,58 @@ List of all members, including inherited members Properties availableBuildVarian
 </div></div><!-- @@@useRPaths -->
 <br>
 <!-- $$$version -->
-<div class="qmlitem"><h3 class="qmlproto">version: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="version-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">version</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The Qt version.</p>
 <p>Consists of three numbers separated by dots. For example "5.9.1".</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@version -->
 <br>
 <!-- $$$versionMajor -->
-<div class="qmlitem"><h3 class="qmlproto">versionMajor: int</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="versionMajor-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">versionMajor</span> : <span class="type">int</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The Qt major version.</p>
 <p>Default: <code translate="no">versionParts[0]</code></p>
 </div></div><!-- @@@versionMajor -->
 <br>
 <!-- $$$versionMinor -->
-<div class="qmlitem"><h3 class="qmlproto">versionMinor: int</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="versionMinor-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">versionMinor</span> : <span class="type">int</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The Qt minor version.</p>
 <p>Default: <code translate="no">versionParts[1]</code></p>
 </div></div><!-- @@@versionMinor -->
 <br>
 <!-- $$$versionParts -->
-<div class="qmlitem"><h3 class="qmlproto">versionParts: list</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="versionParts-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">versionParts</span> : <span class="type">list</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The Qt version as a list.</p>
 <p>For example, Qt version 5.9.1 would correspond to a value of <code translate="no">[5, 9, 1]</code>.</p>
 <p>Default: <code translate="no">[]</code></p>
 </div></div><!-- @@@versionParts -->
 <br>
 <!-- $$$versionPatch -->
-<div class="qmlitem"><h3 class="qmlproto">versionPatch: int</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="versionPatch-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">versionPatch</span> : <span class="type">int</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The Qt patch level.</p>
 <p>Default: <code translate="no">versionParts[2]</code></p>
 </div></div><!-- @@@versionPatch -->

@@ -5,7 +5,7 @@
     <title>Qbs</title>
     <meta name="description" content="Qbs Manual QbsModules pkgconfig Qbs 2.4.0 Contents Properties Detailed Description pkgconfig Allows to configure the pkg-config tool. More...
 Since: Qt 1.13 List of all members, including inherited members Properties executableFilePath : string libDirs : stringList staticMode : bool sysroot : path Detailed Description The pkgconfig module is used to fine-tune the behavior of the pkg-config tool, which is potentially employed when looking up dependencies.
-Property Documentation executableFilePath: string The path to the pkg-config executable. ">
+Property Documentation executableFilePath : string ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-pkgconfig/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -15,7 +15,7 @@ Property Documentation executableFilePath: string The path to the pkg-config exe
 
     
       
-      <link rel="stylesheet" href="/css/main.min.7d27557bc1f8660bf0e026622019467fd286c7d3eb71497bb1bf1eb961a1697a.css" integrity="sha256-fSdVe8H4Zgvw4CZiIBlGf9KGx9PrcUl7sb8euWGhaXo="/>
+      <link rel="stylesheet" href="/css/main.min.9eb57175d713a80c8893d0f38bf8a299fef2d9bf4dfd914b40688b581afa80bd.css" integrity="sha256-nrVxddcTqAyIk9Dzi/iimf7y2b9N/ZFLQGiLWBr6gL0="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-pkgconfig/">
@@ -23,7 +23,7 @@ Property Documentation executableFilePath: string The path to the pkg-config exe
   <meta property="og:title" content="Qbs">
   <meta property="og:description" content="Qbs Manual QbsModules pkgconfig Qbs 2.4.0 Contents Properties Detailed Description pkgconfig Allows to configure the pkg-config tool. More...
 Since: Qt 1.13 List of all members, including inherited members Properties executableFilePath : string libDirs : stringList staticMode : bool sysroot : path Detailed Description The pkgconfig module is used to fine-tune the behavior of the pkg-config tool, which is potentially employed when looking up dependencies.
-Property Documentation executableFilePath: string The path to the pkg-config executable.">
+Property Documentation executableFilePath : string">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -33,7 +33,7 @@ Property Documentation executableFilePath: string The path to the pkg-config exe
   <meta name="twitter:title" content="Qbs">
   <meta name="twitter:description" content="Qbs Manual QbsModules pkgconfig Qbs 2.4.0 Contents Properties Detailed Description pkgconfig Allows to configure the pkg-config tool. More...
 Since: Qt 1.13 List of all members, including inherited members Properties executableFilePath : string libDirs : stringList staticMode : bool sysroot : path Detailed Description The pkgconfig module is used to fine-tune the behavior of the pkg-config tool, which is potentially employed when looking up dependencies.
-Property Documentation executableFilePath: string The path to the pkg-config executable.">
+Property Documentation executableFilePath : string">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -107,13 +107,23 @@ Property Documentation executableFilePath: string The path to the pkg-config exe
 <!-- @@@pkgconfig -->
 <h2>Property Documentation</h2>
 <!-- $$$executableFilePath -->
-<div class="qmlitem"><h3 class="qmlproto">executableFilePath: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="executableFilePath-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">executableFilePath</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The path to the <code translate="no">pkg-config</code> executable.</p>
 <p>Default: auto-detected</p>
 </div></div><!-- @@@executableFilePath -->
 <br>
 <!-- $$$libDirs -->
-<div class="qmlitem"><h3 class="qmlproto">libDirs: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="libDirs-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">libDirs</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Set this if you need to overwrite the default search directories. The values given here will be forwarded to the tool via the <code translate="no">PKG_CONFIG_LIBDIR</code> environment variable.</p>
 <div class="admonition note">
 <p><b>Note: </b>You do not need to set this for cross-compilation in order to point <code translate="no">pkg-config</code> to the sysroot. Qbs does that for you.</p>
@@ -122,13 +132,23 @@ Property Documentation executableFilePath: string The path to the pkg-config exe
 </div></div><!-- @@@libDirs -->
 <br>
 <!-- $$$staticMode -->
-<div class="qmlitem"><h3 class="qmlproto">staticMode: bool</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="staticMode-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">staticMode</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>If this property is <code translate="no">true</code>, then calls to <code translate="no">pkg-config</code> will include the <code translate="no">--static</code> option. Set this if your product is to be linked statically.</p>
 <p>Default: <code translate="no">false</code></p>
 </div></div><!-- @@@staticMode -->
 <br>
 <!-- $$$sysroot -->
-<div class="qmlitem"><h3 class="qmlproto">sysroot: path</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="sysroot-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">sysroot</span> : <span class="type">path</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>This property controls the value of the <a href="https://qbs.io/
 /docs/qml-qbsprobes-pkgconfigprobe/#sysroot-prop" translate="no">PkgConfigProbe.sysroot</a> property.</p>
 <p>Set this property if you need to overwrite the default search sysroot path used by <code translate="no">pkg-config</code>.</p>

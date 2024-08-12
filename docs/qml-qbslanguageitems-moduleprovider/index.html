@@ -14,7 +14,7 @@ List of all members, including inherited members ModuleProvider is part of List 
 
     
       
-      <link rel="stylesheet" href="/css/main.min.7d27557bc1f8660bf0e026622019467fd286c7d3eb71497bb1bf1eb961a1697a.css" integrity="sha256-fSdVe8H4Zgvw4CZiIBlGf9KGx9PrcUl7sb8euWGhaXo="/>
+      <link rel="stylesheet" href="/css/main.min.9eb57175d713a80c8893d0f38bf8a299fef2d9bf4dfd914b40688b581afa80bd.css" integrity="sha256-nrVxddcTqAyIk9Dzi/iimf7y2b9N/ZFLQGiLWBr6gL0="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-moduleprovider/">
@@ -140,7 +140,12 @@ import qbs.TextFile
 <!-- @@@ModuleProvider -->
 <h2>Property Documentation</h2>
 <!-- $$$isEager -->
-<div class="qmlitem"><h3 class="qmlproto">isEager: bool</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="isEager-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">isEager</span> : <span class="type">bool</span> <code class="details extra" translate="no">[default: true]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Holds whether provider is eager.</p>
 <p>Eager provider is executed only once and should create multiple modules at once when executed). A non-eager provider is executed multiple times, one time for each module Qbs tries to instantiate.</p>
 <p><b>See also </b><a href="https://qbs.io/
@@ -148,7 +153,12 @@ import qbs.TextFile
 </div></div><!-- @@@isEager -->
 <br>
 <!-- $$$moduleName -->
-<div class="qmlitem"><h3 class="qmlproto">moduleName: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="moduleName-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">moduleName</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>This property is set by QBS for non-eager providers and contains the name of the module that is currently being instantiated by the provider.</p>
 <p>For eager providers, the value of this property is <code translate="no">undefined</code>.</p>
 <p><b>See also </b><a href="https://qbs.io/
@@ -156,7 +166,12 @@ import qbs.TextFile
 </div></div><!-- @@@moduleName -->
 <br>
 <!-- $$$name -->
-<div class="qmlitem"><h3 class="qmlproto">name: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="name-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">name</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The name of the module provider.</p>
 <p>This property is set by Qbs.</p>
 <p>If provider is <a href="https://qbs.io/
@@ -165,14 +180,24 @@ import qbs.TextFile
 </div></div><!-- @@@name -->
 <br>
 <!-- $$$outputBaseDir -->
-<div class="qmlitem"><h3 class="qmlproto">outputBaseDir: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="outputBaseDir-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">outputBaseDir</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The path under which the new modules should be created when <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-moduleprovider/#relativeSearchPaths-prop" translate="no">relativeSearchPaths</a> is evaluated. The path is unique for the current provider in the given configuration.</p>
 <p>This property is set by Qbs.</p>
 </div></div><!-- @@@outputBaseDir -->
 <br>
 <!-- $$$relativeSearchPaths -->
-<div class="qmlitem"><h3 class="qmlproto">relativeSearchPaths: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="relativeSearchPaths-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">relativeSearchPaths</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>This property gets evaluated by Qbs to retrieve new search paths with which to re-attempt the module look-up.</p>
 <p>It is here where you need to put the code that creates the new module files. Use the directory structure explained in <a href="https://qbs.io/
 /docs/custom-modules/" translate="no">Custom Modules and Items</a>. That is, the file for a module called <code translate="no">m</code> will be located in a directory <code translate="no">modules/m/</code>, anchored at <a href="https://qbs.io/

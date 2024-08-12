@@ -14,7 +14,7 @@ List of all members, including inherited members ConanfileProbe is part of List 
 
     
       
-      <link rel="stylesheet" href="/css/main.min.7d27557bc1f8660bf0e026622019467fd286c7d3eb71497bb1bf1eb961a1697a.css" integrity="sha256-fSdVe8H4Zgvw4CZiIBlGf9KGx9PrcUl7sb8euWGhaXo="/>
+      <link rel="stylesheet" href="/css/main.min.9eb57175d713a80c8893d0f38bf8a299fef2d9bf4dfd914b40688b581afa80bd.css" integrity="sha256-nrVxddcTqAyIk9Dzi/iimf7y2b9N/ZFLQGiLWBr6gL0="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsprobes-conanfileprobe/">
@@ -189,13 +189,23 @@ CppApplication {
 <!-- @@@ConanfileProbe -->
 <h2>Property Documentation</h2>
 <!-- $$$additionalArguments -->
-<div class="qmlitem"><h3 class="qmlproto">additionalArguments: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="additionalArguments-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">additionalArguments</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Additional command line arguments that are appended to the <code translate="no">conan install</code> command.</p>
 <p>Default: []</p>
 </div></div><!-- @@@additionalArguments -->
 <br>
 <!-- $$$conanfilePath -->
-<div class="qmlitem"><h3 class="qmlproto">conanfilePath: path</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="conanfilePath-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">conanfilePath</span> : <span class="type">path</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Path to a <code translate="no">conanfile.py</code> or <code translate="no">conanfile.txt</code> that is used by this probe.</p>
 <p>This property cannot be set at the same time as <a href="https://qbs.io/
 /docs/qml-qbsprobes-conanfileprobe/#packageReference-prop" translate="no">packageReference</a>.</p>
@@ -203,27 +213,47 @@ CppApplication {
 </div></div><!-- @@@conanfilePath -->
 <br>
 <!-- $$$dependencies -->
-<div class="qmlitem"><h3 class="qmlproto">dependencies: var</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="dependencies-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">dependencies</span> : <span class="type">var</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>This property contains the same information as <a href="https://qbs.io/
 /docs/qml-qbsprobes-conanfileprobe/#json-prop" translate="no">json</a>.dependencies, but instead of an array, <code translate="no">dependencies</code> is a map with package names as keys for convenient access.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@dependencies -->
 <br>
 <!-- $$$executable -->
-<div class="qmlitem"><h3 class="qmlproto">executable: path</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="executable-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">executable</span> : <span class="type">path</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The name of or the path to the Conan executable.</p>
 <p>Default: "conan.exe" on Windows, "conan" otherwise</p>
 </div></div><!-- @@@executable -->
 <br>
 <!-- $$$generatedFilesPath -->
-<div class="qmlitem"><h3 class="qmlproto">generatedFilesPath: path</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="generatedFilesPath-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">generatedFilesPath</span> : <span class="type">path</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The path of the folder where Conan generators store their files. Each instance of this probe creates a unique folder under <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-project/#buildDirectory-prop" translate="no">Project.buildDirectory</a>. The folder name is a hash of the arguments supplied to <code translate="no">conan install</code>.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@generatedFilesPath -->
 <br>
 <!-- $$$generators -->
-<div class="qmlitem"><h3 class="qmlproto">generators: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="generators-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">generators</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Conan generators to be executed by this probe. The <a href="https://docs.conan.io/en/latest/reference/generators/json.html" translate="no">JSON generator</a> is always enabled. Generated files are written to the <a href="https://qbs.io/
 /docs/qml-qbsprobes-conanfileprobe/#generatedFilesPath-prop" translate="no">generatedFilesPath</a> folder.</p>
 <p>Default: ["json"]</p>
@@ -231,13 +261,23 @@ CppApplication {
 </div></div><!-- @@@generators -->
 <br>
 <!-- $$$json -->
-<div class="qmlitem"><h3 class="qmlproto">json: var</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="json-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">json</span> : <span class="type">var</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The parsed output of Conan's <a href="https://docs.conan.io/en/latest/reference/generators/json.html" translate="no">JSON generator</a> as a JavaScript object.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@json -->
 <br>
 <!-- $$$options -->
-<div class="qmlitem"><h3 class="qmlproto">options: var</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="options-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">options</span> : <span class="type">var</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Options applied to <code translate="no">conan install</code> via the <code translate="no">-o</code> flag. This property is an object in the form <code translate="no">key:value</code>.</p>
 <p>Example:</p>
 <pre class="qml" translate="no">options: ({someOpt: "True", someOtherOpt: "TheValue"})</pre>
@@ -245,7 +285,12 @@ CppApplication {
 </div></div><!-- @@@options -->
 <br>
 <!-- $$$packageReference -->
-<div class="qmlitem"><h3 class="qmlproto">packageReference: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="packageReference-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">packageReference</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Reference of a Conan package in the form <code translate="no">name/version@user/channel</code>. Use this property if you want to probe an existing package in the local cache or on a remote.</p>
 <p>This property cannot be set at the same time as <a href="https://qbs.io/
 /docs/qml-qbsprobes-conanfileprobe/#conanfilePath-prop" translate="no">conanfilePath</a>.</p>
@@ -253,7 +298,12 @@ CppApplication {
 </div></div><!-- @@@packageReference -->
 <br>
 <!-- $$$settings -->
-<div class="qmlitem"><h3 class="qmlproto">settings: var</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="settings-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">settings</span> : <span class="type">var</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Settings applied to <code translate="no">conan install</code> via the <code translate="no">-s</code> flag. This property is an object in the form <code translate="no">key:value</code>.</p>
 <p>Example:</p>
 <pre class="qml" translate="no">settings: ({os: "Linux", compiler: "gcc"})</pre>
@@ -261,7 +311,12 @@ CppApplication {
 </div></div><!-- @@@settings -->
 <br>
 <!-- $$$verbose -->
-<div class="qmlitem"><h3 class="qmlproto">verbose: var</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="verbose-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">verbose</span> : <span class="type">var</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Set to <code translate="no">true</code> to print all output of `conan install`. If this property is <code translate="no">false</code> only error output will be printed.</p>
 <p>Default: <code translate="no">false</code></p>
 </div></div><!-- @@@verbose -->

@@ -14,7 +14,7 @@ Since: Qbs 1.6 List of all members, including inherited members Properties enabl
 
     
       
-      <link rel="stylesheet" href="/css/main.min.7d27557bc1f8660bf0e026622019467fd286c7d3eb71497bb1bf1eb961a1697a.css" integrity="sha256-fSdVe8H4Zgvw4CZiIBlGf9KGx9PrcUl7sb8euWGhaXo="/>
+      <link rel="stylesheet" href="/css/main.min.9eb57175d713a80c8893d0f38bf8a299fef2d9bf4dfd914b40688b581afa80bd.css" integrity="sha256-nrVxddcTqAyIk9Dzi/iimf7y2b9N/ZFLQGiLWBr6gL0="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-lex-yacc/">
@@ -120,7 +120,12 @@ Since: Qbs 1.6 List of all members, including inherited members Properties enabl
 <!-- @@@lex_yacc -->
 <h2>Property Documentation</h2>
 <!-- $$$enableCompilerWarnings -->
-<div class="qmlitem"><h3 class="qmlproto">enableCompilerWarnings: bool</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="enableCompilerWarnings-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">enableCompilerWarnings</span> : <span class="type">bool</span> <code class="details extra" translate="no">[since Qbs 1.8]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Whether compiler warnings are displayed.</p>
 <p>Because <code translate="no">lex</code> and <code translate="no">yacc</code> are known to produce files that will trigger compiler warnings, such warnings are suppressed by default. Set this property to <code translate="no">true</code> if you want to see them.</p>
 <p>Default: <code translate="no">false</code></p>
@@ -128,19 +133,34 @@ Since: Qbs 1.6 List of all members, including inherited members Properties enabl
 </div></div><!-- @@@enableCompilerWarnings -->
 <br>
 <!-- $$$lexBinary -->
-<div class="qmlitem"><h3 class="qmlproto">lexBinary: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="lexBinary-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">lexBinary</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The file path of the <code translate="no">lex</code> tool.</p>
 <p>Default: <code translate="no">"lex"</code></p>
 </div></div><!-- @@@lexBinary -->
 <br>
 <!-- $$$lexFlags -->
-<div class="qmlitem"><h3 class="qmlproto">lexFlags: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="lexFlags-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">lexFlags</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Additional command-line options for the <code translate="no">lex</code> tool.</p>
 <p>Default: <code translate="no">[]</code></p>
 </div></div><!-- @@@lexFlags -->
 <br>
 <!-- $$$lexOutputFilePath -->
-<div class="qmlitem"><h3 class="qmlproto">lexOutputFilePath: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="lexOutputFilePath-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">lexOutputFilePath</span> : <span class="type">string</span> <code class="details extra" translate="no">[since 1.12]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The output file for the <code translate="no">lex</code> tool.</p>
 <p>This corresponds to <code translate="no">%option outfile</code> in the .l file. If <code translate="no">%option outfile</code> is set in the .l file then this property is ignored.</p>
 <p>Default: <code translate="no">undefined</code></p>
@@ -148,7 +168,12 @@ Since: Qbs 1.6 List of all members, including inherited members Properties enabl
 </div></div><!-- @@@lexOutputFilePath -->
 <br>
 <!-- $$$outputTag -->
-<div class="qmlitem"><h3 class="qmlproto">outputTag: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="outputTag-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">outputTag</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The file tag for the generated scanner and parser sources.</p>
 <p>Use <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#filetags-cpp" translate="no">"cpp"</a> if you want to use a C++ compiler on them.</p>
@@ -157,7 +182,12 @@ Since: Qbs 1.6 List of all members, including inherited members Properties enabl
 </div></div><!-- @@@outputTag -->
 <br>
 <!-- $$$uniqueSymbolPrefix -->
-<div class="qmlitem"><h3 class="qmlproto">uniqueSymbolPrefix: bool</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="uniqueSymbolPrefix-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">uniqueSymbolPrefix</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>If this property is <code translate="no">true</code>, the prefix <code translate="no">yy</code> normally used for the generated lexer and parser functions is replaced by the base name of the file provided as input to <code translate="no">lex</code> and <code translate="no">yacc</code>, respectively.</p>
 <p>Enable this property if you want to use more than one lexer or parser in a single product.</p>
 <div class="admonition note">
@@ -167,19 +197,34 @@ Since: Qbs 1.6 List of all members, including inherited members Properties enabl
 </div></div><!-- @@@uniqueSymbolPrefix -->
 <br>
 <!-- $$$yaccBinary -->
-<div class="qmlitem"><h3 class="qmlproto">yaccBinary: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="yaccBinary-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">yaccBinary</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The file path of the <code translate="no">yacc</code> tool.</p>
 <p>Default: <code translate="no">"yacc"</code></p>
 </div></div><!-- @@@yaccBinary -->
 <br>
 <!-- $$$yaccFlags -->
-<div class="qmlitem"><h3 class="qmlproto">yaccFlags: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="yaccFlags-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">yaccFlags</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Additional command-line options for the <code translate="no">yacc</code> tool.</p>
 <p>Default: <code translate="no">[]</code></p>
 </div></div><!-- @@@yaccFlags -->
 <br>
 <!-- $$$yaccOutputFilePath -->
-<div class="qmlitem"><h3 class="qmlproto">yaccOutputFilePath: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="yaccOutputFilePath-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">yaccOutputFilePath</span> : <span class="type">string</span> <code class="details extra" translate="no">[since 1.12]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Main output file for the <code translate="no">yacc</code> tool.</p>
 <p>This corresponds to <code translate="no">%output</code> in the .y file. If <code translate="no">%output</code> is set in the .y file then this property is ignored.</p>
 <p>Default: <code translate="no">undefined</code></p>

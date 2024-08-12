@@ -15,7 +15,7 @@ Such a module acts as your product&#39;s interface to other projects written in 
 
     
       
-      <link rel="stylesheet" href="/css/main.min.7d27557bc1f8660bf0e026622019467fd286c7d3eb71497bb1bf1eb961a1697a.css" integrity="sha256-fSdVe8H4Zgvw4CZiIBlGf9KGx9PrcUl7sb8euWGhaXo="/>
+      <link rel="stylesheet" href="/css/main.min.9eb57175d713a80c8893d0f38bf8a299fef2d9bf4dfd914b40688b581afa80bd.css" integrity="sha256-nrVxddcTqAyIk9Dzi/iimf7y2b9N/ZFLQGiLWBr6gL0="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-exporter-qbs/">
@@ -151,13 +151,23 @@ Such a module acts as your product&#39;s interface to other projects written in 
 <!-- @@@Exporter.qbs -->
 <h2>Property Documentation</h2>
 <!-- $$$additionalContent -->
-<div class="qmlitem"><h3 class="qmlproto">additionalContent: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="additionalContent-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">additionalContent</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The value of this property will be copied verbatim into the generated module.</p>
 <p>Default: <code translate="no">undefined</code></p>
 </div></div><!-- @@@additionalContent -->
 <br>
 <!-- $$$artifactTypes -->
-<div class="qmlitem"><h3 class="qmlproto">artifactTypes: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="artifactTypes-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">artifactTypes</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Artifacts that match these tags will become <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-group/#filesAreTargets-prop" translate="no">target artifacts</a> of the generated module, so they can get picked up by the rules of depending products.</p>
 <p>If you do not specify anything here, all installed artifacts of the product are considered.</p>
@@ -168,7 +178,12 @@ Such a module acts as your product&#39;s interface to other projects written in 
 </div></div><!-- @@@artifactTypes -->
 <br>
 <!-- $$$excludedDependencies -->
-<div class="qmlitem"><h3 class="qmlproto">excludedDependencies: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="excludedDependencies-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">excludedDependencies</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Normally, all <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-depends/" translate="no">Depends</a> items in the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-export/" translate="no">Export</a> item are copied into the generated module. However, if there are any exported dependencies that only make sense for products in the same project, then you can enter their names into this array, and they will get filtered out.</p>
@@ -179,7 +194,12 @@ Such a module acts as your product&#39;s interface to other projects written in 
 </div></div><!-- @@@excludedDependencies -->
 <br>
 <!-- $$$fileName -->
-<div class="qmlitem"><h3 class="qmlproto">fileName: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="fileName-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">fileName</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The name of the generated module file.</p>
 <p>Default: <code translate="no">product.targetName + ".qbs"</code></p>
 </div></div><!-- @@@fileName -->

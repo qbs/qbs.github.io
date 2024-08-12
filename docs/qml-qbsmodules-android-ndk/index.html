@@ -14,7 +14,7 @@ Since: Qbs 1.4 List of all members, including inherited members Properties abi :
 
     
       
-      <link rel="stylesheet" href="/css/main.min.7d27557bc1f8660bf0e026622019467fd286c7d3eb71497bb1bf1eb961a1697a.css" integrity="sha256-fSdVe8H4Zgvw4CZiIBlGf9KGx9PrcUl7sb8euWGhaXo="/>
+      <link rel="stylesheet" href="/css/main.min.9eb57175d713a80c8893d0f38bf8a299fef2d9bf4dfd914b40688b581afa80bd.css" integrity="sha256-nrVxddcTqAyIk9Dzi/iimf7y2b9N/ZFLQGiLWBr6gL0="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-android-ndk/">
@@ -124,13 +124,23 @@ Since: Qbs 1.4 List of all members, including inherited members Properties abi :
 <!-- @@@Android.ndk -->
 <h2>Property Documentation</h2>
 <!-- $$$abi -->
-<div class="qmlitem"><h3 class="qmlproto">abi: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="abi-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">abi</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The ABI name as it appears under <code translate="no">"lib/"</code> in the application package. Corresponds to <code translate="no">APP_ABI</code> in <code translate="no">Android.mk</code>.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@abi -->
 <br>
 <!-- $$$appStl -->
-<div class="qmlitem"><h3 class="qmlproto">appStl: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="appStl-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">appStl</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The library to use for C++. The possible values are:</p>
 <ul>
 <li><code translate="no">"c++_shared"</code></li>
@@ -140,20 +150,35 @@ Since: Qbs 1.4 List of all members, including inherited members Properties abi :
 </div></div><!-- @@@appStl -->
 <br>
 <!-- $$$buildId -->
-<div class="qmlitem"><h3 class="qmlproto">buildId: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="buildId-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">buildId</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.21]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Value to pass to the –build-id linker flag. Plain –build-id option is used when buildId property is empty.</p>
 <p>Default: <code translate="no">"sha1"</code></p>
 <p>This property was introduced in Qbs 1.21.</p>
 </div></div><!-- @@@buildId -->
 <br>
 <!-- $$$ndkDir -->
-<div class="qmlitem"><h3 class="qmlproto">ndkDir: path</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="ndkDir-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">ndkDir</span> : <span class="type">path</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The NDK base directory.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@ndkDir -->
 <br>
 <!-- $$$platform -->
-<div class="qmlitem"><h3 class="qmlproto">platform: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="platform-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">platform</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The versioned platform name.</p>
 <p>Default: <code translate="no">"android-16"</code> for 32 bit arm ABIs and <code translate="no">"android-21"</code> for all 64 bit ABIs and x86. x86 ABI has broken wstring support in android-16 to android-19.</p>
 </div></div><!-- @@@platform -->

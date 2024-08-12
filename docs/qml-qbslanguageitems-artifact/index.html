@@ -15,7 +15,7 @@ For example, if a rule produces three files, it needs to contain three Artifact 
 
     
       
-      <link rel="stylesheet" href="/css/main.min.7d27557bc1f8660bf0e026622019467fd286c7d3eb71497bb1bf1eb961a1697a.css" integrity="sha256-fSdVe8H4Zgvw4CZiIBlGf9KGx9PrcUl7sb8euWGhaXo="/>
+      <link rel="stylesheet" href="/css/main.min.9eb57175d713a80c8893d0f38bf8a299fef2d9bf4dfd914b40688b581afa80bd.css" integrity="sha256-nrVxddcTqAyIk9Dzi/iimf7y2b9N/ZFLQGiLWBr6gL0="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-artifact/">
@@ -125,19 +125,34 @@ For example, if a rule produces three files, it needs to contain three Artifact 
 <!-- @@@Artifact -->
 <h2>Property Documentation</h2>
 <!-- $$$alwaysUpdated -->
-<div class="qmlitem"><h3 class="qmlproto">alwaysUpdated: bool</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="alwaysUpdated-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">alwaysUpdated</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Setting this property to <code translate="no">false</code> means the file is not necessarily always written to by any command run by the rule. If all artifacts of a rule have this property set to <code translate="no">false</code>, the commands of the rule are only executed if all of them are out of date compared to the inputs.</p>
 <p>Default: <code translate="no">true</code></p>
 </div></div><!-- @@@alwaysUpdated -->
 <br>
 <!-- $$$filePath -->
-<div class="qmlitem"><h3 class="qmlproto">filePath: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="filePath-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">filePath</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The file path of the target artifact.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@filePath -->
 <br>
 <!-- $$$fileTags -->
-<div class="qmlitem"><h3 class="qmlproto">fileTags: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="fileTags-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">fileTags</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>A list of tags to attach to the target file. These can then be matched by a <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-rule/" translate="no">Rule</a>.</p>
 <p>Default: An empty list</p>

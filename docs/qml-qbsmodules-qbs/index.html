@@ -14,7 +14,7 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 
     
       
-      <link rel="stylesheet" href="/css/main.min.7d27557bc1f8660bf0e026622019467fd286c7d3eb71497bb1bf1eb961a1697a.css" integrity="sha256-fSdVe8H4Zgvw4CZiIBlGf9KGx9PrcUl7sb8euWGhaXo="/>
+      <link rel="stylesheet" href="/css/main.min.9eb57175d713a80c8893d0f38bf8a299fef2d9bf4dfd914b40688b581afa80bd.css" integrity="sha256-nrVxddcTqAyIk9Dzi/iimf7y2b9N/ZFLQGiLWBr6gL0="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-qbs/">
@@ -185,7 +185,12 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 <!-- @@@qbs -->
 <h2>Property Documentation</h2>
 <!-- $$$architecture -->
-<div class="qmlitem"><h3 class="qmlproto">architecture: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="architecture-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">architecture</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The target platform's processor architecture.</p>
 <p><code translate="no">undefined</code> indicates that the target platform is architecture-independent (for example the CLR or JVM).</p>
 <p>This property is typically set in a profile.</p>
@@ -240,14 +245,24 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 </div></div><!-- @@@architecture -->
 <br>
 <!-- $$$architectures -->
-<div class="qmlitem"><h3 class="qmlproto">architectures: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="architectures-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">architectures</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[since Qbs 1.9]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The architectures the product will be built for.</p>
 <p>Default: Undefined</p>
 <p>This property was introduced in Qbs 1.9.</p>
 </div></div><!-- @@@architectures -->
 <br>
 <!-- $$$buildVariant -->
-<div class="qmlitem"><h3 class="qmlproto">buildVariant: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="buildVariant-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">buildVariant</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The name of the build variant for the current build.</p>
 <p>Possible values are <code translate="no">"debug"</code>, <code translate="no">"release"</code> and <code translate="no">"profiling"</code>. A debug build usually contains additional debug symbols that are needed for debugging the application and has optimizations turned off. A profiling build usually contains debug symbols and has optimizations turned on. This is useful for profiling tools or when you need to retain debug symbols in a release build. A release build is a build without debug information and with optimizations enabled.</p>
 <p>Default: <code translate="no">"release"</code> if <a href="https://qbs.io/
@@ -255,14 +270,24 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 </div></div><!-- @@@buildVariant -->
 <br>
 <!-- $$$buildVariants -->
-<div class="qmlitem"><h3 class="qmlproto">buildVariants: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="buildVariants-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">buildVariants</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[since Qbs 1.9]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The build variants the product will be built for.</p>
 <p>Default: Undefined</p>
 <p>This property was introduced in Qbs 1.9.</p>
 </div></div><!-- @@@buildVariants -->
 <br>
 <!-- $$$configurationName -->
-<div class="qmlitem"><h3 class="qmlproto">configurationName: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="configurationName-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">configurationName</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only, since Qbs 1.6]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The name of the current build configuration.</p>
 <p>The build configuration is set via the command line parameter <code translate="no">config</code>. For more information, see <a href="https://qbs.io/
 /docs/cli-build/" translate="no">build</a>.</p>
@@ -271,14 +296,24 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 </div></div><!-- @@@configurationName -->
 <br>
 <!-- $$$debugInformation -->
-<div class="qmlitem"><h3 class="qmlproto">debugInformation: bool</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="debugInformation-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">debugInformation</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Whether to generate debug information.</p>
 <p>Default: <code translate="no">true</code> if <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#buildVariant-prop" translate="no">qbs.buildVariant</a> is <code translate="no">"debug"</code> or <code translate="no">"profiling"</code>. Otherwise <code translate="no">false</code>.</p>
 </div></div><!-- @@@debugInformation -->
 <br>
 <!-- $$$enableDebugCode -->
-<div class="qmlitem"><h3 class="qmlproto">enableDebugCode: bool</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="enableDebugCode-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">enableDebugCode</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Whether to enable debug functionality in the product. Not to be confused with generation of debug symbols or the code optimization level.</p>
 <p>The property changes the following things when enabled:</p>
 <ul>
@@ -293,7 +328,12 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 </div></div><!-- @@@enableDebugCode -->
 <br>
 <!-- $$$install -->
-<div class="qmlitem"><h3 class="qmlproto">install: bool</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="install-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">install</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Whether to install a certain set of files.</p>
 <p>This property is typically set in a <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-group/" translate="no">Group</a> item to mark a number of files as installable.</p>
@@ -304,7 +344,12 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 </div></div><!-- @@@install -->
 <br>
 <!-- $$$installDir -->
-<div class="qmlitem"><h3 class="qmlproto">installDir: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="installDir-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">installDir</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The installation directory for the files of a <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/" translate="no">product</a> or a <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-group/" translate="no">Group</a>.</p>
@@ -314,7 +359,12 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 </div></div><!-- @@@installDir -->
 <br>
 <!-- $$$installPrefix -->
-<div class="qmlitem"><h3 class="qmlproto">installPrefix: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="installPrefix-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">installPrefix</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.1]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The global installation prefix. It is implicitly prepended to all values of <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#installDir-prop" translate="no">installDir</a>.</p>
 <p>The value of this property itself is relative to the <a href="https://qbs.io/
@@ -324,7 +374,12 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 </div></div><!-- @@@installPrefix -->
 <br>
 <!-- $$$installRoot -->
-<div class="qmlitem"><h3 class="qmlproto">installRoot: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="installRoot-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">installRoot</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.4]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The global installation root. It is implicitly prepended to all values of <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#installPrefix-prop" translate="no">installPrefix</a> in the context of installation.</p>
 <div class="admonition note">
@@ -337,7 +392,12 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 </div></div><!-- @@@installRoot -->
 <br>
 <!-- $$$installSourceBase -->
-<div class="qmlitem"><h3 class="qmlproto">installSourceBase: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="installSourceBase-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">installSourceBase</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.4]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The base directory of the local files that are going to be installed. The source base directory is omitted from the target directory path specified in <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#installDir-prop" translate="no">installDir</a>.</p>
 <p>Default: The directory of the current file to be installed, relative to the product's source directory.</p>
@@ -345,7 +405,12 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 </div></div><!-- @@@installSourceBase -->
 <br>
 <!-- $$$optimization -->
-<div class="qmlitem"><h3 class="qmlproto">optimization: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="optimization-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">optimization</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The general type of optimization that should be performed by all toolchains.</p>
 <p>Allowed values are:</p>
 <ul>
@@ -358,7 +423,12 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 </div></div><!-- @@@optimization -->
 <br>
 <!-- $$$profiles -->
-<div class="qmlitem"><h3 class="qmlproto">profiles: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="profiles-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">profiles</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[since Qbs 1.9]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The profiles for which the product should be built.</p>
 <p>For each profile listed here, one instance of the product will be built according to the properties set in the respective profile.</p>
 <p>Default: <a href="https://qbs.io/
@@ -367,7 +437,12 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 </div></div><!-- @@@profiles -->
 <br>
 <!-- $$$shellPath -->
-<div class="qmlitem"><h3 class="qmlproto">shellPath: path</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="shellPath-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">shellPath</span> : <span class="type">path</span> <code class="details extra" translate="no">[since Qbs 1.5]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The platform-specific file path corresponding to the command line interpreter.</p>
 <p>On Windows, this is the path to <code translate="no">cmd.exe</code>, which is held in the <code translate="no">COMSPEC</code> environment variable (typically, <code translate="no">C:/Windows/System32/cmd.exe</code>), On Unix-like platforms, this is <code translate="no">/bin/sh</code>.</p>
 <p>Default: <code translate="no">"%COMSPEC%"</code> on Windows, <code translate="no">"/bin/sh"</code> on Unix</p>
@@ -375,14 +450,24 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 </div></div><!-- @@@shellPath -->
 <br>
 <!-- $$$sysroot -->
-<div class="qmlitem"><h3 class="qmlproto">sysroot: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="sysroot-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">sysroot</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The <code translate="no">sysroot</code> of the target platform.</p>
 <p>This property is typically set in a profile for cross-compiling.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@sysroot -->
 <br>
 <!-- $$$targetOS -->
-<div class="qmlitem"><h3 class="qmlproto">targetOS: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="targetOS-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">targetOS</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Contains the list of string values describing the OS and OS family that is used to build a project.</p>
 <p>This property is calculated based on the <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#targetPlatform-prop" translate="no">targetPlatform</a> property and is typically used to test for a particular OS or OS family in conditionals:</p>
@@ -417,7 +502,12 @@ Group {
 </div></div><!-- @@@targetOS -->
 <br>
 <!-- $$$targetPlatform -->
-<div class="qmlitem"><h3 class="qmlproto">targetPlatform: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="targetPlatform-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">targetPlatform</span> : <span class="type">string</span> <code class="details extra" translate="no">[since 1.11]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The OS you want to build the project for.</p>
 <p>This property is typically set in a profile or for a particular product where the target OS is always known (such as an Apple Watch app written in native code).</p>
 <p>For example, a profile used for building for the iOS Simulator platform will have this property set to the <code translate="no">ios-simulator</code> value:</p>
@@ -468,7 +558,12 @@ Group {
 </div></div><!-- @@@targetPlatform -->
 <br>
 <!-- $$$toolchain -->
-<div class="qmlitem"><h3 class="qmlproto">toolchain: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="toolchain-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">toolchain</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Contains the list of string values describing the toolchain and toolchain family that is used to build a project.</p>
 <p>This property is deduced from the <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#toolchainType-prop" translate="no">toolchainType</a> property and is typically used to test for a particular toolchain or toolchain family in conditionals:</p>
@@ -512,7 +607,12 @@ Properties {
 </div></div><!-- @@@toolchain -->
 <br>
 <!-- $$$toolchainType -->
-<div class="qmlitem"><h3 class="qmlproto">toolchainType: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="toolchainType-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">toolchainType</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.11]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The toolchain that is going to be used for this build.</p>
 <p>For example, to build a project using the <code translate="no">"clang"</code> toolchain, simply do</p>
 <pre class="cpp" translate="no">qbs build qbs<span class="operator">.</span>toolchainType:clang</pre>
@@ -537,25 +637,45 @@ Properties {
 </div></div><!-- @@@toolchainType -->
 <br>
 <!-- $$$version -->
-<div class="qmlitem"><h3 class="qmlproto">version: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="version-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">version</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only, since Qbs 1.4.1]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The version number of Qbs as a string. For example, <code translate="no">"1.4.1"</code>.</p>
 <p>This property was introduced in Qbs 1.4.1.</p>
 </div></div><!-- @@@version -->
 <br>
 <!-- $$$versionMajor -->
-<div class="qmlitem"><h3 class="qmlproto">versionMajor: int</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="versionMajor-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">versionMajor</span> : <span class="type">int</span> <code class="details extra" translate="no">[read-only, since Qbs 1.4.1]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The major version number of Qbs.</p>
 <p>This property was introduced in Qbs 1.4.1.</p>
 </div></div><!-- @@@versionMajor -->
 <br>
 <!-- $$$versionMinor -->
-<div class="qmlitem"><h3 class="qmlproto">versionMinor: int</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="versionMinor-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">versionMinor</span> : <span class="type">int</span> <code class="details extra" translate="no">[read-only, since Qbs 1.4.1]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The minor version number of Qbs.</p>
 <p>This property was introduced in Qbs 1.4.1.</p>
 </div></div><!-- @@@versionMinor -->
 <br>
 <!-- $$$versionPatch -->
-<div class="qmlitem"><h3 class="qmlproto">versionPatch: int</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="versionPatch-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">versionPatch</span> : <span class="type">int</span> <code class="details extra" translate="no">[read-only, since Qbs 1.4.1]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The patch version number of Qbs.</p>
 <p>This property was introduced in Qbs 1.4.1.</p>
 </div></div><!-- @@@versionPatch -->

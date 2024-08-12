@@ -14,7 +14,7 @@ List of all members, including inherited members Properties cacheFilesInstallDir
 
     
       
-      <link rel="stylesheet" href="/css/main.min.7d27557bc1f8660bf0e026622019467fd286c7d3eb71497bb1bf1eb961a1697a.css" integrity="sha256-fSdVe8H4Zgvw4CZiIBlGf9KGx9PrcUl7sb8euWGhaXo="/>
+      <link rel="stylesheet" href="/css/main.min.9eb57175d713a80c8893d0f38bf8a299fef2d9bf4dfd914b40688b581afa80bd.css" integrity="sha256-nrVxddcTqAyIk9Dzi/iimf7y2b9N/ZFLQGiLWBr6gL0="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-qt-qml/">
@@ -133,21 +133,36 @@ List of all members, including inherited members Properties cacheFilesInstallDir
 <!-- @@@Qt.qml -->
 <h2>Property Documentation</h2>
 <!-- $$$cacheFilesInstallDir -->
-<div class="qmlitem"><h3 class="qmlproto">cacheFilesInstallDir: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="cacheFilesInstallDir-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">cacheFilesInstallDir</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The path to the directory where the cache files are installed.</p>
 <p>If this property is set, QML cache files are automatically installed.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@cacheFilesInstallDir -->
 <br>
 <!-- $$$cachingEnabled -->
-<div class="qmlitem"><h3 class="qmlproto">cachingEnabled: bool</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="cachingEnabled-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">cachingEnabled</span> : <span class="type">bool</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>This property is <code translate="no">true</code> if <a href="https://qbs.io/
 /docs/qml-qbsmodules-qt-qml/#generateCacheFiles-prop" translate="no">generateCacheFiles</a> is <code translate="no">true</code> and the platform supports QML cache generation.</p>
 <p>Default: <code translate="no">false</code></p>
 </div></div><!-- @@@cachingEnabled -->
 <br>
 <!-- $$$extraMetaTypesFiles -->
-<div class="qmlitem"><h3 class="qmlproto">extraMetaTypesFiles: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="extraMetaTypesFiles-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">extraMetaTypesFiles</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[since Qbs 1.16]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Specifies extra metatypes files to pass to the <code translate="no">qmltyperegistrar</code> tool via the <code translate="no">--foreign-types</code> option when registering QML types.</p>
 <div class="admonition note">
 <p><b>Note: </b>This property is only needed for external libraries, not products or modules pulled via <code translate="no">Depends</code> items. In particular, you don't need to (and should not) use it to collect the metatypes files of Qt modules. These are found automatically. This property has no effect if <a href="https://qbs.io/
@@ -158,13 +173,23 @@ List of all members, including inherited members Properties cacheFilesInstallDir
 </div></div><!-- @@@extraMetaTypesFiles -->
 <br>
 <!-- $$$generateCacheFiles -->
-<div class="qmlitem"><h3 class="qmlproto">generateCacheFiles: bool</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="generateCacheFiles-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">generateCacheFiles</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Whether QML cache files are generated.</p>
 <p>Default: <code translate="no">false</code></p>
 </div></div><!-- @@@generateCacheFiles -->
 <br>
 <!-- $$$importName -->
-<div class="qmlitem"><h3 class="qmlproto">importName: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="importName-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">importName</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.16]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Setting this value triggers QML type registration via the <code translate="no">qmltyperegistrar</code> tool, which results in the creation of a file with the tag <code translate="no">"qt.qml.types"</code>. The given string is the name under which the registered types can be imported by QML code that wants to use them.</p>
 <div class="admonition note">
 <p><b>Note: </b>This functionality is only available with Qt 5.15 or later.</p>
@@ -174,7 +199,12 @@ List of all members, including inherited members Properties cacheFilesInstallDir
 </div></div><!-- @@@importName -->
 <br>
 <!-- $$$importVersion -->
-<div class="qmlitem"><h3 class="qmlproto">importVersion: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="importVersion-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">importVersion</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.16]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Specifies the version of the types to be registered. Values consist of a major and an optional minor number, separated by dots. This property has no effect if <a href="https://qbs.io/
 /docs/qml-qbsmodules-qt-qml/#importName-prop" translate="no">importName</a> is not set.</p>
 <p>Default: <a href="https://qbs.io/
@@ -183,28 +213,48 @@ List of all members, including inherited members Properties cacheFilesInstallDir
 </div></div><!-- @@@importVersion -->
 <br>
 <!-- $$$qmlCacheGenPath -->
-<div class="qmlitem"><h3 class="qmlproto">qmlCacheGenPath: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="qmlCacheGenPath-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">qmlCacheGenPath</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The absolute path to the <code translate="no">qmlcachegen</code> executable.</p>
 <p>Default: Determined by <a href="https://qbs.io/
 /docs/cli-setup-qt/" translate="no">setup-qt</a>.</p>
 </div></div><!-- @@@qmlCacheGenPath -->
 <br>
 <!-- $$$qmlImportScannerName -->
-<div class="qmlitem"><h3 class="qmlproto">qmlImportScannerName: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="qmlImportScannerName-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">qmlImportScannerName</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The base name of the QML import scanner.</p>
 <p>Set this value if your system uses a name different from the default value.</p>
 <p>Default: <code translate="no">"qmlimportscanner"</code></p>
 </div></div><!-- @@@qmlImportScannerName -->
 <br>
 <!-- $$$qmlPath -->
-<div class="qmlitem"><h3 class="qmlproto">qmlPath: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="qmlPath-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">qmlPath</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The absolute path to the directory where Qt's QML files are installed.</p>
 <p>Default: Determined by <a href="https://qbs.io/
 /docs/cli-setup-qt/" translate="no">setup-qt</a>.</p>
 </div></div><!-- @@@qmlPath -->
 <br>
 <!-- $$$typesFileName -->
-<div class="qmlitem"><h3 class="qmlproto">typesFileName: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="typesFileName-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">typesFileName</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.16]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Specifies the name of the file that declares the types registered for this product. For applications, the default value is <code translate="no">&lt;name&gt;.qmltypes</code>, where <code translate="no">&lt;name&gt;</code> is the product's <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#targetName-prop" translate="no">target name</a>. Otherwise, the default value is "plugins.qmltypes".</p>
 <div class="admonition note">
@@ -216,7 +266,12 @@ List of all members, including inherited members Properties cacheFilesInstallDir
 </div></div><!-- @@@typesFileName -->
 <br>
 <!-- $$$typesInstallDir -->
-<div class="qmlitem"><h3 class="qmlproto">typesInstallDir: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="typesInstallDir-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">typesInstallDir</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.16]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The directory to install the qmltypes file into. If this property is empty or undefined, the file will not be installed. This property has no effect if <a href="https://qbs.io/
 /docs/qml-qbsmodules-qt-qml/#importName-prop" translate="no">importName</a> is not set.</p>
 <p>Default: Undefined</p>

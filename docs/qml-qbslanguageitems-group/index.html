@@ -14,7 +14,7 @@ List of all members, including inherited members Group is part of List of All It
 
     
       
-      <link rel="stylesheet" href="/css/main.min.7d27557bc1f8660bf0e026622019467fd286c7d3eb71497bb1bf1eb961a1697a.css" integrity="sha256-fSdVe8H4Zgvw4CZiIBlGf9KGx9PrcUl7sb8euWGhaXo="/>
+      <link rel="stylesheet" href="/css/main.min.9eb57175d713a80c8893d0f38bf8a299fef2d9bf4dfd914b40688b581afa80bd.css" integrity="sha256-nrVxddcTqAyIk9Dzi/iimf7y2b9N/ZFLQGiLWBr6gL0="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-group/">
@@ -191,13 +191,23 @@ List of all members, including inherited members Group is part of List of All It
 <!-- @@@Group -->
 <h2>Property Documentation</h2>
 <!-- $$$condition -->
-<div class="qmlitem"><h3 class="qmlproto">condition: bool</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="condition-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">condition</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Determines whether the files in the group are actually considered part of the project.</p>
 <p>Default: <code translate="no">true</code></p>
 </div></div><!-- @@@condition -->
 <br>
 <!-- $$$excludeFiles -->
-<div class="qmlitem"><h3 class="qmlproto">excludeFiles: pathList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="excludeFiles-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">excludeFiles</span> : <span class="type">pathList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>A list of files that are <i>subtracted</i> from the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-group/#files-prop" translate="no">files</a> list.</p>
 <p>The values can contain wildcards.</p>
@@ -207,7 +217,12 @@ List of all members, including inherited members Group is part of List of All It
 </div></div><!-- @@@excludeFiles -->
 <br>
 <!-- $$$fileTags -->
-<div class="qmlitem"><h3 class="qmlproto">fileTags: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="fileTags-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">fileTags</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>A list of file tags to attach to the group's files. These can then be matched by a <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-rule/" translate="no">rule</a>.</p>
 <div class="admonition note">
@@ -218,7 +233,12 @@ List of all members, including inherited members Group is part of List of All It
 </div></div><!-- @@@fileTags -->
 <br>
 <!-- $$$fileTagsFilter -->
-<div class="qmlitem"><h3 class="qmlproto">fileTagsFilter: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="fileTagsFilter-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">fileTagsFilter</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>List of <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-artifact/#fileTags-prop" translate="no">artifact.fileTags</a> to match. Any properties set in this group will be applied to the product's artifacts whose file tags match the ones listed here.</p>
 <p>The file tags that the group's <a href="https://qbs.io/
@@ -229,7 +249,12 @@ List of all members, including inherited members Group is part of List of All It
 </div></div><!-- @@@fileTagsFilter -->
 <br>
 <!-- $$$files -->
-<div class="qmlitem"><h3 class="qmlproto">files: pathList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="files-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">files</span> : <span class="type">pathList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The files in the group. Mutually exclusive with <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-group/#fileTagsFilter-prop" translate="no">fileTagsFilter</a>. Relative paths are resolved using the parent directory of the file that contains the Group item. However, if the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-group/#prefix-prop" translate="no">prefix</a> property is set to an absolute path, then that one becomes the base directory.</p>
@@ -238,7 +263,12 @@ List of all members, including inherited members Group is part of List of All It
 </div></div><!-- @@@files -->
 <br>
 <!-- $$$filesAreTargets -->
-<div class="qmlitem"><h3 class="qmlproto">filesAreTargets: bool</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="filesAreTargets-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">filesAreTargets</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>If this property is <code translate="no">true</code> and the group is in a <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-module/" translate="no">Module</a>, the files in the group will not become source artifacts of the product that depends on the module. Instead, they are treated like target artifacts of products. That is, they will be matched against the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-rule/#inputsFromDependencies-prop" translate="no">inputsFromDependencies</a> file tag list of <a href="https://qbs.io/
@@ -247,13 +277,23 @@ List of all members, including inherited members Group is part of List of All It
 </div></div><!-- @@@filesAreTargets -->
 <br>
 <!-- $$$name -->
-<div class="qmlitem"><h3 class="qmlproto">name: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="name-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">name</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The name of the group. Not used internally; mainly useful for IDEs.</p>
 <p>Default: "Group x", where x is a unique number among all the groups in the product.</p>
 </div></div><!-- @@@name -->
 <br>
 <!-- $$$overrideTags -->
-<div class="qmlitem"><h3 class="qmlproto">overrideTags: bool</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="overrideTags-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">overrideTags</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Determines how tags on files that are listed both at the top level of a product (or the parent group, if there is one) and a group are handled. If this property is <code translate="no">true</code>, then the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-filetagger/" translate="no">file tags</a> set via the group replace the ones set via the product or parent group. If it is <code translate="no">false</code>, the <i>group tags</i> are added to the <i>parent tags</i>.</p>
 <p>This property is ignored if <a href="https://qbs.io/
@@ -262,7 +302,12 @@ List of all members, including inherited members Group is part of List of All It
 </div></div><!-- @@@overrideTags -->
 <br>
 <!-- $$$prefix -->
-<div class="qmlitem"><h3 class="qmlproto">prefix: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="prefix-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">prefix</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>A string to prepend to all files. Slashes are allowed and have directory semantics.</p>
 <p>Default: The prefix of the parent group if one exists, otherwise empty.</p>
 </div></div><!-- @@@prefix -->

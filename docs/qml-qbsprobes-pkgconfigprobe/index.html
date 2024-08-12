@@ -14,7 +14,7 @@ List of all members, including inherited members PkgConfigProbe is part of List 
 
     
       
-      <link rel="stylesheet" href="/css/main.min.7d27557bc1f8660bf0e026622019467fd286c7d3eb71497bb1bf1eb961a1697a.css" integrity="sha256-fSdVe8H4Zgvw4CZiIBlGf9KGx9PrcUl7sb8euWGhaXo="/>
+      <link rel="stylesheet" href="/css/main.min.9eb57175d713a80c8893d0f38bf8a299fef2d9bf4dfd914b40688b581afa80bd.css" integrity="sha256-nrVxddcTqAyIk9Dzi/iimf7y2b9N/ZFLQGiLWBr6gL0="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsprobes-pkgconfigprobe/">
@@ -149,100 +149,180 @@ List of all members, including inherited members PkgConfigProbe is part of List 
 <!-- @@@PkgConfigProbe -->
 <h2>Property Documentation</h2>
 <!-- $$$compilerFlags -->
-<div class="qmlitem"><h3 class="qmlproto">compilerFlags: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="compilerFlags-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">compilerFlags</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>This output property contains the list of flags that should be passed to a compiler when using requested package.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@compilerFlags -->
 <br>
 <!-- $$$defines -->
-<div class="qmlitem"><h3 class="qmlproto">defines: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="defines-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">defines</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>This output property contains the list of defines that should be passed to a compiler when using requested package.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@defines -->
 <br>
 <!-- $$$exactVersion -->
-<div class="qmlitem"><h3 class="qmlproto">exactVersion: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="exactVersion-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">exactVersion</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The exact version of the required package. If set, pkg-config will ignore packages with version that is not equal to the value of this property.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@exactVersion -->
 <br>
 <!-- $$$executable -->
-<div class="qmlitem"><h3 class="qmlproto">executable: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="executable-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">executable</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The name of or the path to the pkg-config executable.</p>
 <p>Default: "pkg-config"</p>
 </div></div><!-- @@@executable -->
 <br>
 <!-- $$$forStaticBuild -->
-<div class="qmlitem"><h3 class="qmlproto">forStaticBuild: bool</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="forStaticBuild-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">forStaticBuild</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>If <code translate="no">true</code>, pkg-config will return linker flags for a static linking instead of dynamic.</p>
 <p>Default: <code translate="no">false</code></p>
 </div></div><!-- @@@forStaticBuild -->
 <br>
 <!-- $$$includePaths -->
-<div class="qmlitem"><h3 class="qmlproto">includePaths: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="includePaths-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">includePaths</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>This output property contains the list of include paths that should be passed to a compiler when using requested package.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@includePaths -->
 <br>
 <!-- $$$libDirs -->
-<div class="qmlitem"><h3 class="qmlproto">libDirs: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="libDirs-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">libDirs</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>List of full, non-sysrooted paths where pkg-config should search for .pc files. This overrides the built-in path (which is usually /usr/lib/pkgconfig).</p>
 <p>This property sets the value of the <code translate="no">PKG_CONFIG_LIBDIR</code> environment variable passed to the <code translate="no">pkg-config</code> binary.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@libDirs -->
 <br>
 <!-- $$$libraries -->
-<div class="qmlitem"><h3 class="qmlproto">libraries: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="libraries-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">libraries</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>This output property contains the list of library names that should be passed to a linker when using requested package.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@libraries -->
 <br>
 <!-- $$$libraryPaths -->
-<div class="qmlitem"><h3 class="qmlproto">libraryPaths: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="libraryPaths-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">libraryPaths</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>This output property contains the list of library paths that should be passed to a linker when using requested package.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@libraryPaths -->
 <br>
 <!-- $$$linkerFlags -->
-<div class="qmlitem"><h3 class="qmlproto">linkerFlags: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="linkerFlags-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">linkerFlags</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>This output property contains the list of flags that should be passed to a linker when using requested package.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@linkerFlags -->
 <br>
 <!-- $$$maxVersion -->
-<div class="qmlitem"><h3 class="qmlproto">maxVersion: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="maxVersion-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">maxVersion</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The maximum version of the required package. If set, pkg-config will ignore packages with version greater than the value of this property.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@maxVersion -->
 <br>
 <!-- $$$minVersion -->
-<div class="qmlitem"><h3 class="qmlproto">minVersion: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="minVersion-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">minVersion</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The minimum version of the required package. If set, pkg-config will ignore packages with version less than the value of this property.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@minVersion -->
 <br>
 <!-- $$$modversion -->
-<div class="qmlitem"><h3 class="qmlproto">modversion: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="modversion-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">modversion</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>This output property contains the version of the found package.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@modversion -->
 <br>
 <!-- $$$name -->
-<div class="qmlitem"><h3 class="qmlproto">name: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="name-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">name</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The name this probe. This property is used as <a href="https://qbs.io/
 /docs/qml-qbsprobes-pkgconfigprobe/#packageNames-prop" translate="no">PkgConfigProbe.packageNames</a> value by default.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@name -->
 <br>
 <!-- $$$packageNames -->
-<div class="qmlitem"><h3 class="qmlproto">packageNames: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="packageNames-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">packageNames</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The list of package names to pass to the pkg-config executable. For each package, pkg-config will return the information required to compile and link to this package.</p>
 <p>Default: [<a href="https://qbs.io/
 /docs/qml-qbsprobes-pkgconfigprobe/#name-prop" translate="no">PkgConfigProbe.name</a>]</p>
 </div></div><!-- @@@packageNames -->
 <br>
 <!-- $$$sysroot -->
-<div class="qmlitem"><h3 class="qmlproto">sysroot: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="sysroot-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">sysroot</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>This property sets the value of the <code translate="no">PKG_CONFIG_SYSROOT_DIR</code> environment variable passed to the <code translate="no">pkg-config</code> binary. This variable modifies -I and -L flags to use the directories located in target sysroot.</p>
 <p>This property is useful when cross-compiling packages that use <code translate="no">pkg-config</code> to determine CFLAGS and LDFLAGS. For example, if <code translate="no">sysroot</code> is set to <code translate="no">/var/target</code>, a <code translate="no">-I/usr/include/libfoo</code> will become <code translate="no">-I/var/target/usr/include/libfoo</code>.</p>
 <p>Default: <code translate="no">qbs.sysroot</code></p>

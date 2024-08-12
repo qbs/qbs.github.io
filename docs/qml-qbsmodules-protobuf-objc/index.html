@@ -14,7 +14,7 @@ Since: Qbs 1.13 List of all members, including inherited members Properties comp
 
     
       
-      <link rel="stylesheet" href="/css/main.min.7d27557bc1f8660bf0e026622019467fd286c7d3eb71497bb1bf1eb961a1697a.css" integrity="sha256-fSdVe8H4Zgvw4CZiIBlGf9KGx9PrcUl7sb8euWGhaXo="/>
+      <link rel="stylesheet" href="/css/main.min.9eb57175d713a80c8893d0f38bf8a299fef2d9bf4dfd914b40688b581afa80bd.css" integrity="sha256-nrVxddcTqAyIk9Dzi/iimf7y2b9N/ZFLQGiLWBr6gL0="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-protobuf-objc/">
@@ -116,14 +116,24 @@ Since: Qbs 1.13 List of all members, including inherited members Properties comp
 <!-- @@@protobuf.objc -->
 <h2>Property Documentation</h2>
 <!-- $$$compilerName -->
-<div class="qmlitem"><h3 class="qmlproto">compilerName: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="compilerName-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">compilerName</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.17]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The name of the protoc binary.</p>
 <p>Default: <code translate="no">"protoc"</code></p>
 <p>This property was introduced in Qbs 1.17.</p>
 </div></div><!-- @@@compilerName -->
 <br>
 <!-- $$$compilerPath -->
-<div class="qmlitem"><h3 class="qmlproto">compilerPath: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="compilerPath-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">compilerPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.17]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The path to the protoc binary.</p>
 <p>Use this property to override the auto-detected location.</p>
 <p>Default: <code translate="no">auto-detected</code></p>
@@ -131,13 +141,23 @@ Since: Qbs 1.13 List of all members, including inherited members Properties comp
 </div></div><!-- @@@compilerPath -->
 <br>
 <!-- $$$frameworkPath -->
-<div class="qmlitem"><h3 class="qmlproto">frameworkPath: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="frameworkPath-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">frameworkPath</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The path where <code translate="no">Protobuf.framework</code> is located. Set this property to override the default location.</p>
 <p>Default: <code translate="no">auto-detected</code></p>
 </div></div><!-- @@@frameworkPath -->
 <br>
 <!-- $$$importPaths -->
-<div class="qmlitem"><h3 class="qmlproto">importPaths: pathList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="importPaths-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">importPaths</span> : <span class="type">pathList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The list of imports that are passed to the <code translate="no">protoc</code> tool via the <code translate="no">--proto_path</code> option. These imports should contain the proto files. They are used to determine the relative structure of the generated files.</p>
 <div class="admonition note">
 <p><b>Note: </b>The paths are passed to <code translate="no">protoc</code> in the same order as specified in this property and <code translate="no">protoc</code> output may differ depending on that order.</p>
@@ -146,7 +166,12 @@ Since: Qbs 1.13 List of all members, including inherited members Properties comp
 </div></div><!-- @@@importPaths -->
 <br>
 <!-- $$$includePath -->
-<div class="qmlitem"><h3 class="qmlproto">includePath: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="includePath-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">includePath</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The path where protobuf Objective-C headers are located. Set this property to override the default location.</p>
 <div class="admonition note">
 <p><b>Note: </b>If <a href="https://qbs.io/
@@ -156,7 +181,12 @@ Since: Qbs 1.13 List of all members, including inherited members Properties comp
 </div></div><!-- @@@includePath -->
 <br>
 <!-- $$$libraryPath -->
-<div class="qmlitem"><h3 class="qmlproto">libraryPath: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="libraryPath-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">libraryPath</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><div class="admonition note">
 <p><b>Note: </b>If <a href="https://qbs.io/
 /docs/qml-qbsmodules-protobuf-objc/#frameworkPath-prop" translate="no">frameworkPath</a> is specified, this property has no effect.</p>
@@ -165,7 +195,12 @@ Since: Qbs 1.13 List of all members, including inherited members Properties comp
 </div></div><!-- @@@libraryPath -->
 <br>
 <!-- $$$outputDir -->
-<div class="qmlitem"><h3 class="qmlproto">outputDir: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="outputDir-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">outputDir</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The directory where the <code translate="no">protoc</code> compiler generated files are placed.</p>
 <p>The value of this property is automatically set by Qbs and cannot be changed by the user.</p>
 </div></div><!-- @@@outputDir -->

@@ -14,7 +14,7 @@ Since: Qbs 1.9 List of all members, including inherited members Properties backg
 
     
       
-      <link rel="stylesheet" href="/css/main.min.7d27557bc1f8660bf0e026622019467fd286c7d3eb71497bb1bf1eb961a1697a.css" integrity="sha256-fSdVe8H4Zgvw4CZiIBlGf9KGx9PrcUl7sb8euWGhaXo="/>
+      <link rel="stylesheet" href="/css/main.min.9eb57175d713a80c8893d0f38bf8a299fef2d9bf4dfd914b40688b581afa80bd.css" integrity="sha256-nrVxddcTqAyIk9Dzi/iimf7y2b9N/ZFLQGiLWBr6gL0="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-dmg/">
@@ -166,7 +166,12 @@ Since: Qbs 1.9 List of all members, including inherited members Properties backg
 <!-- @@@dmg -->
 <h2>Property Documentation</h2>
 <!-- $$$backgroundColor -->
-<div class="qmlitem"><h3 class="qmlproto">backgroundColor: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="backgroundColor-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">backgroundColor</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The background color of the disk image as seen when mounted in Finder.</p>
 <p>For the full list of supported color names and formats, see the <a href="https://dmgbuild.readthedocs.io/en/latest/settings.html#background" translate="no">dmgbuild - Settings</a> documentation.</p>
 <p>For more information about how to use an image for the background instead, see <a href="https://qbs.io/
@@ -175,47 +180,82 @@ Since: Qbs 1.9 List of all members, including inherited members Properties backg
 </div></div><!-- @@@backgroundColor -->
 <br>
 <!-- $$$badgeVolumeIcon -->
-<div class="qmlitem"><h3 class="qmlproto">badgeVolumeIcon: bool</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="badgeVolumeIcon-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">badgeVolumeIcon</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Whether to render the user-supplied icon (<a href="https://qbs.io/
 /docs/qml-qbsmodules-dmg/#filetags-dmg" translate="no">"icns"</a>) on top of the default volume icon instead of using it directly. This generally gives the disk image icon a better and more consistent appearance.</p>
 <p>Default: <code translate="no">false</code></p>
 </div></div><!-- @@@badgeVolumeIcon -->
 <br>
 <!-- $$$compressionLevel -->
-<div class="qmlitem"><h3 class="qmlproto">compressionLevel: int</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="compressionLevel-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">compressionLevel</span> : <span class="type">int</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The <code translate="no">zlib</code>, <code translate="no">bzip2</code>, or <code translate="no">lzfse</code> compression level for UDZO, UDBZ, or ULFO disk images.</p>
 <p>Default: <code translate="no">9</code> in release mode, otherwise <code translate="no">undefined</code>.</p>
 </div></div><!-- @@@compressionLevel -->
 <br>
 <!-- $$$defaultLicenseLocale -->
-<div class="qmlitem"><h3 class="qmlproto">defaultLicenseLocale: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="defaultLicenseLocale-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">defaultLicenseLocale</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The locale of the default license to display when there is no license whose locale matches the system locale.</p>
 <p>Default: <code translate="no">"en_US"</code></p>
 </div></div><!-- @@@defaultLicenseLocale -->
 <br>
 <!-- $$$dmgSuffix -->
-<div class="qmlitem"><h3 class="qmlproto">dmgSuffix: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="dmgSuffix-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">dmgSuffix</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The file extension for disk images.</p>
 <p>This should not normally need to be changed.</p>
 <p>Default: <code translate="no">".dmg"</code></p>
 </div></div><!-- @@@dmgSuffix -->
 <br>
 <!-- $$$format -->
-<div class="qmlitem"><h3 class="qmlproto">format: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="format-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">format</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The format to create the disk image in.</p>
 <p>Allowed values include but are not limited to <code translate="no">"UDZO"</code>, <code translate="no">"UDBZ"</code>, and <code translate="no">"ULFO"</code>.</p>
 <p>Default: <code translate="no">"UDBZ"</code></p>
 </div></div><!-- @@@format -->
 <br>
 <!-- $$$hdiutilPath -->
-<div class="qmlitem"><h3 class="qmlproto">hdiutilPath: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="hdiutilPath-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">hdiutilPath</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The path to the <code translate="no">hdiutil</code> binary used to perform disk image related operations.</p>
 <p>This should not normally need to be changed.</p>
 <p>Default: <code translate="no">"/usr/bin/hdiutil"</code></p>
 </div></div><!-- @@@hdiutilPath -->
 <br>
 <!-- $$$iconPositions -->
-<div class="qmlitem"><h3 class="qmlproto">iconPositions: list</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="iconPositions-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">iconPositions</span> : <span class="type">list</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>A list of objects containing the <code translate="no">path</code>, <code translate="no">x</code>, and <code translate="no">y</code> properties, which correspond to disk image-relative file paths and visual coordinates of file icons in the disk image as seen when it is mounted in Finder.</p>
 <p>For example:</p>
 <pre class="cpp" translate="no">dmg<span class="operator">.</span>iconPositions: <span class="operator">[</span>
@@ -231,13 +271,23 @@ Since: Qbs 1.9 List of all members, including inherited members Properties backg
 </div></div><!-- @@@iconPositions -->
 <br>
 <!-- $$$iconSize -->
-<div class="qmlitem"><h3 class="qmlproto">iconSize: int</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="iconSize-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">iconSize</span> : <span class="type">int</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The width and height of the file icons as seen when the disk image is mounted in Finder.</p>
 <p>Default: <code translate="no">128</code></p>
 </div></div><!-- @@@iconSize -->
 <br>
 <!-- $$$iconX -->
-<div class="qmlitem"><h3 class="qmlproto">iconX: int</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="iconX-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">iconX</span> : <span class="type">int</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The x position of the file icon in the Finder window that displayed the disk image contents when it is mounted.</p>
 <p>This property is only useful with artifacts tagged <a href="https://qbs.io/
 /docs/qml-qbsmodules-dmg/#filetags-dmg" translate="no">dmg.input</a>. It cannot be used at the product level to affect all files.</p>
@@ -247,7 +297,12 @@ Since: Qbs 1.9 List of all members, including inherited members Properties backg
 </div></div><!-- @@@iconX -->
 <br>
 <!-- $$$iconY -->
-<div class="qmlitem"><h3 class="qmlproto">iconY: int</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="iconY-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">iconY</span> : <span class="type">int</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The y position of the file icon in the Finder window that displayed the disk image contents when it is mounted.</p>
 <p>This property is only useful with artifacts tagged <a href="https://qbs.io/
 /docs/qml-qbsmodules-dmg/#filetags-dmg" translate="no">dmg.input</a>. It cannot be used at the product level to affect all files.</p>
@@ -257,7 +312,12 @@ Since: Qbs 1.9 List of all members, including inherited members Properties backg
 </div></div><!-- @@@iconY -->
 <br>
 <!-- $$$licenseAgreeButtonText -->
-<div class="qmlitem"><h3 class="qmlproto">licenseAgreeButtonText: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="licenseAgreeButtonText-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">licenseAgreeButtonText</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The text shown on the <i>Agree</i> button associated with the license file, localized to the value of <a href="https://qbs.io/
 /docs/qml-qbsmodules-dmg/#licenseLanguageName-prop" translate="no">licenseLanguageName</a>.</p>
 <p>This property is only useful with artifacts tagged <a href="https://qbs.io/
@@ -266,7 +326,12 @@ Since: Qbs 1.9 List of all members, including inherited members Properties backg
 </div></div><!-- @@@licenseAgreeButtonText -->
 <br>
 <!-- $$$licenseDisagreeButtonText -->
-<div class="qmlitem"><h3 class="qmlproto">licenseDisagreeButtonText: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="licenseDisagreeButtonText-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">licenseDisagreeButtonText</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The text shown on the <code translate="no">Disagree</code> button associated with the license file, localized to the value of <a href="https://qbs.io/
 /docs/qml-qbsmodules-dmg/#licenseLanguageName-prop" translate="no">licenseLanguageName</a>.</p>
 <p>This property is only useful with artifacts tagged <a href="https://qbs.io/
@@ -275,7 +340,12 @@ Since: Qbs 1.9 List of all members, including inherited members Properties backg
 </div></div><!-- @@@licenseDisagreeButtonText -->
 <br>
 <!-- $$$licenseInstructionText -->
-<div class="qmlitem"><h3 class="qmlproto">licenseInstructionText: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="licenseInstructionText-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">licenseInstructionText</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>An instruction text associated with the license file that will be shown on the license dialog, localized to the value of <a href="https://qbs.io/
 /docs/qml-qbsmodules-dmg/#licenseLanguageName-prop" translate="no">licenseLanguageName</a>.</p>
 <p>This property is only useful with artifacts tagged <a href="https://qbs.io/
@@ -284,7 +354,12 @@ Since: Qbs 1.9 List of all members, including inherited members Properties backg
 </div></div><!-- @@@licenseInstructionText -->
 <br>
 <!-- $$$licenseLanguageName -->
-<div class="qmlitem"><h3 class="qmlproto">licenseLanguageName: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="licenseLanguageName-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">licenseLanguageName</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The name of the language associated with the license file, localized to that language.</p>
 <p>This property is only useful with artifacts tagged <a href="https://qbs.io/
 /docs/qml-qbsmodules-dmg/#filetags-dmg" translate="no">dmg.license.input</a>. It cannot be used at the product level to affect all files.</p>
@@ -292,7 +367,12 @@ Since: Qbs 1.9 List of all members, including inherited members Properties backg
 </div></div><!-- @@@licenseLanguageName -->
 <br>
 <!-- $$$licenseLocale -->
-<div class="qmlitem"><h3 class="qmlproto">licenseLocale: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="licenseLocale-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">licenseLocale</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The locale of the license file.</p>
 <p>Defaults to a value guessed from the file path, specifically the base name of any <code translate="no">.lproj</code> directory found in the file's path. If the locale could not be determined from the file path and this property is not set, an error will be emitted.</p>
 <p>This property is only useful with artifacts tagged <a href="https://qbs.io/
@@ -301,7 +381,12 @@ Since: Qbs 1.9 List of all members, including inherited members Properties backg
 </div></div><!-- @@@licenseLocale -->
 <br>
 <!-- $$$licensePrintButtonText -->
-<div class="qmlitem"><h3 class="qmlproto">licensePrintButtonText: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="licensePrintButtonText-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">licensePrintButtonText</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The text shown on the <code translate="no">Print</code> button associated with the license file, localized to the value of <a href="https://qbs.io/
 /docs/qml-qbsmodules-dmg/#licenseLanguageName-prop" translate="no">licenseLanguageName</a>.</p>
 <p>This property is only useful with artifacts tagged <a href="https://qbs.io/
@@ -310,7 +395,12 @@ Since: Qbs 1.9 List of all members, including inherited members Properties backg
 </div></div><!-- @@@licensePrintButtonText -->
 <br>
 <!-- $$$licenseSaveButtonText -->
-<div class="qmlitem"><h3 class="qmlproto">licenseSaveButtonText: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="licenseSaveButtonText-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">licenseSaveButtonText</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The text shown on the <i>Save</i> button associated with the license file, localized to the value of <a href="https://qbs.io/
 /docs/qml-qbsmodules-dmg/#licenseLanguageName-prop" translate="no">licenseLanguageName</a>.</p>
 <p>This property is only useful with artifacts tagged <a href="https://qbs.io/
@@ -319,28 +409,48 @@ Since: Qbs 1.9 List of all members, including inherited members Properties backg
 </div></div><!-- @@@licenseSaveButtonText -->
 <br>
 <!-- $$$sourceBase -->
-<div class="qmlitem"><h3 class="qmlproto">sourceBase: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="sourceBase-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">sourceBase</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The base directory of the files that are going to be embedded in the DMG (<a href="https://qbs.io/
 /docs/qml-qbsmodules-dmg/#filetags-dmg" translate="no">"dmg.input"</a>). The source base directory is omitted from the target directory path of the DMG directory.</p>
 <p>Default: The directory of the current file to be embedded, relative to the product's source directory.</p>
 </div></div><!-- @@@sourceBase -->
 <br>
 <!-- $$$textutilPath -->
-<div class="qmlitem"><h3 class="qmlproto">textutilPath: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="textutilPath-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">textutilPath</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The path to the <code translate="no">textutil</code> binary used to convert license agreement files to rich text format.</p>
 <p>This should not normally need to be changed.</p>
 <p>Default: <code translate="no">"/usr/bin/textutil"</code></p>
 </div></div><!-- @@@textutilPath -->
 <br>
 <!-- $$$volumeName -->
-<div class="qmlitem"><h3 class="qmlproto">volumeName: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="volumeName-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">volumeName</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The name of the disk image that is displayed in Finder when the DMG is mounted.</p>
 <p>Default: <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#targetName-prop" translate="no">product.targetName</a></p>
 </div></div><!-- @@@volumeName -->
 <br>
 <!-- $$$windowHeight -->
-<div class="qmlitem"><h3 class="qmlproto">windowHeight: int</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="windowHeight-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">windowHeight</span> : <span class="type">int</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The height of the Finder window that displays the disk image contents when it is mounted.</p>
 <div class="admonition note">
 <p><b>Note: </b>The window height includes the height of the standard macOS title bar (22 points).</p>
@@ -349,19 +459,34 @@ Since: Qbs 1.9 List of all members, including inherited members Properties backg
 </div></div><!-- @@@windowHeight -->
 <br>
 <!-- $$$windowWidth -->
-<div class="qmlitem"><h3 class="qmlproto">windowWidth: int</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="windowWidth-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">windowWidth</span> : <span class="type">int</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The width of the Finder window that displays the disk image contents when it is mounted.</p>
 <p>Default: <code translate="no">640</code></p>
 </div></div><!-- @@@windowWidth -->
 <br>
 <!-- $$$windowX -->
-<div class="qmlitem"><h3 class="qmlproto">windowX: int</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="windowX-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">windowX</span> : <span class="type">int</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The x position of the Finder window that displays the disk image contents when it is mounted.</p>
 <p>Default: <code translate="no">100</code></p>
 </div></div><!-- @@@windowX -->
 <br>
 <!-- $$$windowY -->
-<div class="qmlitem"><h3 class="qmlproto">windowY: int</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="windowY-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">windowY</span> : <span class="type">int</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The y position of the Finder window that displays the disk image contents when it is mounted.</p>
 <p>Default: <code translate="no">100</code></p>
 </div></div><!-- @@@windowY -->

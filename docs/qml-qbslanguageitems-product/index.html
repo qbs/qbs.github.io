@@ -15,7 +15,7 @@ List of all members, including inherited members Product is part of List of All 
 
     
       
-      <link rel="stylesheet" href="/css/main.min.7d27557bc1f8660bf0e026622019467fd286c7d3eb71497bb1bf1eb961a1697a.css" integrity="sha256-fSdVe8H4Zgvw4CZiIBlGf9KGx9PrcUl7sb8euWGhaXo="/>
+      <link rel="stylesheet" href="/css/main.min.9eb57175d713a80c8893d0f38bf8a299fef2d9bf4dfd914b40688b581afa80bd.css" integrity="sha256-nrVxddcTqAyIk9Dzi/iimf7y2b9N/ZFLQGiLWBr6gL0="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-product/">
@@ -205,7 +205,12 @@ List of all members, including inherited members Product is part of List of All 
 <!-- @@@Product -->
 <h2>Property Documentation</h2>
 <!-- $$$aggregate -->
-<div class="qmlitem"><h3 class="qmlproto">aggregate: bool</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="aggregate-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">aggregate</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>If <code translate="no">true</code>, an aggregate product will be created that has dependencies on all multiplex instances of this product.</p>
 <div class="admonition note">
 <p><b>Note: </b>If you do not want to do multiplexing, you can use the default value <code translate="no">undefined</code>.</p>
@@ -213,13 +218,23 @@ List of all members, including inherited members Product is part of List of All 
 </div></div><!-- @@@aggregate -->
 <br>
 <!-- $$$buildDirectory -->
-<div class="qmlitem"><h3 class="qmlproto">buildDirectory: path</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="buildDirectory-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">buildDirectory</span> : <span class="type">path</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The build directory for this product. This is the directory where generated files are placed.</p>
 <p>The value of this property is automatically set by Qbs and cannot be changed by the user.</p>
 </div></div><!-- @@@buildDirectory -->
 <br>
 <!-- $$$builtByDefault -->
-<div class="qmlitem"><h3 class="qmlproto">builtByDefault: bool</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="builtByDefault-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">builtByDefault</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Determines whether the product will be built.</p>
 <p>If <code translate="no">false</code>, the product will only be built if this is explicitly requested, either by listing the product name as an argument to the <a href="https://qbs.io/
 /docs/cli-build/#build-products" translate="no">–products</a> option or by using the <a href="https://qbs.io/
@@ -229,14 +244,24 @@ List of all members, including inherited members Product is part of List of All 
 </div></div><!-- @@@builtByDefault -->
 <br>
 <!-- $$$condition -->
-<div class="qmlitem"><h3 class="qmlproto">condition: bool</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="condition-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">condition</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Determines whether the product will be built.</p>
 <p>If <code translate="no">false</code>, the product will not be built.</p>
 <p>Default: <code translate="no">true</code></p>
 </div></div><!-- @@@condition -->
 <br>
 <!-- $$$consoleApplication -->
-<div class="qmlitem"><h3 class="qmlproto">consoleApplication: bool</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="consoleApplication-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">consoleApplication</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>On Windows, determines whether a console or GUI application is generated.</p>
 <p>If <code translate="no">true</code>, a console application is generated. If <code translate="no">false</code>, a GUI application is generated.</p>
 <p>On Apple platforms, influences the default application type.</p>
@@ -245,21 +270,36 @@ List of all members, including inherited members Product is part of List of All 
 </div></div><!-- @@@consoleApplication -->
 <br>
 <!-- $$$destinationDirectory -->
-<div class="qmlitem"><h3 class="qmlproto">destinationDirectory: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="destinationDirectory-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">destinationDirectory</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The directory where the target artifacts will be located. If a relative path is given, the base directory will be <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-project/#buildDirectory-prop" translate="no">project.buildDirectory</a>.</p>
 <p>Default: <code translate="no">product.buildDirectory</code></p>
 </div></div><!-- @@@destinationDirectory -->
 <br>
 <!-- $$$excludeFiles -->
-<div class="qmlitem"><h3 class="qmlproto">excludeFiles: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="excludeFiles-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">excludeFiles</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>A list of source files not to include. Useful with wildcards. For more information, see <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-group/" translate="no">Group</a>.</p>
 <p>Default: An empty list</p>
 </div></div><!-- @@@excludeFiles -->
 <br>
 <!-- $$$files -->
-<div class="qmlitem"><h3 class="qmlproto">files: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="files-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">files</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>A list of source files. Syntactic sugar to save a <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-group/" translate="no">Group</a> item for simple products.</p>
 <p>Relative paths are resolved using the parent directory of the project file that sets the property.</p>
@@ -267,7 +307,12 @@ List of all members, including inherited members Product is part of List of All 
 </div></div><!-- @@@files -->
 <br>
 <!-- $$$multiplexByQbsProperties -->
-<div class="qmlitem"><h3 class="qmlproto">multiplexByQbsProperties: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="multiplexByQbsProperties-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">multiplexByQbsProperties</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Specifies which properties of the <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/" translate="no">qbs</a> module will be used for product multiplexing:</p>
 <ul>
@@ -285,7 +330,12 @@ List of all members, including inherited members Product is part of List of All 
 </div></div><!-- @@@multiplexByQbsProperties -->
 <br>
 <!-- $$$multiplexedType -->
-<div class="qmlitem"><h3 class="qmlproto">multiplexedType: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="multiplexedType-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">multiplexedType</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Specifies the product type for the multiplexed product instances.</p>
 <div class="admonition note">
 <p><b>Note: </b>If you do not want to do multiplexing, you can use the default value <code translate="no">undefined</code>.</p>
@@ -293,7 +343,12 @@ List of all members, including inherited members Product is part of List of All 
 </div></div><!-- @@@multiplexedType -->
 <br>
 <!-- $$$name -->
-<div class="qmlitem"><h3 class="qmlproto">name: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="name-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">name</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The name of the product. Used to identify the product in a <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-depends/" translate="no">Depends</a> item, for example. The value of this property must be a simple JavaScript expression that does not depend on module properties or values that are non-local to this product.</p>
 <pre class="cpp" translate="no">CppApplication {
@@ -310,7 +365,12 @@ CppApplication {
 </div></div><!-- @@@name -->
 <br>
 <!-- $$$qbsModuleProviders -->
-<div class="qmlitem"><h3 class="qmlproto">qbsModuleProviders: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="qbsModuleProviders-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">qbsModuleProviders</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[since Qbs 1.21]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The list of <a href="https://qbs.io/
 /docs/module-providers/" translate="no">Module Providers</a> to use for this product.</p>
 <p>Overrides <a href="https://qbs.io/
@@ -321,7 +381,12 @@ CppApplication {
 </div></div><!-- @@@qbsModuleProviders -->
 <br>
 <!-- $$$qbsSearchPaths -->
-<div class="qmlitem"><h3 class="qmlproto">qbsSearchPaths: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="qbsSearchPaths-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">qbsSearchPaths</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>A list of paths that are searched for imports, modules and module providers.</p>
 <p>The value set here will be merged with the value of <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-project/#qbsSearchPaths-prop" translate="no">project.qbsSearchPaths</a>.</p>
@@ -332,26 +397,46 @@ CppApplication {
 </div></div><!-- @@@qbsSearchPaths -->
 <br>
 <!-- $$$sourceDirectory -->
-<div class="qmlitem"><h3 class="qmlproto">sourceDirectory: path</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="sourceDirectory-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">sourceDirectory</span> : <span class="type">path</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The source directory for this product. This is the directory of the file where this product is defined.</p>
 <p>The value of this property is automatically set by Qbs and cannot be changed by the user.</p>
 </div></div><!-- @@@sourceDirectory -->
 <br>
 <!-- $$$targetName -->
-<div class="qmlitem"><h3 class="qmlproto">targetName: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="targetName-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">targetName</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The base file name of the product's target artifacts.</p>
 <p>Default: The value of <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#name-prop" translate="no">name</a> with illegal file name characters replaced by underscores.</p>
 </div></div><!-- @@@targetName -->
 <br>
 <!-- $$$type -->
-<div class="qmlitem"><h3 class="qmlproto">type: stringList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="type-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">type</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The file tags matching the product's target artifacts.</p>
 <p>Default: An empty list</p>
 </div></div><!-- @@@type -->
 <br>
 <!-- $$$version -->
-<div class="qmlitem"><h3 class="qmlproto">version: string</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="version-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">version</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>The version number of the product. Used in shared library filenames and generated Info.plist files in Apple application and framework bundles, for example.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@version -->

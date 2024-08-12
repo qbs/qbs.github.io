@@ -14,7 +14,7 @@ Since: Qbs 1.13.0 List of all members, including inherited members Properties al
 
     
       
-      <link rel="stylesheet" href="/css/main.min.7d27557bc1f8660bf0e026622019467fd286c7d3eb71497bb1bf1eb961a1697a.css" integrity="sha256-fSdVe8H4Zgvw4CZiIBlGf9KGx9PrcUl7sb8euWGhaXo="/>
+      <link rel="stylesheet" href="/css/main.min.9eb57175d713a80c8893d0f38bf8a299fef2d9bf4dfd914b40688b581afa80bd.css" integrity="sha256-nrVxddcTqAyIk9Dzi/iimf7y2b9N/ZFLQGiLWBr6gL0="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-qt-plugin-support/">
@@ -103,24 +103,44 @@ Since: Qbs 1.13.0 List of all members, including inherited members Properties al
 <!-- @@@Qt.plugin_support -->
 <h2>Property Documentation</h2>
 <!-- $$$allPluginsByType -->
-<div class="qmlitem"><h3 class="qmlproto">allPluginsByType: var</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="allPluginsByType-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">allPluginsByType</span> : <span class="type">var</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Provides the complete set of plugins in a statically built Qt. The value is a map. The keys are the plugin types, and the values are lists of plugin names.</p>
 </div></div><!-- @@@allPluginsByType -->
 <br>
 <!-- $$$defaultPluginsByType -->
-<div class="qmlitem"><h3 class="qmlproto">defaultPluginsByType: var</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="defaultPluginsByType-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">defaultPluginsByType</span> : <span class="type">var</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Provides the set of plugins that your application or library will link to if you do not set <a href="https://qbs.io/
 /docs/qml-qbsmodules-qt-plugin-support/#pluginsByType-prop" translate="no">pluginsByType</a>. The value is a map. The keys are the plugin types, and the values are lists of plugin names. The value depends on the Qt modules your product pulls in.</p>
 </div></div><!-- @@@defaultPluginsByType -->
 <br>
 <!-- $$$linkPlugins -->
-<div class="qmlitem"><h3 class="qmlproto">linkPlugins: bool</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="linkPlugins-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">linkPlugins</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Controls whether plugins of a statically built Qt should be linked into the product.</p>
 <p>Default: <code translate="no">true</code> if the product is an application or shared library, <code translate="no">false</code> otherwise.</p>
 </div></div><!-- @@@linkPlugins -->
 <br>
 <!-- $$$pluginsByType -->
-<div class="qmlitem"><h3 class="qmlproto">pluginsByType: varList</h3>
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="pluginsByType-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">pluginsByType</span> : <span class="type">varList</span></p></td></tr>
+</tbody></table></div></div>
 <div class="qmldoc"><p>Set this property if you want to override the set of plugins for a certain plugin type. For instance, to disable all image plugins except the JPEG one:</p>
 <pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbsmoduleproviders-qt/" translate="no">Qt</a></span><span class="operator">.</span>plugin_support<span class="operator">.</span>pluginsByType: ({imageformats: <span class="string">"qjpeg"</span>})</pre>
