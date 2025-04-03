@@ -6,9 +6,9 @@
     <meta name="description" content="Qbs Manual
 QbsLanguageItems
 Depends
-Qbs 2.4.0
-
-
+Qbs 1.21.0
+  
+  
 
 Artifact
 Export
@@ -23,18 +23,19 @@ Dependency Parameters
 
 
 
-Depends
+Depends QML Type
 
 Represents dependencies between products and modules. More...
 
 
-
+ Import Statement: import QbsLanguageItems
 List of all members, including inherited members
 Depends is part of List of All Items.
 
 Properties
 
 condition : bool
+enableFallback : bool
 limitToSubProject : bool
 name : string
 productTypes : stringList
@@ -62,8 +63,8 @@ A Depends item can appear inside a Product or Module item. ">
     <meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-depends/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual QbsLanguageItems Depends Qbs 2.4.0 Artifact Export Contents Properties Detailed Description Dependency Parameters Depends Represents dependencies between products and modules. More...
-List of all members, including inherited members Depends is part of List of All Items. Properties condition : bool limitToSubProject : bool name : string productTypes : stringList profiles : stringList required : bool submodules : stringList versionAtLeast : string versionBelow : string Detailed Description A Depends item can appear inside a Product or Module item.">
+  <meta property="og:description" content="Qbs Manual QbsLanguageItems Depends Qbs 1.21.0 Artifact Export Contents Properties Detailed Description Dependency Parameters Depends QML Type Represents dependencies between products and modules. More...
+Import Statement: import QbsLanguageItems List of all members, including inherited members Depends is part of List of All Items. Properties condition : bool enableFallback : bool limitToSubProject : bool name : string productTypes : stringList profiles : stringList required : bool submodules : stringList versionAtLeast : string versionBelow : string Detailed Description A Depends item can appear inside a Product or Module item.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -71,8 +72,8 @@ List of all members, including inherited members Depends is part of List of All 
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual QbsLanguageItems Depends Qbs 2.4.0 Artifact Export Contents Properties Detailed Description Dependency Parameters Depends Represents dependencies between products and modules. More...
-List of all members, including inherited members Depends is part of List of All Items. Properties condition : bool limitToSubProject : bool name : string productTypes : stringList profiles : stringList required : bool submodules : stringList versionAtLeast : string versionBelow : string Detailed Description A Depends item can appear inside a Product or Module item.">
+  <meta name="twitter:description" content="Qbs Manual QbsLanguageItems Depends Qbs 1.21.0 Artifact Export Contents Properties Detailed Description Dependency Parameters Depends QML Type Represents dependencies between products and modules. More...
+Import Statement: import QbsLanguageItems List of all members, including inherited members Depends is part of List of All Items. Properties condition : bool enableFallback : bool limitToSubProject : bool name : string productTypes : stringList profiles : stringList required : bool submodules : stringList versionAtLeast : string versionBelow : string Detailed Description A Depends item can appear inside a Product or Module item.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -109,11 +110,11 @@ List of all members, including inherited members Depends is part of List of All 
 <li><a href="https://qbs.io/
 /docs/qbslanguageitems-qmlmodule/" translate="no">QbsLanguageItems</a></li>
 <li>Depends</li>
-<li id="buildversion">Qbs 2.4.0</li>
-<link href="https://qbs.io/
-/docs/qml-qbslanguageitems-artifact/" rel="prev">
-<link href="https://qbs.io/
-/docs/qml-qbslanguageitems-export/" rel="next">
+<li id="buildversion">Qbs 1.21.0</li>
+  <link rel="prev" href="https://qbs.io/
+/docs/qml-qbslanguageitems-artifact/">
+  <link rel="next" href="https://qbs.io/
+/docs/qml-qbslanguageitems-export/">
 <p class="naviNextPrevious headerNavi">
 <a class="prevPage" href="https://qbs.io/
 /docs/qml-qbslanguageitems-artifact/">Artifact</a>
@@ -130,12 +131,12 @@ List of all members, including inherited members Depends is part of List of All 
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<div class="content"><h1 class="title" translate="no">Depends</h1>
+<h1 class="title" translate="no">Depends QML Type</h1>
 <!-- $$$Depends-brief -->
 <p>Represents dependencies between products and modules. <a href="#details">More...</a></p>
 <!-- @@@Depends -->
 <div class="table"><table class="alignedsummary" translate="no">
-</table></div><ul>
+<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsLanguageItems</td></tr></tbody></table></div><ul>
 <li><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-depends-members/">List of all members, including inherited members</a></li>
 <li>Depends is part of <a href="https://qbs.io/
@@ -145,6 +146,8 @@ List of all members, including inherited members Depends is part of List of All 
 <ul>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-depends/#condition-prop" translate="no">condition</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbslanguageitems-depends/#enableFallback-prop" translate="no">enableFallback</a></b> : bool</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-depends/#limitToSubProject-prop" translate="no">limitToSubProject</a></b> : bool</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
@@ -210,7 +213,7 @@ List of all members, including inherited members Depends is part of List of All 
 <!-- $$$condition -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="condition-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="condition-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">condition</span> : <span class="type">bool</span></p></td></tr>
 </tbody></table></div></div>
@@ -218,10 +221,22 @@ List of all members, including inherited members Depends is part of List of All 
 <p>Default: <code translate="no">true</code></p>
 </div></div><!-- @@@condition -->
 <br>
+<!-- $$$enableFallback -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr valign="top" class="odd" id="enableFallback-prop">
+<td class="tblQmlPropNode"><p>
+<span class="name">enableFallback</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>Whether to fall back to a pkg-config based <a href="https://qbs.io/
+/docs/module-providers/" translate="no">module provider</a> if the dependency is not found.</p>
+<p>Default: <code translate="no">true</code></p>
+</div></div><!-- @@@enableFallback -->
+<br>
 <!-- $$$limitToSubProject -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="limitToSubProject-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="limitToSubProject-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">limitToSubProject</span> : <span class="type">bool</span></p></td></tr>
 </tbody></table></div></div>
@@ -233,7 +248,7 @@ List of all members, including inherited members Depends is part of List of All 
 <!-- $$$name -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="name-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="name-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">name</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -244,7 +259,7 @@ List of all members, including inherited members Depends is part of List of All 
 <!-- $$$productTypes -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="productTypes-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="productTypes-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">productTypes</span> : <span class="type">stringList</span></p></td></tr>
 </tbody></table></div></div>
@@ -255,26 +270,15 @@ List of all members, including inherited members Depends is part of List of All 
 <p>The <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-depends/#required-prop" translate="no">required</a> and <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-depends/#profiles-prop" translate="no">profiles</a> properties are ignored if this property is set.</p>
-<div class="admonition note">
-<p><b>Note: </b>This property does not work recursively. Consider this example:</p>
-</div>
-<pre class="cpp" translate="no">Product {
-    name: <span class="string">"A"</span>
-    type: <span class="string">"x"</span>
-    Depends { productTypes: <span class="string">"someTag"</span> }
-}
-Product {
-    name: <span class="string">"B"</span>
-    Depends { productTypes: <span class="string">"x"</span> }
-}</pre>
-<p>It is not guaranteed that <code translate="no">A</code> will show up in <code translate="no">B</code>'s dependencies.</p>
+<p>Product types attached via <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-module/#additionalProductTypes-prop" translate="no">Module::additionalProductTypes</a> are not considered.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@productTypes -->
 <br>
 <!-- $$$profiles -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="profiles-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="profiles-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">profiles</span> : <span class="type">stringList</span></p></td></tr>
 </tbody></table></div></div>
@@ -288,7 +292,7 @@ Product {
 <!-- $$$required -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="required-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="required-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">required</span> : <span class="type">bool</span></p></td></tr>
 </tbody></table></div></div>
@@ -300,7 +304,7 @@ Product {
 <!-- $$$submodules -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="submodules-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="submodules-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">submodules</span> : <span class="type">stringList</span></p></td></tr>
 </tbody></table></div></div>
@@ -311,7 +315,7 @@ Product {
 <!-- $$$versionAtLeast -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="versionAtLeast-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="versionAtLeast-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">versionAtLeast</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -322,7 +326,7 @@ Product {
 <!-- $$$versionBelow -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="versionBelow-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="versionBelow-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">versionBelow</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -336,7 +340,7 @@ Product {
 <a class="nextPage" href="https://qbs.io/
 /docs/qml-qbslanguageitems-export/">Export</a>
 </p>
-</div>
+
 
 
     </article>

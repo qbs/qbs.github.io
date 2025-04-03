@@ -6,7 +6,7 @@
     <meta name="description" content="Qbs Manual
 QbsProbes
 FrameworkProbe
-Qbs 2.4.0
+Qbs 1.21.0
 
 
 Contents
@@ -15,12 +15,12 @@ Detailed Description
 
 
 
-FrameworkProbe
+FrameworkProbe QML Type
 
 Locates macOS frameworks outside the project. More...
 
 
- Inherits: PathProbe
+ Import Statement: import QbsProbes Inherits: PathProbe
 
 List of all members, including inherited members
 FrameworkProbe is part of List of All Items.
@@ -28,8 +28,7 @@ FrameworkProbe is part of List of All Items.
 
 Detailed Description
 Finds macOS frameworks that have the specified file names.
-By default, FrameworkProbe searches for frameworks in ~/Library/Frameworks, /usr/local/lib, /Library/Frameworks, and in /System/Library/Frameworks.
-Also, if qbs.sysroot is specified (for example, when compiling using XCode SDK), the probe searches in the sysroot/System/Library/Frameworks folder first. ">
+By default, FrameworkProbe searches for frameworks in ~/Library/Frameworks, /usr/local/lib, /Library/Frameworks, and in /System/Library/Frameworks. ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsprobes-frameworkprobe/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -45,11 +44,10 @@ Also, if qbs.sysroot is specified (for example, when compiling using XCode SDK),
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsprobes-frameworkprobe/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual QbsProbes FrameworkProbe Qbs 2.4.0 Contents Detailed Description FrameworkProbe Locates macOS frameworks outside the project. More...
-Inherits: PathProbe
+  <meta property="og:description" content="Qbs Manual QbsProbes FrameworkProbe Qbs 1.21.0 Contents Detailed Description FrameworkProbe QML Type Locates macOS frameworks outside the project. More...
+Import Statement: import QbsProbes Inherits: PathProbe
 List of all members, including inherited members FrameworkProbe is part of List of All Items. Detailed Description Finds macOS frameworks that have the specified file names.
-By default, FrameworkProbe searches for frameworks in ~/Library/Frameworks, /usr/local/lib, /Library/Frameworks, and in /System/Library/Frameworks.
-Also, if qbs.sysroot is specified (for example, when compiling using XCode SDK), the probe searches in the sysroot/System/Library/Frameworks folder first.">
+By default, FrameworkProbe searches for frameworks in ~/Library/Frameworks, /usr/local/lib, /Library/Frameworks, and in /System/Library/Frameworks.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -57,11 +55,10 @@ Also, if qbs.sysroot is specified (for example, when compiling using XCode SDK),
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual QbsProbes FrameworkProbe Qbs 2.4.0 Contents Detailed Description FrameworkProbe Locates macOS frameworks outside the project. More...
-Inherits: PathProbe
+  <meta name="twitter:description" content="Qbs Manual QbsProbes FrameworkProbe Qbs 1.21.0 Contents Detailed Description FrameworkProbe QML Type Locates macOS frameworks outside the project. More...
+Import Statement: import QbsProbes Inherits: PathProbe
 List of all members, including inherited members FrameworkProbe is part of List of All Items. Detailed Description Finds macOS frameworks that have the specified file names.
-By default, FrameworkProbe searches for frameworks in ~/Library/Frameworks, /usr/local/lib, /Library/Frameworks, and in /System/Library/Frameworks.
-Also, if qbs.sysroot is specified (for example, when compiling using XCode SDK), the probe searches in the sysroot/System/Library/Frameworks folder first.">
+By default, FrameworkProbe searches for frameworks in ~/Library/Frameworks, /usr/local/lib, /Library/Frameworks, and in /System/Library/Frameworks.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -98,7 +95,7 @@ Also, if qbs.sysroot is specified (for example, when compiling using XCode SDK),
 <li><a href="https://qbs.io/
 /docs/qbsprobes-qmlmodule/" translate="no">QbsProbes</a></li>
 <li>FrameworkProbe</li>
-<li id="buildversion">Qbs 2.4.0</li>
+<li id="buildversion">Qbs 1.21.0</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -107,12 +104,12 @@ Also, if qbs.sysroot is specified (for example, when compiling using XCode SDK),
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<div class="content"><h1 class="title" translate="no">FrameworkProbe</h1>
+<h1 class="title" translate="no">FrameworkProbe QML Type</h1>
 <!-- $$$FrameworkProbe-brief -->
 <p>Locates macOS frameworks outside the project. <a href="#details">More...</a></p>
 <!-- @@@FrameworkProbe -->
 <div class="table"><table class="alignedsummary" translate="no">
-<tbody><tr><td class="memItemLeft rightAlign topAlign"> Inherits:</td><td class="memItemRight bottomAlign"> <p><a href="https://qbs.io/
+<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsProbes</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherits:</td><td class="memItemRight bottomAlign"> <p><a href="https://qbs.io/
 /docs/qml-qbsprobes-pathprobe/" translate="no">PathProbe</a></p>
 </td></tr></tbody></table></div><ul>
 <li><a href="https://qbs.io/
@@ -139,7 +136,7 @@ Also, if qbs.sysroot is specified (for example, when compiling using XCode SDK),
     <span class="name">cpp</span>.frameworkPaths: <span class="name">foundationProbe</span>.<span class="name">found</span> ? [<span class="name">foundationProbe</span>.<span class="name">path</span>] : []
 }</pre>
 <!-- @@@FrameworkProbe -->
-</div>
+
 
 
     </article>

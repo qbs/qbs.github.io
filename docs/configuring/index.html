@@ -5,7 +5,7 @@
     <title>Qbs</title>
     <meta name="description" content="Qbs Manual
 Configuring Profiles and Preferences
-Qbs 2.4.0
+Qbs 1.21.0
   
   
 
@@ -41,7 +41,7 @@ Profiles contain properties that apply to one or more projects. They are stored 
     <meta property="og:url" content="https://qbs.io/docs/configuring/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual Configuring Profiles and Preferences Qbs 2.4.0 Installing Managing Qt Versions Contents Setting Up Toolchain Profiles Global Preferences Managing Profiles and Preferences Configuring Profiles and Preferences Profiles contain properties that apply to one or more projects. They are stored independently of the project files and are usually not shared between build hosts. Typically, profiles contain module properties, such as installation paths of tools or libraries on the host computer. This approach has the following advantages, among others:">
+  <meta property="og:description" content="Qbs Manual Configuring Profiles and Preferences Qbs 1.21.0 Installing Managing Qt Versions Contents Setting Up Toolchain Profiles Global Preferences Managing Profiles and Preferences Configuring Profiles and Preferences Profiles contain properties that apply to one or more projects. They are stored independently of the project files and are usually not shared between build hosts. Typically, profiles contain module properties, such as installation paths of tools or libraries on the host computer. This approach has the following advantages, among others:">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -49,7 +49,7 @@ Profiles contain properties that apply to one or more projects. They are stored 
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual Configuring Profiles and Preferences Qbs 2.4.0 Installing Managing Qt Versions Contents Setting Up Toolchain Profiles Global Preferences Managing Profiles and Preferences Configuring Profiles and Preferences Profiles contain properties that apply to one or more projects. They are stored independently of the project files and are usually not shared between build hosts. Typically, profiles contain module properties, such as installation paths of tools or libraries on the host computer. This approach has the following advantages, among others:">
+  <meta name="twitter:description" content="Qbs Manual Configuring Profiles and Preferences Qbs 1.21.0 Installing Managing Qt Versions Contents Setting Up Toolchain Profiles Global Preferences Managing Profiles and Preferences Configuring Profiles and Preferences Profiles contain properties that apply to one or more projects. They are stored independently of the project files and are usually not shared between build hosts. Typically, profiles contain module properties, such as installation paths of tools or libraries on the host computer. This approach has the following advantages, among others:">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -84,7 +84,7 @@ Profiles contain properties that apply to one or more projects. They are stored 
 <li><a href="https://qbs.io/
 /docs" translate="no">Qbs Manual</a></li>
 <li>Configuring Profiles and Preferences</li>
-<li id="buildversion">Qbs 2.4.0</li>
+<li id="buildversion">Qbs 1.21.0</li>
   <link rel="prev" href="https://qbs.io/
 /docs/installing/">
   <link rel="next" href="https://qbs.io/
@@ -105,7 +105,7 @@ Profiles contain properties that apply to one or more projects. They are stored 
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<div class="content"><h1 class="title">Configuring Profiles and Preferences</h1>
+<h1 class="title">Configuring Profiles and Preferences</h1>
 <!-- $$$configuring.html-description -->
 <div class="descr" id="details">
 <p>Profiles contain properties that apply to one or more projects. They are stored independently of the project files and are usually not shared between build hosts. Typically, profiles contain module properties, such as installation paths of tools or libraries on the host computer. This approach has the following advantages, among others:</p>
@@ -114,7 +114,7 @@ Profiles contain properties that apply to one or more projects. They are stored 
 <li>Different versions of a tool or library can be used to build the same project without affecting each other.</li>
 </ul>
 <p>For example, a profile for building C++ applications contains at least the installation path and the type of the compiler toolchain. A profile for building Qt applications contains the toolchain-specific properties as well as <a href="https://qbs.io/
-/docs/qml-qbsmoduleproviders-qt/#qmakeFilePaths-prop" translate="no">the path to the Qt installation</a>.</p>
+/docs/qt-modules/#qt-specific-module-provider-properties" translate="no">the path to the Qt installation</a>.</p>
 <p>This topic describes profiles stored in the Qbs settings. In some cases it might be beneficial to keep profiles explicitly in the project sources. This can be achieved with the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-profile/" translate="no">Profile</a> item.</p>
 <h2 id="setting-up-toolchain-profiles">Setting Up Toolchain Profiles</h2>
@@ -137,7 +137,8 @@ Profiles contain properties that apply to one or more projects. They are stored 
 <pre class="cpp" translate="no">qbs config profiles<span class="operator">.</span><span class="operator">&lt;</span>someprofile<span class="operator">&gt;</span><span class="operator">.</span>qbs<span class="operator">.</span>architecture arm</pre>
 <p>For convenience, Qbs provides a tool <a href="https://qbs.io/
 /docs/cli-config-ui/" translate="no">config-ui</a> where you can manage the settings in a hierarchical view.</p>
-<p class="centerAlign"><img src="images/qbs-settings-gui.png" alt=""></p><p>Qbs Settings displays the keys in the specified settings directory and their values. To expand all keys, select <b translate="no">View</b> &gt; <b translate="no">Expand All</b> (<b>Ctrl+E</b> or <b>Cmd+E</b> on macOS). To collapse all keys, select <b translate="no">Collapse All</b> (<b>Ctrl+C</b> or <b>Cmd+C</b>).</p>
+<p class="centerAlign"><img src="https://qbs.io/
+/img/docs/qbs-settings-gui.png" alt=""></p><p>Qbs Settings displays the keys in the specified settings directory and their values. To expand all keys, select <b translate="no">View</b> &gt; <b translate="no">Expand All</b> (<b>Ctrl+E</b> or <b>Cmd+E</b> on macOS). To collapse all keys, select <b translate="no">Collapse All</b> (<b>Ctrl+C</b> or <b>Cmd+C</b>).</p>
 <p>To change the value of a key, double-click it and enter the new value.</p>
 <p>To save your changes, select <b translate="no">File</b> &gt; <b translate="no">Save</b>.</p>
 <p>To refresh the settings from the settings directory, select <b translate="no">File</b> &gt; <b translate="no">Reload</b>.</p>
@@ -149,7 +150,7 @@ Profiles contain properties that apply to one or more projects. They are stored 
 <a class="nextPage" href="https://qbs.io/
 /docs/qt-versions/">Managing Qt Versions</a>
 </p>
-</div>
+
 
 
     </article>

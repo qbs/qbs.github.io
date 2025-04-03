@@ -6,7 +6,7 @@
     <meta name="description" content="Qbs Manual
 List of Built-in Services
 FileInfo Service
-Qbs 2.4.0
+Qbs 1.21.0
 
 
 Contents
@@ -27,9 +27,6 @@ relativePath
 suffix
 toNativeSeparators
 toWindowsSeparators
-pathListSeparator
-pathSeparator
-executableSuffix
 
 
 
@@ -59,7 +56,7 @@ Returns a canonicalized filePath, i.e. an absolute path without symbolic links o
     <meta property="og:url" content="https://qbs.io/docs/jsextension-fileinfo/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual List of Built-in Services FileInfo Service Qbs 2.4.0 Contents Available Operations baseName canonicalPath cleanPath completeBaseName completeSuffix fileName fromNativeSeparators fromWindowsSeparators isAbsolutePath joinPaths path relativePath suffix toNativeSeparators toWindowsSeparators pathListSeparator pathSeparator executableSuffix FileInfo Service The FileInfo service offers various operations on file paths, such as turning absolute paths into relative ones, splitting a path into its components, and so on.
+  <meta property="og:description" content="Qbs Manual List of Built-in Services FileInfo Service Qbs 1.21.0 Contents Available Operations baseName canonicalPath cleanPath completeBaseName completeSuffix fileName fromNativeSeparators fromWindowsSeparators isAbsolutePath joinPaths path relativePath suffix toNativeSeparators toWindowsSeparators FileInfo Service The FileInfo service offers various operations on file paths, such as turning absolute paths into relative ones, splitting a path into its components, and so on.
 Available Operations baseName FileInfo.baseName(filePath: string): string Returns the file name of filePath up to (but not including) the first &#39;.&#39; character.
 canonicalPath FileInfo.canonicalPath(filePath: string): string Returns a canonicalized filePath, i.e. an absolute path without symbolic links or redundant &#34;.&#34; or &#34;..&#34; elements. On Windows, drive substitutions are also resolved.">
   <meta property="og:locale" content="en_us">
@@ -69,7 +66,7 @@ canonicalPath FileInfo.canonicalPath(filePath: string): string Returns a canonic
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual List of Built-in Services FileInfo Service Qbs 2.4.0 Contents Available Operations baseName canonicalPath cleanPath completeBaseName completeSuffix fileName fromNativeSeparators fromWindowsSeparators isAbsolutePath joinPaths path relativePath suffix toNativeSeparators toWindowsSeparators pathListSeparator pathSeparator executableSuffix FileInfo Service The FileInfo service offers various operations on file paths, such as turning absolute paths into relative ones, splitting a path into its components, and so on.
+  <meta name="twitter:description" content="Qbs Manual List of Built-in Services FileInfo Service Qbs 1.21.0 Contents Available Operations baseName canonicalPath cleanPath completeBaseName completeSuffix fileName fromNativeSeparators fromWindowsSeparators isAbsolutePath joinPaths path relativePath suffix toNativeSeparators toWindowsSeparators FileInfo Service The FileInfo service offers various operations on file paths, such as turning absolute paths into relative ones, splitting a path into its components, and so on.
 Available Operations baseName FileInfo.baseName(filePath: string): string Returns the file name of filePath up to (but not including) the first &#39;.&#39; character.
 canonicalPath FileInfo.canonicalPath(filePath: string): string Returns a canonicalized filePath, i.e. an absolute path without symbolic links or redundant &#34;.&#34; or &#34;..&#34; elements. On Windows, drive substitutions are also resolved.">
 
@@ -108,7 +105,7 @@ canonicalPath FileInfo.canonicalPath(filePath: string): string Returns a canonic
 <li><a href="https://qbs.io/
 /docs/list-of-builtin-services/" translate="no">List of Built-in Services</a></li>
 <li>FileInfo Service</li>
-<li id="buildversion">Qbs 2.4.0</li>
+<li id="buildversion">Qbs 1.21.0</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -129,13 +126,10 @@ canonicalPath FileInfo.canonicalPath(filePath: string): string Returns a canonic
 <li class="level2"><a href="#suffix">suffix</a></li>
 <li class="level2"><a href="#tonativeseparators">toNativeSeparators</a></li>
 <li class="level2"><a href="#towindowsseparators">toWindowsSeparators</a></li>
-<li class="level2"><a href="#pathlistseparator">pathListSeparator</a></li>
-<li class="level2"><a href="#pathseparator">pathSeparator</a></li>
-<li class="level2"><a href="#executablesuffix">executableSuffix</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<div class="content"><h1 class="title">FileInfo Service</h1>
+<h1 class="title">FileInfo Service</h1>
 <!-- $$$jsextension-fileinfo.html-description -->
 <div class="descr" id="details">
 <p>The <code translate="no">FileInfo</code> service offers various operations on file paths, such as turning absolute paths into relative ones, splitting a path into its components, and so on.</p>
@@ -188,18 +182,9 @@ canonicalPath FileInfo.canonicalPath(filePath: string): string Returns a canonic
 <h3 id="towindowsseparators">toWindowsSeparators</h3>
 <pre class="cpp" translate="no">FileInfo<span class="operator">.</span>toWindowsSeparators(filePath: string): string</pre>
 <p>Returns <code translate="no">filePath</code> with all '/' characters replaced by '\'.</p>
-<h3 id="pathlistseparator">pathListSeparator</h3>
-<pre class="cpp" translate="no">FileInfo<span class="operator">.</span>pathListSeparator(): string</pre>
-<p>Returns the host operating system separator for a path list that is used in environment variables or other contexts. </p><p>This function was introduced in version 1.22.</p><p></p>
-<h3 id="pathseparator">pathSeparator</h3>
-<pre class="cpp" translate="no">FileInfo<span class="operator">.</span>pathSeparator(): string</pre>
-<p>Returns the host operating system path separator. </p><p>This function was introduced in version 1.22.</p><p></p>
-<h3 id="executablesuffix">executableSuffix</h3>
-<pre class="cpp" translate="no">FileInfo<span class="operator">.</span>executableSuffix(): string</pre>
-<p>Returns the host operating system executable suffix. </p><p>This function was introduced in version 1.23.</p><p></p>
 </div>
 <!-- @@@jsextension-fileinfo.html -->
-</div>
+
 
 
     </article>

@@ -6,7 +6,7 @@
     <meta name="description" content="Qbs Manual
 QbsModules
 Android.ndk
-Qbs 2.4.0
+Qbs 1.21.0
 
 
 Contents
@@ -17,12 +17,12 @@ Relevant File Tags
 
 
 
-Android.ndk
+Android.ndk QML Type
 
 Provides support for building native Android libraries. More...
 
 
- Since: Qbs 1.4
+ Import Statement: import QbsModules Since: Qbs 1.4
 List of all members, including inherited members
 
 Properties
@@ -51,8 +51,8 @@ The Android.ndk module contains the properties and rules to create native librar
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-android-ndk/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual QbsModules Android.ndk Qbs 2.4.0 Contents Properties Detailed Description Relevant File Tags Android.ndk Provides support for building native Android libraries. More...
-Since: Qbs 1.4 List of all members, including inherited members Properties abi : string appStl : string buildId : string (since Qbs 1.21) ndkDir : path platform : string Detailed Description The Android.ndk module contains the properties and rules to create native libraries for use in Android applications.">
+  <meta property="og:description" content="Qbs Manual QbsModules Android.ndk Qbs 1.21.0 Contents Properties Detailed Description Relevant File Tags Android.ndk QML Type Provides support for building native Android libraries. More...
+Import Statement: import QbsModules Since: Qbs 1.4 List of all members, including inherited members Properties abi : string appStl : string buildId : string (since Qbs 1.21) ndkDir : path platform : string Detailed Description The Android.ndk module contains the properties and rules to create native libraries for use in Android applications.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -60,8 +60,8 @@ Since: Qbs 1.4 List of all members, including inherited members Properties abi :
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual QbsModules Android.ndk Qbs 2.4.0 Contents Properties Detailed Description Relevant File Tags Android.ndk Provides support for building native Android libraries. More...
-Since: Qbs 1.4 List of all members, including inherited members Properties abi : string appStl : string buildId : string (since Qbs 1.21) ndkDir : path platform : string Detailed Description The Android.ndk module contains the properties and rules to create native libraries for use in Android applications.">
+  <meta name="twitter:description" content="Qbs Manual QbsModules Android.ndk Qbs 1.21.0 Contents Properties Detailed Description Relevant File Tags Android.ndk QML Type Provides support for building native Android libraries. More...
+Import Statement: import QbsModules Since: Qbs 1.4 List of all members, including inherited members Properties abi : string appStl : string buildId : string (since Qbs 1.21) ndkDir : path platform : string Detailed Description The Android.ndk module contains the properties and rules to create native libraries for use in Android applications.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -98,7 +98,7 @@ Since: Qbs 1.4 List of all members, including inherited members Properties abi :
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>Android.ndk</li>
-<li id="buildversion">Qbs 2.4.0</li>
+<li id="buildversion">Qbs 1.21.0</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -109,12 +109,12 @@ Since: Qbs 1.4 List of all members, including inherited members Properties abi :
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<div class="content"><h1 class="title" translate="no">Android.ndk</h1>
+<h1 class="title" translate="no">Android.ndk QML Type</h1>
 <!-- $$$Android.ndk-brief -->
 <p>Provides support for building native Android libraries. <a href="#details">More...</a></p>
 <!-- @@@Android.ndk -->
 <div class="table"><table class="alignedsummary" translate="no">
-<tbody><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.4</td></tr></tbody></table></div><ul>
+<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsModules</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.4</td></tr></tbody></table></div><ul>
 <li><a href="https://qbs.io/
 /docs/qml-qbsmodules-android-ndk-members/">List of all members, including inherited members</a></li>
 </ul>
@@ -148,8 +148,8 @@ Since: Qbs 1.4 List of all members, including inherited members Properties abi :
 }</pre>
 <h3 id="relevant-file-tags">Relevant File Tags</h3>
 <span id="filetags-android-ndk"></span><div class="table"><table class="generic">
-<thead><tr class="qt-style"><th>Tag</th><th>Since</th><th>Description</th></tr></thead>
-<tbody><tr class="odd" valign="top"><td><code translate="no">"android.nativelibrary"</code></td><td>1.4.0</td><td>Attached to dynamic libraries that will end up in APK packages. You do not normally need to use the tag explicitly, as it is the default type of the <a href="https://qbs.io/
+ <thead><tr class="qt-style"><th>Tag</th><th>Since</th><th>Description</th></tr></thead>
+<tbody><tr valign="top" class="odd"><td><code translate="no">"android.nativelibrary"</code></td><td>1.4.0</td><td>Attached to dynamic libraries that will end up in APK packages. You do not normally need to use the tag explicitly, as it is the default type of the <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-dynamiclibrary/" translate="no">DynamicLibrary</a> item for Android targets.</td></tr>
 </tbody></table></div>
 <!-- @@@Android.ndk -->
@@ -157,7 +157,7 @@ Since: Qbs 1.4 List of all members, including inherited members Properties abi :
 <!-- $$$abi -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="abi-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="abi-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">abi</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -168,7 +168,7 @@ Since: Qbs 1.4 List of all members, including inherited members Properties abi :
 <!-- $$$appStl -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="appStl-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="appStl-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">appStl</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -183,7 +183,7 @@ Since: Qbs 1.4 List of all members, including inherited members Properties abi :
 <!-- $$$buildId -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="buildId-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="buildId-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">buildId</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.21]</code></p></td></tr>
 </tbody></table></div></div>
@@ -195,7 +195,7 @@ Since: Qbs 1.4 List of all members, including inherited members Properties abi :
 <!-- $$$ndkDir -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="ndkDir-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="ndkDir-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">ndkDir</span> : <span class="type">path</span></p></td></tr>
 </tbody></table></div></div>
@@ -206,7 +206,7 @@ Since: Qbs 1.4 List of all members, including inherited members Properties abi :
 <!-- $$$platform -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="platform-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="platform-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">platform</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -214,7 +214,7 @@ Since: Qbs 1.4 List of all members, including inherited members Properties abi :
 <p>Default: <code translate="no">"android-16"</code> for 32 bit arm ABIs and <code translate="no">"android-21"</code> for all 64 bit ABIs and x86. x86 ABI has broken wstring support in android-16 to android-19.</p>
 </div></div><!-- @@@platform -->
 <br>
-</div>
+
 
 
     </article>

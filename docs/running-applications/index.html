@@ -5,7 +5,7 @@
     <title>Qbs</title>
     <meta name="description" content="Qbs Manual
 Running Applications
-Qbs 2.4.0
+Qbs 1.21.0
   
   
 
@@ -16,10 +16,16 @@ Installing Files
 Running Applications
 
 
-Qbs has the convenience qbs run command that simplifies running applications.
+By default, running an application also builds it and installs it to a location from where it can be run on the desktop or on a device.
 For example, entering the following command runs the Qt Creator application:
 qbs run --products qtcreator
-By default, running an application also builds it and installs it to a location from where it can be run on the desktop or on a device. Also, this command sets up the environment so that the application can find dependent libraries. ">
+This command also builds and installs the product, if necessary.
+
+
+
+Building Applications
+Installing Files
+ ">
     <link rel="canonical" href="https://qbs.io/docs/running-applications/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -35,9 +41,10 @@ By default, running an application also builds it and installs it to a location 
     <meta property="og:url" content="https://qbs.io/docs/running-applications/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual Running Applications Qbs 2.4.0 Building Applications Installing Files Running Applications Qbs has the convenience qbs run command that simplifies running applications.
+  <meta property="og:description" content="Qbs Manual Running Applications Qbs 1.21.0 Building Applications Installing Files Running Applications By default, running an application also builds it and installs it to a location from where it can be run on the desktop or on a device.
 For example, entering the following command runs the Qt Creator application:
-qbs run --products qtcreator By default, running an application also builds it and installs it to a location from where it can be run on the desktop or on a device. Also, this command sets up the environment so that the application can find dependent libraries.">
+qbs run --products qtcreator This command also builds and installs the product, if necessary.
+Building Applications Installing Files ">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -45,9 +52,10 @@ qbs run --products qtcreator By default, running an application also builds it a
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual Running Applications Qbs 2.4.0 Building Applications Installing Files Running Applications Qbs has the convenience qbs run command that simplifies running applications.
+  <meta name="twitter:description" content="Qbs Manual Running Applications Qbs 1.21.0 Building Applications Installing Files Running Applications By default, running an application also builds it and installs it to a location from where it can be run on the desktop or on a device.
 For example, entering the following command runs the Qt Creator application:
-qbs run --products qtcreator By default, running an application also builds it and installs it to a location from where it can be run on the desktop or on a device. Also, this command sets up the environment so that the application can find dependent libraries.">
+qbs run --products qtcreator This command also builds and installs the product, if necessary.
+Building Applications Installing Files ">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -82,7 +90,7 @@ qbs run --products qtcreator By default, running an application also builds it a
 <li><a href="https://qbs.io/
 /docs" translate="no">Qbs Manual</a></li>
 <li>Running Applications</li>
-<li id="buildversion">Qbs 2.4.0</li>
+<li id="buildversion">Qbs 1.21.0</li>
   <link rel="prev" href="https://qbs.io/
 /docs/building-applications/">
   <link rel="next" href="https://qbs.io/
@@ -94,17 +102,13 @@ qbs run --products qtcreator By default, running an application also builds it a
 /docs/installing-files/">Installing Files</a>
 </p>
 <div class="sidebar"><div class="sidebar-content" id="sidebar-content"></div></div>
-<div class="content"><h1 class="title">Running Applications</h1>
+<h1 class="title">Running Applications</h1>
 <!-- $$$running-applications.html-description -->
 <div class="descr" id="details">
-<p>Qbs has the convenience <a href="https://qbs.io/
-/docs/cli-run/" translate="no">qbs run</a> command that simplifies running applications.</p>
+<p>By default, running an application also builds it and installs it to a location from where it can be run on the desktop or on a device.</p>
 <p>For example, entering the following command runs the Qt Creator application:</p>
 <pre class="cpp" translate="no">qbs run <span class="operator">-</span><span class="operator">-</span>products qtcreator</pre>
-<p>By default, running an application also builds it and installs it to a location from where it can be run on the desktop or on a device. Also, this command <a href="https://qbs.io/
-/docs/qml-qbslanguageitems-module/#setupRunEnvironment-prop" translate="no">sets up</a> the environment so that the application can find dependent libraries.</p>
-<p>This is not the case when running the binary manually - you'll have to make sure that the app will find its dependencies and/or is relocatable. You can achieve that by <a href="https://qbs.io/
-/docs/howtos/#how-do-i-make-use-of-rpaths" translate="no">configuring rpaths</a> properly or setting the appropriate environment variable for the respective host system.</p>
+<p>This command also builds and installs the product, if necessary.</p>
 </div>
 <!-- @@@running-applications.html -->
 <p class="naviNextPrevious footerNavi">
@@ -113,7 +117,7 @@ qbs run --products qtcreator By default, running an application also builds it a
 <a class="nextPage" href="https://qbs.io/
 /docs/installing-files/">Installing Files</a>
 </p>
-</div>
+
 
 
     </article>

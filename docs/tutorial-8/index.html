@@ -3,7 +3,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="---
+
+---
+
+Qbs Manual
 Configurable Library
 Qbs 2.4.0
   
@@ -24,18 +28,7 @@ Module {
     property bool installStaticLib: true
     ...
 }
-We need to do some modifications to export macros in the lib/lib_global.h header:
-// lib/lib_global.h
-#if defined(MYLIB_STATIC_LIBRARY)
-#define MYLIB_EXPORT
-#else
-#if defined(MYLIB_LIBRARY)
-#define MYLIB_EXPORT MY_LIB_DECL_EXPORT
-#else
-#define MYLIB_EXPORT MY_LIB_DECL_IMPORT
-#endif
-#endif
-Here&#39; we added a new branch when MYLIB_STATIC_LIBRARY is defined. In that case, we make the MY_LIB_EXPORT macro empty. ">
+We need to do some modifications to export macros in the lib/lib_global.h header: ">
     <link rel="canonical" href="https://qbs.io/docs/tutorial-8/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -51,10 +44,9 @@ Here&#39; we added a new branch when MYLIB_STATIC_LIBRARY is defined. In that ca
     <meta property="og:url" content="https://qbs.io/docs/tutorial-8/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual Configurable Library Qbs 2.4.0 Buildconfig Module Version Header Configurable Library In this chapter, we will make our library more configurable. We will add configuration options to be able to choose between static and dynamic builds.
+  <meta property="og:description" content="--- --- Qbs Manual Configurable Library Qbs 2.4.0 Buildconfig Module Version Header Configurable Library In this chapter, we will make our library more configurable. We will add configuration options to be able to choose between static and dynamic builds.
 We start with some new properties in the mybuildconfig module:
-Module { ... property bool staticBuild: false property bool installStaticLib: true ... } We need to do some modifications to export macros in the lib/lib_global.h header:
-// lib/lib_global.h #if defined(MYLIB_STATIC_LIBRARY) #define MYLIB_EXPORT #else #if defined(MYLIB_LIBRARY) #define MYLIB_EXPORT MY_LIB_DECL_EXPORT #else #define MYLIB_EXPORT MY_LIB_DECL_IMPORT #endif #endif Here&#39; we added a new branch when MYLIB_STATIC_LIBRARY is defined. In that case, we make the MY_LIB_EXPORT macro empty.">
+Module { ... property bool staticBuild: false property bool installStaticLib: true ... } We need to do some modifications to export macros in the lib/lib_global.h header:">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -62,10 +54,9 @@ Module { ... property bool staticBuild: false property bool installStaticLib: tr
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual Configurable Library Qbs 2.4.0 Buildconfig Module Version Header Configurable Library In this chapter, we will make our library more configurable. We will add configuration options to be able to choose between static and dynamic builds.
+  <meta name="twitter:description" content="--- --- Qbs Manual Configurable Library Qbs 2.4.0 Buildconfig Module Version Header Configurable Library In this chapter, we will make our library more configurable. We will add configuration options to be able to choose between static and dynamic builds.
 We start with some new properties in the mybuildconfig module:
-Module { ... property bool staticBuild: false property bool installStaticLib: true ... } We need to do some modifications to export macros in the lib/lib_global.h header:
-// lib/lib_global.h #if defined(MYLIB_STATIC_LIBRARY) #define MYLIB_EXPORT #else #if defined(MYLIB_LIBRARY) #define MYLIB_EXPORT MY_LIB_DECL_EXPORT #else #define MYLIB_EXPORT MY_LIB_DECL_IMPORT #endif #endif Here&#39; we added a new branch when MYLIB_STATIC_LIBRARY is defined. In that case, we make the MY_LIB_EXPORT macro empty.">
+Module { ... property bool staticBuild: false property bool installStaticLib: true ... } We need to do some modifications to export macros in the lib/lib_global.h header:">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -96,19 +87,27 @@ Module { ... property bool staticBuild: false property bool installStaticLib: tr
 </header><main>
 <div class="centre-outer">
     <article class="centre-inner docs">
-    
+    ---
+
+---
+
 <li><a href="https://qbs.io/
+/docs/https://qbs.io/
 /docs" translate="no">Qbs Manual</a></li>
 <li>Configurable Library</li>
 <li id="buildversion">Qbs 2.4.0</li>
   <link rel="prev" href="https://qbs.io/
+/docs/https://qbs.io/
 /docs/tutorial-7/">
   <link rel="next" href="https://qbs.io/
+/docs/https://qbs.io/
 /docs/tutorial-9/">
 <p class="naviNextPrevious headerNavi">
 <a class="prevPage" href="https://qbs.io/
+/docs/https://qbs.io/
 /docs/tutorial-7/">Buildconfig Module</a>
 <a class="nextPage" href="https://qbs.io/
+/docs/https://qbs.io/
 /docs/tutorial-9/">Version Header</a>
 </p>
 <div class="sidebar"><div class="sidebar-content" id="sidebar-content"></div></div>
@@ -161,9 +160,12 @@ Module { ... property bool staticBuild: false property bool installStaticLib: tr
     bundle.isBundle: false
 }</pre>
 <p>First thing to notice is that we changed the type of the item from <a href="https://qbs.io/
+/docs/https://qbs.io/
 /docs/qml-qbsconvenienceitems-dynamiclibrary/" translate="no">DynamicLibrary</a> to the <a href="https://qbs.io/
+/docs/https://qbs.io/
 /docs/qml-qbsconvenienceitems-library/" translate="no">Library</a> item which is a common base item for dynamic and static libraries.</p>
 <p>Second, we change the <a href="https://qbs.io/
+/docs/https://qbs.io/
 /docs/qml-qbslanguageitems-product/#type-prop" translate="no">type</a> of the product so it depends on the <code translate="no">staticBuild</code> property:</p>
 <pre class="cpp" translate="no">type: mybuildconfig<span class="operator">.</span>staticBuild <span class="operator">?</span> <span class="string">"staticlibrary"</span> : <span class="string">"dynamiclibrary"</span></pre>
 <p>Third, we change our <i>export macro</i> to be different in the static and dynamic builds to correspond with the changes we made to the <code translate="no">lib_global.h</code>:</p>
@@ -194,8 +196,10 @@ $ $ ls <span class="keyword">default</span><span class="operator">/</span>instal
 <!-- @@@tutorial-8.html -->
 <p class="naviNextPrevious footerNavi">
 <a class="prevPage" href="https://qbs.io/
+/docs/https://qbs.io/
 /docs/tutorial-7/">Buildconfig Module</a>
 <a class="nextPage" href="https://qbs.io/
+/docs/https://qbs.io/
 /docs/tutorial-9/">Version Header</a>
 </p>
 </div>

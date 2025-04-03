@@ -6,7 +6,7 @@
     <meta name="description" content="Qbs Manual
 QbsModules
 ico
-Qbs 2.4.0
+Qbs 1.21.0
 
 
 Contents
@@ -17,12 +17,12 @@ Relevant File Tags
 
 
 
-ico
+ico QML Type
 
 Provides support for building ICO (.ico) and CUR (.cur) files. More...
 
 
- Since: Qbs 1.11
+ Import Statement: import QbsModules Since: Qbs 1.11
 List of all members, including inherited members
 
 Properties
@@ -50,8 +50,8 @@ The ico module contains properties and rules for building Microsoft Windows Icon
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-ico/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual QbsModules ico Qbs 2.4.0 Contents Properties Detailed Description Relevant File Tags ico Provides support for building ICO (.ico) and CUR (.cur) files. More...
-Since: Qbs 1.11 List of all members, including inherited members Properties cursorHotspotX : int cursorHotspotY : int icotoolFilePath : string raw : bool Detailed Description The ico module contains properties and rules for building Microsoft Windows Icon (.ico) and Microsoft Windows Cursor (.cur) files.">
+  <meta property="og:description" content="Qbs Manual QbsModules ico Qbs 1.21.0 Contents Properties Detailed Description Relevant File Tags ico QML Type Provides support for building ICO (.ico) and CUR (.cur) files. More...
+Import Statement: import QbsModules Since: Qbs 1.11 List of all members, including inherited members Properties cursorHotspotX : int cursorHotspotY : int icotoolFilePath : string raw : bool Detailed Description The ico module contains properties and rules for building Microsoft Windows Icon (.ico) and Microsoft Windows Cursor (.cur) files.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -59,8 +59,8 @@ Since: Qbs 1.11 List of all members, including inherited members Properties curs
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual QbsModules ico Qbs 2.4.0 Contents Properties Detailed Description Relevant File Tags ico Provides support for building ICO (.ico) and CUR (.cur) files. More...
-Since: Qbs 1.11 List of all members, including inherited members Properties cursorHotspotX : int cursorHotspotY : int icotoolFilePath : string raw : bool Detailed Description The ico module contains properties and rules for building Microsoft Windows Icon (.ico) and Microsoft Windows Cursor (.cur) files.">
+  <meta name="twitter:description" content="Qbs Manual QbsModules ico Qbs 1.21.0 Contents Properties Detailed Description Relevant File Tags ico QML Type Provides support for building ICO (.ico) and CUR (.cur) files. More...
+Import Statement: import QbsModules Since: Qbs 1.11 List of all members, including inherited members Properties cursorHotspotX : int cursorHotspotY : int icotoolFilePath : string raw : bool Detailed Description The ico module contains properties and rules for building Microsoft Windows Icon (.ico) and Microsoft Windows Cursor (.cur) files.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -97,7 +97,7 @@ Since: Qbs 1.11 List of all members, including inherited members Properties curs
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>ico</li>
-<li id="buildversion">Qbs 2.4.0</li>
+<li id="buildversion">Qbs 1.21.0</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -108,12 +108,12 @@ Since: Qbs 1.11 List of all members, including inherited members Properties curs
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<div class="content"><h1 class="title" translate="no">ico</h1>
+<h1 class="title" translate="no">ico QML Type</h1>
 <!-- $$$ico-brief -->
 <p>Provides support for building ICO (.ico) and CUR (.cur) files. <a href="#details">More...</a></p>
 <!-- @@@ico -->
 <div class="table"><table class="alignedsummary" translate="no">
-<tbody><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.11</td></tr></tbody></table></div><ul>
+<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsModules</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.11</td></tr></tbody></table></div><ul>
 <li><a href="https://qbs.io/
 /docs/qml-qbsmodules-ico-members/">List of all members, including inherited members</a></li>
 </ul>
@@ -136,17 +136,17 @@ Since: Qbs 1.11 List of all members, including inherited members Properties curs
 </div>
 <h3 id="relevant-file-tags">Relevant File Tags</h3>
 <span id="filetags-ico"></span><div class="table"><table class="generic">
-<thead><tr class="qt-style"><th>Tag</th><th>Auto-tagged File Names</th><th>Since</th><th>Description</th></tr></thead>
-<tbody><tr class="odd" valign="top"><td><code translate="no">"cur"</code></td><td>n/a</td><td>1.11</td><td>The rule that creates cursor (.cur) files attaches this tag to its output artifact.</td></tr>
-<tr class="even" valign="top"><td><code translate="no">"ico"</code></td><td>n/a</td><td>1.11</td><td>The rule that creates icon (.ico) files attaches this tag to its output artifact.</td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"png"</code></td><td><code translate="no">"*.png"</code></td><td>1.11</td><td>Source files with this tag indicate PNG files which are used as inputs to create icon or cursor files.</td></tr>
+ <thead><tr class="qt-style"><th>Tag</th><th>Auto-tagged File Names</th><th>Since</th><th>Description</th></tr></thead>
+<tbody><tr valign="top" class="odd"><td><code translate="no">"cur"</code></td><td>n/a</td><td>1.11</td><td>The rule that creates cursor (.cur) files attaches this tag to its output artifact.</td></tr>
+<tr valign="top" class="even"><td><code translate="no">"ico"</code></td><td>n/a</td><td>1.11</td><td>The rule that creates icon (.ico) files attaches this tag to its output artifact.</td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"png"</code></td><td><code translate="no">"*.png"</code></td><td>1.11</td><td>Source files with this tag indicate PNG files which are used as inputs to create icon or cursor files.</td></tr>
 </tbody></table></div>
 <!-- @@@ico -->
 <h2>Property Documentation</h2>
 <!-- $$$cursorHotspotX -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="cursorHotspotX-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="cursorHotspotX-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">cursorHotspotX</span> : <span class="type">int</span></p></td></tr>
 </tbody></table></div></div>
@@ -161,7 +161,7 @@ Since: Qbs 1.11 List of all members, including inherited members Properties curs
 <!-- $$$cursorHotspotY -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="cursorHotspotY-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="cursorHotspotY-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">cursorHotspotY</span> : <span class="type">int</span></p></td></tr>
 </tbody></table></div></div>
@@ -176,7 +176,7 @@ Since: Qbs 1.11 List of all members, including inherited members Properties curs
 <!-- $$$icotoolFilePath -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="icotoolFilePath-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="icotoolFilePath-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">icotoolFilePath</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -188,7 +188,7 @@ Since: Qbs 1.11 List of all members, including inherited members Properties curs
 <!-- $$$raw -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="raw-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="raw-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">raw</span> : <span class="type">bool</span></p></td></tr>
 </tbody></table></div></div>
@@ -199,7 +199,7 @@ Since: Qbs 1.11 List of all members, including inherited members Properties curs
 <p>Default: <code translate="no">false</code></p>
 </div></div><!-- @@@raw -->
 <br>
-</div>
+
 
 
     </article>

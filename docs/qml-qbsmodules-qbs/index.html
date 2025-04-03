@@ -6,7 +6,7 @@
     <meta name="description" content="Qbs Manual
 QbsModules
 qbs
-Qbs 2.4.0
+Qbs 1.21.0
 
 
 Contents
@@ -18,12 +18,12 @@ Multiplexing Properties
 
 
 
-qbs
+qbs QML Type
 
 Comprises general properties. More...
 
 
- Since: Qbs 1.0
+ Import Statement: import QbsModules Since: Qbs 1.0
 List of all members, including inherited members
 
 Properties
@@ -35,12 +35,23 @@ buildVariants : stringList (since Qbs 1.9)
 configurationName : string (since Qbs 1.6)
 debugInformation : bool
 enableDebugCode : bool
+hostArchitecture : string (since Qbs 1.16)
+hostOS : stringList
+hostOSBuildVersion : string (since Qbs 1.2)
+hostOSVersion : string (since Qbs 1.2)
+hostOSVersionMajor : int (since Qbs 1.2)
+hostOSVersionMinor : int (since Qbs 1.2)
+hostOSVersionParts : list (since Qbs 1.2)
+hostOSVersionPatch : int (since Qbs 1.2)
+hostPlatform : string (since Qbs 1.11)
 install : bool
 installDir : string
 installPrefix : string (since Qbs 1.1)
 installRoot : string (since Qbs 1.4)
 installSourceBase : string (since Qbs 1.4)
+nullDevice : string (since Qbs 1.4.2)
 optimization : string
+pathListSeparator : string
 profiles : stringList (since Qbs 1.9)
 shellPath : path (since Qbs 1.5)
 sysroot : string
@@ -71,8 +82,8 @@ The qbs module is implicitly loaded in every product. It contains properties of 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-qbs/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual QbsModules qbs Qbs 2.4.0 Contents Properties Detailed Description Installation Properties Multiplexing Properties qbs Comprises general properties. More...
-Since: Qbs 1.0 List of all members, including inherited members Properties architecture : string architectures : stringList (since Qbs 1.9) buildVariant : string buildVariants : stringList (since Qbs 1.9) configurationName : string (since Qbs 1.6) debugInformation : bool enableDebugCode : bool install : bool installDir : string installPrefix : string (since Qbs 1.1) installRoot : string (since Qbs 1.4) installSourceBase : string (since Qbs 1.4) optimization : string profiles : stringList (since Qbs 1.9) shellPath : path (since Qbs 1.5) sysroot : string targetOS : stringList targetPlatform : string (since 1.11) toolchain : stringList toolchainType : string (since Qbs 1.11) version : string (since Qbs 1.4.1) versionMajor : int (since Qbs 1.4.1) versionMinor : int (since Qbs 1.4.1) versionPatch : int (since Qbs 1.4.1) Detailed Description The qbs module is implicitly loaded in every product. It contains properties of the current build environment, independent of the used programming languages and toolchains.">
+  <meta property="og:description" content="Qbs Manual QbsModules qbs Qbs 1.21.0 Contents Properties Detailed Description Installation Properties Multiplexing Properties qbs QML Type Comprises general properties. More...
+Import Statement: import QbsModules Since: Qbs 1.0 List of all members, including inherited members Properties architecture : string architectures : stringList (since Qbs 1.9) buildVariant : string buildVariants : stringList (since Qbs 1.9) configurationName : string (since Qbs 1.6) debugInformation : bool enableDebugCode : bool hostArchitecture : string (since Qbs 1.16) hostOS : stringList hostOSBuildVersion : string (since Qbs 1.2) hostOSVersion : string (since Qbs 1.2) hostOSVersionMajor : int (since Qbs 1.2) hostOSVersionMinor : int (since Qbs 1.2) hostOSVersionParts : list (since Qbs 1.2) hostOSVersionPatch : int (since Qbs 1.2) hostPlatform : string (since Qbs 1.11) install : bool installDir : string installPrefix : string (since Qbs 1.1) installRoot : string (since Qbs 1.4) installSourceBase : string (since Qbs 1.4) nullDevice : string (since Qbs 1.4.2) optimization : string pathListSeparator : string profiles : stringList (since Qbs 1.9) shellPath : path (since Qbs 1.5) sysroot : string targetOS : stringList targetPlatform : string (since 1.11) toolchain : stringList toolchainType : string (since Qbs 1.11) version : string (since Qbs 1.4.1) versionMajor : int (since Qbs 1.4.1) versionMinor : int (since Qbs 1.4.1) versionPatch : int (since Qbs 1.4.1) Detailed Description The qbs module is implicitly loaded in every product. It contains properties of the current build environment, independent of the used programming languages and toolchains.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -80,8 +91,8 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual QbsModules qbs Qbs 2.4.0 Contents Properties Detailed Description Installation Properties Multiplexing Properties qbs Comprises general properties. More...
-Since: Qbs 1.0 List of all members, including inherited members Properties architecture : string architectures : stringList (since Qbs 1.9) buildVariant : string buildVariants : stringList (since Qbs 1.9) configurationName : string (since Qbs 1.6) debugInformation : bool enableDebugCode : bool install : bool installDir : string installPrefix : string (since Qbs 1.1) installRoot : string (since Qbs 1.4) installSourceBase : string (since Qbs 1.4) optimization : string profiles : stringList (since Qbs 1.9) shellPath : path (since Qbs 1.5) sysroot : string targetOS : stringList targetPlatform : string (since 1.11) toolchain : stringList toolchainType : string (since Qbs 1.11) version : string (since Qbs 1.4.1) versionMajor : int (since Qbs 1.4.1) versionMinor : int (since Qbs 1.4.1) versionPatch : int (since Qbs 1.4.1) Detailed Description The qbs module is implicitly loaded in every product. It contains properties of the current build environment, independent of the used programming languages and toolchains.">
+  <meta name="twitter:description" content="Qbs Manual QbsModules qbs Qbs 1.21.0 Contents Properties Detailed Description Installation Properties Multiplexing Properties qbs QML Type Comprises general properties. More...
+Import Statement: import QbsModules Since: Qbs 1.0 List of all members, including inherited members Properties architecture : string architectures : stringList (since Qbs 1.9) buildVariant : string buildVariants : stringList (since Qbs 1.9) configurationName : string (since Qbs 1.6) debugInformation : bool enableDebugCode : bool hostArchitecture : string (since Qbs 1.16) hostOS : stringList hostOSBuildVersion : string (since Qbs 1.2) hostOSVersion : string (since Qbs 1.2) hostOSVersionMajor : int (since Qbs 1.2) hostOSVersionMinor : int (since Qbs 1.2) hostOSVersionParts : list (since Qbs 1.2) hostOSVersionPatch : int (since Qbs 1.2) hostPlatform : string (since Qbs 1.11) install : bool installDir : string installPrefix : string (since Qbs 1.1) installRoot : string (since Qbs 1.4) installSourceBase : string (since Qbs 1.4) nullDevice : string (since Qbs 1.4.2) optimization : string pathListSeparator : string profiles : stringList (since Qbs 1.9) shellPath : path (since Qbs 1.5) sysroot : string targetOS : stringList targetPlatform : string (since 1.11) toolchain : stringList toolchainType : string (since Qbs 1.11) version : string (since Qbs 1.4.1) versionMajor : int (since Qbs 1.4.1) versionMinor : int (since Qbs 1.4.1) versionPatch : int (since Qbs 1.4.1) Detailed Description The qbs module is implicitly loaded in every product. It contains properties of the current build environment, independent of the used programming languages and toolchains.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -118,7 +129,7 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>qbs</li>
-<li id="buildversion">Qbs 2.4.0</li>
+<li id="buildversion">Qbs 1.21.0</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -130,12 +141,12 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<div class="content"><h1 class="title" translate="no">qbs</h1>
+<h1 class="title" translate="no">qbs QML Type</h1>
 <!-- $$$qbs-brief -->
 <p>Comprises general properties. <a href="#details">More...</a></p>
 <!-- @@@qbs -->
 <div class="table"><table class="alignedsummary" translate="no">
-<tbody><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.0</td></tr></tbody></table></div><ul>
+<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsModules</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.0</td></tr></tbody></table></div><ul>
 <li><a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs-members/">List of all members, including inherited members</a></li>
 </ul>
@@ -156,6 +167,24 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#enableDebugCode-prop" translate="no">enableDebugCode</a></b> : bool</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#hostArchitecture-prop" translate="no">hostArchitecture</a></b> : string <code class="summary extra" translate="no">(since Qbs 1.16)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#hostOS-prop" translate="no">hostOS</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#hostOSBuildVersion-prop" translate="no">hostOSBuildVersion</a></b> : string <code class="summary extra" translate="no">(since Qbs 1.2)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#hostOSVersion-prop" translate="no">hostOSVersion</a></b> : string <code class="summary extra" translate="no">(since Qbs 1.2)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#hostOSVersionMajor-prop" translate="no">hostOSVersionMajor</a></b> : int <code class="summary extra" translate="no">(since Qbs 1.2)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#hostOSVersionMinor-prop" translate="no">hostOSVersionMinor</a></b> : int <code class="summary extra" translate="no">(since Qbs 1.2)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#hostOSVersionParts-prop" translate="no">hostOSVersionParts</a></b> : list <code class="summary extra" translate="no">(since Qbs 1.2)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#hostOSVersionPatch-prop" translate="no">hostOSVersionPatch</a></b> : int <code class="summary extra" translate="no">(since Qbs 1.2)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#hostPlatform-prop" translate="no">hostPlatform</a></b> : string <code class="summary extra" translate="no">(since Qbs 1.11)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#install-prop" translate="no">install</a></b> : bool</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#installDir-prop" translate="no">installDir</a></b> : string</li>
@@ -166,7 +195,11 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#installSourceBase-prop" translate="no">installSourceBase</a></b> : string <code class="summary extra" translate="no">(since Qbs 1.4)</code></li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#nullDevice-prop" translate="no">nullDevice</a></b> : string <code class="summary extra" translate="no">(since Qbs 1.4.2)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#optimization-prop" translate="no">optimization</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#pathListSeparator-prop" translate="no">pathListSeparator</a></b> : string</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#profiles-prop" translate="no">profiles</a></b> : stringList <code class="summary extra" translate="no">(since Qbs 1.9)</code></li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
@@ -206,7 +239,7 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
         name: "Runtime resources"
         files: "*.qml"
         qbs.install: true
-        qbs.installDir: condition: qbs.targetOS.includes("unix")
+        qbs.installDir: condition: qbs.targetOS.contains("unix")
             ? "share/myapp" : "resources"
     }
     Group {
@@ -215,7 +248,7 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
         qbs.install: true
         qbs.installDir: "bin"
     }
-    qbs.installPrefix: condition: qbs.targetOS.includes("unix")
+    qbs.installPrefix: condition: qbs.targetOS.contains("unix")
         ? "usr/local" : "MyApp"
 }</pre>
 <p>On Windows, the QML files will ultimately get installed in <code translate="no">MyApp\resources</code> and the application executable in <code translate="no">MyApp\bin</code>, for instance under <code translate="no">C:\Program Files</code>. On Linux, the QML files will be installed in <code translate="no">/usr/local/share/myapp</code> and the executable in <code translate="no">/usr/local/bin</code>.</p>
@@ -238,7 +271,7 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 <!-- $$$architecture -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="architecture-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="architecture-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">architecture</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -249,48 +282,45 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 <h5 id="supported-processor-architectures">Supported Processor Architectures</h5>
 <p>This table describes the possible values of the architecture property:</p>
 <div class="table"><table class="generic">
-<thead><tr class="qt-style"><th>Architecture</th><th>Description</th></tr></thead>
-<tbody><tr class="odd" valign="top"><td><code translate="no">"78k"</code></td><td>16- and 8-bit accumulator-based register-bank CISC architecture microcontroller family manufactured by Renesas Electronics</td></tr>
-<tr class="even" valign="top"><td><code translate="no">"arm"</code></td><td>32-bit RISC architecture for computer processors developed by Acorn RISC Machine<div class="admonition note">
+ <thead><tr class="qt-style"><th>Architecture</th><th>Description</th></tr></thead>
+<tbody><tr valign="top" class="odd"><td><code translate="no">"78k"</code></td><td>16- and 8-bit accumulator-based register-bank CISC architecture microcontroller family manufactured by Renesas Electronics</td></tr>
+<tr valign="top" class="even"><td><code translate="no">"arm"</code></td><td>32-bit RISC architecture for computer processors developed by Acorn RISC Machine<div class="admonition note">
 <p><b>Note: </b>There are a lot of sub-variants of the ARM architecture. Some specialized Qbs modules differentiate between them, making use of values such as <code translate="no">"armv7a"</code>. Please consult the respective module-specific documentation for information on what kind of value to use.</p>
 </div>
 </td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"arm64"</code></td><td>64-bit RISC architecture for computer processors developed by Acorn RISC Machine</td></tr>
-<tr class="even" valign="top"><td><code translate="no">"avr"</code></td><td>8-bit modified Harvard RISC architecture microcontroller family manufactured by Microchip Technology</td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"avr32"</code></td><td>32-bit RISC architecture microcontroller family developed by Atmel</td></tr>
-<tr class="even" valign="top"><td><code translate="no">"c166"</code></td><td>16-bit architecture microcontroller family developed by Infineon</td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"cr16"</code></td><td>16-bit compact RISC architecture microcontroller family developed by National Semiconductor</td></tr>
-<tr class="even" valign="top"><td><code translate="no">"e2k"</code></td><td>512-bit Russian wide VLIW microprocessor developed by Moscow Center of SPARC Technologies (MCST) and fabricated by TSMC</td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"hcs8"</code></td><td>8-bit HC08 and S08 microcontroller family from Freescale Semiconductor</td></tr>
-<tr class="even" valign="top"><td><code translate="no">"hcs12"</code></td><td>16-bit HC12 and S12 microcontroller family from Freescale Semiconductor</td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"hppa"</code></td><td>64-bit PA-RISC processor architecture developed by Hewlett-Packard</td></tr>
-<tr class="even" valign="top"><td><code translate="no">"ia64"</code></td><td>64-bit ISA architecture of the Itanium family processors developed by Intel</td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"m16c"</code></td><td>16-bit CISC microcontrollers featuring high ROM code efficiency manufactured by Renesas Electronics</td></tr>
-<tr class="even" valign="top"><td><code translate="no">"m32c"</code></td><td>32- and 16-bit CISC microcontrollers featuring high ROM code efficiency manufactured by Renesas Electronics</td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"m32r"</code></td><td>32-bit RISC microcontrollers for general industrial and car-mounted systems, digital AV equipment, digital imaging equipment manufactured by Renesas Electronics</td></tr>
-<tr class="even" valign="top"><td><code translate="no">"m68k"</code></td><td>16- and 32-bit CISC microprocessor, developed by Motorola Semiconductor Products Sector, and further improved as ColdFire architecture developed by NXP</td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"mcs251"</code></td><td>8-, 16-, and 32-bit microcontroller family which is a next binary compatible generation for the <code translate="no">"mcs51"</code> family</td></tr>
-<tr class="even" valign="top"><td><code translate="no">"mcs51"</code></td><td>8-bit Harvard architecture microcontroller family developed by Intel</td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"mips"</code></td><td>32-bit RISC microprocessor without interlocked pipelined stages architecture developed by MIPS Computer Systems</td></tr>
-<tr class="even" valign="top"><td><code translate="no">"mips64"</code></td><td>64-bit RISC microprocessor without interlocked pipelined stages architecture developed by MIPS Computer Systems</td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"msp430"</code></td><td>16-bit mixed-signal microcontroller family manufactured by Texas Instruments</td></tr>
-<tr class="even" valign="top"><td><code translate="no">"ppc"</code></td><td>32-bit RISC architecture processor family developed by Apple–IBM–Motorola alliance</td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"ppc64"</code></td><td>64-bit RISC architecture processor family developed by Apple–IBM–Motorola alliance</td></tr>
-<tr class="even" valign="top"><td><code translate="no">"r32c"</code></td><td>32-bit CISC microcontrollers with improved code efficiency and processing performance manufactured by Renesas Electronics</td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"rh850"</code></td><td>32-bit automotive microcontroller family manufactured by Renesas Electronics</td></tr>
-<tr class="even" valign="top"><td><code translate="no">"riscv"</code></td><td>Open and free standard instruction set architecture based on established RISC principles</td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"rl78"</code></td><td>16- and 8-bit accumulator-based register-bank CISC architecture with 3-stage instruction pipelining microcontroller family manufactured by Renesas Electronics</td></tr>
-<tr class="even" valign="top"><td><code translate="no">"rx"</code></td><td>High performance 32-bit CISC microcontroller family manufactured by Renesas Electronics</td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"s390x"</code></td><td>64- and 32-bit System/390 processor architecture developed by IBM</td></tr>
-<tr class="even" valign="top"><td><code translate="no">"sh"</code></td><td>32-bit RISC architecture processor family developed by Hitachi and currently manufactured by Renesas Electronics</td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"sparc"</code></td><td>32-bit RISC architecture processor family developed by Sun Microsystems and Fujitsu</td></tr>
-<tr class="even" valign="top"><td><code translate="no">"sparc64"</code></td><td>64-bit RISC architecture processor family developed by Sun Microsystems and Fujitsu</td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"stm8"</code></td><td>8-bit microcontroller family manufactured by STMicroelectronics</td></tr>
-<tr class="even" valign="top"><td><code translate="no">"v850"</code></td><td>32-bit RISC microcontroller family manufactured by Renesas Electronics</td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"x86"</code></td><td>32-bit ISA architecture processor family developed by Intel</td></tr>
-<tr class="even" valign="top"><td><code translate="no">"x86_16"</code></td><td>16-bit ISA architecture processor family developed by Intel</td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"x86_64"</code></td><td>64-bit ISA architecture processor family developed by AMD</td></tr>
-<tr class="even" valign="top"><td><code translate="no">"xtensa"</code></td><td>32-bit architecture with a compact 16- and 24-bit instruction set developed by Tensilica</td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"arm64"</code></td><td>64-bit RISC architecture for computer processors developed by Acorn RISC Machine</td></tr>
+<tr valign="top" class="even"><td><code translate="no">"avr"</code></td><td>8-bit modified Harvard RISC architecture microcontroller family manufactured by Microchip Technology</td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"avr32"</code></td><td>32-bit RISC architecture microcontroller family developed by Atmel</td></tr>
+<tr valign="top" class="even"><td><code translate="no">"c166"</code></td><td>16-bit architecture microcontroller family developed by Infineon</td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"cr16"</code></td><td>16-bit compact RISC architecture microcontroller family developed by National Semiconductor</td></tr>
+<tr valign="top" class="even"><td><code translate="no">"hcs8"</code></td><td>8-bit HC08 and S08 microcontroller family from Freescale Semiconductor</td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"hcs12"</code></td><td>16-bit HC12 and S12 microcontroller family from Freescale Semiconductor</td></tr>
+<tr valign="top" class="even"><td><code translate="no">"ia64"</code></td><td>64-bit ISA architecture of the Itanium family processors developed by Intel</td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"m16c"</code></td><td>16-bit CISC microcontrollers featuring high ROM code efficiency manufactured by Renesas Electronics</td></tr>
+<tr valign="top" class="even"><td><code translate="no">"m32c"</code></td><td>32- and 16-bit CISC microcontrollers featuring high ROM code efficiency manufactured by Renesas Electronics</td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"m32r"</code></td><td>32-bit RISC microcontrollers for general industrial and car-mounted systems, digital AV equipment, digital imaging equipment manufactured by Renesas Electronics</td></tr>
+<tr valign="top" class="even"><td><code translate="no">"m68k"</code></td><td>16- and 32-bit CISC microprocessor, developed by Motorola Semiconductor Products Sector, and further improved as ColdFire architecture developed by NXP</td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"mcs251"</code></td><td>8-, 16-, and 32-bit microcontroller family which is a next binary compatible generation for the <code translate="no">"mcs51"</code> family</td></tr>
+<tr valign="top" class="even"><td><code translate="no">"mcs51"</code></td><td>8-bit Harvard architecture microcontroller family developed by Intel</td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"mips"</code></td><td>32-bit RISC microprocessor without interlocked pipelined stages architecture developed by MIPS Computer Systems</td></tr>
+<tr valign="top" class="even"><td><code translate="no">"mips64"</code></td><td>64-bit RISC microprocessor without interlocked pipelined stages architecture developed by MIPS Computer Systems</td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"msp430"</code></td><td>16-bit mixed-signal microcontroller family manufactured by Texas Instruments</td></tr>
+<tr valign="top" class="even"><td><code translate="no">"ppc"</code></td><td>32-bit RISC architecture processor family developed by Apple–IBM–Motorola alliance</td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"ppc64"</code></td><td>64-bit RISC architecture processor family developed by Apple–IBM–Motorola alliance</td></tr>
+<tr valign="top" class="even"><td><code translate="no">"r32c"</code></td><td>32-bit CISC microcontrollers with improved code efficiency and processing performance manufactured by Renesas Electronics</td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"rh850"</code></td><td>32-bit automotive microcontroller family manufactured by Renesas Electronics</td></tr>
+<tr valign="top" class="even"><td><code translate="no">"riscv"</code></td><td>Open and free standard instruction set architecture based on established RISC principles</td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"rl78"</code></td><td>16- and 8-bit accumulator-based register-bank CISC architecture with 3-stage instruction pipelining microcontroller family manufactured by Renesas Electronics</td></tr>
+<tr valign="top" class="even"><td><code translate="no">"rx"</code></td><td>High performance 32-bit CISC microcontroller family manufactured by Renesas Electronics</td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"s390x"</code></td><td>64- and 32-bit System/390 processor architecture developed by IBM</td></tr>
+<tr valign="top" class="even"><td><code translate="no">"sh"</code></td><td>32-bit RISC architecture processor family developed by Hitachi and currently manufactured by Renesas Electronics</td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"sparc"</code></td><td>32-bit RISC architecture processor family developed by Sun Microsystems and Fujitsu</td></tr>
+<tr valign="top" class="even"><td><code translate="no">"sparc64"</code></td><td>64-bit RISC architecture processor family developed by Sun Microsystems and Fujitsu</td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"stm8"</code></td><td>8-bit microcontroller family manufactured by STMicroelectronics</td></tr>
+<tr valign="top" class="even"><td><code translate="no">"v850"</code></td><td>32-bit RISC microcontroller family manufactured by Renesas Electronics</td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"x86"</code></td><td>32-bit ISA architecture processor family developed by Intel</td></tr>
+<tr valign="top" class="even"><td><code translate="no">"x86_64"</code></td><td>64-bit ISA architecture processor family developed by AMD</td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"xtensa"</code></td><td>32-bit architecture with a compact 16- and 24-bit instruction set developed by Tensilica</td></tr>
 </tbody></table></div>
 <p>Default: Undefined</p>
 </div></div><!-- @@@architecture -->
@@ -298,7 +328,7 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 <!-- $$$architectures -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="architectures-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="architectures-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">architectures</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[since Qbs 1.9]</code></p></td></tr>
 </tbody></table></div></div>
@@ -310,7 +340,7 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 <!-- $$$buildVariant -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="buildVariant-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="buildVariant-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">buildVariant</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -323,7 +353,7 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 <!-- $$$buildVariants -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="buildVariants-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="buildVariants-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">buildVariants</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[since Qbs 1.9]</code></p></td></tr>
 </tbody></table></div></div>
@@ -335,7 +365,7 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 <!-- $$$configurationName -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="configurationName-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="configurationName-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">configurationName</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only, since Qbs 1.6]</code></p></td></tr>
 </tbody></table></div></div>
@@ -349,7 +379,7 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 <!-- $$$debugInformation -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="debugInformation-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="debugInformation-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">debugInformation</span> : <span class="type">bool</span></p></td></tr>
 </tbody></table></div></div>
@@ -361,7 +391,7 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 <!-- $$$enableDebugCode -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="enableDebugCode-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="enableDebugCode-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">enableDebugCode</span> : <span class="type">bool</span></p></td></tr>
 </tbody></table></div></div>
@@ -378,10 +408,125 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 <p>Default: <code translate="no">true</code> for debug builds, <code translate="no">false</code> otherwise.</p>
 </div></div><!-- @@@enableDebugCode -->
 <br>
+<!-- $$$hostArchitecture -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr valign="top" class="odd" id="hostArchitecture-prop">
+<td class="tblQmlPropNode"><p>
+<span class="name">hostArchitecture</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.16]</code></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>Contains the host OS architecture.</p>
+<p>Default: Determined automatically.</p>
+<p>This property was introduced in Qbs 1.16.</p>
+</div></div><!-- @@@hostArchitecture -->
+<br>
+<!-- $$$hostOS -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr valign="top" class="odd" id="hostOS-prop">
+<td class="tblQmlPropNode"><p>
+<span class="name">hostOS</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>This property is set by Qbs internally and specifies the OS Qbs is running on.</p>
+<p>The possible values for this property are the values of <a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#targetOS-prop" translate="no">targetOS</a>, even though some of them may not be supported.</p>
+<p>Default: Undefined</p>
+</div></div><!-- @@@hostOS -->
+<br>
+<!-- $$$hostOSBuildVersion -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr valign="top" class="odd" id="hostOSBuildVersion-prop">
+<td class="tblQmlPropNode"><p>
+<span class="name">hostOSBuildVersion</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only, since Qbs 1.2]</code></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>The host operating system's build version. Currently, only defined for Windows and Apple platforms.</p>
+<p>On Windows, this is the 4 or 5 digit Windows build number and is equivalent to <a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#versionPatch-prop" translate="no">versionPatch</a>. On Apple platforms, this is a standard build number in the Apple versioning scheme. For example, <code translate="no">"13C64"</code>.</p>
+<p>Default: Undefined</p>
+<p>This property was introduced in Qbs 1.2.</p>
+</div></div><!-- @@@hostOSBuildVersion -->
+<br>
+<!-- $$$hostOSVersion -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr valign="top" class="odd" id="hostOSVersion-prop">
+<td class="tblQmlPropNode"><p>
+<span class="name">hostOSVersion</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only, since Qbs 1.2]</code></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>The host operating system version. Currently, only defined for Windows and Apple platforms.</p>
+<p>Consists of two or three numbers separated by dots. For example, <code translate="no">"10.9"</code> or <code translate="no">"6.3.9600"</code>.</p>
+<p>Default: Undefined</p>
+<p>This property was introduced in Qbs 1.2.</p>
+</div></div><!-- @@@hostOSVersion -->
+<br>
+<!-- $$$hostOSVersionMajor -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr valign="top" class="odd" id="hostOSVersionMajor-prop">
+<td class="tblQmlPropNode"><p>
+<span class="name">hostOSVersionMajor</span> : <span class="type">int</span> <code class="details extra" translate="no">[read-only, since Qbs 1.2]</code></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>The host operating system major version.</p>
+<p>Default: <code translate="no">hostOSVersionParts[0]</code></p>
+<p>This property was introduced in Qbs 1.2.</p>
+</div></div><!-- @@@hostOSVersionMajor -->
+<br>
+<!-- $$$hostOSVersionMinor -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr valign="top" class="odd" id="hostOSVersionMinor-prop">
+<td class="tblQmlPropNode"><p>
+<span class="name">hostOSVersionMinor</span> : <span class="type">int</span> <code class="details extra" translate="no">[since Qbs 1.2]</code></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>The host operating system minor version.</p>
+<p>Default: <code translate="no">hostOSVersionParts[1]</code></p>
+<p>This property was introduced in Qbs 1.2.</p>
+</div></div><!-- @@@hostOSVersionMinor -->
+<br>
+<!-- $$$hostOSVersionParts -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr valign="top" class="odd" id="hostOSVersionParts-prop">
+<td class="tblQmlPropNode"><p>
+<span class="name">hostOSVersionParts</span> : <span class="type">list</span> <code class="details extra" translate="no">[read-only, since Qbs 1.2]</code></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>The host operating system version as a list.</p>
+<p>For example, Windows 8.1 (version 6.3.9600) would correspond to a value of <code translate="no">[6, 3, 9600]</code>.</p>
+<p>Default: <code translate="no">[]</code></p>
+<p>This property was introduced in Qbs 1.2.</p>
+</div></div><!-- @@@hostOSVersionParts -->
+<br>
+<!-- $$$hostOSVersionPatch -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr valign="top" class="odd" id="hostOSVersionPatch-prop">
+<td class="tblQmlPropNode"><p>
+<span class="name">hostOSVersionPatch</span> : <span class="type">int</span> <code class="details extra" translate="no">[read-only, since Qbs 1.2]</code></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>The host operating system patch level.</p>
+<p>Default: <code translate="no">hostOSVersionParts[2]</code></p>
+<p>This property was introduced in Qbs 1.2.</p>
+</div></div><!-- @@@hostOSVersionPatch -->
+<br>
+<!-- $$$hostPlatform -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr valign="top" class="odd" id="hostPlatform-prop">
+<td class="tblQmlPropNode"><p>
+<span class="name">hostPlatform</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.11]</code></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>Contains the host OS platform.</p>
+<p>Default: Determined automatically.</p>
+<p>This property was introduced in Qbs 1.11.</p>
+<p><b>See also </b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#hostArchitecture-prop" translate="no">hostArchitecture</a>.</p>
+</div></div><!-- @@@hostPlatform -->
+<br>
 <!-- $$$install -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="install-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="install-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">install</span> : <span class="type">bool</span></p></td></tr>
 </tbody></table></div></div>
@@ -397,7 +542,7 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 <!-- $$$installDir -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="installDir-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="installDir-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">installDir</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -412,7 +557,7 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 <!-- $$$installPrefix -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="installPrefix-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="installPrefix-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">installPrefix</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.1]</code></p></td></tr>
 </tbody></table></div></div>
@@ -427,7 +572,7 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 <!-- $$$installRoot -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="installRoot-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="installRoot-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">installRoot</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.4]</code></p></td></tr>
 </tbody></table></div></div>
@@ -445,7 +590,7 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 <!-- $$$installSourceBase -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="installSourceBase-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="installSourceBase-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">installSourceBase</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.4]</code></p></td></tr>
 </tbody></table></div></div>
@@ -455,10 +600,22 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 <p>This property was introduced in Qbs 1.4.</p>
 </div></div><!-- @@@installSourceBase -->
 <br>
+<!-- $$$nullDevice -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr valign="top" class="odd" id="nullDevice-prop">
+<td class="tblQmlPropNode"><p>
+<span class="name">nullDevice</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.4.2]</code></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>The platform-specific file path corresponding to the null device.</p>
+<p>Default: <code translate="no">"NUL"</code> on Windows, <code translate="no">"/dev/null"</code> on Unix.</p>
+<p>This property was introduced in Qbs 1.4.2.</p>
+</div></div><!-- @@@nullDevice -->
+<br>
 <!-- $$$optimization -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="optimization-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="optimization-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">optimization</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -473,10 +630,21 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 /docs/qml-qbsmodules-qbs/#buildVariant-prop" translate="no">qbs.buildVariant</a> is <code translate="no">"debug"</code>. Otherwise <code translate="no">"fast"</code>.</p>
 </div></div><!-- @@@optimization -->
 <br>
+<!-- $$$pathListSeparator -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr valign="top" class="odd" id="pathListSeparator-prop">
+<td class="tblQmlPropNode"><p>
+<span class="name">pathListSeparator</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>The platform-specific separator for a path list that is used in environment variables or other contexts.</p>
+<p>Default: <code translate="no">";"</code> on Windows, <code translate="no">":"</code> on Unix.</p>
+</div></div><!-- @@@pathListSeparator -->
+<br>
 <!-- $$$profiles -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="profiles-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="profiles-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">profiles</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[since Qbs 1.9]</code></p></td></tr>
 </tbody></table></div></div>
@@ -490,7 +658,7 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 <!-- $$$shellPath -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="shellPath-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="shellPath-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">shellPath</span> : <span class="type">path</span> <code class="details extra" translate="no">[since Qbs 1.5]</code></p></td></tr>
 </tbody></table></div></div>
@@ -503,7 +671,7 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 <!-- $$$sysroot -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="sysroot-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="sysroot-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">sysroot</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -515,7 +683,7 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 <!-- $$$targetOS -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="targetOS-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="targetOS-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">targetOS</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
 </tbody></table></div></div>
@@ -524,29 +692,29 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 /docs/qml-qbsmodules-qbs/#targetPlatform-prop" translate="no">targetPlatform</a> property and is typically used to test for a particular OS or OS family in conditionals:</p>
 <pre class="cpp" translate="no">Group {
     <span class="comment">// Includes all Unix-like platforms, such as: Linux, BSD, Apple platforms and others.</span>
-    condition: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"unix"</span>)
+    condition: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>contains(<span class="string">"unix"</span>)
     files: <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
 }
 Group {
     <span class="comment">// Includes all Apple platforms, such as macOS, iOS, and iOS Simulator.</span>
-    condition: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"darwin"</span>)
+    condition: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>contains(<span class="string">"darwin"</span>)
     files: <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
 }
 Group {
     <span class="comment">// Includes only macOS</span>
-    condition: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"macos"</span>)
+    condition: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>contains(<span class="string">"macos"</span>)
     files: <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
 }</pre>
 <p>Avoid using <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#targetPlatform-prop" translate="no">targetPlatform</a> for this purpose. For example, instead of:</p>
 <pre class="cpp" translate="no">qbs<span class="operator">.</span>targetPlatform <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"macos"</span> <span class="operator">|</span><span class="operator">|</span> qbs<span class="operator">.</span>targetPlatform <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"ios"</span> <span class="operator">|</span><span class="operator">|</span> qbs<span class="operator">.</span>targetPlatform <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"tvos"</span> <span class="operator">|</span><span class="operator">|</span> qbs<span class="operator">.</span>targetPlatform <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"watchos"</span></pre>
 <p>use</p>
-<pre class="cpp" translate="no">qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"darwin"</span>)</pre>
+<pre class="cpp" translate="no">qbs<span class="operator">.</span>targetOS<span class="operator">.</span>contains(<span class="string">"darwin"</span>)</pre>
 <p>However, in some cases using <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#targetPlatform-prop" translate="no">targetPlatform</a> would be acceptable, such as when the resulting condition would be simpler while still being correct:</p>
 <pre class="cpp" translate="no">qbs<span class="operator">.</span>targetPlatform <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"linux"</span></pre>
 <p>versus</p>
-<pre class="cpp" translate="no">qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"linux"</span>) <span class="operator">&amp;</span><span class="operator">&amp;</span> <span class="operator">!</span>qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"android"</span>)</pre>
+<pre class="cpp" translate="no">qbs<span class="operator">.</span>targetOS<span class="operator">.</span>contains(<span class="string">"linux"</span>) <span class="operator">&amp;</span><span class="operator">&amp;</span> <span class="operator">!</span>qbs<span class="operator">.</span>targetOS<span class="operator">.</span>contains(<span class="string">"android"</span>)</pre>
 <p>For the complete list of possible values, see <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#relation-between-targetplatform-and-targetos" translate="no">Relation between targetPlatform and targetOS</a>.</p>
 <p>Default: Undefined</p>
@@ -555,7 +723,7 @@ Group {
 <!-- $$$targetPlatform -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="targetPlatform-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="targetPlatform-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">targetPlatform</span> : <span class="type">string</span> <code class="details extra" translate="no">[since 1.11]</code></p></td></tr>
 </tbody></table></div></div>
@@ -569,40 +737,38 @@ Group {
 <p>This table describes the possible values and matching between the <code translate="no">targetPlatform</code> and the <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#targetOS-prop" translate="no">targetOS</a> properties:</p>
 <div class="table"><table class="generic">
-<thead><tr class="qt-style"><th>Target Platform</th><th>Target OS</th></tr></thead>
-<tbody><tr class="odd" valign="top"><td><code translate="no">"aix"</code></td><td><code translate="no">["aix", "unix"]</code></td></tr>
-<tr class="even" valign="top"><td><code translate="no">"android"</code></td><td><code translate="no">["android", "linux", "unix"]</code></td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"dos"</code></td><td><code translate="no">["dos"]</code></td></tr>
-<tr class="even" valign="top"><td><code translate="no">"freebsd"</code></td><td><code translate="no">["freebsd", "bsd", "unix"]</code></td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"haiku"</code></td><td><code translate="no">["haiku"]</code></td></tr>
-<tr class="even" valign="top"><td><code translate="no">"hpux"</code></td><td><code translate="no">["hpux", "unix"]</code></td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"hurd"</code></td><td><code translate="no">["hurd", "unix"]</code></td></tr>
-<tr class="even" valign="top"><td><code translate="no">"integrity"</code></td><td><code translate="no">["integrity", "unix"]</code></td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"ios"</code></td><td><code translate="no">["ios", "darwin", "bsd", "unix"]</code></td></tr>
-<tr class="even" valign="top"><td><code translate="no">"ios-simulator"</code></td><td><code translate="no">["ios-simulator", "ios", "darwin", "bsd", "unix"]</code></td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"linux"</code></td><td><code translate="no">["linux", "unix"]</code></td></tr>
-<tr class="even" valign="top"><td><code translate="no">"lynx"</code></td><td><code translate="no">["lynx"]</code></td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"macos"</code></td><td><code translate="no">["macos", "darwin", "bsd", "unix"]</code></td></tr>
-<tr class="even" valign="top"><td><code translate="no">"netbsd"</code></td><td><code translate="no">["netbsd", "bsd", "unix"]</code></td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"openbsd"</code></td><td><code translate="no">["openbsd", "bsd", "unix"]</code></td></tr>
-<tr class="even" valign="top"><td><code translate="no">"os2"</code></td><td><code translate="no">["os2"]</code></td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"qnx"</code></td><td><code translate="no">["qnx", "unix"]</code></td></tr>
-<tr class="even" valign="top"><td><code translate="no">"solaris"</code></td><td><code translate="no">["solaris", "unix"]</code></td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"tvos"</code></td><td><code translate="no">["tvos", "darwin", "bsd", "unix"]</code></td></tr>
-<tr class="even" valign="top"><td><code translate="no">"tvos-simulator"</code></td><td><code translate="no">["tvos-simulator", "tvos", "darwin", "bsd", "unix"]</code></td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"unix"</code></td><td><code translate="no">["unix"]</code></td></tr>
-<tr class="even" valign="top"><td><code translate="no">"vxworks"</code></td><td><code translate="no">["vxworks"]</code></td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"watchos"</code></td><td><code translate="no">["watchos", "darwin", "bsd", "unix"]</code></td></tr>
-<tr class="even" valign="top"><td><code translate="no">"watchos-simulator"</code></td><td><code translate="no">["watchos-simulator", "watchos", "darwin", "bsd", "unix"]</code></td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"windows"</code></td><td><code translate="no">["windows"]</code></td></tr>
-<tr class="even" valign="top"><td><code translate="no">"none"</code></td><td><code translate="no">["none"]</code></td></tr>
-<tr class="odd" valign="top"><td><code translate="no">undefined</code></td><td><code translate="no">[]</code></td></tr>
+ <thead><tr class="qt-style"><th>Target Platform</th><th>Target OS</th></tr></thead>
+<tbody><tr valign="top" class="odd"><td><code translate="no">"aix"</code></td><td><code translate="no">["aix", "unix"]</code></td></tr>
+<tr valign="top" class="even"><td><code translate="no">"android"</code></td><td><code translate="no">["android", "linux", "unix"]</code></td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"freebsd"</code></td><td><code translate="no">["freebsd", "bsd", "unix"]</code></td></tr>
+<tr valign="top" class="even"><td><code translate="no">"haiku"</code></td><td><code translate="no">["haiku"]</code></td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"hpux"</code></td><td><code translate="no">["hpux", "unix"]</code></td></tr>
+<tr valign="top" class="even"><td><code translate="no">"hurd"</code></td><td><code translate="no">["hurd", "unix"]</code></td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"integrity"</code></td><td><code translate="no">["integrity", "unix"]</code></td></tr>
+<tr valign="top" class="even"><td><code translate="no">"ios"</code></td><td><code translate="no">["ios", "darwin", "bsd", "unix"]</code></td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"ios-simulator"</code></td><td><code translate="no">["ios-simulator", "ios", "darwin", "bsd", "unix"]</code></td></tr>
+<tr valign="top" class="even"><td><code translate="no">"linux"</code></td><td><code translate="no">["linux", "unix"]</code></td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"lynx"</code></td><td><code translate="no">["lynx"]</code></td></tr>
+<tr valign="top" class="even"><td><code translate="no">"macos"</code></td><td><code translate="no">["macos", "darwin", "bsd", "unix"]</code></td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"netbsd"</code></td><td><code translate="no">["netbsd", "bsd", "unix"]</code></td></tr>
+<tr valign="top" class="even"><td><code translate="no">"openbsd"</code></td><td><code translate="no">["openbsd", "bsd", "unix"]</code></td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"qnx"</code></td><td><code translate="no">["qnx", "unix"]</code></td></tr>
+<tr valign="top" class="even"><td><code translate="no">"solaris"</code></td><td><code translate="no">["solaris", "unix"]</code></td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"tvos"</code></td><td><code translate="no">["tvos", "darwin", "bsd", "unix"]</code></td></tr>
+<tr valign="top" class="even"><td><code translate="no">"tvos-simulator"</code></td><td><code translate="no">["tvos-simulator", "tvos", "darwin", "bsd", "unix"]</code></td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"unix"</code></td><td><code translate="no">["unix"]</code></td></tr>
+<tr valign="top" class="even"><td><code translate="no">"vxworks"</code></td><td><code translate="no">["vxworks"]</code></td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"watchos"</code></td><td><code translate="no">["watchos", "darwin", "bsd", "unix"]</code></td></tr>
+<tr valign="top" class="even"><td><code translate="no">"watchos-simulator"</code></td><td><code translate="no">["watchos-simulator", "watchos", "darwin", "bsd", "unix"]</code></td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"windows"</code></td><td><code translate="no">["windows"]</code></td></tr>
+<tr valign="top" class="even"><td><code translate="no">"none"</code></td><td><code translate="no">["none"]</code></td></tr>
+<tr valign="top" class="odd"><td><code translate="no">undefined</code></td><td><code translate="no">[]</code></td></tr>
 </tbody></table></div>
 <div class="admonition note">
 <p><b>Note: </b>The "none" value is usually used for a bare-metal platforms.</p>
 </div>
 <p>Default: <a href="https://qbs.io/
-/docs/jsextension-host/#platform" translate="no">Host.platform()</a></p>
+/docs/qml-qbsmodules-qbs/#hostPlatform-prop" translate="no">hostPlatform</a></p>
 <p>This property was introduced in Qt 1.11.</p>
 <p><b>See also </b><a href="https://qbs.io/
 /docs/platforms/" translate="no">Target Platforms</a>.</p>
@@ -611,7 +777,7 @@ Group {
 <!-- $$$toolchain -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="toolchain-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="toolchain-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">toolchain</span> : <span class="type">stringList</span></p></td></tr>
 </tbody></table></div></div>
@@ -620,39 +786,38 @@ Group {
 /docs/qml-qbsmodules-qbs/#toolchainType-prop" translate="no">toolchainType</a> property and is typically used to test for a particular toolchain or toolchain family in conditionals:</p>
 <pre class="cpp" translate="no">Properties {
     <span class="comment">// flags for GCC</span>
-    condition: qbs<span class="operator">.</span>toolchain<span class="operator">.</span>includes(<span class="string">"gcc"</span>)
+    condition: qbs<span class="operator">.</span>toolchain<span class="operator">.</span>contains(<span class="string">"gcc"</span>)
     cpp<span class="operator">.</span>commonCompilerFlags: <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
 }
 Properties {
     <span class="comment">// flags for MSVC</span>
-    condition: qbs<span class="operator">.</span>toolchain<span class="operator">.</span>includes(<span class="string">"msvc"</span>)
+    condition: qbs<span class="operator">.</span>toolchain<span class="operator">.</span>contains(<span class="string">"msvc"</span>)
     cpp<span class="operator">.</span>commonCompilerFlags: <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
 }</pre>
 <p>Unlike <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#toolchainType-prop" translate="no">toolchainType</a>, which contains a single value, <code translate="no">qbs.toolchain</code> is a string list which also contains the toolchain family. This allows to make conditions and checks simpler. For example, instead of:</p>
 <pre class="cpp" translate="no">(qbs<span class="operator">.</span>toolchainType <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"xcode"</span> <span class="operator">|</span><span class="operator">|</span> qbs<span class="operator">.</span>toolchainType <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"clang"</span> <span class="operator">|</span><span class="operator">|</span> qbs<span class="operator">.</span>toolchainType <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"gcc"</span>)</pre>
 <p>use:</p>
-<pre class="cpp" translate="no">qbs<span class="operator">.</span>toolchain<span class="operator">.</span>includes(<span class="string">"gcc"</span>)</pre>
+<pre class="cpp" translate="no">qbs<span class="operator">.</span>toolchain<span class="operator">.</span>contains(<span class="string">"gcc"</span>)</pre>
 <p>since XCode, GCC and Clang belong to the <code translate="no">"gcc"</code> family.</p>
 <h5 id="relation-between-toolchaintype-and-toolchain">Relation between toolchainType and toolchain</h5>
 <p>This table describes the possible values and matching between the <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#toolchainType-prop" translate="no">toolchainType</a> and the <code translate="no">toolchain</code> properties:</p>
 <div class="table"><table class="generic">
-<thead><tr class="qt-style"><th>Toolchain Type</th><th>Toolchain</th></tr></thead>
-<tbody><tr class="odd" valign="top"><td><code translate="no">"clang"</code></td><td><code translate="no">["clang", "llvm", "gcc"]</code></td></tr>
-<tr class="even" valign="top"><td><code translate="no">"clang-cl"</code></td><td><code translate="no">["clang-cl", "msvc"]</code></td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"cosmic"</code></td><td><code translate="no">["cosmic"]</code></td></tr>
-<tr class="even" valign="top"><td><code translate="no">"dmc"</code></td><td><code translate="no">["dmc"]</code></td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"gcc"</code></td><td><code translate="no">["gcc"]</code></td></tr>
-<tr class="even" valign="top"><td><code translate="no">"iar"</code></td><td><code translate="no">["iar"]</code></td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"keil"</code></td><td><code translate="no">["keil"]</code></td></tr>
-<tr class="even" valign="top"><td><code translate="no">"llvm"</code></td><td><code translate="no">["llvm", "gcc"]</code></td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"mingw"</code></td><td><code translate="no">["mingw", "gcc"]</code></td></tr>
-<tr class="even" valign="top"><td><code translate="no">"msvc"</code></td><td><code translate="no">["msvc"]</code></td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"qcc"</code></td><td><code translate="no">["qcc"]</code></td></tr>
-<tr class="even" valign="top"><td><code translate="no">"sdcc"</code></td><td><code translate="no">["sdcc"]</code></td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"watcom"</code></td><td><code translate="no">["watcom"]</code></td></tr>
-<tr class="even" valign="top"><td><code translate="no">"xcode"</code></td><td><code translate="no">["xcode", "clang", "llvm", "gcc"]</code></td></tr>
+ <thead><tr class="qt-style"><th>Toolchain Type</th><th>Toolchain</th></tr></thead>
+<tbody><tr valign="top" class="odd"><td><code translate="no">"clang"</code></td><td><code translate="no">["clang", "llvm", "gcc"]</code></td></tr>
+<tr valign="top" class="even"><td><code translate="no">"clang-cl"</code></td><td><code translate="no">["clang-cl", "msvc"]</code></td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"cosmic"</code></td><td><code translate="no">["cosmic"]</code></td></tr>
+<tr valign="top" class="even"><td><code translate="no">"dmc"</code></td><td><code translate="no">["dmc"]</code></td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"gcc"</code></td><td><code translate="no">["gcc"]</code></td></tr>
+<tr valign="top" class="even"><td><code translate="no">"iar"</code></td><td><code translate="no">["iar"]</code></td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"keil"</code></td><td><code translate="no">["keil"]</code></td></tr>
+<tr valign="top" class="even"><td><code translate="no">"llvm"</code></td><td><code translate="no">["llvm", "gcc"]</code></td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"mingw"</code></td><td><code translate="no">["mingw", "gcc"]</code></td></tr>
+<tr valign="top" class="even"><td><code translate="no">"msvc"</code></td><td><code translate="no">["msvc"]</code></td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"qcc"</code></td><td><code translate="no">["qcc"]</code></td></tr>
+<tr valign="top" class="even"><td><code translate="no">"sdcc"</code></td><td><code translate="no">["sdcc"]</code></td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"xcode"</code></td><td><code translate="no">["xcode", "clang", "llvm", "gcc"]</code></td></tr>
 </tbody></table></div>
 <p>Default: Undefined</p>
 </div></div><!-- @@@toolchain -->
@@ -660,7 +825,7 @@ Properties {
 <!-- $$$toolchainType -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="toolchainType-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="toolchainType-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">toolchainType</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.11]</code></p></td></tr>
 </tbody></table></div></div>
@@ -674,14 +839,14 @@ Properties {
 <p>By default, <code translate="no">qbs.toolchainType</code> is automatically detected based on the <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#targetOS-prop" translate="no">targetOS</a> property:</p>
 <div class="table"><table class="generic">
-<thead><tr class="qt-style"><th>Target OS</th><th>Toolchain</th></tr></thead>
-<tbody><tr class="odd" valign="top"><td><code translate="no">"darwin"</code></td><td><code translate="no">"xcode"</code></td></tr>
-<tr class="even" valign="top"><td><code translate="no">"freebsd"</code></td><td><code translate="no">"clang"</code></td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"haiku"</code></td><td><code translate="no">"gcc"</code></td></tr>
-<tr class="even" valign="top"><td><code translate="no">"qnx"</code></td><td><code translate="no">"qcc"</code></td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"unix"</code></td><td><code translate="no">"gcc"</code></td></tr>
-<tr class="even" valign="top"><td><code translate="no">"vxworks"</code></td><td><code translate="no">"gcc"</code></td></tr>
-<tr class="odd" valign="top"><td><code translate="no">"windows"</code></td><td><code translate="no">"msvc"</code></td></tr>
+ <thead><tr class="qt-style"><th>Target OS</th><th>Toolchain</th></tr></thead>
+<tbody><tr valign="top" class="odd"><td><code translate="no">"darwin"</code></td><td><code translate="no">"xcode"</code></td></tr>
+<tr valign="top" class="even"><td><code translate="no">"freebsd"</code></td><td><code translate="no">"clang"</code></td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"haiku"</code></td><td><code translate="no">"gcc"</code></td></tr>
+<tr valign="top" class="even"><td><code translate="no">"qnx"</code></td><td><code translate="no">"qcc"</code></td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"unix"</code></td><td><code translate="no">"gcc"</code></td></tr>
+<tr valign="top" class="even"><td><code translate="no">"vxworks"</code></td><td><code translate="no">"gcc"</code></td></tr>
+<tr valign="top" class="odd"><td><code translate="no">"windows"</code></td><td><code translate="no">"msvc"</code></td></tr>
 </tbody></table></div>
 <p>Default: Determined automatically.</p>
 <p>This property was introduced in Qbs 1.11.</p>
@@ -690,7 +855,7 @@ Properties {
 <!-- $$$version -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="version-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="version-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">version</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only, since Qbs 1.4.1]</code></p></td></tr>
 </tbody></table></div></div>
@@ -701,7 +866,7 @@ Properties {
 <!-- $$$versionMajor -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="versionMajor-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="versionMajor-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">versionMajor</span> : <span class="type">int</span> <code class="details extra" translate="no">[read-only, since Qbs 1.4.1]</code></p></td></tr>
 </tbody></table></div></div>
@@ -712,7 +877,7 @@ Properties {
 <!-- $$$versionMinor -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="versionMinor-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="versionMinor-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">versionMinor</span> : <span class="type">int</span> <code class="details extra" translate="no">[read-only, since Qbs 1.4.1]</code></p></td></tr>
 </tbody></table></div></div>
@@ -723,7 +888,7 @@ Properties {
 <!-- $$$versionPatch -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="versionPatch-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="versionPatch-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">versionPatch</span> : <span class="type">int</span> <code class="details extra" translate="no">[read-only, since Qbs 1.4.1]</code></p></td></tr>
 </tbody></table></div></div>
@@ -731,7 +896,7 @@ Properties {
 <p>This property was introduced in Qbs 1.4.1.</p>
 </div></div><!-- @@@versionPatch -->
 <br>
-</div>
+
 
 
     </article>

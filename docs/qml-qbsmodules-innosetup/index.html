@@ -6,7 +6,7 @@
     <meta name="description" content="Qbs Manual
 QbsModules
 innosetup
-Qbs 2.4.0
+Qbs 1.21.0
 
 
 Contents
@@ -17,12 +17,12 @@ Relevant File Tags
 
 
 
-innosetup
+innosetup QML Type
 
 Provides Inno Setup support. More...
 
 
- Since: Qbs 1.7
+ Import Statement: import QbsModules Since: Qbs 1.7
 List of all members, including inherited members
 
 Properties
@@ -58,8 +58,8 @@ The innosetup module contains properties and rules for building EXE setup packag
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-innosetup/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual QbsModules innosetup Qbs 2.4.0 Contents Properties Detailed Description Relevant File Tags innosetup Provides Inno Setup support. More...
-Since: Qbs 1.7 List of all members, including inherited members Properties compilerFlags : stringList compilerName : string compilerPath : string defines : stringList includePaths : pathList toolchainInstallPath : path verboseOutput : bool version : string versionMajor : int versionMinor : int versionParts : list versionPatch : int Detailed Description The innosetup module contains properties and rules for building EXE setup packages with Inno Setup. Inno Setup 5 and above are supported.">
+  <meta property="og:description" content="Qbs Manual QbsModules innosetup Qbs 1.21.0 Contents Properties Detailed Description Relevant File Tags innosetup QML Type Provides Inno Setup support. More...
+Import Statement: import QbsModules Since: Qbs 1.7 List of all members, including inherited members Properties compilerFlags : stringList compilerName : string compilerPath : string defines : stringList includePaths : pathList toolchainInstallPath : path verboseOutput : bool version : string versionMajor : int versionMinor : int versionParts : list versionPatch : int Detailed Description The innosetup module contains properties and rules for building EXE setup packages with Inno Setup. Inno Setup 5 and above are supported.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -67,8 +67,8 @@ Since: Qbs 1.7 List of all members, including inherited members Properties compi
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual QbsModules innosetup Qbs 2.4.0 Contents Properties Detailed Description Relevant File Tags innosetup Provides Inno Setup support. More...
-Since: Qbs 1.7 List of all members, including inherited members Properties compilerFlags : stringList compilerName : string compilerPath : string defines : stringList includePaths : pathList toolchainInstallPath : path verboseOutput : bool version : string versionMajor : int versionMinor : int versionParts : list versionPatch : int Detailed Description The innosetup module contains properties and rules for building EXE setup packages with Inno Setup. Inno Setup 5 and above are supported.">
+  <meta name="twitter:description" content="Qbs Manual QbsModules innosetup Qbs 1.21.0 Contents Properties Detailed Description Relevant File Tags innosetup QML Type Provides Inno Setup support. More...
+Import Statement: import QbsModules Since: Qbs 1.7 List of all members, including inherited members Properties compilerFlags : stringList compilerName : string compilerPath : string defines : stringList includePaths : pathList toolchainInstallPath : path verboseOutput : bool version : string versionMajor : int versionMinor : int versionParts : list versionPatch : int Detailed Description The innosetup module contains properties and rules for building EXE setup packages with Inno Setup. Inno Setup 5 and above are supported.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -105,7 +105,7 @@ Since: Qbs 1.7 List of all members, including inherited members Properties compi
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>innosetup</li>
-<li id="buildversion">Qbs 2.4.0</li>
+<li id="buildversion">Qbs 1.21.0</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -116,12 +116,12 @@ Since: Qbs 1.7 List of all members, including inherited members Properties compi
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<div class="content"><h1 class="title" translate="no">innosetup</h1>
+<h1 class="title" translate="no">innosetup QML Type</h1>
 <!-- $$$innosetup-brief -->
 <p>Provides Inno Setup support. <a href="#details">More...</a></p>
 <!-- @@@innosetup -->
 <div class="table"><table class="alignedsummary" translate="no">
-<tbody><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.7</td></tr></tbody></table></div><ul>
+<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsModules</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.7</td></tr></tbody></table></div><ul>
 <li><a href="https://qbs.io/
 /docs/qml-qbsmodules-innosetup-members/">List of all members, including inherited members</a></li>
 </ul>
@@ -161,9 +161,9 @@ Since: Qbs 1.7 List of all members, including inherited members Properties compi
 </div>
 <h3 id="relevant-file-tags">Relevant File Tags</h3>
 <span id="filetags-innosetup"></span><div class="table"><table class="generic">
-<thead><tr class="qt-style"><th>Tag</th><th>Auto-tagged File Names</th><th>Since</th><th>Description</th></tr></thead>
-<tbody><tr class="odd" valign="top"><td><code translate="no">"innosetup.iss"</code></td><td><code translate="no">"*.iss"</code></td><td>1.7</td><td>Source files with this tag identify Inno Setup Script files, which serve as inputs to a rule invoking the Inno Setup Script Compiler.</td></tr>
-<tr class="even" valign="top"><td><code translate="no">"innosetup.exe"</code></td><td>n/a</td><td>1.7</td><td>The rule that creates Inno Setup executable files attaches this tag (as well as the <a href="https://qbs.io/
+ <thead><tr class="qt-style"><th>Tag</th><th>Auto-tagged File Names</th><th>Since</th><th>Description</th></tr></thead>
+<tbody><tr valign="top" class="odd"><td><code translate="no">"innosetup.iss"</code></td><td><code translate="no">"*.iss"</code></td><td>1.7</td><td>Source files with this tag identify Inno Setup Script files, which serve as inputs to a rule invoking the Inno Setup Script Compiler.</td></tr>
+<tr valign="top" class="even"><td><code translate="no">"innosetup.exe"</code></td><td>n/a</td><td>1.7</td><td>The rule that creates Inno Setup executable files attaches this tag (as well as the <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#filetags-cpp" translate="no">"application"</a> tag) to its output artifact.</td></tr>
 </tbody></table></div>
 <!-- @@@innosetup -->
@@ -171,7 +171,7 @@ Since: Qbs 1.7 List of all members, including inherited members Properties compi
 <!-- $$$compilerFlags -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="compilerFlags-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="compilerFlags-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">compilerFlags</span> : <span class="type">stringList</span></p></td></tr>
 </tbody></table></div></div>
@@ -182,7 +182,7 @@ Since: Qbs 1.7 List of all members, including inherited members Properties compi
 <!-- $$$compilerName -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="compilerName-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="compilerName-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">compilerName</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -194,7 +194,7 @@ Since: Qbs 1.7 List of all members, including inherited members Properties compi
 <!-- $$$compilerPath -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="compilerPath-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="compilerPath-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">compilerPath</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -206,7 +206,7 @@ Since: Qbs 1.7 List of all members, including inherited members Properties compi
 <!-- $$$defines -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="defines-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="defines-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">defines</span> : <span class="type">stringList</span></p></td></tr>
 </tbody></table></div></div>
@@ -219,7 +219,7 @@ Since: Qbs 1.7 List of all members, including inherited members Properties compi
 <!-- $$$includePaths -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="includePaths-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="includePaths-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">includePaths</span> : <span class="type">pathList</span></p></td></tr>
 </tbody></table></div></div>
@@ -231,7 +231,7 @@ Since: Qbs 1.7 List of all members, including inherited members Properties compi
 <!-- $$$toolchainInstallPath -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="toolchainInstallPath-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="toolchainInstallPath-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">toolchainInstallPath</span> : <span class="type">path</span></p></td></tr>
 </tbody></table></div></div>
@@ -244,7 +244,7 @@ Since: Qbs 1.7 List of all members, including inherited members Properties compi
 <!-- $$$verboseOutput -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="verboseOutput-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="verboseOutput-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">verboseOutput</span> : <span class="type">bool</span></p></td></tr>
 </tbody></table></div></div>
@@ -255,7 +255,7 @@ Since: Qbs 1.7 List of all members, including inherited members Properties compi
 <!-- $$$version -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="version-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="version-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">version</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -267,7 +267,7 @@ Since: Qbs 1.7 List of all members, including inherited members Properties compi
 <!-- $$$versionMajor -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="versionMajor-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="versionMajor-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">versionMajor</span> : <span class="type">int</span></p></td></tr>
 </tbody></table></div></div>
@@ -278,7 +278,7 @@ Since: Qbs 1.7 List of all members, including inherited members Properties compi
 <!-- $$$versionMinor -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="versionMinor-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="versionMinor-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">versionMinor</span> : <span class="type">int</span></p></td></tr>
 </tbody></table></div></div>
@@ -289,7 +289,7 @@ Since: Qbs 1.7 List of all members, including inherited members Properties compi
 <!-- $$$versionParts -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="versionParts-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="versionParts-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">versionParts</span> : <span class="type">list</span></p></td></tr>
 </tbody></table></div></div>
@@ -301,7 +301,7 @@ Since: Qbs 1.7 List of all members, including inherited members Properties compi
 <!-- $$$versionPatch -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="versionPatch-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="versionPatch-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">versionPatch</span> : <span class="type">int</span></p></td></tr>
 </tbody></table></div></div>
@@ -309,7 +309,7 @@ Since: Qbs 1.7 List of all members, including inherited members Properties compi
 <p>Default: <code translate="no">versionParts[2]</code></p>
 </div></div><!-- @@@versionPatch -->
 <br>
-</div>
+
 
 
     </article>

@@ -6,7 +6,7 @@
     <meta name="description" content="Qbs Manual
 QbsModules
 protobuf.nanopb
-Qbs 2.4.0
+Qbs 1.21.0
 
 
 Contents
@@ -17,12 +17,12 @@ Relevant File Tags
 
 
 
-protobuf.nanopb
+protobuf.nanopb QML Type
 
 Provides support for protocol buffers for embedded systems. More...
 
 
- Since: Qbs 1.18
+ Import Statement: import QbsModules Since: Qbs 1.18
 List of all members, including inherited members
 
 Properties
@@ -54,8 +54,8 @@ The protobuf.nanopb module provides support for generating nanopb C headers and 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-protobuf-nanopb/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual QbsModules protobuf.nanopb Qbs 2.4.0 Contents Properties Detailed Description Relevant File Tags protobuf.nanopb Provides support for protocol buffers for embedded systems. More...
-Since: Qbs 1.18 List of all members, including inherited members Properties compilerName : string compilerPath : string importPaths : pathList includePath : string libraryPath : string outputDir : string pluginName : string pluginPath : string Detailed Description The protobuf.nanopb module provides support for generating nanopb C headers and sources from proto definition files using the nanopb plugin for the protoc tool suitable for embedded systems.">
+  <meta property="og:description" content="Qbs Manual QbsModules protobuf.nanopb Qbs 1.21.0 Contents Properties Detailed Description Relevant File Tags protobuf.nanopb QML Type Provides support for protocol buffers for embedded systems. More...
+Import Statement: import QbsModules Since: Qbs 1.18 List of all members, including inherited members Properties compilerName : string compilerPath : string importPaths : pathList includePath : string libraryPath : string outputDir : string pluginName : string pluginPath : string Detailed Description The protobuf.nanopb module provides support for generating nanopb C headers and sources from proto definition files using the nanopb plugin for the protoc tool suitable for embedded systems.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -63,8 +63,8 @@ Since: Qbs 1.18 List of all members, including inherited members Properties comp
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual QbsModules protobuf.nanopb Qbs 2.4.0 Contents Properties Detailed Description Relevant File Tags protobuf.nanopb Provides support for protocol buffers for embedded systems. More...
-Since: Qbs 1.18 List of all members, including inherited members Properties compilerName : string compilerPath : string importPaths : pathList includePath : string libraryPath : string outputDir : string pluginName : string pluginPath : string Detailed Description The protobuf.nanopb module provides support for generating nanopb C headers and sources from proto definition files using the nanopb plugin for the protoc tool suitable for embedded systems.">
+  <meta name="twitter:description" content="Qbs Manual QbsModules protobuf.nanopb Qbs 1.21.0 Contents Properties Detailed Description Relevant File Tags protobuf.nanopb QML Type Provides support for protocol buffers for embedded systems. More...
+Import Statement: import QbsModules Since: Qbs 1.18 List of all members, including inherited members Properties compilerName : string compilerPath : string importPaths : pathList includePath : string libraryPath : string outputDir : string pluginName : string pluginPath : string Detailed Description The protobuf.nanopb module provides support for generating nanopb C headers and sources from proto definition files using the nanopb plugin for the protoc tool suitable for embedded systems.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -101,7 +101,7 @@ Since: Qbs 1.18 List of all members, including inherited members Properties comp
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>protobuf.nanopb</li>
-<li id="buildversion">Qbs 2.4.0</li>
+<li id="buildversion">Qbs 1.21.0</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -112,12 +112,12 @@ Since: Qbs 1.18 List of all members, including inherited members Properties comp
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<div class="content"><h1 class="title" translate="no">protobuf.nanopb</h1>
+<h1 class="title" translate="no">protobuf.nanopb QML Type</h1>
 <!-- $$$protobuf.nanopb-brief -->
 <p>Provides support for protocol buffers for embedded systems. <a href="#details">More...</a></p>
 <!-- @@@protobuf.nanopb -->
 <div class="table"><table class="alignedsummary" translate="no">
-<tbody><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.18</td></tr></tbody></table></div><ul>
+<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsModules</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.18</td></tr></tbody></table></div><ul>
 <li><a href="https://qbs.io/
 /docs/qml-qbsmodules-protobuf-nanopb-members/">List of all members, including inherited members</a></li>
 </ul>
@@ -162,16 +162,16 @@ Since: Qbs 1.18 List of all members, including inherited members Properties comp
 <p>Nanopb .options files to define nanopb specific proto options are supported.</p>
 <h3 id="relevant-file-tags">Relevant File Tags</h3>
 <div class="table"><table class="generic">
-<thead><tr class="qt-style"><th>Tag</th><th>Auto-tagged File Names</th><th>Since</th><th>Description</th></tr></thead>
-<tbody><tr class="odd" valign="top"><td><code translate="no">"protobuf.input"</code></td><td><code translate="no">*.proto</code></td><td>1.13.0</td><td>Source files with this tag are considered inputs to the <code translate="no">protoc</code> compiler.</td></tr>
-<tr class="even" valign="top"><td><code translate="no">"protobuf.hpp"</code></td><td></td><td>1.18.0</td><td>This tag is attached to the header files generated by <code translate="no">protoc</code> compiler.</td></tr>
+ <thead><tr class="qt-style"><th>Tag</th><th>Auto-tagged File Names</th><th>Since</th><th>Description</th></tr></thead>
+<tbody><tr valign="top" class="odd"><td><code translate="no">"protobuf.input"</code></td><td><code translate="no">*.proto</code></td><td>1.13.0</td><td>Source files with this tag are considered inputs to the <code translate="no">protoc</code> compiler.</td></tr>
+<tr valign="top" class="even"><td><code translate="no">"protobuf.hpp"</code></td><td></td><td>1.18.0</td><td>This tag is attached to the header files generated by <code translate="no">protoc</code> compiler.</td></tr>
 </tbody></table></div>
 <!-- @@@protobuf.nanopb -->
 <h2>Property Documentation</h2>
 <!-- $$$compilerName -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="compilerName-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="compilerName-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">compilerName</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -182,7 +182,7 @@ Since: Qbs 1.18 List of all members, including inherited members Properties comp
 <!-- $$$compilerPath -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="compilerPath-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="compilerPath-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">compilerPath</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -194,7 +194,7 @@ Since: Qbs 1.18 List of all members, including inherited members Properties comp
 <!-- $$$importPaths -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="importPaths-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="importPaths-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">importPaths</span> : <span class="type">pathList</span></p></td></tr>
 </tbody></table></div></div>
@@ -208,7 +208,7 @@ Since: Qbs 1.18 List of all members, including inherited members Properties comp
 <!-- $$$includePath -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="includePath-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="includePath-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">includePath</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -219,7 +219,7 @@ Since: Qbs 1.18 List of all members, including inherited members Properties comp
 <!-- $$$libraryPath -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="libraryPath-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="libraryPath-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">libraryPath</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -230,7 +230,7 @@ Since: Qbs 1.18 List of all members, including inherited members Properties comp
 <!-- $$$outputDir -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="outputDir-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="outputDir-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">outputDir</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
 </tbody></table></div></div>
@@ -241,7 +241,7 @@ Since: Qbs 1.18 List of all members, including inherited members Properties comp
 <!-- $$$pluginName -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="pluginName-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="pluginName-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">pluginName</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -252,7 +252,7 @@ Since: Qbs 1.18 List of all members, including inherited members Properties comp
 <!-- $$$pluginPath -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="pluginPath-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="pluginPath-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">pluginPath</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -261,7 +261,7 @@ Since: Qbs 1.18 List of all members, including inherited members Properties comp
 <p>Default: <code translate="no">auto-detected</code></p>
 </div></div><!-- @@@pluginPath -->
 <br>
-</div>
+
 
 
     </article>
