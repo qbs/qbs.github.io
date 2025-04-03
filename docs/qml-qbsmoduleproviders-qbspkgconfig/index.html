@@ -3,14 +3,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="---
-
----
-
-Qbs Manual
+    <meta name="description" content="Qbs Manual
 QbsModuleProviders
 qbspkgconfig
-Qbs 2.4.0
+Qbs 2.6.0
 
 
 Contents
@@ -20,12 +16,12 @@ Detailed Description
 
 
 
-qbspkgconfig
+qbspkgconfig QML Type
 
 Module provider based on the qbspkg-config library. More...
 
 
- Since: Qt 1.20
+ Import Statement: import QbsModuleProviders Since: Qt 1.20
 List of all members, including inherited members
 
 Properties
@@ -56,8 +52,8 @@ Qbs uses a built-in parser of the *.pc files and does not require the presence o
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmoduleproviders-qbspkgconfig/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="--- --- Qbs Manual QbsModuleProviders qbspkgconfig Qbs 2.4.0 Contents Properties Detailed Description qbspkgconfig Module provider based on the qbspkg-config library. More...
-Since: Qt 1.20 List of all members, including inherited members Properties definePrefix : bool executableFilePath : string executableNames : stringList extraPaths : stringList libDirs : stringList staticMode : bool sysroot : path Detailed Description Qbs uses a built-in parser of the *.pc files and does not require the presence of the pkg-config tool in the system. However, if the pkg-config tool is present, Qbs will use the same libDirs as the system pkg-config uses by default; otherwise, a built-in list of paths is used.">
+  <meta property="og:description" content="Qbs Manual QbsModuleProviders qbspkgconfig Qbs 2.6.0 Contents Properties Detailed Description qbspkgconfig QML Type Module provider based on the qbspkg-config library. More...
+Import Statement: import QbsModuleProviders Since: Qt 1.20 List of all members, including inherited members Properties definePrefix : bool executableFilePath : string executableNames : stringList extraPaths : stringList libDirs : stringList staticMode : bool sysroot : path Detailed Description Qbs uses a built-in parser of the *.pc files and does not require the presence of the pkg-config tool in the system. However, if the pkg-config tool is present, Qbs will use the same libDirs as the system pkg-config uses by default; otherwise, a built-in list of paths is used.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -65,8 +61,8 @@ Since: Qt 1.20 List of all members, including inherited members Properties defin
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="--- --- Qbs Manual QbsModuleProviders qbspkgconfig Qbs 2.4.0 Contents Properties Detailed Description qbspkgconfig Module provider based on the qbspkg-config library. More...
-Since: Qt 1.20 List of all members, including inherited members Properties definePrefix : bool executableFilePath : string executableNames : stringList extraPaths : stringList libDirs : stringList staticMode : bool sysroot : path Detailed Description Qbs uses a built-in parser of the *.pc files and does not require the presence of the pkg-config tool in the system. However, if the pkg-config tool is present, Qbs will use the same libDirs as the system pkg-config uses by default; otherwise, a built-in list of paths is used.">
+  <meta name="twitter:description" content="Qbs Manual QbsModuleProviders qbspkgconfig Qbs 2.6.0 Contents Properties Detailed Description qbspkgconfig QML Type Module provider based on the qbspkg-config library. More...
+Import Statement: import QbsModuleProviders Since: Qt 1.20 List of all members, including inherited members Properties definePrefix : bool executableFilePath : string executableNames : stringList extraPaths : stringList libDirs : stringList staticMode : bool sysroot : path Detailed Description Qbs uses a built-in parser of the *.pc files and does not require the presence of the pkg-config tool in the system. However, if the pkg-config tool is present, Qbs will use the same libDirs as the system pkg-config uses by default; otherwise, a built-in list of paths is used.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -97,18 +93,13 @@ Since: Qt 1.20 List of all members, including inherited members Properties defin
 </header><main>
 <div class="centre-outer">
     <article class="centre-inner docs">
-    ---
-
----
-
+    
 <li><a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs" translate="no">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qbsmoduleproviders-qmlmodule/" translate="no">QbsModuleProviders</a></li>
 <li>qbspkgconfig</li>
-<li id="buildversion">Qbs 2.4.0</li>
+<li id="buildversion">Qbs 2.6.0</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -118,52 +109,42 @@ Since: Qt 1.20 List of all members, including inherited members Properties defin
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<div class="content"><h1 class="title" translate="no">qbspkgconfig</h1>
+<div class="content"><h1 class="title" translate="no">qbspkgconfig QML Type</h1>
 <!-- $$$qbspkgconfig-brief -->
 <p>Module provider based on the qbspkg-config library. <a href="#details">More...</a></p>
 <!-- @@@qbspkgconfig -->
 <div class="table"><table class="alignedsummary" translate="no">
-<tbody><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qt 1.20</td></tr></tbody></table></div><ul>
+<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsModuleProviders</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qt 1.20</td></tr></tbody></table></div><ul>
 <li><a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbsmoduleproviders-qbspkgconfig-members/">List of all members, including inherited members</a></li>
 </ul>
 <h2 id="properties">Properties</h2>
 <ul>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbsmoduleproviders-qbspkgconfig/#definePrefix-prop" translate="no">definePrefix</a></b> : bool</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbsmoduleproviders-qbspkgconfig/#executableFilePath-prop" translate="no">executableFilePath</a></b> : string</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbsmoduleproviders-qbspkgconfig/#executableNames-prop" translate="no">executableNames</a></b> : stringList</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbsmoduleproviders-qbspkgconfig/#extraPaths-prop" translate="no">extraPaths</a></b> : stringList</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbsmoduleproviders-qbspkgconfig/#libDirs-prop" translate="no">libDirs</a></b> : stringList</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbsmoduleproviders-qbspkgconfig/#staticMode-prop" translate="no">staticMode</a></b> : bool</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbsmoduleproviders-qbspkgconfig/#sysroot-prop" translate="no">sysroot</a></b> : path</li>
 </ul>
 <!-- $$$qbspkgconfig-description -->
 <h2 id="details">Detailed Description</h2>
 <p>Qbs uses a built-in parser of the <code translate="no">*.pc</code> files and does not require the presence of the <code translate="no">pkg-config</code> tool in the system. However, if the <code translate="no">pkg-config</code> tool is present, Qbs will use the same <a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbsmoduleproviders-qbspkgconfig/#libDirs-prop" translate="no">libDirs</a> as the system pkg-config uses by default; otherwise, a built-in list of paths is used.</p>
 <p>In order to enable usage of this provider in your Product, set the <a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbslanguageitems-product/#qbsModuleProviders-prop" translate="no">qbsModuleProviders</a> property as shown in the example below:</p>
 <pre class="cpp" translate="no">CppApplication {
     consoleApplication: true
     Depends { name: "zlib"; required: false }
-    condition: zlib.present
+    condition: !qbs.toolchain.includes("emscripten") &amp;&amp; zlib.present
     name: "PkgConfigProviderExample"
     files: "main.c"
     qbsModuleProviders: ["qbspkgconfig"]
@@ -173,7 +154,7 @@ Since: Qt 1.20 List of all members, including inherited members Properties defin
 <!-- $$$definePrefix -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="definePrefix-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="definePrefix-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">definePrefix</span> : <span class="type">bool</span></p></td></tr>
 </tbody></table></div></div>
@@ -185,7 +166,7 @@ Since: Qt 1.20 List of all members, including inherited members Properties defin
 <!-- $$$executableFilePath -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="executableFilePath-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="executableFilePath-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">executableFilePath</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -196,7 +177,7 @@ Since: Qt 1.20 List of all members, including inherited members Properties defin
 <!-- $$$executableNames -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="executableNames-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="executableNames-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">executableNames</span> : <span class="type">stringList</span></p></td></tr>
 </tbody></table></div></div>
@@ -208,7 +189,7 @@ Since: Qt 1.20 List of all members, including inherited members Properties defin
 <!-- $$$extraPaths -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="extraPaths-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="extraPaths-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">extraPaths</span> : <span class="type">stringList</span></p></td></tr>
 </tbody></table></div></div>
@@ -220,7 +201,7 @@ Since: Qt 1.20 List of all members, including inherited members Properties defin
 <!-- $$$libDirs -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="libDirs-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="libDirs-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">libDirs</span> : <span class="type">stringList</span></p></td></tr>
 </tbody></table></div></div>
@@ -235,7 +216,7 @@ Since: Qt 1.20 List of all members, including inherited members Properties defin
 <!-- $$$staticMode -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="staticMode-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="staticMode-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">staticMode</span> : <span class="type">bool</span></p></td></tr>
 </tbody></table></div></div>
@@ -247,7 +228,7 @@ Since: Qt 1.20 List of all members, including inherited members Properties defin
 <!-- $$$sysroot -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="sysroot-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="sysroot-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">sysroot</span> : <span class="type">path</span></p></td></tr>
 </tbody></table></div></div>

@@ -6,7 +6,7 @@
     <meta name="description" content="Qbs Manual
 QbsModules
 protobuf.cpp
-Qbs 1.21.0
+Qbs 2.6.0
 
 
 Contents
@@ -14,6 +14,7 @@ Contents
 Properties
 Detailed Description
 Relevant File Tags
+Dependencies
 
 
 
@@ -29,11 +30,7 @@ Properties
 
 compilerName : string (since Qbs 1.17)
 compilerPath : string (since Qbs 1.17)
-grpcIncludePath : string
-grpcLibraryPath : string
 importPaths : pathList
-includePath : string
-libraryPath : string
 outputDir : string
 useGrpc : bool
 
@@ -55,8 +52,8 @@ The protobuf.cpp module provides support for generating C&#43;&#43; headers and 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-protobuf-cpp/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual QbsModules protobuf.cpp Qbs 1.21.0 Contents Properties Detailed Description Relevant File Tags protobuf.cpp QML Type Provides support for protocol buffers for the C&#43;&#43; language. More...
-Import Statement: import QbsModules Since: Qbs 1.13 List of all members, including inherited members Properties compilerName : string (since Qbs 1.17) compilerPath : string (since Qbs 1.17) grpcIncludePath : string grpcLibraryPath : string importPaths : pathList includePath : string libraryPath : string outputDir : string useGrpc : bool Detailed Description The protobuf.cpp module provides support for generating C&#43;&#43; headers and sources from proto definition files using the protoc tool.">
+  <meta property="og:description" content="Qbs Manual QbsModules protobuf.cpp Qbs 2.6.0 Contents Properties Detailed Description Relevant File Tags Dependencies protobuf.cpp QML Type Provides support for protocol buffers for the C&#43;&#43; language. More...
+Import Statement: import QbsModules Since: Qbs 1.13 List of all members, including inherited members Properties compilerName : string (since Qbs 1.17) compilerPath : string (since Qbs 1.17) importPaths : pathList outputDir : string useGrpc : bool Detailed Description The protobuf.cpp module provides support for generating C&#43;&#43; headers and sources from proto definition files using the protoc tool.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -64,8 +61,8 @@ Import Statement: import QbsModules Since: Qbs 1.13 List of all members, includi
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual QbsModules protobuf.cpp Qbs 1.21.0 Contents Properties Detailed Description Relevant File Tags protobuf.cpp QML Type Provides support for protocol buffers for the C&#43;&#43; language. More...
-Import Statement: import QbsModules Since: Qbs 1.13 List of all members, including inherited members Properties compilerName : string (since Qbs 1.17) compilerPath : string (since Qbs 1.17) grpcIncludePath : string grpcLibraryPath : string importPaths : pathList includePath : string libraryPath : string outputDir : string useGrpc : bool Detailed Description The protobuf.cpp module provides support for generating C&#43;&#43; headers and sources from proto definition files using the protoc tool.">
+  <meta name="twitter:description" content="Qbs Manual QbsModules protobuf.cpp Qbs 2.6.0 Contents Properties Detailed Description Relevant File Tags Dependencies protobuf.cpp QML Type Provides support for protocol buffers for the C&#43;&#43; language. More...
+Import Statement: import QbsModules Since: Qbs 1.13 List of all members, including inherited members Properties compilerName : string (since Qbs 1.17) compilerPath : string (since Qbs 1.17) importPaths : pathList outputDir : string useGrpc : bool Detailed Description The protobuf.cpp module provides support for generating C&#43;&#43; headers and sources from proto definition files using the protoc tool.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -102,7 +99,7 @@ Import Statement: import QbsModules Since: Qbs 1.13 List of all members, includi
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>protobuf.cpp</li>
-<li id="buildversion">Qbs 1.21.0</li>
+<li id="buildversion">Qbs 2.6.0</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -110,10 +107,11 @@ Import Statement: import QbsModules Since: Qbs 1.13 List of all members, includi
 <li class="level1"><a href="#properties">Properties</a></li>
 <li class="level1"><a href="#details">Detailed Description</a></li>
 <li class="level2"><a href="#relevant-file-tags">Relevant File Tags</a></li>
+<li class="level2"><a href="#dependencies">Dependencies</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<h1 class="title" translate="no">protobuf.cpp QML Type</h1>
+<div class="content"><h1 class="title" translate="no">protobuf.cpp QML Type</h1>
 <!-- $$$protobuf.cpp-brief -->
 <p>Provides support for protocol buffers for the C++ language. <a href="#details">More...</a></p>
 <!-- @@@protobuf.cpp -->
@@ -129,15 +127,7 @@ Import Statement: import QbsModules Since: Qbs 1.13 List of all members, includi
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-protobuf-cpp/#compilerPath-prop" translate="no">compilerPath</a></b> : string <code class="summary extra" translate="no">(since Qbs 1.17)</code></li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
-/docs/qml-qbsmodules-protobuf-cpp/#grpcIncludePath-prop" translate="no">grpcIncludePath</a></b> : string</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io/
-/docs/qml-qbsmodules-protobuf-cpp/#grpcLibraryPath-prop" translate="no">grpcLibraryPath</a></b> : string</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-protobuf-cpp/#importPaths-prop" translate="no">importPaths</a></b> : pathList</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io/
-/docs/qml-qbsmodules-protobuf-cpp/#includePath-prop" translate="no">includePath</a></b> : string</li>
-<li class="fn" translate="no"><b><a href="https://qbs.io/
-/docs/qml-qbsmodules-protobuf-cpp/#libraryPath-prop" translate="no">libraryPath</a></b> : string</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-protobuf-cpp/#outputDir-prop" translate="no">outputDir</a></b> : string</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
@@ -169,6 +159,12 @@ Import Statement: import QbsModules Since: Qbs 1.13 List of all members, includi
 <tr valign="top" class="even"><td><code translate="no">"protobuf.grpc"</code></td><td></td><td>1.14.0</td><td>Source files with this tag are considered as gRPC files.</td></tr>
 <tr valign="top" class="odd"><td><code translate="no">"protobuf.hpp"</code></td><td></td><td>1.18.0</td><td>This tag is attached to the header files generated by <code translate="no">protoc</code> compiler.</td></tr>
 </tbody></table></div>
+<h3 id="dependencies">Dependencies</h3>
+<p>The <a href="https://qbs.io/
+/docs/qml-qbsmodules-protobuf-cpp/" translate="no">protobuf.cpp</a> module requires runtime libraries to be operational. It depends on the <code translate="no">"protobuflib"</code> module which can be created by the <a href="https://qbs.io/
+/docs/qml-qbsmoduleproviders-qbspkgconfig/" translate="no">qbspkgconfig</a> or fallback module providers (the corresponding packages are <code translate="no">protobuf</code> or <code translate="no">protobuf-lite</code>). If <a href="https://qbs.io/
+/docs/qml-qbsmodules-protobuf-cpp/#useGrpc-prop" translate="no">useGrpc</a> is set to true, the <a href="https://qbs.io/
+/docs/qml-qbsmodules-protobuf-cpp/" translate="no">protobuf.cpp</a> module also depends on the <code translate="no">"grpc++"</code> module.</p>
 <!-- @@@protobuf.cpp -->
 <h2>Property Documentation</h2>
 <!-- $$$compilerName -->
@@ -196,28 +192,6 @@ Import Statement: import QbsModules Since: Qbs 1.13 List of all members, includi
 <p>This property was introduced in Qbs 1.17.</p>
 </div></div><!-- @@@compilerPath -->
 <br>
-<!-- $$$grpcIncludePath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="grpcIncludePath-prop">
-<td class="tblQmlPropNode"><p>
-<span class="name">grpcIncludePath</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The path where grpc++ headers are located. Set this property to override the default location.</p>
-<p>Default: <code translate="no">auto-detected</code></p>
-</div></div><!-- @@@grpcIncludePath -->
-<br>
-<!-- $$$grpcLibraryPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="grpcLibraryPath-prop">
-<td class="tblQmlPropNode"><p>
-<span class="name">grpcLibraryPath</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The path where the grpc++ library is located. Set this property to override the default location.</p>
-<p>Default: <code translate="no">auto-detected</code></p>
-</div></div><!-- @@@grpcLibraryPath -->
-<br>
 <!-- $$$importPaths -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
@@ -231,28 +205,6 @@ Import Statement: import QbsModules Since: Qbs 1.13 List of all members, includi
 </div>
 <p>Default: <code translate="no">[]</code></p>
 </div></div><!-- @@@importPaths -->
-<br>
-<!-- $$$includePath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="includePath-prop">
-<td class="tblQmlPropNode"><p>
-<span class="name">includePath</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The path where protobuf C++ headers are located. Set this property to override the default location.</p>
-<p>Default: <code translate="no">auto-detected</code></p>
-</div></div><!-- @@@includePath -->
-<br>
-<!-- $$$libraryPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="libraryPath-prop">
-<td class="tblQmlPropNode"><p>
-<span class="name">libraryPath</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The path where the protobuf C++ library is located. Set this property to override the default location.</p>
-<p>Default: <code translate="no">auto-detected</code></p>
-</div></div><!-- @@@libraryPath -->
 <br>
 <!-- $$$outputDir -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
@@ -324,7 +276,7 @@ service Grpc {
 <p>Default: <code translate="no">false</code></p>
 </div></div><!-- @@@useGrpc -->
 <br>
-
+</div>
 
 
     </article>

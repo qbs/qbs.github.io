@@ -6,7 +6,7 @@
     <meta name="description" content="Qbs Manual
 QbsModules
 Qt.plugin_support
-Qbs 1.21.0
+Qbs 2.6.0
 
 
 Contents
@@ -49,7 +49,7 @@ The Qt.plugin_support module provides properties that allow users to control whi
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-qt-plugin-support/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual QbsModules Qt.plugin_support Qbs 1.21.0 Contents Properties Detailed Description Qt.plugin_support QML Type Allows to fine-tune which Qt plugins get pulled in. More...
+  <meta property="og:description" content="Qbs Manual QbsModules Qt.plugin_support Qbs 2.6.0 Contents Properties Detailed Description Qt.plugin_support QML Type Allows to fine-tune which Qt plugins get pulled in. More...
 Import Statement: import QbsModules Since: Qbs 1.13.0 List of all members, including inherited members Properties allPluginsByType : var defaultPluginsByType : var linkPlugins : bool pluginsByType : varList Detailed Description The Qt.plugin_support module provides properties that allow users to control which Qt plugins to pull into a product. This is mostly relevant if Qt was built statically, in which case the respective plugins are static libraries that get linked into your application or library.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
@@ -58,7 +58,7 @@ Import Statement: import QbsModules Since: Qbs 1.13.0 List of all members, inclu
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual QbsModules Qt.plugin_support Qbs 1.21.0 Contents Properties Detailed Description Qt.plugin_support QML Type Allows to fine-tune which Qt plugins get pulled in. More...
+  <meta name="twitter:description" content="Qbs Manual QbsModules Qt.plugin_support Qbs 2.6.0 Contents Properties Detailed Description Qt.plugin_support QML Type Allows to fine-tune which Qt plugins get pulled in. More...
 Import Statement: import QbsModules Since: Qbs 1.13.0 List of all members, including inherited members Properties allPluginsByType : var defaultPluginsByType : var linkPlugins : bool pluginsByType : varList Detailed Description The Qt.plugin_support module provides properties that allow users to control which Qt plugins to pull into a product. This is mostly relevant if Qt was built statically, in which case the respective plugins are static libraries that get linked into your application or library.">
 
 </head>
@@ -96,7 +96,7 @@ Import Statement: import QbsModules Since: Qbs 1.13.0 List of all members, inclu
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>Qt.plugin_support</li>
-<li id="buildversion">Qbs 1.21.0</li>
+<li id="buildversion">Qbs 2.6.0</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -106,7 +106,7 @@ Import Statement: import QbsModules Since: Qbs 1.13.0 List of all members, inclu
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<h1 class="title" translate="no">Qt.plugin_support QML Type</h1>
+<div class="content"><h1 class="title" translate="no">Qt.plugin_support QML Type</h1>
 <!-- $$$Qt.plugin_support-brief -->
 <p>Allows to fine-tune which Qt plugins get pulled in. <a href="#details">More...</a></p>
 <!-- @@@Qt.plugin_support -->
@@ -171,13 +171,14 @@ Import Statement: import QbsModules Since: Qbs 1.13.0 List of all members, inclu
 <span class="name">pluginsByType</span> : <span class="type">varList</span></p></td></tr>
 </tbody></table></div></div>
 <div class="qmldoc"><p>Set this property if you want to override the set of plugins for a certain plugin type. For instance, to disable all image plugins except the JPEG one:</p>
-<pre class="cpp" translate="no"><span class="type">Qt</span><span class="operator">.</span>plugin_support<span class="operator">.</span>pluginsByType: ({imageformats: <span class="string">"qjpeg"</span>})</pre>
+<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
+/docs/qml-qbsmoduleproviders-qt/" translate="no">Qt</a></span><span class="operator">.</span>plugin_support<span class="operator">.</span>pluginsByType: ({imageformats: <span class="string">"qjpeg"</span>})</pre>
 <p>For plugin types that are not specifically overridden like this, the value in <a href="https://qbs.io/
 /docs/qml-qbsmodules-qt-plugin-support/#defaultPluginsByType-prop" translate="no">defaultPluginsByType</a> is used.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@pluginsByType -->
 <br>
-
+</div>
 
 
     </article>

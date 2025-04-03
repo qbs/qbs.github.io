@@ -6,7 +6,7 @@
     <meta name="description" content="Qbs Manual
 QbsModules
 Android.sdk
-Qbs 1.21.0
+Qbs 2.6.0
 
 
 Contents
@@ -27,23 +27,26 @@ List of all members, including inherited members
 
 Properties
 
-aaptName : string
+aaptName : string (since Qbs 1.17)
 aidlSearchPaths : stringList
 apkBaseName : string
 assetsDir : path
 automaticSources : bool
 buildToolsVersion : string
+d8Desugaring : bool (since Qbs 2.5)
+dexCompilerName : string (since Qbs 1.20)
 embedJar : bool (since Qbs 1.10)
+extraResourcePackages : stringList (since Qbs 2.5)
 manifestFile : string
-minimumVersion : string
+minimumVersion : string (since Qbs 1.17)
 ndkDir : string
 packageName : string
-packageType : string
+packageType : string (since Qbs 1.17)
 platform : string
 resourcesDir : path
 sdkDir : string
 sourcesDir : path
-targetVersion : string
+targetVersion : string (since Qbs 1.17)
 versionCode : string
 versionName : string
 
@@ -65,8 +68,8 @@ The Android.sdk module contains the properties and rules to create Android appli
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-android-sdk/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual QbsModules Android.sdk Qbs 1.21.0 Contents Properties Detailed Description Relevant File Tags Android.sdk QML Type Provides support for building Android packages. More...
-Import Statement: import QbsModules Since: Qbs 1.4 List of all members, including inherited members Properties aaptName : string aidlSearchPaths : stringList apkBaseName : string assetsDir : path automaticSources : bool buildToolsVersion : string embedJar : bool (since Qbs 1.10) manifestFile : string minimumVersion : string ndkDir : string packageName : string packageType : string platform : string resourcesDir : path sdkDir : string sourcesDir : path targetVersion : string versionCode : string versionName : string Detailed Description The Android.sdk module contains the properties and rules to create Android application packages from Java sources, resources, and so on. It is usually pulled in indirectly by declaring an Application product.">
+  <meta property="og:description" content="Qbs Manual QbsModules Android.sdk Qbs 2.6.0 Contents Properties Detailed Description Relevant File Tags Android.sdk QML Type Provides support for building Android packages. More...
+Import Statement: import QbsModules Since: Qbs 1.4 List of all members, including inherited members Properties aaptName : string (since Qbs 1.17) aidlSearchPaths : stringList apkBaseName : string assetsDir : path automaticSources : bool buildToolsVersion : string d8Desugaring : bool (since Qbs 2.5) dexCompilerName : string (since Qbs 1.20) embedJar : bool (since Qbs 1.10) extraResourcePackages : stringList (since Qbs 2.5) manifestFile : string minimumVersion : string (since Qbs 1.17) ndkDir : string packageName : string packageType : string (since Qbs 1.17) platform : string resourcesDir : path sdkDir : string sourcesDir : path targetVersion : string (since Qbs 1.17) versionCode : string versionName : string Detailed Description The Android.sdk module contains the properties and rules to create Android application packages from Java sources, resources, and so on. It is usually pulled in indirectly by declaring an Application product.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -74,8 +77,8 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual QbsModules Android.sdk Qbs 1.21.0 Contents Properties Detailed Description Relevant File Tags Android.sdk QML Type Provides support for building Android packages. More...
-Import Statement: import QbsModules Since: Qbs 1.4 List of all members, including inherited members Properties aaptName : string aidlSearchPaths : stringList apkBaseName : string assetsDir : path automaticSources : bool buildToolsVersion : string embedJar : bool (since Qbs 1.10) manifestFile : string minimumVersion : string ndkDir : string packageName : string packageType : string platform : string resourcesDir : path sdkDir : string sourcesDir : path targetVersion : string versionCode : string versionName : string Detailed Description The Android.sdk module contains the properties and rules to create Android application packages from Java sources, resources, and so on. It is usually pulled in indirectly by declaring an Application product.">
+  <meta name="twitter:description" content="Qbs Manual QbsModules Android.sdk Qbs 2.6.0 Contents Properties Detailed Description Relevant File Tags Android.sdk QML Type Provides support for building Android packages. More...
+Import Statement: import QbsModules Since: Qbs 1.4 List of all members, including inherited members Properties aaptName : string (since Qbs 1.17) aidlSearchPaths : stringList apkBaseName : string assetsDir : path automaticSources : bool buildToolsVersion : string d8Desugaring : bool (since Qbs 2.5) dexCompilerName : string (since Qbs 1.20) embedJar : bool (since Qbs 1.10) extraResourcePackages : stringList (since Qbs 2.5) manifestFile : string minimumVersion : string (since Qbs 1.17) ndkDir : string packageName : string packageType : string (since Qbs 1.17) platform : string resourcesDir : path sdkDir : string sourcesDir : path targetVersion : string (since Qbs 1.17) versionCode : string versionName : string Detailed Description The Android.sdk module contains the properties and rules to create Android application packages from Java sources, resources, and so on. It is usually pulled in indirectly by declaring an Application product.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -112,7 +115,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>Android.sdk</li>
-<li id="buildversion">Qbs 1.21.0</li>
+<li id="buildversion">Qbs 2.6.0</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -123,7 +126,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<h1 class="title" translate="no">Android.sdk QML Type</h1>
+<div class="content"><h1 class="title" translate="no">Android.sdk QML Type</h1>
 <!-- $$$Android.sdk-brief -->
 <p>Provides support for building Android packages. <a href="#details">More...</a></p>
 <!-- @@@Android.sdk -->
@@ -135,7 +138,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <h2 id="properties">Properties</h2>
 <ul>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
-/docs/qml-qbsmodules-android-sdk/#aaptName-prop" translate="no">aaptName</a></b> : string</li>
+/docs/qml-qbsmodules-android-sdk/#aaptName-prop" translate="no">aaptName</a></b> : string <code class="summary extra" translate="no">(since Qbs 1.17)</code></li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-android-sdk/#aidlSearchPaths-prop" translate="no">aidlSearchPaths</a></b> : stringList</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
@@ -147,17 +150,23 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-android-sdk/#buildToolsVersion-prop" translate="no">buildToolsVersion</a></b> : string</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-android-sdk/#d8Desugaring-prop" translate="no">d8Desugaring</a></b> : bool <code class="summary extra" translate="no">(since Qbs 2.5)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-android-sdk/#dexCompilerName-prop" translate="no">dexCompilerName</a></b> : string <code class="summary extra" translate="no">(since Qbs 1.20)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-android-sdk/#embedJar-prop" translate="no">embedJar</a></b> : bool <code class="summary extra" translate="no">(since Qbs 1.10)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-android-sdk/#extraResourcePackages-prop" translate="no">extraResourcePackages</a></b> : stringList <code class="summary extra" translate="no">(since Qbs 2.5)</code></li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-android-sdk/#manifestFile-prop" translate="no">manifestFile</a></b> : string</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
-/docs/qml-qbsmodules-android-sdk/#minimumVersion-prop" translate="no">minimumVersion</a></b> : string</li>
+/docs/qml-qbsmodules-android-sdk/#minimumVersion-prop" translate="no">minimumVersion</a></b> : string <code class="summary extra" translate="no">(since Qbs 1.17)</code></li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-android-sdk/#ndkDir-prop" translate="no">ndkDir</a></b> : string</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-android-sdk/#packageName-prop" translate="no">packageName</a></b> : string</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
-/docs/qml-qbsmodules-android-sdk/#packageType-prop" translate="no">packageType</a></b> : string</li>
+/docs/qml-qbsmodules-android-sdk/#packageType-prop" translate="no">packageType</a></b> : string <code class="summary extra" translate="no">(since Qbs 1.17)</code></li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-android-sdk/#platform-prop" translate="no">platform</a></b> : string</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
@@ -167,7 +176,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-android-sdk/#sourcesDir-prop" translate="no">sourcesDir</a></b> : path</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
-/docs/qml-qbsmodules-android-sdk/#targetVersion-prop" translate="no">targetVersion</a></b> : string</li>
+/docs/qml-qbsmodules-android-sdk/#targetVersion-prop" translate="no">targetVersion</a></b> : string <code class="summary extra" translate="no">(since Qbs 1.17)</code></li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-android-sdk/#versionCode-prop" translate="no">versionCode</a></b> : string</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
@@ -194,10 +203,11 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <div class="table"><table class="qmlname">
 <tbody><tr valign="top" class="odd" id="aaptName-prop">
 <td class="tblQmlPropNode"><p>
-<span class="name">aaptName</span> : <span class="type">string</span></p></td></tr>
+<span class="name">aaptName</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.17]</code></p></td></tr>
 </tbody></table></div></div>
 <div class="qmldoc"><p>Name of the aapt binary. Allowed options: "aapt" and "aapt2".</p>
-<p>Default: <code translate="no">"aapt"</code></p>
+<p>Default: <code translate="no">"aapt2"</code></p>
+<p>This property was introduced in Qbs 1.17.</p>
 </div></div><!-- @@@aaptName -->
 <br>
 <!-- $$$aidlSearchPaths -->
@@ -258,6 +268,30 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <p>Default: Highest build tools version version available in the SDK.</p>
 </div></div><!-- @@@buildToolsVersion -->
 <br>
+<!-- $$$d8Desugaring -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr valign="top" class="odd" id="d8Desugaring-prop">
+<td class="tblQmlPropNode"><p>
+<span class="name">d8Desugaring</span> : <span class="type">bool</span> <code class="details extra" translate="no">[since Qbs 2.5]</code></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>Whether desugaring is enabled for "d8" dex compiler.</p>
+<p>Default: <code translate="no">false</code></p>
+<p>This property was introduced in Qbs 2.5.</p>
+</div></div><!-- @@@d8Desugaring -->
+<br>
+<!-- $$$dexCompilerName -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr valign="top" class="odd" id="dexCompilerName-prop">
+<td class="tblQmlPropNode"><p>
+<span class="name">dexCompilerName</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.20]</code></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>Name of the dex compiler binary. Allowed options: "dx" and "d8".</p>
+<p>Default: <code translate="no">"d8"</code></p>
+<p>This property was introduced in Qbs 1.20.</p>
+</div></div><!-- @@@dexCompilerName -->
+<br>
 <!-- $$$embedJar -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
@@ -269,6 +303,18 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <p>Default: <code translate="no">true</code></p>
 <p>This property was introduced in Qbs 1.10.</p>
 </div></div><!-- @@@embedJar -->
+<br>
+<!-- $$$extraResourcePackages -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr valign="top" class="odd" id="extraResourcePackages-prop">
+<td class="tblQmlPropNode"><p>
+<span class="name">extraResourcePackages</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[since Qbs 2.5]</code></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>List of additional Java package names to compile resources for.</p>
+<p>Default: <code translate="no">undefined</code></p>
+<p>This property was introduced in Qbs 2.5.</p>
+</div></div><!-- @@@extraResourcePackages -->
 <br>
 <!-- $$$manifestFile -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
@@ -290,10 +336,11 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <div class="table"><table class="qmlname">
 <tbody><tr valign="top" class="odd" id="minimumVersion-prop">
 <td class="tblQmlPropNode"><p>
-<span class="name">minimumVersion</span> : <span class="type">string</span></p></td></tr>
+<span class="name">minimumVersion</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.17]</code></p></td></tr>
 </tbody></table></div></div>
 <div class="qmldoc"><p>Minimum API Level required for the application to run.</p>
 <p>Default: <code translate="no">"21"</code></p>
+<p>This property was introduced in Qbs 1.17.</p>
 </div></div><!-- @@@minimumVersion -->
 <br>
 <!-- $$$ndkDir -->
@@ -323,10 +370,11 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <div class="table"><table class="qmlname">
 <tbody><tr valign="top" class="odd" id="packageType-prop">
 <td class="tblQmlPropNode"><p>
-<span class="name">packageType</span> : <span class="type">string</span></p></td></tr>
+<span class="name">packageType</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.17]</code></p></td></tr>
 </tbody></table></div></div>
 <div class="qmldoc"><p>Type of the package. Allowed options: "apk" and "aab". Type "apk" generates a runnable package whereas "aab" generates a package for Google Play.</p>
 <p>Default: <code translate="no">"apk"</code></p>
+<p>This property was introduced in Qbs 1.17.</p>
 </div></div><!-- @@@packageType -->
 <br>
 <!-- $$$platform -->
@@ -382,10 +430,11 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <div class="table"><table class="qmlname">
 <tbody><tr valign="top" class="odd" id="targetVersion-prop">
 <td class="tblQmlPropNode"><p>
-<span class="name">targetVersion</span> : <span class="type">string</span></p></td></tr>
+<span class="name">targetVersion</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.17]</code></p></td></tr>
 </tbody></table></div></div>
 <div class="qmldoc"><p>API Level that the application targets.</p>
 <p>Default: <code translate="no">platformVersion</code></p>
+<p>This property was introduced in Qbs 1.17.</p>
 </div></div><!-- @@@targetVersion -->
 <br>
 <!-- $$$versionCode -->
@@ -427,7 +476,7 @@ Android<span class="operator">.</span>sdk<span class="operator">.</span>versionC
 <p>Default: <code translate="no">undefined</code></p>
 </div></div><!-- @@@versionName -->
 <br>
-
+</div>
 
 
     </article>

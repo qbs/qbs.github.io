@@ -3,18 +3,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="---
-
----
-
-Qbs Manual
+    <meta name="description" content="Qbs Manual
 Version Header
-Qbs 2.4.0
+Qbs 2.6.0
   
   
 
 Configurable Library
-How-tos
+C&#43;&#43;20 Modules
 
 
 Version Header
@@ -37,7 +33,7 @@ In this section, we will create a simple header with a string constant based on 
     <meta property="og:url" content="https://qbs.io/docs/tutorial-9/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="--- --- Qbs Manual Version Header Qbs 2.4.0 Configurable Library How-tos Version Header To create new files, such as version headers, during the build, use Rules. Every command Qbs executes, such as compile or linker commands, is described by a corresponding Rule in a Module or a Product.
+  <meta property="og:description" content="Qbs Manual Version Header Qbs 2.6.0 Configurable Library C&#43;&#43;20 Modules Version Header To create new files, such as version headers, during the build, use Rules. Every command Qbs executes, such as compile or linker commands, is described by a corresponding Rule in a Module or a Product.
 In this section, we will create a simple header with a string constant based on the variable in our project.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
@@ -46,7 +42,7 @@ In this section, we will create a simple header with a string constant based on 
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="--- --- Qbs Manual Version Header Qbs 2.4.0 Configurable Library How-tos Version Header To create new files, such as version headers, during the build, use Rules. Every command Qbs executes, such as compile or linker commands, is described by a corresponding Rule in a Module or a Product.
+  <meta name="twitter:description" content="Qbs Manual Version Header Qbs 2.6.0 Configurable Library C&#43;&#43;20 Modules Version Header To create new files, such as version headers, during the build, use Rules. Every command Qbs executes, such as compile or linker commands, is described by a corresponding Rule in a Module or a Product.
 In this section, we will create a simple header with a string constant based on the variable in our project.">
 
 </head>
@@ -78,35 +74,26 @@ In this section, we will create a simple header with a string constant based on 
 </header><main>
 <div class="centre-outer">
     <article class="centre-inner docs">
-    ---
-
----
-
+    
 <li><a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs" translate="no">Qbs Manual</a></li>
 <li>Version Header</li>
-<li id="buildversion">Qbs 2.4.0</li>
+<li id="buildversion">Qbs 2.6.0</li>
   <link rel="prev" href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/tutorial-8/">
   <link rel="next" href="https://qbs.io/
-/docs/https://qbs.io/
-/docs/howtos/">
+/docs/tutorial-10/">
 <p class="naviNextPrevious headerNavi">
 <a class="prevPage" href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/tutorial-8/">Configurable Library</a>
 <a class="nextPage" href="https://qbs.io/
-/docs/https://qbs.io/
-/docs/howtos/">How-tos</a>
+/docs/tutorial-10/">C++20 Modules</a>
 </p>
 <div class="sidebar"><div class="sidebar-content" id="sidebar-content"></div></div>
 <div class="content"><h1 class="title">Version Header</h1>
 <!-- $$$tutorial-9.html-description -->
 <div class="descr" id="details">
 <p>To create new files, such as version headers, during the build, use <a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/language-introduction/#rules" translate="no">Rules</a>. Every command Qbs executes, such as compile or linker commands, is described by a corresponding Rule in a Module or a Product.</p>
 <p>In this section, we will create a simple header with a string constant based on the variable in our project.</p>
 <p>First, we add this variable to our <code translate="no">mybuildconfig</code> module:</p>
@@ -125,9 +112,7 @@ const char kProductVersion[] = "${PRODUCT_VERSION}";
 
 #endif // VERSION_H</pre>
 <p>Now we create a file called <code translate="no">version-header.qbs</code> in the same directory. This file contains a <a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbslanguageitems-product/" translate="no">Product</a> with a <a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbslanguageitems-rule/" translate="no">Rule</a> that turns the <code translate="no">version.h.in</code> into a real header. Let's go through the contents of the file:</p>
 <pre class="cpp" translate="no">import qbs.TextFile
 
@@ -137,12 +122,9 @@ Product {
 
     Depends { name: "mybuildconfig" }</pre>
 <p>First, we import <a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/jsextension-textfile/" translate="no">TextFile</a>. We will need this class to read the template and write the resulting header. Second, we declare a new <a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbslanguageitems-product/" translate="no">Product</a> named <code translate="no">"version_header"</code> and with the <code translate="no">"hpp"</code> type. This is the type of the artifact we will create in the Rule. Third, we add the dependency on the <code translate="no">mybuildconfig</code> module to use the new <code translate="no">mybuildconfig.productVersion</code> variable.</p>
 <p>We also add a <a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbslanguageitems-group/" translate="no">Group</a> with the template file and assign the <code translate="no">version_h_in</code> tag to the file:</p>
 <pre class="cpp" translate="no">    Group {
         files: ["version.h.in"]
@@ -157,16 +139,11 @@ Product {
             fileTags: "hpp"
         }</pre>
 <p>Here, we specify that our Rule takes files tagged as <code translate="no">"version_h_in"</code> and produces an <a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbslanguageitems-artifact/" translate="no">Artifact</a> with the name <code translate="no">"version.h"</code> and tagged <code translate="no">"hpp"</code>. By default, files are created in the <a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbslanguageitems-product/#destinationDirectory-prop" translate="no">Product.destinationDirectory</a> folder. We add the <code translate="no">"hpp"</code> tag for the header as this is the tag the <a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbsmodules-cpp/" translate="no">cpp module</a> uses for headers. That way, Qbs can track changes and process our generated file the same way it treats all other headers. Note that earlier we set the product type to <code translate="no">"hpp"</code> as well. Qbs requires that artifact type should match the product type directly or be accessible via the chain of Rules. Otherwise, the Rule won't be executed. For details, see the <a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbslanguageitems-rule/#rules-and-product-types" translate="no">Rules and Product Types</a> section.</p>
 <p>The actual code generation happens in the <a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbslanguageitems-rule/#prepare-prop" translate="no">Rule.prepare</a> script:</p>
 <pre class="cpp" translate="no">        prepare: {
             var cmd = new JavaScriptCommand();
@@ -187,18 +164,12 @@ Product {
             return cmd;
         }</pre>
 <p>In this script, we create a <a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/commands/#javascriptcommand" translate="no">JavaScriptCommand</a> object and set some meta properties, such as the description and highlight. For details about Commands, see <a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/commands/" translate="no">Command and JavaScriptCommand</a>. In the sourceCode variable, we create a JavaScript function that opens the <a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbslanguageitems-rule/#the-inputs-and-outputs-variables" translate="no">input file</a>, reads its content using the <a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/jsextension-textfile/" translate="no">TextFile</a> object, replaces the <code translate="no">"${PRODUCT_VERSION}"</code> placeholder with the actual value in the <code translate="no">product.mybuildconfig.productVersion</code> variable, and writes the resulting content into the <a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbslanguageitems-rule/#the-inputs-and-outputs-variables" translate="no">output file</a>.</p>
 <p>Finally, we export the <a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbslanguageitems-product/#buildDirectory-prop" translate="no">exportingProduct.buildDirectory</a> so that products that depend on this product can include our generated header:</p>
 <pre class="cpp" translate="no">    Export {
         Depends { name: "cpp" }
@@ -288,11 +259,9 @@ ProductVersion <span class="operator">=</span> <span class="number">1.0.0</span>
 <!-- @@@tutorial-9.html -->
 <p class="naviNextPrevious footerNavi">
 <a class="prevPage" href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/tutorial-8/">Configurable Library</a>
 <a class="nextPage" href="https://qbs.io/
-/docs/https://qbs.io/
-/docs/howtos/">How-tos</a>
+/docs/tutorial-10/">C++20 Modules</a>
 </p>
 </div>
 

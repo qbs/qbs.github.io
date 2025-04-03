@@ -6,7 +6,7 @@
     <meta name="description" content="Qbs Manual
 QbsLanguageItems
 Properties
-Qbs 1.21.0
+Qbs 2.6.0
   
   
 
@@ -55,7 +55,7 @@ Note: This topic documents the Properties item in the context of products. For m
     <meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-properties/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual QbsLanguageItems Properties Qbs 1.21.0 Project PropertyOptions Contents Properties Detailed Description Properties QML Type Provides conditional setting of properties. More...
+  <meta property="og:description" content="Qbs Manual QbsLanguageItems Properties Qbs 2.6.0 Project PropertyOptions Contents Properties Detailed Description Properties QML Type Provides conditional setting of properties. More...
 Import Statement: import QbsLanguageItems List of all members, including inherited members Properties is part of List of All Items. Properties condition : bool overrideListProperties : bool Detailed Description Note: This topic documents the Properties item in the context of products. For more information about using it in sub-projects, see SubProject.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
@@ -64,7 +64,7 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual QbsLanguageItems Properties Qbs 1.21.0 Project PropertyOptions Contents Properties Detailed Description Properties QML Type Provides conditional setting of properties. More...
+  <meta name="twitter:description" content="Qbs Manual QbsLanguageItems Properties Qbs 2.6.0 Project PropertyOptions Contents Properties Detailed Description Properties QML Type Provides conditional setting of properties. More...
 Import Statement: import QbsLanguageItems List of all members, including inherited members Properties is part of List of All Items. Properties condition : bool overrideListProperties : bool Detailed Description Note: This topic documents the Properties item in the context of products. For more information about using it in sub-projects, see SubProject.">
 
 </head>
@@ -102,7 +102,7 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
 <li><a href="https://qbs.io/
 /docs/qbslanguageitems-qmlmodule/" translate="no">QbsLanguageItems</a></li>
 <li>Properties</li>
-<li id="buildversion">Qbs 1.21.0</li>
+<li id="buildversion">Qbs 2.6.0</li>
   <link rel="prev" href="https://qbs.io/
 /docs/qml-qbslanguageitems-project/">
   <link rel="next" href="https://qbs.io/
@@ -122,7 +122,7 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<h1 class="title" translate="no">Properties QML Type</h1>
+<div class="content"><h1 class="title" translate="no">Properties QML Type</h1>
 <!-- $$$Properties-brief -->
 <p>Provides conditional setting of properties. <a href="#details">More...</a></p>
 <!-- @@@Properties -->
@@ -153,63 +153,63 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
 /docs/qml-qbslanguageitems-product/" translate="no">Product</a></span> {
     <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-properties/" translate="no">Properties</a></span> {
-        <span class="name">condition</span>: <span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">contains</span>(<span class="string">"windows"</span>)
+        <span class="name">condition</span>: <span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">includes</span>(<span class="string">"windows"</span>)
         <span class="name">cpp</span>.defines: [<span class="string">"ON_WINDOWS"</span>]
         <span class="name">cpp</span>.includePaths: [<span class="string">"extraWindowsIncludes"</span>]
     }
 }</pre>
-<p>Multiple Properties items can be specified to set properties dependent on different conditions. The order of appearance is important. Semantics are similar to if-else-chains. The following example</p>
+<p>As the above example demonstrates, the <code translate="no">Properties</code> item is especially useful if there are several properties whose values depend on the same set of conditions. These conditions do not need to be mutually exclusive, but care should be taken not to set the same scalar property in more than one matching <code translate="no">Properties</code> item. Qbs makes no guarantees about the value of the property in such cases.</p>
+<p>If the same property is set both inside and outside of a <code translate="no">Properties</code> item, the outside binding is only considered if none of the <code translate="no">Properties</code> conditions match, that is, it acts as an "else" case.</p>
 <pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/" translate="no">Product</a></span> {
     <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-properties/" translate="no">Properties</a></span> {
-        <span class="name">condition</span>: <span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">contains</span>(<span class="string">"windows"</span>)
+        <span class="name">condition</span>: <span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">includes</span>(<span class="string">"windows"</span>)
         <span class="name">cpp</span>.defines: [<span class="string">"ON_WINDOWS"</span>]
         <span class="name">cpp</span>.includePaths: [<span class="string">"myWindowsIncludes"</span>]
     }
     <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-properties/" translate="no">Properties</a></span> {
-        <span class="name">condition</span>: <span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">contains</span>(<span class="string">"linux"</span>)
+        <span class="name">condition</span>: <span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">includes</span>(<span class="string">"linux"</span>)
         <span class="name">cpp</span>.defines: [<span class="string">"ON_LINUX"</span>]
         <span class="name">cpp</span>.includePaths: [<span class="string">"myLinuxIncludes"</span>]
     }
     <span class="name">cpp</span>.defines: [<span class="string">"ON_UNKNOWN_PLATFORM"</span>]
 }</pre>
-<p>is equivalent to</p>
+<p>is roughly equivalent to</p>
 <pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/" translate="no">Product</a></span> {
     <span class="name">cpp</span>.defines: {
-        <span class="keyword">if</span> (<span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">contains</span>(<span class="string">"windows"</span>))
+        <span class="keyword">if</span> (<span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">includes</span>(<span class="string">"windows"</span>))
             <span class="keyword">return</span> [<span class="string">"ON_WINDOWS"</span>];
-        <span class="keyword">if</span> (<span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">contains</span>(<span class="string">"linux"</span>))
+        <span class="keyword">if</span> (<span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">includes</span>(<span class="string">"linux"</span>))
             <span class="keyword">return</span> [<span class="string">"ON_LINUX"</span>];
         <span class="keyword">return</span> [<span class="string">"ON_UNKNOWN_PLATFORM"</span>];
     }
     <span class="name">cpp</span>.includePaths: {
-        <span class="keyword">if</span> (<span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">contains</span>(<span class="string">"windows"</span>))
+        <span class="keyword">if</span> (<span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">includes</span>(<span class="string">"windows"</span>))
             <span class="keyword">return</span> [<span class="string">"myWindowsIncludes"</span>];
-        <span class="keyword">if</span> (<span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">contains</span>(<span class="string">"linux"</span>))
+        <span class="keyword">if</span> (<span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">includes</span>(<span class="string">"linux"</span>))
             <span class="keyword">return</span> [<span class="string">"myLinuxIncludes"</span>];
-        <span class="keyword">return</span> <span class="name">base</span>;
+        <span class="keyword">return</span> <span class="name">base</span> ? <span class="name">base</span> : <span class="name">original</span>;
     }
 }</pre>
 <p>In Properties items, one can access the <a href="https://qbs.io/
-/docs/qml-qbslanguageitems-module/#outer" translate="no">outer value</a> of a property.</p>
+/docs/special-property-values/#outer" translate="no">outer</a> value of a property.</p>
 <pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/" translate="no">Product</a></span> {
     <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-properties/" translate="no">Properties</a></span> {
-        <span class="name">condition</span>: <span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">contains</span>(<span class="string">"windows"</span>)
+        <span class="name">condition</span>: <span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">includes</span>(<span class="string">"windows"</span>)
         <span class="name">cpp</span>.defines: <span class="name">outer</span>.<span class="name">concat</span>(<span class="string">"ON_WINDOWS"</span>)     <span class="comment">// === ["FOO", "ON_WINDOWS"]</span>
     }
     <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-properties/" translate="no">Properties</a></span> {
-        <span class="name">condition</span>: <span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">contains</span>(<span class="string">"linux"</span>)
+        <span class="name">condition</span>: <span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">includes</span>(<span class="string">"linux"</span>)
         <span class="name">cpp</span>.defines: [<span class="string">"ON_LINUX"</span>]                   <span class="comment">// === ["ON_LINUX"]</span>
     }
     <span class="name">cpp</span>.defines: [<span class="string">"FOO"</span>]
 }</pre>
-<p>We suggest to use the Properties item for mutually exclusive conditions only. It is especially useful if there are several properties to set, based on the same condition.</p>
 <!-- @@@Properties -->
 <h2>Property Documentation</h2>
 <!-- $$$condition -->
@@ -217,10 +217,12 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
 <div class="table"><table class="qmlname">
 <tbody><tr valign="top" class="odd" id="condition-prop">
 <td class="tblQmlPropNode"><p>
-<span class="name">condition</span> : <span class="type">bool</span></p></td></tr>
+<span class="name">condition</span> : <span class="type">bool</span> <code class="details extra" translate="no">[default: true]</code></p></td></tr>
 </tbody></table></div></div>
 <div class="qmldoc"><p>The condition to be used for the other bindings in this item.</p>
-<p>This is a mandatory property that has no default value.</p>
+<div class="admonition note">
+<p><b>Note: </b>The special value <code translate="no">undefined</code> can be used to indicate that this condition should be considered true if and only if none of the other Properties items matched for a given property binding.</p>
+</div>
 </div></div><!-- @@@condition -->
 <br>
 <!-- $$$overrideListProperties -->
@@ -240,7 +242,7 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
 <a class="nextPage" href="https://qbs.io/
 /docs/qml-qbslanguageitems-propertyoptions/">PropertyOptions</a>
 </p>
-
+</div>
 
 
     </article>

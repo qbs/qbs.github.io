@@ -3,13 +3,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="---
-
----
-
-Qbs Manual
+    <meta name="description" content="Qbs Manual
 Autotest
-Qbs 2.4.0
+Qbs 2.6.0
   
   
 
@@ -42,7 +38,7 @@ This additional type is required for the helper AutotestRunner item. This item r
     <meta property="og:url" content="https://qbs.io/docs/tutorial-5/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="--- --- Qbs Manual Autotest Qbs 2.4.0 Convenience Items Project Properties Autotest Now that we can re-use our base items, let&#39;s add a simple autotest. We inherit the new item from the MyApplication item and add an &#34;autotest&#34; type:
+  <meta property="og:description" content="Qbs Manual Autotest Qbs 2.6.0 Convenience Items Project Properties Autotest Now that we can re-use our base items, let&#39;s add a simple autotest. We inherit the new item from the MyApplication item and add an &#34;autotest&#34; type:
 // qbs/imports/MyAutoTest.qbs MyApplication { type: base.concat([&#34;autotest&#34;]) } This additional type is required for the helper AutotestRunner item. This item runs all products with the &#34;autotest&#34; type when it is being built. It also implicitly depends on all such products, so they will be built before running as well.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
@@ -51,7 +47,7 @@ This additional type is required for the helper AutotestRunner item. This item r
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="--- --- Qbs Manual Autotest Qbs 2.4.0 Convenience Items Project Properties Autotest Now that we can re-use our base items, let&#39;s add a simple autotest. We inherit the new item from the MyApplication item and add an &#34;autotest&#34; type:
+  <meta name="twitter:description" content="Qbs Manual Autotest Qbs 2.6.0 Convenience Items Project Properties Autotest Now that we can re-use our base items, let&#39;s add a simple autotest. We inherit the new item from the MyApplication item and add an &#34;autotest&#34; type:
 // qbs/imports/MyAutoTest.qbs MyApplication { type: base.concat([&#34;autotest&#34;]) } This additional type is required for the helper AutotestRunner item. This item runs all products with the &#34;autotest&#34; type when it is being built. It also implicitly depends on all such products, so they will be built before running as well.">
 
 </head>
@@ -83,27 +79,19 @@ This additional type is required for the helper AutotestRunner item. This item r
 </header><main>
 <div class="centre-outer">
     <article class="centre-inner docs">
-    ---
-
----
-
+    
 <li><a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs" translate="no">Qbs Manual</a></li>
 <li>Autotest</li>
-<li id="buildversion">Qbs 2.4.0</li>
+<li id="buildversion">Qbs 2.6.0</li>
   <link rel="prev" href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/tutorial-4/">
   <link rel="next" href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/tutorial-6/">
 <p class="naviNextPrevious headerNavi">
 <a class="prevPage" href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/tutorial-4/">Convenience Items</a>
 <a class="nextPage" href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/tutorial-6/">Project Properties</a>
 </p>
 <div class="sidebar"><div class="sidebar-content" id="sidebar-content"></div></div>
@@ -117,10 +105,8 @@ MyApplication {
     type: base.concat(["autotest"])
 }</pre>
 <p>This additional type is required for the helper <a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbsconvenienceitems-autotestrunner/" translate="no">AutotestRunner</a> item. This item runs all products with the <code translate="no">"autotest"</code> type when it is being built. It also implicitly depends on all such products, so they will be built before running as well.</p>
 <p>Let's add this item to our top-level <a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbslanguageitems-project/" translate="no">Project</a> item:</p>
 <pre class="cpp" translate="no">Project {
     name: <span class="string">"My Project"</span>
@@ -131,7 +117,6 @@ MyApplication {
     }
 }</pre>
 <p>Here we set the <a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbsconvenienceitems-autotestrunner/#timeout-prop" translate="no">timeout</a> property to 60 seconds so that our runner kills tests that run way too long.</p>
 <p>Now we need to add our first test. Let's create a new product with the following content:</p>
 <pre class="cpp" translate="no">// test/test.qbs
@@ -142,7 +127,6 @@ MyAutoTest {
     files: "test.c"
 }</pre>
 <p>Here we depend on our library (which we are going to test), set the product <a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbslanguageitems-product/#name-prop" translate="no">name</a>, and specify the source file, which looks like this:</p>
 <pre class="cpp" translate="no"><span class="comment">// test/test.c</span>
 
@@ -180,10 +164,8 @@ Build done <span class="keyword">for</span> configuration <span class="keyword">
 <!-- @@@tutorial-5.html -->
 <p class="naviNextPrevious footerNavi">
 <a class="prevPage" href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/tutorial-4/">Convenience Items</a>
 <a class="nextPage" href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/tutorial-6/">Project Properties</a>
 </p>
 </div>

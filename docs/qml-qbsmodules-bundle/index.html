@@ -6,7 +6,7 @@
     <meta name="description" content="Qbs Manual
 QbsModules
 bundle
-Qbs 1.21.0
+Qbs 2.6.0
 
 
 Contents
@@ -62,6 +62,7 @@ sharedFrameworksFolderPath : string
 sharedSupportFolderPath : string
 signature : string
 unlocalizedResourcesFolderPath : string
+useBuiltinXcodeBuildSpecs : bool
 versionPlistPath : string
 versionsFolderPath : string (since Qbs 1.5)
 
@@ -83,8 +84,8 @@ The bundle module contains properties and rules for building and working with Co
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-bundle/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual QbsModules bundle Qbs 1.21.0 Contents Properties Detailed Description Relevant File Tags bundle QML Type Provides Core Foundation bundle support. More...
-Import Statement: import QbsModules Since: Qbs 1.4 List of all members, including inherited members Properties bundleName : string contentsFolderPath : string documentationFolderPath : string (since Qbs 1.5) embedInfoPlist : bool executableFolderPath : string executablePath : string executablesFolderPath : string extension : string frameworkVersion : string frameworksFolderPath : string generatePackageInfo : bool (since Qbs 1.5) identifier : string identifierPrefix : string infoPlist : var infoPlistFormat : string infoPlistPath : string infoStringsPath : string (since Qbs 1.5) isBundle : bool isShallow : bool javaFolderPath : string (since Qbs 1.5) localizedResourcesFolderPath : string (since Qbs 1.5) packageType : string pkgInfoPath : string pluginsFolderPath : string privateHeaders : pathList privateHeadersFolderPath : string processInfoPlist : bool publicHeaders : pathList publicHeadersFolderPath : string resources : pathList scriptsFolderPath : string sharedFrameworksFolderPath : string sharedSupportFolderPath : string signature : string unlocalizedResourcesFolderPath : string versionPlistPath : string versionsFolderPath : string (since Qbs 1.5) Detailed Description The bundle module contains properties and rules for building and working with Core Foundation bundles on Apple platforms (commonly known as CFBundles or simply bundles), directories with a standardized hierarchical structure that hold executable code and resources. Examples include applications, frameworks, and plugins.">
+  <meta property="og:description" content="Qbs Manual QbsModules bundle Qbs 2.6.0 Contents Properties Detailed Description Relevant File Tags bundle QML Type Provides Core Foundation bundle support. More...
+Import Statement: import QbsModules Since: Qbs 1.4 List of all members, including inherited members Properties bundleName : string contentsFolderPath : string documentationFolderPath : string (since Qbs 1.5) embedInfoPlist : bool executableFolderPath : string executablePath : string executablesFolderPath : string extension : string frameworkVersion : string frameworksFolderPath : string generatePackageInfo : bool (since Qbs 1.5) identifier : string identifierPrefix : string infoPlist : var infoPlistFormat : string infoPlistPath : string infoStringsPath : string (since Qbs 1.5) isBundle : bool isShallow : bool javaFolderPath : string (since Qbs 1.5) localizedResourcesFolderPath : string (since Qbs 1.5) packageType : string pkgInfoPath : string pluginsFolderPath : string privateHeaders : pathList privateHeadersFolderPath : string processInfoPlist : bool publicHeaders : pathList publicHeadersFolderPath : string resources : pathList scriptsFolderPath : string sharedFrameworksFolderPath : string sharedSupportFolderPath : string signature : string unlocalizedResourcesFolderPath : string useBuiltinXcodeBuildSpecs : bool versionPlistPath : string versionsFolderPath : string (since Qbs 1.5) Detailed Description The bundle module contains properties and rules for building and working with Core Foundation bundles on Apple platforms (commonly known as CFBundles or simply bundles), directories with a standardized hierarchical structure that hold executable code and resources. Examples include applications, frameworks, and plugins.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -92,8 +93,8 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual QbsModules bundle Qbs 1.21.0 Contents Properties Detailed Description Relevant File Tags bundle QML Type Provides Core Foundation bundle support. More...
-Import Statement: import QbsModules Since: Qbs 1.4 List of all members, including inherited members Properties bundleName : string contentsFolderPath : string documentationFolderPath : string (since Qbs 1.5) embedInfoPlist : bool executableFolderPath : string executablePath : string executablesFolderPath : string extension : string frameworkVersion : string frameworksFolderPath : string generatePackageInfo : bool (since Qbs 1.5) identifier : string identifierPrefix : string infoPlist : var infoPlistFormat : string infoPlistPath : string infoStringsPath : string (since Qbs 1.5) isBundle : bool isShallow : bool javaFolderPath : string (since Qbs 1.5) localizedResourcesFolderPath : string (since Qbs 1.5) packageType : string pkgInfoPath : string pluginsFolderPath : string privateHeaders : pathList privateHeadersFolderPath : string processInfoPlist : bool publicHeaders : pathList publicHeadersFolderPath : string resources : pathList scriptsFolderPath : string sharedFrameworksFolderPath : string sharedSupportFolderPath : string signature : string unlocalizedResourcesFolderPath : string versionPlistPath : string versionsFolderPath : string (since Qbs 1.5) Detailed Description The bundle module contains properties and rules for building and working with Core Foundation bundles on Apple platforms (commonly known as CFBundles or simply bundles), directories with a standardized hierarchical structure that hold executable code and resources. Examples include applications, frameworks, and plugins.">
+  <meta name="twitter:description" content="Qbs Manual QbsModules bundle Qbs 2.6.0 Contents Properties Detailed Description Relevant File Tags bundle QML Type Provides Core Foundation bundle support. More...
+Import Statement: import QbsModules Since: Qbs 1.4 List of all members, including inherited members Properties bundleName : string contentsFolderPath : string documentationFolderPath : string (since Qbs 1.5) embedInfoPlist : bool executableFolderPath : string executablePath : string executablesFolderPath : string extension : string frameworkVersion : string frameworksFolderPath : string generatePackageInfo : bool (since Qbs 1.5) identifier : string identifierPrefix : string infoPlist : var infoPlistFormat : string infoPlistPath : string infoStringsPath : string (since Qbs 1.5) isBundle : bool isShallow : bool javaFolderPath : string (since Qbs 1.5) localizedResourcesFolderPath : string (since Qbs 1.5) packageType : string pkgInfoPath : string pluginsFolderPath : string privateHeaders : pathList privateHeadersFolderPath : string processInfoPlist : bool publicHeaders : pathList publicHeadersFolderPath : string resources : pathList scriptsFolderPath : string sharedFrameworksFolderPath : string sharedSupportFolderPath : string signature : string unlocalizedResourcesFolderPath : string useBuiltinXcodeBuildSpecs : bool versionPlistPath : string versionsFolderPath : string (since Qbs 1.5) Detailed Description The bundle module contains properties and rules for building and working with Core Foundation bundles on Apple platforms (commonly known as CFBundles or simply bundles), directories with a standardized hierarchical structure that hold executable code and resources. Examples include applications, frameworks, and plugins.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -130,7 +131,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>bundle</li>
-<li id="buildversion">Qbs 1.21.0</li>
+<li id="buildversion">Qbs 2.6.0</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -141,7 +142,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<h1 class="title" translate="no">bundle QML Type</h1>
+<div class="content"><h1 class="title" translate="no">bundle QML Type</h1>
 <!-- $$$bundle-brief -->
 <p>Provides Core Foundation bundle support. <a href="#details">More...</a></p>
 <!-- @@@bundle -->
@@ -222,6 +223,8 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 /docs/qml-qbsmodules-bundle/#signature-prop" translate="no">signature</a></b> : string</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-bundle/#unlocalizedResourcesFolderPath-prop" translate="no">unlocalizedResourcesFolderPath</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-bundle/#useBuiltinXcodeBuildSpecs-prop" translate="no">useBuiltinXcodeBuildSpecs</a></b> : bool</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-bundle/#versionPlistPath-prop" translate="no">versionPlistPath</a></b> : string</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
@@ -664,6 +667,17 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <p>This is the same as the base resources path.</p>
 </div></div><!-- @@@unlocalizedResourcesFolderPath -->
 <br>
+<!-- $$$useBuiltinXcodeBuildSpecs -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr valign="top" class="odd" id="useBuiltinXcodeBuildSpecs-prop">
+<td class="tblQmlPropNode"><p>
+<span class="name">useBuiltinXcodeBuildSpecs</span> : <span class="type">bool</span> <code class="details extra" translate="no">[default: false]</code></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>Set this property to <code translate="no">true</code> to use Xcode <code translate="no">.xcspec</code> files shipped with Qbs.</p>
+<p>This property can be used as a workaround when using a new Xcode version that is not supported by Qbs yet.</p>
+</div></div><!-- @@@useBuiltinXcodeBuildSpecs -->
+<br>
 <!-- $$$versionPlistPath -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
@@ -688,7 +702,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <p>This property was introduced in Qbs 1.5.</p>
 </div></div><!-- @@@versionsFolderPath -->
 <br>
-
+</div>
 
 
     </article>

@@ -6,7 +6,7 @@
     <meta name="description" content="Qbs Manual
 QbsProbes
 BinaryProbe
-Qbs 1.21.0
+Qbs 2.6.0
 
 
 Contents
@@ -44,7 +44,7 @@ BinaryProbe searches for executable files within directories specified by the PA
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsprobes-binaryprobe/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual QbsProbes BinaryProbe Qbs 1.21.0 Contents Detailed Description BinaryProbe QML Type Locates executable files outside the project. More...
+  <meta property="og:description" content="Qbs Manual QbsProbes BinaryProbe Qbs 2.6.0 Contents Detailed Description BinaryProbe QML Type Locates executable files outside the project. More...
 Import Statement: import QbsProbes Inherits: PathProbe
 List of all members, including inherited members BinaryProbe is part of List of All Items. Detailed Description Finds executable files that have the specified file names.
 BinaryProbe searches for executable files within directories specified by the PATH environment variable.">
@@ -55,7 +55,7 @@ BinaryProbe searches for executable files within directories specified by the PA
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual QbsProbes BinaryProbe Qbs 1.21.0 Contents Detailed Description BinaryProbe QML Type Locates executable files outside the project. More...
+  <meta name="twitter:description" content="Qbs Manual QbsProbes BinaryProbe Qbs 2.6.0 Contents Detailed Description BinaryProbe QML Type Locates executable files outside the project. More...
 Import Statement: import QbsProbes Inherits: PathProbe
 List of all members, including inherited members BinaryProbe is part of List of All Items. Detailed Description Finds executable files that have the specified file names.
 BinaryProbe searches for executable files within directories specified by the PATH environment variable.">
@@ -95,7 +95,7 @@ BinaryProbe searches for executable files within directories specified by the PA
 <li><a href="https://qbs.io/
 /docs/qbsprobes-qmlmodule/" translate="no">QbsProbes</a></li>
 <li>BinaryProbe</li>
-<li id="buildversion">Qbs 1.21.0</li>
+<li id="buildversion">Qbs 2.6.0</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -104,7 +104,7 @@ BinaryProbe searches for executable files within directories specified by the PA
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<h1 class="title" translate="no">BinaryProbe QML Type</h1>
+<div class="content"><h1 class="title" translate="no">BinaryProbe QML Type</h1>
 <!-- $$$BinaryProbe-brief -->
 <p>Locates executable files outside the project. <a href="#details">More...</a></p>
 <!-- @@@BinaryProbe -->
@@ -130,7 +130,8 @@ BinaryProbe searches for executable files within directories specified by the PA
 /docs/qml-qbsprobes-pathprobe/#nameSuffixes-prop" translate="no">PathProbe.nameSuffixes</a> to change this behavior.</p>
 </div>
 <p>For example, BinaryProbe can be used to search for a protobuf compiler executable as follows:</p>
-<pre class="cpp" translate="no">import qbs<span class="operator">.</span>File
+<pre class="cpp" translate="no"><span class="comment">// Assuming module is called "myproto"</span>
+import qbs<span class="operator">.</span>File
 import qbs<span class="operator">.</span>Probes
 
 Module {
@@ -150,10 +151,10 @@ Module {
     Rule {
         <span class="comment">// rule input/outputs here...</span>
 
-        <span class="comment">// run executable</span>
+        <span class="comment">// run executable for the module called "myproto":</span>
         prepare: {
             var args <span class="operator">=</span> <span class="comment">// initialize arguments...</span>
-            var cmd <span class="operator">=</span> <span class="keyword">new</span> Command(executableFilePath<span class="operator">,</span> args);
+            var cmd <span class="operator">=</span> <span class="keyword">new</span> Command(input<span class="operator">.</span>myproto<span class="operator">.</span>executableFilePath<span class="operator">,</span> args);
             cmd<span class="operator">.</span>highlight <span class="operator">=</span> <span class="string">"codegen"</span>;
             cmd<span class="operator">.</span>description <span class="operator">=</span> <span class="string">"generating protobuf files for "</span> <span class="operator">+</span> input<span class="operator">.</span>fileName;
             <span class="keyword">return</span> <span class="operator">[</span>cmd<span class="operator">]</span>;
@@ -161,7 +162,7 @@ Module {
     }
 }</pre>
 <!-- @@@BinaryProbe -->
-
+</div>
 
 
     </article>

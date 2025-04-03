@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Qbs</title>
+    <meta name="description" content="Qbs Manual
+C&#43;&#43;20 Modules
+Qbs 2.6.0
+  
+  
+
+Version Header
+How-tos
+
+
+
+Contents
+
+Named Modules
+Module Partitions
+Modules and Libraries
+
+
+
+C&#43;&#43;20 Modules
+
+
+This tutorial implies you have some knowledge about C&#43;&#43;20 modules. If not, see Overview of modules in C&#43;&#43; for introduction.
+Named Modules
+Using C&#43;&#43;20 modules with Qbs is pretty straightforward. Let&#39;s suppose you have a module file that exports a single function printHello:
+// hello.cppm
+module;
+
+#include &lt;iostream&gt;
+#include &lt;string_view&gt;
+
+export module hello;
+
+export namespace Hello {
+
+void printHello(std::string_view name)
+{
+    std::cout &lt;&lt; &#34;Hello, &#34; &lt;&lt; name &lt;&lt; &#39;!&#39; &lt;&lt; std::endl;
+}
+
+} // namespace Hello
+
+Note: Currently, Clang only recognizes .cppm files as modules, however, for GCC and MSVC Qbs also recognizes .ixx files as C&#43;&#43; modules. Qbs assigns the &#34;cppm&#34; file tag to these files. You can assign this tag manually to module files with different extensions. ">
+    <link rel="canonical" href="https://qbs.io/docs/tutorial-10/" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+
+    
+      
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
+    
+
+    <meta property="og:url" content="https://qbs.io/docs/tutorial-10/">
+  <meta property="og:site_name" content="Qbs">
+  <meta property="og:title" content="Qbs">
+  <meta property="og:description" content="Qbs Manual C&#43;&#43;20 Modules Qbs 2.6.0 Version Header How-tos Contents Named Modules Module Partitions Modules and Libraries C&#43;&#43;20 Modules This tutorial implies you have some knowledge about C&#43;&#43;20 modules. If not, see Overview of modules in C&#43;&#43; for introduction.
+Named Modules Using C&#43;&#43;20 modules with Qbs is pretty straightforward. Let&#39;s suppose you have a module file that exports a single function printHello:
+// hello.cppm module; #include &lt;iostream&gt; #include &lt;string_view&gt; export module hello; export namespace Hello { void printHello(std::string_view name) { std::cout &lt;&lt; &#34;Hello, &#34; &lt;&lt; name &lt;&lt; &#39;!&#39; &lt;&lt; std::endl; } } // namespace Hello Note: Currently, Clang only recognizes .cppm files as modules, however, for GCC and MSVC Qbs also recognizes .ixx files as C&#43;&#43; modules. Qbs assigns the &#34;cppm&#34; file tag to these files. You can assign this tag manually to module files with different extensions.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Qbs">
+  <meta name="twitter:description" content="Qbs Manual C&#43;&#43;20 Modules Qbs 2.6.0 Version Header How-tos Contents Named Modules Module Partitions Modules and Libraries C&#43;&#43;20 Modules This tutorial implies you have some knowledge about C&#43;&#43;20 modules. If not, see Overview of modules in C&#43;&#43; for introduction.
+Named Modules Using C&#43;&#43;20 modules with Qbs is pretty straightforward. Let&#39;s suppose you have a module file that exports a single function printHello:
+// hello.cppm module; #include &lt;iostream&gt; #include &lt;string_view&gt; export module hello; export namespace Hello { void printHello(std::string_view name) { std::cout &lt;&lt; &#34;Hello, &#34; &lt;&lt; name &lt;&lt; &#39;!&#39; &lt;&lt; std::endl; } } // namespace Hello Note: Currently, Clang only recognizes .cppm files as modules, however, for GCC and MSVC Qbs also recognizes .ixx files as C&#43;&#43; modules. Qbs assigns the &#34;cppm&#34; file tag to these files. You can assign this tag manually to module files with different extensions.">
+
+</head>
+<body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
+    <a class="flex items-center" href="/">
+        <img src="https://qbs.io//img/Cubes.svg" class="h-10 effect-shadow-small">
+        <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
+    </a>
+
+    <div>
+        
+        <a href="/blog" class="ml-2">
+            <span>Blog</span>
+        </a>
+        
+        <a href="/docs" class="ml-2">
+            <span>Documentation</span>
+        </a>
+        
+        <a href="/docs/installing/" class="ml-2">
+            <span>Get Qbs</span>
+        </a>
+        
+        <a href="/community" class="ml-2">
+            <span>Community</span>
+        </a>
+        
+    </div>
+</header><main>
+<div class="centre-outer">
+    <article class="centre-inner docs">
+    
+<li><a href="https://qbs.io/
+/docs" translate="no">Qbs Manual</a></li>
+<li>C++20 Modules</li>
+<li id="buildversion">Qbs 2.6.0</li>
+  <link rel="prev" href="https://qbs.io/
+/docs/tutorial-9/">
+  <link rel="next" href="https://qbs.io/
+/docs/howtos/">
+<p class="naviNextPrevious headerNavi">
+<a class="prevPage" href="https://qbs.io/
+/docs/tutorial-9/">Version Header</a>
+<a class="nextPage" href="https://qbs.io/
+/docs/howtos/">How-tos</a>
+</p>
+<div class="sidebar">
+<div class="toc">
+<h3 id="toc">Contents</h3>
+<ul>
+<li class="level1"><a href="#named-modules">Named Modules</a></li>
+<li class="level1"><a href="#module-partitions">Module Partitions</a></li>
+<li class="level1"><a href="#modules-and-libraries">Modules and Libraries</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<div class="content"><h1 class="title">C++20 Modules</h1>
+<!-- $$$tutorial-10.html-description -->
+<div class="descr" id="details">
+<p>This tutorial implies you have some knowledge about C++20 modules. If not, see <a href="https://learn.microsoft.com/en-us/cpp/cpp/modules-cpp" translate="no">Overview of modules in C++</a> for introduction.</p>
+<h2 id="named-modules">Named Modules</h2>
+<p>Using C++20 modules with Qbs is pretty straightforward. Let's suppose you have a module file that exports a single function <code translate="no">printHello</code>:</p>
+<pre class="cpp" translate="no">// hello.cppm
+module;
+
+#include &lt;iostream&gt;
+#include &lt;string_view&gt;
+
+export module hello;
+
+export namespace Hello {
+
+void printHello(std::string_view name)
+{
+    std::cout &lt;&lt; "Hello, " &lt;&lt; name &lt;&lt; '!' &lt;&lt; std::endl;
+}
+
+} // namespace Hello</pre>
+<div class="admonition note">
+<p><b>Note: </b>Currently, Clang only recognizes <code translate="no">.cppm</code> files as modules, however, for GCC and MSVC Qbs also recognizes <code translate="no">.ixx</code> files as C++ modules. Qbs assigns the <code translate="no">"cppm"</code> file tag to these files. You can assign this tag manually to module files with different extensions.</p>
+</div>
+<p>This function is later used in the <code translate="no">main.cpp</code> file as follows:</p>
+<pre class="cpp" translate="no"><span class="comment">// main.cpp</span>
+
+import hello;
+
+<span class="type">int</span> main()
+{
+    Hello<span class="operator">::</span>printHello(<span class="string">"World"</span>);
+}</pre>
+<p>The project file simply lists files and sets the <a href="https://qbs.io/
+/docs/qml-qbsmodules-cpp/#forceUseCxxModules-prop" translate="no">cpp.forceUseCxxModules</a> property to <code translate="no">true</code>.</p>
+<pre class="cpp" translate="no"><span class="comment">// myproject.qbs</span>
+CppApplication {
+    consoleApplication: <span class="keyword">true</span>
+    install: <span class="keyword">true</span>
+    files: <span class="operator">[</span><span class="string">"hello.cppm"</span><span class="operator">,</span> <span class="string">"main.cpp"</span><span class="operator">]</span>
+    cpp<span class="operator">.</span>cxxLanguageVersion: <span class="string">"c++20"</span>
+    cpp<span class="operator">.</span>forceUseCxxModules: <span class="keyword">true</span>
+}</pre>
+<p>Now, you can build the project by simply calling <code translate="no">qbs</code>, assuming that your compiler supports C++20 modules.</p>
+<h2 id="module-partitions">Module Partitions</h2>
+<p><a href="https://learn.microsoft.com/en-us/cpp/cpp/modules-cpp?view=msvc-170#module-partitions" translate="no">Module partitions</a> are treated as regular modules and should also have the same extension or assigned the <code translate="no">"cppm"</code> tag manually. See this <a href="https://github.com/qbs/qbs/tree/2.5/examples/cxx-modules/mod3" translate="no">example</a> on how to use both interface module and partitions.</p>
+<h2 id="modules-and-libraries">Modules and Libraries</h2>
+<p>Using modules in dynamic libraries requires using the same export/import macros as it was shown in the <a href="https://qbs.io/
+/docs/tutorial-3/" translate="no">Dynamic Library</a> section:</p>
+<pre class="cpp" translate="no">// lib/hello.cppm
+module;
+
+#include "lib_global.h"
+#include &lt;iostream&gt;
+#include &lt;string_view&gt;
+
+export module hello;
+
+export namespace Hello {
+
+void MYLIB_EXPORT printHello(std::string_view name)
+{
+    std::cout &lt;&lt; "Hello, " &lt;&lt; name &lt;&lt; '!' &lt;&lt; std::endl;
+}
+
+} // namespace Hello</pre>
+<p>As shown in that section, the library <code translate="no">.qbs</code> file should also define the <code translate="no">MYLIB_LIBRARY</code> macro in order to mark symbols as exported:</p>
+<pre class="cpp" translate="no"><span class="comment">// lib/lib.qbs</span>
+DynamicLibrary {
+    name: <span class="string">"mylib"</span>
+    files: <span class="operator">[</span><span class="string">"hello.cppm"</span><span class="operator">,</span> <span class="string">"lib_global.h"</span><span class="operator">]</span>
+    version: <span class="string">"1.0.0"</span>
+    install: <span class="keyword">true</span>
+
+    Depends { name: <span class="string">"cpp"</span> }
+    cpp<span class="operator">.</span>defines: <span class="string">"MYLIB_LIBRARY"</span>
+    cpp<span class="operator">.</span>cxxLanguageVersion: <span class="string">"c++20"</span>
+    cpp<span class="operator">.</span>forceUseCxxModules: <span class="keyword">true</span>
+    <span class="comment">// ...</span>
+}</pre>
+<p>For more details, see the complete <a href="https://github.com/qbs/qbs/tree/2.5/tutorial/chapter-10-2" translate="no">example</a>.</p>
+</div>
+<!-- @@@tutorial-10.html -->
+<p class="naviNextPrevious footerNavi">
+<a class="prevPage" href="https://qbs.io/
+/docs/tutorial-9/">Version Header</a>
+<a class="nextPage" href="https://qbs.io/
+/docs/howtos/">How-tos</a>
+</p>
+</div>
+
+
+    </article>
+</div>
+
+        </main></body>
+</html>

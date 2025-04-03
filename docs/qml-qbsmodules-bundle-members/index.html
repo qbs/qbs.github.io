@@ -6,7 +6,7 @@
     <meta name="description" content="Qbs Manual
 QbsModules
 bundle
-Qbs 1.21.0
+Qbs 2.6.0
 
 List of All Members for bundle
 This is the complete list of members for bundle, including inherited members.
@@ -46,8 +46,10 @@ sharedFrameworksFolderPath : string
 sharedSupportFolderPath : string
 signature : string
 unlocalizedResourcesFolderPath : string
+useBuiltinXcodeBuildSpecs : bool
 versionPlistPath : string
 versionsFolderPath : string (since Qbs 1.5)
+
  ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-bundle-members/" />
 
@@ -64,8 +66,8 @@ versionsFolderPath : string (since Qbs 1.5)
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-bundle-members/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual QbsModules bundle Qbs 1.21.0 List of All Members for bundle This is the complete list of members for bundle, including inherited members.
-bundleName : string contentsFolderPath : string documentationFolderPath : string (since Qbs 1.5) embedInfoPlist : bool executableFolderPath : string executablePath : string executablesFolderPath : string extension : string frameworkVersion : string frameworksFolderPath : string generatePackageInfo : bool (since Qbs 1.5) identifier : string identifierPrefix : string infoPlist : var infoPlistFormat : string infoPlistPath : string infoStringsPath : string (since Qbs 1.5) isBundle : bool isShallow : bool javaFolderPath : string (since Qbs 1.5) localizedResourcesFolderPath : string (since Qbs 1.5) packageType : string pkgInfoPath : string pluginsFolderPath : string privateHeaders : pathList privateHeadersFolderPath : string processInfoPlist : bool publicHeaders : pathList publicHeadersFolderPath : string resources : pathList scriptsFolderPath : string sharedFrameworksFolderPath : string sharedSupportFolderPath : string signature : string unlocalizedResourcesFolderPath : string versionPlistPath : string versionsFolderPath : string (since Qbs 1.5) ">
+  <meta property="og:description" content="Qbs Manual QbsModules bundle Qbs 2.6.0 List of All Members for bundle This is the complete list of members for bundle, including inherited members.
+bundleName : string contentsFolderPath : string documentationFolderPath : string (since Qbs 1.5) embedInfoPlist : bool executableFolderPath : string executablePath : string executablesFolderPath : string extension : string frameworkVersion : string frameworksFolderPath : string generatePackageInfo : bool (since Qbs 1.5) identifier : string identifierPrefix : string infoPlist : var infoPlistFormat : string infoPlistPath : string infoStringsPath : string (since Qbs 1.5) isBundle : bool isShallow : bool javaFolderPath : string (since Qbs 1.5) localizedResourcesFolderPath : string (since Qbs 1.5) packageType : string pkgInfoPath : string pluginsFolderPath : string privateHeaders : pathList privateHeadersFolderPath : string processInfoPlist : bool publicHeaders : pathList publicHeadersFolderPath : string resources : pathList scriptsFolderPath : string sharedFrameworksFolderPath : string sharedSupportFolderPath : string signature : string unlocalizedResourcesFolderPath : string useBuiltinXcodeBuildSpecs : bool versionPlistPath : string versionsFolderPath : string (since Qbs 1.5) ">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -73,8 +75,8 @@ bundleName : string contentsFolderPath : string documentationFolderPath : string
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual QbsModules bundle Qbs 1.21.0 List of All Members for bundle This is the complete list of members for bundle, including inherited members.
-bundleName : string contentsFolderPath : string documentationFolderPath : string (since Qbs 1.5) embedInfoPlist : bool executableFolderPath : string executablePath : string executablesFolderPath : string extension : string frameworkVersion : string frameworksFolderPath : string generatePackageInfo : bool (since Qbs 1.5) identifier : string identifierPrefix : string infoPlist : var infoPlistFormat : string infoPlistPath : string infoStringsPath : string (since Qbs 1.5) isBundle : bool isShallow : bool javaFolderPath : string (since Qbs 1.5) localizedResourcesFolderPath : string (since Qbs 1.5) packageType : string pkgInfoPath : string pluginsFolderPath : string privateHeaders : pathList privateHeadersFolderPath : string processInfoPlist : bool publicHeaders : pathList publicHeadersFolderPath : string resources : pathList scriptsFolderPath : string sharedFrameworksFolderPath : string sharedSupportFolderPath : string signature : string unlocalizedResourcesFolderPath : string versionPlistPath : string versionsFolderPath : string (since Qbs 1.5) ">
+  <meta name="twitter:description" content="Qbs Manual QbsModules bundle Qbs 2.6.0 List of All Members for bundle This is the complete list of members for bundle, including inherited members.
+bundleName : string contentsFolderPath : string documentationFolderPath : string (since Qbs 1.5) embedInfoPlist : bool executableFolderPath : string executablePath : string executablesFolderPath : string extension : string frameworkVersion : string frameworksFolderPath : string generatePackageInfo : bool (since Qbs 1.5) identifier : string identifierPrefix : string infoPlist : var infoPlistFormat : string infoPlistPath : string infoStringsPath : string (since Qbs 1.5) isBundle : bool isShallow : bool javaFolderPath : string (since Qbs 1.5) localizedResourcesFolderPath : string (since Qbs 1.5) packageType : string pkgInfoPath : string pluginsFolderPath : string privateHeaders : pathList privateHeadersFolderPath : string processInfoPlist : bool publicHeaders : pathList publicHeadersFolderPath : string resources : pathList scriptsFolderPath : string sharedFrameworksFolderPath : string sharedSupportFolderPath : string signature : string unlocalizedResourcesFolderPath : string useBuiltinXcodeBuildSpecs : bool versionPlistPath : string versionsFolderPath : string (since Qbs 1.5) ">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -111,9 +113,9 @@ bundleName : string contentsFolderPath : string documentationFolderPath : string
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>bundle</li>
-<li id="buildversion">Qbs 1.21.0</li>
+<li id="buildversion">Qbs 2.6.0</li>
 <div class="sidebar"><div class="sidebar-content" id="sidebar-content"></div></div>
-<h1 class="title" translate="no">List of All Members for bundle</h1>
+<div class="content"><h1 class="title" translate="no">List of All Members for bundle</h1>
 <p>This is the complete list of members for <a href="https://qbs.io/
 /docs/qml-qbsmodules-bundle/">bundle</a>, including inherited members.</p>
 <ul>
@@ -188,11 +190,13 @@ bundleName : string contentsFolderPath : string documentationFolderPath : string
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-bundle/#unlocalizedResourcesFolderPath-prop" translate="no">unlocalizedResourcesFolderPath</a></b> : string</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-bundle/#useBuiltinXcodeBuildSpecs-prop" translate="no">useBuiltinXcodeBuildSpecs</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-bundle/#versionPlistPath-prop" translate="no">versionPlistPath</a></b> : string</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-bundle/#versionsFolderPath-prop" translate="no">versionsFolderPath</a></b> : string <code class="summary extra" translate="no">(since Qbs 1.5)</code></li>
 </ul>
-
+</div>
 
 
     </article>

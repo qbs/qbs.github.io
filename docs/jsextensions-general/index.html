@@ -6,7 +6,7 @@
     <meta name="description" content="Qbs Manual
 List of Built-in Services
 General Services
-Qbs 1.21.0
+Qbs 2.6.0
 
 
 Contents
@@ -14,13 +14,9 @@ Contents
 Available Operations
 require
 Extensions to JavaScript Built-in Objects
-Array.contains
 Array.containsAll
 Array.containsAny
 Array.uniqueConcat
-String.contains
-startsWith
-endsWith
 Console API
 console.debug
 console.error
@@ -53,7 +49,7 @@ Loads an extension and returns an object representing the extension. If identifi
     <meta property="og:url" content="https://qbs.io/docs/jsextensions-general/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual List of Built-in Services General Services Qbs 1.21.0 Contents Available Operations require Extensions to JavaScript Built-in Objects Array.contains Array.containsAll Array.containsAny Array.uniqueConcat String.contains startsWith endsWith Console API console.debug console.error console.info console.log console.warn General Services These are operations that do not fit into any of the other categories. They are automatically available in any Qbs project file or JavaScript file.
+  <meta property="og:description" content="Qbs Manual List of Built-in Services General Services Qbs 2.6.0 Contents Available Operations require Extensions to JavaScript Built-in Objects Array.containsAll Array.containsAny Array.uniqueConcat Console API console.debug console.error console.info console.log console.warn General Services These are operations that do not fit into any of the other categories. They are automatically available in any Qbs project file or JavaScript file.
 Available Operations require require(identifier: string): any Loads an extension and returns an object representing the extension. If identifier is a relative or absolute file path, this function will load a JavaScript file and return an object containing the evaluated context of that file. Otherwise, loads a Qbs extension named identifier and returns an object that contains the extension&#39;s context. This function is only available in JavaScript files and is designed to behave similarly to the CommonJS/RequireJS/Node.js module resolution systems.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
@@ -62,7 +58,7 @@ Available Operations require require(identifier: string): any Loads an extension
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual List of Built-in Services General Services Qbs 1.21.0 Contents Available Operations require Extensions to JavaScript Built-in Objects Array.contains Array.containsAll Array.containsAny Array.uniqueConcat String.contains startsWith endsWith Console API console.debug console.error console.info console.log console.warn General Services These are operations that do not fit into any of the other categories. They are automatically available in any Qbs project file or JavaScript file.
+  <meta name="twitter:description" content="Qbs Manual List of Built-in Services General Services Qbs 2.6.0 Contents Available Operations require Extensions to JavaScript Built-in Objects Array.containsAll Array.containsAny Array.uniqueConcat Console API console.debug console.error console.info console.log console.warn General Services These are operations that do not fit into any of the other categories. They are automatically available in any Qbs project file or JavaScript file.
 Available Operations require require(identifier: string): any Loads an extension and returns an object representing the extension. If identifier is a relative or absolute file path, this function will load a JavaScript file and return an object containing the evaluated context of that file. Otherwise, loads a Qbs extension named identifier and returns an object that contains the extension&#39;s context. This function is only available in JavaScript files and is designed to behave similarly to the CommonJS/RequireJS/Node.js module resolution systems.">
 
 </head>
@@ -100,7 +96,7 @@ Available Operations require require(identifier: string): any Loads an extension
 <li><a href="https://qbs.io/
 /docs/list-of-builtin-services/" translate="no">List of Built-in Services</a></li>
 <li>General Services</li>
-<li id="buildversion">Qbs 1.21.0</li>
+<li id="buildversion">Qbs 2.6.0</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -108,13 +104,9 @@ Available Operations require require(identifier: string): any Loads an extension
 <li class="level1"><a href="#available-operations">Available Operations</a></li>
 <li class="level2"><a href="#require">require</a></li>
 <li class="level1"><a href="#extensions-to-javascript-built-in-objects">Extensions to JavaScript Built-in Objects</a></li>
-<li class="level2"><a href="#array-contains">Array.contains</a></li>
 <li class="level2"><a href="#array-containsall">Array.containsAll</a></li>
 <li class="level2"><a href="#array-containsany">Array.containsAny</a></li>
 <li class="level2"><a href="#array-uniqueconcat">Array.uniqueConcat</a></li>
-<li class="level2"><a href="#string-contains">String.contains</a></li>
-<li class="level2"><a href="#startswith">startsWith</a></li>
-<li class="level2"><a href="#endswith">endsWith</a></li>
 <li class="level1"><a href="#console-api">Console API</a></li>
 <li class="level2"><a href="#console-debug">console.debug</a></li>
 <li class="level2"><a href="#console-error">console.error</a></li>
@@ -124,7 +116,7 @@ Available Operations require require(identifier: string): any Loads an extension
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<h1 class="title">General Services</h1>
+<div class="content"><h1 class="title">General Services</h1>
 <!-- $$$jsextensions-general.html-description -->
 <div class="descr" id="details">
 <p>These are operations that do not fit into any of the other categories. They are automatically available in any Qbs project file or JavaScript file.</p>
@@ -137,9 +129,6 @@ MyFunctions<span class="operator">.</span>doSomething();
 var FileInfo <span class="operator">=</span> require(<span class="string">"qbs.FileInfo"</span>);
 var fileName <span class="operator">=</span> FileInfo<span class="operator">.</span>fileName(filePath);</pre>
 <h2 id="extensions-to-javascript-built-in-objects">Extensions to JavaScript Built-in Objects</h2>
-<h3 id="array-contains">Array.contains</h3>
-<pre class="cpp" translate="no">Array<span class="operator">.</span>contains(e: any): boolean</pre>
-<p>Returns <code translate="no">true</code> if the array contains the element <code translate="no">e</code>. Returns <code translate="no">false</code> otherwise.</p>
 <h3 id="array-containsall">Array.containsAll</h3>
 <pre class="cpp" translate="no">Array<span class="operator">.</span>containsAll(other: any<span class="operator">[</span><span class="operator">]</span>): boolean</pre>
 <p>Returns <code translate="no">true</code> if the array contains every element in the <code translate="no">other</code> array. Returns <code translate="no">false</code> otherwise.</p>
@@ -149,15 +138,6 @@ var fileName <span class="operator">=</span> FileInfo<span class="operator">.</s
 <h3 id="array-uniqueconcat">Array.uniqueConcat</h3>
 <pre class="cpp" translate="no">Array<span class="operator">.</span>uniqueConcat(other: any<span class="operator">[</span><span class="operator">]</span>): any<span class="operator">[</span><span class="operator">]</span></pre>
 <p>Returns a copy of this array joined with the array <code translate="no">other</code>. Duplicates that would originate from the concatenation are removed. The order of elements is preserved.</p>
-<h3 id="string-contains">String.contains</h3>
-<pre class="cpp" translate="no">String<span class="operator">.</span>contains(s: string): boolean</pre>
-<p>Returns <code translate="no">true</code> if the string contains the substring <code translate="no">s</code>. Returns <code translate="no">false</code> otherwise.</p>
-<h3 id="startswith">startsWith</h3>
-<pre class="cpp" translate="no">String<span class="operator">.</span>startsWith(s: string): boolean</pre>
-<p>Returns <code translate="no">true</code> if the string starts with the substring <code translate="no">s</code>. Returns <code translate="no">false</code> otherwise.</p>
-<h3 id="endswith">endsWith</h3>
-<pre class="cpp" translate="no">String<span class="operator">.</span>endsWith(s: string): boolean</pre>
-<p>Returns <code translate="no">true</code> if the string ends with the substring <code translate="no">s</code>. Returns <code translate="no">false</code> otherwise.</p>
 <h2 id="console-api">Console API</h2>
 <p>Qbs provides a subset of the non-standard Console API available in most ECMAScript runtimes.</p>
 <p>The output of each of these functions will only be displayed if the logging level is at least the level which the function outputs at. Logging levels from lowest to highest are: 'error', 'warning', 'info', 'debug', and 'trace'. The default is 'info'.</p>
@@ -181,7 +161,7 @@ var fileName <span class="operator">=</span> FileInfo<span class="operator">.</s
 <p>Logs a <code translate="no">warning</code> level message. Outputs to stderr when the logger output is a terminal. The string will be prefixed with <code translate="no">"WARNING: "</code> and colored yellow when the logger output is a color-capable terminal.</p>
 </div>
 <!-- @@@jsextensions-general.html -->
-
+</div>
 
 
     </article>

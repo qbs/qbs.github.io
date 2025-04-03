@@ -6,7 +6,7 @@
     <meta name="description" content="Qbs Manual
 QbsLanguageItems
 Rule
-Qbs 1.21.0
+Qbs 2.6.0
   
   
 
@@ -19,6 +19,7 @@ This is the complete list of members for Rule, including inherited members.
 
 alwaysRun : bool
 auxiliaryInputs : stringList
+auxiliaryInputsFromDependencies : stringList (since 2.6)
 condition : bool
 excludedInputs : stringList (since Qbs 1.12)
 explicitlyDependsOn : stringList
@@ -30,6 +31,7 @@ outputArtifacts : var
 outputFileTags : stringList
 prepare : script
 requiresInputs : bool
+
  ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbslanguageitems-rule-members/" />
 
@@ -46,8 +48,8 @@ requiresInputs : bool
     <meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-rule-members/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual QbsLanguageItems Rule Qbs 1.21.0 PropertyOptions Scanner List of All Members for Rule This is the complete list of members for Rule, including inherited members.
-alwaysRun : bool auxiliaryInputs : stringList condition : bool excludedInputs : stringList (since Qbs 1.12) explicitlyDependsOn : stringList explicitlyDependsOnFromDependencies : stringList (since Qbs 1.12) inputs : stringList inputsFromDependencies : stringList multiplex : bool outputArtifacts : var outputFileTags : stringList prepare : script requiresInputs : bool ">
+  <meta property="og:description" content="Qbs Manual QbsLanguageItems Rule Qbs 2.6.0 PropertyOptions Scanner List of All Members for Rule This is the complete list of members for Rule, including inherited members.
+alwaysRun : bool auxiliaryInputs : stringList auxiliaryInputsFromDependencies : stringList (since 2.6) condition : bool excludedInputs : stringList (since Qbs 1.12) explicitlyDependsOn : stringList explicitlyDependsOnFromDependencies : stringList (since Qbs 1.12) inputs : stringList inputsFromDependencies : stringList multiplex : bool outputArtifacts : var outputFileTags : stringList prepare : script requiresInputs : bool ">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -55,8 +57,8 @@ alwaysRun : bool auxiliaryInputs : stringList condition : bool excludedInputs : 
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual QbsLanguageItems Rule Qbs 1.21.0 PropertyOptions Scanner List of All Members for Rule This is the complete list of members for Rule, including inherited members.
-alwaysRun : bool auxiliaryInputs : stringList condition : bool excludedInputs : stringList (since Qbs 1.12) explicitlyDependsOn : stringList explicitlyDependsOnFromDependencies : stringList (since Qbs 1.12) inputs : stringList inputsFromDependencies : stringList multiplex : bool outputArtifacts : var outputFileTags : stringList prepare : script requiresInputs : bool ">
+  <meta name="twitter:description" content="Qbs Manual QbsLanguageItems Rule Qbs 2.6.0 PropertyOptions Scanner List of All Members for Rule This is the complete list of members for Rule, including inherited members.
+alwaysRun : bool auxiliaryInputs : stringList auxiliaryInputsFromDependencies : stringList (since 2.6) condition : bool excludedInputs : stringList (since Qbs 1.12) explicitlyDependsOn : stringList explicitlyDependsOnFromDependencies : stringList (since Qbs 1.12) inputs : stringList inputsFromDependencies : stringList multiplex : bool outputArtifacts : var outputFileTags : stringList prepare : script requiresInputs : bool ">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -93,7 +95,7 @@ alwaysRun : bool auxiliaryInputs : stringList condition : bool excludedInputs : 
 <li><a href="https://qbs.io/
 /docs/qbslanguageitems-qmlmodule/" translate="no">QbsLanguageItems</a></li>
 <li>Rule</li>
-<li id="buildversion">Qbs 1.21.0</li>
+<li id="buildversion">Qbs 2.6.0</li>
   <link rel="prev" href="https://qbs.io/
 /docs/qml-qbslanguageitems-propertyoptions/">
   <link rel="next" href="https://qbs.io/
@@ -105,7 +107,7 @@ alwaysRun : bool auxiliaryInputs : stringList condition : bool excludedInputs : 
 /docs/qml-qbslanguageitems-scanner/">Scanner</a>
 </p>
 <div class="sidebar"><div class="sidebar-content" id="sidebar-content"></div></div>
-<h1 class="title" translate="no">List of All Members for Rule</h1>
+<div class="content"><h1 class="title" translate="no">List of All Members for Rule</h1>
 <p>This is the complete list of members for <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-rule/">Rule</a>, including inherited members.</p>
 <ul>
@@ -113,6 +115,8 @@ alwaysRun : bool auxiliaryInputs : stringList condition : bool excludedInputs : 
 /docs/qml-qbslanguageitems-rule/#alwaysRun-prop" translate="no">alwaysRun</a></b> : bool</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-rule/#auxiliaryInputs-prop" translate="no">auxiliaryInputs</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbslanguageitems-rule/#auxiliaryInputsFromDependencies-prop" translate="no">auxiliaryInputsFromDependencies</a></b> : stringList <code class="summary extra" translate="no">(since 2.6)</code></li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-rule/#condition-prop" translate="no">condition</a></b> : bool</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
@@ -136,7 +140,7 @@ alwaysRun : bool auxiliaryInputs : stringList condition : bool excludedInputs : 
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-rule/#requiresInputs-prop" translate="no">requiresInputs</a></b> : bool</li>
 </ul>
-
+</div>
 
 
     </article>

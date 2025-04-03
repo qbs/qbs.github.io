@@ -3,13 +3,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="---
-
----
-
-Qbs Manual
+    <meta name="description" content="Qbs Manual
 Project Properties
-Qbs 2.4.0
+Qbs 2.6.0
   
   
 
@@ -47,7 +43,7 @@ Now we can use those properties in our helper items and in products: ">
     <meta property="og:url" content="https://qbs.io/docs/tutorial-6/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="--- --- Qbs Manual Project Properties Qbs 2.4.0 Autotest Buildconfig Module Project Properties It would be nice if our project was configurable. Let&#39;s add some properties to our root project file:
+  <meta property="og:description" content="Qbs Manual Project Properties Qbs 2.6.0 Autotest Buildconfig Module Project Properties It would be nice if our project was configurable. Let&#39;s add some properties to our root project file:
 Project { property string version: &#34;1.0.0&#34; property bool installDebugInformation: true property bool withTests: false property stringList autotestArguments: [] property stringList autotestWrapper: [] name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; // ... Now we can use those properties in our helper items and in products:">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
@@ -56,7 +52,7 @@ Project { property string version: &#34;1.0.0&#34; property bool installDebugInf
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="--- --- Qbs Manual Project Properties Qbs 2.4.0 Autotest Buildconfig Module Project Properties It would be nice if our project was configurable. Let&#39;s add some properties to our root project file:
+  <meta name="twitter:description" content="Qbs Manual Project Properties Qbs 2.6.0 Autotest Buildconfig Module Project Properties It would be nice if our project was configurable. Let&#39;s add some properties to our root project file:
 Project { property string version: &#34;1.0.0&#34; property bool installDebugInformation: true property bool withTests: false property stringList autotestArguments: [] property stringList autotestWrapper: [] name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; // ... Now we can use those properties in our helper items and in products:">
 
 </head>
@@ -88,27 +84,19 @@ Project { property string version: &#34;1.0.0&#34; property bool installDebugInf
 </header><main>
 <div class="centre-outer">
     <article class="centre-inner docs">
-    ---
-
----
-
+    
 <li><a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs" translate="no">Qbs Manual</a></li>
 <li>Project Properties</li>
-<li id="buildversion">Qbs 2.4.0</li>
+<li id="buildversion">Qbs 2.6.0</li>
   <link rel="prev" href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/tutorial-5/">
   <link rel="next" href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/tutorial-7/">
 <p class="naviNextPrevious headerNavi">
 <a class="prevPage" href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/tutorial-5/">Autotest</a>
 <a class="nextPage" href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/tutorial-7/">Buildconfig Module</a>
 </p>
 <div class="sidebar"><div class="sidebar-content" id="sidebar-content"></div></div>
@@ -134,11 +122,8 @@ Project { property string version: &#34;1.0.0&#34; property bool installDebugInf
     installDebugInformation: project.installDebugInformation
     // ...</pre>
 <p>Here, we access the project file using the special <a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/special-property-values/#project" translate="no">project</a> value. If the nearest project in the project tree does not have the desired property, Qbs looks it up in the parent project, potentially all the way up to the top-level project. We also use the <a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbsconvenienceitems-application/#installDebugInformation-prop" translate="no">installDebugInformation</a> property here. By default, it has the same value as <a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbsconvenienceitems-application/#install-prop" translate="no">install</a> but we want to make the debug information install optional.</p>
 <p>Let's now disable the tests if <code translate="no">project.withTests</code> is <code translate="no">false</code>:</p>
 <pre class="cpp" translate="no">SubProject {
@@ -148,15 +133,10 @@ Project { property string version: &#34;1.0.0&#34; property bool installDebugInf
     }
 }</pre>
 <p>Here we use the <a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbslanguageitems-properties/" translate="no">Properties</a> item within the <a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbslanguageitems-subproject/" translate="no">SubProject</a> item. This item allows to override a subproject's properties which can be useful when adding some other Qbs project as a Git submodule. Of course, it is not very useful in our particular case since we only set the <a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbslanguageitems-project/#condition-prop" translate="no">Project.condition</a> property. We could achieve the same effect by setting the <a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbslanguageitems-subproject/#condition-prop" translate="no">condition</a> property of the <a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbslanguageitems-subproject/" translate="no">SubProject</a> item:</p>
 <pre class="cpp" translate="no">SubProject {
     filePath: <span class="string">"test/test.qbs"</span>
@@ -169,7 +149,6 @@ MyApplication {
     type: base<span class="operator">.</span>concat(<span class="operator">[</span><span class="string">"autotest"</span><span class="operator">]</span>)
 }</pre>
 <p>Let's finally make our <a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbsconvenienceitems-autotestrunner/" translate="no">AutotestRunner</a> configurable too:</p>
 <pre class="cpp" translate="no">AutotestRunner {
     condition: parent.withTests
@@ -179,7 +158,6 @@ MyApplication {
 <p>There are several ways to override project properties from the command line. First, the special <code translate="no">project</code> variable can be used to set the properties of the top-level project:</p>
 <pre class="cpp" translate="no">$ qbs resolve project<span class="operator">.</span>withTests:<span class="keyword">false</span></pre>
 <p>You can also refer to properties using project's <a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbslanguageitems-project/#name-prop" translate="no">name</a>:</p>
 <pre class="cpp" translate="no">$ qbs resolve <span class="string">"projects.My Project.withTests:false"</span></pre>
 <p>This can again be useful for accessing the properties of external sub-projects. Note that since the project name contains spaces, we use quotes here.</p>
@@ -187,10 +165,8 @@ MyApplication {
 <!-- @@@tutorial-6.html -->
 <p class="naviNextPrevious footerNavi">
 <a class="prevPage" href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/tutorial-5/">Autotest</a>
 <a class="nextPage" href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/tutorial-7/">Buildconfig Module</a>
 </p>
 </div>

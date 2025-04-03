@@ -6,7 +6,7 @@
     <meta name="description" content="Qbs Manual
 QbsModules
 Qt.core
-Qbs 1.21.0
+Qbs 2.6.0
 
 
 Contents
@@ -31,11 +31,14 @@ availableBuildVariants : stringList
 binPath : path
 combineMocOutput : bool
 config : stringList
+disabledFeatures : stringList
 docPath : path
 enableBigResources : bool
 enableKeywords : bool
+enabledFeatures : stringList
 frameworkBuild : bool
 generateMetaTypesFile : bool (since Qbs 1.16)
+generatedHeadersDir : string
 incPath : path
 libInfix : string
 libPath : path
@@ -50,13 +53,17 @@ pluginMetaData : stringList
 pluginPath : path
 qdocEnvironment : stringList
 qdocName : string
+qdocOutputDir : string
 qmBaseName : string
+qmDir : string
 qtBuildVariant : string
 qtConfig : stringList
 resourceFileBaseName : string
 resourcePrefix : string
 resourceSourceBase : path
 staticBuild : bool
+translationsPath : path (since 2.5)
+useRPaths : bool
 version : string
 versionMajor : int
 versionMinor : int
@@ -81,8 +88,8 @@ All other Qt modules have a dependency on the Qt.core module, and therefore you 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-qt-core/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual QbsModules Qt.core Qbs 1.21.0 Contents Properties Detailed Description Relevant File Tags Qt.core QML Type Provides Qt Core support. More...
-Import Statement: import QbsModules List of all members, including inherited members Properties availableBuildVariants : stringList binPath : path combineMocOutput : bool config : stringList docPath : path enableBigResources : bool enableKeywords : bool frameworkBuild : bool generateMetaTypesFile : bool (since Qbs 1.16) incPath : path libInfix : string libPath : path lreleaseMultiplexMode : bool lreleaseName : string metaTypesInstallDir : bool (since Qbs 1.16) mkspecPath : path mocFlags : stringList mocName : string namespace : string pluginMetaData : stringList pluginPath : path qdocEnvironment : stringList qdocName : string qmBaseName : string qtBuildVariant : string qtConfig : stringList resourceFileBaseName : string resourcePrefix : string resourceSourceBase : path staticBuild : bool version : string versionMajor : int versionMinor : int versionParts : list versionPatch : int Detailed Description All other Qt modules have a dependency on the Qt.core module, and therefore you do not need to list it in your dependencies if you depend on at least one other Qt module.">
+  <meta property="og:description" content="Qbs Manual QbsModules Qt.core Qbs 2.6.0 Contents Properties Detailed Description Relevant File Tags Qt.core QML Type Provides Qt Core support. More...
+Import Statement: import QbsModules List of all members, including inherited members Properties availableBuildVariants : stringList binPath : path combineMocOutput : bool config : stringList disabledFeatures : stringList docPath : path enableBigResources : bool enableKeywords : bool enabledFeatures : stringList frameworkBuild : bool generateMetaTypesFile : bool (since Qbs 1.16) generatedHeadersDir : string incPath : path libInfix : string libPath : path lreleaseMultiplexMode : bool lreleaseName : string metaTypesInstallDir : bool (since Qbs 1.16) mkspecPath : path mocFlags : stringList mocName : string namespace : string pluginMetaData : stringList pluginPath : path qdocEnvironment : stringList qdocName : string qdocOutputDir : string qmBaseName : string qmDir : string qtBuildVariant : string qtConfig : stringList resourceFileBaseName : string resourcePrefix : string resourceSourceBase : path staticBuild : bool translationsPath : path (since 2.5) useRPaths : bool version : string versionMajor : int versionMinor : int versionParts : list versionPatch : int Detailed Description All other Qt modules have a dependency on the Qt.core module, and therefore you do not need to list it in your dependencies if you depend on at least one other Qt module.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -90,8 +97,8 @@ Import Statement: import QbsModules List of all members, including inherited mem
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual QbsModules Qt.core Qbs 1.21.0 Contents Properties Detailed Description Relevant File Tags Qt.core QML Type Provides Qt Core support. More...
-Import Statement: import QbsModules List of all members, including inherited members Properties availableBuildVariants : stringList binPath : path combineMocOutput : bool config : stringList docPath : path enableBigResources : bool enableKeywords : bool frameworkBuild : bool generateMetaTypesFile : bool (since Qbs 1.16) incPath : path libInfix : string libPath : path lreleaseMultiplexMode : bool lreleaseName : string metaTypesInstallDir : bool (since Qbs 1.16) mkspecPath : path mocFlags : stringList mocName : string namespace : string pluginMetaData : stringList pluginPath : path qdocEnvironment : stringList qdocName : string qmBaseName : string qtBuildVariant : string qtConfig : stringList resourceFileBaseName : string resourcePrefix : string resourceSourceBase : path staticBuild : bool version : string versionMajor : int versionMinor : int versionParts : list versionPatch : int Detailed Description All other Qt modules have a dependency on the Qt.core module, and therefore you do not need to list it in your dependencies if you depend on at least one other Qt module.">
+  <meta name="twitter:description" content="Qbs Manual QbsModules Qt.core Qbs 2.6.0 Contents Properties Detailed Description Relevant File Tags Qt.core QML Type Provides Qt Core support. More...
+Import Statement: import QbsModules List of all members, including inherited members Properties availableBuildVariants : stringList binPath : path combineMocOutput : bool config : stringList disabledFeatures : stringList docPath : path enableBigResources : bool enableKeywords : bool enabledFeatures : stringList frameworkBuild : bool generateMetaTypesFile : bool (since Qbs 1.16) generatedHeadersDir : string incPath : path libInfix : string libPath : path lreleaseMultiplexMode : bool lreleaseName : string metaTypesInstallDir : bool (since Qbs 1.16) mkspecPath : path mocFlags : stringList mocName : string namespace : string pluginMetaData : stringList pluginPath : path qdocEnvironment : stringList qdocName : string qdocOutputDir : string qmBaseName : string qmDir : string qtBuildVariant : string qtConfig : stringList resourceFileBaseName : string resourcePrefix : string resourceSourceBase : path staticBuild : bool translationsPath : path (since 2.5) useRPaths : bool version : string versionMajor : int versionMinor : int versionParts : list versionPatch : int Detailed Description All other Qt modules have a dependency on the Qt.core module, and therefore you do not need to list it in your dependencies if you depend on at least one other Qt module.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -128,7 +135,7 @@ Import Statement: import QbsModules List of all members, including inherited mem
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>Qt.core</li>
-<li id="buildversion">Qbs 1.21.0</li>
+<li id="buildversion">Qbs 2.6.0</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -139,7 +146,7 @@ Import Statement: import QbsModules List of all members, including inherited mem
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<h1 class="title" translate="no">Qt.core QML Type</h1>
+<div class="content"><h1 class="title" translate="no">Qt.core QML Type</h1>
 <!-- $$$Qt.core-brief -->
 <p>Provides Qt Core support. <a href="#details">More...</a></p>
 <!-- @@@Qt.core -->
@@ -159,15 +166,21 @@ Import Statement: import QbsModules List of all members, including inherited mem
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-qt-core/#config-prop" translate="no">config</a></b> : stringList</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-core/#disabledFeatures-prop" translate="no">disabledFeatures</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-qt-core/#docPath-prop" translate="no">docPath</a></b> : path</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-qt-core/#enableBigResources-prop" translate="no">enableBigResources</a></b> : bool</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-qt-core/#enableKeywords-prop" translate="no">enableKeywords</a></b> : bool</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-core/#enabledFeatures-prop" translate="no">enabledFeatures</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-qt-core/#frameworkBuild-prop" translate="no">frameworkBuild</a></b> : bool</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-qt-core/#generateMetaTypesFile-prop" translate="no">generateMetaTypesFile</a></b> : bool <code class="summary extra" translate="no">(since Qbs 1.16)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-core/#generatedHeadersDir-prop" translate="no">generatedHeadersDir</a></b> : string</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-qt-core/#incPath-prop" translate="no">incPath</a></b> : path</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
@@ -197,7 +210,11 @@ Import Statement: import QbsModules List of all members, including inherited mem
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-qt-core/#qdocName-prop" translate="no">qdocName</a></b> : string</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-core/#qdocOutputDir-prop" translate="no">qdocOutputDir</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-qt-core/#qmBaseName-prop" translate="no">qmBaseName</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-core/#qmDir-prop" translate="no">qmDir</a></b> : string</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-qt-core/#qtBuildVariant-prop" translate="no">qtBuildVariant</a></b> : string</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
@@ -210,6 +227,10 @@ Import Statement: import QbsModules List of all members, including inherited mem
 /docs/qml-qbsmodules-qt-core/#resourceSourceBase-prop" translate="no">resourceSourceBase</a></b> : path</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-qt-core/#staticBuild-prop" translate="no">staticBuild</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-core/#translationsPath-prop" translate="no">translationsPath</a></b> : path <code class="summary extra" translate="no">(since 2.5)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-core/#useRPaths-prop" translate="no">useRPaths</a></b> : bool</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-qt-core/#version-prop" translate="no">version</a></b> : string</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
@@ -295,6 +316,16 @@ Import Statement: import QbsModules List of all members, including inherited mem
 <p>Default: <code translate="no">[]</code></p>
 </div></div><!-- @@@config -->
 <br>
+<!-- $$$disabledFeatures -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr valign="top" class="odd" id="disabledFeatures-prop">
+<td class="tblQmlPropNode"><p>
+<span class="name">disabledFeatures</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>Corresponds to cmake's <code translate="no">QT_DISABLED_PUBLIC_FEATURES</code> variable.</p>
+</div></div><!-- @@@disabledFeatures -->
+<br>
 <!-- $$$docPath -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
@@ -328,6 +359,16 @@ Import Statement: import QbsModules List of all members, including inherited mem
 <p>Default: <code translate="no">true</code></p>
 </div></div><!-- @@@enableKeywords -->
 <br>
+<!-- $$$enabledFeatures -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr valign="top" class="odd" id="enabledFeatures-prop">
+<td class="tblQmlPropNode"><p>
+<span class="name">enabledFeatures</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>Corresponds to cmake's <code translate="no">QT_ENABLED_PUBLIC_FEATURES</code> variable.</p>
+</div></div><!-- @@@enabledFeatures -->
+<br>
 <!-- $$$frameworkBuild -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
@@ -350,6 +391,28 @@ Import Statement: import QbsModules List of all members, including inherited mem
 <p>Default: Undefined</p>
 <p>This property was introduced in Qbs 1.16.</p>
 </div></div><!-- @@@generateMetaTypesFile -->
+<br>
+<!-- $$$generatedHeadersDir -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr valign="top" class="odd" id="generatedHeadersDir-prop">
+<td class="tblQmlPropNode"><p>
+<span class="name">generatedHeadersDir</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>The directory where tools that generate headers (such as <code translate="no">moc</code> or <code translate="no">uic</code>) put resulting files.</p>
+<p>Normally, you don't need to change this property. The one use-case is when there are several files with the same file name in the Product. The file name produced by <code translate="no">moc</code> is based only on the source file's base file name (without the directory path) which leads to a conflict in the mentioned case. You can resolve the conflict by setting this property to a non-default value for one of the files. For example:</p>
+<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-qtapplication/" translate="no">QtApplication</a></span> {
+    <span class="name">files</span>: [<span class="string">"my_cool_header.h"</span>, <span class="string">"main.cpp"</span>]
+    <span class="type"><a href="https://qbs.io/
+/docs/qml-qbslanguageitems-group/" translate="no">Group</a></span> {
+        <span class="name">name</span>: <span class="string">"legacy"</span>
+        <span class="name">files</span>: <span class="string">"legacy/my_cool_header.h"</span>
+        <span class="name">Qt</span>.core.generatedHeadersDir: <span class="string">"qt.legacy.headers"</span>
+    }
+}</pre>
+<p>Default: <code translate="no">product.buildDirectory</code> + "/qt.headers"</p>
+</div></div><!-- @@@generatedHeadersDir -->
 <br>
 <!-- $$$incPath -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
@@ -514,6 +577,17 @@ Import Statement: import QbsModules List of all members, including inherited mem
 <p>Default: <code translate="no">"qdoc3"</code> for Qt 4, <code translate="no">"qdoc"</code> otherwise.</p>
 </div></div><!-- @@@qdocName -->
 <br>
+<!-- $$$qdocOutputDir -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr valign="top" class="odd" id="qdocOutputDir-prop">
+<td class="tblQmlPropNode"><p>
+<span class="name">qdocOutputDir</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>The directory name where the <code translate="no">qdoc</code> tool writes its output.</p>
+<p>Default: <code translate="no">product.buildDirectory + "/qdoc_html"</code></p>
+</div></div><!-- @@@qdocOutputDir -->
+<br>
 <!-- $$$qmBaseName -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
@@ -527,6 +601,18 @@ Import Statement: import QbsModules List of all members, including inherited mem
 <p>Default: <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#targetName-prop" translate="no">product.targetName</a></p>
 </div></div><!-- @@@qmBaseName -->
+<br>
+<!-- $$$qmDir -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr valign="top" class="odd" id="qmDir-prop">
+<td class="tblQmlPropNode"><p>
+<span class="name">qmDir</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>The directory name where to put the <code translate="no">.qm</code> file to be built.</p>
+<p>Default: <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-product/#destinationDirectory-prop" translate="no">product.destinationDirectory</a></p>
+</div></div><!-- @@@qmDir -->
 <br>
 <!-- $$$qtBuildVariant -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
@@ -604,6 +690,31 @@ Import Statement: import QbsModules List of all members, including inherited mem
 <p>Default: Undefined</p>
 </div></div><!-- @@@staticBuild -->
 <br>
+<!-- $$$translationsPath -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr valign="top" class="odd" id="translationsPath-prop">
+<td class="tblQmlPropNode"><p>
+<span class="name">translationsPath</span> : <span class="type">path</span> <code class="details extra" translate="no">[since 2.5]</code></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>This property provides the absolute path to the directory where the Qt translation files (.qm) are installed.</p>
+<p>Default: Undefined</p>
+<p>This property was introduced in Qt 2.5.</p>
+</div></div><!-- @@@translationsPath -->
+<br>
+<!-- $$$useRPaths -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr valign="top" class="odd" id="useRPaths-prop">
+<td class="tblQmlPropNode"><p>
+<span class="name">useRPaths</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>Whether to add <a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-core/#libPath-prop" translate="no">Qt.core.libPath</a> to <a href="https://qbs.io/
+/docs/qml-qbsmodules-cpp/#rpaths-prop" translate="no">cpp.rpaths</a>.</p>
+<p>Default: <code translate="no">true</code> on Linux, <code translate="no">false</code> everywhere else.</p>
+</div></div><!-- @@@useRPaths -->
+<br>
 <!-- $$$version -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
@@ -661,7 +772,7 @@ Import Statement: import QbsModules List of all members, including inherited mem
 <p>Default: <code translate="no">versionParts[2]</code></p>
 </div></div><!-- @@@versionPatch -->
 <br>
-
+</div>
 
 
     </article>

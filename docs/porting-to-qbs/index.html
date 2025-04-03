@@ -5,7 +5,7 @@
     <title>Qbs</title>
     <meta name="description" content="Qbs Manual
 Appendix B: Migrating from Other Build Systems
-Qbs 1.21.0
+Qbs 2.6.0
   
   
 
@@ -74,7 +74,7 @@ You can use the qbs create-project command to automatically generate Qbs project
     <meta property="og:url" content="https://qbs.io/docs/porting-to-qbs/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual Appendix B: Migrating from Other Build Systems Qbs 1.21.0 Appendix A: Building Qbs Appendix C: The JSON API Contents Migrating from qmake CONFIG console ordered qt DEFINES DESTDIR HEADERS, SOURCES, FORMS, RESOURCES, OTHER_FILES ICON INCLUDEPATH LIBS OUT_PWD PWD _PRO_FILE_ _PRO_FILE_PWD_ QMAKE_ASSET_CATALOGS QMAKE_BUNDLE_DATA QMAKE_BUNDLE_EXTENSION QMAKE_{C,CXX,OBJECTIVE}_CFLAGS{_DEBUG,_RELEASE} QMAKE_FRAMEWORK_BUNDLE_NAME QMAKE_FRAMEWORK_VERSION QMAKE_INFO_PLIST QMAKE_LFLAGS QMAKE_{MACOSX,IOS,TVOS,WATCHOS}_DEPLOYMENT_TARGET QMAKE_RPATHDIR QMAKE_SONAME_PREFIX QML_IMPORT_PATH QT QTPLUGIN RC_FILE TARGET TEMPLATE app lib subdirs message(), warning(), error(), log() Appendix B: Migrating from Other Build Systems You can use the qbs create-project command to automatically generate Qbs project files from an arbitrary directory structure. This is a useful starting point when migrating from other build tools, such as qmake or CMake.">
+  <meta property="og:description" content="Qbs Manual Appendix B: Migrating from Other Build Systems Qbs 2.6.0 Appendix A: Building Qbs Appendix C: The JSON API Contents Migrating from qmake CONFIG console ordered qt DEFINES DESTDIR HEADERS, SOURCES, FORMS, RESOURCES, OTHER_FILES ICON INCLUDEPATH LIBS OUT_PWD PWD _PRO_FILE_ _PRO_FILE_PWD_ QMAKE_ASSET_CATALOGS QMAKE_BUNDLE_DATA QMAKE_BUNDLE_EXTENSION QMAKE_{C,CXX,OBJECTIVE}_CFLAGS{_DEBUG,_RELEASE} QMAKE_FRAMEWORK_BUNDLE_NAME QMAKE_FRAMEWORK_VERSION QMAKE_INFO_PLIST QMAKE_LFLAGS QMAKE_{MACOSX,IOS,TVOS,WATCHOS}_DEPLOYMENT_TARGET QMAKE_RPATHDIR QMAKE_SONAME_PREFIX QML_IMPORT_PATH QT QTPLUGIN RC_FILE TARGET TEMPLATE app lib subdirs message(), warning(), error(), log() Appendix B: Migrating from Other Build Systems You can use the qbs create-project command to automatically generate Qbs project files from an arbitrary directory structure. This is a useful starting point when migrating from other build tools, such as qmake or CMake.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -82,7 +82,7 @@ You can use the qbs create-project command to automatically generate Qbs project
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual Appendix B: Migrating from Other Build Systems Qbs 1.21.0 Appendix A: Building Qbs Appendix C: The JSON API Contents Migrating from qmake CONFIG console ordered qt DEFINES DESTDIR HEADERS, SOURCES, FORMS, RESOURCES, OTHER_FILES ICON INCLUDEPATH LIBS OUT_PWD PWD _PRO_FILE_ _PRO_FILE_PWD_ QMAKE_ASSET_CATALOGS QMAKE_BUNDLE_DATA QMAKE_BUNDLE_EXTENSION QMAKE_{C,CXX,OBJECTIVE}_CFLAGS{_DEBUG,_RELEASE} QMAKE_FRAMEWORK_BUNDLE_NAME QMAKE_FRAMEWORK_VERSION QMAKE_INFO_PLIST QMAKE_LFLAGS QMAKE_{MACOSX,IOS,TVOS,WATCHOS}_DEPLOYMENT_TARGET QMAKE_RPATHDIR QMAKE_SONAME_PREFIX QML_IMPORT_PATH QT QTPLUGIN RC_FILE TARGET TEMPLATE app lib subdirs message(), warning(), error(), log() Appendix B: Migrating from Other Build Systems You can use the qbs create-project command to automatically generate Qbs project files from an arbitrary directory structure. This is a useful starting point when migrating from other build tools, such as qmake or CMake.">
+  <meta name="twitter:description" content="Qbs Manual Appendix B: Migrating from Other Build Systems Qbs 2.6.0 Appendix A: Building Qbs Appendix C: The JSON API Contents Migrating from qmake CONFIG console ordered qt DEFINES DESTDIR HEADERS, SOURCES, FORMS, RESOURCES, OTHER_FILES ICON INCLUDEPATH LIBS OUT_PWD PWD _PRO_FILE_ _PRO_FILE_PWD_ QMAKE_ASSET_CATALOGS QMAKE_BUNDLE_DATA QMAKE_BUNDLE_EXTENSION QMAKE_{C,CXX,OBJECTIVE}_CFLAGS{_DEBUG,_RELEASE} QMAKE_FRAMEWORK_BUNDLE_NAME QMAKE_FRAMEWORK_VERSION QMAKE_INFO_PLIST QMAKE_LFLAGS QMAKE_{MACOSX,IOS,TVOS,WATCHOS}_DEPLOYMENT_TARGET QMAKE_RPATHDIR QMAKE_SONAME_PREFIX QML_IMPORT_PATH QT QTPLUGIN RC_FILE TARGET TEMPLATE app lib subdirs message(), warning(), error(), log() Appendix B: Migrating from Other Build Systems You can use the qbs create-project command to automatically generate Qbs project files from an arbitrary directory structure. This is a useful starting point when migrating from other build tools, such as qmake or CMake.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -117,7 +117,7 @@ You can use the qbs create-project command to automatically generate Qbs project
 <li><a href="https://qbs.io/
 /docs" translate="no">Qbs Manual</a></li>
 <li>Appendix B: Migrating from Other Build Systems</li>
-<li id="buildversion">Qbs 1.21.0</li>
+<li id="buildversion">Qbs 2.6.0</li>
   <link rel="prev" href="https://qbs.io/
 /docs/building-qbs/">
   <link rel="next" href="https://qbs.io/
@@ -171,7 +171,7 @@ You can use the qbs create-project command to automatically generate Qbs project
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<h1 class="title">Appendix B: Migrating from Other Build Systems</h1>
+<div class="content"><h1 class="title">Appendix B: Migrating from Other Build Systems</h1>
 <!-- $$$porting-to-qbs.html-description -->
 <div class="descr" id="details">
 <p>You can use the <a href="https://qbs.io/
@@ -413,7 +413,7 @@ You can use the qbs create-project command to automatically generate Qbs project
 <p>Add a <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-depends/" translate="no">Depends</a> item to the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/" translate="no">product</a> that specifies the dependencies to <a href="https://qbs.io/
-/docs/porting-to-qbs/#qt" translate="no">Qt</a> modules. For example:</p>
+/docs/qml-qbsmoduleproviders-qt/" translate="no">Qt</a> modules. For example:</p>
 <pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-qtapplication/" translate="no">QtApplication</a></span> {
     Depends { name: <span class="string">"Qt.widgets"</span> }
@@ -429,7 +429,8 @@ You can use the qbs create-project command to automatically generate Qbs project
 /docs/qml-qbsconvenienceitems-qtapplication/" translate="no">QtApplication</a></span> {
     name: <span class="string">"myapp"</span>
     Depends { name: <span class="string">"Qt"</span>; submodules: <span class="operator">[</span><span class="string">"core"</span><span class="operator">,</span> <span class="string">"gui"</span><span class="operator">,</span> <span class="string">"widgets"</span><span class="operator">]</span> }
-    Depends { name: <span class="string">"Qt.qminimal"</span>; condition: <span class="type">Qt</span><span class="operator">.</span>core<span class="operator">.</span>staticBuild }
+    Depends { name: <span class="string">"Qt.qminimal"</span>; condition: <span class="type"><a href="https://qbs.io/
+/docs/qml-qbsmoduleproviders-qt/" translate="no">Qt</a></span><span class="operator">.</span>core<span class="operator">.</span>staticBuild }
 }</pre>
 <h3 id="rc-file">RC_FILE</h3>
 <p>Add Windows resource files to the value of the <a href="https://qbs.io/
@@ -493,7 +494,7 @@ You can use the qbs create-project command to automatically generate Qbs project
 <a class="nextPage" href="https://qbs.io/
 /docs/json-api/">Appendix C: The JSON API</a>
 </p>
-
+</div>
 
 
     </article>

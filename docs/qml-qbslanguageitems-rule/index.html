@@ -6,7 +6,7 @@
     <meta name="description" content="Qbs Manual
 QbsLanguageItems
 Rule
-Qbs 1.21.0
+Qbs 2.6.0
   
   
 
@@ -39,6 +39,7 @@ Properties
 
 alwaysRun : bool
 auxiliaryInputs : stringList
+auxiliaryInputsFromDependencies : stringList (since 2.6)
 condition : bool
 excludedInputs : stringList (since Qbs 1.12)
 explicitlyDependsOn : stringList
@@ -69,8 +70,8 @@ In Qbs, rules create transformers that produce output files from input files. Th
     <meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-rule/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual QbsLanguageItems Rule Qbs 1.21.0 PropertyOptions Scanner Contents Properties Detailed Description A Simple Example The inputs and outputs Variables Rules and Product Types A Complete Example Rule QML Type Creates transformers for input tags. More...
-Import Statement: import QbsLanguageItems List of all members, including inherited members Rule is part of List of All Items. Properties alwaysRun : bool auxiliaryInputs : stringList condition : bool excludedInputs : stringList (since Qbs 1.12) explicitlyDependsOn : stringList explicitlyDependsOnFromDependencies : stringList (since Qbs 1.12) inputs : stringList inputsFromDependencies : stringList multiplex : bool outputArtifacts : var outputFileTags : stringList prepare : script requiresInputs : bool Detailed Description In Qbs, rules create transformers that produce output files from input files. The term transformer refers to a list of commands. These commands are created in a rule&#39;s prepare script. They do the actual work, either directly or by executing external commands.">
+  <meta property="og:description" content="Qbs Manual QbsLanguageItems Rule Qbs 2.6.0 PropertyOptions Scanner Contents Properties Detailed Description A Simple Example The inputs and outputs Variables Rules and Product Types A Complete Example Rule QML Type Creates transformers for input tags. More...
+Import Statement: import QbsLanguageItems List of all members, including inherited members Rule is part of List of All Items. Properties alwaysRun : bool auxiliaryInputs : stringList auxiliaryInputsFromDependencies : stringList (since 2.6) condition : bool excludedInputs : stringList (since Qbs 1.12) explicitlyDependsOn : stringList explicitlyDependsOnFromDependencies : stringList (since Qbs 1.12) inputs : stringList inputsFromDependencies : stringList multiplex : bool outputArtifacts : var outputFileTags : stringList prepare : script requiresInputs : bool Detailed Description In Qbs, rules create transformers that produce output files from input files. The term transformer refers to a list of commands. These commands are created in a rule&#39;s prepare script. They do the actual work, either directly or by executing external commands.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -78,8 +79,8 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual QbsLanguageItems Rule Qbs 1.21.0 PropertyOptions Scanner Contents Properties Detailed Description A Simple Example The inputs and outputs Variables Rules and Product Types A Complete Example Rule QML Type Creates transformers for input tags. More...
-Import Statement: import QbsLanguageItems List of all members, including inherited members Rule is part of List of All Items. Properties alwaysRun : bool auxiliaryInputs : stringList condition : bool excludedInputs : stringList (since Qbs 1.12) explicitlyDependsOn : stringList explicitlyDependsOnFromDependencies : stringList (since Qbs 1.12) inputs : stringList inputsFromDependencies : stringList multiplex : bool outputArtifacts : var outputFileTags : stringList prepare : script requiresInputs : bool Detailed Description In Qbs, rules create transformers that produce output files from input files. The term transformer refers to a list of commands. These commands are created in a rule&#39;s prepare script. They do the actual work, either directly or by executing external commands.">
+  <meta name="twitter:description" content="Qbs Manual QbsLanguageItems Rule Qbs 2.6.0 PropertyOptions Scanner Contents Properties Detailed Description A Simple Example The inputs and outputs Variables Rules and Product Types A Complete Example Rule QML Type Creates transformers for input tags. More...
+Import Statement: import QbsLanguageItems List of all members, including inherited members Rule is part of List of All Items. Properties alwaysRun : bool auxiliaryInputs : stringList auxiliaryInputsFromDependencies : stringList (since 2.6) condition : bool excludedInputs : stringList (since Qbs 1.12) explicitlyDependsOn : stringList explicitlyDependsOnFromDependencies : stringList (since Qbs 1.12) inputs : stringList inputsFromDependencies : stringList multiplex : bool outputArtifacts : var outputFileTags : stringList prepare : script requiresInputs : bool Detailed Description In Qbs, rules create transformers that produce output files from input files. The term transformer refers to a list of commands. These commands are created in a rule&#39;s prepare script. They do the actual work, either directly or by executing external commands.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -116,7 +117,7 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
 <li><a href="https://qbs.io/
 /docs/qbslanguageitems-qmlmodule/" translate="no">QbsLanguageItems</a></li>
 <li>Rule</li>
-<li id="buildversion">Qbs 1.21.0</li>
+<li id="buildversion">Qbs 2.6.0</li>
   <link rel="prev" href="https://qbs.io/
 /docs/qml-qbslanguageitems-propertyoptions/">
   <link rel="next" href="https://qbs.io/
@@ -140,7 +141,7 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<h1 class="title" translate="no">Rule QML Type</h1>
+<div class="content"><h1 class="title" translate="no">Rule QML Type</h1>
 <!-- $$$Rule-brief -->
 <p>Creates transformers for input tags. <a href="#details">More...</a></p>
 <!-- @@@Rule -->
@@ -157,6 +158,8 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
 /docs/qml-qbslanguageitems-rule/#alwaysRun-prop" translate="no">alwaysRun</a></b> : bool</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-rule/#auxiliaryInputs-prop" translate="no">auxiliaryInputs</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbslanguageitems-rule/#auxiliaryInputsFromDependencies-prop" translate="no">auxiliaryInputsFromDependencies</a></b> : stringList <code class="summary extra" translate="no">(since 2.6)</code></li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-rule/#condition-prop" translate="no">condition</a></b> : bool</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
@@ -210,7 +213,7 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
 /docs/qml-qbslanguageitems-rule/#inputs-and-outputs" translate="no">The inputs and outputs Variables</a>).</p>
 <pre class="cpp" translate="no">        prepare: {
             var cmd = new JavaScriptCommand();
-            cmd.description = input.fileName + "-&gt;" + output.fileName;
+            cmd.description = "generating" + output.fileName + " from " + input.fileName;
             cmd.highlight = "codegen";
             cmd.sourceCode = function() {
                 var file = new TextFile(input.filePath);
@@ -285,7 +288,7 @@ Product {
         }
         prepare: {
             var cmd = new JavaScriptCommand();
-            cmd.description = input.fileName + "-&gt;" + output.fileName;
+            cmd.description = "generating" + output.fileName + " from " + input.fileName;
             cmd.highlight = "codegen";
             cmd.sourceCode = function() {
                 var file = new TextFile(input.filePath);
@@ -320,13 +323,25 @@ Product {
 <td class="tblQmlPropNode"><p>
 <span class="name">auxiliaryInputs</span> : <span class="type">stringList</span></p></td></tr>
 </tbody></table></div></div>
-<div class="qmldoc"><p>A list of file tags. This rule will be dependent on every other rule that produces artifacts that are compatible with the value of this property.</p>
+<div class="qmldoc"><p>A list of file tags. This rule will be dependent on (that is: applied after) every other rule in the same product that (potentially) produces artifacts that are compatible with the value of this property.</p>
 <p>Unlike <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-rule/#inputs-prop" translate="no">inputs</a>, this property has no effect on the content of the <code translate="no">inputs</code> variable of the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-rule/#prepare-prop" translate="no">prepare</a> script.</p>
-<p>All rules in this product and rules of product dependencies that produce target artifacts are considered.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@auxiliaryInputs -->
+<br>
+<!-- $$$auxiliaryInputsFromDependencies -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr valign="top" class="odd" id="auxiliaryInputsFromDependencies-prop">
+<td class="tblQmlPropNode"><p>
+<span class="name">auxiliaryInputsFromDependencies</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[since 2.6]</code></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>Like <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-rule/#auxiliaryInputs-prop" translate="no">auxiliaryInputs</a>, except that instead of rules from the current product, those from product dependencies are considered.</p>
+<p>Default: Undefined</p>
+<p>This property was introduced in Qt 2.6.</p>
+</div></div><!-- @@@auxiliaryInputsFromDependencies -->
 <br>
 <!-- $$$condition -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
@@ -359,6 +374,9 @@ Product {
 <span class="name">explicitlyDependsOn</span> : <span class="type">stringList</span></p></td></tr>
 </tbody></table></div></div>
 <div class="qmldoc"><p>A list of file tags. Each artifact that matches the file tags is added to the dependencies of each output node. All artifacts in the current product are considered.</p>
+<p>The main difference between this property and <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-rule/#inputs-prop" translate="no">inputs</a> is that all matching artifacts are dependencies for all output artifacts, regardless of whether <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-rule/#multiplex-prop" translate="no">multiplex</a> is true or not.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@explicitlyDependsOn -->
 <br>
@@ -369,7 +387,8 @@ Product {
 <td class="tblQmlPropNode"><p>
 <span class="name">explicitlyDependsOnFromDependencies</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[since Qbs 1.12]</code></p></td></tr>
 </tbody></table></div></div>
-<div class="qmldoc"><p>A list of file tags. Each artifact that matches the file tags is added to the dependencies of each output node. Only target artifacts of products that this product depends on are considered.</p>
+<div class="qmldoc"><p>Like <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-rule/#explicitlyDependsOn-prop" translate="no">explicitlyDependsOn</a>, except that instead of artifacts from the current product, those from product dependencies are considered.</p>
 <p>Default: Undefined</p>
 <p>This property was introduced in Qbs 1.12.</p>
 </div></div><!-- @@@explicitlyDependsOnFromDependencies -->
@@ -483,7 +502,7 @@ Product {
 <a class="nextPage" href="https://qbs.io/
 /docs/qml-qbslanguageitems-scanner/">Scanner</a>
 </p>
-
+</div>
 
 
     </article>

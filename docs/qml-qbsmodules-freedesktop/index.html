@@ -6,7 +6,7 @@
     <meta name="description" content="Qbs Manual
 QbsModules
 freedesktop
-Qbs 1.21.0
+Qbs 2.6.0
 
 
 Contents
@@ -28,8 +28,9 @@ List of all members, including inherited members
 
 Properties
 
+appName : string
 desktopKeys : var
-name : string
+hicolorRoot : string (since 2.5)
 
 
 Detailed Description
@@ -49,8 +50,8 @@ The freedesktop module contains properties and rules for building and working wi
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-freedesktop/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual QbsModules freedesktop Qbs 1.21.0 Contents Properties Detailed Description Example usage Relevant File Tags freedesktop QML Type Provides support for some freedesktop.org specifications. More...
-Import Statement: import QbsModules Since: Qbs 1.16 List of all members, including inherited members Properties desktopKeys : var name : string Detailed Description The freedesktop module contains properties and rules for building and working with applications compliant to freedesktop.org specifications on UNIX platforms. The areas in which this module can be of use include:">
+  <meta property="og:description" content="Qbs Manual QbsModules freedesktop Qbs 2.6.0 Contents Properties Detailed Description Example usage Relevant File Tags freedesktop QML Type Provides support for some freedesktop.org specifications. More...
+Import Statement: import QbsModules Since: Qbs 1.16 List of all members, including inherited members Properties appName : string desktopKeys : var hicolorRoot : string (since 2.5) Detailed Description The freedesktop module contains properties and rules for building and working with applications compliant to freedesktop.org specifications on UNIX platforms. The areas in which this module can be of use include:">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -58,8 +59,8 @@ Import Statement: import QbsModules Since: Qbs 1.16 List of all members, includi
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual QbsModules freedesktop Qbs 1.21.0 Contents Properties Detailed Description Example usage Relevant File Tags freedesktop QML Type Provides support for some freedesktop.org specifications. More...
-Import Statement: import QbsModules Since: Qbs 1.16 List of all members, including inherited members Properties desktopKeys : var name : string Detailed Description The freedesktop module contains properties and rules for building and working with applications compliant to freedesktop.org specifications on UNIX platforms. The areas in which this module can be of use include:">
+  <meta name="twitter:description" content="Qbs Manual QbsModules freedesktop Qbs 2.6.0 Contents Properties Detailed Description Example usage Relevant File Tags freedesktop QML Type Provides support for some freedesktop.org specifications. More...
+Import Statement: import QbsModules Since: Qbs 1.16 List of all members, including inherited members Properties appName : string desktopKeys : var hicolorRoot : string (since 2.5) Detailed Description The freedesktop module contains properties and rules for building and working with applications compliant to freedesktop.org specifications on UNIX platforms. The areas in which this module can be of use include:">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -96,7 +97,7 @@ Import Statement: import QbsModules Since: Qbs 1.16 List of all members, includi
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>freedesktop</li>
-<li id="buildversion">Qbs 1.21.0</li>
+<li id="buildversion">Qbs 2.6.0</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -108,7 +109,7 @@ Import Statement: import QbsModules Since: Qbs 1.16 List of all members, includi
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<h1 class="title" translate="no">freedesktop QML Type</h1>
+<div class="content"><h1 class="title" translate="no">freedesktop QML Type</h1>
 <!-- $$$freedesktop-brief -->
 <p>Provides support for some freedesktop.org specifications. <a href="#details">More...</a></p>
 <!-- @@@freedesktop -->
@@ -120,9 +121,11 @@ Import Statement: import QbsModules Since: Qbs 1.16 List of all members, includi
 <h2 id="properties">Properties</h2>
 <ul>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-freedesktop/#appName-prop" translate="no">appName</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-freedesktop/#desktopKeys-prop" translate="no">desktopKeys</a></b> : var</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
-/docs/qml-qbsmodules-freedesktop/#name-prop" translate="no">name</a></b> : string</li>
+/docs/qml-qbsmodules-freedesktop/#hicolorRoot-prop" translate="no">hicolorRoot</a></b> : string <code class="summary extra" translate="no">(since 2.5)</code></li>
 </ul>
 <!-- $$$freedesktop-description -->
 <h2 id="details">Detailed Description</h2>
@@ -156,9 +159,19 @@ Import Statement: import QbsModules Since: Qbs 1.16 List of all members, includi
         <span class="char">'X-Application-Version'</span>: product<span class="operator">.</span>version<span class="operator">,</span>
     })
 
-    <span class="comment">// Declare the application icon</span>
+    <span class="comment">// Define the source directory for application icons</span>
+    freedesktop<span class="operator">.</span>hicolorRoot: project<span class="operator">.</span>sourceDirectory <span class="operator">+</span> <span class="string">"/icons/"</span>
+
+    <span class="comment">// Declare the application icons</span>
     Group {
-        files: <span class="string">"icons/my-application.svg"</span>
+        prefix: project<span class="operator">.</span>sourceDirectory <span class="operator">+</span> <span class="string">"/icons/"</span>
+        files: <span class="operator">[</span>
+            <span class="string">"32x32/apps/my-application.png"</span><span class="operator">,</span>
+            <span class="string">"32x32@2/apps/my-application.png"</span><span class="operator">,</span>
+            <span class="string">"32x32/mimetypes/application-format.png"</span><span class="operator">,</span>
+            <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+            <span class="string">"scalable/apps/my-application.svg"</span><span class="operator">,</span>
+        <span class="operator">]</span>
         fileTags: <span class="string">"freedesktop.appIcon"</span>
     }
 }</pre>
@@ -169,11 +182,26 @@ Import Statement: import QbsModules Since: Qbs 1.16 List of all members, includi
 <tr valign="top" class="even"><td><code translate="no">"freedesktop.desktopfile"</code></td><td>-</td><td>1.16</td><td>Attached to the output artifacts of the rule that produces the merged <code translate="no">.desktop</code> file.</td></tr>
 <tr valign="top" class="odd"><td><code translate="no">"freedesktop.appstream"</code></td><td><code translate="no">*.metainfo.xml</code>, <code translate="no">*.appdata.xml</code></td><td>1.16</td><td>Source files with this tag are AppStream metadata files which will be installed under <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#installPrefix-prop" translate="no">installPrefix</a><code translate="no">/share/metainfo</code></td></tr>
-<tr valign="top" class="even"><td><code translate="no">"freedesktop.appIcon"</code></td><td>-</td><td>1.16</td><td>Source files with this tag are application icons and will be installed under <a href="https://qbs.io/
-/docs/qml-qbsmodules-qbs/#installPrefix-prop" translate="no">installPrefix</a><code translate="no">/share/icons/hicolor/scalable/apps</code></td></tr>
+<tr valign="top" class="even"><td><code translate="no">"freedesktop.appIcon"</code></td><td>-</td><td>1.16</td><td>Source files with this tag are application icons compliant with the <a href="https://specifications.freedesktop.org/icon-theme-spec/" translate="no">freedesktop.org Icon Theme Specification</a>. These icons will be installed under <a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#installPrefix-prop" translate="no">installPrefix</a><code translate="no">/share/icons/hicolor</code> in their respective resolution-based directories (e.g., <code translate="no">48x48/apps/</code>, <code translate="no">256x256/apps/</code>), ensuring compatibility with desktop environments following this specification.<div class="admonition note">
+<p><b>Note: </b>After Qbs version 2.5, the <code translate="no">hicolorRoot</code> property must be set to define the source directory for these icons. Without setting this property, icons will not be installed.</p>
+</div>
+</td></tr>
 </tbody></table></div>
 <!-- @@@freedesktop -->
 <h2>Property Documentation</h2>
+<!-- $$$appName -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr valign="top" class="odd" id="appName-prop">
+<td class="tblQmlPropNode"><p>
+<span class="name">appName</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>The display name of the application which will be stored in the <code translate="no">.desktop</code> file.</p>
+<p>Default: <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-product/#name-prop" translate="no">product.name</a></p>
+</div></div><!-- @@@appName -->
+<br>
 <!-- $$$desktopKeys -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
@@ -186,19 +214,20 @@ Import Statement: import QbsModules Since: Qbs 1.16 List of all members, includi
 <p>Default: Undefined</p>
 </div></div><!-- @@@desktopKeys -->
 <br>
-<!-- $$$name -->
+<!-- $$$hicolorRoot -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="name-prop">
+<tbody><tr valign="top" class="odd" id="hicolorRoot-prop">
 <td class="tblQmlPropNode"><p>
-<span class="name">name</span> : <span class="type">string</span></p></td></tr>
+<span class="name">hicolorRoot</span> : <span class="type">string</span> <code class="details extra" translate="no">[since 2.5]</code></p></td></tr>
 </tbody></table></div></div>
-<div class="qmldoc"><p>The display name of the application which will be stored in the <code translate="no">.desktop</code> file.</p>
-<p>Default: <a href="https://qbs.io/
-/docs/qml-qbslanguageitems-product/#name-prop" translate="no">product.name</a></p>
-</div></div><!-- @@@name -->
+<div class="qmldoc"><p>Defines the source directory for application icons, which are installed according to the <a href="https://specifications.freedesktop.org/icon-theme-spec/" translate="no">freedesktop.org Icon Theme Specification</a>. It is used with the <code translate="no">freedesktop.appIcon</code> tag to install icons into the <code translate="no">share/icons/hicolor</code> directory structure (e.g., <code translate="no">48x48/apps/</code>, <code translate="no">256x256/apps/</code>).</p>
+<p>If <code translate="no">hicolorRoot</code> is not set, icons will not be installed. Set this property to the path containing your icon files.</p>
+<p>Default: Undefined</p>
+<p>This property was introduced in Qt 2.5.</p>
+</div></div><!-- @@@hicolorRoot -->
 <br>
-
+</div>
 
 
     </article>

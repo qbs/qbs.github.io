@@ -5,11 +5,11 @@
     <title>Qbs</title>
     <meta name="description" content="Qbs Manual
 How-tos
-Qbs 1.21.0
+Qbs 2.6.0
   
   
 
-Custom Modules and Items
+Configurable Library
 Reference
 
 
@@ -35,6 +35,7 @@ How do I make the state of my Git repository available to my source files?
 How do I limit the number of concurrent jobs for the linker only?
 How do I add QML files to a project?
 How do I define a reusable Group of files that can be included in other Qbs files?
+How do I access properties of a base type?
 How do I print the value of a property?
 How do I debug Qbs scripts?
 How do I sign an application for an Apple platform?
@@ -60,7 +61,7 @@ This page provides concrete instructions for common scenarios. ">
     <meta property="og:url" content="https://qbs.io/docs/howtos/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual How-tos Qbs 1.21.0 Custom Modules and Items Reference Contents How do I build a Qt-based project? How do I make my app build against my library? Choosing Between Dynamic and Statically-built Qt Projects How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled? How do I run my autotests? How do I use ccache? How do I create a module for a third-party library? How do I create application bundles and frameworks on iOS, macOS, tvOS, and watchOS? How do I build against libraries that provide pkg-config files? How do I apply C/C&#43;&#43; preprocessor macros to only a subset of the files in my product? How do I disable a compiler warning? How do I make the state of my Git repository available to my source files? How do I limit the number of concurrent jobs for the linker only? How do I add QML files to a project? How do I define a reusable Group of files that can be included in other Qbs files? How do I print the value of a property? How do I debug Qbs scripts? How do I sign an application for an Apple platform? How-tos This page provides concrete instructions for common scenarios.">
+  <meta property="og:description" content="Qbs Manual How-tos Qbs 2.6.0 Configurable Library Reference Contents How do I build a Qt-based project? How do I make my app build against my library? Choosing Between Dynamic and Statically-built Qt Projects How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled? How do I run my autotests? How do I use ccache? How do I create a module for a third-party library? How do I create application bundles and frameworks on iOS, macOS, tvOS, and watchOS? How do I build against libraries that provide pkg-config files? How do I apply C/C&#43;&#43; preprocessor macros to only a subset of the files in my product? How do I disable a compiler warning? How do I make the state of my Git repository available to my source files? How do I limit the number of concurrent jobs for the linker only? How do I add QML files to a project? How do I define a reusable Group of files that can be included in other Qbs files? How do I access properties of a base type? How do I print the value of a property? How do I debug Qbs scripts? How do I sign an application for an Apple platform? How-tos This page provides concrete instructions for common scenarios.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -68,7 +69,7 @@ This page provides concrete instructions for common scenarios. ">
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual How-tos Qbs 1.21.0 Custom Modules and Items Reference Contents How do I build a Qt-based project? How do I make my app build against my library? Choosing Between Dynamic and Statically-built Qt Projects How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled? How do I run my autotests? How do I use ccache? How do I create a module for a third-party library? How do I create application bundles and frameworks on iOS, macOS, tvOS, and watchOS? How do I build against libraries that provide pkg-config files? How do I apply C/C&#43;&#43; preprocessor macros to only a subset of the files in my product? How do I disable a compiler warning? How do I make the state of my Git repository available to my source files? How do I limit the number of concurrent jobs for the linker only? How do I add QML files to a project? How do I define a reusable Group of files that can be included in other Qbs files? How do I print the value of a property? How do I debug Qbs scripts? How do I sign an application for an Apple platform? How-tos This page provides concrete instructions for common scenarios.">
+  <meta name="twitter:description" content="Qbs Manual How-tos Qbs 2.6.0 Configurable Library Reference Contents How do I build a Qt-based project? How do I make my app build against my library? Choosing Between Dynamic and Statically-built Qt Projects How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled? How do I run my autotests? How do I use ccache? How do I create a module for a third-party library? How do I create application bundles and frameworks on iOS, macOS, tvOS, and watchOS? How do I build against libraries that provide pkg-config files? How do I apply C/C&#43;&#43; preprocessor macros to only a subset of the files in my product? How do I disable a compiler warning? How do I make the state of my Git repository available to my source files? How do I limit the number of concurrent jobs for the linker only? How do I add QML files to a project? How do I define a reusable Group of files that can be included in other Qbs files? How do I access properties of a base type? How do I print the value of a property? How do I debug Qbs scripts? How do I sign an application for an Apple platform? How-tos This page provides concrete instructions for common scenarios.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -103,14 +104,14 @@ This page provides concrete instructions for common scenarios. ">
 <li><a href="https://qbs.io/
 /docs" translate="no">Qbs Manual</a></li>
 <li>How-tos</li>
-<li id="buildversion">Qbs 1.21.0</li>
+<li id="buildversion">Qbs 2.6.0</li>
   <link rel="prev" href="https://qbs.io/
-/docs/custom-modules/">
+/docs/tutorial-8/">
   <link rel="next" href="https://qbs.io/
 /docs/reference/">
 <p class="naviNextPrevious headerNavi">
 <a class="prevPage" href="https://qbs.io/
-/docs/custom-modules/">Custom Modules and Items</a>
+/docs/tutorial-8/">Configurable Library</a>
 <a class="nextPage" href="https://qbs.io/
 /docs/reference/">Reference</a>
 </p>
@@ -137,13 +138,14 @@ This page provides concrete instructions for common scenarios. ">
 <li class="level1"><a href="#how-do-i-limit-the-number-of-concurrent-jobs-for-the-linker-only">How do I limit the number of concurrent jobs for the linker only?</a></li>
 <li class="level1"><a href="#how-do-i-add-qml-files-to-a-project">How do I add QML files to a project?</a></li>
 <li class="level1"><a href="#how-do-i-define-a-reusable-group-of-files-that-can-be-included-in-other-qbs-files">How do I define a reusable Group of files that can be included in other Qbs files?</a></li>
+<li class="level1"><a href="#how-do-i-access-properties-of-a-base-type">How do I access properties of a base type?</a></li>
 <li class="level1"><a href="#how-do-i-print-the-value-of-a-property">How do I print the value of a property?</a></li>
 <li class="level1"><a href="#how-do-i-debug-qbs-scripts">How do I debug Qbs scripts?</a></li>
 <li class="level1"><a href="#how-do-i-sign-an-application-for-an-apple-platform">How do I sign an application for an Apple platform?</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<h1 class="title">How-tos</h1>
+<div class="content"><h1 class="title">How-tos</h1>
 <!-- $$$howtos.html-description -->
 <div class="descr" id="details">
 <p>This page provides concrete instructions for common scenarios.</p>
@@ -185,6 +187,8 @@ This page provides concrete instructions for common scenarios. ">
 <li><a href="https://qbs.io/
 /docs/howtos/#how-do-i-define-a-reusable-group-of-files-that-can-be-included-in-other-qbs-files" translate="no">How do I define a reusable Group of files that can be included in other Qbs files?</a></li>
 <li><a href="https://qbs.io/
+/docs/howtos/#how-do-i-access-properties-of-a-base-type" translate="no">How do I access properties of a base type?</a></li>
+<li><a href="https://qbs.io/
 /docs/howtos/#how-do-i-print-the-value-of-a-property" translate="no">How do I print the value of a property?</a></li>
 <li><a href="https://qbs.io/
 /docs/howtos/#how-do-i-debug-qbs-scripts" translate="no">How do I debug Qbs scripts?</a></li>
@@ -194,7 +198,7 @@ This page provides concrete instructions for common scenarios. ">
 <h2 id="how-do-i-build-a-qt-based-project">How do I build a Qt-based project?</h2>
 <p>First of all, your project files need to declare <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-depends/" translate="no">dependencies</a> on <a href="https://qbs.io/
-/docs/porting-to-qbs/#qt" translate="no">Qt</a> modules.</p>
+/docs/qml-qbsmoduleproviders-qt/" translate="no">Qt</a> modules.</p>
 <p>To build the project, you need a matching <i>profile</i>. The following commands set up and use a Qt-specific profile:</p>
 <pre class="cpp" translate="no">$ qbs setup<span class="operator">-</span>qt <span class="operator">/</span>usr<span class="operator">/</span>bin<span class="operator">/</span>qmake qt
 $ cd my_project
@@ -226,7 +230,7 @@ $ qbs</pre>
         <span class="operator">]</span>
         Export {
             Depends { name: <span class="string">"cpp"</span> }
-            cpp<span class="operator">.</span>includePaths: <span class="operator">[</span>product<span class="operator">.</span>sourceDirectory<span class="operator">]</span>
+            cpp<span class="operator">.</span>includePaths: <span class="operator">[</span>exportingProduct<span class="operator">.</span>sourceDirectory<span class="operator">]</span>
        }
     }
 }</pre>
@@ -243,7 +247,8 @@ $ qbs</pre>
 <p>To build <code translate="no">"the-lib"</code> as either a dynamic or static library, depending on how Qt was built, you can use the following code:</p>
 <pre class="cpp" translate="no">Product {
     name: <span class="string">"the-lib"</span>
-    type: <span class="type">Qt</span><span class="operator">.</span>core<span class="operator">.</span>staticBuild <span class="operator">?</span> <span class="string">"staticlibrary"</span> : <span class="string">"dynamiclibrary"</span>
+    type: <span class="type"><a href="https://qbs.io/
+/docs/qml-qbsmoduleproviders-qt/" translate="no">Qt</a></span><span class="operator">.</span>core<span class="operator">.</span>staticBuild <span class="operator">?</span> <span class="string">"staticlibrary"</span> : <span class="string">"dynamiclibrary"</span>
 
     Depends { name: <span class="string">"Qt.core"</span> }
     <span class="comment">// ...</span>
@@ -458,19 +463,19 @@ Module {
     Depends { name: <span class="string">"cpp"</span> }
     cpp<span class="operator">.</span>includePaths: <span class="operator">[</span><span class="string">"/somewhere/include"</span><span class="operator">]</span>
     Properties {
-        condition: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>contains(<span class="string">"android"</span>)
+        condition: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"android"</span>)
         cpp<span class="operator">.</span>dynamicLibraries: <span class="operator">[</span><span class="string">"/somewhere/android/"</span> <span class="operator">+</span> Android<span class="operator">.</span>ndk<span class="operator">.</span>abi <span class="operator">+</span> <span class="string">"/lib1.so"</span><span class="operator">]</span>
     }
     Properties {
-        condition: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>contains(<span class="string">"macos"</span>)
+        condition: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"macos"</span>)
         cpp<span class="operator">.</span>dynamicLibraries: <span class="operator">[</span><span class="string">"/somewhere/macos/lib1.dylib"</span><span class="operator">]</span>
     }
     Properties {
-        condition: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>contains(<span class="string">"windows"</span>) <span class="operator">&amp;</span><span class="operator">&amp;</span> qbs<span class="operator">.</span>architecture <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"x86"</span>
+        condition: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"windows"</span>) <span class="operator">&amp;</span><span class="operator">&amp;</span> qbs<span class="operator">.</span>architecture <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"x86"</span>
         cpp<span class="operator">.</span>dynamicLibraries: <span class="operator">[</span><span class="string">"/somewhere/windows_x86/lib1.lib"</span><span class="operator">]</span>
     }
     Properties {
-        condition: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>contains(<span class="string">"windows"</span>) <span class="operator">&amp;</span><span class="operator">&amp;</span> qbs<span class="operator">.</span>architecture <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"x86_64"</span>
+        condition: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"windows"</span>) <span class="operator">&amp;</span><span class="operator">&amp;</span> qbs<span class="operator">.</span>architecture <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"x86_64"</span>
         cpp<span class="operator">.</span>dynamicLibraries: <span class="operator">[</span><span class="string">"/somewhere/windows_x86_64/lib1.lib"</span><span class="operator">]</span>
     }
 }</pre>
@@ -516,10 +521,12 @@ Module {
 /docs/howtos/#how-do-i-make-my-app-build-against-my-library" translate="no">How do I make my app build against my library?</a> section for an example.</p>
 <h2 id="how-do-i-build-against-libraries-that-provide-pkg-config-files">How do I build against libraries that provide pkg-config files?</h2>
 <p>Just add a <a href="https://qbs.io/
-/docs/qml-qbslanguageitems-depends/" translate="no">Depends</a> item that matches the name of the pkg-config module, and Qbs will automatically employ <a href="https://www.freedesktop.org/wiki/Software/pkg-config" translate="no">pkg-config</a> to find the headers and libraries if no matching Qbs module can be found. For instance, to build against the OpenSSL library, you would write this:</p>
-<pre class="cpp" translate="no">Depends { name: <span class="string">"openssl"</span> }</pre>
+/docs/qml-qbslanguageitems-depends/" translate="no">Depends</a> item that matches the name of the pkg-config module, set the <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-product/#qbsModuleProviders-prop" translate="no">Product::qbsModuleProviders</a> property to <code translate="no">"qbspkgconfig"</code>, and Qbs will employ <a href="https://www.freedesktop.org/wiki/Software/pkg-config" translate="no">pkg-config</a> to find the headers and libraries if no matching Qbs module can be found. For instance, to build against the OpenSSL library, you would write this:</p>
+<pre class="cpp" translate="no">qbsModuleProviders: <span class="string">"qbspkgconfig"</span>
+Depends { name: <span class="string">"openssl"</span> }</pre>
 <p>That's it. The pkg-config behavior can be fine-tuned via the <a href="https://qbs.io/
-/docs/qml-qbsmodules-pkgconfig/" translate="no">pkgconfig</a> module, but normally you will not need to pull it in explicitly.</p>
+/docs/qml-qbsmoduleproviders-qbspkgconfig/" translate="no">qbspkgconfig</a> provider.</p>
 <p>Internally, this functionality is implemented via <a href="https://qbs.io/
 /docs/module-providers/" translate="no">Module Providers</a></p>
 <h2 id="how-do-i-apply-c-c-preprocessor-macros-to-only-a-subset-of-the-files-in-my-product">How do I apply C/C++ preprocessor macros to only a subset of the files in my product?</h2>
@@ -557,7 +564,7 @@ Module {
 <pre class="cpp" translate="no">CppApplication {
     <span class="comment">// ...</span>
 
-    readonly property <span class="type">bool</span> isMsvc: qbs<span class="operator">.</span>toolchain<span class="operator">.</span>contains(<span class="string">"msvc"</span>)
+    readonly property <span class="type">bool</span> isMsvc: qbs<span class="operator">.</span>toolchain<span class="operator">.</span>includes(<span class="string">"msvc"</span>)
 
     cpp<span class="operator">.</span>commonCompilerFlags: isMsvc <span class="operator">?</span> <span class="string">"/wd4996"</span> : <span class="string">"-Wno-deprecated-declarations"</span>
 }</pre>
@@ -674,20 +681,38 @@ $ qbs config profiles<span class="operator">.</span>myprofile<span class="operat
 
     QmlUiFiles {}
 }</pre>
+<h2 id="how-do-i-access-properties-of-a-base-type">How do I access properties of a base type?</h2>
+<p>You can use the <a href="https://qbs.io/
+/docs/special-property-values/#base" translate="no">base</a> property. For example, to append to a list of files that come from the base type, you can use <code translate="no">base.concat()</code>:</p>
+<pre class="cpp" translate="no"><span class="comment">// TestBase.qbs</span>
+
+<span class="type"><a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-qtguiapplication/" translate="no">QtGuiApplication</a></span> {
+    files: <span class="operator">[</span>
+        <span class="string">"TestCaseBase.h"</span><span class="operator">,</span>
+        <span class="string">"TestCaseBase.cpp"</span>
+    <span class="operator">]</span>
+}</pre>
+<pre class="cpp" translate="no"><span class="comment">// tst_stuff.qbs</span>
+TestBase {
+    files: base<span class="operator">.</span>concat(<span class="operator">[</span><span class="string">"tst_stuff.cpp"</span><span class="operator">]</span>)
+}</pre>
+<p>See <a href="https://qbs.io/
+/docs/special-property-values/" translate="no">Special Property Values</a> for more details.</p>
 <h2 id="how-do-i-print-the-value-of-a-property">How do I print the value of a property?</h2>
 <p>Use the <a href="https://qbs.io/
 /docs/jsextensions-general/#console-api" translate="no">console API</a>. For example, suppose your project is not built the way you expect it to be, and you suspect that <code translate="no">qbs.targetOS</code> has the wrong value:</p>
-<pre class="cpp" translate="no">readonly property <span class="type">bool</span> unix: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>contains(<span class="string">"unix"</span>)</pre>
+<pre class="cpp" translate="no">readonly property <span class="type">bool</span> unix: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"unix"</span>)</pre>
 <p>To find out the value of <code translate="no">qbs.targetOS</code>, use <code translate="no">console.info()</code>:</p>
 <pre class="cpp" translate="no">readonly property <span class="type">bool</span> unix: {
     console<span class="operator">.</span>info(<span class="string">"qbs.targetOS: "</span> <span class="operator">+</span> qbs<span class="operator">.</span>targetOS)
-    <span class="keyword">return</span> qbs<span class="operator">.</span>targetOS<span class="operator">.</span>contains(<span class="string">"unix"</span>)
+    <span class="keyword">return</span> qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"unix"</span>)
 }</pre>
 <p>It is also possible to throw an exception with the text saying what is wrong - this might be useful if the property contains invalid or unsupported value:</p>
 <pre class="cpp" translate="no">readonly property <span class="type">bool</span> unix: {
-    <span class="keyword">if</span> (qbs<span class="operator">.</span>targetOS<span class="operator">.</span>contains(<span class="string">"darwin"</span>))
+    <span class="keyword">if</span> (qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"darwin"</span>))
         <span class="keyword">throw</span> <span class="string">"Apple platforms are not supported"</span>;
-    <span class="keyword">return</span> qbs<span class="operator">.</span>targetOS<span class="operator">.</span>contains(<span class="string">"unix"</span>)
+    <span class="keyword">return</span> qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"unix"</span>)
 }</pre>
 <h2 id="how-do-i-debug-qbs-scripts">How do I debug Qbs scripts?</h2>
 <p>To debug the value of a specific property, see the <a href="https://qbs.io/
@@ -723,11 +748,11 @@ codesign<span class="operator">.</span>teamIdentifier: <span class="string">"Joh
 <!-- @@@howtos.html -->
 <p class="naviNextPrevious footerNavi">
 <a class="prevPage" href="https://qbs.io/
-/docs/custom-modules/">Custom Modules and Items</a>
+/docs/tutorial-8/">Configurable Library</a>
 <a class="nextPage" href="https://qbs.io/
 /docs/reference/">Reference</a>
 </p>
-
+</div>
 
 
     </article>

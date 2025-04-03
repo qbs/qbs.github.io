@@ -3,14 +3,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="---
-
----
-
-Qbs Manual
+    <meta name="description" content="Qbs Manual
 QbsModuleProviders
 conan
-Qbs 2.4.0
+Qbs 2.6.0
 
 
 Contents
@@ -22,12 +18,12 @@ Example
 
 
 
-conan
+conan QML Type
 
 Module provider for the Conan package manager. More...
 
 
- Since: Qt 2.4
+ Import Statement: import QbsModuleProviders Since: Qt 2.4
 List of all members, including inherited members
 
 Properties
@@ -54,8 +50,8 @@ In order to use this provider, you will need Conan version 2.5.0 or higher. Earl
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmoduleproviders-conan/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="--- --- Qbs Manual QbsModuleProviders conan Qbs 2.4.0 Contents Properties Detailed Description Prerequisites Example conan Module provider for the Conan package manager. More...
-Since: Qt 2.4 List of all members, including inherited members Properties installDirectory : string Detailed Description This module provider allows integration with the Conan package manager.
+  <meta property="og:description" content="Qbs Manual QbsModuleProviders conan Qbs 2.6.0 Contents Properties Detailed Description Prerequisites Example conan QML Type Module provider for the Conan package manager. More...
+Import Statement: import QbsModuleProviders Since: Qt 2.4 List of all members, including inherited members Properties installDirectory : string Detailed Description This module provider allows integration with the Conan package manager.
 Prerequisites In order to use this provider, you will need Conan version 2.5.0 or higher. Earlier versions do not have the QbsDeps generator.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
@@ -64,8 +60,8 @@ Prerequisites In order to use this provider, you will need Conan version 2.5.0 o
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="--- --- Qbs Manual QbsModuleProviders conan Qbs 2.4.0 Contents Properties Detailed Description Prerequisites Example conan Module provider for the Conan package manager. More...
-Since: Qt 2.4 List of all members, including inherited members Properties installDirectory : string Detailed Description This module provider allows integration with the Conan package manager.
+  <meta name="twitter:description" content="Qbs Manual QbsModuleProviders conan Qbs 2.6.0 Contents Properties Detailed Description Prerequisites Example conan QML Type Module provider for the Conan package manager. More...
+Import Statement: import QbsModuleProviders Since: Qt 2.4 List of all members, including inherited members Properties installDirectory : string Detailed Description This module provider allows integration with the Conan package manager.
 Prerequisites In order to use this provider, you will need Conan version 2.5.0 or higher. Earlier versions do not have the QbsDeps generator.">
 
 </head>
@@ -97,18 +93,13 @@ Prerequisites In order to use this provider, you will need Conan version 2.5.0 o
 </header><main>
 <div class="centre-outer">
     <article class="centre-inner docs">
-    ---
-
----
-
+    
 <li><a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs" translate="no">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qbsmoduleproviders-qmlmodule/" translate="no">QbsModuleProviders</a></li>
 <li>conan</li>
-<li id="buildversion">Qbs 2.4.0</li>
+<li id="buildversion">Qbs 2.6.0</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -120,20 +111,18 @@ Prerequisites In order to use this provider, you will need Conan version 2.5.0 o
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<div class="content"><h1 class="title" translate="no">conan</h1>
+<div class="content"><h1 class="title" translate="no">conan QML Type</h1>
 <!-- $$$conan-brief -->
 <p>Module provider for the Conan package manager. <a href="#details">More...</a></p>
 <!-- @@@conan -->
 <div class="table"><table class="alignedsummary" translate="no">
-<tbody><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qt 2.4</td></tr></tbody></table></div><ul>
+<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsModuleProviders</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qt 2.4</td></tr></tbody></table></div><ul>
 <li><a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbsmoduleproviders-conan-members/">List of all members, including inherited members</a></li>
 </ul>
 <h2 id="properties">Properties</h2>
 <ul>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbsmoduleproviders-conan/#installDirectory-prop" translate="no">installDirectory</a></b> : string</li>
 </ul>
 <!-- $$$conan-description -->
@@ -151,7 +140,6 @@ protobuf<span class="operator">/</span><span class="number">3.21.12</span>
 QbsDeps</pre>
 <p>We use the text version for simplicity, but you can use the Python conanfile as well.</p>
 <p>Next, set the <a href="https://qbs.io/
-/docs/https://qbs.io/
 /docs/qml-qbslanguageitems-product/#qbsModuleProviders-prop" translate="no">qbsModuleProviders</a> property to <code translate="no">"conan"</code>:</p>
 <pre class="cpp" translate="no">import qbs.Host
 
@@ -186,7 +174,7 @@ Build done <span class="keyword">for</span> configuration <span class="keyword">
 <!-- $$$installDirectory -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="installDirectory-prop" valign="top">
+<tbody><tr valign="top" class="odd" id="installDirectory-prop">
 <td class="tblQmlPropNode"><p>
 <span class="name">installDirectory</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>

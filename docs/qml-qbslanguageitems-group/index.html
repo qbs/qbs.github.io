@@ -6,7 +6,7 @@
     <meta name="description" content="Qbs Manual
 QbsLanguageItems
 Group
-Qbs 1.21.0
+Qbs 2.6.0
   
   
 
@@ -19,12 +19,18 @@ Contents
 
 Properties
 Detailed Description
+Typical Uses of Groups by Example
+Wildcards
+Attaching Module Properties to Source Files
+Attaching Module Properties to Generated Files
+Groups in Modules
+Grouping Related Items
 
 
 
 Group QML Type
 
-Groups files in a product. More...
+Groups files and other items in a product or module. More...
 
 
  Import Statement: import QbsLanguageItems
@@ -34,10 +40,10 @@ Group is part of List of All Items.
 Properties
 
 condition : bool
-excludeFiles : list
-fileTags : list
-fileTagsFilter : list
-files : list
+excludeFiles : pathList
+fileTags : stringList
+fileTagsFilter : stringList
+files : pathList
 filesAreTargets : bool
 name : string
 overrideTags : bool
@@ -45,7 +51,7 @@ prefix : string
 
 
 Detailed Description
-This item is attached to a product and used to group files that have something in common. ">
+This item is attached to a product or module and used to group files and other items that have something in common. ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbslanguageitems-group/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -61,8 +67,8 @@ This item is attached to a product and used to group files that have something i
     <meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-group/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual QbsLanguageItems Group Qbs 1.21.0 FileTagger JobLimit Contents Properties Detailed Description Group QML Type Groups files in a product. More...
-Import Statement: import QbsLanguageItems List of all members, including inherited members Group is part of List of All Items. Properties condition : bool excludeFiles : list fileTags : list fileTagsFilter : list files : list filesAreTargets : bool name : string overrideTags : bool prefix : string Detailed Description This item is attached to a product and used to group files that have something in common.">
+  <meta property="og:description" content="Qbs Manual QbsLanguageItems Group Qbs 2.6.0 FileTagger JobLimit Contents Properties Detailed Description Typical Uses of Groups by Example Wildcards Attaching Module Properties to Source Files Attaching Module Properties to Generated Files Groups in Modules Grouping Related Items Group QML Type Groups files and other items in a product or module. More...
+Import Statement: import QbsLanguageItems List of all members, including inherited members Group is part of List of All Items. Properties condition : bool excludeFiles : pathList fileTags : stringList fileTagsFilter : stringList files : pathList filesAreTargets : bool name : string overrideTags : bool prefix : string Detailed Description This item is attached to a product or module and used to group files and other items that have something in common.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -70,8 +76,8 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual QbsLanguageItems Group Qbs 1.21.0 FileTagger JobLimit Contents Properties Detailed Description Group QML Type Groups files in a product. More...
-Import Statement: import QbsLanguageItems List of all members, including inherited members Group is part of List of All Items. Properties condition : bool excludeFiles : list fileTags : list fileTagsFilter : list files : list filesAreTargets : bool name : string overrideTags : bool prefix : string Detailed Description This item is attached to a product and used to group files that have something in common.">
+  <meta name="twitter:description" content="Qbs Manual QbsLanguageItems Group Qbs 2.6.0 FileTagger JobLimit Contents Properties Detailed Description Typical Uses of Groups by Example Wildcards Attaching Module Properties to Source Files Attaching Module Properties to Generated Files Groups in Modules Grouping Related Items Group QML Type Groups files and other items in a product or module. More...
+Import Statement: import QbsLanguageItems List of all members, including inherited members Group is part of List of All Items. Properties condition : bool excludeFiles : pathList fileTags : stringList fileTagsFilter : stringList files : pathList filesAreTargets : bool name : string overrideTags : bool prefix : string Detailed Description This item is attached to a product or module and used to group files and other items that have something in common.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -108,7 +114,7 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
 <li><a href="https://qbs.io/
 /docs/qbslanguageitems-qmlmodule/" translate="no">QbsLanguageItems</a></li>
 <li>Group</li>
-<li id="buildversion">Qbs 1.21.0</li>
+<li id="buildversion">Qbs 2.6.0</li>
   <link rel="prev" href="https://qbs.io/
 /docs/qml-qbslanguageitems-filetagger/">
   <link rel="next" href="https://qbs.io/
@@ -125,12 +131,18 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
 <ul>
 <li class="level1"><a href="#properties">Properties</a></li>
 <li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#typical-uses-of-groups-by-example">Typical Uses of Groups by Example</a></li>
+<li class="level2"><a href="#wildcards">Wildcards</a></li>
+<li class="level2"><a href="#attaching-module-properties-to-source-files">Attaching Module Properties to Source Files</a></li>
+<li class="level2"><a href="#attaching-module-properties-to-generated-files">Attaching Module Properties to Generated Files</a></li>
+<li class="level2"><a href="#groups-in-modules">Groups in Modules</a></li>
+<li class="level2"><a href="#grouping-related-items">Grouping Related Items</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<h1 class="title" translate="no">Group QML Type</h1>
+<div class="content"><h1 class="title" translate="no">Group QML Type</h1>
 <!-- $$$Group-brief -->
-<p>Groups files in a product. <a href="#details">More...</a></p>
+<p>Groups files and other items in a product or module. <a href="#details">More...</a></p>
 <!-- @@@Group -->
 <div class="table"><table class="alignedsummary" translate="no">
 <tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsLanguageItems</td></tr></tbody></table></div><ul>
@@ -144,13 +156,13 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-group/#condition-prop" translate="no">condition</a></b> : bool</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
-/docs/qml-qbslanguageitems-group/#excludeFiles-prop" translate="no">excludeFiles</a></b> : list</li>
+/docs/qml-qbslanguageitems-group/#excludeFiles-prop" translate="no">excludeFiles</a></b> : pathList</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
-/docs/qml-qbslanguageitems-group/#fileTags-prop" translate="no">fileTags</a></b> : list</li>
+/docs/qml-qbslanguageitems-group/#fileTags-prop" translate="no">fileTags</a></b> : stringList</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
-/docs/qml-qbslanguageitems-group/#fileTagsFilter-prop" translate="no">fileTagsFilter</a></b> : list</li>
+/docs/qml-qbslanguageitems-group/#fileTagsFilter-prop" translate="no">fileTagsFilter</a></b> : stringList</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
-/docs/qml-qbslanguageitems-group/#files-prop" translate="no">files</a></b> : list</li>
+/docs/qml-qbslanguageitems-group/#files-prop" translate="no">files</a></b> : pathList</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-group/#filesAreTargets-prop" translate="no">filesAreTargets</a></b> : bool</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
@@ -163,8 +175,9 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
 <!-- $$$Group-description -->
 <h2 id="details">Detailed Description</h2>
 <p>This item is attached to a <a href="https://qbs.io/
-/docs/qml-qbslanguageitems-product/" translate="no">product</a> and used to group files that have something in common.</p>
-<p>For example:</p>
+/docs/qml-qbslanguageitems-product/" translate="no">product</a> or <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-module/" translate="no">module</a> and used to group files and other items that have something in common.</p>
+<h2 id="typical-uses-of-groups-by-example">Typical Uses of Groups by Example</h2>
 <pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-application/" translate="no">Application</a></span> {
     <span class="type"><a href="https://qbs.io/
@@ -175,24 +188,24 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
     <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-group/" translate="no">Group</a></span> {
         <span class="name">name</span>: <span class="string">"Windows files"</span>
-        <span class="name">condition</span>: <span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">contains</span>(<span class="string">"windows"</span>)
+        <span class="name">condition</span>: <span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">includes</span>(<span class="string">"windows"</span>)
         <span class="name">files</span>: <span class="string">"myclass_win_impl.cpp"</span>
     }
     <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-group/" translate="no">Group</a></span> {
         <span class="name">name</span>: <span class="string">"Unix files"</span>
-        <span class="name">condition</span>: <span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">contains</span>(<span class="string">"unix"</span>)
+        <span class="name">condition</span>: <span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">includes</span>(<span class="string">"unix"</span>)
         <span class="name">files</span>: <span class="string">"unixhelper.cpp"</span>
         <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-group/" translate="no">Group</a></span> {
             <span class="name">name</span>: <span class="string">"Linux files"</span>
-            <span class="name">condition</span>: <span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">contains</span>(<span class="string">"linux"</span>)
+            <span class="name">condition</span>: <span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">includes</span>(<span class="string">"linux"</span>)
             <span class="name">files</span>: <span class="string">"myclass_linux_impl.cpp"</span>
         }
         <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-group/" translate="no">Group</a></span> {
             <span class="name">name</span>: <span class="string">"FreeBSD files"</span>
-            <span class="name">condition</span>: <span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">contains</span>(<span class="string">"freebsd"</span>)
+            <span class="name">condition</span>: <span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">includes</span>(<span class="string">"freebsd"</span>)
             <span class="name">files</span>: <span class="string">"myclass_freebsd_impl.cpp"</span>
         }
     }
@@ -204,7 +217,8 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
         <span class="name">files</span>: <span class="string">"runtime_resource.txt"</span>
     }
 }</pre>
-<p>When specifying files, you can use the wildcards "*", "?" and "[]", which have their usual meaning. By default, matching files are only picked up directly from the parent directory, but you can tell Qbs to consider the whole directory tree. It is also possible to exclude certain files from the list. The pattern ** used in a pathname expansion context will match all files and zero or more directories and subdirectories. For example:</p>
+<h2 id="wildcards">Wildcards</h2>
+<p>When specifying files, you can use the wildcards <code translate="no">"*"</code>, <code translate="no">"?"</code> and <code translate="no">"[]"</code>, which have their <a href="https://en.wikipedia.org/wiki/Wildcard_character#File_and_directory_patterns" translate="no">usual meaning</a> as in Unix Shell. By default, matching files are only picked up directly from the parent directory, but you can tell Qbs to consider the whole directory tree. It is also possible to exclude certain files from the list. The pattern <code translate="no">"**"</code> used in a pathname expansion context will match all files and zero or more directories and subdirectories. For example:</p>
 <pre class="cpp" translate="no">        Group {
             name: "Word processing documents"
             files: ["*.doc", "*.rtf"]
@@ -213,6 +227,56 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
             qbs.installDir: "share"
             excludeFiles: "do_not_install_this_file.*"
         }</pre>
+<h2 id="attaching-module-properties-to-source-files">Attaching Module Properties to Source Files</h2>
+<p>Within a <code translate="no">Group</code> item, module properties can be attached either to all files in the product, or to only the files in that group. The following example demonstrates both:</p>
+<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
+/docs/qml-qbslanguageitems-product/" translate="no">Product</a></span> {
+    <span class="comment">// ...</span>
+    <span class="type"><a href="https://qbs.io/
+/docs/qml-qbslanguageitems-group/" translate="no">Group</a></span> {
+        <span class="name">condition</span>: <span class="name">project</span>.<span class="name">hasSpecialFeature</span>
+        <span class="name">cpp</span>.defines: <span class="string">"FEATURE_SPECIFIC"</span>
+        <span class="name">product</span>.cpp.defines: <span class="string">"WITH_FEATURE"</span>
+        <span class="name">files</span>: <span class="string">"feature.cpp"</span>
+    }
+}</pre>
+<p>Here, the macro <code translate="no">"FEATURE_SPECIFIC"</code> will only be visible inside <code translate="no">feature.cpp</code>, whereas <code translate="no">"WITH_FEATURE"</code> applies to all source files in the product.</p>
+<p>A group-level property binding starting with <code translate="no">"product."</code> is semantically equivalent to putting the same property binding without that prefix inside a top-level <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-properties/" translate="no">Properties</a> item with the same condition as the group. The above example could therefore also have been written like this:</p>
+<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
+/docs/qml-qbslanguageitems-product/" translate="no">Product</a></span> {
+    <span class="comment">// ...</span>
+    <span class="type"><a href="https://qbs.io/
+/docs/qml-qbslanguageitems-group/" translate="no">Group</a></span> {
+        <span class="name">condition</span>: <span class="name">project</span>.<span class="name">hasSpecialFeature</span>
+        <span class="name">cpp</span>.defines: <span class="string">"FEATURE_SPECIFIC"</span>
+        <span class="name">files</span>: <span class="string">"feature.cpp"</span>
+    }
+    <span class="type"><a href="https://qbs.io/
+/docs/qml-qbslanguageitems-properties/" translate="no">Properties</a></span> {
+        <span class="name">condition</span>: <span class="name">project</span>.<span class="name">hasSpecialFeature</span>
+        <span class="name">cpp</span>.defines: <span class="string">"WITH_FEATURE"</span>
+    }
+}</pre>
+<p>Obviously, the original variant is to be preferred, as it does not duplicate the condition and keeps related code close together.</p>
+<p>It should be noted that there is a third way to write the same example, with a <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-properties/" translate="no">Properties</a> item inside the group:</p>
+<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
+/docs/qml-qbslanguageitems-product/" translate="no">Product</a></span> {
+    <span class="comment">// ...</span>
+    <span class="type"><a href="https://qbs.io/
+/docs/qml-qbslanguageitems-group/" translate="no">Group</a></span> {
+        <span class="name">condition</span>: <span class="name">project</span>.<span class="name">hasSpecialFeature</span>
+        <span class="name">cpp</span>.defines: <span class="string">"FEATURE_SPECIFIC"</span>
+        <span class="name">files</span>: <span class="string">"feature.cpp"</span>
+        <span class="type"><a href="https://qbs.io/
+/docs/qml-qbslanguageitems-properties/" translate="no">Properties</a></span> {
+            <span class="name">cpp</span>.defines: <span class="string">"WITH_FEATURE"</span>
+        }
+    }
+}</pre>
+<p>This construct just adds verbosity here, but might be useful in cases where the product-level property binding is dependent on an additional condition.</p>
+<h2 id="attaching-module-properties-to-generated-files">Attaching Module Properties to Generated Files</h2>
 <p>A group can also be used to attach properties to build artifacts such as executables or libraries. In the following example, an application is installed to "&lt;install root&gt;/bin".</p>
 <pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-application/" translate="no">Application</a></span> {
@@ -223,12 +287,18 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
         <span class="name">qbs</span>.installDir: <span class="string">"bin"</span>
     }
 }</pre>
+<h2 id="groups-in-modules">Groups in Modules</h2>
 <p>Groups may also appear in <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-module/" translate="no">modules</a>, which causes the respective sources to be added to the products depending on the said module, unless the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-group/#filesAreTargets-prop" translate="no">filesAreTargets</a> property is set.</p>
-<p>Groups can be nested. In this case, child groups inherit the module properties and <a href="https://qbs.io/
-/docs/qml-qbslanguageitems-filetagger/" translate="no">file tags</a> as well as the prefix of their parent group. The <a href="https://qbs.io/
-/docs/qml-qbslanguageitems-group/#condition-prop" translate="no">condition</a> of a child group gets logically ANDed with the one of its parent group.</p>
+<h2 id="grouping-related-items">Grouping Related Items</h2>
+<p>Groups can contain other items, namely <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-depends/" translate="no">Depends</a>, <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-filetagger/" translate="no">FileTagger</a>, <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-rule/" translate="no">Rule</a> and <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-scanner/" translate="no">Scanner</a> items. They can also contain other groups, that is, they can be nested. The <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-group/#condition-prop" translate="no">condition</a> of a groups's child item gets logically ANDed with the one of the parent group. Additionally, if the child item is a group itself, the child group inherits the module properties and <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-filetagger/" translate="no">file tags</a> as well as the prefix of its parent group.</p>
 <!-- @@@Group -->
 <h2>Property Documentation</h2>
 <!-- $$$condition -->
@@ -247,9 +317,13 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
 <div class="table"><table class="qmlname">
 <tbody><tr valign="top" class="odd" id="excludeFiles-prop">
 <td class="tblQmlPropNode"><p>
-<span class="name">excludeFiles</span> : <span class="type">list</span></p></td></tr>
+<span class="name">excludeFiles</span> : <span class="type">pathList</span></p></td></tr>
 </tbody></table></div></div>
-<div class="qmldoc"><p>A list of files that are <i>subtracted</i> from the files list. Useful when using wildcards.</p>
+<div class="qmldoc"><p>A list of files that are <i>subtracted</i> from the <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-group/#files-prop" translate="no">files</a> list.</p>
+<p>The values can contain wildcards.</p>
+<p>This property is ignored if <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-group/#fileTagsFilter-prop" translate="no">fileTagsFilter</a> is set.</p>
 <p>Default: An empty list</p>
 </div></div><!-- @@@excludeFiles -->
 <br>
@@ -258,7 +332,7 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
 <div class="table"><table class="qmlname">
 <tbody><tr valign="top" class="odd" id="fileTags-prop">
 <td class="tblQmlPropNode"><p>
-<span class="name">fileTags</span> : <span class="type">list</span></p></td></tr>
+<span class="name">fileTags</span> : <span class="type">stringList</span></p></td></tr>
 </tbody></table></div></div>
 <div class="qmldoc"><p>A list of file tags to attach to the group's files. These can then be matched by a <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-rule/" translate="no">rule</a>.</p>
@@ -274,7 +348,7 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
 <div class="table"><table class="qmlname">
 <tbody><tr valign="top" class="odd" id="fileTagsFilter-prop">
 <td class="tblQmlPropNode"><p>
-<span class="name">fileTagsFilter</span> : <span class="type">list</span></p></td></tr>
+<span class="name">fileTagsFilter</span> : <span class="type">stringList</span></p></td></tr>
 </tbody></table></div></div>
 <div class="qmldoc"><p>List of <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-artifact/#fileTags-prop" translate="no">artifact.fileTags</a> to match. Any properties set in this group will be applied to the product's artifacts whose file tags match the ones listed here.</p>
@@ -290,11 +364,12 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
 <div class="table"><table class="qmlname">
 <tbody><tr valign="top" class="odd" id="files-prop">
 <td class="tblQmlPropNode"><p>
-<span class="name">files</span> : <span class="type">list</span></p></td></tr>
+<span class="name">files</span> : <span class="type">pathList</span></p></td></tr>
 </tbody></table></div></div>
 <div class="qmldoc"><p>The files in the group. Mutually exclusive with <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-group/#fileTagsFilter-prop" translate="no">fileTagsFilter</a>. Relative paths are resolved using the parent directory of the file that contains the Group item. However, if the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-group/#prefix-prop" translate="no">prefix</a> property is set to an absolute path, then that one becomes the base directory.</p>
+<p>The values can contain wildcards.</p>
 <p>Default: An empty list</p>
 </div></div><!-- @@@files -->
 <br>
@@ -354,7 +429,7 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
 <a class="nextPage" href="https://qbs.io/
 /docs/qml-qbslanguageitems-joblimit/">JobLimit</a>
 </p>
-
+</div>
 
 
     </article>
