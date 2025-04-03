@@ -3,9 +3,52 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual List of Built-in Services Process Service Qbs 2.4.0 Contents Available Operations Constructor close closeWriteChannel exec exitCode getEnv kill readLine atEnd readStdErr readStdOut setCodec setEnv setWorkingDirectory start terminate waitForFinished workingDirectory write writeLine Process Service The Process service allows you to start processes, track their output, and so on.
-Available Operations Constructor Process() Allocates and returns a new Process object.
-close close(): void Frees the resources associated with the process. ">
+    <meta name="description" content="Qbs Manual
+List of Built-in Services
+Process Service
+Qbs 2.4.0
+
+
+Contents
+
+Available Operations
+Constructor
+close
+closeWriteChannel
+exec
+exitCode
+getEnv
+kill
+readLine
+atEnd
+readStdErr
+readStdOut
+setCodec
+setEnv
+setWorkingDirectory
+start
+terminate
+waitForFinished
+workingDirectory
+write
+writeLine
+
+
+
+Process Service
+
+
+The Process service allows you to start processes, track their output, and so on.
+Available Operations
+Constructor
+Process()
+Allocates and returns a new Process object.
+close
+close(): void
+Frees the resources associated with the process. It is recommended to always call this function as soon as you are finished with the process.
+closeWriteChannel
+closeWriteChannel(): void
+Schedules the stdin channel of process to be closed. The channel will close once all data has been written to the process. After calling this function, any attempts to write to the process will do nothing. See QProcess::closeWriteChannel() for more details. ">
     <link rel="canonical" href="https://qbs.io/docs/jsextension-process/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -23,7 +66,8 @@ close close(): void Frees the resources associated with the process. ">
   <meta property="og:title" content="Qbs">
   <meta property="og:description" content="Qbs Manual List of Built-in Services Process Service Qbs 2.4.0 Contents Available Operations Constructor close closeWriteChannel exec exitCode getEnv kill readLine atEnd readStdErr readStdOut setCodec setEnv setWorkingDirectory start terminate waitForFinished workingDirectory write writeLine Process Service The Process service allows you to start processes, track their output, and so on.
 Available Operations Constructor Process() Allocates and returns a new Process object.
-close close(): void Frees the resources associated with the process.">
+close close(): void Frees the resources associated with the process. It is recommended to always call this function as soon as you are finished with the process.
+closeWriteChannel closeWriteChannel(): void Schedules the stdin channel of process to be closed. The channel will close once all data has been written to the process. After calling this function, any attempts to write to the process will do nothing. See QProcess::closeWriteChannel() for more details.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -33,7 +77,8 @@ close close(): void Frees the resources associated with the process.">
   <meta name="twitter:title" content="Qbs">
   <meta name="twitter:description" content="Qbs Manual List of Built-in Services Process Service Qbs 2.4.0 Contents Available Operations Constructor close closeWriteChannel exec exitCode getEnv kill readLine atEnd readStdErr readStdOut setCodec setEnv setWorkingDirectory start terminate waitForFinished workingDirectory write writeLine Process Service The Process service allows you to start processes, track their output, and so on.
 Available Operations Constructor Process() Allocates and returns a new Process object.
-close close(): void Frees the resources associated with the process.">
+close close(): void Frees the resources associated with the process. It is recommended to always call this function as soon as you are finished with the process.
+closeWriteChannel closeWriteChannel(): void Schedules the stdin channel of process to be closed. The channel will close once all data has been written to the process. After calling this function, any attempts to write to the process will do nothing. See QProcess::closeWriteChannel() for more details.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">

@@ -3,9 +3,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Installing Files Qbs 2.4.0 Running Applications Target Platforms Installing Files To install your project, specify the necessary information in the project file:
-Application { Group { name: &#34;Runtime resources&#34; files: &#34;*.qml&#34; qbs.install: true qbs.installDir: &#34;share/myproject&#34; } Group { name: &#34;The App itself&#34; fileTagsFilter: &#34;application&#34; qbs.install: true qbs.installDir: &#34;bin&#34; } } In this example, we want to install a couple of QML files and an executable.
-When building, Qbs installs artifacts into the default root folder, namely &lt;build root&gt;/install-root. ">
+    <meta name="description" content="Qbs Manual
+Installing Files
+Qbs 2.4.0
+  
+  
+
+Running Applications
+Target Platforms
+
+
+Installing Files
+
+
+To install your project, specify the necessary information in the project file:
+Application {
+    Group {
+        name: &#34;Runtime resources&#34;
+        files: &#34;*.qml&#34;
+        qbs.install: true
+        qbs.installDir: &#34;share/myproject&#34;
+    }
+    Group {
+        name: &#34;The App itself&#34;
+        fileTagsFilter: &#34;application&#34;
+        qbs.install: true
+        qbs.installDir: &#34;bin&#34;
+    }
+}
+In this example, we want to install a couple of QML files and an executable.
+When building, Qbs installs artifacts into the default root folder, namely &lt;build root&gt;/install-root. The qbs.installPrefix and qbs.installDir properties are appended to the root folder. ">
     <link rel="canonical" href="https://qbs.io/docs/installing-files/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -23,7 +50,7 @@ When building, Qbs installs artifacts into the default root folder, namely &lt;b
   <meta property="og:title" content="Qbs">
   <meta property="og:description" content="Qbs Manual Installing Files Qbs 2.4.0 Running Applications Target Platforms Installing Files To install your project, specify the necessary information in the project file:
 Application { Group { name: &#34;Runtime resources&#34; files: &#34;*.qml&#34; qbs.install: true qbs.installDir: &#34;share/myproject&#34; } Group { name: &#34;The App itself&#34; fileTagsFilter: &#34;application&#34; qbs.install: true qbs.installDir: &#34;bin&#34; } } In this example, we want to install a couple of QML files and an executable.
-When building, Qbs installs artifacts into the default root folder, namely &lt;build root&gt;/install-root.">
+When building, Qbs installs artifacts into the default root folder, namely &lt;build root&gt;/install-root. The qbs.installPrefix and qbs.installDir properties are appended to the root folder.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -33,7 +60,7 @@ When building, Qbs installs artifacts into the default root folder, namely &lt;b
   <meta name="twitter:title" content="Qbs">
   <meta name="twitter:description" content="Qbs Manual Installing Files Qbs 2.4.0 Running Applications Target Platforms Installing Files To install your project, specify the necessary information in the project file:
 Application { Group { name: &#34;Runtime resources&#34; files: &#34;*.qml&#34; qbs.install: true qbs.installDir: &#34;share/myproject&#34; } Group { name: &#34;The App itself&#34; fileTagsFilter: &#34;application&#34; qbs.install: true qbs.installDir: &#34;bin&#34; } } In this example, we want to install a couple of QML files and an executable.
-When building, Qbs installs artifacts into the default root folder, namely &lt;build root&gt;/install-root.">
+When building, Qbs installs artifacts into the default root folder, namely &lt;build root&gt;/install-root. The qbs.installPrefix and qbs.installDir properties are appended to the root folder.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">

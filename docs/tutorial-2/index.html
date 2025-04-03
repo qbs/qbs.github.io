@@ -3,8 +3,29 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Static Library Qbs 2.4.0 Console Application Dynamic Library Static Library Let&#39;s add a static library to our project so we can reuse some code. Analogous to what we did for the application, we put the file into the lib directory and add it to the references property in our project. The modified project may look like this:
-Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references: [ &#34;app/app.qbs&#34;, &#34; ">
+    <meta name="description" content="Qbs Manual
+Static Library
+Qbs 2.4.0
+  
+  
+
+Console Application
+Dynamic Library
+
+
+Static Library
+
+
+Let&#39;s add a static library to our project so we can reuse some code. Analogous to what we did for the application, we put the file into the lib directory and add it to the references property in our project. The modified project may look like this:
+Project {
+   name: &#34;My Project&#34;
+   minimumQbsVersion: &#34;2.0&#34;
+   references: [
+       &#34;app/app.qbs&#34;,
+       &#34;lib/lib.qbs&#34;
+   ]
+}
+Let&#39;s take a look at the the library file now: ">
     <link rel="canonical" href="https://qbs.io/docs/tutorial-2/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -21,7 +42,7 @@ Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
   <meta property="og:description" content="Qbs Manual Static Library Qbs 2.4.0 Console Application Dynamic Library Static Library Let&#39;s add a static library to our project so we can reuse some code. Analogous to what we did for the application, we put the file into the lib directory and add it to the references property in our project. The modified project may look like this:
-Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references: [ &#34;app/app.qbs&#34;, &#34;">
+Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references: [ &#34;app/app.qbs&#34;, &#34;lib/lib.qbs&#34; ] } Let&#39;s take a look at the the library file now:">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -30,7 +51,7 @@ Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
   <meta name="twitter:description" content="Qbs Manual Static Library Qbs 2.4.0 Console Application Dynamic Library Static Library Let&#39;s add a static library to our project so we can reuse some code. Analogous to what we did for the application, we put the file into the lib directory and add it to the references property in our project. The modified project may look like this:
-Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references: [ &#34;app/app.qbs&#34;, &#34;">
+Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references: [ &#34;app/app.qbs&#34;, &#34;lib/lib.qbs&#34; ] } Let&#39;s take a look at the the library file now:">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">

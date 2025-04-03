@@ -3,10 +3,52 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Command-Line Interface clean Qbs 2.4.0 Contents Synopsis Description Options --build-directory|-d &lt;directory&gt; --dry-run|-n --keep-going|-k --less-verbose|-q --log-level &lt;level&gt; --log-time --more-verbose|-v --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; --show-progress Parameters config:configuration-name Examples clean Synopsis qbs clean [options] [config:configuration-name] Description Removes build artifacts for the specified build configuration.
-Options --build-directory|-d &lt;directory&gt; Specifies a &lt;directory&gt; where build artifacts are stored.
+    <meta name="description" content="Qbs Manual
+Command-Line Interface
+clean
+Qbs 2.4.0
+
+
+Contents
+
+Synopsis
+Description
+Options
+--build-directory|-d &lt;directory&gt;
+--dry-run|-n
+--keep-going|-k
+--less-verbose|-q
+--log-level &lt;level&gt;
+--log-time
+--more-verbose|-v
+--products|-p &lt;name&gt;[,&lt;name&gt;...]
+--settings-dir &lt;directory&gt;
+--show-progress
+Parameters
+config:configuration-name
+Examples
+
+
+
+clean
+
+
+Synopsis
+qbs clean [options] [config:configuration-name]
+Description
+Removes build artifacts for the specified build configuration.
+Options
+--build-directory|-d &lt;directory&gt;
+Specifies a &lt;directory&gt; where build artifacts are stored.
 The default value is the current directory unless preferences.defaultBuildDirectory is set.
-Relative paths will be interpreted relative to the current directory. ">
+Relative paths will be interpreted relative to the current directory.
+You can use the following special values as placeholders:
+
+@project is expanded to the name of the project file excluding the extension .qbs.
+@path is expanded to the name of the directory containing the project file.
+
+--dry-run|-n
+Performs a dry run. No commands will be executed and no permanent changes to the build graph will be done. ">
     <link rel="canonical" href="https://qbs.io/docs/cli-clean/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -25,7 +67,9 @@ Relative paths will be interpreted relative to the current directory. ">
   <meta property="og:description" content="Qbs Manual Command-Line Interface clean Qbs 2.4.0 Contents Synopsis Description Options --build-directory|-d &lt;directory&gt; --dry-run|-n --keep-going|-k --less-verbose|-q --log-level &lt;level&gt; --log-time --more-verbose|-v --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; --show-progress Parameters config:configuration-name Examples clean Synopsis qbs clean [options] [config:configuration-name] Description Removes build artifacts for the specified build configuration.
 Options --build-directory|-d &lt;directory&gt; Specifies a &lt;directory&gt; where build artifacts are stored.
 The default value is the current directory unless preferences.defaultBuildDirectory is set.
-Relative paths will be interpreted relative to the current directory.">
+Relative paths will be interpreted relative to the current directory.
+You can use the following special values as placeholders:
+@project is expanded to the name of the project file excluding the extension .qbs. @path is expanded to the name of the directory containing the project file. --dry-run|-n Performs a dry run. No commands will be executed and no permanent changes to the build graph will be done.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -36,7 +80,9 @@ Relative paths will be interpreted relative to the current directory.">
   <meta name="twitter:description" content="Qbs Manual Command-Line Interface clean Qbs 2.4.0 Contents Synopsis Description Options --build-directory|-d &lt;directory&gt; --dry-run|-n --keep-going|-k --less-verbose|-q --log-level &lt;level&gt; --log-time --more-verbose|-v --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; --show-progress Parameters config:configuration-name Examples clean Synopsis qbs clean [options] [config:configuration-name] Description Removes build artifacts for the specified build configuration.
 Options --build-directory|-d &lt;directory&gt; Specifies a &lt;directory&gt; where build artifacts are stored.
 The default value is the current directory unless preferences.defaultBuildDirectory is set.
-Relative paths will be interpreted relative to the current directory.">
+Relative paths will be interpreted relative to the current directory.
+You can use the following special values as placeholders:
+@project is expanded to the name of the project file excluding the extension .qbs. @path is expanded to the name of the directory containing the project file. --dry-run|-n Performs a dry run. No commands will be executed and no permanent changes to the build graph will be done.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">

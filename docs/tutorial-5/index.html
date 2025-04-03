@@ -3,8 +3,26 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Autotest Qbs 2.4.0 Convenience Items Project Properties Autotest Now that we can re-use our base items, let&#39;s add a simple autotest. We inherit the new item from the MyApplication item and add an &#34;autotest&#34; type:
-// qbs/imports/MyAutoTest.qbs MyApplication { type: base.concat([&#34;autotest&#34;]) } This additional type is required for the helper AutotestRunner item. This item runs all products with the &#34;autotest&#34; type when it is being built. It also implicitly depends on all such products, so they will be built before running as well. ">
+    <meta name="description" content="Qbs Manual
+Autotest
+Qbs 2.4.0
+  
+  
+
+Convenience Items
+Project Properties
+
+
+Autotest
+
+
+Now that we can re-use our base items, let&#39;s add a simple autotest. We inherit the new item from the MyApplication item and add an &#34;autotest&#34; type:
+// qbs/imports/MyAutoTest.qbs
+
+MyApplication {
+    type: base.concat([&#34;autotest&#34;])
+}
+This additional type is required for the helper AutotestRunner item. This item runs all products with the &#34;autotest&#34; type when it is being built. It also implicitly depends on all such products, so they will be built before running as well. ">
     <link rel="canonical" href="https://qbs.io/docs/tutorial-5/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">

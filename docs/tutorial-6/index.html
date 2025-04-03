@@ -3,8 +3,31 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Project Properties Qbs 2.4.0 Autotest Buildconfig Module Project Properties It would be nice if our project was configurable. Let&#39;s add some properties to our root project file:
-Project { property string version: &#34;1.0.0&#34; property bool installDebugInformation: true property bool withTests: false property stringList autotestArguments: [] property stringList autotestWrapper: [] name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; // ... Now we can use those properties in our helper items and in products: ">
+    <meta name="description" content="Qbs Manual
+Project Properties
+Qbs 2.4.0
+  
+  
+
+Autotest
+Buildconfig Module
+
+
+Project Properties
+
+
+It would be nice if our project was configurable. Let&#39;s add some properties to our root project file:
+Project {
+    property string version: &#34;1.0.0&#34;
+    property bool installDebugInformation: true
+    property bool withTests: false
+    property stringList autotestArguments: []
+    property stringList autotestWrapper: []
+
+    name: &#34;My Project&#34;
+    minimumQbsVersion: &#34;2.0&#34;
+    // ...
+Now we can use those properties in our helper items and in products: ">
     <link rel="canonical" href="https://qbs.io/docs/tutorial-6/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">

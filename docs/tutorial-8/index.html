@@ -3,9 +3,39 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual Configurable Library Qbs 2.4.0 Buildconfig Module Version Header Configurable Library In this chapter, we will make our library more configurable. We will add configuration options to be able to choose between static and dynamic builds.
+    <meta name="description" content="Qbs Manual
+Configurable Library
+Qbs 2.4.0
+  
+  
+
+Buildconfig Module
+Version Header
+
+
+Configurable Library
+
+
+In this chapter, we will make our library more configurable. We will add configuration options to be able to choose between static and dynamic builds.
 We start with some new properties in the mybuildconfig module:
-Module { ... property bool staticBuild: false property bool installStaticLib: true ... } We need to do some modifications to export macros in the lib/lib_global. ">
+Module {
+    ...
+    property bool staticBuild: false
+    property bool installStaticLib: true
+    ...
+}
+We need to do some modifications to export macros in the lib/lib_global.h header:
+// lib/lib_global.h
+#if defined(MYLIB_STATIC_LIBRARY)
+#define MYLIB_EXPORT
+#else
+#if defined(MYLIB_LIBRARY)
+#define MYLIB_EXPORT MY_LIB_DECL_EXPORT
+#else
+#define MYLIB_EXPORT MY_LIB_DECL_IMPORT
+#endif
+#endif
+Here&#39; we added a new branch when MYLIB_STATIC_LIBRARY is defined. In that case, we make the MY_LIB_EXPORT macro empty. ">
     <link rel="canonical" href="https://qbs.io/docs/tutorial-8/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -23,7 +53,8 @@ Module { ... property bool staticBuild: false property bool installStaticLib: tr
   <meta property="og:title" content="Qbs">
   <meta property="og:description" content="Qbs Manual Configurable Library Qbs 2.4.0 Buildconfig Module Version Header Configurable Library In this chapter, we will make our library more configurable. We will add configuration options to be able to choose between static and dynamic builds.
 We start with some new properties in the mybuildconfig module:
-Module { ... property bool staticBuild: false property bool installStaticLib: true ... } We need to do some modifications to export macros in the lib/lib_global.">
+Module { ... property bool staticBuild: false property bool installStaticLib: true ... } We need to do some modifications to export macros in the lib/lib_global.h header:
+// lib/lib_global.h #if defined(MYLIB_STATIC_LIBRARY) #define MYLIB_EXPORT #else #if defined(MYLIB_LIBRARY) #define MYLIB_EXPORT MY_LIB_DECL_EXPORT #else #define MYLIB_EXPORT MY_LIB_DECL_IMPORT #endif #endif Here&#39; we added a new branch when MYLIB_STATIC_LIBRARY is defined. In that case, we make the MY_LIB_EXPORT macro empty.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -33,7 +64,8 @@ Module { ... property bool staticBuild: false property bool installStaticLib: tr
   <meta name="twitter:title" content="Qbs">
   <meta name="twitter:description" content="Qbs Manual Configurable Library Qbs 2.4.0 Buildconfig Module Version Header Configurable Library In this chapter, we will make our library more configurable. We will add configuration options to be able to choose between static and dynamic builds.
 We start with some new properties in the mybuildconfig module:
-Module { ... property bool staticBuild: false property bool installStaticLib: true ... } We need to do some modifications to export macros in the lib/lib_global.">
+Module { ... property bool staticBuild: false property bool installStaticLib: true ... } We need to do some modifications to export macros in the lib/lib_global.h header:
+// lib/lib_global.h #if defined(MYLIB_STATIC_LIBRARY) #define MYLIB_EXPORT #else #if defined(MYLIB_LIBRARY) #define MYLIB_EXPORT MY_LIB_DECL_EXPORT #else #define MYLIB_EXPORT MY_LIB_DECL_IMPORT #endif #endif Here&#39; we added a new branch when MYLIB_STATIC_LIBRARY is defined. In that case, we make the MY_LIB_EXPORT macro empty.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
