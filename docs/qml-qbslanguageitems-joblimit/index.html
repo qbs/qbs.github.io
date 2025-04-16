@@ -6,9 +6,9 @@
     <meta name="description" content="Qbs Manual
 QbsLanguageItems
 JobLimit
-Qbs 2.6.0
-  
-  
+Qbs 2.6.1
+
+
 
 Group
 Module
@@ -22,12 +22,14 @@ Detailed Description
 
 
 
-JobLimit QML Type
+JobLimit
 
 Restricts concurrent execution of jobs in a given pool. More...
 
 
- Import Statement: import QbsLanguageItems
+
+
+
 List of all members, including inherited members
 JobLimit is part of List of All Items.
 
@@ -55,8 +57,8 @@ In addition to the global limit on concurrently running commands, a project migh
     <meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-joblimit/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual QbsLanguageItems JobLimit Qbs 2.6.0 Group Module Contents Properties Detailed Description JobLimit QML Type Restricts concurrent execution of jobs in a given pool. More...
-Import Statement: import QbsLanguageItems List of all members, including inherited members JobLimit is part of List of All Items. Properties condition : bool jobCount : int jobPool : string Detailed Description In addition to the global limit on concurrently running commands, a project might want to restrict concurrent execution of certain types of commands even further, for instance because they are not well-suited to share certain types of resources.">
+  <meta property="og:description" content="Qbs Manual QbsLanguageItems JobLimit Qbs 2.6.1 Group Module Contents Properties Detailed Description JobLimit Restricts concurrent execution of jobs in a given pool. More...
+List of all members, including inherited members JobLimit is part of List of All Items. Properties condition : bool jobCount : int jobPool : string Detailed Description In addition to the global limit on concurrently running commands, a project might want to restrict concurrent execution of certain types of commands even further, for instance because they are not well-suited to share certain types of resources.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -64,8 +66,8 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual QbsLanguageItems JobLimit Qbs 2.6.0 Group Module Contents Properties Detailed Description JobLimit QML Type Restricts concurrent execution of jobs in a given pool. More...
-Import Statement: import QbsLanguageItems List of all members, including inherited members JobLimit is part of List of All Items. Properties condition : bool jobCount : int jobPool : string Detailed Description In addition to the global limit on concurrently running commands, a project might want to restrict concurrent execution of certain types of commands even further, for instance because they are not well-suited to share certain types of resources.">
+  <meta name="twitter:description" content="Qbs Manual QbsLanguageItems JobLimit Qbs 2.6.1 Group Module Contents Properties Detailed Description JobLimit Restricts concurrent execution of jobs in a given pool. More...
+List of all members, including inherited members JobLimit is part of List of All Items. Properties condition : bool jobCount : int jobPool : string Detailed Description In addition to the global limit on concurrently running commands, a project might want to restrict concurrent execution of certain types of commands even further, for instance because they are not well-suited to share certain types of resources.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -98,15 +100,15 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io/
-/docs" translate="no">Qbs Manual</a></li>
+/docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbslanguageitems-qmlmodule/" translate="no">QbsLanguageItems</a></li>
 <li>JobLimit</li>
-<li id="buildversion">Qbs 2.6.0</li>
-  <link rel="prev" href="https://qbs.io/
-/docs/qml-qbslanguageitems-group/">
-  <link rel="next" href="https://qbs.io/
-/docs/qml-qbslanguageitems-module/">
+<li id="buildversion">Qbs 2.6.1</li>
+<link href="https://qbs.io/
+/docs/qml-qbslanguageitems-group/" rel="prev">
+<link href="https://qbs.io/
+/docs/qml-qbslanguageitems-module/" rel="next">
 <p class="naviNextPrevious headerNavi">
 <a class="prevPage" href="https://qbs.io/
 /docs/qml-qbslanguageitems-group/">Group</a>
@@ -122,12 +124,14 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<div class="content"><h1 class="title" translate="no">JobLimit QML Type</h1>
+<div class="content"><h1 class="title" translate="no">JobLimit</h1>
 <!-- $$$JobLimit-brief -->
 <p>Restricts concurrent execution of jobs in a given pool. <a href="#details">More...</a></p>
 <!-- @@@JobLimit -->
-<div class="table"><table class="alignedsummary" translate="no">
-<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsLanguageItems</td></tr></tbody></table></div><ul>
+<div class="table"><table class="alignedsummary requisites" translate="no">
+
+</table></div>
+<ul>
 <li><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-joblimit-members/">List of all members, including inherited members</a></li>
 <li>JobLimit is part of <a href="https://qbs.io/
@@ -164,13 +168,13 @@ JobLimit {
 /docs/qml-qbslanguageitems-project/" translate="no">Project</a> and <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-module/" translate="no">Module</a> items. In the case of collisions, that is, items matching the same job pool but setting different values, the ones defined inside products have the highest precedence, and the ones inside modules have the lowest. Items defined in sub-projects have higher precedence than those defined in parent projects. For items with the same precedence level, the most restrictive one is chosen, that is, the one with the lowest job number greater than zero.</p>
 <p><b>See also </b><a href="https://qbs.io/
-/docs/howtos/#how-do-i-limit-the-number-of-concurrent-jobs-for-the-linker-only" translate="no">How do I limit the number of concurrent jobs for the linker only?</a>.</p>
+/docs/howtos/#how-do-i-limit-the-number-of-concurrent-jobs-for-the-linker-only">How do I limit the number of concurrent jobs for the linker only?</a>.</p>
 <!-- @@@JobLimit -->
 <h2>Property Documentation</h2>
 <!-- $$$condition -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="condition-prop">
+<tbody><tr class="odd" id="condition-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">condition</span> : <span class="type">bool</span></p></td></tr>
 </tbody></table></div></div>
@@ -182,7 +186,7 @@ JobLimit {
 <!-- $$$jobCount -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="jobCount-prop">
+<tbody><tr class="odd" id="jobCount-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">jobCount</span> : <span class="type">int</span></p></td></tr>
 </tbody></table></div></div>
@@ -199,7 +203,7 @@ JobLimit {
 <!-- $$$jobPool -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="jobPool-prop">
+<tbody><tr class="odd" id="jobPool-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">jobPool</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>

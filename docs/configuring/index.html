@@ -5,7 +5,7 @@
     <title>Qbs</title>
     <meta name="description" content="Qbs Manual
 Configuring Profiles and Preferences
-Qbs 2.6.0
+Qbs 2.6.1
   
   
 
@@ -41,7 +41,7 @@ Profiles contain properties that apply to one or more projects. They are stored 
     <meta property="og:url" content="https://qbs.io/docs/configuring/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual Configuring Profiles and Preferences Qbs 2.6.0 Installing Managing Qt Versions Contents Setting Up Toolchain Profiles Global Preferences Managing Profiles and Preferences Configuring Profiles and Preferences Profiles contain properties that apply to one or more projects. They are stored independently of the project files and are usually not shared between build hosts. Typically, profiles contain module properties, such as installation paths of tools or libraries on the host computer. This approach has the following advantages, among others:">
+  <meta property="og:description" content="Qbs Manual Configuring Profiles and Preferences Qbs 2.6.1 Installing Managing Qt Versions Contents Setting Up Toolchain Profiles Global Preferences Managing Profiles and Preferences Configuring Profiles and Preferences Profiles contain properties that apply to one or more projects. They are stored independently of the project files and are usually not shared between build hosts. Typically, profiles contain module properties, such as installation paths of tools or libraries on the host computer. This approach has the following advantages, among others:">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -49,7 +49,7 @@ Profiles contain properties that apply to one or more projects. They are stored 
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual Configuring Profiles and Preferences Qbs 2.6.0 Installing Managing Qt Versions Contents Setting Up Toolchain Profiles Global Preferences Managing Profiles and Preferences Configuring Profiles and Preferences Profiles contain properties that apply to one or more projects. They are stored independently of the project files and are usually not shared between build hosts. Typically, profiles contain module properties, such as installation paths of tools or libraries on the host computer. This approach has the following advantages, among others:">
+  <meta name="twitter:description" content="Qbs Manual Configuring Profiles and Preferences Qbs 2.6.1 Installing Managing Qt Versions Contents Setting Up Toolchain Profiles Global Preferences Managing Profiles and Preferences Configuring Profiles and Preferences Profiles contain properties that apply to one or more projects. They are stored independently of the project files and are usually not shared between build hosts. Typically, profiles contain module properties, such as installation paths of tools or libraries on the host computer. This approach has the following advantages, among others:">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -82,9 +82,9 @@ Profiles contain properties that apply to one or more projects. They are stored 
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io/
-/docs" translate="no">Qbs Manual</a></li>
+/docs">Qbs Manual</a></li>
 <li>Configuring Profiles and Preferences</li>
-<li id="buildversion">Qbs 2.6.0</li>
+<li id="buildversion">Qbs 2.6.1</li>
   <link rel="prev" href="https://qbs.io/
 /docs/installing/">
   <link rel="next" href="https://qbs.io/
@@ -119,24 +119,24 @@ Profiles contain properties that apply to one or more projects. They are stored 
 /docs/qml-qbslanguageitems-profile/" translate="no">Profile</a> item.</p>
 <h2 id="setting-up-toolchain-profiles">Setting Up Toolchain Profiles</h2>
 <p>Qbs comes with a helper tool <a href="https://qbs.io/
-/docs/cli-setup-toolchains/" translate="no">setup-toolchains</a> that can create profiles for many toolchains. Open a terminal window and type:</p>
+/docs/cli-setup-toolchains/">setup-toolchains</a> that can create profiles for many toolchains. Open a terminal window and type:</p>
 <pre class="cpp" translate="no">qbs setup<span class="operator">-</span>toolchains <span class="operator">-</span><span class="operator">-</span>detect</pre>
 <p>This will automatically set up a profile for each detected toolchain on your computer. You can list the existing profiles by running:</p>
 <pre class="cpp" translate="no">qbs config <span class="operator">-</span><span class="operator">-</span>list profiles</pre>
 <p>Some toolchains, especially for bare-metal targets, may require additional module properties. Those can be added with the <a href="https://qbs.io/
-/docs/cli-config/" translate="no">config</a> or the <a href="https://qbs.io/
-/docs/cli-config-ui/" translate="no">config-ui</a> tools. Now you should be ready to build your first project with Qbs. Go into examples/helloworld-minimal and type:</p>
+/docs/cli-config/">config</a> or the <a href="https://qbs.io/
+/docs/cli-config-ui/">config-ui</a> tools. Now you should be ready to build your first project with Qbs. Go into examples/helloworld-minimal and type:</p>
 <pre class="cpp" translate="no">qbs build profile:<span class="operator">&lt;</span>profile name<span class="operator">&gt;</span></pre>
 <p>You have successfully built your first Qbs project. If you want to build projects that use Qt, additional steps might be necessary. Please refer to <a href="https://qbs.io/
-/docs/qt-versions/" translate="no">Managing Qt Versions</a> for more information.</p>
+/docs/qt-versions/">Managing Qt Versions</a> for more information.</p>
 <h2 id="global-preferences">Global Preferences</h2>
 <p>In addition to profiles, Qbs provides some global preferences such as <code translate="no">qbsSearchPaths</code> and <code translate="no">defaultProfile</code>.</p>
 <h2 id="managing-profiles-and-preferences">Managing Profiles and Preferences</h2>
 <p>You can use the <a href="https://qbs.io/
-/docs/cli-config/" translate="no">config</a> command to manage all Qbs configuration settings, such as profiles and global preferences from the command line, for example:</p>
+/docs/cli-config/">config</a> command to manage all Qbs configuration settings, such as profiles and global preferences from the command line, for example:</p>
 <pre class="cpp" translate="no">qbs config profiles<span class="operator">.</span><span class="operator">&lt;</span>someprofile<span class="operator">&gt;</span><span class="operator">.</span>qbs<span class="operator">.</span>architecture arm</pre>
 <p>For convenience, Qbs provides a tool <a href="https://qbs.io/
-/docs/cli-config-ui/" translate="no">config-ui</a> where you can manage the settings in a hierarchical view.</p>
+/docs/cli-config-ui/">config-ui</a> where you can manage the settings in a hierarchical view.</p>
 <p class="centerAlign"><img src="https://qbs.io/
 /img/docs/qbs-settings-gui.png" alt=""></p><p>Qbs Settings displays the keys in the specified settings directory and their values. To expand all keys, select <b translate="no">View</b> &gt; <b translate="no">Expand All</b> (<b>Ctrl+E</b> or <b>Cmd+E</b> on macOS). To collapse all keys, select <b translate="no">Collapse All</b> (<b>Ctrl+C</b> or <b>Cmd+C</b>).</p>
 <p>To change the value of a key, double-click it and enter the new value.</p>

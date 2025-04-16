@@ -5,7 +5,7 @@
     <title>Qbs</title>
     <meta name="description" content="Qbs Manual
 Language Introduction
-Qbs 2.6.0
+Qbs 2.6.1
   
   
 
@@ -47,7 +47,7 @@ Qbs uses project files (*.qbs) to describe the contents of a project. A project 
     <meta property="og:url" content="https://qbs.io/docs/language-introduction/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual Language Introduction Qbs 2.6.0 Usage Building Applications Contents The Obligatory Hello World Example Reusing Project File Code Modules Different Properties for a Single File Selecting Files by Properties Property Types Overriding Property Values from the Command Line File Tags and Taggers Rules Language Introduction Qbs uses project files (*.qbs) to describe the contents of a project. A project contains one or more products. A product is the target of a build process, typically an application, library or maybe a tar ball.">
+  <meta property="og:description" content="Qbs Manual Language Introduction Qbs 2.6.1 Usage Building Applications Contents The Obligatory Hello World Example Reusing Project File Code Modules Different Properties for a Single File Selecting Files by Properties Property Types Overriding Property Values from the Command Line File Tags and Taggers Rules Language Introduction Qbs uses project files (*.qbs) to describe the contents of a project. A project contains one or more products. A product is the target of a build process, typically an application, library or maybe a tar ball.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -55,7 +55,7 @@ Qbs uses project files (*.qbs) to describe the contents of a project. A project 
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual Language Introduction Qbs 2.6.0 Usage Building Applications Contents The Obligatory Hello World Example Reusing Project File Code Modules Different Properties for a Single File Selecting Files by Properties Property Types Overriding Property Values from the Command Line File Tags and Taggers Rules Language Introduction Qbs uses project files (*.qbs) to describe the contents of a project. A project contains one or more products. A product is the target of a build process, typically an application, library or maybe a tar ball.">
+  <meta name="twitter:description" content="Qbs Manual Language Introduction Qbs 2.6.1 Usage Building Applications Contents The Obligatory Hello World Example Reusing Project File Code Modules Different Properties for a Single File Selecting Files by Properties Property Types Overriding Property Values from the Command Line File Tags and Taggers Rules Language Introduction Qbs uses project files (*.qbs) to describe the contents of a project. A project contains one or more products. A product is the target of a build process, typically an application, library or maybe a tar ball.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -88,9 +88,9 @@ Qbs uses project files (*.qbs) to describe the contents of a project. A project 
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io/
-/docs" translate="no">Qbs Manual</a></li>
+/docs">Qbs Manual</a></li>
 <li>Language Introduction</li>
-<li id="buildversion">Qbs 2.6.0</li>
+<li id="buildversion">Qbs 2.6.1</li>
   <link rel="prev" href="https://qbs.io/
 /docs/usage/">
   <link rel="next" href="https://qbs.io/
@@ -143,7 +143,7 @@ Application {
 <pre class="cpp" translate="no">files: <span class="operator">[</span> <span class="string">"main.cpp"</span> <span class="operator">]</span></pre>
 <p><i translate="no">Depends</i> adds the dependency to the <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/" translate="no">cpp</a> module. This is necessary to let Qbs know that we have a C++ project and want to compile main.cpp with a C++ compiler. For more information about Qbs modules, see <a href="https://qbs.io/
-/docs/language-introduction/#modules" translate="no">Modules</a>.</p>
+/docs/language-introduction/#modules">Modules</a>.</p>
 <h2 id="reusing-project-file-code">Reusing Project File Code</h2>
 <p>QML-like inheritance works also in Qbs.</p>
 <pre class="cpp" translate="no"><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span>CrazyProduct<span class="operator">.</span>qbs<span class="operator">-</span><span class="operator">-</span><span class="operator">-</span>
@@ -184,8 +184,8 @@ Product {
     <span class="comment">// ...</span>
 }</pre>
 <p>See <a href="https://qbs.io/
-/docs/special-property-values/" translate="no">Special Property Values</a> for more details about the <a href="https://qbs.io/
-/docs/special-property-values/#base" translate="no">base</a> property.</p>
+/docs/special-property-values/">Special Property Values</a> for more details about the <a href="https://qbs.io/
+/docs/special-property-values/#base">base</a> property.</p>
 <h2 id="modules">Modules</h2>
 <p>A <i>module</i> is a collection of properties and language items that are used for building a product if the product depends on (or loads) the module.</p>
 <p>For example, the <i translate="no">cpp</i> module looks like this (simplified):</p>

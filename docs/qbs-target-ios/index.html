@@ -6,7 +6,7 @@
     <meta name="description" content="Qbs Manual
 Target Platforms
 Building for iOS
-Qbs 2.6.0
+Qbs 2.6.1
 
 
 Contents
@@ -42,7 +42,7 @@ The ib module contains properties and rules for building Interface Builder docum
     <meta property="og:url" content="https://qbs.io/docs/qbs-target-ios/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual Target Platforms Building for iOS Qbs 2.6.0 Contents Building User Interfaces Creating App Bundles Multiple Architectures and Build Variants Building for iOS This topic describes the Qbs features specific to iOS.
+  <meta property="og:description" content="Qbs Manual Target Platforms Building for iOS Qbs 2.6.1 Contents Building User Interfaces Creating App Bundles Multiple Architectures and Build Variants Building for iOS This topic describes the Qbs features specific to iOS.
 Note: Qbs does not yet support the Swift programming language.
 The xcode module contains properties and rules for Xcode-based development.
 Building User Interfaces The ib module contains properties and rules for building Interface Builder documents, storyboards, asset catalogs, and icon sets.">
@@ -53,7 +53,7 @@ Building User Interfaces The ib module contains properties and rules for buildin
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual Target Platforms Building for iOS Qbs 2.6.0 Contents Building User Interfaces Creating App Bundles Multiple Architectures and Build Variants Building for iOS This topic describes the Qbs features specific to iOS.
+  <meta name="twitter:description" content="Qbs Manual Target Platforms Building for iOS Qbs 2.6.1 Contents Building User Interfaces Creating App Bundles Multiple Architectures and Build Variants Building for iOS This topic describes the Qbs features specific to iOS.
 Note: Qbs does not yet support the Swift programming language.
 The xcode module contains properties and rules for Xcode-based development.
 Building User Interfaces The ib module contains properties and rules for building Interface Builder documents, storyboards, asset catalogs, and icon sets.">
@@ -89,11 +89,11 @@ Building User Interfaces The ib module contains properties and rules for buildin
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io/
-/docs" translate="no">Qbs Manual</a></li>
+/docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
-/docs/platforms/" translate="no">Target Platforms</a></li>
+/docs/platforms/">Target Platforms</a></li>
 <li>Building for iOS</li>
-<li id="buildversion">Qbs 2.6.0</li>
+<li id="buildversion">Qbs 2.6.1</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -128,7 +128,7 @@ bundle<span class="operator">.</span>isBundle: <span class="keyword">true</span>
 <p>You may also use the <code translate="no">bundle.infoPlist</code> property to apply a set of key-value pairs to be added to the final Info.plist. This can be used instead of or in addition to an actual Info.plist file on disk.</p>
 <h2 id="multiple-architectures-and-build-variants">Multiple Architectures and Build Variants</h2>
 <p>Qbs uses <a href="https://qbs.io/
-/docs/multiplexing/" translate="no">multiplexing</a> to create multi-architecture <i>fat</i> binaries and multi-variant frameworks, where a single framework can contain both a release and debug build of a library on Apple platforms.</p>
+/docs/multiplexing/">multiplexing</a> to create multi-architecture <i>fat</i> binaries and multi-variant frameworks, where a single framework can contain both a release and debug build of a library on Apple platforms.</p>
 <p>You can set the <code translate="no">qbs.architectures</code> property to a list of CPU architectures (such as <code translate="no">x86</code>, <code translate="no">x86_64</code>, <code translate="no">armv7a</code>, <code translate="no">armv7k</code>, and <code translate="no">arm64</code>), and the <code translate="no">qbs.buildVariants</code> property to a list of build variants (such as <code translate="no">debug</code> and <code translate="no">release</code>), and Qbs will transparently perform the necessary steps to produce the various artifacts and combine them into a single bundle.</p>
 <p>Since the individual build configurations are completely independent of one another, you can continue to use conditional branches in your projects such as the following:</p>
 <pre class="cpp" translate="no">Properties {

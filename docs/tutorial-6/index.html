@@ -5,7 +5,7 @@
     <title>Qbs</title>
     <meta name="description" content="Qbs Manual
 Project Properties
-Qbs 2.6.0
+Qbs 2.6.1
   
   
 
@@ -43,7 +43,7 @@ Now we can use those properties in our helper items and in products: ">
     <meta property="og:url" content="https://qbs.io/docs/tutorial-6/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual Project Properties Qbs 2.6.0 Autotest Buildconfig Module Project Properties It would be nice if our project was configurable. Let&#39;s add some properties to our root project file:
+  <meta property="og:description" content="Qbs Manual Project Properties Qbs 2.6.1 Autotest Buildconfig Module Project Properties It would be nice if our project was configurable. Let&#39;s add some properties to our root project file:
 Project { property string version: &#34;1.0.0&#34; property bool installDebugInformation: true property bool withTests: false property stringList autotestArguments: [] property stringList autotestWrapper: [] name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; // ... Now we can use those properties in our helper items and in products:">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
@@ -52,7 +52,7 @@ Project { property string version: &#34;1.0.0&#34; property bool installDebugInf
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual Project Properties Qbs 2.6.0 Autotest Buildconfig Module Project Properties It would be nice if our project was configurable. Let&#39;s add some properties to our root project file:
+  <meta name="twitter:description" content="Qbs Manual Project Properties Qbs 2.6.1 Autotest Buildconfig Module Project Properties It would be nice if our project was configurable. Let&#39;s add some properties to our root project file:
 Project { property string version: &#34;1.0.0&#34; property bool installDebugInformation: true property bool withTests: false property stringList autotestArguments: [] property stringList autotestWrapper: [] name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; // ... Now we can use those properties in our helper items and in products:">
 
 </head>
@@ -86,9 +86,9 @@ Project { property string version: &#34;1.0.0&#34; property bool installDebugInf
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io/
-/docs" translate="no">Qbs Manual</a></li>
+/docs">Qbs Manual</a></li>
 <li>Project Properties</li>
-<li id="buildversion">Qbs 2.6.0</li>
+<li id="buildversion">Qbs 2.6.1</li>
   <link rel="prev" href="https://qbs.io/
 /docs/tutorial-5/">
   <link rel="next" href="https://qbs.io/
@@ -122,7 +122,7 @@ Project { property string version: &#34;1.0.0&#34; property bool installDebugInf
     installDebugInformation: project.installDebugInformation
     // ...</pre>
 <p>Here, we access the project file using the special <a href="https://qbs.io/
-/docs/special-property-values/#project" translate="no">project</a> value. If the nearest project in the project tree does not have the desired property, Qbs looks it up in the parent project, potentially all the way up to the top-level project. We also use the <a href="https://qbs.io/
+/docs/special-property-values/#project">project</a> value. If the nearest project in the project tree does not have the desired property, Qbs looks it up in the parent project, potentially all the way up to the top-level project. We also use the <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-application/#installDebugInformation-prop" translate="no">installDebugInformation</a> property here. By default, it has the same value as <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-application/#install-prop" translate="no">install</a> but we want to make the debug information install optional.</p>
 <p>Let's now disable the tests if <code translate="no">project.withTests</code> is <code translate="no">false</code>:</p>

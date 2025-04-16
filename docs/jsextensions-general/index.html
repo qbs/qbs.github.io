@@ -6,7 +6,7 @@
     <meta name="description" content="Qbs Manual
 List of Built-in Services
 General Services
-Qbs 2.6.0
+Qbs 2.6.1
 
 
 Contents
@@ -49,7 +49,7 @@ Loads an extension and returns an object representing the extension. If identifi
     <meta property="og:url" content="https://qbs.io/docs/jsextensions-general/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual List of Built-in Services General Services Qbs 2.6.0 Contents Available Operations require Extensions to JavaScript Built-in Objects Array.containsAll Array.containsAny Array.uniqueConcat Console API console.debug console.error console.info console.log console.warn General Services These are operations that do not fit into any of the other categories. They are automatically available in any Qbs project file or JavaScript file.
+  <meta property="og:description" content="Qbs Manual List of Built-in Services General Services Qbs 2.6.1 Contents Available Operations require Extensions to JavaScript Built-in Objects Array.containsAll Array.containsAny Array.uniqueConcat Console API console.debug console.error console.info console.log console.warn General Services These are operations that do not fit into any of the other categories. They are automatically available in any Qbs project file or JavaScript file.
 Available Operations require require(identifier: string): any Loads an extension and returns an object representing the extension. If identifier is a relative or absolute file path, this function will load a JavaScript file and return an object containing the evaluated context of that file. Otherwise, loads a Qbs extension named identifier and returns an object that contains the extension&#39;s context. This function is only available in JavaScript files and is designed to behave similarly to the CommonJS/RequireJS/Node.js module resolution systems.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
@@ -58,7 +58,7 @@ Available Operations require require(identifier: string): any Loads an extension
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual List of Built-in Services General Services Qbs 2.6.0 Contents Available Operations require Extensions to JavaScript Built-in Objects Array.containsAll Array.containsAny Array.uniqueConcat Console API console.debug console.error console.info console.log console.warn General Services These are operations that do not fit into any of the other categories. They are automatically available in any Qbs project file or JavaScript file.
+  <meta name="twitter:description" content="Qbs Manual List of Built-in Services General Services Qbs 2.6.1 Contents Available Operations require Extensions to JavaScript Built-in Objects Array.containsAll Array.containsAny Array.uniqueConcat Console API console.debug console.error console.info console.log console.warn General Services These are operations that do not fit into any of the other categories. They are automatically available in any Qbs project file or JavaScript file.
 Available Operations require require(identifier: string): any Loads an extension and returns an object representing the extension. If identifier is a relative or absolute file path, this function will load a JavaScript file and return an object containing the evaluated context of that file. Otherwise, loads a Qbs extension named identifier and returns an object that contains the extension&#39;s context. This function is only available in JavaScript files and is designed to behave similarly to the CommonJS/RequireJS/Node.js module resolution systems.">
 
 </head>
@@ -92,11 +92,11 @@ Available Operations require require(identifier: string): any Loads an extension
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io/
-/docs" translate="no">Qbs Manual</a></li>
+/docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
-/docs/list-of-builtin-services/" translate="no">List of Built-in Services</a></li>
+/docs/list-of-builtin-services/">List of Built-in Services</a></li>
 <li>General Services</li>
-<li id="buildversion">Qbs 2.6.0</li>
+<li id="buildversion">Qbs 2.6.1</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -142,7 +142,7 @@ var fileName <span class="operator">=</span> FileInfo<span class="operator">.</s
 <p>Qbs provides a subset of the non-standard Console API available in most ECMAScript runtimes.</p>
 <p>The output of each of these functions will only be displayed if the logging level is at least the level which the function outputs at. Logging levels from lowest to highest are: 'error', 'warning', 'info', 'debug', and 'trace'. The default is 'info'.</p>
 <div class="admonition warning">
-<p><b>Warning: </b>The contents of this section are subject to change in order to align with future <a href="https://www.w3.org/2011/08/browser-testing-charter.html" translate="no">standardization</a> <a href="https://github.com/DeveloperToolsWG/console-object/blob/master/api.md" translate="no">processes</a>.</p>
+<p><b>Warning: </b>The contents of this section are subject to change in order to align with future <a href="https://www.w3.org/2011/08/browser-testing-charter.html">standardization</a> <a href="https://github.com/DeveloperToolsWG/console-object/blob/master/api.md">processes</a>.</p>
 </div>
 <h3 id="console-debug">console.debug</h3>
 <pre class="cpp" translate="no">console<span class="operator">.</span>debug(s: string): <span class="type">void</span></pre>

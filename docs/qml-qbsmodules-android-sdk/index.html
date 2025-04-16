@@ -6,7 +6,7 @@
     <meta name="description" content="Qbs Manual
 QbsModules
 Android.sdk
-Qbs 2.6.0
+Qbs 2.6.1
 
 
 Contents
@@ -17,12 +17,15 @@ Relevant File Tags
 
 
 
-Android.sdk QML Type
+Android.sdk
 
 Provides support for building Android packages. More...
 
 
- Import Statement: import QbsModules Since: Qbs 1.4
+
+ Since: Qbs 1.4
+
+
 List of all members, including inherited members
 
 Properties
@@ -68,8 +71,8 @@ The Android.sdk module contains the properties and rules to create Android appli
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-android-sdk/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual QbsModules Android.sdk Qbs 2.6.0 Contents Properties Detailed Description Relevant File Tags Android.sdk QML Type Provides support for building Android packages. More...
-Import Statement: import QbsModules Since: Qbs 1.4 List of all members, including inherited members Properties aaptName : string (since Qbs 1.17) aidlSearchPaths : stringList apkBaseName : string assetsDir : path automaticSources : bool buildToolsVersion : string d8Desugaring : bool (since Qbs 2.5) dexCompilerName : string (since Qbs 1.20) embedJar : bool (since Qbs 1.10) extraResourcePackages : stringList (since Qbs 2.5) manifestFile : string minimumVersion : string (since Qbs 1.17) ndkDir : string packageName : string packageType : string (since Qbs 1.17) platform : string resourcesDir : path sdkDir : string sourcesDir : path targetVersion : string (since Qbs 1.17) versionCode : string versionName : string Detailed Description The Android.sdk module contains the properties and rules to create Android application packages from Java sources, resources, and so on. It is usually pulled in indirectly by declaring an Application product.">
+  <meta property="og:description" content="Qbs Manual QbsModules Android.sdk Qbs 2.6.1 Contents Properties Detailed Description Relevant File Tags Android.sdk Provides support for building Android packages. More...
+Since: Qbs 1.4 List of all members, including inherited members Properties aaptName : string (since Qbs 1.17) aidlSearchPaths : stringList apkBaseName : string assetsDir : path automaticSources : bool buildToolsVersion : string d8Desugaring : bool (since Qbs 2.5) dexCompilerName : string (since Qbs 1.20) embedJar : bool (since Qbs 1.10) extraResourcePackages : stringList (since Qbs 2.5) manifestFile : string minimumVersion : string (since Qbs 1.17) ndkDir : string packageName : string packageType : string (since Qbs 1.17) platform : string resourcesDir : path sdkDir : string sourcesDir : path targetVersion : string (since Qbs 1.17) versionCode : string versionName : string Detailed Description The Android.sdk module contains the properties and rules to create Android application packages from Java sources, resources, and so on. It is usually pulled in indirectly by declaring an Application product.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -77,8 +80,8 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual QbsModules Android.sdk Qbs 2.6.0 Contents Properties Detailed Description Relevant File Tags Android.sdk QML Type Provides support for building Android packages. More...
-Import Statement: import QbsModules Since: Qbs 1.4 List of all members, including inherited members Properties aaptName : string (since Qbs 1.17) aidlSearchPaths : stringList apkBaseName : string assetsDir : path automaticSources : bool buildToolsVersion : string d8Desugaring : bool (since Qbs 2.5) dexCompilerName : string (since Qbs 1.20) embedJar : bool (since Qbs 1.10) extraResourcePackages : stringList (since Qbs 2.5) manifestFile : string minimumVersion : string (since Qbs 1.17) ndkDir : string packageName : string packageType : string (since Qbs 1.17) platform : string resourcesDir : path sdkDir : string sourcesDir : path targetVersion : string (since Qbs 1.17) versionCode : string versionName : string Detailed Description The Android.sdk module contains the properties and rules to create Android application packages from Java sources, resources, and so on. It is usually pulled in indirectly by declaring an Application product.">
+  <meta name="twitter:description" content="Qbs Manual QbsModules Android.sdk Qbs 2.6.1 Contents Properties Detailed Description Relevant File Tags Android.sdk Provides support for building Android packages. More...
+Since: Qbs 1.4 List of all members, including inherited members Properties aaptName : string (since Qbs 1.17) aidlSearchPaths : stringList apkBaseName : string assetsDir : path automaticSources : bool buildToolsVersion : string d8Desugaring : bool (since Qbs 2.5) dexCompilerName : string (since Qbs 1.20) embedJar : bool (since Qbs 1.10) extraResourcePackages : stringList (since Qbs 2.5) manifestFile : string minimumVersion : string (since Qbs 1.17) ndkDir : string packageName : string packageType : string (since Qbs 1.17) platform : string resourcesDir : path sdkDir : string sourcesDir : path targetVersion : string (since Qbs 1.17) versionCode : string versionName : string Detailed Description The Android.sdk module contains the properties and rules to create Android application packages from Java sources, resources, and so on. It is usually pulled in indirectly by declaring an Application product.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -111,11 +114,11 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io/
-/docs" translate="no">Qbs Manual</a></li>
+/docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>Android.sdk</li>
-<li id="buildversion">Qbs 2.6.0</li>
+<li id="buildversion">Qbs 2.6.1</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -126,12 +129,15 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<div class="content"><h1 class="title" translate="no">Android.sdk QML Type</h1>
+<div class="content"><h1 class="title" translate="no">Android.sdk</h1>
 <!-- $$$Android.sdk-brief -->
 <p>Provides support for building Android packages. <a href="#details">More...</a></p>
 <!-- @@@Android.sdk -->
-<div class="table"><table class="alignedsummary" translate="no">
-<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsModules</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.4</td></tr></tbody></table></div><ul>
+<div class="table"><table class="alignedsummary requisites" translate="no">
+
+<tbody><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.4</td></tr>
+</tbody></table></div>
+<ul>
 <li><a href="https://qbs.io/
 /docs/qml-qbsmodules-android-sdk-members/">List of all members, including inherited members</a></li>
 </ul>
@@ -188,12 +194,12 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 /docs/qml-qbsconvenienceitems-application/" translate="no">Application</a> product.</p>
 <h3 id="relevant-file-tags">Relevant File Tags</h3>
 <span id="filetags-android-sdk"></span><div class="table"><table class="generic">
- <thead><tr class="qt-style"><th>Tag</th><th>Auto-tagged File Names</th><th>Since</th><th>Description</th></tr></thead>
-<tbody><tr valign="top" class="odd"><td><code translate="no">"android.aidl"</code></td><td><code translate="no">*.aidl</code></td><td>1.4.0</td><td>Attached to Android AIDL files. One Java source file will be generated for each such file.</td></tr>
-<tr valign="top" class="even"><td><code translate="no">"android.assets"</code></td><td>-</td><td>1.4.0</td><td>Attached to Android assets, which are typically located in an <code translate="no">assets/</code> subdirectory. These files are tagged automatically if the <a href="https://qbs.io/
+<thead><tr class="qt-style"><th>Tag</th><th>Auto-tagged File Names</th><th>Since</th><th>Description</th></tr></thead>
+<tbody><tr class="odd" valign="top"><td><code translate="no">"android.aidl"</code></td><td><code translate="no">*.aidl</code></td><td>1.4.0</td><td>Attached to Android AIDL files. One Java source file will be generated for each such file.</td></tr>
+<tr class="even" valign="top"><td><code translate="no">"android.assets"</code></td><td>-</td><td>1.4.0</td><td>Attached to Android assets, which are typically located in an <code translate="no">assets/</code> subdirectory. These files are tagged automatically if the <a href="https://qbs.io/
 /docs/qml-qbsmodules-android-sdk/#automaticSources-prop" translate="no">automaticSources</a> property is enabled.</td></tr>
-<tr valign="top" class="odd"><td><code translate="no">"android.manifest"</code></td><td><code translate="no">AndroidManifest.xml</code></td><td>1.4.0</td><td>Attached to the Android manifest. There must be one such file for every Android app.</td></tr>
-<tr valign="top" class="even"><td><code translate="no">"android.resources"</code></td><td>-</td><td>1.4.0</td><td>Attached to Android resources, which are typically located in a <code translate="no">res/</code> subdirectory. These files are tagged automatically if the <a href="https://qbs.io/
+<tr class="odd" valign="top"><td><code translate="no">"android.manifest"</code></td><td><code translate="no">AndroidManifest.xml</code></td><td>1.4.0</td><td>Attached to the Android manifest. There must be one such file for every Android app.</td></tr>
+<tr class="even" valign="top"><td><code translate="no">"android.resources"</code></td><td>-</td><td>1.4.0</td><td>Attached to Android resources, which are typically located in a <code translate="no">res/</code> subdirectory. These files are tagged automatically if the <a href="https://qbs.io/
 /docs/qml-qbsmodules-android-sdk/#automaticSources-prop" translate="no">automaticSources</a> property is enabled.</td></tr>
 </tbody></table></div>
 <!-- @@@Android.sdk -->
@@ -201,7 +207,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <!-- $$$aaptName -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="aaptName-prop">
+<tbody><tr class="odd" id="aaptName-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">aaptName</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.17]</code></p></td></tr>
 </tbody></table></div></div>
@@ -213,7 +219,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <!-- $$$aidlSearchPaths -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="aidlSearchPaths-prop">
+<tbody><tr class="odd" id="aidlSearchPaths-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">aidlSearchPaths</span> : <span class="type">stringList</span></p></td></tr>
 </tbody></table></div></div>
@@ -223,7 +229,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <!-- $$$apkBaseName -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="apkBaseName-prop">
+<tbody><tr class="odd" id="apkBaseName-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">apkBaseName</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -235,7 +241,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <!-- $$$assetsDir -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="assetsDir-prop">
+<tbody><tr class="odd" id="assetsDir-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">assetsDir</span> : <span class="type">path</span></p></td></tr>
 </tbody></table></div></div>
@@ -249,7 +255,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <!-- $$$automaticSources -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="automaticSources-prop">
+<tbody><tr class="odd" id="automaticSources-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">automaticSources</span> : <span class="type">bool</span></p></td></tr>
 </tbody></table></div></div>
@@ -260,7 +266,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <!-- $$$buildToolsVersion -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="buildToolsVersion-prop">
+<tbody><tr class="odd" id="buildToolsVersion-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">buildToolsVersion</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -271,7 +277,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <!-- $$$d8Desugaring -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="d8Desugaring-prop">
+<tbody><tr class="odd" id="d8Desugaring-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">d8Desugaring</span> : <span class="type">bool</span> <code class="details extra" translate="no">[since Qbs 2.5]</code></p></td></tr>
 </tbody></table></div></div>
@@ -283,7 +289,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <!-- $$$dexCompilerName -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="dexCompilerName-prop">
+<tbody><tr class="odd" id="dexCompilerName-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">dexCompilerName</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.20]</code></p></td></tr>
 </tbody></table></div></div>
@@ -295,7 +301,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <!-- $$$embedJar -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="embedJar-prop">
+<tbody><tr class="odd" id="embedJar-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">embedJar</span> : <span class="type">bool</span> <code class="details extra" translate="no">[since Qbs 1.10]</code></p></td></tr>
 </tbody></table></div></div>
@@ -307,7 +313,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <!-- $$$extraResourcePackages -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="extraResourcePackages-prop">
+<tbody><tr class="odd" id="extraResourcePackages-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">extraResourcePackages</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[since Qbs 2.5]</code></p></td></tr>
 </tbody></table></div></div>
@@ -319,7 +325,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <!-- $$$manifestFile -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="manifestFile-prop">
+<tbody><tr class="odd" id="manifestFile-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">manifestFile</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -334,7 +340,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <!-- $$$minimumVersion -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="minimumVersion-prop">
+<tbody><tr class="odd" id="minimumVersion-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">minimumVersion</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.17]</code></p></td></tr>
 </tbody></table></div></div>
@@ -346,7 +352,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <!-- $$$ndkDir -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="ndkDir-prop">
+<tbody><tr class="odd" id="ndkDir-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">ndkDir</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -357,7 +363,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <!-- $$$packageName -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="packageName-prop">
+<tbody><tr class="odd" id="packageName-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">packageName</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -368,7 +374,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <!-- $$$packageType -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="packageType-prop">
+<tbody><tr class="odd" id="packageType-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">packageType</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.17]</code></p></td></tr>
 </tbody></table></div></div>
@@ -380,7 +386,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <!-- $$$platform -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="platform-prop">
+<tbody><tr class="odd" id="platform-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">platform</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -391,7 +397,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <!-- $$$resourcesDir -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="resourcesDir-prop">
+<tbody><tr class="odd" id="resourcesDir-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">resourcesDir</span> : <span class="type">path</span></p></td></tr>
 </tbody></table></div></div>
@@ -405,7 +411,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <!-- $$$sdkDir -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="sdkDir-prop">
+<tbody><tr class="odd" id="sdkDir-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">sdkDir</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -416,7 +422,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <!-- $$$sourcesDir -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="sourcesDir-prop">
+<tbody><tr class="odd" id="sourcesDir-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">sourcesDir</span> : <span class="type">path</span></p></td></tr>
 </tbody></table></div></div>
@@ -428,7 +434,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <!-- $$$targetVersion -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="targetVersion-prop">
+<tbody><tr class="odd" id="targetVersion-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">targetVersion</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.17]</code></p></td></tr>
 </tbody></table></div></div>
@@ -440,7 +446,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <!-- $$$versionCode -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="versionCode-prop">
+<tbody><tr class="odd" id="versionCode-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">versionCode</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -468,7 +474,7 @@ Android<span class="operator">.</span>sdk<span class="operator">.</span>versionC
 <!-- $$$versionName -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="versionName-prop">
+<tbody><tr class="odd" id="versionName-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">versionName</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>

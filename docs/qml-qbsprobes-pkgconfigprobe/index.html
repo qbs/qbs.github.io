@@ -6,7 +6,7 @@
     <meta name="description" content="Qbs Manual
 QbsProbes
 PkgConfigProbe
-Qbs 2.6.0
+Qbs 2.6.1
 
 
 Contents
@@ -16,12 +16,14 @@ Detailed Description
 
 
 
-PkgConfigProbe QML Type
+PkgConfigProbe
 
 Retrieves the information about installed packages using the pkg-config binary. More...
 
 
- Import Statement: import QbsProbes
+
+
+
 List of all members, including inherited members
 PkgConfigProbe is part of List of All Items.
 
@@ -62,8 +64,8 @@ This probe takes the package name or the list of package names as input and retu
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsprobes-pkgconfigprobe/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual QbsProbes PkgConfigProbe Qbs 2.6.0 Contents Properties Detailed Description PkgConfigProbe QML Type Retrieves the information about installed packages using the pkg-config binary. More...
-Import Statement: import QbsProbes List of all members, including inherited members PkgConfigProbe is part of List of All Items. Properties compilerFlags : stringList defines : stringList exactVersion : string executable : string forStaticBuild : bool includePaths : stringList libDirs : stringList libraries : stringList libraryPaths : stringList linkerFlags : stringList maxVersion : string minVersion : string modversion : stringList name : string packageNames : stringList sysroot : string Detailed Description This probe takes the package name or the list of package names as input and returns the information that is required to compile and link using those packages.">
+  <meta property="og:description" content="Qbs Manual QbsProbes PkgConfigProbe Qbs 2.6.1 Contents Properties Detailed Description PkgConfigProbe Retrieves the information about installed packages using the pkg-config binary. More...
+List of all members, including inherited members PkgConfigProbe is part of List of All Items. Properties compilerFlags : stringList defines : stringList exactVersion : string executable : string forStaticBuild : bool includePaths : stringList libDirs : stringList libraries : stringList libraryPaths : stringList linkerFlags : stringList maxVersion : string minVersion : string modversion : stringList name : string packageNames : stringList sysroot : string Detailed Description This probe takes the package name or the list of package names as input and returns the information that is required to compile and link using those packages.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -71,8 +73,8 @@ Import Statement: import QbsProbes List of all members, including inherited memb
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual QbsProbes PkgConfigProbe Qbs 2.6.0 Contents Properties Detailed Description PkgConfigProbe QML Type Retrieves the information about installed packages using the pkg-config binary. More...
-Import Statement: import QbsProbes List of all members, including inherited members PkgConfigProbe is part of List of All Items. Properties compilerFlags : stringList defines : stringList exactVersion : string executable : string forStaticBuild : bool includePaths : stringList libDirs : stringList libraries : stringList libraryPaths : stringList linkerFlags : stringList maxVersion : string minVersion : string modversion : stringList name : string packageNames : stringList sysroot : string Detailed Description This probe takes the package name or the list of package names as input and returns the information that is required to compile and link using those packages.">
+  <meta name="twitter:description" content="Qbs Manual QbsProbes PkgConfigProbe Qbs 2.6.1 Contents Properties Detailed Description PkgConfigProbe Retrieves the information about installed packages using the pkg-config binary. More...
+List of all members, including inherited members PkgConfigProbe is part of List of All Items. Properties compilerFlags : stringList defines : stringList exactVersion : string executable : string forStaticBuild : bool includePaths : stringList libDirs : stringList libraries : stringList libraryPaths : stringList linkerFlags : stringList maxVersion : string minVersion : string modversion : stringList name : string packageNames : stringList sysroot : string Detailed Description This probe takes the package name or the list of package names as input and returns the information that is required to compile and link using those packages.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -105,11 +107,11 @@ Import Statement: import QbsProbes List of all members, including inherited memb
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io/
-/docs" translate="no">Qbs Manual</a></li>
+/docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsprobes-qmlmodule/" translate="no">QbsProbes</a></li>
 <li>PkgConfigProbe</li>
-<li id="buildversion">Qbs 2.6.0</li>
+<li id="buildversion">Qbs 2.6.1</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -119,12 +121,14 @@ Import Statement: import QbsProbes List of all members, including inherited memb
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<div class="content"><h1 class="title" translate="no">PkgConfigProbe QML Type</h1>
+<div class="content"><h1 class="title" translate="no">PkgConfigProbe</h1>
 <!-- $$$PkgConfigProbe-brief -->
 <p>Retrieves the information about installed packages using the pkg-config binary. <a href="#details">More...</a></p>
 <!-- @@@PkgConfigProbe -->
-<div class="table"><table class="alignedsummary" translate="no">
-<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsProbes</td></tr></tbody></table></div><ul>
+<div class="table"><table class="alignedsummary requisites" translate="no">
+
+</table></div>
+<ul>
 <li><a href="https://qbs.io/
 /docs/qml-qbsprobes-pkgconfigprobe-members/">List of all members, including inherited members</a></li>
 <li>PkgConfigProbe is part of <a href="https://qbs.io/
@@ -169,7 +173,7 @@ Import Statement: import QbsProbes List of all members, including inherited memb
 <h2 id="details">Detailed Description</h2>
 <p>This probe takes the package name or the list of package names as input and returns the information that is required to compile and link using those packages.</p>
 <p>Usually, you can simply use a Depends item as described in <a href="https://qbs.io/
-/docs/howtos/#how-do-i-build-against-libraries-that-provide-pkg-config-files" translate="no">How do I build against libraries that provide pkg-config files?</a>.</p>
+/docs/howtos/#how-do-i-build-against-libraries-that-provide-pkg-config-files">How do I build against libraries that provide pkg-config files?</a>.</p>
 <p>Alternatively, the probe can be used directly as follows:</p>
 <pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-cppapplication/" translate="no">CppApplication</a></span> {
@@ -193,7 +197,7 @@ Import Statement: import QbsProbes List of all members, including inherited memb
 <!-- $$$compilerFlags -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="compilerFlags-prop">
+<tbody><tr class="odd" id="compilerFlags-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">compilerFlags</span> : <span class="type">stringList</span></p></td></tr>
 </tbody></table></div></div>
@@ -204,7 +208,7 @@ Import Statement: import QbsProbes List of all members, including inherited memb
 <!-- $$$defines -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="defines-prop">
+<tbody><tr class="odd" id="defines-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">defines</span> : <span class="type">stringList</span></p></td></tr>
 </tbody></table></div></div>
@@ -215,7 +219,7 @@ Import Statement: import QbsProbes List of all members, including inherited memb
 <!-- $$$exactVersion -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="exactVersion-prop">
+<tbody><tr class="odd" id="exactVersion-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">exactVersion</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -226,7 +230,7 @@ Import Statement: import QbsProbes List of all members, including inherited memb
 <!-- $$$executable -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="executable-prop">
+<tbody><tr class="odd" id="executable-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">executable</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -237,7 +241,7 @@ Import Statement: import QbsProbes List of all members, including inherited memb
 <!-- $$$forStaticBuild -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="forStaticBuild-prop">
+<tbody><tr class="odd" id="forStaticBuild-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">forStaticBuild</span> : <span class="type">bool</span></p></td></tr>
 </tbody></table></div></div>
@@ -248,7 +252,7 @@ Import Statement: import QbsProbes List of all members, including inherited memb
 <!-- $$$includePaths -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="includePaths-prop">
+<tbody><tr class="odd" id="includePaths-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">includePaths</span> : <span class="type">stringList</span></p></td></tr>
 </tbody></table></div></div>
@@ -259,7 +263,7 @@ Import Statement: import QbsProbes List of all members, including inherited memb
 <!-- $$$libDirs -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="libDirs-prop">
+<tbody><tr class="odd" id="libDirs-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">libDirs</span> : <span class="type">stringList</span></p></td></tr>
 </tbody></table></div></div>
@@ -271,7 +275,7 @@ Import Statement: import QbsProbes List of all members, including inherited memb
 <!-- $$$libraries -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="libraries-prop">
+<tbody><tr class="odd" id="libraries-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">libraries</span> : <span class="type">stringList</span></p></td></tr>
 </tbody></table></div></div>
@@ -282,7 +286,7 @@ Import Statement: import QbsProbes List of all members, including inherited memb
 <!-- $$$libraryPaths -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="libraryPaths-prop">
+<tbody><tr class="odd" id="libraryPaths-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">libraryPaths</span> : <span class="type">stringList</span></p></td></tr>
 </tbody></table></div></div>
@@ -293,7 +297,7 @@ Import Statement: import QbsProbes List of all members, including inherited memb
 <!-- $$$linkerFlags -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="linkerFlags-prop">
+<tbody><tr class="odd" id="linkerFlags-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">linkerFlags</span> : <span class="type">stringList</span></p></td></tr>
 </tbody></table></div></div>
@@ -304,7 +308,7 @@ Import Statement: import QbsProbes List of all members, including inherited memb
 <!-- $$$maxVersion -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="maxVersion-prop">
+<tbody><tr class="odd" id="maxVersion-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">maxVersion</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -315,7 +319,7 @@ Import Statement: import QbsProbes List of all members, including inherited memb
 <!-- $$$minVersion -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="minVersion-prop">
+<tbody><tr class="odd" id="minVersion-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">minVersion</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -326,7 +330,7 @@ Import Statement: import QbsProbes List of all members, including inherited memb
 <!-- $$$modversion -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="modversion-prop">
+<tbody><tr class="odd" id="modversion-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">modversion</span> : <span class="type">stringList</span></p></td></tr>
 </tbody></table></div></div>
@@ -337,7 +341,7 @@ Import Statement: import QbsProbes List of all members, including inherited memb
 <!-- $$$name -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="name-prop">
+<tbody><tr class="odd" id="name-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">name</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -349,7 +353,7 @@ Import Statement: import QbsProbes List of all members, including inherited memb
 <!-- $$$packageNames -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="packageNames-prop">
+<tbody><tr class="odd" id="packageNames-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">packageNames</span> : <span class="type">stringList</span></p></td></tr>
 </tbody></table></div></div>
@@ -361,7 +365,7 @@ Import Statement: import QbsProbes List of all members, including inherited memb
 <!-- $$$sysroot -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="sysroot-prop">
+<tbody><tr class="odd" id="sysroot-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">sysroot</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>

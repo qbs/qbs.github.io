@@ -6,7 +6,7 @@
     <meta name="description" content="Qbs Manual
 QbsModules
 Sanitizers.address
-Qbs 2.6.0
+Qbs 2.6.1
 
 
 Contents
@@ -16,12 +16,14 @@ Detailed Description
 
 
 
-Sanitizers.address QML Type
+Sanitizers.address
 
 Provides AddressSanitizer support. More...
 
 
- Import Statement: import QbsModules
+
+
+
 List of all members, including inherited members
 
 Properties
@@ -40,7 +42,9 @@ Property Documentation
 
 
 
-detectUseAfterReturn : string ">
+detectUseAfterReturn : string
+
+Controls whether support for detecting problems with stack use after returning from a function should be built into the application. ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-sanitizers-address/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -56,9 +60,10 @@ detectUseAfterReturn : string ">
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-sanitizers-address/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual QbsModules Sanitizers.address Qbs 2.6.0 Contents Properties Detailed Description Sanitizers.address QML Type Provides AddressSanitizer support. More...
-Import Statement: import QbsModules List of all members, including inherited members Properties detectUseAfterReturn : string detectUseAfterScope : bool enabled : bool Detailed Description Provides support for the AddressSanitizer tool, which uses compiler instrumentation to detect memory corruption bugs at runtime.
-Property Documentation detectUseAfterReturn : string">
+  <meta property="og:description" content="Qbs Manual QbsModules Sanitizers.address Qbs 2.6.1 Contents Properties Detailed Description Sanitizers.address Provides AddressSanitizer support. More...
+List of all members, including inherited members Properties detectUseAfterReturn : string detectUseAfterScope : bool enabled : bool Detailed Description Provides support for the AddressSanitizer tool, which uses compiler instrumentation to detect memory corruption bugs at runtime.
+Property Documentation detectUseAfterReturn : string
+Controls whether support for detecting problems with stack use after returning from a function should be built into the application.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -66,9 +71,10 @@ Property Documentation detectUseAfterReturn : string">
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual QbsModules Sanitizers.address Qbs 2.6.0 Contents Properties Detailed Description Sanitizers.address QML Type Provides AddressSanitizer support. More...
-Import Statement: import QbsModules List of all members, including inherited members Properties detectUseAfterReturn : string detectUseAfterScope : bool enabled : bool Detailed Description Provides support for the AddressSanitizer tool, which uses compiler instrumentation to detect memory corruption bugs at runtime.
-Property Documentation detectUseAfterReturn : string">
+  <meta name="twitter:description" content="Qbs Manual QbsModules Sanitizers.address Qbs 2.6.1 Contents Properties Detailed Description Sanitizers.address Provides AddressSanitizer support. More...
+List of all members, including inherited members Properties detectUseAfterReturn : string detectUseAfterScope : bool enabled : bool Detailed Description Provides support for the AddressSanitizer tool, which uses compiler instrumentation to detect memory corruption bugs at runtime.
+Property Documentation detectUseAfterReturn : string
+Controls whether support for detecting problems with stack use after returning from a function should be built into the application.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -101,11 +107,11 @@ Property Documentation detectUseAfterReturn : string">
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io/
-/docs" translate="no">Qbs Manual</a></li>
+/docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>Sanitizers.address</li>
-<li id="buildversion">Qbs 2.6.0</li>
+<li id="buildversion">Qbs 2.6.1</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -115,12 +121,14 @@ Property Documentation detectUseAfterReturn : string">
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<div class="content"><h1 class="title" translate="no">Sanitizers.address QML Type</h1>
+<div class="content"><h1 class="title" translate="no">Sanitizers.address</h1>
 <!-- $$$Sanitizers.address-brief -->
 <p>Provides AddressSanitizer support. <a href="#details">More...</a></p>
 <!-- @@@Sanitizers.address -->
-<div class="table"><table class="alignedsummary" translate="no">
-<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsModules</td></tr></tbody></table></div><ul>
+<div class="table"><table class="alignedsummary requisites" translate="no">
+
+</table></div>
+<ul>
 <li><a href="https://qbs.io/
 /docs/qml-qbsmodules-sanitizers-address-members/">List of all members, including inherited members</a></li>
 </ul>
@@ -135,13 +143,13 @@ Property Documentation detectUseAfterReturn : string">
 </ul>
 <!-- $$$Sanitizers.address-description -->
 <h2 id="details">Detailed Description</h2>
-<p>Provides support for the <a href="https://clang.llvm.org/docs/AddressSanitizer.html" translate="no">AddressSanitizer</a> tool, which uses compiler instrumentation to detect memory corruption bugs at runtime.</p>
+<p>Provides support for the <a href="https://clang.llvm.org/docs/AddressSanitizer.html">AddressSanitizer</a> tool, which uses compiler instrumentation to detect memory corruption bugs at runtime.</p>
 <!-- @@@Sanitizers.address -->
 <h2>Property Documentation</h2>
 <!-- $$$detectUseAfterReturn -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="detectUseAfterReturn-prop">
+<tbody><tr class="odd" id="detectUseAfterReturn-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">detectUseAfterReturn</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -161,7 +169,7 @@ Property Documentation detectUseAfterReturn : string">
 <!-- $$$detectUseAfterScope -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="detectUseAfterScope-prop">
+<tbody><tr class="odd" id="detectUseAfterScope-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">detectUseAfterScope</span> : <span class="type">bool</span></p></td></tr>
 </tbody></table></div></div>
@@ -175,7 +183,7 @@ Property Documentation detectUseAfterReturn : string">
 <!-- $$$enabled -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="enabled-prop">
+<tbody><tr class="odd" id="enabled-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">enabled</span> : <span class="type">bool</span></p></td></tr>
 </tbody></table></div></div>

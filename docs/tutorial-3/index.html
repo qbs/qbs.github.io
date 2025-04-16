@@ -5,7 +5,7 @@
     <title>Qbs</title>
     <meta name="description" content="Qbs Manual
 Dynamic Library
-Qbs 2.6.0
+Qbs 2.6.1
   
   
 
@@ -32,7 +32,7 @@ Let&#39;s now turn our static library into a dynamic library. It is a bit tricki
     <meta property="og:url" content="https://qbs.io/docs/tutorial-3/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual Dynamic Library Qbs 2.6.0 Static Library Convenience Items Dynamic Library Let&#39;s now turn our static library into a dynamic library. It is a bit trickier with dynamic libraries since several things should be tweaked. First, we need to be able to mark methods (or classes) in our library as exported. Second, we need to tell our application where to look for our library at run time using rpaths.">
+  <meta property="og:description" content="Qbs Manual Dynamic Library Qbs 2.6.1 Static Library Convenience Items Dynamic Library Let&#39;s now turn our static library into a dynamic library. It is a bit trickier with dynamic libraries since several things should be tweaked. First, we need to be able to mark methods (or classes) in our library as exported. Second, we need to tell our application where to look for our library at run time using rpaths.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -40,7 +40,7 @@ Let&#39;s now turn our static library into a dynamic library. It is a bit tricki
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual Dynamic Library Qbs 2.6.0 Static Library Convenience Items Dynamic Library Let&#39;s now turn our static library into a dynamic library. It is a bit trickier with dynamic libraries since several things should be tweaked. First, we need to be able to mark methods (or classes) in our library as exported. Second, we need to tell our application where to look for our library at run time using rpaths.">
+  <meta name="twitter:description" content="Qbs Manual Dynamic Library Qbs 2.6.1 Static Library Convenience Items Dynamic Library Let&#39;s now turn our static library into a dynamic library. It is a bit trickier with dynamic libraries since several things should be tweaked. First, we need to be able to mark methods (or classes) in our library as exported. Second, we need to tell our application where to look for our library at run time using rpaths.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -73,9 +73,9 @@ Let&#39;s now turn our static library into a dynamic library. It is a bit tricki
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io/
-/docs" translate="no">Qbs Manual</a></li>
+/docs">Qbs Manual</a></li>
 <li>Dynamic Library</li>
-<li id="buildversion">Qbs 2.6.0</li>
+<li id="buildversion">Qbs 2.6.1</li>
   <link rel="prev" href="https://qbs.io/
 /docs/tutorial-2/">
   <link rel="next" href="https://qbs.io/
@@ -90,8 +90,8 @@ Let&#39;s now turn our static library into a dynamic library. It is a bit tricki
 <div class="content"><h1 class="title">Dynamic Library</h1>
 <!-- $$$tutorial-3.html-description -->
 <div class="descr" id="details">
-<p>Let's now turn our static library into a dynamic library. It is a bit trickier with dynamic libraries since several things should be tweaked. First, we need to be able to mark methods (or classes) in our library as exported. Second, we need to tell our application where to look for our library at run time using <a href="https://en.wikipedia.org/wiki/Rpath" translate="no">rpaths</a>.</p>
-<p>Some compilers, like MSVC, require us to mark which symbols we want to export or import. The <a href="https://stackoverflow.com/a/6840659" translate="no">canonical</a> way would be to define some helper macros. Let's start with a header that defines those helper macros:</p>
+<p>Let's now turn our static library into a dynamic library. It is a bit trickier with dynamic libraries since several things should be tweaked. First, we need to be able to mark methods (or classes) in our library as exported. Second, we need to tell our application where to look for our library at run time using <a href="https://en.wikipedia.org/wiki/Rpath">rpaths</a>.</p>
+<p>Some compilers, like MSVC, require us to mark which symbols we want to export or import. The <a href="https://stackoverflow.com/a/6840659">canonical</a> way would be to define some helper macros. Let's start with a header that defines those helper macros:</p>
 <pre class="cpp" translate="no"><span class="comment">// lib/lib_global.h</span>
 
 <span class="preprocessor">#ifndef LIB_GLOBAL_H</span>
@@ -147,10 +147,10 @@ DynamicLibrary {
 /docs/qml-qbsconvenienceitems-dynamiclibrary/" translate="no">DynamicLibrary</a>. We also added the <code translate="no">MYLIB_LIBRARY</code> to the list of <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#defines-prop" translate="no">defines</a>. We do this only when building the library but we are not exporting it - that way the users of our library will have methods marked for import rather than export.</p>
 <p>Finally, we set <a href="https://qbs.io/
-/docs/qml-qbsmodules-cpp/#sonamePrefix-prop" translate="no">cpp.sonamePrefix</a> to <code translate="no">"@rpath"</code>. This is required only for Apple platforms, see <a href="https://developer.apple.com/library/archive/documentation/DeveloperTools/Conceptual/DynamicLibraries/100-Articles/RunpathDependentLibraries.html" translate="no">Run-Path Dependent Libraries</a> for details.</p>
+/docs/qml-qbsmodules-cpp/#sonamePrefix-prop" translate="no">cpp.sonamePrefix</a> to <code translate="no">"@rpath"</code>. This is required only for Apple platforms, see <a href="https://developer.apple.com/library/archive/documentation/DeveloperTools/Conceptual/DynamicLibraries/100-Articles/RunpathDependentLibraries.html">Run-Path Dependent Libraries</a> for details.</p>
 <p>It is also required to set <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#rpaths-prop" translate="no">cpp.rpaths</a> in our application file. Since the library is installed to the <code translate="no">lib</code> directory and the application is installed to the <code translate="no">bin</code> directory, we need to tell the loader to look in the <code translate="no">lib</code> directory. The <a href="https://qbs.io/
-/docs/jsextension-fileinfo/#relativepath" translate="no">FileInfo.relativePath</a> method can help us:</p>
+/docs/jsextension-fileinfo/#relativepath">FileInfo.relativePath</a> method can help us:</p>
 <pre class="cpp" translate="no">cpp.rpaths: {
     if (!cpp.rpathOrigin)
         return [];
@@ -163,7 +163,7 @@ DynamicLibrary {
     ];
 }</pre>
 <p>On Linux, this expression would be equivalent to this: <code translate="no">cpp.rpaths: ["$ORIGIN/../lib"]</code>. Don't forget to <code translate="no">import qbs.FileInfo</code> in order to be able to use the <a href="https://qbs.io/
-/docs/jsextension-fileinfo/" translate="no">jsextension-fileinfo.html</a> extension.</p>
+/docs/jsextension-fileinfo/">jsextension-fileinfo.html</a> extension.</p>
 <p>To make the example complete, here's how the full <code translate="no">app/app.qbs</code> file should look like:</p>
 <pre class="cpp" translate="no">// app/app.qbs
 import qbs.FileInfo

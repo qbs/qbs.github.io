@@ -6,7 +6,7 @@
     <meta name="description" content="Qbs Manual
 QbsModules
 xcode
-Qbs 2.6.0
+Qbs 2.6.1
 
 
 Contents
@@ -16,12 +16,15 @@ Detailed Description
 
 
 
-xcode QML Type
+xcode
 
 Provides Xcode support. More...
 
 
- Import Statement: import QbsModules Since: Qbs 1.5
+
+ Since: Qbs 1.5
+
+
 List of all members, including inherited members
 
 Properties
@@ -56,8 +59,8 @@ The xcode module contains properties and rules for Xcode-based development. This
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-xcode/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual QbsModules xcode Qbs 2.6.0 Contents Properties Detailed Description xcode QML Type Provides Xcode support. More...
-Import Statement: import QbsModules Since: Qbs 1.5 List of all members, including inherited members Properties availableSdkNames : stringList availableSdkVersions : stringList developerPath : path latestSdkName : string latestSdkVersion : string platformPath : path sdk : string sdkName : string sdkPath : path sdkVersion : string targetDevices : stringList Detailed Description The xcode module contains properties and rules for Xcode-based development. This module provides the foundation for several other modules on Apple platforms, including the cpp and ib modules.">
+  <meta property="og:description" content="Qbs Manual QbsModules xcode Qbs 2.6.1 Contents Properties Detailed Description xcode Provides Xcode support. More...
+Since: Qbs 1.5 List of all members, including inherited members Properties availableSdkNames : stringList availableSdkVersions : stringList developerPath : path latestSdkName : string latestSdkVersion : string platformPath : path sdk : string sdkName : string sdkPath : path sdkVersion : string targetDevices : stringList Detailed Description The xcode module contains properties and rules for Xcode-based development. This module provides the foundation for several other modules on Apple platforms, including the cpp and ib modules.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -65,8 +68,8 @@ Import Statement: import QbsModules Since: Qbs 1.5 List of all members, includin
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual QbsModules xcode Qbs 2.6.0 Contents Properties Detailed Description xcode QML Type Provides Xcode support. More...
-Import Statement: import QbsModules Since: Qbs 1.5 List of all members, including inherited members Properties availableSdkNames : stringList availableSdkVersions : stringList developerPath : path latestSdkName : string latestSdkVersion : string platformPath : path sdk : string sdkName : string sdkPath : path sdkVersion : string targetDevices : stringList Detailed Description The xcode module contains properties and rules for Xcode-based development. This module provides the foundation for several other modules on Apple platforms, including the cpp and ib modules.">
+  <meta name="twitter:description" content="Qbs Manual QbsModules xcode Qbs 2.6.1 Contents Properties Detailed Description xcode Provides Xcode support. More...
+Since: Qbs 1.5 List of all members, including inherited members Properties availableSdkNames : stringList availableSdkVersions : stringList developerPath : path latestSdkName : string latestSdkVersion : string platformPath : path sdk : string sdkName : string sdkPath : path sdkVersion : string targetDevices : stringList Detailed Description The xcode module contains properties and rules for Xcode-based development. This module provides the foundation for several other modules on Apple platforms, including the cpp and ib modules.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -99,11 +102,11 @@ Import Statement: import QbsModules Since: Qbs 1.5 List of all members, includin
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io/
-/docs" translate="no">Qbs Manual</a></li>
+/docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>xcode</li>
-<li id="buildversion">Qbs 2.6.0</li>
+<li id="buildversion">Qbs 2.6.1</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -113,12 +116,15 @@ Import Statement: import QbsModules Since: Qbs 1.5 List of all members, includin
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<div class="content"><h1 class="title" translate="no">xcode QML Type</h1>
+<div class="content"><h1 class="title" translate="no">xcode</h1>
 <!-- $$$xcode-brief -->
 <p>Provides Xcode support. <a href="#details">More...</a></p>
 <!-- @@@xcode -->
-<div class="table"><table class="alignedsummary" translate="no">
-<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsModules</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.5</td></tr></tbody></table></div><ul>
+<div class="table"><table class="alignedsummary requisites" translate="no">
+
+<tbody><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.5</td></tr>
+</tbody></table></div>
+<ul>
 <li><a href="https://qbs.io/
 /docs/qml-qbsmodules-xcode-members/">List of all members, including inherited members</a></li>
 </ul>
@@ -157,7 +163,7 @@ Import Statement: import QbsModules Since: Qbs 1.5 List of all members, includin
 <!-- $$$availableSdkNames -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="availableSdkNames-prop">
+<tbody><tr class="odd" id="availableSdkNames-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">availableSdkNames</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
 </tbody></table></div></div>
@@ -170,7 +176,7 @@ Import Statement: import QbsModules Since: Qbs 1.5 List of all members, includin
 <!-- $$$availableSdkVersions -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="availableSdkVersions-prop">
+<tbody><tr class="odd" id="availableSdkVersions-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">availableSdkVersions</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
 </tbody></table></div></div>
@@ -183,7 +189,7 @@ Import Statement: import QbsModules Since: Qbs 1.5 List of all members, includin
 <!-- $$$developerPath -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="developerPath-prop">
+<tbody><tr class="odd" id="developerPath-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">developerPath</span> : <span class="type">path</span></p></td></tr>
 </tbody></table></div></div>
@@ -195,7 +201,7 @@ Import Statement: import QbsModules Since: Qbs 1.5 List of all members, includin
 <!-- $$$latestSdkName -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="latestSdkName-prop">
+<tbody><tr class="odd" id="latestSdkName-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">latestSdkName</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
 </tbody></table></div></div>
@@ -208,7 +214,7 @@ Import Statement: import QbsModules Since: Qbs 1.5 List of all members, includin
 <!-- $$$latestSdkVersion -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="latestSdkVersion-prop">
+<tbody><tr class="odd" id="latestSdkVersion-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">latestSdkVersion</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
 </tbody></table></div></div>
@@ -221,7 +227,7 @@ Import Statement: import QbsModules Since: Qbs 1.5 List of all members, includin
 <!-- $$$platformPath -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="platformPath-prop">
+<tbody><tr class="odd" id="platformPath-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">platformPath</span> : <span class="type">path</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
 </tbody></table></div></div>
@@ -234,7 +240,7 @@ Import Statement: import QbsModules Since: Qbs 1.5 List of all members, includin
 <!-- $$$sdk -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="sdk-prop">
+<tbody><tr class="odd" id="sdk-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">sdk</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -247,7 +253,7 @@ Import Statement: import QbsModules Since: Qbs 1.5 List of all members, includin
 <!-- $$$sdkName -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="sdkName-prop">
+<tbody><tr class="odd" id="sdkName-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">sdkName</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
 </tbody></table></div></div>
@@ -260,7 +266,7 @@ Import Statement: import QbsModules Since: Qbs 1.5 List of all members, includin
 <!-- $$$sdkPath -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="sdkPath-prop">
+<tbody><tr class="odd" id="sdkPath-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">sdkPath</span> : <span class="type">path</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
 </tbody></table></div></div>
@@ -274,7 +280,7 @@ Import Statement: import QbsModules Since: Qbs 1.5 List of all members, includin
 <!-- $$$sdkVersion -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="sdkVersion-prop">
+<tbody><tr class="odd" id="sdkVersion-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">sdkVersion</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
 </tbody></table></div></div>
@@ -287,7 +293,7 @@ Import Statement: import QbsModules Since: Qbs 1.5 List of all members, includin
 <!-- $$$targetDevices -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="targetDevices-prop">
+<tbody><tr class="odd" id="targetDevices-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">targetDevices</span> : <span class="type">stringList</span></p></td></tr>
 </tbody></table></div></div>

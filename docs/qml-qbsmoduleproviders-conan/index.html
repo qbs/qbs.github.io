@@ -6,7 +6,7 @@
     <meta name="description" content="Qbs Manual
 QbsModuleProviders
 conan
-Qbs 2.6.0
+Qbs 2.6.1
 
 
 Contents
@@ -18,12 +18,15 @@ Example
 
 
 
-conan QML Type
+conan
 
 Module provider for the Conan package manager. More...
 
 
- Import Statement: import QbsModuleProviders Since: Qt 2.4
+
+ Since: Qt 2.4
+
+
 List of all members, including inherited members
 
 Properties
@@ -50,8 +53,8 @@ In order to use this provider, you will need Conan version 2.5.0 or higher. Earl
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmoduleproviders-conan/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual QbsModuleProviders conan Qbs 2.6.0 Contents Properties Detailed Description Prerequisites Example conan QML Type Module provider for the Conan package manager. More...
-Import Statement: import QbsModuleProviders Since: Qt 2.4 List of all members, including inherited members Properties installDirectory : string Detailed Description This module provider allows integration with the Conan package manager.
+  <meta property="og:description" content="Qbs Manual QbsModuleProviders conan Qbs 2.6.1 Contents Properties Detailed Description Prerequisites Example conan Module provider for the Conan package manager. More...
+Since: Qt 2.4 List of all members, including inherited members Properties installDirectory : string Detailed Description This module provider allows integration with the Conan package manager.
 Prerequisites In order to use this provider, you will need Conan version 2.5.0 or higher. Earlier versions do not have the QbsDeps generator.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
@@ -60,8 +63,8 @@ Prerequisites In order to use this provider, you will need Conan version 2.5.0 o
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual QbsModuleProviders conan Qbs 2.6.0 Contents Properties Detailed Description Prerequisites Example conan QML Type Module provider for the Conan package manager. More...
-Import Statement: import QbsModuleProviders Since: Qt 2.4 List of all members, including inherited members Properties installDirectory : string Detailed Description This module provider allows integration with the Conan package manager.
+  <meta name="twitter:description" content="Qbs Manual QbsModuleProviders conan Qbs 2.6.1 Contents Properties Detailed Description Prerequisites Example conan Module provider for the Conan package manager. More...
+Since: Qt 2.4 List of all members, including inherited members Properties installDirectory : string Detailed Description This module provider allows integration with the Conan package manager.
 Prerequisites In order to use this provider, you will need Conan version 2.5.0 or higher. Earlier versions do not have the QbsDeps generator.">
 
 </head>
@@ -95,11 +98,11 @@ Prerequisites In order to use this provider, you will need Conan version 2.5.0 o
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io/
-/docs" translate="no">Qbs Manual</a></li>
+/docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsmoduleproviders-qmlmodule/" translate="no">QbsModuleProviders</a></li>
 <li>conan</li>
-<li id="buildversion">Qbs 2.6.0</li>
+<li id="buildversion">Qbs 2.6.1</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -111,12 +114,15 @@ Prerequisites In order to use this provider, you will need Conan version 2.5.0 o
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<div class="content"><h1 class="title" translate="no">conan QML Type</h1>
+<div class="content"><h1 class="title" translate="no">conan</h1>
 <!-- $$$conan-brief -->
 <p>Module provider for the Conan package manager. <a href="#details">More...</a></p>
 <!-- @@@conan -->
-<div class="table"><table class="alignedsummary" translate="no">
-<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsModuleProviders</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qt 2.4</td></tr></tbody></table></div><ul>
+<div class="table"><table class="alignedsummary requisites" translate="no">
+
+<tbody><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qt 2.4</td></tr>
+</tbody></table></div>
+<ul>
 <li><a href="https://qbs.io/
 /docs/qml-qbsmoduleproviders-conan-members/">List of all members, including inherited members</a></li>
 </ul>
@@ -127,11 +133,11 @@ Prerequisites In order to use this provider, you will need Conan version 2.5.0 o
 </ul>
 <!-- $$$conan-description -->
 <h2 id="details">Detailed Description</h2>
-<p>This module provider allows integration with the <a href="https://conan.io" translate="no">Conan</a> package manager.</p>
+<p>This module provider allows integration with the <a href="https://conan.io">Conan</a> package manager.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <p>In order to use this provider, you will need <code translate="no">Conan</code> version 2.5.0 or higher. Earlier versions do not have the <code translate="no">QbsDeps</code> generator.</p>
 <h2 id="example">Example</h2>
-<p>For details on how to setup a project to use with Conan, see the l{https://github.com/qbs/qbs/blob/master/examples/protobuf/addressbook_conan}{addressbook_conan} folder in examples. First, you will need a <a href="https://docs.conan.io/2/reference/conanfile_txt.html" translate="no">conanfile</a> as shown below.</p>
+<p>For details on how to setup a project to use with Conan, see the l{https://github.com/qbs/qbs/blob/master/examples/protobuf/addressbook_conan}{addressbook_conan} folder in examples. First, you will need a <a href="https://docs.conan.io/2/reference/conanfile_txt.html">conanfile</a> as shown below.</p>
 <pre class="cpp" translate="no"><span class="operator">[</span>requires<span class="operator">]</span>
 protobuf<span class="operator">/</span><span class="number">3.21.12</span>
 <span class="operator">[</span>tool_requires<span class="operator">]</span>
@@ -174,7 +180,7 @@ Build done <span class="keyword">for</span> configuration <span class="keyword">
 <!-- $$$installDirectory -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="installDirectory-prop">
+<tbody><tr class="odd" id="installDirectory-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">installDirectory</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>

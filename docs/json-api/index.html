@@ -5,7 +5,7 @@
     <title>Qbs</title>
     <meta name="description" content="Qbs Manual
 Appendix C: The JSON API
-Qbs 2.6.0
+Qbs 2.6.1
   
   
 
@@ -73,7 +73,7 @@ This API is the recommended way to provide Qbs support to an IDE. It is accessib
     <meta property="og:url" content="https://qbs.io/docs/json-api/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual Appendix C: The JSON API Qbs 2.6.0 Appendix B: Migrating from Other Build Systems Appendix D: Licenses and Code Attributions Contents Packet Format Messages The hello Message Resolving a Project Building a Project Cleaning a Project Installing a Project Canceling an Operation Adding, Removing and Renaming Source Files The get-run-environment Message The get-generated-files-for-sources Message Closing a Project Closing the Session Progress Messages The task-started Message The task-progress Message The new-max-progress Message Messages for Users The log-data Message The warning Message The protocol-error Message Project Data TopLevelProjectData PlainProjectData ProductData GroupData ArtifactData ModulePropertiesData Other Custom Data Types FilePath Location ErrorInfo DataMode LogLevel Environment Appendix C: The JSON API This API is the recommended way to provide Qbs support to an IDE. It is accessible via the session command.">
+  <meta property="og:description" content="Qbs Manual Appendix C: The JSON API Qbs 2.6.1 Appendix B: Migrating from Other Build Systems Appendix D: Licenses and Code Attributions Contents Packet Format Messages The hello Message Resolving a Project Building a Project Cleaning a Project Installing a Project Canceling an Operation Adding, Removing and Renaming Source Files The get-run-environment Message The get-generated-files-for-sources Message Closing a Project Closing the Session Progress Messages The task-started Message The task-progress Message The new-max-progress Message Messages for Users The log-data Message The warning Message The protocol-error Message Project Data TopLevelProjectData PlainProjectData ProductData GroupData ArtifactData ModulePropertiesData Other Custom Data Types FilePath Location ErrorInfo DataMode LogLevel Environment Appendix C: The JSON API This API is the recommended way to provide Qbs support to an IDE. It is accessible via the session command.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -81,7 +81,7 @@ This API is the recommended way to provide Qbs support to an IDE. It is accessib
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual Appendix C: The JSON API Qbs 2.6.0 Appendix B: Migrating from Other Build Systems Appendix D: Licenses and Code Attributions Contents Packet Format Messages The hello Message Resolving a Project Building a Project Cleaning a Project Installing a Project Canceling an Operation Adding, Removing and Renaming Source Files The get-run-environment Message The get-generated-files-for-sources Message Closing a Project Closing the Session Progress Messages The task-started Message The task-progress Message The new-max-progress Message Messages for Users The log-data Message The warning Message The protocol-error Message Project Data TopLevelProjectData PlainProjectData ProductData GroupData ArtifactData ModulePropertiesData Other Custom Data Types FilePath Location ErrorInfo DataMode LogLevel Environment Appendix C: The JSON API This API is the recommended way to provide Qbs support to an IDE. It is accessible via the session command.">
+  <meta name="twitter:description" content="Qbs Manual Appendix C: The JSON API Qbs 2.6.1 Appendix B: Migrating from Other Build Systems Appendix D: Licenses and Code Attributions Contents Packet Format Messages The hello Message Resolving a Project Building a Project Cleaning a Project Installing a Project Canceling an Operation Adding, Removing and Renaming Source Files The get-run-environment Message The get-generated-files-for-sources Message Closing a Project Closing the Session Progress Messages The task-started Message The task-progress Message The new-max-progress Message Messages for Users The log-data Message The warning Message The protocol-error Message Project Data TopLevelProjectData PlainProjectData ProductData GroupData ArtifactData ModulePropertiesData Other Custom Data Types FilePath Location ErrorInfo DataMode LogLevel Environment Appendix C: The JSON API This API is the recommended way to provide Qbs support to an IDE. It is accessible via the session command.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -114,9 +114,9 @@ This API is the recommended way to provide Qbs support to an IDE. It is accessib
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io/
-/docs" translate="no">Qbs Manual</a></li>
+/docs">Qbs Manual</a></li>
 <li>Appendix C: The JSON API</li>
-<li id="buildversion">Qbs 2.6.0</li>
+<li id="buildversion">Qbs 2.6.1</li>
   <link rel="prev" href="https://qbs.io/
 /docs/porting-to-qbs/">
   <link rel="next" href="https://qbs.io/
@@ -173,7 +173,7 @@ This API is the recommended way to provide Qbs support to an IDE. It is accessib
 <!-- $$$json-api.html-description -->
 <div class="descr" id="details">
 <p>This API is the recommended way to provide Qbs support to an IDE. It is accessible via the <a href="https://qbs.io/
-/docs/cli-session/" translate="no">session</a> command.</p>
+/docs/cli-session/">session</a> command.</p>
 <h2 id="packet-format">Packet Format</h2>
 <p>All information is exchanged via <i>packets</i>, which have the following structure:</p>
 <pre class="cpp" translate="no">packet <span class="operator">=</span> <span class="string">"qbsmsg:"</span> <span class="operator">&lt;</span>payload length<span class="operator">&gt;</span> <span class="operator">[</span><span class="operator">&lt;</span>meta data<span class="operator">&gt;</span><span class="operator">]</span> <span class="operator">&lt;</span>line feed<span class="operator">&gt;</span> <span class="operator">&lt;</span>payload<span class="operator">&gt;</span></pre>
@@ -181,14 +181,14 @@ This API is the recommended way to provide Qbs support to an IDE. It is accessib
 <h2 id="messages">Messages</h2>
 <p>The message data is UTF8-encoded.</p>
 <p>Most messages are either <i>requests</i> or <i>replies</i>. Requests are messages sent to Qbs via the session's standard input channel. Replies are messages sent by Qbs via the session's standard output channel. A reply always corresponds to one specific request. Every request (with the exception of the <a href="https://qbs.io/
-/docs/json-api/#quit-message" translate="no">quit request</a>) expects exactly one reply. A reply implies that the requested operation has finished. At the very least, it carries information about whether the operation succeeded, and often contains additional data specific to the respective request.</p>
+/docs/json-api/#closing-the-session">quit request</a>) expects exactly one reply. A reply implies that the requested operation has finished. At the very least, it carries information about whether the operation succeeded, and often contains additional data specific to the respective request.</p>
 <p>Every message object has a <code translate="no">type</code> property, which is a string that uniquely identifies the message type.</p>
 <p>All requests block the session for other requests, including those of the same type. For instance, if client code wishes to restart building the project with different parameters, it first has to send a <a href="https://qbs.io/
-/docs/json-api/#cancel-message" translate="no">cancel</a> request, wait for the current build job's reply, and only then can it request another build. The only other message beside <a href="https://qbs.io/
-/docs/json-api/#cancel-message" translate="no">cancel</a> that can legally be sent while a request is currently being handled is the <a href="https://qbs.io/
-/docs/json-api/#quit-message" translate="no">quit</a> message.</p>
+/docs/json-api/#canceling-an-operation">cancel</a> request, wait for the current build job's reply, and only then can it request another build. The only other message beside <a href="https://qbs.io/
+/docs/json-api/#canceling-an-operation">cancel</a> that can legally be sent while a request is currently being handled is the <a href="https://qbs.io/
+/docs/json-api/#closing-the-session">quit</a> message.</p>
 <p>A reply object may carry an <code translate="no">error</code> property, indicating that the respective operation has failed. If this property is not present, the request was successful. The format of the <code translate="no">error</code> property is described <a href="https://qbs.io/
-/docs/json-api/#errorinfo" translate="no">here</a>.</p>
+/docs/json-api/#errorinfo">here</a>.</p>
 <p>In the remainder of this page, we describe the structure of all messages that can be sent to and received from Qbs, respectively. The property tables may have a column titled <i>Mandatory</i>, whose values indicate whether the respective message property is always present. If this column is missing, all properties of the respective message are mandatory, unless otherwise noted.</p>
 <h2 id="the-hello-message">The <code translate="no">hello</code> Message</h2>
 <p>This message is sent by Qbs exactly once, right after the session was started. It is the only message from Qbs that is not a response to a request. The value of the <code translate="no">type</code> property is <code translate="no">"hello"</code>, the other properties are as follows:</p>
@@ -201,25 +201,25 @@ This API is the recommended way to provide Qbs support to an IDE. It is accessib
 <p>The value of <code translate="no">api-level</code> is increased whenever the API is extended, for instance by adding new messages or properties.</p>
 <p>The value of <code translate="no">api-compat-level</code> is increased whenever incompatible changes are being done to this API. A tool written for API level <code translate="no">n</code> should refuse to work with a Qbs version with an API compatibility level greater than <code translate="no">n</code>, because it cannot guarantee proper behavior. This value will not change unless it is absolutely necessary.</p>
 <p>The value of <code translate="no">api-compat-level</code> is always less than or equal to the value of <code translate="no">api-level</code>.</p>
-<p>The value of <code translate="no">lsp-socket</code> is a path to a local domain socket (on Unix) or a named pipe (on Windows). It provides a server implementing the <a href="https://microsoft.github.io/language-server-protocol" translate="no">Language Server Protocol</a>.</p>
+<p>The value of <code translate="no">lsp-socket</code> is a path to a local domain socket (on Unix) or a named pipe (on Windows). It provides a server implementing the <a href="https://microsoft.github.io/language-server-protocol">Language Server Protocol</a>.</p>
 <h2 id="resolving-a-project">Resolving a Project</h2>
 <p>To instruct Qbs to load a project from disk, a request of type <code translate="no">resolve-project</code> is sent. The other properties are:</p>
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th>Property</th><th>Type</th><th>Mandatory</th></tr></thead>
 <tbody><tr valign="top" class="odd"><td>build-root</td><td><a href="https://qbs.io/
-/docs/json-api/#filepath" translate="no">FilePath</a></td><td>yes</td></tr>
+/docs/json-api/#filepath">FilePath</a></td><td>yes</td></tr>
 <tr valign="top" class="even"><td>configuration-name</td><td>string</td><td>no</td></tr>
 <tr valign="top" class="odd"><td>data-mode</td><td><a href="https://qbs.io/
-/docs/json-api/#datamode" translate="no">DataMode</a></td><td>no</td></tr>
+/docs/json-api/#datamode">DataMode</a></td><td>no</td></tr>
 <tr valign="top" class="even"><td>deprecation-warning-mode</td><td>string</td><td>no</td></tr>
 <tr valign="top" class="odd"><td>dry-run</td><td>bool</td><td>no</td></tr>
 <tr valign="top" class="even"><td>environment</td><td><a href="https://qbs.io/
-/docs/json-api/#environment" translate="no">Environment</a></td><td>no</td></tr>
+/docs/json-api/#environment">Environment</a></td><td>no</td></tr>
 <tr valign="top" class="odd"><td>error-handling-mode</td><td>string</td><td>no</td></tr>
 <tr valign="top" class="even"><td>force-probe-execution</td><td>bool</td><td>no</td></tr>
 <tr valign="top" class="odd"><td>log-time</td><td>bool</td><td>no</td></tr>
 <tr valign="top" class="even"><td>log-level</td><td><a href="https://qbs.io/
-/docs/json-api/#loglevel" translate="no">LogLevel</a></td><td>no</td></tr>
+/docs/json-api/#loglevel">LogLevel</a></td><td>no</td></tr>
 <tr valign="top" class="odd"><td>max-job-count</td><td>int</td><td>no</td></tr>
 <tr valign="top" class="even"><td>module-properties</td><td>list of strings</td><td>no</td></tr>
 <tr valign="top" class="odd"><td>overridden-properties</td><td>object</td><td>no</td></tr>
@@ -231,25 +231,25 @@ This API is the recommended way to provide Qbs support to an IDE. It is accessib
 </tbody></table></div>
 <p>The <code translate="no">environment</code> property defines the environment to be used for resolving the project, as well as for all subsequent Qbs operations on this project.</p>
 <p>The <code translate="no">error-handling-mode</code> specifies how Qbs should deal with issues in project files, such as assigning to an unknown property. The possible values are <code translate="no">"strict"</code> and <code translate="no">"relaxed"</code>. In strict mode, Qbs will immediately abort and set the reply's <code translate="no">error</code> property accordingly. In relaxed mode, Qbs will continue to resolve the project if possible. A <a href="https://qbs.io/
-/docs/json-api/#warning-message" translate="no">warning message</a> will be emitted for every error that was encountered, and the reply's <code translate="no">error</code> property will <i>not</i> be set. The default error handling mode is <code translate="no">"strict"</code>.</p>
+/docs/json-api/#the-warning-message">warning message</a> will be emitted for every error that was encountered, and the reply's <code translate="no">error</code> property will <i>not</i> be set. The default error handling mode is <code translate="no">"strict"</code>.</p>
 <p>If the <code translate="no">log-time</code> property is <code translate="no">true</code>, then Qbs will emit <a href="https://qbs.io/
-/docs/json-api/#log-data" translate="no">log-data</a> messages containing information about which part of the operation took how much time.</p>
+/docs/json-api/#the-log-op-op-data-message">log-data</a> messages containing information about which part of the operation took how much time.</p>
 <p>The <code translate="no">module-properties</code> property lists the names of the module properties which should be contained in the <a href="https://qbs.io/
-/docs/json-api/#productdata" translate="no">product data</a> that will be sent in the reply message. For instance, if the project to be resolved is C++-based and the client code is interested in which C++ version the code uses, then <code translate="no">module-properties</code> would contain <code translate="no">"cpp.cxxLanguageVersion"</code>. Properties that have the value <code translate="no">undefined</code> will not be sent.</p>
+/docs/json-api/#productdata">product data</a> that will be sent in the reply message. For instance, if the project to be resolved is C++-based and the client code is interested in which C++ version the code uses, then <code translate="no">module-properties</code> would contain <code translate="no">"cpp.cxxLanguageVersion"</code>. Properties that have the value <code translate="no">undefined</code> will not be sent.</p>
 <p>The <code translate="no">overridden-properties</code> property is used to override the values of module, product or project properties. The possible ways to specify keys are described <a href="https://qbs.io/
-/docs/language-introduction/#overriding-property-values-from-the-command-line" translate="no">here</a>.</p>
+/docs/language-introduction/#overriding-property-values-from-the-command-line">here</a>.</p>
 <p>The <code translate="no">restore-behavior</code> property specifies if and how to make use of an existing build graph. The value <code translate="no">"restore-only"</code> indicates that a build graph should be loaded from disk and used as-is. In this mode, it is an error if the build graph file does not exist. The value <code translate="no">"resolve-only"</code> indicates that the project should be resolved from scratch and that an existing build graph should be ignored. In this mode, it is an error if the <code translate="no">"project-file-path"</code> property is not present. The default value is <code translate="no">"restore-and-track-changes"</code>, which uses an existing build graph if possible and re-resolves the project if no build graph was found, if the parameters are different from the ones used when the project was last resolved, or if other relevant changes are detected, such as updated time stamps in a project file. The <code translate="no">"restore-and-resolve"</code> value is similar to <code translate="no">"restore-and-track-changes"</code>, but also re-resolves the project if no changes were detected.</p>
 <p>The <code translate="no">top-level-profile</code> property specifies which Qbs profile to use for resolving the project. It corresponds to the <code translate="no">profile</code> key when using the <a href="https://qbs.io/
-/docs/cli-resolve/" translate="no">resolve</a> command.</p>
+/docs/cli-resolve/">resolve</a> command.</p>
 <p>All other properties correspond to command line options of the <a href="https://qbs.io/
-/docs/cli-resolve/" translate="no">resolve</a> command, and their semantics are described there.</p>
+/docs/cli-resolve/">resolve</a> command, and their semantics are described there.</p>
 <p>When the project has been resolved, Qbs will reply with a <code translate="no">project-resolved</code> message. The possible properties are:</p>
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th>Property</th><th>Type</th><th>Mandatory</th></tr></thead>
 <tbody><tr valign="top" class="odd"><td>error</td><td><a href="https://qbs.io/
-/docs/json-api/#errorinfo" translate="no">ErrorInfo</a></td><td>no</td></tr>
+/docs/json-api/#errorinfo">ErrorInfo</a></td><td>no</td></tr>
 <tr valign="top" class="even"><td>project-data</td><td><a href="https://qbs.io/
-/docs/json-api/#toplevelprojectdata" translate="no">TopLevelProjectData</a></td><td>no</td></tr>
+/docs/json-api/#toplevelprojectdata">TopLevelProjectData</a></td><td>no</td></tr>
 </tbody></table></div>
 <p>The <code translate="no">error-info</code> property is present if and only if the operation failed. The <code translate="no">project-data</code> property is present if and only if the conditions stated by the request's <code translate="no">data-mode</code> property are fulfilled.</p>
 <p>All other project-related requests need a resolved project to operate on. If there is none, they will fail.</p>
@@ -260,22 +260,22 @@ This API is the recommended way to provide Qbs support to an IDE. It is accessib
  <thead><tr class="qt-style"><th>Property</th><th>Type</th></tr></thead>
 <tbody><tr valign="top" class="odd"><td>active-file-tags</td><td>string list</td></tr>
 <tr valign="top" class="even"><td>changed-files</td><td><a href="https://qbs.io/
-/docs/json-api/#filepath" translate="no">FilePath</a> list</td></tr>
+/docs/json-api/#filepath">FilePath</a> list</td></tr>
 <tr valign="top" class="odd"><td>check-outputs</td><td>bool</td></tr>
 <tr valign="top" class="even"><td>check-timestamps</td><td>bool</td></tr>
 <tr valign="top" class="odd"><td>clean-install-root</td><td>bool</td></tr>
 <tr valign="top" class="even"><td>data-mode</td><td><a href="https://qbs.io/
-/docs/json-api/#datamode" translate="no">DataMode</a></td></tr>
+/docs/json-api/#datamode">DataMode</a></td></tr>
 <tr valign="top" class="odd"><td>dry-run</td><td>bool</td></tr>
 <tr valign="top" class="even"><td>command-echo-mode</td><td>string</td></tr>
 <tr valign="top" class="odd"><td>enforce-project-job-limits</td><td>bool</td></tr>
 <tr valign="top" class="even"><td>files-to-consider</td><td><a href="https://qbs.io/
-/docs/json-api/#filepath" translate="no">FilePath</a> list</td></tr>
+/docs/json-api/#filepath">FilePath</a> list</td></tr>
 <tr valign="top" class="odd"><td>install</td><td>bool</td></tr>
 <tr valign="top" class="even"><td>job-limits</td><td>list of objects</td></tr>
 <tr valign="top" class="odd"><td>keep-going</td><td>bool</td></tr>
 <tr valign="top" class="even"><td>log-level</td><td><a href="https://qbs.io/
-/docs/json-api/#loglevel" translate="no">LogLevel</a></td></tr>
+/docs/json-api/#loglevel">LogLevel</a></td></tr>
 <tr valign="top" class="odd"><td>log-time</td><td>bool</td></tr>
 <tr valign="top" class="even"><td>max-job-count</td><td>int</td></tr>
 <tr valign="top" class="odd"><td>module-properties</td><td>list of strings</td></tr>
@@ -285,38 +285,38 @@ This API is the recommended way to provide Qbs support to an IDE. It is accessib
 <p>The <code translate="no">active-file-tags</code> and <code translate="no">files-to-consider</code> are used to limit the build to certain output tags and/or source files. For instance, if only C/C++ object files should get built, then <code translate="no">active-file-tags</code> would be set to <code translate="no">"obj"</code>.</p>
 <p>The objects in a <code translate="no">job-limits</code> array consist of a string property <code translate="no">pool</code> and an int property <code translate="no">limit</code>.</p>
 <p>If the <code translate="no">log-time</code> property is <code translate="no">true</code>, then Qbs will emit <a href="https://qbs.io/
-/docs/json-api/#log-data" translate="no">log-data</a> messages containing information about which part of the operation took how much time.</p>
+/docs/json-api/#the-log-op-op-data-message">log-data</a> messages containing information about which part of the operation took how much time.</p>
 <p>If <code translate="no">products</code> is an array, the elements must correspond to the <code translate="no">full-display-name</code> property of previously retrieved <a href="https://qbs.io/
-/docs/json-api/#productdata" translate="no">ProductData</a>, and only these products will get built. If <code translate="no">products</code> is the string <code translate="no">"all"</code>, then all products in the project will get built. If <code translate="no">products</code> is not present, then products whose <a href="https://qbs.io/
+/docs/json-api/#productdata">ProductData</a>, and only these products will get built. If <code translate="no">products</code> is the string <code translate="no">"all"</code>, then all products in the project will get built. If <code translate="no">products</code> is not present, then products whose <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#builtByDefault-prop" translate="no">builtByDefault</a> property is <code translate="no">false</code> will be skipped.</p>
 <p>The <code translate="no">module-properties</code> property has the same meaning as in the <a href="https://qbs.io/
-/docs/json-api/#resolving-a-project" translate="no">resolve-project</a> request.</p>
+/docs/json-api/#resolving-a-project">resolve-project</a> request.</p>
 <p>All other properties correspond to options of the <a href="https://qbs.io/
-/docs/cli-build/" translate="no">build</a> command.</p>
+/docs/cli-build/">build</a> command.</p>
 <p>When the build has finished, Qbs will reply with a <code translate="no">project-built</code> message. The possible properties are:</p>
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th>Property</th><th>Type</th><th>Mandatory</th></tr></thead>
 <tbody><tr valign="top" class="odd"><td>error</td><td><a href="https://qbs.io/
-/docs/json-api/#errorinfo" translate="no">ErrorInfo</a></td><td>no</td></tr>
+/docs/json-api/#errorinfo">ErrorInfo</a></td><td>no</td></tr>
 <tr valign="top" class="even"><td>project-data</td><td><a href="https://qbs.io/
-/docs/json-api/#toplevelprojectdata" translate="no">TopLevelProjectData</a></td><td>no</td></tr>
+/docs/json-api/#toplevelprojectdata">TopLevelProjectData</a></td><td>no</td></tr>
 </tbody></table></div>
 <p>The <code translate="no">error-info</code> property is present if and only if the operation failed. The <code translate="no">project-data</code> property is present if and only if the conditions stated by the request's <code translate="no">data-mode</code> property are fulfilled.</p>
 <p>Unless the <code translate="no">command-echo-mode</code> value is <code translate="no">"silent"</code>, a message of type <code translate="no">command-description</code> is emitted for every command to be executed. It consists of two string properties <code translate="no">highlight</code> and <code translate="no">message</code>, where <code translate="no">message</code> is the message to present to the user and <code translate="no">highlight</code> is a hint on how to display the message. It corresponds to the <a href="https://qbs.io/
-/docs/commands/" translate="no">Command</a> property of the same name.</p>
+/docs/commands/">Command</a> property of the same name.</p>
 <p>For finished process commands, a message of type <code translate="no">process-result</code> might be emitted. The other properties are:</p>
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th>Property</th><th>Type</th></tr></thead>
 <tbody><tr valign="top" class="odd"><td>arguments</td><td>list of strings</td></tr>
 <tr valign="top" class="even"><td>error</td><td>string</td></tr>
 <tr valign="top" class="odd"><td>executable-file-path</td><td><a href="https://qbs.io/
-/docs/json-api/#filepath" translate="no">FilePath</a></td></tr>
+/docs/json-api/#filepath">FilePath</a></td></tr>
 <tr valign="top" class="even"><td>exit-code</td><td>int</td></tr>
 <tr valign="top" class="odd"><td>stderr</td><td>list of strings</td></tr>
 <tr valign="top" class="even"><td>stdout</td><td>list of strings</td></tr>
 <tr valign="top" class="odd"><td>success</td><td>bool</td></tr>
 <tr valign="top" class="even"><td>working-directory</td><td><a href="https://qbs.io/
-/docs/json-api/#filepath" translate="no">FilePath</a></td></tr>
+/docs/json-api/#filepath">FilePath</a></td></tr>
 </tbody></table></div>
 <p>The <code translate="no">error</code> string is one of <code translate="no">"failed-to-start"</code>, <code translate="no">"crashed"</code>, <code translate="no">"timed-out"</code>, <code translate="no">"write-error"</code>, <code translate="no">"read-error"</code> and <code translate="no">"unknown-error"</code>. Its value is not meaningful unless <code translate="no">success</code> is <code translate="no">false</code>.</p>
 <p>The <code translate="no">stdout</code> and <code translate="no">stderr</code> properties describe the process's standard output and standard error output, respectively, split into lines.</p>
@@ -330,43 +330,43 @@ This API is the recommended way to provide Qbs support to an IDE. It is accessib
 <tbody><tr valign="top" class="odd"><td>dry-run</td><td>bool</td></tr>
 <tr valign="top" class="even"><td>keep-going</td><td>bool</td></tr>
 <tr valign="top" class="odd"><td>log-level</td><td><a href="https://qbs.io/
-/docs/json-api/#loglevel" translate="no">LogLevel</a></td></tr>
+/docs/json-api/#loglevel">LogLevel</a></td></tr>
 <tr valign="top" class="even"><td>log-time</td><td>bool</td></tr>
 <tr valign="top" class="odd"><td>products</td><td>list of strings</td></tr>
 </tbody></table></div>
 <p>The elements of the <code translate="no">products</code> array correspond to a <code translate="no">full-display-name</code> of a <a href="https://qbs.io/
-/docs/json-api/#productdata" translate="no">ProductData</a>. If this property is present, only the respective products' artifacts are removed.</p>
+/docs/json-api/#productdata">ProductData</a>. If this property is present, only the respective products' artifacts are removed.</p>
 <p>If the <code translate="no">log-time</code> property is <code translate="no">true</code>, then Qbs will emit <a href="https://qbs.io/
-/docs/json-api/#log-data" translate="no">log-data</a> messages containing information about which part of the operation took how much time.</p>
+/docs/json-api/#the-log-op-op-data-message">log-data</a> messages containing information about which part of the operation took how much time.</p>
 <p>All other properties correspond to options of the <a href="https://qbs.io/
-/docs/cli-clean/" translate="no">clean</a> command.</p>
+/docs/cli-clean/">clean</a> command.</p>
 <p>None of these properties are mandatory.</p>
 <p>After all artifacts have been removed, Qbs replies with a <code translate="no">project-cleaned</code> message. If the operation was successful, this message has no properties. Otherwise, a property <code translate="no">error</code> of type <a href="https://qbs.io/
-/docs/json-api/#errorinfo" translate="no">ErrorInfo</a> indicates what went wrong.</p>
+/docs/json-api/#errorinfo">ErrorInfo</a> indicates what went wrong.</p>
 <h2 id="installing-a-project">Installing a Project</h2>
 <p>Installing is normally part of the <a href="https://qbs.io/
-/docs/json-api/#building-a-project" translate="no">build</a> process. To do it in a separate step, the <code translate="no">install</code> property is set to <code translate="no">false</code> when building and a dedicated <code translate="no">install-project</code> message is sent. The other properties are:</p>
+/docs/json-api/#building-a-project">build</a> process. To do it in a separate step, the <code translate="no">install</code> property is set to <code translate="no">false</code> when building and a dedicated <code translate="no">install-project</code> message is sent. The other properties are:</p>
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th>Property</th><th>Type</th></tr></thead>
 <tbody><tr valign="top" class="odd"><td>clean-install-root</td><td>bool</td></tr>
 <tr valign="top" class="even"><td>dry-run</td><td>bool</td></tr>
 <tr valign="top" class="odd"><td>install-root</td><td><a href="https://qbs.io/
-/docs/json-api/#filepath" translate="no">FilePath</a></td></tr>
+/docs/json-api/#filepath">FilePath</a></td></tr>
 <tr valign="top" class="even"><td>keep-going</td><td>bool</td></tr>
 <tr valign="top" class="odd"><td>log-level</td><td><a href="https://qbs.io/
-/docs/json-api/#loglevel" translate="no">LogLevel</a></td></tr>
+/docs/json-api/#loglevel">LogLevel</a></td></tr>
 <tr valign="top" class="even"><td>log-time</td><td>bool</td></tr>
 <tr valign="top" class="odd"><td>products</td><td>list of strings</td></tr>
 <tr valign="top" class="even"><td>use-sysroot</td><td>bool</td></tr>
 </tbody></table></div>
 <p>The elements of the <code translate="no">products</code> array correspond to a <code translate="no">full-display-name</code> of a <a href="https://qbs.io/
-/docs/json-api/#productdata" translate="no">ProductData</a>. If this property is present, only the respective products' artifacts are installed.</p>
+/docs/json-api/#productdata">ProductData</a>. If this property is present, only the respective products' artifacts are installed.</p>
 <p>If the <code translate="no">log-time</code> property is <code translate="no">true</code>, then Qbs will emit <a href="https://qbs.io/
-/docs/json-api/#log-data" translate="no">log-data</a> messages containing information about which part of the operation took how much time.</p>
+/docs/json-api/#the-log-op-op-data-message">log-data</a> messages containing information about which part of the operation took how much time.</p>
 <p>If the <code translate="no">use-sysroot</code> property is <code translate="no">true</code> and <code translate="no">install-root</code> is not present, then the install root will be <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#sysroot-prop" translate="no">qbs.sysroot</a>.</p>
 <p>All other properties correspond to options of the <a href="https://qbs.io/
-/docs/cli-install/" translate="no">install</a> command.</p>
+/docs/cli-install/">install</a> command.</p>
 <p>None of these properties are mandatory.</p>
 <span id="cancel-message"></span><h2 id="canceling-an-operation">Canceling an Operation</h2>
 <p>Potentially long-running operations can be aborted using the <code translate="no">cancel-job</code> request. This message does not have any properties. There is no dedicated reply message; instead, the usual reply for the request associated with the currently running operation will be sent, with the <code translate="no">error</code> property set to indicate that it was canceled.</p>
@@ -381,16 +381,16 @@ This API is the recommended way to provide Qbs support to an IDE. It is accessib
 </tbody></table></div>
 <p>The <code translate="no">files</code> property specifies which files should be added, removed or renamed. For the <code translate="no">add-files</code> and <code translate="no">remove-files</code> messages, this is a <code translate="no">FilePath</code> list. For the <code translate="no">rename-files</code> message, this is a list of objects with two properties <code translate="no">source-path</code> and <code translate="no">target-path</code>, each of which is a <code translate="no">FilePath</code>.</p>
 <p>The <code translate="no">product</code> property corresponds to the <code translate="no">full-display-name</code> of a <a href="https://qbs.io/
-/docs/json-api/#productdata" translate="no">ProductData</a> and specifies to which product to apply the operation.</p>
+/docs/json-api/#productdata">ProductData</a> and specifies to which product to apply the operation.</p>
 <p>The <code translate="no">group</code> property corresponds to the <code translate="no">name</code> of a <a href="https://qbs.io/
-/docs/json-api/#groupdata" translate="no">GroupData</a> and specifies to which group in the product to apply the operation.</p>
+/docs/json-api/#groupdata">GroupData</a> and specifies to which group in the product to apply the operation.</p>
 <p>After the operation has finished, Qbs replies with a <code translate="no">files-added</code>, <code translate="no">files-removed</code> and <code translate="no">files-renamed</code> message, respectively. Again, the properties are the same:</p>
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th>Property</th><th>Type</th><th>Mandatory</th></tr></thead>
 <tbody><tr valign="top" class="odd"><td>error</td><td><a href="https://qbs.io/
-/docs/json-api/#errorinfo" translate="no">ErrorInfo</a></td><td>no</td></tr>
+/docs/json-api/#errorinfo">ErrorInfo</a></td><td>no</td></tr>
 <tr valign="top" class="even"><td>failed-files</td><td><a href="https://qbs.io/
-/docs/json-api/#filepath" translate="no">FilePath</a> list</td><td>no</td></tr>
+/docs/json-api/#filepath">FilePath</a> list</td><td>no</td></tr>
 </tbody></table></div>
 <p>If the <code translate="no">error</code> property is present, the operation has at least partially failed and <code translate="no">failed-files</code> will list the files that could not be added or removed.</p>
 <h2 id="the-get-op-op-run-op-op-environment-message">The <code translate="no">get-run-environment</code> Message</h2>
@@ -399,26 +399,26 @@ This API is the recommended way to provide Qbs support to an IDE. It is accessib
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th>Property</th><th>Type</th><th>Mandatory</th></tr></thead>
 <tbody><tr valign="top" class="odd"><td>base-environment</td><td><a href="https://qbs.io/
-/docs/json-api/#environment" translate="no">Environment</a></td><td>no</td></tr>
+/docs/json-api/#environment">Environment</a></td><td>no</td></tr>
 <tr valign="top" class="even"><td>config</td><td>list of strings</td><td>no</td></tr>
 <tr valign="top" class="odd"><td>product</td><td>string</td><td>yes</td></tr>
 </tbody></table></div>
 <p>The <code translate="no">base-environment</code> property defines the environment into which the Qbs-specific values should be merged.</p>
 <p>The <code translate="no">config</code> property corresponds to the <a href="https://qbs.io/
-/docs/cli-run/#setup-run-env-config" translate="no">--setup-run-env-config</a> option of the <a href="https://qbs.io/
-/docs/cli-run/" translate="no">run</a> command.</p>
+/docs/cli-run/#op-op-op-op-setup-op-op-run-op-op-env-op-op-config">--setup-run-env-config</a> option of the <a href="https://qbs.io/
+/docs/cli-run/">run</a> command.</p>
 <p>The <code translate="no">product</code> property specifies the product whose environment to retrieve. The value must correspond to the <code translate="no">full-display-name</code> of some <a href="https://qbs.io/
-/docs/json-api/#productdata" translate="no">ProductData</a> in the project.</p>
+/docs/json-api/#productdata">ProductData</a> in the project.</p>
 <p>Qbs will reply with a <code translate="no">run-environment</code> message. In case of failure, it will contain a property <code translate="no">error</code> of type <a href="https://qbs.io/
-/docs/json-api/#errorinfo" translate="no">ErrorInfo</a>, otherwise it will contain a property <code translate="no">full-environment</code> of type <a href="https://qbs.io/
-/docs/json-api/#environment" translate="no">Environment</a>.</p>
+/docs/json-api/#errorinfo">ErrorInfo</a>, otherwise it will contain a property <code translate="no">full-environment</code> of type <a href="https://qbs.io/
+/docs/json-api/#environment">Environment</a>.</p>
 <h2 id="the-get-op-op-generated-op-op-files-op-op-keyword-for-keyword-op-op-sources-message">The <code translate="no">get-generated-files-for-sources</code> Message</h2>
 <p>This request allows client code to retrieve information about which artifacts are generated from a given source file. Its sole property is a list <code translate="no">products</code>, whose elements are objects with the two properties <code translate="no">full-display-name</code> and <code translate="no">requests</code>. The first identifies the product to which the requests apply, and it must match the property of the same name in a <a href="https://qbs.io/
-/docs/json-api/#productdata" translate="no">ProductData</a> in the project. The latter is a list of objects with the following properties:</p>
+/docs/json-api/#productdata">ProductData</a> in the project. The latter is a list of objects with the following properties:</p>
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th>Property</th><th>Type</th><th>Mandatory</th></tr></thead>
 <tbody><tr valign="top" class="odd"><td>source-file</td><td><a href="https://qbs.io/
-/docs/json-api/#filepath" translate="no">FilePath</a></td><td>yes</td></tr>
+/docs/json-api/#filepath">FilePath</a></td><td>yes</td></tr>
 <tr valign="top" class="even"><td>tags</td><td>list of strings</td><td>no</td></tr>
 <tr valign="top" class="odd"><td>recursive</td><td>bool</td><td>no</td></tr>
 </tbody></table></div>
@@ -429,9 +429,9 @@ This API is the recommended way to provide Qbs support to an IDE. It is accessib
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th>Property</th><th>Type</th></tr></thead>
 <tbody><tr valign="top" class="odd"><td>source-file</td><td><a href="https://qbs.io/
-/docs/json-api/#filepath" translate="no">FilePath</a></td></tr>
+/docs/json-api/#filepath">FilePath</a></td></tr>
 <tr valign="top" class="even"><td>generated-files</td><td><a href="https://qbs.io/
-/docs/json-api/#filepath" translate="no">FilePath</a> list</td></tr>
+/docs/json-api/#filepath">FilePath</a> list</td></tr>
 </tbody></table></div>
 <p>The <code translate="no">source-file</code> property corresponds to an entry of the same name in the request, and the <code translate="no">generated-files</code> are the files which are generated by Qbs rules that take the source file as an input, taking the constraints specified in the request into account.</p>
 <p>Source files for which the list would be empty are not listed. Similarly, products for which the <code translate="no">results</code> list would be empty are also omitted.</p>
@@ -441,7 +441,7 @@ This API is the recommended way to provide Qbs support to an IDE. It is accessib
 <h2 id="closing-a-project">Closing a Project</h2>
 <p>A project is closed with a <code translate="no">release-project</code> message. This request has no properties.</p>
 <p>Qbs will reply with a <code translate="no">project-released</code> message. If no project was open, the reply will contain an <code translate="no">error</code> property of type <a href="https://qbs.io/
-/docs/json-api/#errorinfo" translate="no">ErrorInfo</a>.</p>
+/docs/json-api/#errorinfo">ErrorInfo</a>.</p>
 <span id="quit-message"></span><h2 id="closing-the-session">Closing the Session</h2>
 <p>To close the session, a <code translate="no">quit</code> message is sent. This request has no properties.</p>
 <p>Qbs will cancel all currently running operations and then close itself. No reply will be sent.</p>
@@ -453,31 +453,31 @@ This API is the recommended way to provide Qbs support to an IDE. It is accessib
 <p>This message updates the progress via an integer property <code translate="no">progress</code>.</p>
 <span id="new-max-progress"></span><h3 id="the-keyword-new-keyword-op-op-max-op-op-progress-message">The <code translate="no">new-max-progress</code> Message</h3>
 <p>This message is emitted if the original estimated maximum progress has to be corrected. Its integer property <code translate="no">max-progress</code> updates the value from a preceding <a href="https://qbs.io/
-/docs/json-api/#task-started" translate="no">task-started</a> message.</p>
+/docs/json-api/#the-task-op-op-started-message">task-started</a> message.</p>
 <h2 id="messages-for-users">Messages for Users</h2>
 <p>There are two types of messages that purely contain information to be presented to users.</p>
 <span id="log-data"></span><h3 id="the-log-op-op-data-message">The <code translate="no">log-data</code> Message</h3>
 <p>This object has a string property <code translate="no">message</code>, which is the text to be shown to the user.</p>
 <span id="warning-message"></span><h3 id="the-warning-message">The <code translate="no">warning</code> Message</h3>
 <p>This message has a single property of type <a href="https://qbs.io/
-/docs/json-api/#errorinfo" translate="no">ErrorInfo</a>. The name of the property is either <code translate="no">warning</code> or <code translate="no">error</code>, depending on how the client should display it.</p>
+/docs/json-api/#errorinfo">ErrorInfo</a>. The name of the property is either <code translate="no">warning</code> or <code translate="no">error</code>, depending on how the client should display it.</p>
 <h2 id="the-protocol-op-op-error-message">The <code translate="no">protocol-error</code> Message</h2>
 <p>Qbs sends this message as a reply to a request with an unknown <code translate="no">type</code>. It contains an <code translate="no">error</code> property of type <a href="https://qbs.io/
-/docs/json-api/#errorinfo" translate="no">ErrorInfo</a>.</p>
+/docs/json-api/#errorinfo">ErrorInfo</a>.</p>
 <h2 id="project-data">Project Data</h2>
 <p>If a request can alter the build graph data, the associated reply may contain a <code translate="no">project-data</code> property whose value is of type <a href="https://qbs.io/
-/docs/json-api/#toplevelprojectdata" translate="no">TopLevelProjectData</a>.</p>
+/docs/json-api/#toplevelprojectdata">TopLevelProjectData</a>.</p>
 <h3 id="toplevelprojectdata">TopLevelProjectData</h3>
 <p>This data type represents the entire project. It has the same properties as <a href="https://qbs.io/
-/docs/json-api/#plainprojectdata" translate="no">PlainProjectData</a>. If it is part of a <code translate="no">project-resolved</code> message, these additional properties are also present:</p>
+/docs/json-api/#plainprojectdata">PlainProjectData</a>. If it is part of a <code translate="no">project-resolved</code> message, these additional properties are also present:</p>
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th>Property</th><th>Type</th></tr></thead>
 <tbody><tr valign="top" class="odd"><td>build-directory</td><td><a href="https://qbs.io/
-/docs/json-api/#filepath" translate="no">FilePath</a></td></tr>
+/docs/json-api/#filepath">FilePath</a></td></tr>
 <tr valign="top" class="even"><td>build-graph-file-path</td><td><a href="https://qbs.io/
-/docs/json-api/#filepath" translate="no">FilePath</a></td></tr>
+/docs/json-api/#filepath">FilePath</a></td></tr>
 <tr valign="top" class="odd"><td>build-system-files</td><td><a href="https://qbs.io/
-/docs/json-api/#filepath" translate="no">FilePath</a> list</td></tr>
+/docs/json-api/#filepath">FilePath</a> list</td></tr>
 <tr valign="top" class="even"><td>overridden-properties</td><td>object</td></tr>
 <tr valign="top" class="odd"><td>profile-data</td><td>object</td></tr>
 </tbody></table></div>
@@ -485,7 +485,7 @@ This API is the recommended way to provide Qbs support to an IDE. It is accessib
 <p>The <code translate="no">build-graph-file-path</code> value is the path to the build graph file.</p>
 <p>The <code translate="no">build-system-files</code> value contains all Qbs project files, including modules and JavaScript helper files.</p>
 <p>The value of <code translate="no">overridden-properties</code> is the one that was passed in when the project was last <a href="https://qbs.io/
-/docs/json-api/#resolving-a-project" translate="no">resolved</a>.</p>
+/docs/json-api/#resolving-a-project">resolved</a>.</p>
 <p>The <code translate="no">profile-data</code> property maps the names of the profiles used in the project to the respective property maps. Unless profile multiplexing is used, this object will contain exactly one property.</p>
 <h3 id="plainprojectdata">PlainProjectData</h3>
 <p>This data type describes a <a href="https://qbs.io/
@@ -494,12 +494,12 @@ This API is the recommended way to provide Qbs support to an IDE. It is accessib
  <thead><tr class="qt-style"><th>Property</th><th>Type</th></tr></thead>
 <tbody><tr valign="top" class="odd"><td>is-enabled</td><td>bool</td></tr>
 <tr valign="top" class="even"><td>location</td><td><a href="https://qbs.io/
-/docs/json-api/#filepath" translate="no">FilePath</a></td></tr>
+/docs/json-api/#filepath">FilePath</a></td></tr>
 <tr valign="top" class="odd"><td>name</td><td>string</td></tr>
 <tr valign="top" class="even"><td>products</td><td><a href="https://qbs.io/
-/docs/json-api/#productdata" translate="no">ProductData</a> list</td></tr>
+/docs/json-api/#productdata">ProductData</a> list</td></tr>
 <tr valign="top" class="odd"><td>sub-projects</td><td><a href="https://qbs.io/
-/docs/json-api/#plainprojectdata" translate="no">PlainProjectData</a> list</td></tr>
+/docs/json-api/#plainprojectdata">PlainProjectData</a> list</td></tr>
 </tbody></table></div>
 <p>The <code translate="no">is-enabled</code> property corresponds to the project's <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-project/#condition-prop" translate="no">condition</a>.</p>
@@ -513,25 +513,25 @@ This API is the recommended way to provide Qbs support to an IDE. It is accessib
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th>Property</th><th>Type</th></tr></thead>
 <tbody><tr valign="top" class="odd"><td>build-directory</td><td><a href="https://qbs.io/
-/docs/json-api/#filepath" translate="no">FilePath</a></td></tr>
+/docs/json-api/#filepath">FilePath</a></td></tr>
 <tr valign="top" class="even"><td>dependencies</td><td>list of strings</td></tr>
 <tr valign="top" class="odd"><td>full-display-name</td><td>string</td></tr>
 <tr valign="top" class="even"><td>generated-artifacts</td><td><a href="https://qbs.io/
-/docs/json-api/#artifactdata" translate="no">ArtifactData</a> list</td></tr>
+/docs/json-api/#artifactdata">ArtifactData</a> list</td></tr>
 <tr valign="top" class="odd"><td>groups</td><td><a href="https://qbs.io/
-/docs/json-api/#groupdata" translate="no">GroupData</a> list</td></tr>
+/docs/json-api/#groupdata">GroupData</a> list</td></tr>
 <tr valign="top" class="even"><td>is-enabled</td><td>bool</td></tr>
 <tr valign="top" class="odd"><td>is-multiplexed</td><td>bool</td></tr>
 <tr valign="top" class="even"><td>is-runnable</td><td>bool</td></tr>
 <tr valign="top" class="odd"><td>location</td><td><a href="https://qbs.io/
-/docs/json-api/#location" translate="no">Location</a></td></tr>
+/docs/json-api/#location">Location</a></td></tr>
 <tr valign="top" class="even"><td>module-properties</td><td><a href="https://qbs.io/
-/docs/json-api/#modulepropertiesdata" translate="no">ModulePropertiesData</a></td></tr>
+/docs/json-api/#modulepropertiesdata">ModulePropertiesData</a></td></tr>
 <tr valign="top" class="odd"><td>multiplex-configuration-id</td><td>string</td></tr>
 <tr valign="top" class="even"><td>name</td><td>string</td></tr>
 <tr valign="top" class="odd"><td>properties</td><td>object</td></tr>
 <tr valign="top" class="even"><td>target-executable</td><td><a href="https://qbs.io/
-/docs/json-api/#filepath" translate="no">FilePath</a></td></tr>
+/docs/json-api/#filepath">FilePath</a></td></tr>
 <tr valign="top" class="odd"><td>target-name</td><td>string</td></tr>
 <tr valign="top" class="even"><td>type</td><td>list of strings</td></tr>
 <tr valign="top" class="odd"><td>version</td><td>string</td></tr>
@@ -545,14 +545,14 @@ This API is the recommended way to provide Qbs support to an IDE. It is accessib
 /docs/qml-qbslanguageitems-product/#files-prop" translate="no">files</a> property of the product itself. Its name is the same as the product's.</p>
 <p>The <code translate="no">is-enabled</code> property corresponds to the product's <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#condition-prop" translate="no">condition</a>. A product may also get disabled if it contains errors and Qbs was was instructed to operate in relaxed mode when the project was <a href="https://qbs.io/
-/docs/json-api/#resolving-a-project" translate="no">resolved</a>.</p>
+/docs/json-api/#resolving-a-project">resolved</a>.</p>
 <p>The <code translate="no">is-multiplexed</code> property is true if and only if the product is <a href="https://qbs.io/
-/docs/multiplexing/" translate="no">multiplexed</a> over one ore more properties.</p>
+/docs/multiplexing/">multiplexed</a> over one ore more properties.</p>
 <p>The <code translate="no">is-runnable</code> property indicates whether one of the product's target artifacts is an executable file. In that case, the file is available via the <code translate="no">target-executable</code> property.</p>
 <p>The <code translate="no">location</code> property is the exact position in a Qbs project file where the corresponding <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/" translate="no">Product</a> item was defined.</p>
 <p>The <code translate="no">module-properties</code> object provides the values of the module properties that were requested when the project was <a href="https://qbs.io/
-/docs/json-api/#resolving-a-project" translate="no">resolved</a>.</p>
+/docs/json-api/#resolving-a-project">resolved</a>.</p>
 <p>The <code translate="no">name</code> property is the value given in the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#name-prop" translate="no">Product item</a>, whereas <code translate="no">full-display-name</code> is a name that uniquely identifies the product in the entire project, even in the presence of multiplexing. In the absence of multiplexing, it is the same as <code translate="no">name</code>. In either case, it is suitable for being presented to users.</p>
 <p>See the <a href="https://qbs.io/
@@ -564,22 +564,22 @@ This API is the recommended way to provide Qbs support to an IDE. It is accessib
  <thead><tr class="qt-style"><th>Property</th><th>Type</th></tr></thead>
 <tbody><tr valign="top" class="odd"><td>is-enabled</td><td>bool</td></tr>
 <tr valign="top" class="even"><td>location</td><td><a href="https://qbs.io/
-/docs/json-api/#location" translate="no">Location</a></td></tr>
+/docs/json-api/#location">Location</a></td></tr>
 <tr valign="top" class="odd"><td>module-properties</td><td><a href="https://qbs.io/
-/docs/json-api/#modulepropertiesdata" translate="no">ModulePropertiesData</a></td></tr>
+/docs/json-api/#modulepropertiesdata">ModulePropertiesData</a></td></tr>
 <tr valign="top" class="even"><td>name</td><td>string</td></tr>
 <tr valign="top" class="odd"><td>prefix</td><td>string</td></tr>
 <tr valign="top" class="even"><td>source-artifacts</td><td><a href="https://qbs.io/
-/docs/json-api/#artifactdata" translate="no">ArtifactData</a> list</td></tr>
+/docs/json-api/#artifactdata">ArtifactData</a> list</td></tr>
 <tr valign="top" class="odd"><td>source-artifacts-from-wildcards</td><td><a href="https://qbs.io/
-/docs/json-api/#artifactdata" translate="no">ArtifactData</a> list</td></tr>
+/docs/json-api/#artifactdata">ArtifactData</a> list</td></tr>
 </tbody></table></div>
 <p>The <code translate="no">is-enabled</code> property corresponds to the groups's <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-group/#condition-prop" translate="no">condition</a>. However, if the group's product is disabled, this property will always be <code translate="no">false</code>.</p>
 <p>The <code translate="no">location</code> property is the exact position in a Qbs project file where the corresponding <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-group/" translate="no">Group</a> item occurs.</p>
 <p>The <code translate="no">module-properties</code> object provides the values of the module properties that were requested when the project was <a href="https://qbs.io/
-/docs/json-api/#resolving-a-project" translate="no">resolved</a>. If no module properties are set on the Group level and the value would therefore be the same as in the group's product, then this property is omitted.</p>
+/docs/json-api/#resolving-a-project">resolved</a>. If no module properties are set on the Group level and the value would therefore be the same as in the group's product, then this property is omitted.</p>
 <p>The <code translate="no">source-artifacts</code> list corresponds the the files listed verbatim in the group's <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-group/#files-prop" translate="no">files</a> property.</p>
 <p>The <code translate="no">source-artifacts-from-wildcards</code> list represents the the files expanded from wildcard entries in the group's <a href="https://qbs.io/
@@ -591,22 +591,22 @@ This API is the recommended way to provide Qbs support to an IDE. It is accessib
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th>Property</th><th>Type</th></tr></thead>
 <tbody><tr valign="top" class="odd"><td>file-path</td><td><a href="https://qbs.io/
-/docs/json-api/#filepath" translate="no">FilePath</a></td></tr>
+/docs/json-api/#filepath">FilePath</a></td></tr>
 <tr valign="top" class="even"><td>file-tags</td><td>list of strings</td></tr>
 <tr valign="top" class="odd"><td>install-data</td><td>object</td></tr>
 <tr valign="top" class="even"><td>is-executable</td><td>bool</td></tr>
 <tr valign="top" class="odd"><td>is-generated</td><td>bool</td></tr>
 <tr valign="top" class="even"><td>is-target</td><td>bool</td></tr>
 <tr valign="top" class="odd"><td>module-properties</td><td><a href="https://qbs.io/
-/docs/json-api/#modulepropertiesdata" translate="no">ModulePropertiesData</a></td></tr>
+/docs/json-api/#modulepropertiesdata">ModulePropertiesData</a></td></tr>
 </tbody></table></div>
 <p>The <code translate="no">install-data</code> property is an object whose <code translate="no">is-installable</code> property indicates whether the artifact gets installed. If so, then the <a href="https://qbs.io/
-/docs/json-api/#filepath" translate="no">FilePath</a> properties <code translate="no">install-file-path</code> and <code translate="no">install-root</code> provide further information.</p>
+/docs/json-api/#filepath">FilePath</a> properties <code translate="no">install-file-path</code> and <code translate="no">install-root</code> provide further information.</p>
 <p>The <code translate="no">is-target</code> property is true if the artifact is a target artifact of its product, that is, <code translate="no">is-generated</code> is true and <code translate="no">file-tags</code> intersects with the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#type-prop" translate="no">product type</a>.</p>
 <p>The <code translate="no">module-properties</code> object provides the values of the module properties that were requested when the project was <a href="https://qbs.io/
-/docs/json-api/#resolving-a-project" translate="no">resolved</a>. This property is only present for generated artifacts. For source artifacts, the value can be retrieved from their <a href="https://qbs.io/
-/docs/json-api/#groupdata" translate="no">group</a>.</p>
+/docs/json-api/#resolving-a-project">resolved</a>. This property is only present for generated artifacts. For source artifacts, the value can be retrieved from their <a href="https://qbs.io/
+/docs/json-api/#groupdata">group</a>.</p>
 <p>The other properties should be self-explanatory.</p>
 <h3 id="modulepropertiesdata">ModulePropertiesData</h3>
 <p>This data type maps fully qualified module property names to their respective values.</p>
@@ -619,7 +619,7 @@ This API is the recommended way to provide Qbs support to an IDE. It is accessib
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th>Property</th><th>Type</th><th>Mandatory</th></tr></thead>
 <tbody><tr valign="top" class="odd"><td>file-path</td><td><a href="https://qbs.io/
-/docs/json-api/#filepath" translate="no">FilePath</a></td><td>yes</td></tr>
+/docs/json-api/#filepath">FilePath</a></td><td>yes</td></tr>
 <tr valign="top" class="even"><td>line</td><td>int</td><td>no</td></tr>
 <tr valign="top" class="odd"><td>column</td><td>int</td><td>no</td></tr>
 </tbody></table></div>
@@ -629,12 +629,12 @@ This API is the recommended way to provide Qbs support to an IDE. It is accessib
  <thead><tr class="qt-style"><th>Property</th><th>Type</th><th>Mandatory</th></tr></thead>
 <tbody><tr valign="top" class="odd"><td>description</td><td>string</td><td>yes</td></tr>
 <tr valign="top" class="even"><td>location</td><td><a href="https://qbs.io/
-/docs/json-api/#location" translate="no">Location</a></td><td>no</td></tr>
+/docs/json-api/#location">Location</a></td><td>no</td></tr>
 </tbody></table></div>
 <h3 id="datamode">DataMode</h3>
 <p>This is the type of the <code translate="no">data-mode</code> property in a <a href="https://qbs.io/
-/docs/json-api/#resolving-a-project" translate="no">resolve</a> or <a href="https://qbs.io/
-/docs/json-api/#building-a-project" translate="no">build</a> request. It is used to indicate under which circumstances the reply message should include the project data. The possible values have string type and are as follows:</p>
+/docs/json-api/#resolving-a-project">resolve</a> or <a href="https://qbs.io/
+/docs/json-api/#building-a-project">build</a> request. It is used to indicate under which circumstances the reply message should include the project data. The possible values have string type and are as follows:</p>
 <ul>
 <li><code translate="no">"never"</code>: Do not attach project data to the reply.</li>
 <li><code translate="no">"always"</code>: Do attach project data to the reply.</li>
@@ -643,15 +643,15 @@ This API is the recommended way to provide Qbs support to an IDE. It is accessib
 <p>The default value is <code translate="no">"never"</code>.</p>
 <h3 id="loglevel">LogLevel</h3>
 <p>This is the type of the <code translate="no">log-level</code> property that can occur in various requests. It is used to indicate whether the client would like to receive <a href="https://qbs.io/
-/docs/json-api/#log-data" translate="no">log-data</a> and/or <a href="https://qbs.io/
-/docs/json-api/#warning-message" translate="no">warning</a> messages. The possible values have string type and are as follows:</p>
+/docs/json-api/#the-log-op-op-data-message">log-data</a> and/or <a href="https://qbs.io/
+/docs/json-api/#the-warning-message">warning</a> messages. The possible values have string type and are as follows:</p>
 <ul>
 <li>"error": Do not log anything.</li>
 <li>"warning": Qbs may emit <a href="https://qbs.io/
-/docs/json-api/#warning-message" translate="no">warnings</a>, but no <a href="https://qbs.io/
-/docs/json-api/#log-data" translate="no">log-data</a> messages.</li>
+/docs/json-api/#the-warning-message">warnings</a>, but no <a href="https://qbs.io/
+/docs/json-api/#the-log-op-op-data-message">log-data</a> messages.</li>
 <li>"info": In addition to warnings, Qbs may emit informational <a href="https://qbs.io/
-/docs/json-api/#log-data" translate="no">log-data</a> messages.</li>
+/docs/json-api/#the-log-op-op-data-message">log-data</a> messages.</li>
 <li>"debug": Qbs may emit debug output. No messages will be generated; instead, the standard error output channel will be used.</li>
 </ul>
 <p>The default value is <code translate="no">"info"</code>.</p>

@@ -6,7 +6,7 @@
     <meta name="description" content="Qbs Manual
 QbsModules
 archiver
-Qbs 2.6.0
+Qbs 2.6.1
 
 
 Contents
@@ -16,12 +16,15 @@ Detailed Description
 
 
 
-archiver QML Type
+archiver
 
 Provides support for building archives. More...
 
 
- Import Statement: import QbsModules Since: Qbs 1.4
+
+ Since: Qbs 1.4
+
+
 List of all members, including inherited members
 
 Properties
@@ -53,8 +56,8 @@ The archiver module contains the properties and rules for creating (compressed) 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-archiver/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual QbsModules archiver Qbs 2.6.0 Contents Properties Detailed Description archiver QML Type Provides support for building archives. More...
-Import Statement: import QbsModules Since: Qbs 1.4 List of all members, including inherited members Properties archiveBaseName : string command : string compressionLevel : string compressionType : string flags : stringList outputDirectory : string type : string workingDirectory : string Detailed Description The archiver module contains the properties and rules for creating (compressed) archives. The output artifact has the file tag &#34;archiver.archive&#34;. The sole input artifact is a text file containing the list of files to package, with one file path per line. The paths can be relative, in which case they will be looked for in workingDirectory. The file tag of this input artifact is &#34;archiver.input-list&#34;.">
+  <meta property="og:description" content="Qbs Manual QbsModules archiver Qbs 2.6.1 Contents Properties Detailed Description archiver Provides support for building archives. More...
+Since: Qbs 1.4 List of all members, including inherited members Properties archiveBaseName : string command : string compressionLevel : string compressionType : string flags : stringList outputDirectory : string type : string workingDirectory : string Detailed Description The archiver module contains the properties and rules for creating (compressed) archives. The output artifact has the file tag &#34;archiver.archive&#34;. The sole input artifact is a text file containing the list of files to package, with one file path per line. The paths can be relative, in which case they will be looked for in workingDirectory. The file tag of this input artifact is &#34;archiver.input-list&#34;.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -62,8 +65,8 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual QbsModules archiver Qbs 2.6.0 Contents Properties Detailed Description archiver QML Type Provides support for building archives. More...
-Import Statement: import QbsModules Since: Qbs 1.4 List of all members, including inherited members Properties archiveBaseName : string command : string compressionLevel : string compressionType : string flags : stringList outputDirectory : string type : string workingDirectory : string Detailed Description The archiver module contains the properties and rules for creating (compressed) archives. The output artifact has the file tag &#34;archiver.archive&#34;. The sole input artifact is a text file containing the list of files to package, with one file path per line. The paths can be relative, in which case they will be looked for in workingDirectory. The file tag of this input artifact is &#34;archiver.input-list&#34;.">
+  <meta name="twitter:description" content="Qbs Manual QbsModules archiver Qbs 2.6.1 Contents Properties Detailed Description archiver Provides support for building archives. More...
+Since: Qbs 1.4 List of all members, including inherited members Properties archiveBaseName : string command : string compressionLevel : string compressionType : string flags : stringList outputDirectory : string type : string workingDirectory : string Detailed Description The archiver module contains the properties and rules for creating (compressed) archives. The output artifact has the file tag &#34;archiver.archive&#34;. The sole input artifact is a text file containing the list of files to package, with one file path per line. The paths can be relative, in which case they will be looked for in workingDirectory. The file tag of this input artifact is &#34;archiver.input-list&#34;.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -96,11 +99,11 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io/
-/docs" translate="no">Qbs Manual</a></li>
+/docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>archiver</li>
-<li id="buildversion">Qbs 2.6.0</li>
+<li id="buildversion">Qbs 2.6.1</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -110,12 +113,15 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<div class="content"><h1 class="title" translate="no">archiver QML Type</h1>
+<div class="content"><h1 class="title" translate="no">archiver</h1>
 <!-- $$$archiver-brief -->
 <p>Provides support for building archives. <a href="#details">More...</a></p>
 <!-- @@@archiver -->
-<div class="table"><table class="alignedsummary" translate="no">
-<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsModules</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.4</td></tr></tbody></table></div><ul>
+<div class="table"><table class="alignedsummary requisites" translate="no">
+
+<tbody><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.4</td></tr>
+</tbody></table></div>
+<ul>
 <li><a href="https://qbs.io/
 /docs/qml-qbsmodules-archiver-members/">List of all members, including inherited members</a></li>
 </ul>
@@ -147,7 +153,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <!-- $$$archiveBaseName -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="archiveBaseName-prop">
+<tbody><tr class="odd" id="archiveBaseName-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">archiveBaseName</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -159,7 +165,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <!-- $$$command -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="command-prop">
+<tbody><tr class="odd" id="command-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">command</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -168,10 +174,10 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <p>The following table lists the supported <a href="https://qbs.io/
 /docs/qml-qbsmodules-archiver/#type-prop" translate="no">archive types</a> and the tools capable of producing them, listed in search order from left to right:</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th>Type</th><th>Supported tools</th></tr></thead>
-<tbody><tr valign="top" class="odd"><td>7zip</td><td>7z</td></tr>
-<tr valign="top" class="even"><td>tar</td><td>tar, 7z</td></tr>
-<tr valign="top" class="odd"><td>zip</td><td>zip <i>(Info-Zip)</i>, 7z, jar <i>(from Java JDK)</i></td></tr>
+<thead><tr class="qt-style"><th>Type</th><th>Supported tools</th></tr></thead>
+<tbody><tr class="odd" valign="top"><td>7zip</td><td>7z</td></tr>
+<tr class="even" valign="top"><td>tar</td><td>tar, 7z</td></tr>
+<tr class="odd" valign="top"><td>zip</td><td>zip <i>(Info-Zip)</i>, 7z, jar <i>(from Java JDK)</i></td></tr>
 </tbody></table></div>
 <p>Default: Depends on <a href="https://qbs.io/
 /docs/qml-qbsmodules-archiver/#type-prop" translate="no">type</a>.</p>
@@ -180,7 +186,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <!-- $$$compressionLevel -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="compressionLevel-prop">
+<tbody><tr class="odd" id="compressionLevel-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">compressionLevel</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -208,7 +214,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <!-- $$$compressionType -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="compressionType-prop">
+<tbody><tr class="odd" id="compressionType-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">compressionType</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -230,7 +236,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <!-- $$$flags -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="flags-prop">
+<tbody><tr class="odd" id="flags-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">flags</span> : <span class="type">stringList</span></p></td></tr>
 </tbody></table></div></div>
@@ -241,7 +247,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <!-- $$$outputDirectory -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="outputDirectory-prop">
+<tbody><tr class="odd" id="outputDirectory-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">outputDirectory</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -253,7 +259,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <!-- $$$type -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="type-prop">
+<tbody><tr class="odd" id="type-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">type</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -270,7 +276,7 @@ Import Statement: import QbsModules Since: Qbs 1.4 List of all members, includin
 <!-- $$$workingDirectory -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="workingDirectory-prop">
+<tbody><tr class="odd" id="workingDirectory-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">workingDirectory</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>

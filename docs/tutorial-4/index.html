@@ -5,7 +5,7 @@
     <title>Qbs</title>
     <meta name="description" content="Qbs Manual
 Convenience Items
-Qbs 2.6.0
+Qbs 2.6.1
   
   
 
@@ -32,7 +32,7 @@ As you might have noticed, we are repeating ourselves when setting the same prop
     <meta property="og:url" content="https://qbs.io/docs/tutorial-4/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual Convenience Items Qbs 2.6.0 Dynamic Library Autotest Convenience Items As you might have noticed, we are repeating ourselves when setting the same properties in our products - we set version, install, cpp.rpaths, and so on. For a single application and a library, that is not a big deal, but what if we have a dozen libraries? Luckily, this can be achieved using item inheritance - we move the common code to the base item and in the real product we will only set what is specific to that product (for example, the list of files).">
+  <meta property="og:description" content="Qbs Manual Convenience Items Qbs 2.6.1 Dynamic Library Autotest Convenience Items As you might have noticed, we are repeating ourselves when setting the same properties in our products - we set version, install, cpp.rpaths, and so on. For a single application and a library, that is not a big deal, but what if we have a dozen libraries? Luckily, this can be achieved using item inheritance - we move the common code to the base item and in the real product we will only set what is specific to that product (for example, the list of files).">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -40,7 +40,7 @@ As you might have noticed, we are repeating ourselves when setting the same prop
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual Convenience Items Qbs 2.6.0 Dynamic Library Autotest Convenience Items As you might have noticed, we are repeating ourselves when setting the same properties in our products - we set version, install, cpp.rpaths, and so on. For a single application and a library, that is not a big deal, but what if we have a dozen libraries? Luckily, this can be achieved using item inheritance - we move the common code to the base item and in the real product we will only set what is specific to that product (for example, the list of files).">
+  <meta name="twitter:description" content="Qbs Manual Convenience Items Qbs 2.6.1 Dynamic Library Autotest Convenience Items As you might have noticed, we are repeating ourselves when setting the same properties in our products - we set version, install, cpp.rpaths, and so on. For a single application and a library, that is not a big deal, but what if we have a dozen libraries? Luckily, this can be achieved using item inheritance - we move the common code to the base item and in the real product we will only set what is specific to that product (for example, the list of files).">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -73,9 +73,9 @@ As you might have noticed, we are repeating ourselves when setting the same prop
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io/
-/docs" translate="no">Qbs Manual</a></li>
+/docs">Qbs Manual</a></li>
 <li>Convenience Items</li>
-<li id="buildversion">Qbs 2.6.0</li>
+<li id="buildversion">Qbs 2.6.1</li>
   <link rel="prev" href="https://qbs.io/
 /docs/tutorial-3/">
   <link rel="next" href="https://qbs.io/
@@ -94,7 +94,7 @@ As you might have noticed, we are repeating ourselves when setting the same prop
 /docs/qml-qbslanguageitems-product/#version-prop" translate="no">version</a>, <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-application/#install-prop" translate="no">install</a>, <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#rpaths-prop" translate="no">cpp.rpaths</a>, and so on. For a single application and a library, that is not a big deal, but what if we have a dozen libraries? Luckily, this can be achieved using item <a href="https://qbs.io/
-/docs/language-introduction/#reusing-project-file-code" translate="no">inheritance</a> - we move the common code to the base item and in the real product we will only set what is specific to that product (for example, the list of <a href="https://qbs.io/
+/docs/language-introduction/#reusing-project-file-code">inheritance</a> - we move the common code to the base item and in the real product we will only set what is specific to that product (for example, the list of <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#files-prop" translate="no">files</a>).</p>
 <p>First, we need to tell Qbs where to look for our new base items. This can be achieved using the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-project/#qbsSearchPaths-prop" translate="no">qbsSearchPaths</a> property. We set this property to <code translate="no">"qbs"</code> so that Qbs will search our items in the <code translate="no">qbs</code> directory located in the project directory:</p>
@@ -109,7 +109,7 @@ As you might have noticed, we are repeating ourselves when setting the same prop
 }</pre>
 <div class="admonition note">
 <p><b>Note: </b>This directory has a pre-defined structure: base items should be located under the <code translate="no">imports</code> subdirectory. See <a href="https://qbs.io/
-/docs/custom-modules/" translate="no">Custom Modules and Items</a> for details.</p>
+/docs/custom-modules/">Custom Modules and Items</a> for details.</p>
 </div>
 <p>Let's create a base item for all our applications and move common code there:</p>
 <pre class="cpp" translate="no">// qbs/imports/MyApplication.qbs
@@ -181,7 +181,7 @@ MyLibrary {
 <p>We managed to extract the reusable parts to common base items leaving the actual products clean and simple.</p>
 <p>Unfortunately, item inheritance comes with a price - when both parent and child items set the same property (<a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#defines-prop" translate="no">cpp.defines</a> in our case), the value in the child item wins. To work around this, the special <a href="https://qbs.io/
-/docs/special-property-values/#base" translate="no">base</a> value exists - it gives access to the base item's value of the current property and makes it possible to extend its value rather than override it. Here, we concatenate the list of defines from the base item <code translate="no">["MYLIB_LIBRARY"]</code> with a new list, specific to this product (namely, <code translate="no">['CRUCIAL_DEFINE']</code>).</p>
+/docs/special-property-values/#base">base</a> value exists - it gives access to the base item's value of the current property and makes it possible to extend its value rather than override it. Here, we concatenate the list of defines from the base item <code translate="no">["MYLIB_LIBRARY"]</code> with a new list, specific to this product (namely, <code translate="no">['CRUCIAL_DEFINE']</code>).</p>
 </div>
 <!-- @@@tutorial-4.html -->
 <p class="naviNextPrevious footerNavi">

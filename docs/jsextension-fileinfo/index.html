@@ -6,7 +6,7 @@
     <meta name="description" content="Qbs Manual
 List of Built-in Services
 FileInfo Service
-Qbs 2.6.0
+Qbs 2.6.1
 
 
 Contents
@@ -59,7 +59,7 @@ Returns a canonicalized filePath, i.e. an absolute path without symbolic links o
     <meta property="og:url" content="https://qbs.io/docs/jsextension-fileinfo/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual List of Built-in Services FileInfo Service Qbs 2.6.0 Contents Available Operations baseName canonicalPath cleanPath completeBaseName completeSuffix fileName fromNativeSeparators fromWindowsSeparators isAbsolutePath joinPaths path relativePath suffix toNativeSeparators toWindowsSeparators pathListSeparator pathSeparator executableSuffix FileInfo Service The FileInfo service offers various operations on file paths, such as turning absolute paths into relative ones, splitting a path into its components, and so on.
+  <meta property="og:description" content="Qbs Manual List of Built-in Services FileInfo Service Qbs 2.6.1 Contents Available Operations baseName canonicalPath cleanPath completeBaseName completeSuffix fileName fromNativeSeparators fromWindowsSeparators isAbsolutePath joinPaths path relativePath suffix toNativeSeparators toWindowsSeparators pathListSeparator pathSeparator executableSuffix FileInfo Service The FileInfo service offers various operations on file paths, such as turning absolute paths into relative ones, splitting a path into its components, and so on.
 Available Operations baseName FileInfo.baseName(filePath: string): string Returns the file name of filePath up to (but not including) the first &#39;.&#39; character.
 canonicalPath FileInfo.canonicalPath(filePath: string): string Returns a canonicalized filePath, i.e. an absolute path without symbolic links or redundant &#34;.&#34; or &#34;..&#34; elements. On Windows, drive substitutions are also resolved.">
   <meta property="og:locale" content="en_us">
@@ -69,7 +69,7 @@ canonicalPath FileInfo.canonicalPath(filePath: string): string Returns a canonic
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual List of Built-in Services FileInfo Service Qbs 2.6.0 Contents Available Operations baseName canonicalPath cleanPath completeBaseName completeSuffix fileName fromNativeSeparators fromWindowsSeparators isAbsolutePath joinPaths path relativePath suffix toNativeSeparators toWindowsSeparators pathListSeparator pathSeparator executableSuffix FileInfo Service The FileInfo service offers various operations on file paths, such as turning absolute paths into relative ones, splitting a path into its components, and so on.
+  <meta name="twitter:description" content="Qbs Manual List of Built-in Services FileInfo Service Qbs 2.6.1 Contents Available Operations baseName canonicalPath cleanPath completeBaseName completeSuffix fileName fromNativeSeparators fromWindowsSeparators isAbsolutePath joinPaths path relativePath suffix toNativeSeparators toWindowsSeparators pathListSeparator pathSeparator executableSuffix FileInfo Service The FileInfo service offers various operations on file paths, such as turning absolute paths into relative ones, splitting a path into its components, and so on.
 Available Operations baseName FileInfo.baseName(filePath: string): string Returns the file name of filePath up to (but not including) the first &#39;.&#39; character.
 canonicalPath FileInfo.canonicalPath(filePath: string): string Returns a canonicalized filePath, i.e. an absolute path without symbolic links or redundant &#34;.&#34; or &#34;..&#34; elements. On Windows, drive substitutions are also resolved.">
 
@@ -104,11 +104,11 @@ canonicalPath FileInfo.canonicalPath(filePath: string): string Returns a canonic
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io/
-/docs" translate="no">Qbs Manual</a></li>
+/docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
-/docs/list-of-builtin-services/" translate="no">List of Built-in Services</a></li>
+/docs/list-of-builtin-services/">List of Built-in Services</a></li>
 <li>FileInfo Service</li>
-<li id="buildversion">Qbs 2.6.0</li>
+<li id="buildversion">Qbs 2.6.1</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -162,7 +162,7 @@ canonicalPath FileInfo.canonicalPath(filePath: string): string Returns a canonic
 <h3 id="fromnativeseparators">fromNativeSeparators</h3>
 <pre class="cpp" translate="no">FileInfo<span class="operator">.</span>fromNativeSeparators(filePath: string): string</pre>
 <p>On Windows hosts, this function behaves the same as <a href="https://qbs.io/
-/docs/jsextension-fileinfo/#fromwindowsseparators" translate="no">fromWindowsSeparators</a>. On other operating systems, it returns the input unmodified.</p>
+/docs/jsextension-fileinfo/#fromwindowsseparators">fromWindowsSeparators</a>. On other operating systems, it returns the input unmodified.</p>
 <h3 id="fromwindowsseparators">fromWindowsSeparators</h3>
 <pre class="cpp" translate="no">FileInfo<span class="operator">.</span>fromWindowsSeparators(filePath: string): string</pre>
 <p>Returns <code translate="no">filePath</code> with all '\' characters replaced by '/'.</p>
@@ -184,7 +184,7 @@ canonicalPath FileInfo.canonicalPath(filePath: string): string Returns a canonic
 <h3 id="tonativeseparators">toNativeSeparators</h3>
 <pre class="cpp" translate="no">FileInfo<span class="operator">.</span>toNativeSeparators(filePath: string): string</pre>
 <p>On Windows hosts, this function behaves the same as <a href="https://qbs.io/
-/docs/jsextension-fileinfo/#towindowsseparators" translate="no">toWindowsSeparators</a>. On other operating systems, it returns the input unmodified.</p>
+/docs/jsextension-fileinfo/#towindowsseparators">toWindowsSeparators</a>. On other operating systems, it returns the input unmodified.</p>
 <h3 id="towindowsseparators">toWindowsSeparators</h3>
 <pre class="cpp" translate="no">FileInfo<span class="operator">.</span>toWindowsSeparators(filePath: string): string</pre>
 <p>Returns <code translate="no">filePath</code> with all '/' characters replaced by '\'.</p>

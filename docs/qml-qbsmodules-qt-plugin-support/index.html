@@ -6,7 +6,7 @@
     <meta name="description" content="Qbs Manual
 QbsModules
 Qt.plugin_support
-Qbs 2.6.0
+Qbs 2.6.1
 
 
 Contents
@@ -16,12 +16,15 @@ Detailed Description
 
 
 
-Qt.plugin_support QML Type
+Qt.plugin_support
 
 Allows to fine-tune which Qt plugins get pulled in. More...
 
 
- Import Statement: import QbsModules Since: Qbs 1.13.0
+
+ Since: Qbs 1.13.0
+
+
 List of all members, including inherited members
 
 Properties
@@ -49,8 +52,8 @@ The Qt.plugin_support module provides properties that allow users to control whi
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-qt-plugin-support/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual QbsModules Qt.plugin_support Qbs 2.6.0 Contents Properties Detailed Description Qt.plugin_support QML Type Allows to fine-tune which Qt plugins get pulled in. More...
-Import Statement: import QbsModules Since: Qbs 1.13.0 List of all members, including inherited members Properties allPluginsByType : var defaultPluginsByType : var linkPlugins : bool pluginsByType : varList Detailed Description The Qt.plugin_support module provides properties that allow users to control which Qt plugins to pull into a product. This is mostly relevant if Qt was built statically, in which case the respective plugins are static libraries that get linked into your application or library.">
+  <meta property="og:description" content="Qbs Manual QbsModules Qt.plugin_support Qbs 2.6.1 Contents Properties Detailed Description Qt.plugin_support Allows to fine-tune which Qt plugins get pulled in. More...
+Since: Qbs 1.13.0 List of all members, including inherited members Properties allPluginsByType : var defaultPluginsByType : var linkPlugins : bool pluginsByType : varList Detailed Description The Qt.plugin_support module provides properties that allow users to control which Qt plugins to pull into a product. This is mostly relevant if Qt was built statically, in which case the respective plugins are static libraries that get linked into your application or library.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -58,8 +61,8 @@ Import Statement: import QbsModules Since: Qbs 1.13.0 List of all members, inclu
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual QbsModules Qt.plugin_support Qbs 2.6.0 Contents Properties Detailed Description Qt.plugin_support QML Type Allows to fine-tune which Qt plugins get pulled in. More...
-Import Statement: import QbsModules Since: Qbs 1.13.0 List of all members, including inherited members Properties allPluginsByType : var defaultPluginsByType : var linkPlugins : bool pluginsByType : varList Detailed Description The Qt.plugin_support module provides properties that allow users to control which Qt plugins to pull into a product. This is mostly relevant if Qt was built statically, in which case the respective plugins are static libraries that get linked into your application or library.">
+  <meta name="twitter:description" content="Qbs Manual QbsModules Qt.plugin_support Qbs 2.6.1 Contents Properties Detailed Description Qt.plugin_support Allows to fine-tune which Qt plugins get pulled in. More...
+Since: Qbs 1.13.0 List of all members, including inherited members Properties allPluginsByType : var defaultPluginsByType : var linkPlugins : bool pluginsByType : varList Detailed Description The Qt.plugin_support module provides properties that allow users to control which Qt plugins to pull into a product. This is mostly relevant if Qt was built statically, in which case the respective plugins are static libraries that get linked into your application or library.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -92,11 +95,11 @@ Import Statement: import QbsModules Since: Qbs 1.13.0 List of all members, inclu
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io/
-/docs" translate="no">Qbs Manual</a></li>
+/docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>Qt.plugin_support</li>
-<li id="buildversion">Qbs 2.6.0</li>
+<li id="buildversion">Qbs 2.6.1</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -106,12 +109,15 @@ Import Statement: import QbsModules Since: Qbs 1.13.0 List of all members, inclu
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<div class="content"><h1 class="title" translate="no">Qt.plugin_support QML Type</h1>
+<div class="content"><h1 class="title" translate="no">Qt.plugin_support</h1>
 <!-- $$$Qt.plugin_support-brief -->
 <p>Allows to fine-tune which Qt plugins get pulled in. <a href="#details">More...</a></p>
 <!-- @@@Qt.plugin_support -->
-<div class="table"><table class="alignedsummary" translate="no">
-<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsModules</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.13.0</td></tr></tbody></table></div><ul>
+<div class="table"><table class="alignedsummary requisites" translate="no">
+
+<tbody><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 1.13.0</td></tr>
+</tbody></table></div>
+<ul>
 <li><a href="https://qbs.io/
 /docs/qml-qbsmodules-qt-plugin-support-members/">List of all members, including inherited members</a></li>
 </ul>
@@ -134,7 +140,7 @@ Import Statement: import QbsModules Since: Qbs 1.13.0 List of all members, inclu
 <!-- $$$allPluginsByType -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="allPluginsByType-prop">
+<tbody><tr class="odd" id="allPluginsByType-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">allPluginsByType</span> : <span class="type">var</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
 </tbody></table></div></div>
@@ -144,7 +150,7 @@ Import Statement: import QbsModules Since: Qbs 1.13.0 List of all members, inclu
 <!-- $$$defaultPluginsByType -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="defaultPluginsByType-prop">
+<tbody><tr class="odd" id="defaultPluginsByType-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">defaultPluginsByType</span> : <span class="type">var</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
 </tbody></table></div></div>
@@ -155,7 +161,7 @@ Import Statement: import QbsModules Since: Qbs 1.13.0 List of all members, inclu
 <!-- $$$linkPlugins -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="linkPlugins-prop">
+<tbody><tr class="odd" id="linkPlugins-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">linkPlugins</span> : <span class="type">bool</span></p></td></tr>
 </tbody></table></div></div>
@@ -166,7 +172,7 @@ Import Statement: import QbsModules Since: Qbs 1.13.0 List of all members, inclu
 <!-- $$$pluginsByType -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="pluginsByType-prop">
+<tbody><tr class="odd" id="pluginsByType-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">pluginsByType</span> : <span class="type">varList</span></p></td></tr>
 </tbody></table></div></div>

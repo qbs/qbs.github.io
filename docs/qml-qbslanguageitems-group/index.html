@@ -6,9 +6,9 @@
     <meta name="description" content="Qbs Manual
 QbsLanguageItems
 Group
-Qbs 2.6.0
-  
-  
+Qbs 2.6.1
+
+
 
 FileTagger
 JobLimit
@@ -28,12 +28,14 @@ Grouping Related Items
 
 
 
-Group QML Type
+Group
 
 Groups files and other items in a product or module. More...
 
 
- Import Statement: import QbsLanguageItems
+
+
+
 List of all members, including inherited members
 Group is part of List of All Items.
 
@@ -67,8 +69,8 @@ This item is attached to a product or module and used to group files and other i
     <meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-group/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual QbsLanguageItems Group Qbs 2.6.0 FileTagger JobLimit Contents Properties Detailed Description Typical Uses of Groups by Example Wildcards Attaching Module Properties to Source Files Attaching Module Properties to Generated Files Groups in Modules Grouping Related Items Group QML Type Groups files and other items in a product or module. More...
-Import Statement: import QbsLanguageItems List of all members, including inherited members Group is part of List of All Items. Properties condition : bool excludeFiles : pathList fileTags : stringList fileTagsFilter : stringList files : pathList filesAreTargets : bool name : string overrideTags : bool prefix : string Detailed Description This item is attached to a product or module and used to group files and other items that have something in common.">
+  <meta property="og:description" content="Qbs Manual QbsLanguageItems Group Qbs 2.6.1 FileTagger JobLimit Contents Properties Detailed Description Typical Uses of Groups by Example Wildcards Attaching Module Properties to Source Files Attaching Module Properties to Generated Files Groups in Modules Grouping Related Items Group Groups files and other items in a product or module. More...
+List of all members, including inherited members Group is part of List of All Items. Properties condition : bool excludeFiles : pathList fileTags : stringList fileTagsFilter : stringList files : pathList filesAreTargets : bool name : string overrideTags : bool prefix : string Detailed Description This item is attached to a product or module and used to group files and other items that have something in common.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -76,8 +78,8 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual QbsLanguageItems Group Qbs 2.6.0 FileTagger JobLimit Contents Properties Detailed Description Typical Uses of Groups by Example Wildcards Attaching Module Properties to Source Files Attaching Module Properties to Generated Files Groups in Modules Grouping Related Items Group QML Type Groups files and other items in a product or module. More...
-Import Statement: import QbsLanguageItems List of all members, including inherited members Group is part of List of All Items. Properties condition : bool excludeFiles : pathList fileTags : stringList fileTagsFilter : stringList files : pathList filesAreTargets : bool name : string overrideTags : bool prefix : string Detailed Description This item is attached to a product or module and used to group files and other items that have something in common.">
+  <meta name="twitter:description" content="Qbs Manual QbsLanguageItems Group Qbs 2.6.1 FileTagger JobLimit Contents Properties Detailed Description Typical Uses of Groups by Example Wildcards Attaching Module Properties to Source Files Attaching Module Properties to Generated Files Groups in Modules Grouping Related Items Group Groups files and other items in a product or module. More...
+List of all members, including inherited members Group is part of List of All Items. Properties condition : bool excludeFiles : pathList fileTags : stringList fileTagsFilter : stringList files : pathList filesAreTargets : bool name : string overrideTags : bool prefix : string Detailed Description This item is attached to a product or module and used to group files and other items that have something in common.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -110,15 +112,15 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io/
-/docs" translate="no">Qbs Manual</a></li>
+/docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbslanguageitems-qmlmodule/" translate="no">QbsLanguageItems</a></li>
 <li>Group</li>
-<li id="buildversion">Qbs 2.6.0</li>
-  <link rel="prev" href="https://qbs.io/
-/docs/qml-qbslanguageitems-filetagger/">
-  <link rel="next" href="https://qbs.io/
-/docs/qml-qbslanguageitems-joblimit/">
+<li id="buildversion">Qbs 2.6.1</li>
+<link href="https://qbs.io/
+/docs/qml-qbslanguageitems-filetagger/" rel="prev">
+<link href="https://qbs.io/
+/docs/qml-qbslanguageitems-joblimit/" rel="next">
 <p class="naviNextPrevious headerNavi">
 <a class="prevPage" href="https://qbs.io/
 /docs/qml-qbslanguageitems-filetagger/">FileTagger</a>
@@ -140,12 +142,14 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<div class="content"><h1 class="title" translate="no">Group QML Type</h1>
+<div class="content"><h1 class="title" translate="no">Group</h1>
 <!-- $$$Group-brief -->
 <p>Groups files and other items in a product or module. <a href="#details">More...</a></p>
 <!-- @@@Group -->
-<div class="table"><table class="alignedsummary" translate="no">
-<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsLanguageItems</td></tr></tbody></table></div><ul>
+<div class="table"><table class="alignedsummary requisites" translate="no">
+
+</table></div>
+<ul>
 <li><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-group-members/">List of all members, including inherited members</a></li>
 <li>Group is part of <a href="https://qbs.io/
@@ -218,7 +222,7 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
     }
 }</pre>
 <h2 id="wildcards">Wildcards</h2>
-<p>When specifying files, you can use the wildcards <code translate="no">"*"</code>, <code translate="no">"?"</code> and <code translate="no">"[]"</code>, which have their <a href="https://en.wikipedia.org/wiki/Wildcard_character#File_and_directory_patterns" translate="no">usual meaning</a> as in Unix Shell. By default, matching files are only picked up directly from the parent directory, but you can tell Qbs to consider the whole directory tree. It is also possible to exclude certain files from the list. The pattern <code translate="no">"**"</code> used in a pathname expansion context will match all files and zero or more directories and subdirectories. For example:</p>
+<p>When specifying files, you can use the wildcards <code translate="no">"*"</code>, <code translate="no">"?"</code> and <code translate="no">"[]"</code>, which have their <a href="https://en.wikipedia.org/wiki/Wildcard_character#File_and_directory_patterns">usual meaning</a> as in Unix Shell. By default, matching files are only picked up directly from the parent directory, but you can tell Qbs to consider the whole directory tree. It is also possible to exclude certain files from the list. The pattern <code translate="no">"**"</code> used in a pathname expansion context will match all files and zero or more directories and subdirectories. For example:</p>
 <pre class="cpp" translate="no">        Group {
             name: "Word processing documents"
             files: ["*.doc", "*.rtf"]
@@ -304,7 +308,7 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
 <!-- $$$condition -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="condition-prop">
+<tbody><tr class="odd" id="condition-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">condition</span> : <span class="type">bool</span></p></td></tr>
 </tbody></table></div></div>
@@ -315,7 +319,7 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
 <!-- $$$excludeFiles -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="excludeFiles-prop">
+<tbody><tr class="odd" id="excludeFiles-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">excludeFiles</span> : <span class="type">pathList</span></p></td></tr>
 </tbody></table></div></div>
@@ -330,7 +334,7 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
 <!-- $$$fileTags -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="fileTags-prop">
+<tbody><tr class="odd" id="fileTags-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">fileTags</span> : <span class="type">stringList</span></p></td></tr>
 </tbody></table></div></div>
@@ -346,7 +350,7 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
 <!-- $$$fileTagsFilter -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="fileTagsFilter-prop">
+<tbody><tr class="odd" id="fileTagsFilter-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">fileTagsFilter</span> : <span class="type">stringList</span></p></td></tr>
 </tbody></table></div></div>
@@ -362,7 +366,7 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
 <!-- $$$files -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="files-prop">
+<tbody><tr class="odd" id="files-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">files</span> : <span class="type">pathList</span></p></td></tr>
 </tbody></table></div></div>
@@ -376,7 +380,7 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
 <!-- $$$filesAreTargets -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="filesAreTargets-prop">
+<tbody><tr class="odd" id="filesAreTargets-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">filesAreTargets</span> : <span class="type">bool</span></p></td></tr>
 </tbody></table></div></div>
@@ -390,7 +394,7 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
 <!-- $$$name -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="name-prop">
+<tbody><tr class="odd" id="name-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">name</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
@@ -401,7 +405,7 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
 <!-- $$$overrideTags -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="overrideTags-prop">
+<tbody><tr class="odd" id="overrideTags-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">overrideTags</span> : <span class="type">bool</span></p></td></tr>
 </tbody></table></div></div>
@@ -415,7 +419,7 @@ Import Statement: import QbsLanguageItems List of all members, including inherit
 <!-- $$$prefix -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
-<tbody><tr valign="top" class="odd" id="prefix-prop">
+<tbody><tr class="odd" id="prefix-prop" valign="top">
 <td class="tblQmlPropNode"><p>
 <span class="name">prefix</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>

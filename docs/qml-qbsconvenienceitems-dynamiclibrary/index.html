@@ -6,9 +6,9 @@
     <meta name="description" content="Qbs Manual
 QbsConvenienceItems
 DynamicLibrary
-Qbs 2.6.0
-  
-  
+Qbs 2.6.1
+
+
 
 CppApplication
 InnoSetup
@@ -21,12 +21,15 @@ Detailed Description
 
 
 
-DynamicLibrary QML Type
+DynamicLibrary
 
 Dynamic library. More...
 
 
- Import Statement: import QbsConvenienceItems Inherits: Library
+
+ Inherits: Library
+
+
 
 List of all members, including inherited members
 DynamicLibrary is part of List of All Items.
@@ -34,7 +37,16 @@ DynamicLibrary is part of List of All Items.
 
 Detailed Description
 A DynamicLibrary item is a library of the type &#34;dynamiclibrary&#34;.
-For Android targets, the following applies: ">
+For Android targets, the following applies:
+
+The Product.type property value contains &#34;android.nativelibrary&#34; in addition to &#34;dynamiclibrary&#34;.
+There is a dependency on the cpp and Android.ndk modules.
+
+
+
+CppApplication
+InnoSetup
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsconvenienceitems-dynamiclibrary/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -50,10 +62,11 @@ For Android targets, the following applies: ">
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsconvenienceitems-dynamiclibrary/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual QbsConvenienceItems DynamicLibrary Qbs 2.6.0 CppApplication InnoSetup Contents Detailed Description DynamicLibrary QML Type Dynamic library. More...
-Import Statement: import QbsConvenienceItems Inherits: Library
+  <meta property="og:description" content="Qbs Manual QbsConvenienceItems DynamicLibrary Qbs 2.6.1 CppApplication InnoSetup Contents Detailed Description DynamicLibrary Dynamic library. More...
+Inherits: Library
 List of all members, including inherited members DynamicLibrary is part of List of All Items. Detailed Description A DynamicLibrary item is a library of the type &#34;dynamiclibrary&#34;.
-For Android targets, the following applies:">
+For Android targets, the following applies:
+The Product.type property value contains &#34;android.nativelibrary&#34; in addition to &#34;dynamiclibrary&#34;. There is a dependency on the cpp and Android.ndk modules. CppApplication InnoSetup ">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -61,10 +74,11 @@ For Android targets, the following applies:">
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual QbsConvenienceItems DynamicLibrary Qbs 2.6.0 CppApplication InnoSetup Contents Detailed Description DynamicLibrary QML Type Dynamic library. More...
-Import Statement: import QbsConvenienceItems Inherits: Library
+  <meta name="twitter:description" content="Qbs Manual QbsConvenienceItems DynamicLibrary Qbs 2.6.1 CppApplication InnoSetup Contents Detailed Description DynamicLibrary Dynamic library. More...
+Inherits: Library
 List of all members, including inherited members DynamicLibrary is part of List of All Items. Detailed Description A DynamicLibrary item is a library of the type &#34;dynamiclibrary&#34;.
-For Android targets, the following applies:">
+For Android targets, the following applies:
+The Product.type property value contains &#34;android.nativelibrary&#34; in addition to &#34;dynamiclibrary&#34;. There is a dependency on the cpp and Android.ndk modules. CppApplication InnoSetup ">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -97,15 +111,15 @@ For Android targets, the following applies:">
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io/
-/docs" translate="no">Qbs Manual</a></li>
+/docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsconvenienceitems-qmlmodule/" translate="no">QbsConvenienceItems</a></li>
 <li>DynamicLibrary</li>
-<li id="buildversion">Qbs 2.6.0</li>
-  <link rel="prev" href="https://qbs.io/
-/docs/qml-qbsconvenienceitems-cppapplication/">
-  <link rel="next" href="https://qbs.io/
-/docs/qml-qbsconvenienceitems-innosetup/">
+<li id="buildversion">Qbs 2.6.1</li>
+<link href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-cppapplication/" rel="prev">
+<link href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-innosetup/" rel="next">
 <p class="naviNextPrevious headerNavi">
 <a class="prevPage" href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-cppapplication/">CppApplication</a>
@@ -120,14 +134,17 @@ For Android targets, the following applies:">
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<div class="content"><h1 class="title" translate="no">DynamicLibrary QML Type</h1>
+<div class="content"><h1 class="title" translate="no">DynamicLibrary</h1>
 <!-- $$$DynamicLibrary-brief -->
 <p>Dynamic library. <a href="#details">More...</a></p>
 <!-- @@@DynamicLibrary -->
-<div class="table"><table class="alignedsummary" translate="no">
-<tbody><tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QbsConvenienceItems</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherits:</td><td class="memItemRight bottomAlign"> <p><a href="https://qbs.io/
+<div class="table"><table class="alignedsummary requisites" translate="no">
+
+<tbody><tr><td class="memItemLeft rightAlign topAlign"> Inherits:</td><td class="memItemRight bottomAlign"> <p><a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-library/" translate="no">Library</a></p>
-</td></tr></tbody></table></div><ul>
+</td></tr>
+</tbody></table></div>
+<ul>
 <li><a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-dynamiclibrary-members/">List of all members, including inherited members</a></li>
 <li>DynamicLibrary is part of <a href="https://qbs.io/
