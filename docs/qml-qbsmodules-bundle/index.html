@@ -6,7 +6,7 @@
     <meta name="description" content="Qbs Manual
 QbsModules
 bundle
-Qbs 2.6.1
+Qbs 3.0.1
 
 
 Contents
@@ -87,7 +87,7 @@ The bundle module contains properties and rules for building and working with Co
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-bundle/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual QbsModules bundle Qbs 2.6.1 Contents Properties Detailed Description Relevant File Tags bundle Provides Core Foundation bundle support. More...
+  <meta property="og:description" content="Qbs Manual QbsModules bundle Qbs 3.0.1 Contents Properties Detailed Description Relevant File Tags bundle Provides Core Foundation bundle support. More...
 Since: Qbs 1.4 List of all members, including inherited members Properties bundleName : string contentsFolderPath : string documentationFolderPath : string (since Qbs 1.5) embedInfoPlist : bool executableFolderPath : string executablePath : string executablesFolderPath : string extension : string frameworkVersion : string frameworksFolderPath : string generatePackageInfo : bool (since Qbs 1.5) identifier : string identifierPrefix : string infoPlist : var infoPlistFormat : string infoPlistPath : string infoStringsPath : string (since Qbs 1.5) isBundle : bool isShallow : bool javaFolderPath : string (since Qbs 1.5) localizedResourcesFolderPath : string (since Qbs 1.5) packageType : string pkgInfoPath : string pluginsFolderPath : string privateHeaders : pathList privateHeadersFolderPath : string processInfoPlist : bool publicHeaders : pathList publicHeadersFolderPath : string resources : pathList scriptsFolderPath : string sharedFrameworksFolderPath : string sharedSupportFolderPath : string signature : string unlocalizedResourcesFolderPath : string useBuiltinXcodeBuildSpecs : bool versionPlistPath : string versionsFolderPath : string (since Qbs 1.5) Detailed Description The bundle module contains properties and rules for building and working with Core Foundation bundles on Apple platforms (commonly known as CFBundles or simply bundles), directories with a standardized hierarchical structure that hold executable code and resources. Examples include applications, frameworks, and plugins.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
@@ -96,7 +96,7 @@ Since: Qbs 1.4 List of all members, including inherited members Properties bundl
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual QbsModules bundle Qbs 2.6.1 Contents Properties Detailed Description Relevant File Tags bundle Provides Core Foundation bundle support. More...
+  <meta name="twitter:description" content="Qbs Manual QbsModules bundle Qbs 3.0.1 Contents Properties Detailed Description Relevant File Tags bundle Provides Core Foundation bundle support. More...
 Since: Qbs 1.4 List of all members, including inherited members Properties bundleName : string contentsFolderPath : string documentationFolderPath : string (since Qbs 1.5) embedInfoPlist : bool executableFolderPath : string executablePath : string executablesFolderPath : string extension : string frameworkVersion : string frameworksFolderPath : string generatePackageInfo : bool (since Qbs 1.5) identifier : string identifierPrefix : string infoPlist : var infoPlistFormat : string infoPlistPath : string infoStringsPath : string (since Qbs 1.5) isBundle : bool isShallow : bool javaFolderPath : string (since Qbs 1.5) localizedResourcesFolderPath : string (since Qbs 1.5) packageType : string pkgInfoPath : string pluginsFolderPath : string privateHeaders : pathList privateHeadersFolderPath : string processInfoPlist : bool publicHeaders : pathList publicHeadersFolderPath : string resources : pathList scriptsFolderPath : string sharedFrameworksFolderPath : string sharedSupportFolderPath : string signature : string unlocalizedResourcesFolderPath : string useBuiltinXcodeBuildSpecs : bool versionPlistPath : string versionsFolderPath : string (since Qbs 1.5) Detailed Description The bundle module contains properties and rules for building and working with Core Foundation bundles on Apple platforms (commonly known as CFBundles or simply bundles), directories with a standardized hierarchical structure that hold executable code and resources. Examples include applications, frameworks, and plugins.">
 
 </head>
@@ -134,7 +134,7 @@ Since: Qbs 1.4 List of all members, including inherited members Properties bundl
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>bundle</li>
-<li id="buildversion">Qbs 2.6.1</li>
+<li id="buildversion">Qbs 3.0.1</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -248,6 +248,9 @@ Since: Qbs 1.4 List of all members, including inherited members Properties bundl
 <thead><tr class="qt-style"><th>Tag</th><th>Auto-tagged File Names</th><th>Since</th><th>Description</th></tr></thead>
 <tbody><tr class="odd" valign="top"><td><code translate="no">"bundle.content"</code></td><td>-</td><td>1.8</td><td>Attached to the output artifacts of the rule that produces the bundle.</td></tr>
 <tr class="even" valign="top"><td><code translate="no">"infoplist"</code></td><td><code translate="no">Info.plist</code>, <code translate="no">*-Info.plist</code></td><td>1.5</td><td>Source files with this tag are Info property lists files or fragments that are merged into the bundle's final <code translate="no">Info.plist</code>.</td></tr>
+<tr class="odd" valign="top"><td><code translate="no">"bundle.input.public_hpp"</code></td><td>n/a</td><td>3.0</td><td>Source files with this tag will be copied to the <code translate="no">Headers</code> directory within a bundle.</td></tr>
+<tr class="even" valign="top"><td><code translate="no">"bundle.input.private_hpp"</code></td><td>n/a</td><td>3.0</td><td>Source files with this tag will be copied to the <code translate="no">PrivateHeaders</code> directory within a bundle.</td></tr>
+<tr class="odd" valign="top"><td><code translate="no">"bundle.input.resources"</code></td><td>n/a</td><td>3.0</td><td>Source files with this tag will be copied to the <code translate="no">Resources</code> directory within a bundle.</td></tr>
 </tbody></table></div>
 <!-- @@@bundle -->
 <h2>Property Documentation</h2>
@@ -555,6 +558,24 @@ Since: Qbs 1.4 List of all members, including inherited members Properties bundl
 <span class="name">privateHeaders</span> : <span class="type">pathList</span></p></td></tr>
 </tbody></table></div></div>
 <div class="qmldoc"><p>A list of private header files to copy to a framework bundle's <code translate="no">PrivateHeaders</code> subdirectory</p>
+<p>It is recommended to attach the <code translate="no">"bundle.input.private_hpp"</code> file tag to headers instead:</p>
+<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-cppapplication/" translate="no">CppApplication</a></span> {
+    <span class="type"><a href="https://qbs.io/
+/docs/qml-qbslanguageitems-depends/" translate="no">Depends</a></span> { <span class="name">name</span>: <span class="string">"bundle"</span> }
+    <span class="name">files</span>: <span class="string">"main.cpp"</span>
+    <span class="type"><a href="https://qbs.io/
+/docs/qml-qbslanguageitems-group/" translate="no">Group</a></span> {
+        <span class="name">name</span>: <span class="string">"private headers"</span>
+        <span class="name">files</span>: [<span class="string">"header.h"</span>]
+        <span class="name">fileTags</span>: [<span class="string">"bundle.input.private_hpp"</span>, <span class="string">"hpp"</span>]
+    }
+}</pre>
+<div class="admonition note">
+<p><b>Note: </b>Since <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-group/#fileTags-prop" translate="no">Group.fileTags</a> property replaces file tags attached by the <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-filetagger/" translate="no">FileTagger</a> item, the <code translate="no">"hpp"</code> tag should also be present.</p>
+</div>
 <p>Default: Undefined</p>
 </div></div><!-- @@@privateHeaders -->
 <br>
@@ -591,6 +612,24 @@ Since: Qbs 1.4 List of all members, including inherited members Properties bundl
 <span class="name">publicHeaders</span> : <span class="type">pathList</span></p></td></tr>
 </tbody></table></div></div>
 <div class="qmldoc"><p>A list of public header files to copy to a framework bundle's <code translate="no">Headers</code> subdirectory.</p>
+<p>It is recommended to attach the <code translate="no">"bundle.input.public_hpp"</code> file tag to headers instead:</p>
+<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-cppapplication/" translate="no">CppApplication</a></span> {
+    <span class="type"><a href="https://qbs.io/
+/docs/qml-qbslanguageitems-depends/" translate="no">Depends</a></span> { <span class="name">name</span>: <span class="string">"bundle"</span> }
+    <span class="name">files</span>: <span class="string">"main.cpp"</span>
+    <span class="type"><a href="https://qbs.io/
+/docs/qml-qbslanguageitems-group/" translate="no">Group</a></span> {
+        <span class="name">name</span>: <span class="string">"public headers"</span>
+        <span class="name">files</span>: [<span class="string">"header.h"</span>]
+        <span class="name">fileTags</span>: [<span class="string">"bundle.input.public_hpp"</span>, <span class="string">"hpp"</span>]
+    }
+}</pre>
+<div class="admonition note">
+<p><b>Note: </b>Since <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-group/#fileTags-prop" translate="no">Group.fileTags</a> property replaces file tags attached by the <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-filetagger/" translate="no">FileTagger</a> item, the <code translate="no">"hpp"</code> tag should also be present.</p>
+</div>
 <p>Default: Undefined</p>
 </div></div><!-- @@@publicHeaders -->
 <br>
@@ -613,6 +652,19 @@ Since: Qbs 1.4 List of all members, including inherited members Properties bundl
 <span class="name">resources</span> : <span class="type">pathList</span></p></td></tr>
 </tbody></table></div></div>
 <div class="qmldoc"><p>A list of resources to copy to a bundle's <code translate="no">Resources</code> subdirectory. Files will automatically be copied into <code translate="no">lproj</code> subdirectories corresponding to the input files' paths.</p>
+<p>It is recommended to attach the <code translate="no">"bundle.input.resources"</code> file tag to resources instead:</p>
+<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-cppapplication/" translate="no">CppApplication</a></span> {
+    <span class="type"><a href="https://qbs.io/
+/docs/qml-qbslanguageitems-depends/" translate="no">Depends</a></span> { <span class="name">name</span>: <span class="string">"bundle"</span> }
+    <span class="name">files</span>: <span class="string">"main.cpp"</span>
+    <span class="type"><a href="https://qbs.io/
+/docs/qml-qbslanguageitems-group/" translate="no">Group</a></span> {
+        <span class="name">name</span>: <span class="string">"resources"</span>
+        <span class="name">files</span>: [<span class="string">"file.txt"</span>]
+        <span class="name">fileTags</span>: [<span class="string">"bundle.input.resources"</span>]
+    }
+}</pre>
 <p>Default: Undefined</p>
 </div></div><!-- @@@resources -->
 <br>

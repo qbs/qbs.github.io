@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Qbs</title>
+    <meta name="description" content="Qbs Manual
+QbsModules
+Qt.shadertools
+Qbs 3.0.1
+
+
+Contents
+
+Properties
+Detailed Description
+Relevant File Tags
+Example
+
+
+
+Qt.shadertools
+
+Provides Qt Shader Tools support. More...
+
+
+
+
+
+List of all members, including inherited members
+
+Properties
+
+addResourceData : bool
+batchable : bool
+debugInformation : bool
+defines : stringList
+enableLinking : bool
+generatedShadersDir : string
+glslVersions : stringList
+hlslVersions : stringList
+mslVersions : stringList
+optimized : bool
+qsbName : string
+tessellation : bool
+tessellationMode : string
+tessellationVertexCount : int
+useCompiler : bool
+useQt6Versions : bool
+viewCount : int
+zOrderLocation : int
+
+
+Detailed Description
+The Qt.shadertools module provides functionality for compiling and processing shaders in Qbs projects. It supports various shader languages including GLSL, HLSL, and MSL. ">
+    <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-qt-shadertools/" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+
+    
+      
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
+    
+
+    <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-qt-shadertools/">
+  <meta property="og:site_name" content="Qbs">
+  <meta property="og:title" content="Qbs">
+  <meta property="og:description" content="Qbs Manual QbsModules Qt.shadertools Qbs 3.0.1 Contents Properties Detailed Description Relevant File Tags Example Qt.shadertools Provides Qt Shader Tools support. More...
+List of all members, including inherited members Properties addResourceData : bool batchable : bool debugInformation : bool defines : stringList enableLinking : bool generatedShadersDir : string glslVersions : stringList hlslVersions : stringList mslVersions : stringList optimized : bool qsbName : string tessellation : bool tessellationMode : string tessellationVertexCount : int useCompiler : bool useQt6Versions : bool viewCount : int zOrderLocation : int Detailed Description The Qt.shadertools module provides functionality for compiling and processing shaders in Qbs projects. It supports various shader languages including GLSL, HLSL, and MSL.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Qbs">
+  <meta name="twitter:description" content="Qbs Manual QbsModules Qt.shadertools Qbs 3.0.1 Contents Properties Detailed Description Relevant File Tags Example Qt.shadertools Provides Qt Shader Tools support. More...
+List of all members, including inherited members Properties addResourceData : bool batchable : bool debugInformation : bool defines : stringList enableLinking : bool generatedShadersDir : string glslVersions : stringList hlslVersions : stringList mslVersions : stringList optimized : bool qsbName : string tessellation : bool tessellationMode : string tessellationVertexCount : int useCompiler : bool useQt6Versions : bool viewCount : int zOrderLocation : int Detailed Description The Qt.shadertools module provides functionality for compiling and processing shaders in Qbs projects. It supports various shader languages including GLSL, HLSL, and MSL.">
+
+</head>
+<body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
+    <a class="flex items-center" href="/">
+        <img src="https://qbs.io//img/Cubes.svg" class="h-10 effect-shadow-small">
+        <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
+    </a>
+
+    <div>
+        
+        <a href="/blog" class="ml-2">
+            <span>Blog</span>
+        </a>
+        
+        <a href="/docs" class="ml-2">
+            <span>Documentation</span>
+        </a>
+        
+        <a href="/docs/installing/" class="ml-2">
+            <span>Get Qbs</span>
+        </a>
+        
+        <a href="/community" class="ml-2">
+            <span>Community</span>
+        </a>
+        
+    </div>
+</header><main>
+<div class="centre-outer">
+    <article class="centre-inner docs">
+    
+<li><a href="https://qbs.io/
+/docs">Qbs Manual</a></li>
+<li><a href="https://qbs.io/
+/docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
+<li>Qt.shadertools</li>
+<li id="buildversion">Qbs 3.0.1</li>
+<div class="sidebar">
+<div class="toc">
+<h3 id="toc">Contents</h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#relevant-file-tags">Relevant File Tags</a></li>
+<li class="level2"><a href="#example">Example</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<div class="content"><h1 class="title" translate="no">Qt.shadertools</h1>
+<!-- $$$Qt.shadertools-brief -->
+<p>Provides Qt Shader Tools support. <a href="#details">More...</a></p>
+<!-- @@@Qt.shadertools -->
+<div class="table"><table class="alignedsummary requisites" translate="no">
+
+</table></div>
+<ul>
+<li><a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-shadertools-members/">List of all members, including inherited members</a></li>
+</ul>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-shadertools/#addResourceData-prop" translate="no">addResourceData</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-shadertools/#batchable-prop" translate="no">batchable</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-shadertools/#debugInformation-prop" translate="no">debugInformation</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-shadertools/#defines-prop" translate="no">defines</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-shadertools/#enableLinking-prop" translate="no">enableLinking</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-shadertools/#generatedShadersDir-prop" translate="no">generatedShadersDir</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-shadertools/#glslVersions-prop" translate="no">glslVersions</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-shadertools/#hlslVersions-prop" translate="no">hlslVersions</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-shadertools/#mslVersions-prop" translate="no">mslVersions</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-shadertools/#optimized-prop" translate="no">optimized</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-shadertools/#qsbName-prop" translate="no">qsbName</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-shadertools/#tessellation-prop" translate="no">tessellation</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-shadertools/#tessellationMode-prop" translate="no">tessellationMode</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-shadertools/#tessellationVertexCount-prop" translate="no">tessellationVertexCount</a></b> : int</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-shadertools/#useCompiler-prop" translate="no">useCompiler</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-shadertools/#useQt6Versions-prop" translate="no">useQt6Versions</a></b> : bool</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-shadertools/#viewCount-prop" translate="no">viewCount</a></b> : int</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-shadertools/#zOrderLocation-prop" translate="no">zOrderLocation</a></b> : int</li>
+</ul>
+<!-- $$$Qt.shadertools-description -->
+<h2 id="details">Detailed Description</h2>
+<p>The Qt.shadertools module provides functionality for compiling and processing shaders in Qbs projects. It supports various shader languages including GLSL, HLSL, and MSL.</p>
+<h3 id="relevant-file-tags">Relevant File Tags</h3>
+<span id="filetags-qtshadertools"></span><div class="table"><table class="generic">
+<thead><tr class="qt-style"><th>Tag</th><th>Auto-tagged File Names</th><th>Since</th><th>Description</th></tr></thead>
+<tbody><tr class="odd" valign="top"><td><code translate="no">qt.shader</code></td><td><code translate="no">*.vert, *.tesc, *.tese, *.frag, *.comp</code></td><td><code translate="no">3.0</code></td><td>Source files with these extensions are considered shaders and are processed by the qsb tool.</td></tr>
+<tr class="even" valign="top"><td><code translate="no">qt.shader.vertex</code></td><td><code translate="no">*.vert</code></td><td><code translate="no">3.0</code></td><td>Source files with this extension are considered vertex shaders.</td></tr>
+<tr class="odd" valign="top"><td><code translate="no">qt.shader.fragment</code></td><td><code translate="no">*.frag</code></td><td><code translate="no">3.0</code></td><td>Source files with this extension are considered fragment shaders.</td></tr>
+<tr class="even" valign="top"><td><code translate="no">qt.shader.compute</code></td><td><code translate="no">*.comp</code></td><td><code translate="no">3.0</code></td><td>Source files with this extension are considered compute shaders.</td></tr>
+<tr class="odd" valign="top"><td><code translate="no">qt.shader.tessellation</code></td><td><code translate="no">*.tesc</code></td><td><code translate="no">3.0</code></td><td>Source files with this extension are considered tessellation shaders. These shaders are automatically processed by using tessellation properties.</td></tr>
+<tr class="even" valign="top"><td><code translate="no">qt.compiled_shader</code></td><td>n/a</td><td><code translate="no">3.0</code></td><td>This tag is attached to the output artifacts of the rule that runs the qsb tool.</td></tr>
+</tbody></table></div>
+<h3 id="example">Example</h3>
+<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-qtapplication/" translate="no">QtApplication</a></span> {
+    <span class="name">name</span>: <span class="string">"shader-app"</span>
+    <span class="name">type</span>: <span class="string">"application"</span>
+
+    <span class="type"><a href="https://qbs.io/
+/docs/qml-qbslanguageitems-depends/" translate="no">Depends</a></span> { <span class="name">name</span>: <span class="string">"Qt.shadertools"</span> }
+
+    <span class="name">files</span>: [<span class="string">"shader.frag"</span>, <span class="string">"shader.vert"</span>]
+    <span class="name">Qt</span>.shadertools.glslVersions: [<span class="string">"300 es"</span>, <span class="string">"330"</span>]
+    <span class="name">Qt</span>.shadertools.hlslVersions: [<span class="string">"50"</span>]
+    <span class="name">Qt</span>.shadertools.mslVersions: [<span class="string">"12"</span>]
+}</pre>
+<p>For more details on the <code translate="no">qsb</code> tool, see <a href="https://doc.qt.io/qt-6/qtshadertools-qsb.html">its documentation</a></p>
+<!-- @@@Qt.shadertools -->
+<h2>Property Documentation</h2>
+<!-- $$$addResourceData -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="addResourceData-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">addResourceData</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>Whether to automatically add the compiled shaders to the Qt resource data.</p>
+<p>Default: <code translate="no">true</code></p>
+</div></div><!-- @@@addResourceData -->
+<br>
+<!-- $$$batchable -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="batchable-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">batchable</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>Whether vertex shaders should be made batchable for use with Qt Quick.</p>
+<p>Default: <code translate="no">false</code></p>
+</div></div><!-- @@@batchable -->
+<br>
+<!-- $$$debugInformation -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="debugInformation-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">debugInformation</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>Whether to generate full debug information for SPIR-V.</p>
+<p>Default: <code translate="no">false</code></p>
+</div></div><!-- @@@debugInformation -->
+<br>
+<!-- $$$defines -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="defines-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">defines</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>List of preprocessor defines to be active during shader compilation.</p>
+<p>Defines should be added as <code translate="no">"&lt;name&gt;=&lt;value&gt;"</code> pairs.</p>
+<p>Default: <code translate="no">[]</code></p>
+</div></div><!-- @@@defines -->
+<br>
+<!-- $$$enableLinking -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="enableLinking-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">enableLinking</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>Set this property to <code translate="no">true</code> to enable linking to the QtShaderTools library.</p>
+<p>For example:</p>
+<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-qtapplication/" translate="no">QtApplication</a></span> {
+    <span class="name">name</span>: <span class="string">"shader-app"</span>
+    <span class="type"><a href="https://qbs.io/
+/docs/qml-qbslanguageitems-depends/" translate="no">Depends</a></span> { <span class="name">name</span>: <span class="string">"Qt.shadertools"</span> }
+    <span class="name">Qt</span>.shadertools.enableLinking: <span class="number">true</span>
+}</pre>
+<p>The Qt.shadertools module can be used in two ways:</p>
+<ul>
+<li>Using the <code translate="no">qsb</code> tool to compile shaders.</li>
+<li>Linking directly to the <a href="https://doc.qt.io/qt-6/qtshadertools-index.html">QtShaderTools</a> library and using the <a href="https://doc.qt.io/qt-6/qshaderbaker.html">QShaderBaker</a> class.</li>
+</ul>
+<p>This property and <a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-shadertools/#useCompiler-prop" translate="no">useCompiler</a> property controls which mode is used. You can also enable both modes by setting both properties to <code translate="no">true</code>.</p>
+<p>Default: <code translate="no">false</code></p>
+</div></div><!-- @@@enableLinking -->
+<br>
+<!-- $$$generatedShadersDir -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="generatedShadersDir-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">generatedShadersDir</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>The directory where compiled shaders will be placed.</p>
+<p>Default: <code translate="no">"shaders"</code></p>
+</div></div><!-- @@@generatedShadersDir -->
+<br>
+<!-- $$$glslVersions -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="glslVersions-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">glslVersions</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>List of GLSL versions to generate. Each version should be specified as a string, for example <code translate="no">"100 es"</code> for GLSL ES 1.00.</p>
+<p>If this property is set to <code translate="no">[]</code>, GLSL generation is disabled.</p>
+<p>Default: <code translate="no">[]</code></p>
+</div></div><!-- @@@glslVersions -->
+<br>
+<!-- $$$hlslVersions -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="hlslVersions-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">hlslVersions</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>List of HLSL (shader model) versions to generate. The versions follow GLSL-style version numbers, where 50 corresponds to Shader Model 5.0.</p>
+<p>If this property is set to <code translate="no">[]</code>, HLSL generation is disabled.</p>
+<p>Default: <code translate="no">[]</code></p>
+</div></div><!-- @@@hlslVersions -->
+<br>
+<!-- $$$mslVersions -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="mslVersions-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">mslVersions</span> : <span class="type">stringList</span></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>List of Metal Shading Language versions to generate. 12 corresponds to version 1.2.</p>
+<p>If this property is set to <code translate="no">[]</code>, MSL generation is disabled.</p>
+<p>Default: <code translate="no">[]</code></p>
+</div></div><!-- @@@mslVersions -->
+<br>
+<!-- $$$optimized -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="optimized-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">optimized</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>Whether to perform SPIR-V optimizations using spirv-opt.</p>
+<p>Default: <code translate="no">false</code></p>
+</div></div><!-- @@@optimized -->
+<br>
+<!-- $$$qsbName -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="qsbName-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">qsbName</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>The name of the Qt Shader Tools compiler executable.</p>
+<p>Default: <code translate="no">"qsb"</code></p>
+</div></div><!-- @@@qsbName -->
+<br>
+<!-- $$$tessellation -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="tessellation-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">tessellation</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>Whether the shaders are used in a pipeline that uses tessellation.</p>
+<p>By default, Qbs adds flags contolled by <a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-shadertools/#tessellationMode-prop" translate="no">tessellationMode</a> and <a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-shadertools/#tessellationVertexCount-prop" translate="no">tessellationVertexCount</a> properties for all files with the <code translate="no">"qt.shader.tessellation"</code> file tag. Set this property to <code translate="no">false</code> to disable tessellation options for such files.</p>
+<p>Default: <code translate="no">true</code></p>
+</div></div><!-- @@@tessellation -->
+<br>
+<!-- $$$tessellationMode -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="tessellationMode-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">tessellationMode</span> : <span class="type">string</span></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>The tessellation mode. Can be either <code translate="no">"triangles"</code> or <code translate="no">"quads"</code>.</p>
+<p>This property must be specified when a tessellation control shader is used.</p>
+<p>Default: <code translate="no">"triangles"</code></p>
+</div></div><!-- @@@tessellationMode -->
+<br>
+<!-- $$$tessellationVertexCount -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="tessellationVertexCount-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">tessellationVertexCount</span> : <span class="type">int</span></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>The output vertex count from the tessellation control stage.</p>
+<p>Default: <code translate="no">3</code></p>
+</div></div><!-- @@@tessellationVertexCount -->
+<br>
+<!-- $$$useCompiler -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="useCompiler-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">useCompiler</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>Whether to use the Qt Shader Tools compiler.</p>
+<p>Set this property to <code translate="no">false</code> to disable the qsb tool. This is set to <code translate="no">false</code> by default if <a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-shadertools/#enableLinking-prop" translate="no">enableLinking</a> is <code translate="no">true</code>.</p>
+<p>Default: <code translate="no">true</code></p>
+</div></div><!-- @@@useCompiler -->
+<br>
+<!-- $$$useQt6Versions -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="useQt6Versions-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">useQt6Versions</span> : <span class="type">bool</span></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>Use default version used by Qt6.</p>
+<p>This is equivalent to passing <code translate="no">--qt6</code> switch to the <code translate="no">qsb</code> tool.</p>
+<p>Default: <code translate="no">false</code></p>
+</div></div><!-- @@@useQt6Versions -->
+<br>
+<!-- $$$viewCount -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="viewCount-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">viewCount</span> : <span class="type">int</span></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>The number of views a vertex shader is used with. Relevant for multiview functionality (GL_OVR_multiview2, VK_KHR_multiview, D3D12 view instancing).</p>
+<p>Default: <code translate="no">undefined</code></p>
+</div></div><!-- @@@viewCount -->
+<br>
+<!-- $$$zOrderLocation -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="zOrderLocation-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">zOrderLocation</span> : <span class="type">int</span></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>When <a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-shadertools/#batchable-prop" translate="no">batchable</a> is true, this specifies the location for the additional vertex input that is injected with location 7 by default.</p>
+<p>Use this property to change the location of the injected vertex input to another value.</p>
+<p>This becomes relevant if the vertex shader has many inputs and 7 is in use and would clash.</p>
+<p>Default: <code translate="no">undefined</code></p>
+</div></div><!-- @@@zOrderLocation -->
+<br>
+</div>
+
+
+    </article>
+</div>
+
+        </main></body>
+</html>

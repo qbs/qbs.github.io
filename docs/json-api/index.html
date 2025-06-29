@@ -5,7 +5,7 @@
     <title>Qbs</title>
     <meta name="description" content="Qbs Manual
 Appendix C: The JSON API
-Qbs 2.6.1
+Qbs 3.0.1
   
   
 
@@ -25,6 +25,7 @@ Cleaning a Project
 Installing a Project
 Canceling an Operation
 Adding, Removing and Renaming Source Files
+Adding Dependencies
 The get-run-environment Message
 The get-generated-files-for-sources Message
 Closing a Project
@@ -73,7 +74,7 @@ This API is the recommended way to provide Qbs support to an IDE. It is accessib
     <meta property="og:url" content="https://qbs.io/docs/json-api/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual Appendix C: The JSON API Qbs 2.6.1 Appendix B: Migrating from Other Build Systems Appendix D: Licenses and Code Attributions Contents Packet Format Messages The hello Message Resolving a Project Building a Project Cleaning a Project Installing a Project Canceling an Operation Adding, Removing and Renaming Source Files The get-run-environment Message The get-generated-files-for-sources Message Closing a Project Closing the Session Progress Messages The task-started Message The task-progress Message The new-max-progress Message Messages for Users The log-data Message The warning Message The protocol-error Message Project Data TopLevelProjectData PlainProjectData ProductData GroupData ArtifactData ModulePropertiesData Other Custom Data Types FilePath Location ErrorInfo DataMode LogLevel Environment Appendix C: The JSON API This API is the recommended way to provide Qbs support to an IDE. It is accessible via the session command.">
+  <meta property="og:description" content="Qbs Manual Appendix C: The JSON API Qbs 3.0.1 Appendix B: Migrating from Other Build Systems Appendix D: Licenses and Code Attributions Contents Packet Format Messages The hello Message Resolving a Project Building a Project Cleaning a Project Installing a Project Canceling an Operation Adding, Removing and Renaming Source Files Adding Dependencies The get-run-environment Message The get-generated-files-for-sources Message Closing a Project Closing the Session Progress Messages The task-started Message The task-progress Message The new-max-progress Message Messages for Users The log-data Message The warning Message The protocol-error Message Project Data TopLevelProjectData PlainProjectData ProductData GroupData ArtifactData ModulePropertiesData Other Custom Data Types FilePath Location ErrorInfo DataMode LogLevel Environment Appendix C: The JSON API This API is the recommended way to provide Qbs support to an IDE. It is accessible via the session command.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -81,7 +82,7 @@ This API is the recommended way to provide Qbs support to an IDE. It is accessib
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual Appendix C: The JSON API Qbs 2.6.1 Appendix B: Migrating from Other Build Systems Appendix D: Licenses and Code Attributions Contents Packet Format Messages The hello Message Resolving a Project Building a Project Cleaning a Project Installing a Project Canceling an Operation Adding, Removing and Renaming Source Files The get-run-environment Message The get-generated-files-for-sources Message Closing a Project Closing the Session Progress Messages The task-started Message The task-progress Message The new-max-progress Message Messages for Users The log-data Message The warning Message The protocol-error Message Project Data TopLevelProjectData PlainProjectData ProductData GroupData ArtifactData ModulePropertiesData Other Custom Data Types FilePath Location ErrorInfo DataMode LogLevel Environment Appendix C: The JSON API This API is the recommended way to provide Qbs support to an IDE. It is accessible via the session command.">
+  <meta name="twitter:description" content="Qbs Manual Appendix C: The JSON API Qbs 3.0.1 Appendix B: Migrating from Other Build Systems Appendix D: Licenses and Code Attributions Contents Packet Format Messages The hello Message Resolving a Project Building a Project Cleaning a Project Installing a Project Canceling an Operation Adding, Removing and Renaming Source Files Adding Dependencies The get-run-environment Message The get-generated-files-for-sources Message Closing a Project Closing the Session Progress Messages The task-started Message The task-progress Message The new-max-progress Message Messages for Users The log-data Message The warning Message The protocol-error Message Project Data TopLevelProjectData PlainProjectData ProductData GroupData ArtifactData ModulePropertiesData Other Custom Data Types FilePath Location ErrorInfo DataMode LogLevel Environment Appendix C: The JSON API This API is the recommended way to provide Qbs support to an IDE. It is accessible via the session command.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -116,7 +117,7 @@ This API is the recommended way to provide Qbs support to an IDE. It is accessib
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li>Appendix C: The JSON API</li>
-<li id="buildversion">Qbs 2.6.1</li>
+<li id="buildversion">Qbs 3.0.1</li>
   <link rel="prev" href="https://qbs.io/
 /docs/porting-to-qbs/">
   <link rel="next" href="https://qbs.io/
@@ -140,6 +141,7 @@ This API is the recommended way to provide Qbs support to an IDE. It is accessib
 <li class="level1"><a href="#installing-a-project">Installing a Project</a></li>
 <li class="level1"><a href="#canceling-an-operation">Canceling an Operation</a></li>
 <li class="level1"><a href="#adding-removing-and-renaming-source-files">Adding, Removing and Renaming Source Files</a></li>
+<li class="level1"><a href="#adding-dependencies">Adding Dependencies</a></li>
 <li class="level1"><a href="#the-get-op-op-run-op-op-environment-message">The <code translate="no">get-run-environment</code> Message</a></li>
 <li class="level1"><a href="#the-get-op-op-generated-op-op-files-op-op-keyword-for-keyword-op-op-sources-message">The <code translate="no">get-generated-files-for-sources</code> Message</a></li>
 <li class="level1"><a href="#closing-a-project">Closing a Project</a></li>
@@ -372,7 +374,7 @@ This API is the recommended way to provide Qbs support to an IDE. It is accessib
 <p>Potentially long-running operations can be aborted using the <code translate="no">cancel-job</code> request. This message does not have any properties. There is no dedicated reply message; instead, the usual reply for the request associated with the currently running operation will be sent, with the <code translate="no">error</code> property set to indicate that it was canceled.</p>
 <p>If there is no operation in progress, this request will have no effect. In particular, if it arrives after the operation that it was supposed to cancel has already finished (i.e. there is a race condition), the reply received by client code will not contain a cancellation-related error.</p>
 <h2 id="adding-removing-and-renaming-source-files">Adding, Removing and Renaming Source Files</h2>
-<p>Source files can be added to, removed from and renamed in Qbs project files with the <code translate="no">add-files</code>, <code translate="no">remove-files</code> and <code translate="no">rename-files</code> messages, respectively. These two requests have the same set of properties:</p>
+<p>Source files can be added to, removed from and renamed in Qbs project files with the <code translate="no">add-files</code>, <code translate="no">remove-files</code> and <code translate="no">rename-files</code> messages, respectively. These three requests have the same set of properties:</p>
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th>Property</th><th>Type</th></tr></thead>
 <tbody><tr valign="top" class="odd"><td>files</td><td>see below</td></tr>
@@ -393,6 +395,20 @@ This API is the recommended way to provide Qbs support to an IDE. It is accessib
 /docs/json-api/#filepath">FilePath</a> list</td><td>no</td></tr>
 </tbody></table></div>
 <p>If the <code translate="no">error</code> property is present, the operation has at least partially failed and <code translate="no">failed-files</code> will list the files that could not be added or removed.</p>
+<h2 id="adding-dependencies">Adding Dependencies</h2>
+<p>Dependencies can be added to a product with the <code translate="no">add-dependencies</code> message. The properties are:</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th>Property</th><th>Type</th></tr></thead>
+<tbody><tr valign="top" class="odd"><td>dependencies</td><td>list of strings</td></tr>
+<tr valign="top" class="even"><td>group</td><td>string</td></tr>
+<tr valign="top" class="odd"><td>product</td><td>string</td></tr>
+</tbody></table></div>
+<p>The <code translate="no">dependencies</code> property specifies which modules and/or products should be added.</p>
+<p>The <code translate="no">product</code> property corresponds to the <code translate="no">full-display-name</code> of a <a href="https://qbs.io/
+/docs/json-api/#productdata">ProductData</a> and specifies which product to add the dependencies to.</p>
+<p>The <code translate="no">group</code> property corresponds to the <code translate="no">name</code> of a <a href="https://qbs.io/
+/docs/json-api/#groupdata">GroupData</a> and specifies in which group the resulting <code translate="no">Depends</code> items should appear.</p>
+<p>After the operation has finished, Qbs replies with a <code translate="no">dependencies-added</code> message. If and only if the operation failed, it will carry a property <code translate="no">error</code> of type <code translate="no">ErrorInfo</code>.</p>
 <h2 id="the-get-op-op-run-op-op-environment-message">The <code translate="no">get-run-environment</code> Message</h2>
 <p>This request retrieves the full run environment for a specific executable product, taking into account the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-module/#setupRunEnvironment-prop" translate="no">setupRunEnvironment</a> scripts of all modules pulled in by the product. The properties are as follows:</p>
