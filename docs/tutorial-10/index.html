@@ -5,7 +5,7 @@
     <title>Qbs</title>
     <meta name="description" content="Qbs Manual
 C&#43;&#43;20 Modules
-Qbs 3.0.1
+Qbs 3.1.1
   
   
 
@@ -56,13 +56,13 @@ Note: Currently, Clang only recognizes .cppm files as modules, however, for GCC 
 
     
       
-      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
+      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/tutorial-10/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual C&#43;&#43;20 Modules Qbs 3.0.1 Version Header How-tos Contents Named Modules Module Partitions Modules and Libraries Import std module C&#43;&#43;20 Modules This tutorial implies you have some knowledge about C&#43;&#43;20 modules. If not, see Overview of modules in C&#43;&#43; for introduction.
+  <meta property="og:description" content="Qbs Manual C&#43;&#43;20 Modules Qbs 3.1.1 Version Header How-tos Contents Named Modules Module Partitions Modules and Libraries Import std module C&#43;&#43;20 Modules This tutorial implies you have some knowledge about C&#43;&#43;20 modules. If not, see Overview of modules in C&#43;&#43; for introduction.
 Named Modules Using C&#43;&#43;20 modules with Qbs is pretty straightforward. Let&#39;s suppose you have a module file that exports a single function printHello:
 // hello.cppm module; #include &lt;iostream&gt; #include &lt;string_view&gt; export module hello; export namespace Hello { void printHello(std::string_view name) { std::cout &lt;&lt; &#34;Hello, &#34; &lt;&lt; name &lt;&lt; &#39;!&#39; &lt;&lt; std::endl; } } // namespace Hello Note: Currently, Clang only recognizes .cppm files as modules, however, for GCC and MSVC Qbs also recognizes .ixx files as C&#43;&#43; modules. Qbs assigns the &#34;cppm&#34; file tag to these files. You can assign this tag manually to module files with different extensions.">
   <meta property="og:locale" content="en_us">
@@ -72,7 +72,7 @@ Named Modules Using C&#43;&#43;20 modules with Qbs is pretty straightforward. Le
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual C&#43;&#43;20 Modules Qbs 3.0.1 Version Header How-tos Contents Named Modules Module Partitions Modules and Libraries Import std module C&#43;&#43;20 Modules This tutorial implies you have some knowledge about C&#43;&#43;20 modules. If not, see Overview of modules in C&#43;&#43; for introduction.
+  <meta name="twitter:description" content="Qbs Manual C&#43;&#43;20 Modules Qbs 3.1.1 Version Header How-tos Contents Named Modules Module Partitions Modules and Libraries Import std module C&#43;&#43;20 Modules This tutorial implies you have some knowledge about C&#43;&#43;20 modules. If not, see Overview of modules in C&#43;&#43; for introduction.
 Named Modules Using C&#43;&#43;20 modules with Qbs is pretty straightforward. Let&#39;s suppose you have a module file that exports a single function printHello:
 // hello.cppm module; #include &lt;iostream&gt; #include &lt;string_view&gt; export module hello; export namespace Hello { void printHello(std::string_view name) { std::cout &lt;&lt; &#34;Hello, &#34; &lt;&lt; name &lt;&lt; &#39;!&#39; &lt;&lt; std::endl; } } // namespace Hello Note: Currently, Clang only recognizes .cppm files as modules, however, for GCC and MSVC Qbs also recognizes .ixx files as C&#43;&#43; modules. Qbs assigns the &#34;cppm&#34; file tag to these files. You can assign this tag manually to module files with different extensions.">
 
@@ -109,7 +109,7 @@ Named Modules Using C&#43;&#43;20 modules with Qbs is pretty straightforward. Le
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li>C++20 Modules</li>
-<li id="buildversion">Qbs 3.0.1</li>
+<li id="buildversion">Qbs 3.1.1</li>
   <link rel="prev" href="https://qbs.io/
 /docs/tutorial-9/">
   <link rel="next" href="https://qbs.io/
@@ -170,7 +170,6 @@ import hello;
 <pre class="cpp" translate="no"><span class="comment">// myproject.qbs</span>
 CppApplication {
     consoleApplication: <span class="keyword">true</span>
-    install: <span class="keyword">true</span>
     files: <span class="operator">[</span><span class="string">"hello.cppm"</span><span class="operator">,</span> <span class="string">"main.cpp"</span><span class="operator">]</span>
     cpp<span class="operator">.</span>cxxLanguageVersion: <span class="string">"c++20"</span>
     cpp<span class="operator">.</span>forceUseCxxModules: <span class="keyword">true</span>
@@ -204,7 +203,6 @@ DynamicLibrary {
     name: <span class="string">"mylib"</span>
     files: <span class="operator">[</span><span class="string">"hello.cppm"</span><span class="operator">,</span> <span class="string">"lib_global.h"</span><span class="operator">]</span>
     version: <span class="string">"1.0.0"</span>
-    install: <span class="keyword">true</span>
 
     Depends { name: <span class="string">"cpp"</span> }
     cpp<span class="operator">.</span>defines: <span class="string">"MYLIB_LIBRARY"</span>
@@ -215,8 +213,14 @@ DynamicLibrary {
 <p>For more details, see the complete <a href="https://github.com/qbs/qbs/tree/2.5/tutorial/chapter-10-2">example</a>.</p>
 <h2 id="import-std-module">Import std module</h2>
 <p>Starting with C++23, you can use the standard library as a module by using <code translate="no">import std;</code> or <code translate="no">import std.compat;</code>.</p>
-<p>In order to use <code translate="no">import std;</code>, you need to set the <a href="https://qbs.io/
-/docs/qml-qbsmodules-cpp/#forceUseImportStd-prop" translate="no">cpp.forceUseImportStd</a> property to <code translate="no">true</code>.</p>
+<p>In order to use <code translate="no">import std;</code>, you need to define the <a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-cppstd/" translate="no">CppStd</a> product somewhere in your project and add a dependency on it to products that require the <code translate="no">std</code> module:</p>
+<pre class="cpp" translate="no">Project {
+    CppStd {}
+    CppApplication {
+        Depends { name: <span class="string">"CppStd"</span> }
+    }
+}</pre>
 <p>Here's a simple example that demonstrates the use of the standard library module:</p>
 <pre class="cpp" translate="no"><span class="comment">// main.cpp</span>
 
@@ -230,41 +234,46 @@ import std;
     <span class="keyword">return</span> <span class="number">0</span>;
 }</pre>
 <p>The project file needs to be configured to use C++23 and enable the standard library module:</p>
-<pre class="cpp" translate="no">cpp.cxxLanguageVersion: "c++23"
-cpp.forceUseCxxModules: true
-cpp.forceUseImportStd: true</pre>
+<pre class="cpp" translate="no">cpp.forceUseCxxModules: true
+cpp.cxxLanguageVersion: "c++23"</pre>
 <div class="admonition note">
 <p><b>Note: </b>This feature requires a compiler and standard library that support the C++23 standard library module. Currently, this feature is experimental and may not be available in all toolchains.</p>
 </div>
 <p>The full product file may look like this:</p>
 <pre class="cpp" translate="no">// myproject.qbs
-CppApplication {
-    condition: {
-        if (qbs.toolchainType === "msvc"
-            || ((qbs.toolchainType === "gcc")
-                &amp;&amp; cpp.compilerVersionMajor &gt;= 15)
-            || (qbs.toolchainType === "clang" &amp;&amp; cpp.compilerVersionMajor &gt;= 18)) {
-            return true;
+Project {
+    CppStd {}
+
+    CppApplication {
+        name: "myapp"
+        Depends { name: "CppStd" }
+        condition: {
+            if (qbs.toolchainType === "msvc"
+                || ((qbs.toolchainType === "gcc")
+                    &amp;&amp; cpp.compilerVersionMajor &gt;= 15)
+                || (qbs.toolchainType === "clang" &amp;&amp; cpp.compilerVersionMajor &gt;= 18)) {
+                return true;
+            }
+            console.info("Unsupported toolchainType " + qbs.toolchainType);
+            return false;
         }
-        console.info("Unsupported toolchainType " + qbs.toolchainType);
-        return false;
-    }
-    consoleApplication: true
-    install: true
-    files: ["main.cpp" ]
-    cpp.cxxLanguageVersion: "c++23"
-    cpp.forceUseCxxModules: true
-    cpp.forceUseImportStd: true
-    Properties {
-        condition: qbs.toolchainType === "clang"
-        cpp.cxxFlags: ["-Wno-reserved-module-identifier"]
-        cpp.cxxStandardLibrary: "libc++"
+        consoleApplication: true
+        install: true
+        files: ["main.cpp" ]
+        cpp.forceUseCxxModules: true
+        cpp.cxxLanguageVersion: "c++23"
+        Properties {
+            condition: qbs.toolchainType === "clang"
+            cpp.cxxFlags: ["-Wno-reserved-module-identifier"]
+            cpp.cxxStandardLibrary: "libc++"
+        }
     }
 }</pre>
 <p>In order to use <code translate="no">import std.compat;</code>, you will also need to set the <a href="https://qbs.io/
-/docs/qml-qbsmodules-cpp/#forceUseImportStdCompat-prop" translate="no">cpp.forceUseImportStdCompat</a> to <code translate="no">true</code>:</p>
-<pre class="cpp" translate="no">cpp<span class="operator">.</span>forceUseImportStd: <span class="keyword">true</span>
-cpp<span class="operator">.</span>forceUseImportCompatStd: <span class="keyword">true</span></pre>
+/docs/qml-qbsconvenienceitems-cppstd/#useStdCompat-prop" translate="no">CppStd.useStdCompat</a> property to <code translate="no">true</code>:</p>
+<pre class="cpp" translate="no">CppStd {
+    useStdCompat: <span class="keyword">true</span>
+}</pre>
 </div>
 <!-- @@@tutorial-10.html -->
 <p class="naviNextPrevious footerNavi">

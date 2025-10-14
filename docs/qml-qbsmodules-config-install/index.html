@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Qbs</title>
+    <meta name="description" content="Qbs Manual
+QbsModules
+config.install
+Qbs 3.1.1
+
+
+Contents
+
+Detailed Description
+
+
+
+config.install
+
+Provides properties for configuring installation paths and rules for various build artifacts. More...
+
+
+
+ Since: Qbs 3.1
+
+
+List of all members, including inherited members
+
+
+Detailed Description
+The config.install module contains properties that configure built-in items such as Application, Library, and Plugin.
+An example showing how to enable installation of static libraries: ">
+    <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-config-install/" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+
+    
+      
+      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+    
+
+    <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-config-install/">
+  <meta property="og:site_name" content="Qbs">
+  <meta property="og:title" content="Qbs">
+  <meta property="og:description" content="Qbs Manual QbsModules config.install Qbs 3.1.1 Contents Detailed Description config.install Provides properties for configuring installation paths and rules for various build artifacts. More...
+Since: Qbs 3.1 List of all members, including inherited members Detailed Description The config.install module contains properties that configure built-in items such as Application, Library, and Plugin.
+An example showing how to enable installation of static libraries:">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Qbs">
+  <meta name="twitter:description" content="Qbs Manual QbsModules config.install Qbs 3.1.1 Contents Detailed Description config.install Provides properties for configuring installation paths and rules for various build artifacts. More...
+Since: Qbs 3.1 List of all members, including inherited members Detailed Description The config.install module contains properties that configure built-in items such as Application, Library, and Plugin.
+An example showing how to enable installation of static libraries:">
+
+</head>
+<body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
+    <a class="flex items-center" href="/">
+        <img src="https://qbs.io//img/Cubes.svg" class="h-10 effect-shadow-small">
+        <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
+    </a>
+
+    <div>
+        
+        <a href="/blog" class="ml-2">
+            <span>Blog</span>
+        </a>
+        
+        <a href="/docs" class="ml-2">
+            <span>Documentation</span>
+        </a>
+        
+        <a href="/docs/installing/" class="ml-2">
+            <span>Get Qbs</span>
+        </a>
+        
+        <a href="/community" class="ml-2">
+            <span>Community</span>
+        </a>
+        
+    </div>
+</header><main>
+<div class="centre-outer">
+    <article class="centre-inner docs">
+    
+<li><a href="https://qbs.io/
+/docs">Qbs Manual</a></li>
+<li><a href="https://qbs.io/
+/docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
+<li>config.install</li>
+<li id="buildversion">Qbs 3.1.1</li>
+<div class="sidebar">
+<div class="toc">
+<h3 id="toc">Contents</h3>
+<ul>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<div class="content"><h1 class="title" translate="no">config.install</h1>
+<!-- $$$config.install-brief -->
+<p>Provides properties for configuring installation paths and rules for various build artifacts. <a href="#details">More...</a></p>
+<!-- @@@config.install -->
+<div class="table"><table class="alignedsummary requisites" translate="no">
+
+<tbody><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 3.1</td></tr>
+</tbody></table></div>
+<ul>
+<li><a href="https://qbs.io/
+/docs/qml-qbsmodules-config-install-members/">List of all members, including inherited members</a></li>
+</ul>
+<!-- $$$config.install-description -->
+<h2 id="details">Detailed Description</h2>
+<p>The <code translate="no">config.install</code> module contains properties that configure built-in items such as <a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-application/" translate="no">Application</a>, <a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-library/" translate="no">Library</a>, and <a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-plugin/" translate="no">Plugin</a>.</p>
+<p>An example showing how to enable installation of static libraries:</p>
+<pre class="cpp" translate="no">qbs modules<span class="operator">.</span>config<span class="operator">.</span>install<span class="operator">.</span>staticLibraries:<span class="keyword">true</span></pre>
+<p>An example showing how to change the install diretory for dynamic libraries:</p>
+<pre class="cpp" translate="no">qbs modules<span class="operator">.</span>config<span class="operator">.</span>install<span class="operator">.</span>dynamicLibrariesDirectory:opt<span class="operator">/</span>lib</pre>
+<p>For the list of available properties, see the <a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-configinstall/" translate="no">ConfigInstall</a> item.</p>
+<!-- @@@config.install -->
+</div>
+
+
+    </article>
+</div>
+
+        </main></body>
+</html>

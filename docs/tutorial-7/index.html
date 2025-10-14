@@ -4,8 +4,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
     <meta name="description" content="Qbs Manual
-Buildconfig Module
-Qbs 3.0.1
+Config Module
+Qbs 3.1.1
   
   
 
@@ -13,7 +13,7 @@ Project Properties
 Configurable Library
 
 
-Buildconfig Module
+Config Module
 
 
 In the previous chapter, we added some properties to our main Project file. While this is a perfect approach for public properties of the project, sometimes we want to add some private properties for better tuning. Of course, we could put everything in the Project file, but that would make it very convoluted. Also, accessing the top-level project all the way from products makes things strongly tied. ">
@@ -26,13 +26,13 @@ In the previous chapter, we added some properties to our main Project file. Whil
 
     
       
-      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
+      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/tutorial-7/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual Buildconfig Module Qbs 3.0.1 Project Properties Configurable Library Buildconfig Module In the previous chapter, we added some properties to our main Project file. While this is a perfect approach for public properties of the project, sometimes we want to add some private properties for better tuning. Of course, we could put everything in the Project file, but that would make it very convoluted. Also, accessing the top-level project all the way from products makes things strongly tied.">
+  <meta property="og:description" content="Qbs Manual Config Module Qbs 3.1.1 Project Properties Configurable Library Config Module In the previous chapter, we added some properties to our main Project file. While this is a perfect approach for public properties of the project, sometimes we want to add some private properties for better tuning. Of course, we could put everything in the Project file, but that would make it very convoluted. Also, accessing the top-level project all the way from products makes things strongly tied.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -40,7 +40,7 @@ In the previous chapter, we added some properties to our main Project file. Whil
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual Buildconfig Module Qbs 3.0.1 Project Properties Configurable Library Buildconfig Module In the previous chapter, we added some properties to our main Project file. While this is a perfect approach for public properties of the project, sometimes we want to add some private properties for better tuning. Of course, we could put everything in the Project file, but that would make it very convoluted. Also, accessing the top-level project all the way from products makes things strongly tied.">
+  <meta name="twitter:description" content="Qbs Manual Config Module Qbs 3.1.1 Project Properties Configurable Library Config Module In the previous chapter, we added some properties to our main Project file. While this is a perfect approach for public properties of the project, sometimes we want to add some private properties for better tuning. Of course, we could put everything in the Project file, but that would make it very convoluted. Also, accessing the top-level project all the way from products makes things strongly tied.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -74,8 +74,8 @@ In the previous chapter, we added some properties to our main Project file. Whil
     
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
-<li>Buildconfig Module</li>
-<li id="buildversion">Qbs 3.0.1</li>
+<li>Config Module</li>
+<li id="buildversion">Qbs 3.1.1</li>
   <link rel="prev" href="https://qbs.io/
 /docs/tutorial-6/">
   <link rel="next" href="https://qbs.io/
@@ -87,56 +87,96 @@ In the previous chapter, we added some properties to our main Project file. Whil
 /docs/tutorial-8/">Configurable Library</a>
 </p>
 <div class="sidebar"><div class="sidebar-content" id="sidebar-content"></div></div>
-<div class="content"><h1 class="title">Buildconfig Module</h1>
+<div class="content"><h1 class="title">Config Module</h1>
 <!-- $$$tutorial-7.html-description -->
 <div class="descr" id="details">
 <p>In the previous chapter, we added some properties to our main <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-project/" translate="no">Project</a> file. While this is a perfect approach for <i>public</i> properties of the project, sometimes we want to add some <i>private</i> properties for better tuning. Of course, we could put everything in the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-project/" translate="no">Project</a> file, but that would make it very convoluted. Also, accessing the top-level project all the way from products makes things strongly tied.</p>
-<p>You can also use a <a href="https://qbs.io/
-/docs/qml-qbslanguageitems-module/" translate="no">Module</a> that <a href="https://qbs.io/
-/docs/qml-qbslanguageitems-product/" translate="no">products</a> may depend on. That way, a <a href="https://qbs.io/
-/docs/qml-qbslanguageitems-product/" translate="no">Product</a> only uses properties of the module it depends on without the need to know about the top-level project.</p>
-<p>Let's create a file named <code translate="no">mybuildconfig.qbs</code> and put it into the <code translate="no">qbs/modules/mybuildconfig</code> directory, near the <code translate="no">qbs/imports</code> directory:</p>
-<pre class="cpp" translate="no"><span class="comment">// qbs/modules/mybuildconfig.qbs</span>
-Module {
+<p>Let's create a file named <code translate="no">module.qbs</code> and put it into the <code translate="no">qbs/modules/config/install</code> directory, near the <code translate="no">qbs/imports</code> directory:</p>
+<pre class="cpp" translate="no"><span class="comment">// qbs/modules/config/install/module.qbs</span>
+ConfigInstall {
 }</pre>
-<p>So far, this is just an empty <a href="https://qbs.io/
-/docs/qml-qbslanguageitems-module/" translate="no">Module</a> so let's add some properties to it:</p>
-<pre class="cpp" translate="no">// qbs/modules/mybuildconfig.qbs
+<p>Here we inherit the <a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-configinstall/" translate="no">ConfigInstall</a> item in order to re-use its properies. Since custom <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-project/#qbsSearchPaths-prop" translate="no">qbsSearchPaths</a> are searched first, now our version will be used instead of built-in one.</p>
+<p>First, let's change the default value of the <a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-configinstall/#importLibraries-prop" translate="no">config.install.importLibraries</a> in order to install import libraries on Windows:</p>
+<pre class="cpp" translate="no"><span class="comment">// qbs/modules/config/install/module.qbs</span>
+ConfigInstall {
+    importLibraries: <span class="keyword">true</span>
+}</pre>
+<p>We could extend the <a href="https://qbs.io/
+/docs/qml-qbsmodules-config-install/" translate="no">config.install</a> module with additional properties, but that could create collisions when someone tries to include the source code of your project into their project. Thus, we will create a new <code translate="no">config.myproject</code> module and use the same approach with the base item as Qbs does for the <code translate="no">config.install</code> module.</p>
+<p>Let's create a new item and add a new property to it:</p>
+<pre class="cpp" translate="no">// qbs/imports/ConfigMyProject.qbs
 Module {
-    property string appInstallDir: "bin"
-    property string libDirName: "lib"
-    property string libInstallDir: qbs.targetOS.contains("windows") ? appInstallDir : libDirName</pre>
-<p>We added the <code translate="no">appInstallDir</code> and <code translate="no">libInstallDir</code> properties that will allow us to configure the installation location of the our application and library, respectively.</p>
-<p>Now we can use our module in the <code translate="no">MyApplication.qbs</code> item:</p>
-<pre class="cpp" translate="no">CppApplication {
-    Depends { name: "mybuildconfig" }
-    installDir: mybuildconfig.appInstallDir
+    property bool installPublicHeaders: false</pre>
+<p>We added the <code translate="no">installPublicHeaders</code> property that will allow us to configure whether we need to install public headers for our library.</p>
+<p>Now let's use the item in a module:</p>
+<pre class="cpp" translate="no">// qbs/modules/config/myproject/module.qbs
+ConfigMyProject {
+}</pre>
+<p>Now we can use our module in the <code translate="no">MyLibrary.qbs</code> item:</p>
+<pre class="cpp" translate="no">// qbs/imports/MyLibrary.qbs
+DynamicLibrary {
+    version: project.version
 
-    version: "1.0.0"
+    property pathList publicHeaders
+
+    Depends { name: "config.myproject" }
+
+    Group {
+        condition: publicHeaders.length &gt; 0
+        name: "Public Headers"
+        prefix: product.sourceDirectory + "/"
+        files: publicHeaders
+        qbs.install: config.myproject.installPublicHeaders
+        qbs.installDir: installpaths.include
+    }
     // ...</pre>
 <p>We pull in the new module using the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-depends/" translate="no">Depends</a> item, similar to how we pulled in the <a href="https://qbs.io/
-/docs/qml-qbsmodules-cpp/" translate="no">cpp</a> module dependency earlier. We also set the <a href="https://qbs.io/
-/docs/qml-qbsconvenienceitems-application/#installDir-prop" translate="no">installDir</a> property to the corresponding module property, namely to <code translate="no">mybuildconfig.appInstallDir</code>.</p>
+/docs/qml-qbsmodules-cpp/" translate="no">cpp</a> module dependency earlier.</p>
+<p>We add a new <code translate="no">publicHeaders</code> property that will contain the list of headers we want to install.</p>
+<p>Finally, we create a <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-group/" translate="no">Group</a> item that installs headers listed by the <code translate="no">publicHeaders</code> property to the <a href="https://qbs.io/
+/docs/qml-qbsmodules-installpaths/#include-prop" translate="no">installpaths.include</a> directory.</p>
+<p>Note that we use the <a href="https://qbs.io/
+/docs/qml-qbsmodules-installpaths/" translate="no">installpaths</a> module - it is pulled in by the <a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-dynamiclibrary/" translate="no">DynamicLibrary</a> item and is available in all items that inherit that item.</p>
+<p>Now we can rewrite the <code translate="no">lib/lib.qbs</code> to use the new property:</p>
+<pre class="cpp" translate="no">// lib/lib.qbs
+MyLibrary {
+    name: "mylib"
+    files: [ "lib.c" ]
+    publicHeaders: [ "lib.h" ]
+    Depends { name: 'cpp' }
+    cpp.defines: ['CRUCIAL_DEFINE']
+}</pre>
+<p>Instead of the <code translate="no">config.myproject.installPublicHeaders</code> property, we could also use the property in the <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-project/" translate="no">Project</a> item similar to how we did in the previous chapter. There is no strong preference which way to use, however using modules for configuration is more flexible as it is also possible to set properties of other modules as described below.</p>
 <p>Qbs <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-module/" translate="no">modules</a> have the feature to automatically export properties of other modules. Those exported properties are merged in the resulting product. We can use this feature to set the <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#rpaths-prop" translate="no">cpp.rpaths</a> in our module rather than in products:</p>
-<pre class="cpp" translate="no">// qbs/modules/mybuildconfig.qbs
+<pre class="cpp" translate="no">import qbs.FileInfo
+// qbs/imports/ConfigMyProject.qbs
 Module {
-    property string appInstallDir: "bin"
-    property string libDirName: "lib"
-    property string libInstallDir: qbs.targetOS.contains("windows") ? appInstallDir : libDirName
+    property bool installPublicHeaders: false
 
     Depends { name: "cpp" }
+    Depends { name: "installpaths" }
+    Depends { name: "config.install" }
 
     property bool enableRPath: true
     property stringList libRPaths: {
         if (enableRPath &amp;&amp; cpp.rpathOrigin &amp;&amp; product.installDir) {
-            return [FileInfo.joinPaths(cpp.rpathOrigin, FileInfo.relativePath(
-                                           FileInfo.joinPaths('/', product.installDir),
-                                           FileInfo.joinPaths('/', libInstallDir)))];
+            return [
+                FileInfo.joinPaths(
+                    cpp.rpathOrigin,
+                    FileInfo.relativePath(
+                        FileInfo.joinPaths('/', product.installDir),
+                        FileInfo.joinPaths('/', config.install.dynamicLibrariesDirectory)))];
         }
         return [];
     }
@@ -144,26 +184,22 @@ Module {
     cpp.rpaths: libRPaths
 }</pre>
 <p>Here, we inject the dependency on the <a href="https://qbs.io/
-/docs/qml-qbsmodules-cpp/" translate="no">cpp</a> module and calculate the <code translate="no">libRPaths</code> property. This is a relative path from the <code translate="no">product.installDir</code> (which is either <code translate="no">"bin"</code> or <code translate="no">"lib"</code>, depending on product type to <code translate="no">libInstallDir</code>). Finally, we set <a href="https://qbs.io/
-/docs/qml-qbsmodules-cpp/#rpaths-prop" translate="no">cpp.rpaths</a> to this property. This way, those <code translate="no">rpaths</code> will be automatically exported to all products that depend on the <code translate="no">mybuildconfig</code> module.</p>
-<p>Now, we can also use our new module in the library item:</p>
-<pre class="cpp" translate="no">// qbs/imports/MyLibrary.qbs
-    // ...
-    Depends { name: "mybuildconfig" }
-    installDir: mybuildconfig.libInstallDir
-
-    Depends { name: "cpp" }
-    property string libraryMacro: name.replace(" ", "_").toUpperCase() + "_LIBRARY"
-    cpp.defines: [libraryMacro]
-    cpp.sonamePrefix: qbs.targetOS.contains("darwin") ? "@rpath" : undefined
-
-    Export {
-    // ...</pre>
-<p>Let's change the library folder name from <code translate="no">"lib"</code> to <code translate="no">"lib64"</code> when building our project:</p>
-<pre class="cpp" translate="no">$ qbs modules<span class="operator">.</span>mybuildconfig<span class="operator">.</span>libDirName:lib64
+/docs/qml-qbsmodules-cpp/" translate="no">cpp</a> module and calculate the <code translate="no">libRPaths</code> property. This is a relative path from the <code translate="no">product.installDir</code> (which is either <code translate="no">"bin"</code> or <code translate="no">"lib"</code>, depending on product type) to <a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-configinstall/#dynamicLibrariesDirectory-prop" translate="no">dynamicLibrariesDirectory</a> (which is <code translate="no">"lib"</code> by default). Finally, we set <a href="https://qbs.io/
+/docs/qml-qbsmodules-cpp/#rpaths-prop" translate="no">cpp.rpaths</a> to this property. This way, those <code translate="no">rpaths</code> will be automatically exported to all products that depend on the <code translate="no">config.myproject</code> module.</p>
+<p>We should also update the <code translate="no">MyApplication</code> item to add a dependency on the <code translate="no">"config.myproject"</code> in order to inject <a href="https://qbs.io/
+/docs/qml-qbsmodules-cpp/#rpaths-prop" translate="no">cpp.rpaths</a> we set in the module:</p>
+<pre class="cpp" translate="no">// qbs/imports/MyApplication.qbs
+CppApplication {
+    Depends { name: "config.myproject" }
+    version: "1.0.0"
+    consoleApplication: true
+}</pre>
+<p>Let's change whether to install public headers when building our project:</p>
+<pre class="cpp" translate="no">$ qbs modules<span class="operator">.</span>config<span class="operator">.</span>myproject<span class="operator">.</span>installPublicHeaders:<span class="keyword">true</span>
 <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
-$ ls <span class="keyword">default</span><span class="operator">/</span>install<span class="operator">-</span>root<span class="operator">/</span>usr<span class="operator">/</span>local<span class="operator">/</span>
-bin    lib64</pre>
+$ ls <span class="keyword">default</span><span class="operator">/</span>install<span class="operator">-</span>root<span class="operator">/</span>usr<span class="operator">/</span>local<span class="operator">/</span><span class="keyword">include</span><span class="operator">/</span>
+lib<span class="operator">.</span>h</pre>
 </div>
 <!-- @@@tutorial-7.html -->
 <p class="naviNextPrevious footerNavi">

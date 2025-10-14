@@ -6,7 +6,7 @@
     <meta name="description" content="Qbs Manual
 QbsModules
 vcs
-Qbs 3.0.1
+Qbs 3.1.1
 
 
 Contents
@@ -18,7 +18,7 @@ Detailed Description
 
 vcs
 
-Provides support for version control systems. More...
+Provides support for version control systems (Git, SVN, Mercurial). More...
 
 
 
@@ -30,14 +30,17 @@ List of all members, including inherited members
 Properties
 
 headerFileName : string
+repoCommitSha : string (since Qbs 3.1.0)
+repoCommitsSinceTag : string (since Qbs 3.1.0)
 repoDir : string
+repoLatestTag : string (since Qbs 3.1.0)
 repoState : string
 toolFilePath : string
 type : string
 
 
 Detailed Description
-The vcs module provides the current state of the project&#39;s repository via the repoState property. By default, a C header is also generated, allowing for simple retrieval of the repository state directly from within your C/C&#43;&#43; sources. This is useful to embed information into binaries about the exact state of the repository from which they were built. ">
+The vcs module provides information about the current state of the project&#39;s repository. This is useful for embedding version information directly into your binaries, such as the latest tag, number of commits since the tag, and current commit hash. ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-vcs/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -47,14 +50,14 @@ The vcs module provides the current state of the project&#39;s repository via th
 
     
       
-      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
+      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-vcs/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual QbsModules vcs Qbs 3.0.1 Contents Properties Detailed Description vcs Provides support for version control systems. More...
-Since: Qbs 1.10 List of all members, including inherited members Properties headerFileName : string repoDir : string repoState : string toolFilePath : string type : string Detailed Description The vcs module provides the current state of the project&#39;s repository via the repoState property. By default, a C header is also generated, allowing for simple retrieval of the repository state directly from within your C/C&#43;&#43; sources. This is useful to embed information into binaries about the exact state of the repository from which they were built.">
+  <meta property="og:description" content="Qbs Manual QbsModules vcs Qbs 3.1.1 Contents Properties Detailed Description vcs Provides support for version control systems (Git, SVN, Mercurial). More...
+Since: Qbs 1.10 List of all members, including inherited members Properties headerFileName : string repoCommitSha : string (since Qbs 3.1.0) repoCommitsSinceTag : string (since Qbs 3.1.0) repoDir : string repoLatestTag : string (since Qbs 3.1.0) repoState : string toolFilePath : string type : string Detailed Description The vcs module provides information about the current state of the project&#39;s repository. This is useful for embedding version information directly into your binaries, such as the latest tag, number of commits since the tag, and current commit hash.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -62,8 +65,8 @@ Since: Qbs 1.10 List of all members, including inherited members Properties head
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual QbsModules vcs Qbs 3.0.1 Contents Properties Detailed Description vcs Provides support for version control systems. More...
-Since: Qbs 1.10 List of all members, including inherited members Properties headerFileName : string repoDir : string repoState : string toolFilePath : string type : string Detailed Description The vcs module provides the current state of the project&#39;s repository via the repoState property. By default, a C header is also generated, allowing for simple retrieval of the repository state directly from within your C/C&#43;&#43; sources. This is useful to embed information into binaries about the exact state of the repository from which they were built.">
+  <meta name="twitter:description" content="Qbs Manual QbsModules vcs Qbs 3.1.1 Contents Properties Detailed Description vcs Provides support for version control systems (Git, SVN, Mercurial). More...
+Since: Qbs 1.10 List of all members, including inherited members Properties headerFileName : string repoCommitSha : string (since Qbs 3.1.0) repoCommitsSinceTag : string (since Qbs 3.1.0) repoDir : string repoLatestTag : string (since Qbs 3.1.0) repoState : string toolFilePath : string type : string Detailed Description The vcs module provides information about the current state of the project&#39;s repository. This is useful for embedding version information directly into your binaries, such as the latest tag, number of commits since the tag, and current commit hash.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -100,7 +103,7 @@ Since: Qbs 1.10 List of all members, including inherited members Properties head
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>vcs</li>
-<li id="buildversion">Qbs 3.0.1</li>
+<li id="buildversion">Qbs 3.1.1</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -112,7 +115,7 @@ Since: Qbs 1.10 List of all members, including inherited members Properties head
 <div class="sidebar-content" id="sidebar-content"></div></div>
 <div class="content"><h1 class="title" translate="no">vcs</h1>
 <!-- $$$vcs-brief -->
-<p>Provides support for version control systems. <a href="#details">More...</a></p>
+<p>Provides support for version control systems (Git, SVN, Mercurial). <a href="#details">More...</a></p>
 <!-- @@@vcs -->
 <div class="table"><table class="alignedsummary requisites" translate="no">
 
@@ -127,7 +130,13 @@ Since: Qbs 1.10 List of all members, including inherited members Properties head
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-vcs/#headerFileName-prop" translate="no">headerFileName</a></b> : string</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-vcs/#repoCommitSha-prop" translate="no">repoCommitSha</a></b> : string <code class="summary extra" translate="no">(since Qbs 3.1.0)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-vcs/#repoCommitsSinceTag-prop" translate="no">repoCommitsSinceTag</a></b> : string <code class="summary extra" translate="no">(since Qbs 3.1.0)</code></li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-vcs/#repoDir-prop" translate="no">repoDir</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-vcs/#repoLatestTag-prop" translate="no">repoLatestTag</a></b> : string <code class="summary extra" translate="no">(since Qbs 3.1.0)</code></li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-vcs/#repoState-prop" translate="no">repoState</a></b> : string</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
@@ -137,8 +146,14 @@ Since: Qbs 1.10 List of all members, including inherited members Properties head
 </ul>
 <!-- $$$vcs-description -->
 <h2 id="details">Detailed Description</h2>
-<p>The <code translate="no">vcs</code> module provides the current state of the project's repository via the <a href="https://qbs.io/
-/docs/qml-qbsmodules-vcs/#repoState-prop" translate="no">repoState</a> property. By default, a <code translate="no">C</code> header is also generated, allowing for simple retrieval of the repository state directly from within your C/C++ sources. This is useful to embed information into binaries about the exact state of the repository from which they were built.</p>
+<p>The <code translate="no">vcs</code> module provides information about the current state of the project's repository. This is useful for embedding version information directly into your binaries, such as the latest tag, number of commits since the tag, and current commit hash.</p>
+<p>By default, a C header file is generated, which defines macros representing the repository state. This allows C/C++ code to access this information at run time.</p>
+<p>Supported version control systems:</p>
+<ul>
+<li>Git</li>
+<li>Subversion (SVN)</li>
+<li>Mercurial (hg)</li>
+</ul>
 <p>For example:</p>
 <pre class="cpp" translate="no"><span class="preprocessor">#include &lt;vcs-repo-state.h&gt;</span>
 <span class="preprocessor">#include &lt;iostream&gt;</span>
@@ -146,8 +161,18 @@ Since: Qbs 1.10 List of all members, including inherited members Properties head
 <span class="type">int</span> main()
 {
     std<span class="operator">::</span>cout <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">"I was built from "</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> VCS_REPO_STATE <span class="operator">&lt;</span><span class="operator">&lt;</span> std<span class="operator">::</span>endl;
+    std<span class="operator">::</span>cout <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">"Latest tag: "</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> VCS_REPO_LATEST_TAG <span class="operator">&lt;</span><span class="operator">&lt;</span> std<span class="operator">::</span>endl;
+    std<span class="operator">::</span>cout <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">"Commits since tag: "</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> VCS_REPO_COMMITS_SINCE_TAG <span class="operator">&lt;</span><span class="operator">&lt;</span> std<span class="operator">::</span>endl;
+    std<span class="operator">::</span>cout <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">"Commit SHA: "</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> VCS_REPO_COMMIT_SHA <span class="operator">&lt;</span><span class="operator">&lt;</span> std<span class="operator">::</span>endl;
 }</pre>
 <p>Above, a header file called <code translate="no">vcs-repo-state.h</code> is created, defining a macro called <code translate="no">VCS_REPO_STATE</code>, which expands to a character constant describing the current state of the repository. For Git, this would be the current HEAD's commit hash.</p>
+<p>Example:</p>
+<pre class="cpp" translate="no">VCS_REPO_STATE <span class="operator">=</span> <span class="string">"v1.2.3-5-gabcdef0"</span>
+VCS_REPO_LATEST_TAG <span class="operator">=</span> <span class="string">"v1.2.3"</span>
+VCS_REPO_COMMITS_SINCE_TAG <span class="operator">=</span> <span class="string">"5"</span>
+VCS_REPO_COMMIT_SHA <span class="operator">=</span> <span class="string">"gabcdef0"</span></pre>
+<p>For Git repositories without any tags, the commit hash will be used instead. For Mercurial repositories, the full repository state is always shown. For SVN, only <a href="https://qbs.io/
+/docs/qml-qbsmodules-vcs/#repoState-prop" translate="no">repoState</a> is currently available.</p>
 <!-- @@@vcs -->
 <h2>Property Documentation</h2>
 <!-- $$$headerFileName -->
@@ -157,10 +182,46 @@ Since: Qbs 1.10 List of all members, including inherited members Properties head
 <td class="tblQmlPropNode"><p>
 <span class="name">headerFileName</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
-<div class="qmldoc"><p>The name of the C header file to be created.</p>
-<p>Set this to <code translate="no">undefined</code> if you do not want a header file to be generated.</p>
+<div class="qmldoc"><p>The name of the C header file to be generated. This header file defines the following macros:</p>
+<ul>
+<li><code translate="no">VCS_REPO_STATE</code> — Full repository state string</li>
+<li><code translate="no">VCS_REPO_LATEST_TAG</code> — Latest tag reachable from HEAD (or "none")</li>
+<li><code translate="no">VCS_REPO_COMMITS_SINCE_TAG</code> — Number of commits since latest tag (or "none")</li>
+<li><code translate="no">VCS_REPO_COMMIT_SHA</code> — Current commit SHA (or "none")</li>
+</ul>
+<p>Set this to <code translate="no">undefined</code> to disable header file generation.</p>
 <p>Default: <code translate="no">"vcs-repo-state.h"</code></p>
 </div></div><!-- @@@headerFileName -->
+<br>
+<!-- $$$repoCommitSha -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="repoCommitSha-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">repoCommitSha</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 3.1.0]</code></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>The abbreviated commit hash of HEAD.</p>
+<p>For Git, this is the <code translate="no">gSHA</code> component from <code translate="no">git</code> describe output. If no tags are present, this will be set to the commit hash prefixed with <code translate="no">g</code>.</p>
+<p>For Mercurial, this is the <code translate="no">m{node|short}</code> component from the template.</p>
+<p>For SVN, this property is currently not set and will be <code translate="no">"none"</code>.</p>
+<p>Default: Undefined</p>
+<p>This property was introduced in Qbs 3.1.0.</p>
+</div></div><!-- @@@repoCommitSha -->
+<br>
+<!-- $$$repoCommitsSinceTag -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="repoCommitsSinceTag-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">repoCommitsSinceTag</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 3.1.0]</code></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>The number of commits since the latest tag.</p>
+<p>For Git, this is the <code translate="no">N</code> component from <code translate="no">git</code> describe output. If no tags are present, this will be set to <code translate="no">"none"</code>.</p>
+<p>For Mercurial, this is the <code translate="no">latesttagdistance</code> component from the template.</p>
+<p>For SVN, this property is currently not set and will be <code translate="no">"none"</code>.</p>
+<p>Default: Undefined</p>
+<p>This property was introduced in Qbs 3.1.0.</p>
+</div></div><!-- @@@repoCommitsSinceTag -->
 <br>
 <!-- $$$repoDir -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
@@ -174,6 +235,21 @@ Since: Qbs 1.10 List of all members, including inherited members Properties head
 /docs/qml-qbslanguageitems-project/#sourceDirectory-prop" translate="no">project.sourceDirectory</a>).</p>
 </div></div><!-- @@@repoDir -->
 <br>
+<!-- $$$repoLatestTag -->
+<div class="qmlitem"><div class="qmlproto" translate="no">
+<div class="table"><table class="qmlname">
+<tbody><tr class="odd" id="repoLatestTag-prop" valign="top">
+<td class="tblQmlPropNode"><p>
+<span class="name">repoLatestTag</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 3.1.0]</code></p></td></tr>
+</tbody></table></div></div>
+<div class="qmldoc"><p>The latest reachable tag in the repository.</p>
+<p>For Git, this is the <code translate="no">TAG</code> component from <code translate="no">git</code> describe output. If no tags are present, this will be set to <code translate="no">"none"</code>.</p>
+<p>For Mercurial, this is the <code translate="no">latesttag</code> component from the template.</p>
+<p>For SVN, this property is currently not set and will be <code translate="no">"none"</code>.</p>
+<p>Default: Undefined</p>
+<p>This property was introduced in Qbs 3.1.0.</p>
+</div></div><!-- @@@repoLatestTag -->
+<br>
 <!-- $$$repoState -->
 <div class="qmlitem"><div class="qmlproto" translate="no">
 <div class="table"><table class="qmlname">
@@ -181,8 +257,24 @@ Since: Qbs 1.10 List of all members, including inherited members Properties head
 <td class="tblQmlPropNode"><p>
 <span class="name">repoState</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
-<div class="qmldoc"><p>The current state of the repository.</p>
-<p>For example, in Git this is the commit hash of the current HEAD.</p>
+<div class="qmldoc"><p>The full repository state string.</p>
+<p>For Git, this corresponds to the output of: <code translate="no">git describe --tags --always --long HEAD</code></p>
+<p>Example values:</p>
+<ul>
+<li><code translate="no">abc1234</code> (no tags)</li>
+<li><code translate="no">abc1234-0-gabc1234</code> (at tag)</li>
+<li><code translate="no">v1.0.0-3-gabc1234</code> (3 commits after tag)</li>
+</ul>
+<p>For Mercurial, this corresponds to the output of: <code translate="no">hg log -r . --template "{latesttag}-{latesttagdistance}-m{node|short}"</code></p>
+<p>Example values:</p>
+<ul>
+<li><code translate="no">null-0-m000000000000</code> (empty repo)</li>
+<li><code translate="no">null-1-mabc1234</code> (no tags)</li>
+<li><code translate="no">null-3-mabc1234</code> (4 commits, no tags)</li>
+<li><code translate="no">v1.0.0-1-mabc1234</code> (at tag)</li>
+<li><code translate="no">v1.0.0-3-mabc1234</code> (4 commits after tag)</li>
+</ul>
+<p>For SVN, this is the current revision number.</p>
 <p>Default: Undefined</p>
 </div></div><!-- @@@repoState -->
 <br>
@@ -206,7 +298,7 @@ Since: Qbs 1.10 List of all members, including inherited members Properties head
 <span class="name">type</span> : <span class="type">string</span></p></td></tr>
 </tbody></table></div></div>
 <div class="qmldoc"><p>The version control system used in the project.</p>
-<p>Currently, the supported values are <code translate="no">"git"</code> and <code translate="no">"svn"</code>.</p>
+<p>Currently, the supported values are <code translate="no">"git"</code>, <code translate="no">"hg"</code> and <code translate="no">"svn"</code>.</p>
 <p>Default: auto-detected</p>
 </div></div><!-- @@@type -->
 <br>

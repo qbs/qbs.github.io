@@ -5,25 +5,18 @@
     <title>Qbs</title>
     <meta name="description" content="Qbs Manual
 Configurable Library
-Qbs 3.0.1
+Qbs 3.1.1
   
   
 
-Buildconfig Module
+Config Module
 Version Header
 
 
 Configurable Library
 
 
-In this chapter, we will make our library more configurable. We will add configuration options to be able to choose between static and dynamic builds.
-We start with some new properties in the mybuildconfig module:
-Module {
-    ...
-    property bool staticBuild: false
-    property bool installStaticLib: true
-    ...
-}
+In this chapter, we will make our library more configurable to be able to choose between static and dynamic builds.
 We need to do some modifications to export macros in the lib/lib_global.h header:
 // lib/lib_global.h
 #if defined(MYLIB_STATIC_LIBRARY)
@@ -45,15 +38,14 @@ Here&#39; we added a new branch when MYLIB_STATIC_LIBRARY is defined. In that ca
 
     
       
-      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
+      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/tutorial-8/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual Configurable Library Qbs 3.0.1 Buildconfig Module Version Header Configurable Library In this chapter, we will make our library more configurable. We will add configuration options to be able to choose between static and dynamic builds.
-We start with some new properties in the mybuildconfig module:
-Module { ... property bool staticBuild: false property bool installStaticLib: true ... } We need to do some modifications to export macros in the lib/lib_global.h header:
+  <meta property="og:description" content="Qbs Manual Configurable Library Qbs 3.1.1 Config Module Version Header Configurable Library In this chapter, we will make our library more configurable to be able to choose between static and dynamic builds.
+We need to do some modifications to export macros in the lib/lib_global.h header:
 // lib/lib_global.h #if defined(MYLIB_STATIC_LIBRARY) #define MYLIB_EXPORT #else #if defined(MYLIB_LIBRARY) #define MYLIB_EXPORT MY_LIB_DECL_EXPORT #else #define MYLIB_EXPORT MY_LIB_DECL_IMPORT #endif #endif Here&#39; we added a new branch when MYLIB_STATIC_LIBRARY is defined. In that case, we make the MY_LIB_EXPORT macro empty.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
@@ -62,9 +54,8 @@ Module { ... property bool staticBuild: false property bool installStaticLib: tr
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual Configurable Library Qbs 3.0.1 Buildconfig Module Version Header Configurable Library In this chapter, we will make our library more configurable. We will add configuration options to be able to choose between static and dynamic builds.
-We start with some new properties in the mybuildconfig module:
-Module { ... property bool staticBuild: false property bool installStaticLib: true ... } We need to do some modifications to export macros in the lib/lib_global.h header:
+  <meta name="twitter:description" content="Qbs Manual Configurable Library Qbs 3.1.1 Config Module Version Header Configurable Library In this chapter, we will make our library more configurable to be able to choose between static and dynamic builds.
+We need to do some modifications to export macros in the lib/lib_global.h header:
 // lib/lib_global.h #if defined(MYLIB_STATIC_LIBRARY) #define MYLIB_EXPORT #else #if defined(MYLIB_LIBRARY) #define MYLIB_EXPORT MY_LIB_DECL_EXPORT #else #define MYLIB_EXPORT MY_LIB_DECL_IMPORT #endif #endif Here&#39; we added a new branch when MYLIB_STATIC_LIBRARY is defined. In that case, we make the MY_LIB_EXPORT macro empty.">
 
 </head>
@@ -100,14 +91,14 @@ Module { ... property bool staticBuild: false property bool installStaticLib: tr
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li>Configurable Library</li>
-<li id="buildversion">Qbs 3.0.1</li>
+<li id="buildversion">Qbs 3.1.1</li>
   <link rel="prev" href="https://qbs.io/
 /docs/tutorial-7/">
   <link rel="next" href="https://qbs.io/
 /docs/tutorial-9/">
 <p class="naviNextPrevious headerNavi">
 <a class="prevPage" href="https://qbs.io/
-/docs/tutorial-7/">Buildconfig Module</a>
+/docs/tutorial-7/">Config Module</a>
 <a class="nextPage" href="https://qbs.io/
 /docs/tutorial-9/">Version Header</a>
 </p>
@@ -115,14 +106,7 @@ Module { ... property bool staticBuild: false property bool installStaticLib: tr
 <div class="content"><h1 class="title">Configurable Library</h1>
 <!-- $$$tutorial-8.html-description -->
 <div class="descr" id="details">
-<p>In this chapter, we will make our library more configurable. We will add configuration options to be able to choose between static and dynamic builds.</p>
-<p>We start with some new properties in the <code translate="no">mybuildconfig</code> module:</p>
-<pre class="cpp" translate="no">Module {
-    <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
-    property <span class="type">bool</span> staticBuild: <span class="keyword">false</span>
-    property <span class="type">bool</span> installStaticLib: <span class="keyword">true</span>
-    <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
-}</pre>
+<p>In this chapter, we will make our library more configurable to be able to choose between static and dynamic builds.</p>
 <p>We need to do some modifications to export macros in the <code translate="no">lib/lib_global.h</code> header:</p>
 <pre class="cpp" translate="no"><span class="comment">// lib/lib_global.h</span>
 <span class="preprocessor">#if defined(MYLIB_STATIC_LIBRARY)</span>
@@ -137,23 +121,32 @@ Module { ... property bool staticBuild: false property bool installStaticLib: tr
 <p>Here' we added a new branch when <code translate="no">MYLIB_STATIC_LIBRARY</code> is defined. In that case, we make the <code translate="no">MY_LIB_EXPORT</code> macro empty.</p>
 <p>Now, let's modify the <code translate="no">qbs/imports/MyLibrary.qbs</code> file as follows:</p>
 <pre class="cpp" translate="no">Library {
+    version: project.version
+
+    property pathList publicHeaders
     Depends { name: "cpp" }
-    Depends { name: "mybuildconfig" }
-    type: mybuildconfig.staticBuild ? "staticlibrary" : "dynamiclibrary"
-    version: "1.0.0"
-    install: !mybuildconfig.staticBuild || mybuildconfig.installStaticLib
-    installDir: mybuildconfig.libInstallDir
+    Depends { name: "config.myproject" }
+    Depends { name: "installpaths" }
+
+    Group {
+        condition: publicHeaders.length &gt; 0
+        name: "Public Headers"
+        prefix: product.sourceDirectory + "/"
+        files: publicHeaders
+        qbs.install: config.myproject.installPublicHeaders
+        qbs.installDir: installpaths.include
+    }
 
     readonly property string _nameUpper : name.replace(" ", "_").toUpperCase()
     property string libraryMacro: _nameUpper + "_LIBRARY"
     property string staticLibraryMacro: _nameUpper + "_STATIC_LIBRARY"
-    cpp.defines: mybuildconfig.staticBuild ? [staticLibraryMacro] : [libraryMacro]
+    cpp.defines: config.build.libraryType === "static" ? [staticLibraryMacro] : [libraryMacro]
     cpp.sonamePrefix: qbs.targetOS.contains("darwin") ? "@rpath" : undefined
 
     Export {
         Depends { name: "cpp" }
         cpp.includePaths: [exportingProduct.sourceDirectory]
-        cpp.defines: exportingProduct.mybuildconfig.staticBuild
+        cpp.defines: exportingProduct.config.build.libraryType === "static"
             ? [exportingProduct.staticLibraryMacro] : []
     }
 
@@ -163,22 +156,19 @@ Module { ... property bool staticBuild: false property bool installStaticLib: tr
 <p>First thing to notice is that we changed the type of the item from <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-dynamiclibrary/" translate="no">DynamicLibrary</a> to the <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-library/" translate="no">Library</a> item which is a common base item for dynamic and static libraries.</p>
-<p>Second, we change the <a href="https://qbs.io/
-/docs/qml-qbslanguageitems-product/#type-prop" translate="no">type</a> of the product so it depends on the <code translate="no">staticBuild</code> property:</p>
-<pre class="cpp" translate="no">type: mybuildconfig<span class="operator">.</span>staticBuild <span class="operator">?</span> <span class="string">"staticlibrary"</span> : <span class="string">"dynamiclibrary"</span></pre>
-<p>Third, we change our <i>export macro</i> to be different in the static and dynamic builds to correspond with the changes we made to the <code translate="no">lib_global.h</code>:</p>
+<p>Second, we change our <i>export macro</i> to be different in the static and dynamic builds to correspond with the changes we made to the <code translate="no">lib_global.h</code>:</p>
 <pre class="cpp" translate="no">readonly property string _nameUpper : name<span class="operator">.</span>replace(<span class="string">" "</span><span class="operator">,</span> <span class="string">"_"</span>)<span class="operator">.</span>toUpperCase()
 property string libraryMacro: _nameUpper <span class="operator">+</span> <span class="string">"_LIBRARY"</span>
 property string staticLibraryMacro: _nameUpper <span class="operator">+</span> <span class="string">"_STATIC_LIBRARY"</span>
-cpp<span class="operator">.</span>defines: mybuildconfig<span class="operator">.</span>staticBuild <span class="operator">?</span> <span class="operator">[</span>staticLibraryMacro<span class="operator">]</span> : <span class="operator">[</span>libraryMacro<span class="operator">]</span></pre>
+cpp<span class="operator">.</span>defines: config<span class="operator">.</span>build<span class="operator">.</span>libraryType <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"static"</span> <span class="operator">?</span> <span class="operator">[</span>staticLibraryMacro<span class="operator">]</span> : <span class="operator">[</span>libraryMacro<span class="operator">]</span></pre>
 <p>Note that in a static build we export the <code translate="no">MYLIB_STATIC_LIBRARY</code> macro so that the dependent products will know whether they link to a static or dynamic library:</p>
 <pre class="cpp" translate="no">Export {
     <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
-    cpp<span class="operator">.</span>defines: exportingProduct<span class="operator">.</span>mybuildconfig<span class="operator">.</span>staticBuild
+    cpp<span class="operator">.</span>defines: exportingProduct<span class="operator">.</span>config<span class="operator">.</span>build<span class="operator">.</span>libraryType <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"static"</span>
         <span class="operator">?</span> <span class="operator">[</span>exportingProduct<span class="operator">.</span>staticLibraryMacro<span class="operator">]</span> : <span class="operator">[</span><span class="operator">]</span>
 }</pre>
 <p>Now we can build our project in dynamic or static mode:</p>
-<pre class="cpp" translate="no">$ qbs resolve modules<span class="operator">.</span>mybuildconfig<span class="operator">.</span>staticBuild:<span class="keyword">false</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> qbs build
+<pre class="cpp" translate="no">$ qbs resolve modules<span class="operator">.</span>config<span class="operator">.</span>build<span class="operator">.</span>libraryType:<span class="keyword">static</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> qbs build
 <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
 $ ls <span class="keyword">default</span><span class="operator">/</span>install<span class="operator">-</span>root<span class="operator">/</span>usr<span class="operator">/</span>local<span class="operator">/</span>lib<span class="operator">/</span>
     libmylib<span class="operator">.</span><span class="number">1.0.0.so</span>
@@ -186,15 +176,26 @@ $ ls <span class="keyword">default</span><span class="operator">/</span>install<
     libmylib<span class="operator">.</span><span class="number">1.so</span>
     libmylib<span class="operator">.</span>so
 $ rm <span class="operator">-</span>r <span class="keyword">default</span>
-$ qbs resolve modules<span class="operator">.</span>mybuildconfig<span class="operator">.</span>staticBuild:<span class="keyword">true</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> qbs build
+$ qbs resolve modules<span class="operator">.</span>config<span class="operator">.</span>myproject<span class="operator">.</span>staticBuild:<span class="keyword">true</span> modules<span class="operator">.</span>config<span class="operator">.</span>install<span class="operator">.</span>staticLibraries:<span class="keyword">true</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> qbs build
 <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
 $ $ ls <span class="keyword">default</span><span class="operator">/</span>install<span class="operator">-</span>root<span class="operator">/</span>usr<span class="operator">/</span>local<span class="operator">/</span>lib<span class="operator">/</span>
     libmylib<span class="operator">.</span>a</pre>
+<div class="admonition note">
+<p><b>Note: </b>Qbs does not install static libraries by default, thats why we set the <a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-configinstall/#staticLibraries-prop" translate="no">config.install.staticLibraries</a> property to <code translate="no">true</code> to enforce installation of the static library. We can also change the default in the <code translate="no">config.install</code> module:</p>
+</div>
+<pre class="cpp" translate="no"><span class="comment">// qbs/modules/config/install/module.qbs</span>
+ConfigInstall {
+    <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+    importLibraries: <span class="keyword">true</span>
+    staticLibraries: <span class="keyword">true</span>
+    <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+}</pre>
 </div>
 <!-- @@@tutorial-8.html -->
 <p class="naviNextPrevious footerNavi">
 <a class="prevPage" href="https://qbs.io/
-/docs/tutorial-7/">Buildconfig Module</a>
+/docs/tutorial-7/">Config Module</a>
 <a class="nextPage" href="https://qbs.io/
 /docs/tutorial-9/">Version Header</a>
 </p>

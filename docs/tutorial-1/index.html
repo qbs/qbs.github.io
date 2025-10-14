@@ -5,7 +5,7 @@
     <title>Qbs</title>
     <meta name="description" content="Qbs Manual
 Console Application
-Qbs 3.0.1
+Qbs 3.1.1
   
   
 
@@ -35,13 +35,13 @@ Here, we set the name of the project to &#34;My Project&#34; - it is mainly used
 
     
       
-      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
+      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/tutorial-1/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual Console Application Qbs 3.0.1 Tutorial Static Library Console Application Let&#39;s start with a mandatory Hello World example. There is a Hello World example in the overview section, but this time we will create a real-world project.
+  <meta property="og:description" content="Qbs Manual Console Application Qbs 3.1.1 Tutorial Static Library Console Application Let&#39;s start with a mandatory Hello World example. There is a Hello World example in the overview section, but this time we will create a real-world project.
 We will start with a simple Qbs project file:
 Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references: [ &#34;app/app.qbs&#34; ] } Here, we set the name of the project to &#34;My Project&#34; - it is mainly used for IDEs but can also be used to reference a project when setting properties from command-line. We also set the minimumQbsVersion - this property can be useful if the project depends on features that are not present in earlier Qbs versions.">
   <meta property="og:locale" content="en_us">
@@ -51,7 +51,7 @@ Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual Console Application Qbs 3.0.1 Tutorial Static Library Console Application Let&#39;s start with a mandatory Hello World example. There is a Hello World example in the overview section, but this time we will create a real-world project.
+  <meta name="twitter:description" content="Qbs Manual Console Application Qbs 3.1.1 Tutorial Static Library Console Application Let&#39;s start with a mandatory Hello World example. There is a Hello World example in the overview section, but this time we will create a real-world project.
 We will start with a simple Qbs project file:
 Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references: [ &#34;app/app.qbs&#34; ] } Here, we set the name of the project to &#34;My Project&#34; - it is mainly used for IDEs but can also be used to reference a project when setting properties from command-line. We also set the minimumQbsVersion - this property can be useful if the project depends on features that are not present in earlier Qbs versions.">
 
@@ -88,7 +88,7 @@ Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li>Console Application</li>
-<li id="buildversion">Qbs 3.0.1</li>
+<li id="buildversion">Qbs 3.1.1</li>
   <link rel="prev" href="https://qbs.io/
 /docs/tutorial/">
   <link rel="next" href="https://qbs.io/
@@ -126,8 +126,6 @@ Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references
     version: "1.0.0"
 
     consoleApplication: true
-    install: true
-    installDebugInformation: true
 }</pre>
 <p>The <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#name-prop" translate="no">name</a> property identifies the product. The <a href="https://qbs.io/
@@ -144,10 +142,8 @@ Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references
 }</pre>
 <p>We set <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#consoleApplication-prop" translate="no">consoleApplication</a> to <code translate="no">true</code> to indicate that our application is going to be used from a terminal. For example, on Windows, this will spawn a new console window if you double-click the resulting binary, while on macOS it will create a standalone binary file instead of an <a href="https://developer.apple.com/library/archive/documentation/CoreFoundation/Conceptual/CFBundles/BundleTypes/BundleTypes.html">application bundle</a>.</p>
-<p>By default, the <a href="https://qbs.io/
-/docs/qml-qbsconvenienceitems-application/#install-prop" translate="no">CppApplication.install</a> property is <code translate="no">false</code> and thus Qbs does not install the binary. If the <a href="https://qbs.io/
-/docs/qml-qbsconvenienceitems-application/#install-prop" translate="no">install</a> property is <code translate="no">true</code>, when building a project, Qbs will also install it into an <i>installation root</i> folder which by default is named <code translate="no">install-root</code> and located under the build directory. This folder will contain only resulting artifacts without the build leftovers and files will have the same layout as in the target system. The <a href="https://qbs.io/
-/docs/qml-qbsconvenienceitems-application/#install-prop" translate="no">install</a> property should be set to <code translate="no">true</code> for all products that are to be distributed. See the <a href="https://qbs.io/
+<p>By default, Qbs installs binaries into an <i>installation root</i> folder which by default is named <code translate="no">install-root</code> and located under the build directory. This folder will contain only resulting artifacts without the build leftovers and files will have the same layout as in the target system. In order to skip installation of the specific Application product, set the <a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-application/#install-prop" translate="no">CppApplication.install</a> property to <code translate="no">false</code>. See the <a href="https://qbs.io/
 /docs/installing-files/">Installing Files</a> section for more details.</p>
 <p>We can now build and run our application from the project directory:</p>
 <pre class="cpp" translate="no">chapter<span class="operator">-</span><span class="number">1</span> $ qbs build

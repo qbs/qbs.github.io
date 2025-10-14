@@ -5,7 +5,7 @@
     <title>Qbs</title>
     <meta name="description" content="Qbs Manual
 Convenience Items
-Qbs 3.0.1
+Qbs 3.1.1
   
   
 
@@ -16,7 +16,7 @@ Autotest
 Convenience Items
 
 
-As you might have noticed, we are repeating ourselves when setting the same properties in our products - we set version, install, cpp.rpaths, and so on. For a single application and a library, that is not a big deal, but what if we have a dozen libraries? Luckily, this can be achieved using item inheritance - we move the common code to the base item and in the real product we will only set what is specific to that product (for example, the list of files). ">
+As you might have noticed, we are repeating ourselves when setting the same properties in our products - we set version, cpp.rpaths, and so on. For a single application and a library, that is not a big deal, but what if we have a dozen libraries? Luckily, this can be achieved using item inheritance - we move the common code to the base item and in the real product we will only set what is specific to that product (for example, the list of files). ">
     <link rel="canonical" href="https://qbs.io/docs/tutorial-4/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -26,13 +26,13 @@ As you might have noticed, we are repeating ourselves when setting the same prop
 
     
       
-      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
+      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/tutorial-4/">
   <meta property="og:site_name" content="Qbs">
   <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual Convenience Items Qbs 3.0.1 Dynamic Library Autotest Convenience Items As you might have noticed, we are repeating ourselves when setting the same properties in our products - we set version, install, cpp.rpaths, and so on. For a single application and a library, that is not a big deal, but what if we have a dozen libraries? Luckily, this can be achieved using item inheritance - we move the common code to the base item and in the real product we will only set what is specific to that product (for example, the list of files).">
+  <meta property="og:description" content="Qbs Manual Convenience Items Qbs 3.1.1 Dynamic Library Autotest Convenience Items As you might have noticed, we are repeating ourselves when setting the same properties in our products - we set version, cpp.rpaths, and so on. For a single application and a library, that is not a big deal, but what if we have a dozen libraries? Luckily, this can be achieved using item inheritance - we move the common code to the base item and in the real product we will only set what is specific to that product (for example, the list of files).">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -40,7 +40,7 @@ As you might have noticed, we are repeating ourselves when setting the same prop
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual Convenience Items Qbs 3.0.1 Dynamic Library Autotest Convenience Items As you might have noticed, we are repeating ourselves when setting the same properties in our products - we set version, install, cpp.rpaths, and so on. For a single application and a library, that is not a big deal, but what if we have a dozen libraries? Luckily, this can be achieved using item inheritance - we move the common code to the base item and in the real product we will only set what is specific to that product (for example, the list of files).">
+  <meta name="twitter:description" content="Qbs Manual Convenience Items Qbs 3.1.1 Dynamic Library Autotest Convenience Items As you might have noticed, we are repeating ourselves when setting the same properties in our products - we set version, cpp.rpaths, and so on. For a single application and a library, that is not a big deal, but what if we have a dozen libraries? Luckily, this can be achieved using item inheritance - we move the common code to the base item and in the real product we will only set what is specific to that product (for example, the list of files).">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -75,7 +75,7 @@ As you might have noticed, we are repeating ourselves when setting the same prop
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li>Convenience Items</li>
-<li id="buildversion">Qbs 3.0.1</li>
+<li id="buildversion">Qbs 3.1.1</li>
   <link rel="prev" href="https://qbs.io/
 /docs/tutorial-3/">
   <link rel="next" href="https://qbs.io/
@@ -92,7 +92,6 @@ As you might have noticed, we are repeating ourselves when setting the same prop
 <div class="descr" id="details">
 <p>As you might have noticed, we are repeating ourselves when setting the same properties in our products - we set <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#version-prop" translate="no">version</a>, <a href="https://qbs.io/
-/docs/qml-qbsconvenienceitems-application/#install-prop" translate="no">install</a>, <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#rpaths-prop" translate="no">cpp.rpaths</a>, and so on. For a single application and a library, that is not a big deal, but what if we have a dozen libraries? Luckily, this can be achieved using item <a href="https://qbs.io/
 /docs/language-introduction/#reusing-project-file-code">inheritance</a> - we move the common code to the base item and in the real product we will only set what is specific to that product (for example, the list of <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#files-prop" translate="no">files</a>).</p>
@@ -119,7 +118,6 @@ import qbs.FileInfo
 CppApplication {
     version: "1.0.0"
     consoleApplication: true
-    install: true
 
     cpp.rpaths: {
         if (!cpp.rpathOrigin)
@@ -147,7 +145,6 @@ MyApplication {
 
 DynamicLibrary {
     version: "1.0.0"
-    install: true
 
     Depends { name: 'cpp' }
     property string libraryMacro: name.replace(" ", "_").toUpperCase() + "_LIBRARY"
