@@ -1,9 +1,101 @@
 <!DOCTYPE html>
-<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white">SPDX-FileCopyrightText: 2021 Carson Black <uhhadd@gmail.com>
+<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Qbs</title>
+    <meta name="description" content="Qbs Manual
+QbsLanguageItems
+Properties
+Qbs 3.3.0
 
-SPDX-License-Identifier: MIT<body>SPDX-FileCopyrightText: 2021 Carson Black <uhhadd@gmail.com>
 
-SPDX-License-Identifier: MIT<main>
+
+Project
+PropertyOptions
+
+
+
+Contents
+
+Properties
+Detailed Description
+
+
+
+Properties
+
+Provides conditional setting of properties. More...
+
+
+
+
+
+List of all members, including inherited members
+Properties is part of List of All Items.
+
+Properties
+
+condition : bool
+overrideListProperties : bool
+
+
+Detailed Description
+
+Note: This topic documents the Properties item in the context of products. For more information about using it in sub-projects, see SubProject. ">
+    <link rel="canonical" href="https://qbs.io/docs/qml-qbslanguageitems-properties/" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+
+    
+      
+      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+    
+
+    <meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-properties/">
+	<meta property="og:site_name" content="Qbs">
+	<meta property="og:title" content="Qbs">
+	<meta property="og:description" content="Qbs Manual QbsLanguageItems Properties Qbs 3.3.0 Project PropertyOptions Contents Properties Detailed Description Properties Provides conditional setting of properties. More...
+List of all members, including inherited members Properties is part of List of All Items. Properties condition : bool overrideListProperties : bool Detailed Description Note: This topic documents the Properties item in the context of products. For more information about using it in sub-projects, see SubProject.">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="docs">
+
+    
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Qbs">
+	<meta name="twitter:description" content="Qbs Manual QbsLanguageItems Properties Qbs 3.3.0 Project PropertyOptions Contents Properties Detailed Description Properties Provides conditional setting of properties. More...
+List of all members, including inherited members Properties is part of List of All Items. Properties condition : bool overrideListProperties : bool Detailed Description Note: This topic documents the Properties item in the context of products. For more information about using it in sub-projects, see SubProject.">
+
+</head>
+<body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
+    <a class="flex items-center" href="/">
+        <img src="https://qbs.io//img/Cubes.svg" class="h-10 effect-shadow-small">
+        <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
+    </a>
+
+    <div>
+        
+        <a href="/blog" class="ml-2">
+            <span>Blog</span>
+        </a>
+        
+        <a href="/docs" class="ml-2">
+            <span>Documentation</span>
+        </a>
+        
+        <a href="/docs/installing/" class="ml-2">
+            <span>Get Qbs</span>
+        </a>
+        
+        <a href="/community" class="ml-2">
+            <span>Community</span>
+        </a>
+        
+    </div>
+</header><main>
 <div class="centre-outer">
     <article class="centre-inner docs">
     
@@ -12,7 +104,7 @@ SPDX-License-Identifier: MIT<main>
 <li><a href="https://qbs.io/
 /docs/qbslanguageitems-qmlmodule/" translate="no">QbsLanguageItems</a></li>
 <li>Properties</li>
-<li id="buildversion">Qbs 3.1.1</li>
+<li id="buildversion">Qbs 3.3.0</li>
 <link href="https://qbs.io/
 /docs/qml-qbslanguageitems-project/" rel="prev">
 <link href="https://qbs.io/
@@ -71,7 +163,11 @@ SPDX-License-Identifier: MIT<main>
     }
 }</pre>
 <p>As the above example demonstrates, the <code translate="no">Properties</code> item is especially useful if there are several properties whose values depend on the same set of conditions. These conditions do not need to be mutually exclusive, but care should be taken not to set the same scalar property in more than one matching <code translate="no">Properties</code> item. Qbs makes no guarantees about the value of the property in such cases.</p>
-<p>If the same property is set both inside and outside of a <code translate="no">Properties</code> item, the outside binding is only considered if none of the <code translate="no">Properties</code> conditions match, that is, it acts as an "else" case.</p>
+<p>If the same property is set both inside and outside of a <code translate="no">Properties</code> item, the behavior depends on the type of property:</p>
+<ul>
+<li>For scalar values, the outside binding is only considered if none of the <code translate="no">Properties</code> conditions match, that is, it acts as an "else" case.</li>
+<li>For list values, the outside value is always considered.</li>
+</ul>
 <pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/" translate="no">Product</a></span> {
     <span class="type"><a href="https://qbs.io/
@@ -79,6 +175,7 @@ SPDX-License-Identifier: MIT<main>
         <span class="name">condition</span>: <span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">includes</span>(<span class="string">"windows"</span>)
         <span class="name">cpp</span>.defines: [<span class="string">"ON_WINDOWS"</span>]
         <span class="name">cpp</span>.includePaths: [<span class="string">"myWindowsIncludes"</span>]
+        <span class="name">cpp</span>.treatWarningsAsErrors: <span class="number">false</span>
     }
     <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-properties/" translate="no">Properties</a></span> {
@@ -86,17 +183,19 @@ SPDX-License-Identifier: MIT<main>
         <span class="name">cpp</span>.defines: [<span class="string">"ON_LINUX"</span>]
         <span class="name">cpp</span>.includePaths: [<span class="string">"myLinuxIncludes"</span>]
     }
-    <span class="name">cpp</span>.defines: [<span class="string">"ON_UNKNOWN_PLATFORM"</span>]
+    <span class="name">cpp</span>.defines: [<span class="string">"ALL_PLATFORMS"</span>]
+    <span class="name">cpp</span>.treatWarningsAsErrors: <span class="number">true</span>
 }</pre>
 <p>is roughly equivalent to</p>
 <pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/" translate="no">Product</a></span> {
     <span class="name">cpp</span>.defines: {
+        var defines = [<span class="string">"ALL_PLATFORMS"</span>];
         <span class="keyword">if</span> (<span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">includes</span>(<span class="string">"windows"</span>))
-            <span class="keyword">return</span> [<span class="string">"ON_WINDOWS"</span>];
+            <span class="name">defines</span>.<span class="name">push</span>(<span class="string">"ON_WINDOWS"</span>);
         <span class="keyword">if</span> (<span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">includes</span>(<span class="string">"linux"</span>))
-            <span class="keyword">return</span> [<span class="string">"ON_LINUX"</span>];
-        <span class="keyword">return</span> [<span class="string">"ON_UNKNOWN_PLATFORM"</span>];
+            <span class="name">defines</span>.<span class="name">push</span>(<span class="string">"ON_LINUX"</span>);
+        <span class="keyword">return</span> <span class="name">defines</span>;
     }
     <span class="name">cpp</span>.includePaths: {
         <span class="keyword">if</span> (<span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">includes</span>(<span class="string">"windows"</span>))
@@ -105,22 +204,24 @@ SPDX-License-Identifier: MIT<main>
             <span class="keyword">return</span> [<span class="string">"myLinuxIncludes"</span>];
         <span class="keyword">return</span> <span class="name">base</span> ? <span class="name">base</span> : <span class="name">original</span>;
     }
+    <span class="name">cpp</span>.treatWarningsAsErrors: !<span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">includes</span>(<span class="string">"windows"</span>)
 }</pre>
 <p>In Properties items, one can access the <a href="https://qbs.io/
 /docs/special-property-values/#outer">outer</a> value of a property.</p>
 <pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/" translate="no">Product</a></span> {
+    property <span class="type">string</span> <span class="name">theFeature</span>: <span class="string">"basic"</span>
     <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-properties/" translate="no">Properties</a></span> {
         <span class="name">condition</span>: <span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">includes</span>(<span class="string">"windows"</span>)
-        <span class="name">cpp</span>.defines: <span class="name">outer</span>.<span class="name">concat</span>(<span class="string">"ON_WINDOWS"</span>)     <span class="comment">// === ["FOO", "ON_WINDOWS"]</span>
+        <span class="name">theFeature</span>: <span class="name">outer</span> <span class="operator">+</span> <span class="string">"_plus_windows"</span> <span class="comment">// === "basic_plus_windows"</span>
     }
     <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-properties/" translate="no">Properties</a></span> {
         <span class="name">condition</span>: <span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">includes</span>(<span class="string">"linux"</span>)
-        <span class="name">cpp</span>.defines: [<span class="string">"ON_LINUX"</span>]                   <span class="comment">// === ["ON_LINUX"]</span>
+        <span class="name">theFeature</span>: <span class="name">outer</span> <span class="operator">+</span> <span class="string">"_plus_linux"</span>   <span class="comment">// === "basic_plus_linux"</span>
     }
-    <span class="name">cpp</span>.defines: [<span class="string">"FOO"</span>]
+    <span class="name">cpp</span>.defines: <span class="string">'THE_FEATURE="'</span> <span class="operator">+</span> <span class="name">theFeature</span> <span class="operator">+</span> <span class="string">'"'</span>
 }</pre>
 <!-- @@@Properties -->
 <h2>Property Documentation</h2>
@@ -160,7 +261,5 @@ SPDX-License-Identifier: MIT<main>
     </article>
 </div>
 
-        </main>SPDX-FileCopyrightText: 2021 Carson Black <uhhadd@gmail.com>
-
-SPDX-License-Identifier: MIT</body>
+        </main></body>
 </html>

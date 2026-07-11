@@ -1,16 +1,91 @@
 <!DOCTYPE html>
-<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white">SPDX-FileCopyrightText: 2021 Carson Black <uhhadd@gmail.com>
+<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Qbs</title>
+    <meta name="description" content="Qbs Manual
+Command and JavaScriptCommand
+Qbs 3.3.0
 
-SPDX-License-Identifier: MIT<body>SPDX-FileCopyrightText: 2021 Carson Black <uhhadd@gmail.com>
 
-SPDX-License-Identifier: MIT<main>
+Contents
+
+Command
+JavaScriptCommand
+Properties
+Common Properties
+Command Properties
+JavaScriptCommand Properties
+
+
+
+Command and JavaScriptCommand
+
+
+A command is what Qbs executes at build time. It is represented in the language by an object of type Command, which runs a process, or JavaScriptCommand, which executes arbitrary JavaScript code. A command is always created in the prepare script of a Rule.
+Command
+A Command represents a process that will be invoked at build time. Its constructor arguments are the binary to run and a list of command-line arguments. For instance: ">
+    <link rel="canonical" href="https://qbs.io/docs/commands/" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+
+    
+      
+      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+    
+
+    <meta property="og:url" content="https://qbs.io/docs/commands/">
+	<meta property="og:site_name" content="Qbs">
+	<meta property="og:title" content="Qbs">
+	<meta property="og:description" content="Qbs Manual Command and JavaScriptCommand Qbs 3.3.0 Contents Command JavaScriptCommand Properties Common Properties Command Properties JavaScriptCommand Properties Command and JavaScriptCommand A command is what Qbs executes at build time. It is represented in the language by an object of type Command, which runs a process, or JavaScriptCommand, which executes arbitrary JavaScript code. A command is always created in the prepare script of a Rule.
+Command A Command represents a process that will be invoked at build time. Its constructor arguments are the binary to run and a list of command-line arguments. For instance:">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="docs">
+
+    
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Qbs">
+	<meta name="twitter:description" content="Qbs Manual Command and JavaScriptCommand Qbs 3.3.0 Contents Command JavaScriptCommand Properties Common Properties Command Properties JavaScriptCommand Properties Command and JavaScriptCommand A command is what Qbs executes at build time. It is represented in the language by an object of type Command, which runs a process, or JavaScriptCommand, which executes arbitrary JavaScript code. A command is always created in the prepare script of a Rule.
+Command A Command represents a process that will be invoked at build time. Its constructor arguments are the binary to run and a list of command-line arguments. For instance:">
+
+</head>
+<body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
+    <a class="flex items-center" href="/">
+        <img src="https://qbs.io//img/Cubes.svg" class="h-10 effect-shadow-small">
+        <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
+    </a>
+
+    <div>
+        
+        <a href="/blog" class="ml-2">
+            <span>Blog</span>
+        </a>
+        
+        <a href="/docs" class="ml-2">
+            <span>Documentation</span>
+        </a>
+        
+        <a href="/docs/installing/" class="ml-2">
+            <span>Get Qbs</span>
+        </a>
+        
+        <a href="/community" class="ml-2">
+            <span>Community</span>
+        </a>
+        
+    </div>
+</header><main>
 <div class="centre-outer">
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li>Command and JavaScriptCommand</li>
-<li id="buildversion">Qbs 3.1.1</li>
+<li id="buildversion">Qbs 3.3.0</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -76,7 +151,7 @@ cmd<span class="operator">.</span>sourceCode <span class="operator">=</span> fun
 <tr valign="top" class="odd"><td><code translate="no">maxExitCode</code></td><td>int</td><td>0</td><td>The maximum exit code from the process to interpret as success. Setting this should rarely be necessary, as all well-behaved applications use values other than zero to indicate failure.</td></tr>
 <tr valign="top" class="even"><td><code translate="no">program</code></td><td>string</td><td>undefined</td><td>The binary to invoke. Explicitly setting this property overrides a path provided when instantiating the object.</td></tr>
 <tr valign="top" class="odd"><td><code translate="no">relevantEnvironmentVariables</code></td><td>stringList</td><td>undefined</td><td>Names of environment variables that the invoked binary considers. If one of these variables changes in the build environment, the command will be re-run even if the input files are still up to date.</td></tr>
-<tr valign="top" class="even"><td><code translate="no">responseFileThreshold</code></td><td>int</td><td>32000 on Windows, -1 elsewhere</td><td>If this value is greater than zero and less than the length of the full command line, and if <code translate="no">responseFileUsagePrefix</code> is not empty, the contents of the command line are moved to a temporary file, whose path becomes the entire contents of the argument list. The program is then supposed to read the full argument list from that file. This mechanism is mainly useful to work around Windows limitations regarding the maximum length of the command line and will only work with programs that explicitly support it.</td></tr>
+<tr valign="top" class="even"><td><code translate="no">responseFileThreshold</code></td><td>int</td><td>platform-dependent</td><td>If this value is greater than zero and less than the length of the full command line, and if <code translate="no">responseFileUsagePrefix</code> is not empty, the contents of the command line are moved to a temporary file, whose path becomes the entire contents of the argument list. The program is then supposed to read the full argument list from that file. This mechanism is mainly useful to work around Windows limitations regarding the maximum length of the command line and will only work with programs that explicitly support it.</td></tr>
 <tr valign="top" class="odd"><td><code translate="no">responseFileArgumentIndex</code></td><td>int</td><td>0</td><td>Index of the first argument to include in the response file. For example this may be used in conjunction with a compiler wrapper where the first argument (the path to the compiler) must be included on the raw command line.</td></tr>
 <tr valign="top" class="even"><td><code translate="no">responseFileUsagePrefix</code></td><td>string</td><td>empty</td><td>The prefix that informs <code translate="no">program</code> that the rest of the argument is a path to a file containing the actual command line.</td></tr>
 <tr valign="top" class="odd"><td><code translate="no">stderrFilterFunction</code></td><td>function</td><td>undefined</td><td>A function that takes as input the command's actual standard error output and returns a string that is presented to the user as the command's standard error output. If it is not set, the output is shown unfiltered.</td></tr>
@@ -98,7 +173,5 @@ cmd<span class="operator">.</span>sourceCode <span class="operator">=</span> fun
     </article>
 </div>
 
-        </main>SPDX-FileCopyrightText: 2021 Carson Black <uhhadd@gmail.com>
-
-SPDX-License-Identifier: MIT</body>
+        </main></body>
 </html>

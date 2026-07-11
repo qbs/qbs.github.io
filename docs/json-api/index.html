@@ -1,16 +1,123 @@
 <!DOCTYPE html>
-<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white">SPDX-FileCopyrightText: 2021 Carson Black <uhhadd@gmail.com>
+<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Qbs</title>
+    <meta name="description" content="Qbs Manual
+Appendix C: The JSON API
+Qbs 3.3.0
+  
+  
 
-SPDX-License-Identifier: MIT<body>SPDX-FileCopyrightText: 2021 Carson Black <uhhadd@gmail.com>
+Appendix B: Migrating from Other Build Systems
+Appendix D: Licenses and Code Attributions
 
-SPDX-License-Identifier: MIT<main>
+
+
+Contents
+
+Packet Format
+Messages
+The hello Message
+Resolving a Project
+Building a Project
+Cleaning a Project
+Installing a Project
+Canceling an Operation
+Adding, Removing and Renaming Source Files
+Adding Dependencies
+The get-run-environment Message
+The get-generated-files-for-sources Message
+Closing a Project
+Closing the Session
+Progress Messages
+The task-started Message
+The task-progress Message
+The new-max-progress Message
+Messages for Users
+The log-data Message
+The warning Message
+The protocol-error Message
+Project Data
+TopLevelProjectData
+PlainProjectData
+ProductData
+GroupData
+ArtifactData
+ModulePropertiesData
+Other Custom Data Types
+FilePath
+Location
+ErrorInfo
+DataMode
+LogLevel
+Environment
+
+
+
+Appendix C: The JSON API
+
+
+This API is the recommended way to provide Qbs support to an IDE. It is accessible via the session command. ">
+    <link rel="canonical" href="https://qbs.io/docs/json-api/" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+
+    
+      
+      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+    
+
+    <meta property="og:url" content="https://qbs.io/docs/json-api/">
+	<meta property="og:site_name" content="Qbs">
+	<meta property="og:title" content="Qbs">
+	<meta property="og:description" content="Qbs Manual Appendix C: The JSON API Qbs 3.3.0 Appendix B: Migrating from Other Build Systems Appendix D: Licenses and Code Attributions Contents Packet Format Messages The hello Message Resolving a Project Building a Project Cleaning a Project Installing a Project Canceling an Operation Adding, Removing and Renaming Source Files Adding Dependencies The get-run-environment Message The get-generated-files-for-sources Message Closing a Project Closing the Session Progress Messages The task-started Message The task-progress Message The new-max-progress Message Messages for Users The log-data Message The warning Message The protocol-error Message Project Data TopLevelProjectData PlainProjectData ProductData GroupData ArtifactData ModulePropertiesData Other Custom Data Types FilePath Location ErrorInfo DataMode LogLevel Environment Appendix C: The JSON API This API is the recommended way to provide Qbs support to an IDE. It is accessible via the session command.">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="docs">
+
+    
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Qbs">
+	<meta name="twitter:description" content="Qbs Manual Appendix C: The JSON API Qbs 3.3.0 Appendix B: Migrating from Other Build Systems Appendix D: Licenses and Code Attributions Contents Packet Format Messages The hello Message Resolving a Project Building a Project Cleaning a Project Installing a Project Canceling an Operation Adding, Removing and Renaming Source Files Adding Dependencies The get-run-environment Message The get-generated-files-for-sources Message Closing a Project Closing the Session Progress Messages The task-started Message The task-progress Message The new-max-progress Message Messages for Users The log-data Message The warning Message The protocol-error Message Project Data TopLevelProjectData PlainProjectData ProductData GroupData ArtifactData ModulePropertiesData Other Custom Data Types FilePath Location ErrorInfo DataMode LogLevel Environment Appendix C: The JSON API This API is the recommended way to provide Qbs support to an IDE. It is accessible via the session command.">
+
+</head>
+<body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
+    <a class="flex items-center" href="/">
+        <img src="https://qbs.io//img/Cubes.svg" class="h-10 effect-shadow-small">
+        <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
+    </a>
+
+    <div>
+        
+        <a href="/blog" class="ml-2">
+            <span>Blog</span>
+        </a>
+        
+        <a href="/docs" class="ml-2">
+            <span>Documentation</span>
+        </a>
+        
+        <a href="/docs/installing/" class="ml-2">
+            <span>Get Qbs</span>
+        </a>
+        
+        <a href="/community" class="ml-2">
+            <span>Community</span>
+        </a>
+        
+    </div>
+</header><main>
 <div class="centre-outer">
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li>Appendix C: The JSON API</li>
-<li id="buildversion">Qbs 3.1.1</li>
+<li id="buildversion">Qbs 3.3.0</li>
   <link rel="prev" href="https://qbs.io/
 /docs/porting-to-qbs/">
   <link rel="next" href="https://qbs.io/
@@ -580,7 +687,5 @@ SPDX-License-Identifier: MIT<main>
     </article>
 </div>
 
-        </main>SPDX-FileCopyrightText: 2021 Carson Black <uhhadd@gmail.com>
-
-SPDX-License-Identifier: MIT</body>
+        </main></body>
 </html>

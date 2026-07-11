@@ -1,9 +1,91 @@
 <!DOCTYPE html>
-<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white">SPDX-FileCopyrightText: 2021 Carson Black <uhhadd@gmail.com>
+<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Qbs</title>
+    <meta name="description" content="Qbs Manual
+List of Built-in Services
+Utilities Service
+Qbs 3.3.0
 
-SPDX-License-Identifier: MIT<body>SPDX-FileCopyrightText: 2021 Carson Black <uhhadd@gmail.com>
 
-SPDX-License-Identifier: MIT<main>
+Contents
+
+Available Operations
+cStringQuote
+getHash
+rfc1034Identifier
+versionCompare
+
+
+
+Utilities Service
+
+
+The Utilities service offers miscellaneous operations.
+Available Operations
+cStringQuote
+Utilities.cStringQuote(str: string): string
+Takes a string and escapes special characters in a way that the result is suitable for use as a C/C&#43;&#43; string literal. This function is typically used to specify values for cpp.defines.
+getHash
+Utilities.getHash(key: string): string
+Calculates a 16-byte hash of the input and returns it. Rules in modules should use this function to find unique locations for output artifacts in the build directory without duplicating the whole directory structure of the respective input file (to deal with the case of two files with the same name in different subdirectories of the same product). ">
+    <link rel="canonical" href="https://qbs.io/docs/jsextension-utilities/" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+
+    
+      
+      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+    
+
+    <meta property="og:url" content="https://qbs.io/docs/jsextension-utilities/">
+	<meta property="og:site_name" content="Qbs">
+	<meta property="og:title" content="Qbs">
+	<meta property="og:description" content="Qbs Manual List of Built-in Services Utilities Service Qbs 3.3.0 Contents Available Operations cStringQuote getHash rfc1034Identifier versionCompare Utilities Service The Utilities service offers miscellaneous operations.
+Available Operations cStringQuote Utilities.cStringQuote(str: string): string Takes a string and escapes special characters in a way that the result is suitable for use as a C/C&#43;&#43; string literal. This function is typically used to specify values for cpp.defines.
+getHash Utilities.getHash(key: string): string Calculates a 16-byte hash of the input and returns it. Rules in modules should use this function to find unique locations for output artifacts in the build directory without duplicating the whole directory structure of the respective input file (to deal with the case of two files with the same name in different subdirectories of the same product).">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="docs">
+
+    
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Qbs">
+	<meta name="twitter:description" content="Qbs Manual List of Built-in Services Utilities Service Qbs 3.3.0 Contents Available Operations cStringQuote getHash rfc1034Identifier versionCompare Utilities Service The Utilities service offers miscellaneous operations.
+Available Operations cStringQuote Utilities.cStringQuote(str: string): string Takes a string and escapes special characters in a way that the result is suitable for use as a C/C&#43;&#43; string literal. This function is typically used to specify values for cpp.defines.
+getHash Utilities.getHash(key: string): string Calculates a 16-byte hash of the input and returns it. Rules in modules should use this function to find unique locations for output artifacts in the build directory without duplicating the whole directory structure of the respective input file (to deal with the case of two files with the same name in different subdirectories of the same product).">
+
+</head>
+<body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
+    <a class="flex items-center" href="/">
+        <img src="https://qbs.io//img/Cubes.svg" class="h-10 effect-shadow-small">
+        <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
+    </a>
+
+    <div>
+        
+        <a href="/blog" class="ml-2">
+            <span>Blog</span>
+        </a>
+        
+        <a href="/docs" class="ml-2">
+            <span>Documentation</span>
+        </a>
+        
+        <a href="/docs/installing/" class="ml-2">
+            <span>Get Qbs</span>
+        </a>
+        
+        <a href="/community" class="ml-2">
+            <span>Community</span>
+        </a>
+        
+    </div>
+</header><main>
 <div class="centre-outer">
     <article class="centre-inner docs">
     
@@ -12,7 +94,7 @@ SPDX-License-Identifier: MIT<main>
 <li><a href="https://qbs.io/
 /docs/list-of-builtin-services/">List of Built-in Services</a></li>
 <li>Utilities Service</li>
-<li id="buildversion">Qbs 3.1.1</li>
+<li id="buildversion">Qbs 3.3.0</li>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -52,7 +134,5 @@ SPDX-License-Identifier: MIT<main>
     </article>
 </div>
 
-        </main>SPDX-FileCopyrightText: 2021 Carson Black <uhhadd@gmail.com>
-
-SPDX-License-Identifier: MIT</body>
+        </main></body>
 </html>

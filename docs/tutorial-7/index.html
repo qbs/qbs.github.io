@@ -1,16 +1,81 @@
 <!DOCTYPE html>
-<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white">SPDX-FileCopyrightText: 2021 Carson Black <uhhadd@gmail.com>
+<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Qbs</title>
+    <meta name="description" content="Qbs Manual
+Config Module
+Qbs 3.3.0
+  
+  
 
-SPDX-License-Identifier: MIT<body>SPDX-FileCopyrightText: 2021 Carson Black <uhhadd@gmail.com>
+Project Properties
+Configurable Library
 
-SPDX-License-Identifier: MIT<main>
+
+Config Module
+
+
+In the previous chapter, we added some properties to our main Project file. While this is a perfect approach for public properties of the project, sometimes we want to add some private properties for better tuning. Of course, we could put everything in the Project file, but that would make it very convoluted. Also, accessing the top-level project all the way from products makes things strongly tied. ">
+    <link rel="canonical" href="https://qbs.io/docs/tutorial-7/" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+
+    
+      
+      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+    
+
+    <meta property="og:url" content="https://qbs.io/docs/tutorial-7/">
+	<meta property="og:site_name" content="Qbs">
+	<meta property="og:title" content="Qbs">
+	<meta property="og:description" content="Qbs Manual Config Module Qbs 3.3.0 Project Properties Configurable Library Config Module In the previous chapter, we added some properties to our main Project file. While this is a perfect approach for public properties of the project, sometimes we want to add some private properties for better tuning. Of course, we could put everything in the Project file, but that would make it very convoluted. Also, accessing the top-level project all the way from products makes things strongly tied.">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="docs">
+
+    
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Qbs">
+	<meta name="twitter:description" content="Qbs Manual Config Module Qbs 3.3.0 Project Properties Configurable Library Config Module In the previous chapter, we added some properties to our main Project file. While this is a perfect approach for public properties of the project, sometimes we want to add some private properties for better tuning. Of course, we could put everything in the Project file, but that would make it very convoluted. Also, accessing the top-level project all the way from products makes things strongly tied.">
+
+</head>
+<body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
+    <a class="flex items-center" href="/">
+        <img src="https://qbs.io//img/Cubes.svg" class="h-10 effect-shadow-small">
+        <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
+    </a>
+
+    <div>
+        
+        <a href="/blog" class="ml-2">
+            <span>Blog</span>
+        </a>
+        
+        <a href="/docs" class="ml-2">
+            <span>Documentation</span>
+        </a>
+        
+        <a href="/docs/installing/" class="ml-2">
+            <span>Get Qbs</span>
+        </a>
+        
+        <a href="/community" class="ml-2">
+            <span>Community</span>
+        </a>
+        
+    </div>
+</header><main>
 <div class="centre-outer">
     <article class="centre-inner docs">
     
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li>Config Module</li>
-<li id="buildversion">Qbs 3.1.1</li>
+<li id="buildversion">Qbs 3.3.0</li>
   <link rel="prev" href="https://qbs.io/
 /docs/tutorial-6/">
   <link rel="next" href="https://qbs.io/
@@ -46,50 +111,25 @@ ConfigInstall {
 <p>Let's create a new item and add a new property to it:</p>
 <pre class="cpp" translate="no">// qbs/imports/ConfigMyProject.qbs
 Module {
-    property bool installPublicHeaders: false</pre>
-<p>We added the <code translate="no">installPublicHeaders</code> property that will allow us to configure whether we need to install public headers for our library.</p>
+    property bool enableAddressSanitizer: false
+    Depends { name: "Sanitizers.address"; condition: enableAddressSanitizer }</pre>
+<p>We added the <code translate="no">enableAddressSanitizer</code> property and a dependency on the Sanitizer.address module if that property is set to <code translate="no">true</code>.</p>
 <p>Now let's use the item in a module:</p>
 <pre class="cpp" translate="no">// qbs/modules/config/myproject/module.qbs
 ConfigMyProject {
 }</pre>
-<p>Now we can use our module in the <code translate="no">MyLibrary.qbs</code> item:</p>
+<p>Now we can use our module in the <code translate="no">MyLibrary.qbs</code> item by pulling in the new module using the <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-depends/" translate="no">Depends</a> item:</p>
 <pre class="cpp" translate="no">// qbs/imports/MyLibrary.qbs
 DynamicLibrary {
     version: project.version
 
-    property pathList publicHeaders
-
     Depends { name: "config.myproject" }
-
-    Group {
-        condition: publicHeaders.length &gt; 0
-        name: "Public Headers"
-        prefix: product.sourceDirectory + "/"
-        files: publicHeaders
-        qbs.install: config.myproject.installPublicHeaders
-        qbs.installDir: installpaths.include
-    }
     // ...</pre>
-<p>We pull in the new module using the <a href="https://qbs.io/
-/docs/qml-qbslanguageitems-depends/" translate="no">Depends</a> item, similar to how we pulled in the <a href="https://qbs.io/
-/docs/qml-qbsmodules-cpp/" translate="no">cpp</a> module dependency earlier.</p>
-<p>We add a new <code translate="no">publicHeaders</code> property that will contain the list of headers we want to install.</p>
-<p>Finally, we create a <a href="https://qbs.io/
-/docs/qml-qbslanguageitems-group/" translate="no">Group</a> item that installs headers listed by the <code translate="no">publicHeaders</code> property to the <a href="https://qbs.io/
-/docs/qml-qbsmodules-installpaths/#include-prop" translate="no">installpaths.include</a> directory.</p>
-<p>Note that we use the <a href="https://qbs.io/
-/docs/qml-qbsmodules-installpaths/" translate="no">installpaths</a> module - it is pulled in by the <a href="https://qbs.io/
-/docs/qml-qbsconvenienceitems-dynamiclibrary/" translate="no">DynamicLibrary</a> item and is available in all items that inherit that item.</p>
-<p>Now we can rewrite the <code translate="no">lib/lib.qbs</code> to use the new property:</p>
-<pre class="cpp" translate="no">// lib/lib.qbs
-MyLibrary {
-    name: "mylib"
-    files: [ "lib.c" ]
-    publicHeaders: [ "lib.h" ]
-    Depends { name: 'cpp' }
-    cpp.defines: ['CRUCIAL_DEFINE']
-}</pre>
-<p>Instead of the <code translate="no">config.myproject.installPublicHeaders</code> property, we could also use the property in the <a href="https://qbs.io/
+<p>Now we can enable sanitizer build by setting the <code translate="no">enableAddressSanitizer</code> property from command-line:</p>
+<pre class="cpp" translate="no">$ qbs resolve modules<span class="operator">.</span>config<span class="operator">.</span>myproject<span class="operator">.</span>enableAddressSanitizer:<span class="keyword">true</span>
+$ qbs build</pre>
+<p>Instead of the <code translate="no">config.myproject.enableAddressSanitizer</code> property, we could also use the property in the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-project/" translate="no">Project</a> item similar to how we did in the previous chapter. There is no strong preference which way to use, however using modules for configuration is more flexible as it is also possible to set properties of other modules as described below.</p>
 <p>Qbs <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-module/" translate="no">modules</a> have the feature to automatically export properties of other modules. Those exported properties are merged in the resulting product. We can use this feature to set the <a href="https://qbs.io/
@@ -97,15 +137,20 @@ MyLibrary {
 <pre class="cpp" translate="no">import qbs.FileInfo
 // qbs/imports/ConfigMyProject.qbs
 Module {
-    property bool installPublicHeaders: false
+    property bool enableAddressSanitizer: false
+    Depends { name: "Sanitizers.address"; condition: enableAddressSanitizer }
 
     Depends { name: "cpp" }
-    Depends { name: "installpaths" }
     Depends { name: "config.install" }
 
     property bool enableRPath: true
     property stringList libRPaths: {
         if (enableRPath &amp;&amp; cpp.rpathOrigin &amp;&amp; product.installDir) {
+            console.info(FileInfo.joinPaths(
+                    cpp.rpathOrigin,
+                    FileInfo.relativePath(
+                        FileInfo.joinPaths('/', product.installDir),
+                        FileInfo.joinPaths('/', config.install.dynamicLibrariesDirectory))));
             return [
                 FileInfo.joinPaths(
                     cpp.rpathOrigin,
@@ -130,11 +175,6 @@ CppApplication {
     version: "1.0.0"
     consoleApplication: true
 }</pre>
-<p>Let's change whether to install public headers when building our project:</p>
-<pre class="cpp" translate="no">$ qbs modules<span class="operator">.</span>config<span class="operator">.</span>myproject<span class="operator">.</span>installPublicHeaders:<span class="keyword">true</span>
-<span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
-$ ls <span class="keyword">default</span><span class="operator">/</span>install<span class="operator">-</span>root<span class="operator">/</span>usr<span class="operator">/</span>local<span class="operator">/</span><span class="keyword">include</span><span class="operator">/</span>
-lib<span class="operator">.</span>h</pre>
 </div>
 <!-- @@@tutorial-7.html -->
 <p class="naviNextPrevious footerNavi">
@@ -149,7 +189,5 @@ lib<span class="operator">.</span>h</pre>
     </article>
 </div>
 
-        </main>SPDX-FileCopyrightText: 2021 Carson Black <uhhadd@gmail.com>
-
-SPDX-License-Identifier: MIT</body>
+        </main></body>
 </html>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QtHelpProject version="1.0">
-    <namespace>org.qt-project.qbs.311</namespace>
+    <namespace>org.qt-project.qbs.330</namespace>
     <virtualFolder>doc</virtualFolder>
     <metaData name="version" value=""/>
-    <customFilter name="Qbs 3.1.1">
-        <filterAttribute>3.1.1</filterAttribute>
+    <customFilter name="Qbs 3.3.0">
+        <filterAttribute>3.3.0</filterAttribute>
         <filterAttribute>qbs</filterAttribute>
     </customFilter>
     <filterSection>
-        <filterAttribute>3.1.1</filterAttribute>
+        <filterAttribute>3.3.0</filterAttribute>
         <filterAttribute>qbs</filterAttribute>
         <toc>
             <section ref="index.html" title="Qbs">
@@ -114,6 +114,8 @@
             <keyword name="Convenience Items" id="Convenience Items" ref="tutorial-4.html"/>
             <keyword name="CppApplication" id="QML.CppApplication" ref="qml-qbsconvenienceitems-cppapplication.html"/>
             <keyword name="CppApplication" id="QML.QbsConvenienceItems.CppApplication" ref="qml-qbsconvenienceitems-cppapplication.html"/>
+            <keyword name="CppLibrary" id="QML.CppLibrary" ref="qml-qbsconvenienceitems-cpplibrary.html"/>
+            <keyword name="CppLibrary" id="QML.QbsConvenienceItems.CppLibrary" ref="qml-qbsconvenienceitems-cpplibrary.html"/>
             <keyword name="CppStd" id="QML.CppStd" ref="qml-qbsconvenienceitems-cppstd.html"/>
             <keyword name="CppStd" id="QML.QbsConvenienceItems.CppStd" ref="qml-qbsconvenienceitems-cppstd.html"/>
             <keyword name="Custom Modules and Items" id="Custom Modules and Items" ref="custom-modules.html"/>
@@ -174,6 +176,8 @@
             <keyword name="ModuleProvider" id="QML.ModuleProvider" ref="qml-qbslanguageitems-moduleprovider.html"/>
             <keyword name="ModuleProvider" id="QML.QbsLanguageItems.ModuleProvider" ref="qml-qbslanguageitems-moduleprovider.html"/>
             <keyword name="Multiplexing" id="Multiplexing" ref="multiplexing.html"/>
+            <keyword name="ObjectLibrary" id="QML.ObjectLibrary" ref="qml-qbsconvenienceitems-objectlibrary.html"/>
+            <keyword name="ObjectLibrary" id="QML.QbsConvenienceItems.ObjectLibrary" ref="qml-qbsconvenienceitems-objectlibrary.html"/>
             <keyword name="Parameter" id="QML.Parameter" ref="qml-qbslanguageitems-parameter.html"/>
             <keyword name="Parameter" id="QML.QbsLanguageItems.Parameter" ref="qml-qbslanguageitems-parameter.html"/>
             <keyword name="Parameters" id="QML.Parameters" ref="qml-qbslanguageitems-parameters.html"/>
@@ -208,6 +212,7 @@
             <keyword name="QML.BinaryProbe" id="QML.BinaryProbe" ref="qml-qbsprobes-binaryprobe.html"/>
             <keyword name="QML.ConanfileProbe" id="QML.ConanfileProbe" ref="qml-qbsprobes-conanfileprobe.html"/>
             <keyword name="QML.CppApplication" id="QML.CppApplication" ref="qml-qbsconvenienceitems-cppapplication.html"/>
+            <keyword name="QML.CppLibrary" id="QML.CppLibrary" ref="qml-qbsconvenienceitems-cpplibrary.html"/>
             <keyword name="QML.CppStd" id="QML.CppStd" ref="qml-qbsconvenienceitems-cppstd.html"/>
             <keyword name="QML.Depends" id="QML.Depends" ref="qml-qbslanguageitems-depends.html"/>
             <keyword name="QML.DynamicLibrary" id="QML.DynamicLibrary" ref="qml-qbsconvenienceitems-dynamiclibrary.html"/>
@@ -226,6 +231,7 @@
             <keyword name="QML.Module" id="QML.Module" ref="qml-qbslanguageitems-module.html"/>
             <keyword name="QML.ModuleProvider" id="QML.ModuleProvider" ref="qml-qbslanguageitems-moduleprovider.html"/>
             <keyword name="QML.NativeBinary" id="QML.NativeBinary" ref="qml-qbsconvenienceitems-library.html"/>
+            <keyword name="QML.ObjectLibrary" id="QML.ObjectLibrary" ref="qml-qbsconvenienceitems-objectlibrary.html"/>
             <keyword name="QML.Parameter" id="QML.Parameter" ref="qml-qbslanguageitems-parameter.html"/>
             <keyword name="QML.Parameters" id="QML.Parameters" ref="qml-qbslanguageitems-parameters.html"/>
             <keyword name="QML.PathProbe" id="QML.PathProbe" ref="qml-qbsprobes-pathprobe.html"/>
@@ -573,6 +579,7 @@
             <keyword name="enableReproducibleBuilds" id="cpp::enableReproducibleBuilds" ref="qml-qbsmodules-cpp.html#enableReproducibleBuilds-prop"/>
             <keyword name="enableRtti" id="cpp::enableRtti" ref="qml-qbsmodules-cpp.html#enableRtti-prop"/>
             <keyword name="enableSuspiciousLinkerFlagWarnings" id="cpp::enableSuspiciousLinkerFlagWarnings" ref="qml-qbsmodules-cpp.html#enableSuspiciousLinkerFlagWarnings-prop"/>
+            <keyword name="enableTimeTrace" id="cpp::enableTimeTrace" ref="qml-qbsmodules-cpp.html#enableTimeTrace-prop"/>
             <keyword name="enableWarnings" id="java::enableWarnings" ref="qml-qbsmodules-java.html#enableWarnings-prop"/>
             <keyword name="enabled" id="Sanitizers.address::enabled" ref="qml-qbsmodules-sanitizers-address.html#enabled-prop"/>
             <keyword name="enabledFeatures" id="Qt.core::enabledFeatures" ref="qml-qbsmodules-qt-core.html#enabledFeatures-prop"/>
@@ -667,6 +674,7 @@
             <keyword name="hashAlgorithm" id="codesign::hashAlgorithm" ref="qml-qbsmodules-codesign.html#hashAlgorithm-prop"/>
             <keyword name="hdiutilPath" id="dmg::hdiutilPath" ref="qml-qbsmodules-dmg.html#hdiutilPath-prop"/>
             <keyword name="headerFileName" id="vcs::headerFileName" ref="qml-qbsmodules-vcs.html#headerFileName-prop"/>
+            <keyword name="headersDirectoryName" id="CppLibrary::headersDirectoryName" ref="qml-qbsconvenienceitems-cpplibrary.html#headersDirectoryName-prop"/>
             <keyword name="help" id="help" ref="cli-help.html"/>
             <keyword name="hicolorRoot" id="freedesktop::hicolorRoot" ref="qml-qbsmodules-freedesktop.html#hicolorRoot-prop"/>
             <keyword name="hlslVersions" id="Qt.shadertools::hlslVersions" ref="qml-qbsmodules-qt-shadertools.html#hlslVersions-prop"/>
@@ -772,6 +780,7 @@
             <keyword name="libInfix" id="Qt.core::libInfix" ref="qml-qbsmodules-qt-core.html#libInfix-prop"/>
             <keyword name="libPath" id="Qt.core::libPath" ref="qml-qbsmodules-qt-core.html#libPath-prop"/>
             <keyword name="libexec" id="installpaths::libexec" ref="qml-qbsmodules-installpaths.html#libexec-prop"/>
+            <keyword name="libraries" id="cpp::libraries" ref="qml-qbsmodules-cpp.html#libraries-prop"/>
             <keyword name="libraries" id="PkgConfigProbe::libraries" ref="qml-qbsprobes-pkgconfigprobe.html#libraries-prop"/>
             <keyword name="library" id="installpaths::library" ref="qml-qbsmodules-installpaths.html#library-prop"/>
             <keyword name="libraryPath" id="protobuf.nanopb::libraryPath" ref="qml-qbsmodules-protobuf-nanopb.html#libraryPath-prop"/>
@@ -924,7 +933,9 @@
             <keyword name="present" id="Module::present" ref="qml-qbslanguageitems-module.html#present-prop"/>
             <keyword name="priority" id="FileTagger::priority" ref="qml-qbslanguageitems-filetagger.html#priority-prop"/>
             <keyword name="priority" id="Module::priority" ref="qml-qbslanguageitems-module.html#priority-prop"/>
+            <keyword name="privateHeaders" id="CppLibrary::privateHeaders" ref="qml-qbsconvenienceitems-cpplibrary.html#privateHeaders-prop"/>
             <keyword name="privateHeaders" id="bundle::privateHeaders" ref="qml-qbsmodules-bundle.html#privateHeaders-prop"/>
+            <keyword name="privateHeadersDirectory" id="CppLibrary::privateHeadersDirectory" ref="qml-qbsconvenienceitems-cpplibrary.html#privateHeadersDirectory-prop"/>
             <keyword name="privateHeadersFolderPath" id="bundle::privateHeadersFolderPath" ref="qml-qbsmodules-bundle.html#privateHeadersFolderPath-prop"/>
             <keyword name="processInfoPlist" id="bundle::processInfoPlist" ref="qml-qbsmodules-bundle.html#processInfoPlist-prop"/>
             <keyword name="productTypes" id="Depends::productTypes" ref="qml-qbslanguageitems-depends.html#productTypes-prop"/>
@@ -939,7 +950,9 @@
             <keyword name="protobuf.objc" id="QML.QbsModules.protobuf.objc" ref="qml-qbsmodules-protobuf-objc.html"/>
             <keyword name="provisioningProfile" id="codesign::provisioningProfile" ref="qml-qbsmodules-codesign.html#provisioningProfile-prop"/>
             <keyword name="provisioningProfilesPath" id="codesign::provisioningProfilesPath" ref="qml-qbsmodules-codesign.html#provisioningProfilesPath-prop"/>
+            <keyword name="publicHeaders" id="CppLibrary::publicHeaders" ref="qml-qbsconvenienceitems-cpplibrary.html#publicHeaders-prop"/>
             <keyword name="publicHeaders" id="bundle::publicHeaders" ref="qml-qbsmodules-bundle.html#publicHeaders-prop"/>
+            <keyword name="publicHeadersDirectory" id="CppLibrary::publicHeadersDirectory" ref="qml-qbsconvenienceitems-cpplibrary.html#publicHeadersDirectory-prop"/>
             <keyword name="publicHeadersFolderPath" id="bundle::publicHeadersFolderPath" ref="qml-qbsmodules-bundle.html#publicHeadersFolderPath-prop"/>
             <keyword name="qbs" id="QML.qbs" ref="qml-qbsmodules-qbs.html"/>
             <keyword name="qbs" id="QML.QbsModules.qbs" ref="qml-qbsmodules-qbs.html"/>
@@ -995,6 +1008,7 @@
             <keyword name="resources" id="bundle::resources" ref="qml-qbsmodules-bundle.html#resources-prop"/>
             <keyword name="resourcesDir" id="Android.sdk::resourcesDir" ref="qml-qbsmodules-android-sdk.html#resourcesDir-prop"/>
             <keyword name="rootSubjectName" id="codesign::rootSubjectName" ref="qml-qbsmodules-codesign.html#rootSubjectName-prop"/>
+            <keyword name="rpathLinkDirs" id="cpp::rpathLinkDirs" ref="qml-qbsmodules-cpp.html#rpathLinkDirs-prop"/>
             <keyword name="rpathLinkFlag" id="cpp::rpathLinkFlag" ref="qml-qbsmodules-cpp.html#rpathLinkFlag-prop"/>
             <keyword name="rpathOrigin" id="cpp::rpathOrigin" ref="qml-qbsmodules-cpp.html#rpathOrigin-prop"/>
             <keyword name="rpaths" id="cpp::rpaths" ref="qml-qbsmodules-cpp.html#rpaths-prop"/>
@@ -1316,6 +1330,8 @@
             <file>qml-qbsconvenienceitems-configinstall.html</file>
             <file>qml-qbsconvenienceitems-cppapplication-members.html</file>
             <file>qml-qbsconvenienceitems-cppapplication.html</file>
+            <file>qml-qbsconvenienceitems-cpplibrary-members.html</file>
+            <file>qml-qbsconvenienceitems-cpplibrary.html</file>
             <file>qml-qbsconvenienceitems-cppstd-members.html</file>
             <file>qml-qbsconvenienceitems-cppstd.html</file>
             <file>qml-qbsconvenienceitems-dynamiclibrary-members.html</file>
@@ -1332,6 +1348,8 @@
             <file>qml-qbsconvenienceitems-library.html</file>
             <file>qml-qbsconvenienceitems-loadablemodule-members.html</file>
             <file>qml-qbsconvenienceitems-loadablemodule.html</file>
+            <file>qml-qbsconvenienceitems-objectlibrary-members.html</file>
+            <file>qml-qbsconvenienceitems-objectlibrary.html</file>
             <file>qml-qbsconvenienceitems-plugin-members.html</file>
             <file>qml-qbsconvenienceitems-plugin.html</file>
             <file>qml-qbsconvenienceitems-qtapplication-members.html</file>
