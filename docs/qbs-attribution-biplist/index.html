@@ -1,111 +1,9 @@
 <!DOCTYPE html>
-<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white"><head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-    <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
-biplist
-Qbs 3.1.1
+<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white">SPDX-FileCopyrightText: 2021 Carson Black <uhhadd@gmail.com>
 
-biplist
+SPDX-License-Identifier: MIT<body>SPDX-FileCopyrightText: 2021 Carson Black <uhhadd@gmail.com>
 
-
-biplist is a library for reading/writing binary plists.
-Used in the qbs dmg module for building Apple disk images.
-The sources can be found in src/3rdparty/python/lib/python2.7/site-packages/biplist.
-Project Homepage, upstream version: 1.0.2
-Copyright (c) 2010, Andrew Wooster
-BSD 3-clause &#34;New&#34; or &#34;Revised&#34; License.
-Copyright (c) 2010, Andrew Wooster
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
-
-    * Redistributions of source code must retain the above copyright notice,
-      this list of conditions and the following disclaimer.
-    * Redistributions in binary form must reproduce the above copyright
-      notice, this list of conditions and the following disclaimer in the
-      documentation and/or other materials provided with the distribution.
-    * Neither the name of biplist nor the names of its contributors may be
-      used to endorse or promote products derived from this software without
-      specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &#34;AS IS&#34;
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-
- ">
-    <link rel="canonical" href="https://qbs.io/docs/qbs-attribution-biplist/" />
-
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    
-
-    
-      
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
-    
-
-    <meta property="og:url" content="https://qbs.io/docs/qbs-attribution-biplist/">
-  <meta property="og:site_name" content="Qbs">
-  <meta property="og:title" content="Qbs">
-  <meta property="og:description" content="Qbs Manual biplist Qbs 3.1.1 biplist biplist is a library for reading/writing binary plists.
-Used in the qbs dmg module for building Apple disk images.
-The sources can be found in src/3rdparty/python/lib/python2.7/site-packages/biplist.
-Project Homepage, upstream version: 1.0.2
-Copyright (c) 2010, Andrew Wooster BSD 3-clause &#34;New&#34; or &#34;Revised&#34; License.
-Copyright (c) 2010, Andrew Wooster All rights reserved. Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met: * Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. * Neither the name of biplist nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &#34;AS IS&#34; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="docs">
-
-    
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Qbs">
-  <meta name="twitter:description" content="Qbs Manual biplist Qbs 3.1.1 biplist biplist is a library for reading/writing binary plists.
-Used in the qbs dmg module for building Apple disk images.
-The sources can be found in src/3rdparty/python/lib/python2.7/site-packages/biplist.
-Project Homepage, upstream version: 1.0.2
-Copyright (c) 2010, Andrew Wooster BSD 3-clause &#34;New&#34; or &#34;Revised&#34; License.
-Copyright (c) 2010, Andrew Wooster All rights reserved. Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met: * Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. * Neither the name of biplist nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &#34;AS IS&#34; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.">
-
-</head>
-<body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
-    <a class="flex items-center" href="/">
-        <img src="https://qbs.io//img/Cubes.svg" class="h-10 effect-shadow-small">
-        <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
-    </a>
-
-    <div>
-        
-        <a href="/blog" class="ml-2">
-            <span>Blog</span>
-        </a>
-        
-        <a href="/docs" class="ml-2">
-            <span>Documentation</span>
-        </a>
-        
-        <a href="/docs/installing/" class="ml-2">
-            <span>Get Qbs</span>
-        </a>
-        
-        <a href="/community" class="ml-2">
-            <span>Community</span>
-        </a>
-        
-    </div>
-</header><main>
+SPDX-License-Identifier: MIT<main>
 <div class="centre-outer">
     <article class="centre-inner docs">
     
@@ -156,5 +54,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</pre>
     </article>
 </div>
 
-        </main></body>
+        </main>SPDX-FileCopyrightText: 2021 Carson Black <uhhadd@gmail.com>
+
+SPDX-License-Identifier: MIT</body>
 </html>
