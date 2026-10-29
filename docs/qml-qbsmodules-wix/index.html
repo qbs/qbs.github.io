@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsModules
 wix
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 Contents
@@ -73,7 +75,7 @@ The wix module contains properties and rules for building MSI and EXE setup pack
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-wix/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsModules wix Qbs 3.3.0 Contents Properties Detailed Description Relevant File Tags wix Provides Windows Installer XML Toolset support. More...
+	<meta property="og:description" content="Qbs Manual QbsModules wix Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags wix Provides Windows Installer XML Toolset support. More...
 Since: Qbs 1.2 List of all members, including inherited members Properties compilerFlags : stringList compilerName : string compilerPath : string cultures : stringList debugInformation : bool defines : stringList enableQbsDefines : bool extensions : stringList includePaths : pathList linkerFlags : stringList linkerName : string linkerPath : string toolchainInstallPath : path toolchainInstallRoot : path treatWarningsAsErrors : bool verboseOutput : bool version : string versionBuild : int versionMajor : int versionMinor : int versionParts : list versionPatch : int visualStudioCompatibility : bool warningLevel : string Detailed Description The wix module contains properties and rules for building MSI and EXE setup packages with the Windows Installer XML Toolset.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
@@ -82,7 +84,7 @@ Since: Qbs 1.2 List of all members, including inherited members Properties compi
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsModules wix Qbs 3.3.0 Contents Properties Detailed Description Relevant File Tags wix Provides Windows Installer XML Toolset support. More...
+	<meta name="twitter:description" content="Qbs Manual QbsModules wix Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags wix Provides Windows Installer XML Toolset support. More...
 Since: Qbs 1.2 List of all members, including inherited members Properties compilerFlags : stringList compilerName : string compilerPath : string cultures : stringList debugInformation : bool defines : stringList enableQbsDefines : bool extensions : stringList includePaths : pathList linkerFlags : stringList linkerName : string linkerPath : string toolchainInstallPath : path toolchainInstallRoot : path treatWarningsAsErrors : bool verboseOutput : bool version : string versionBuild : int versionMajor : int versionMinor : int versionParts : list versionPatch : int visualStudioCompatibility : bool warningLevel : string Detailed Description The wix module contains properties and rules for building MSI and EXE setup packages with the Windows Installer XML Toolset.">
 
 </head>
@@ -115,12 +117,14 @@ Since: Qbs 1.2 List of all members, including inherited members Properties compi
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>wix</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -198,6 +202,11 @@ Since: Qbs 1.2 List of all members, including inherited members Properties compi
 <h2 id="details">Detailed Description</h2>
 <p>The <code translate="no">wix</code> module contains properties and rules for building MSI and EXE setup packages with the <a href="http://wixtoolset.org">Windows Installer XML Toolset</a>.</p>
 <p>This module is available on all platforms.</p>
+<p>The generated MSI package or WiX setup executable can be code-signed by enabling the <a href="https://qbs.io/
+/docs/qml-qbsmodules-codesign/" translate="no">codesign</a> module. Set <a href="https://qbs.io/
+/docs/qml-qbsmodules-codesign/#enableCodeSigning-prop" translate="no">codesign.enableCodeSigning</a> to <code translate="no">true</code> and configure the related codesign properties (such as <a href="https://qbs.io/
+/docs/qml-qbsmodules-codesign/#certificatePath-prop" translate="no">codesign.certificatePath</a> or <a href="https://qbs.io/
+/docs/qml-qbsmodules-codesign/#subjectName-prop" translate="no">codesign.subjectName</a>).</p>
 <h3 id="relevant-file-tags">Relevant File Tags</h3>
 <span id="filetags-wix"></span><div class="table"><table class="generic">
 <thead><tr class="qt-style"><th>Tag</th><th>Auto-tagged File Names</th><th>Since</th><th>Description</th></tr></thead>
@@ -211,100 +220,53 @@ Since: Qbs 1.2 List of all members, including inherited members Properties compi
 <!-- @@@wix -->
 <h2>Property Documentation</h2>
 <!-- $$$compilerFlags -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="compilerFlags-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">compilerFlags</span> : <span class="type">stringList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>A list of additional flags for the Candle compiler.</p>
+<h3 class="fn qml-member qml-property" id="compilerFlags-prop" translate="no"><span class="name">compilerFlags</span> : <span class="type">stringList</span></h3>
+<p>A list of additional flags for the Candle compiler.</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@compilerFlags -->
-<br>
+<!-- @@@compilerFlags -->
 <!-- $$$compilerName -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="compilerName-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">compilerName</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The name of the compiler binary.</p>
+<h3 class="fn qml-member qml-property" id="compilerName-prop" translate="no"><span class="name">compilerName</span> : <span class="type">string</span></h3>
+<p>The name of the compiler binary.</p>
 <p>This property should not normally need to be changed.</p>
 <p>Default: <code translate="no">"candle.exe"</code></p>
-</div></div><!-- @@@compilerName -->
-<br>
+<!-- @@@compilerName -->
 <!-- $$$compilerPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="compilerPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">compilerPath</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The directory where the compiler binary is located.</p>
+<h3 class="fn qml-member qml-property" id="compilerPath-prop" translate="no"><span class="name">compilerPath</span> : <span class="type">string</span></h3>
+<p>The directory where the compiler binary is located.</p>
 <p>This property should not normally need to be changed.</p>
 <p>Default: <a href="https://qbs.io/
 /docs/qml-qbsmodules-wix/#compilerName-prop" translate="no">compilerName</a></p>
-</div></div><!-- @@@compilerPath -->
-<br>
+<!-- @@@compilerPath -->
 <!-- $$$cultures -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="cultures-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">cultures</span> : <span class="type">stringList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>A list of localizations to include in the MSI.</p>
+<h3 class="fn qml-member qml-property" id="cultures-prop" translate="no"><span class="name">cultures</span> : <span class="type">stringList</span></h3>
+<p>A list of localizations to include in the MSI.</p>
 <p>If left undefined, includes all localizations.</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@cultures -->
-<br>
+<!-- @@@cultures -->
 <!-- $$$debugInformation -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="debugInformation-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">debugInformation</span> : <span class="type">bool</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Whether to generate debug information.</p>
+<h3 class="fn qml-member qml-property" id="debugInformation-prop" translate="no"><span class="name">debugInformation</span> : <span class="type">bool</span></h3>
+<p>Whether to generate debug information.</p>
 <p>Default: <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#debugInformation-prop" translate="no">qbs.debugInformation</a></p>
 <p><b>See also </b><a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#debugInformation-prop" translate="no">qbs.debugInformation</a>.</p>
-</div></div><!-- @@@debugInformation -->
-<br>
+<!-- @@@debugInformation -->
 <!-- $$$defines -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="defines-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">defines</span> : <span class="type">stringList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>A list of preprocessor macros that get passed to the compiler.</p>
+<h3 class="fn qml-member qml-property" id="defines-prop" translate="no"><span class="name">defines</span> : <span class="type">stringList</span></h3>
+<p>A list of preprocessor macros that get passed to the compiler.</p>
 <p>To set macro values, use the following syntax:</p>
 <pre class="cpp plain" translate="no">wix.defines: ["USE_COLORS=1", 'COLOR_STR="blanched almond"']</pre>
 <p>Default: Undefined</p>
-</div></div><!-- @@@defines -->
-<br>
+<!-- @@@defines -->
 <!-- $$$enableQbsDefines -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="enableQbsDefines-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">enableQbsDefines</span> : <span class="type">bool</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Whether to define preprocessor macros corresponding to values from the project and product objects.</p>
+<h3 class="fn qml-member qml-property" id="enableQbsDefines-prop" translate="no"><span class="name">enableQbsDefines</span> : <span class="type">bool</span></h3>
+<p>Whether to define preprocessor macros corresponding to values from the project and product objects.</p>
 <p>When building a 64-bit package, the preprocessor variable <code translate="no">Win64</code> will also be defined.</p>
 <p>Default: <code translate="no">true</code></p>
-</div></div><!-- @@@enableQbsDefines -->
-<br>
+<!-- @@@enableQbsDefines -->
 <!-- $$$extensions -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="extensions-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">extensions</span> : <span class="type">stringList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>A list of extension assemblies to link into the output.</p>
+<h3 class="fn qml-member qml-property" id="extensions-prop" translate="no"><span class="name">extensions</span> : <span class="type">stringList</span></h3>
+<p>A list of extension assemblies to link into the output.</p>
 <p>Possible values include:</p>
 <ul>
 <li>custom assemblies</li>
@@ -326,195 +288,98 @@ Since: Qbs 1.2 List of all members, including inherited members Properties compi
 <li><code translate="no">"WixVSExtension"</code></li>
 </ul>
 <p>Default: <code translate="no">["WixBalExtension"]</code> if the product type is an EXE setup application, otherwise <code translate="no">undefined</code>.</p>
-</div></div><!-- @@@extensions -->
-<br>
+<!-- @@@extensions -->
 <!-- $$$includePaths -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="includePaths-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">includePaths</span> : <span class="type">pathList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>A list of include paths.</p>
+<h3 class="fn qml-member qml-property" id="includePaths-prop" translate="no"><span class="name">includePaths</span> : <span class="type">pathList</span></h3>
+<p>A list of include paths.</p>
 <p>Relative paths are considered to be relative to the <code translate="no">.qbs</code> product file they are used in.</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@includePaths -->
-<br>
+<!-- @@@includePaths -->
 <!-- $$$linkerFlags -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="linkerFlags-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">linkerFlags</span> : <span class="type">stringList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>A list of additional flags for the Light linker.</p>
+<h3 class="fn qml-member qml-property" id="linkerFlags-prop" translate="no"><span class="name">linkerFlags</span> : <span class="type">stringList</span></h3>
+<p>A list of additional flags for the Light linker.</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@linkerFlags -->
-<br>
+<!-- @@@linkerFlags -->
 <!-- $$$linkerName -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="linkerName-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">linkerName</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The name of the linker binary.</p>
+<h3 class="fn qml-member qml-property" id="linkerName-prop" translate="no"><span class="name">linkerName</span> : <span class="type">string</span></h3>
+<p>The name of the linker binary.</p>
 <p>This property should not normally need to be changed.</p>
 <p>Default: <code translate="no">"light.exe"</code></p>
-</div></div><!-- @@@linkerName -->
-<br>
+<!-- @@@linkerName -->
 <!-- $$$linkerPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="linkerPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">linkerPath</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The directory where the linker binary is located.</p>
+<h3 class="fn qml-member qml-property" id="linkerPath-prop" translate="no"><span class="name">linkerPath</span> : <span class="type">string</span></h3>
+<p>The directory where the linker binary is located.</p>
 <p>This property should not normally need to be changed.</p>
 <p>Default: <a href="https://qbs.io/
 /docs/qml-qbsmodules-wix/#linkerName-prop" translate="no">linkerName</a></p>
-</div></div><!-- @@@linkerPath -->
-<br>
+<!-- @@@linkerPath -->
 <!-- $$$toolchainInstallPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="toolchainInstallPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">toolchainInstallPath</span> : <span class="type">path</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The WiX installation directory.</p>
+<h3 class="fn qml-member qml-property" id="toolchainInstallPath-prop" translate="no"><span class="name">toolchainInstallPath</span> : <span class="type">path</span></h3>
+<p>The WiX installation directory.</p>
 <p>This property should not normally need to be changed.</p>
 <p>Default: Determined automatically by searching the registry for the latest version.</p>
-</div></div><!-- @@@toolchainInstallPath -->
-<br>
+<!-- @@@toolchainInstallPath -->
 <!-- $$$toolchainInstallRoot -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="toolchainInstallRoot-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">toolchainInstallRoot</span> : <span class="type">path</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The WiX binaries directory.</p>
+<h3 class="fn qml-member qml-property" id="toolchainInstallRoot-prop" translate="no"><span class="name">toolchainInstallRoot</span> : <span class="type">path</span></h3>
+<p>The WiX binaries directory.</p>
 <p>This property should not normally need to be changed.</p>
 <p>Default: Determined automatically by searching the registry for the latest version.</p>
-</div></div><!-- @@@toolchainInstallRoot -->
-<br>
+<!-- @@@toolchainInstallRoot -->
 <!-- $$$treatWarningsAsErrors -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="treatWarningsAsErrors-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">treatWarningsAsErrors</span> : <span class="type">bool</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Whether warnings will be handled as errors and cause the build to fail.</p>
+<h3 class="fn qml-member qml-property" id="treatWarningsAsErrors-prop" translate="no"><span class="name">treatWarningsAsErrors</span> : <span class="type">bool</span></h3>
+<p>Whether warnings will be handled as errors and cause the build to fail.</p>
 <p>Default: <code translate="no">false</code></p>
-</div></div><!-- @@@treatWarningsAsErrors -->
-<br>
+<!-- @@@treatWarningsAsErrors -->
 <!-- $$$verboseOutput -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="verboseOutput-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">verboseOutput</span> : <span class="type">bool</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Whether to display verbose output from the compiler and linker.</p>
+<h3 class="fn qml-member qml-property" id="verboseOutput-prop" translate="no"><span class="name">verboseOutput</span> : <span class="type">bool</span></h3>
+<p>Whether to display verbose output from the compiler and linker.</p>
 <p>Default: <code translate="no">false</code></p>
-</div></div><!-- @@@verboseOutput -->
-<br>
+<!-- @@@verboseOutput -->
 <!-- $$$version -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="version-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">version</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The WiX version.</p>
+<h3 class="fn qml-member qml-property" id="version-prop" translate="no"><span class="name">version</span> : <span class="type">string</span></h3>
+<p>The WiX version.</p>
 <p>Consists of four numbers separated by dots. For example, "3.7.1224.0".</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@version -->
-<br>
+<!-- @@@version -->
 <!-- $$$versionBuild -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="versionBuild-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">versionBuild</span> : <span class="type">int</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The fourth WiX version number component.</p>
+<h3 class="fn qml-member qml-property" id="versionBuild-prop" translate="no"><span class="name">versionBuild</span> : <span class="type">int</span></h3>
+<p>The fourth WiX version number component.</p>
 <p>Default: <code translate="no">versionParts[3]</code></p>
-</div></div><!-- @@@versionBuild -->
-<br>
+<!-- @@@versionBuild -->
 <!-- $$$versionMajor -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="versionMajor-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">versionMajor</span> : <span class="type">int</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The WiX major version.</p>
+<h3 class="fn qml-member qml-property" id="versionMajor-prop" translate="no"><span class="name">versionMajor</span> : <span class="type">int</span></h3>
+<p>The WiX major version.</p>
 <p>Default: <code translate="no">versionParts[0]</code></p>
-</div></div><!-- @@@versionMajor -->
-<br>
+<!-- @@@versionMajor -->
 <!-- $$$versionMinor -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="versionMinor-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">versionMinor</span> : <span class="type">int</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The WiX minor version.</p>
+<h3 class="fn qml-member qml-property" id="versionMinor-prop" translate="no"><span class="name">versionMinor</span> : <span class="type">int</span></h3>
+<p>The WiX minor version.</p>
 <p>Default: <code translate="no">versionParts[1]</code></p>
-</div></div><!-- @@@versionMinor -->
-<br>
+<!-- @@@versionMinor -->
 <!-- $$$versionParts -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="versionParts-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">versionParts</span> : <span class="type">list</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The WiX version as a list.</p>
+<h3 class="fn qml-member qml-property" id="versionParts-prop" translate="no"><span class="name">versionParts</span> : <span class="type">list</span></h3>
+<p>The WiX version as a list.</p>
 <p>For example, WiX version 3.7.1224.0 would correspond to a value of <code translate="no">[3, 7, 1224, 0]</code>.</p>
 <p>Default: <code translate="no">[]</code></p>
-</div></div><!-- @@@versionParts -->
-<br>
+<!-- @@@versionParts -->
 <!-- $$$versionPatch -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="versionPatch-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">versionPatch</span> : <span class="type">int</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The WiX patch level.</p>
+<h3 class="fn qml-member qml-property" id="versionPatch-prop" translate="no"><span class="name">versionPatch</span> : <span class="type">int</span></h3>
+<p>The WiX patch level.</p>
 <p>Default: <code translate="no">versionParts[2]</code></p>
-</div></div><!-- @@@versionPatch -->
-<br>
+<!-- @@@versionPatch -->
 <!-- $$$visualStudioCompatibility -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="visualStudioCompatibility-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">visualStudioCompatibility</span> : <span class="type">bool</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Whether to pass most of the same preprocessor macros to the compiler as Visual Studio does.</p>
+<h3 class="fn qml-member qml-property" id="visualStudioCompatibility-prop" translate="no"><span class="name">visualStudioCompatibility</span> : <span class="type">bool</span></h3>
+<p>Whether to pass most of the same preprocessor macros to the compiler as Visual Studio does.</p>
 <p>This allows easier authoring of WiX files that are compatible with both Qbs and MSBuild.</p>
 <p>Default: <code translate="no">true</code></p>
-</div></div><!-- @@@visualStudioCompatibility -->
-<br>
+<!-- @@@visualStudioCompatibility -->
 <!-- $$$warningLevel -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="warningLevel-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">warningLevel</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The severity of warnings to emit.</p>
+<h3 class="fn qml-member qml-property" id="warningLevel-prop" translate="no"><span class="name">warningLevel</span> : <span class="type">string</span></h3>
+<p>The severity of warnings to emit.</p>
 <p>The higher the level, the more warnings will be shown.</p>
 <p>Possible values include: <code translate="no">"none"</code>, <code translate="no">"normal"</code>, <code translate="no">"pedantic"</code></p>
 <p>Default: <code translate="no">"normal"</code></p>
-</div></div><!-- @@@warningLevel -->
-<br>
+<!-- @@@warningLevel -->
 </div>
 
 

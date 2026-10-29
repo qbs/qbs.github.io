@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsModules
 Exporter.cmake
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 Contents
@@ -52,7 +54,7 @@ The Exporter.cmake module contains the properties and rules to create a CMake co
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-exporter-cmake/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsModules Exporter.cmake Qbs 3.3.0 Contents Properties Detailed Description Relevant File Tags Exporter.cmake Provides support for generating CMake packages from dynamic, static and header library products. More...
+	<meta property="og:description" content="Qbs Manual QbsModules Exporter.cmake Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags Exporter.cmake Provides support for generating CMake packages from dynamic, static and header library products. More...
 Since: Qbs 2.3 List of all members, including inherited members Properties configFileName : string packageName : string versionFileName : string Detailed Description The Exporter.cmake module contains the properties and rules to create a CMake config files from the Export item of a Product.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
@@ -61,7 +63,7 @@ Since: Qbs 2.3 List of all members, including inherited members Properties confi
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsModules Exporter.cmake Qbs 3.3.0 Contents Properties Detailed Description Relevant File Tags Exporter.cmake Provides support for generating CMake packages from dynamic, static and header library products. More...
+	<meta name="twitter:description" content="Qbs Manual QbsModules Exporter.cmake Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags Exporter.cmake Provides support for generating CMake packages from dynamic, static and header library products. More...
 Since: Qbs 2.3 List of all members, including inherited members Properties configFileName : string packageName : string versionFileName : string Detailed Description The Exporter.cmake module contains the properties and rules to create a CMake config files from the Export item of a Product.">
 
 </head>
@@ -94,12 +96,14 @@ Since: Qbs 2.3 List of all members, including inherited members Properties confi
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>Exporter.cmake</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -140,29 +144,29 @@ Since: Qbs 2.3 List of all members, including inherited members Properties confi
 <pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-dynamiclibrary/" translate="no">DynamicLibrary</a></span> {
     <span class="name">name</span>: <span class="string">"mylibrary"</span>
-    <span class="name">qbs</span>.installPrefix: <span class="string">"/opt/mylibrary"</span>
+    <span class="name">qbs.installPrefix</span>: <span class="string">"/opt/mylibrary"</span>
     <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-depends/" translate="no">Depends</a></span> { <span class="name">name</span>: <span class="string">"Exporter.cmake"</span> }
-    <span class="name">Exporter</span>.cmake.packageName: <span class="string">"MyLibrary"</span>
+    <span class="name">Exporter.cmake.packageName</span>: <span class="string">"MyLibrary"</span>
     property <span class="type">string</span> <span class="name">headersInstallDir</span>: <span class="string">"include"</span>
     <span class="comment">// ...</span>
     <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-group/" translate="no">Group</a></span> {
         <span class="name">name</span>: <span class="string">"API headers"</span>
         <span class="name">files</span>: [<span class="string">"mylib.h"</span>]
-        <span class="name">qbs</span>.install: <span class="number">true</span>
-        <span class="name">qbs</span>.installDir: <span class="name">headersInstallDir</span>
+        <span class="name">qbs.install</span>: <span class="number">true</span>
+        <span class="name">qbs.installDir</span>: <span class="name">headersInstallDir</span>
     }
     <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-group/" translate="no">Group</a></span> {
         <span class="name">fileTagsFilter</span>: [<span class="string">"Exporter.cmake.package"</span>]
-        <span class="name">qbs</span>.installDir: <span class="string">"lib/cmake/MyLibrary"</span>
+        <span class="name">qbs.installDir</span>: <span class="string">"lib/cmake/MyLibrary"</span>
     }
     <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-export/" translate="no">Export</a></span> {
         <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-depends/" translate="no">Depends</a></span> { <span class="name">name</span>: <span class="string">"cpp"</span> }
-        <span class="name">cpp</span>.includePaths: <span class="name">FileInfo</span>.<span class="name">joinPaths</span>(
+        <span class="name">cpp.includePaths</span>: <span class="name">FileInfo</span>.<span class="name">joinPaths</span>(
             <span class="name">exportingProduct</span>.<span class="name">qbs</span>.<span class="name">installRoot</span>,
             <span class="name">exportingProduct</span>.<span class="name">qbs</span>.<span class="name">installPrefix</span>,
             <span class="name">exportingProduct</span>.<span class="name">headersInstallDir</span>)
@@ -182,39 +186,21 @@ target_link_libraries(Consumer MyLibrary)</pre>
 <!-- @@@Exporter.cmake -->
 <h2>Property Documentation</h2>
 <!-- $$$configFileName -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="configFileName-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">configFileName</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The name of the generated config file.</p>
+<h3 class="fn qml-member qml-property" id="configFileName-prop" translate="no"><span class="name">configFileName</span> : <span class="type">string</span></h3>
+<p>The name of the generated config file.</p>
 <p>Default: <code translate="no">packageName + "Config.cmake"</code></p>
-</div></div><!-- @@@configFileName -->
-<br>
+<!-- @@@configFileName -->
 <!-- $$$packageName -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="packageName-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">packageName</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The name of the CMake package.</p>
+<h3 class="fn qml-member qml-property" id="packageName-prop" translate="no"><span class="name">packageName</span> : <span class="type">string</span></h3>
+<p>The name of the CMake package.</p>
 <p>Default: <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#targetName-prop" translate="no">Product.targetName</a></p>
-</div></div><!-- @@@packageName -->
-<br>
+<!-- @@@packageName -->
 <!-- $$$versionFileName -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="versionFileName-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">versionFileName</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The name of the generated version file.</p>
+<h3 class="fn qml-member qml-property" id="versionFileName-prop" translate="no"><span class="name">versionFileName</span> : <span class="type">string</span></h3>
+<p>The name of the generated version file.</p>
 <p>Default: <code translate="no">packageName + "ConfigVersion.cmake"</code></p>
-</div></div><!-- @@@versionFileName -->
-<br>
+<!-- @@@versionFileName -->
 </div>
 
 

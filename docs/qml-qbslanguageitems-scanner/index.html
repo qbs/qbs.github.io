@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsLanguageItems
 Scanner
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 
@@ -39,6 +41,7 @@ condition : bool
 inputs : stringList
 recursive : bool
 scan : script
+scannerId : string
 searchPaths : script
 
 
@@ -59,8 +62,8 @@ A Scanner item can appear inside a Module item, and allows to extract dependenci
     <meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-scanner/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsLanguageItems Scanner Qbs 3.3.0 Rule SubProject Contents Properties Detailed Description Scanner Creates custom dependency scanners in products or modules. More...
-List of all members, including inherited members Scanner is part of List of All Items. Properties condition : bool inputs : stringList recursive : bool scan : script searchPaths : script Detailed Description A Scanner item can appear inside a Module item, and allows to extract dependencies for artifacts from the artifacts&#39; file contents. For example, this is what a scanner for &#34;qrc&#34; files might look like:">
+	<meta property="og:description" content="Qbs Manual QbsLanguageItems Scanner Qbs 3.4.0 Rule SubProject Contents Properties Detailed Description Scanner Creates custom dependency scanners in products or modules. More...
+List of all members, including inherited members Scanner is part of List of All Items. Properties condition : bool inputs : stringList recursive : bool scan : script scannerId : string searchPaths : script Detailed Description A Scanner item can appear inside a Module item, and allows to extract dependencies for artifacts from the artifacts&#39; file contents. For example, this is what a scanner for &#34;qrc&#34; files might look like:">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -68,8 +71,8 @@ List of all members, including inherited members Scanner is part of List of All 
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsLanguageItems Scanner Qbs 3.3.0 Rule SubProject Contents Properties Detailed Description Scanner Creates custom dependency scanners in products or modules. More...
-List of all members, including inherited members Scanner is part of List of All Items. Properties condition : bool inputs : stringList recursive : bool scan : script searchPaths : script Detailed Description A Scanner item can appear inside a Module item, and allows to extract dependencies for artifacts from the artifacts&#39; file contents. For example, this is what a scanner for &#34;qrc&#34; files might look like:">
+	<meta name="twitter:description" content="Qbs Manual QbsLanguageItems Scanner Qbs 3.4.0 Rule SubProject Contents Properties Detailed Description Scanner Creates custom dependency scanners in products or modules. More...
+List of all members, including inherited members Scanner is part of List of All Items. Properties condition : bool inputs : stringList recursive : bool scan : script scannerId : string searchPaths : script Detailed Description A Scanner item can appear inside a Module item, and allows to extract dependencies for artifacts from the artifacts&#39; file contents. For example, this is what a scanner for &#34;qrc&#34; files might look like:">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -101,12 +104,14 @@ List of all members, including inherited members Scanner is part of List of All 
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbslanguageitems-qmlmodule/" translate="no">QbsLanguageItems</a></li>
 <li>Scanner</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <link href="https://qbs.io/
 /docs/qml-qbslanguageitems-rule/" rel="prev">
 <link href="https://qbs.io/
@@ -150,6 +155,8 @@ List of all members, including inherited members Scanner is part of List of All 
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-scanner/#scan-prop" translate="no">scan</a></b> : script</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbslanguageitems-scanner/#scannerId-prop" translate="no">scannerId</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-scanner/#searchPaths-prop" translate="no">searchPaths</a></b> : script</li>
 </ul>
 <!-- $$$Scanner-description -->
@@ -174,63 +181,45 @@ List of all members, including inherited members Scanner is part of List of All 
 <!-- @@@Scanner -->
 <h2>Property Documentation</h2>
 <!-- $$$condition -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="condition-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">condition</span> : <span class="type">bool</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>If <code translate="no">true</code>, the scanner is enabled, otherwise it does nothing.</p>
+<h3 class="fn qml-member qml-property" id="condition-prop" translate="no"><span class="name">condition</span> : <span class="type">bool</span></h3>
+<p>If <code translate="no">true</code>, the scanner is enabled, otherwise it does nothing.</p>
 <p>Default: <code translate="no">true</code></p>
-</div></div><!-- @@@condition -->
-<br>
+<!-- @@@condition -->
 <!-- $$$inputs -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="inputs-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">inputs</span> : <span class="type">stringList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>A list of <a href="https://qbs.io/
+<h3 class="fn qml-member qml-property" id="inputs-prop" translate="no"><span class="name">inputs</span> : <span class="type">stringList</span></h3>
+<p>A list of <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-filetagger/" translate="no">file tags</a> the input artifacts must match.</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@inputs -->
-<br>
+<!-- @@@inputs -->
 <!-- $$$recursive -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="recursive-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">recursive</span> : <span class="type">bool</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Determines whether to scan the returned dependencies using the same scanner.</p>
+<h3 class="fn qml-member qml-property" id="recursive-prop" translate="no"><span class="name">recursive</span> : <span class="type">bool</span></h3>
+<p>Determines whether to scan the returned dependencies using the same scanner.</p>
 <p>Default: <code translate="no">false</code></p>
-</div></div><!-- @@@recursive -->
-<br>
+<!-- @@@recursive -->
 <!-- $$$scan -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="scan-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">scan</span> : <span class="type">script</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>A script that reads the input artifact and returns a string list with dependencies.</p>
+<h3 class="fn qml-member qml-property" id="scan-prop" translate="no"><span class="name">scan</span> : <span class="type">script</span></h3>
+<p>A script that reads the input artifact and returns either a string list with dependencies or an object.</p>
+<p>If the return value is an array, it is interpreted as a list of dependency paths.</p>
+<p>If the return value is an object, it may be empty or provide <code translate="no">dependencies</code> and/or <code translate="no">scannerProperties</code>. The <code translate="no">dependencies</code> property provides the dependency paths. The <code translate="no">scannerProperties</code> property is a map of custom values stored in the build graph and exposed as <code translate="no">input.qbsScanners.&lt;scannerId&gt;.&lt;propertyName&gt;</code> in prepare and <code translate="no">outputArtifacts</code> scripts (not in scan scripts). Use the separate <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-scanner/#searchPaths-prop" translate="no">searchPaths</a> script to supply search paths.</p>
 <p>The code in this script is treated as a function with the signature <code translate="no">function(project, product, input, filePath)</code>, where <code translate="no">input</code> is the artifact at which the scan originated, and <code translate="no">filePath</code> is the currently scanned file. For non-recursive scans, <code translate="no">filePath</code> is always equal to <code translate="no">input.filePath</code>.</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@scan -->
-<br>
+<!-- @@@scan -->
+<!-- $$$scannerId -->
+<h3 class="fn qml-member qml-property" id="scannerId-prop" translate="no"><span class="name">scannerId</span> : <span class="type">string</span></h3>
+<p>An identifier for this scanner. For scanners declared in a module, the module name is prepended to this property to form a global scanner id used for caching scan results (for example, <code translate="no">cpp.myScanner</code>). For scanners declared directly in a product, the value is used as-is.</p>
+<p>That global id must be unique within the product, including scanners coming from modules.</p>
+<p>In prepare and <code translate="no">outputArtifacts</code> scripts, scanner properties are exposed via <code translate="no">input.qbsScanners.&lt;scannerId&gt;.&lt;propertyName&gt;</code> (use bracket notation when the id contains dots, for example <code translate="no">input.qbsScanners["Qt.core.moc"]</code>). They are not available on <code translate="no">input</code> in scan scripts; values come from the last scan stored in the build graph.</p>
+<p>If not set explicitly, the pluginName is used for plugin-based scanners. Otherwise, a stable identifier (SHA1-hash) is derived from the <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-scanner/#scan-prop" translate="no">scan</a> script.</p>
+<p>Default: Undefined</p>
+<!-- @@@scannerId -->
 <!-- $$$searchPaths -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="searchPaths-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">searchPaths</span> : <span class="type">script</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>A script that returns the paths where to look for dependencies.</p>
+<h3 class="fn qml-member qml-property" id="searchPaths-prop" translate="no"><span class="name">searchPaths</span> : <span class="type">script</span></h3>
+<p>A script that returns the paths where to look for dependencies.</p>
 <p>The code in this script is treated as a function with the signature <code translate="no">function(project, product, input)</code>.</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@searchPaths -->
-<br>
+<!-- @@@searchPaths -->
 <p class="naviNextPrevious footerNavi">
 <a class="prevPage" href="https://qbs.io/
 /docs/qml-qbslanguageitems-rule/">Rule</a>

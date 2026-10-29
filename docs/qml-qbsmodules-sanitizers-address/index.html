@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsModules
 Sanitizers.address
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 Contents
@@ -38,12 +40,7 @@ Provides support for the AddressSanitizer tool, which uses compiler instrumentat
 
 Property Documentation
 
-
-
-
-
 detectUseAfterReturn : string
-
 Controls whether support for detecting problems with stack use after returning from a function should be built into the application. ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-sanitizers-address/" />
 
@@ -60,10 +57,9 @@ Controls whether support for detecting problems with stack use after returning f
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-sanitizers-address/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsModules Sanitizers.address Qbs 3.3.0 Contents Properties Detailed Description Sanitizers.address Provides AddressSanitizer support. More...
+	<meta property="og:description" content="Qbs Manual QbsModules Sanitizers.address Qbs 3.4.0 Contents Properties Detailed Description Sanitizers.address Provides AddressSanitizer support. More...
 List of all members, including inherited members Properties detectUseAfterReturn : string detectUseAfterScope : bool enabled : bool Detailed Description Provides support for the AddressSanitizer tool, which uses compiler instrumentation to detect memory corruption bugs at runtime.
-Property Documentation detectUseAfterReturn : string
-Controls whether support for detecting problems with stack use after returning from a function should be built into the application.">
+Property Documentation detectUseAfterReturn : string Controls whether support for detecting problems with stack use after returning from a function should be built into the application.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -71,10 +67,9 @@ Controls whether support for detecting problems with stack use after returning f
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsModules Sanitizers.address Qbs 3.3.0 Contents Properties Detailed Description Sanitizers.address Provides AddressSanitizer support. More...
+	<meta name="twitter:description" content="Qbs Manual QbsModules Sanitizers.address Qbs 3.4.0 Contents Properties Detailed Description Sanitizers.address Provides AddressSanitizer support. More...
 List of all members, including inherited members Properties detectUseAfterReturn : string detectUseAfterScope : bool enabled : bool Detailed Description Provides support for the AddressSanitizer tool, which uses compiler instrumentation to detect memory corruption bugs at runtime.
-Property Documentation detectUseAfterReturn : string
-Controls whether support for detecting problems with stack use after returning from a function should be built into the application.">
+Property Documentation detectUseAfterReturn : string Controls whether support for detecting problems with stack use after returning from a function should be built into the application.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -106,12 +101,14 @@ Controls whether support for detecting problems with stack use after returning f
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>Sanitizers.address</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -147,13 +144,8 @@ Controls whether support for detecting problems with stack use after returning f
 <!-- @@@Sanitizers.address -->
 <h2>Property Documentation</h2>
 <!-- $$$detectUseAfterReturn -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="detectUseAfterReturn-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">detectUseAfterReturn</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Controls whether support for detecting problems with stack use after returning from a function should be built into the application.</p>
+<h3 class="fn qml-member qml-property" id="detectUseAfterReturn-prop" translate="no"><span class="name">detectUseAfterReturn</span> : <span class="type">string</span></h3>
+<p>Controls whether support for detecting problems with stack use after returning from a function should be built into the application.</p>
 <p>The possible values are:</p>
 <ul>
 <li><code translate="no">"always"</code>: Check for this type of problem unconditionally.</li>
@@ -164,36 +156,23 @@ Controls whether support for detecting problems with stack use after returning f
 <p><b>Note: </b>Only the clang compiler (starting at 13.0) supports the full set of values. With GCC and MSVC, "runtime" maps to "always".</p>
 </div>
 <p>Default: <code translate="no">"always"</code></p>
-</div></div><!-- @@@detectUseAfterReturn -->
-<br>
+<!-- @@@detectUseAfterReturn -->
 <!-- $$$detectUseAfterScope -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="detectUseAfterScope-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">detectUseAfterScope</span> : <span class="type">bool</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Controls whether to detect bugs relating the use of variables after they've gone out of scope.</p>
+<h3 class="fn qml-member qml-property" id="detectUseAfterScope-prop" translate="no"><span class="name">detectUseAfterScope</span> : <span class="type">bool</span></h3>
+<p>Controls whether to detect bugs relating the use of variables after they've gone out of scope.</p>
 <div class="admonition note">
 <p><b>Note: </b>This property has no effect when building with with GCC and MSVC.</p>
 </div>
 <p>Default: <code translate="no">true</code></p>
-</div></div><!-- @@@detectUseAfterScope -->
-<br>
+<!-- @@@detectUseAfterScope -->
 <!-- $$$enabled -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="enabled-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">enabled</span> : <span class="type">bool</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Controls whether to enable AddressSanitizer.</p>
+<h3 class="fn qml-member qml-property" id="enabled-prop" translate="no"><span class="name">enabled</span> : <span class="type">bool</span></h3>
+<p>Controls whether to enable AddressSanitizer.</p>
 <div class="admonition note">
 <p><b>Note: </b>You do not need to check if the current toolchain supports AddressSanitizer: If Qbs detects that it doesn't, this property has no effect.</p>
 </div>
 <p>Default: <code translate="no">true</code></p>
-</div></div><!-- @@@enabled -->
-<br>
+<!-- @@@enabled -->
 </div>
 
 

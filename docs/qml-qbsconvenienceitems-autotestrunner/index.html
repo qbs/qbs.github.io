@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsConvenienceItems
 AutotestRunner
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 
@@ -63,7 +65,7 @@ An AutotestRunner has a dependency on all products with the type &#34;autotest&#
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsconvenienceitems-autotestrunner/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsConvenienceItems AutotestRunner Qbs 3.3.0 ApplicationExtension ConfigInstall Contents Properties Detailed Description Setting Properties for individual Tests Relevant Job Pools AutotestRunner Product that runs all autotests in the project. More...
+	<meta property="og:description" content="Qbs Manual QbsConvenienceItems AutotestRunner Qbs 3.4.0 ApplicationExtension ConfigInstall Contents Properties Detailed Description Setting Properties for individual Tests Relevant Job Pools AutotestRunner Product that runs all autotests in the project. More...
 List of all members, including inherited members AutotestRunner is part of List of All Items. Properties arguments : stringList auxiliaryInputs : stringList (since Qbs 1.12) environment : stringList limitToSubProject : bool timeout : int (since Qbs 1.15) workingDir : string (since Qbs 1.12) wrapper : stringList Detailed Description An AutotestRunner has a dependency on all products with the type &#34;autotest&#34;. Building the AutotestRunner product will then run the respective executables. The builtByDefault property is set to false by default, so running the autotests has to be explicitly requested. The default name of the product is &#34;autotest-runner&#34;.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
@@ -72,7 +74,7 @@ List of all members, including inherited members AutotestRunner is part of List 
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsConvenienceItems AutotestRunner Qbs 3.3.0 ApplicationExtension ConfigInstall Contents Properties Detailed Description Setting Properties for individual Tests Relevant Job Pools AutotestRunner Product that runs all autotests in the project. More...
+	<meta name="twitter:description" content="Qbs Manual QbsConvenienceItems AutotestRunner Qbs 3.4.0 ApplicationExtension ConfigInstall Contents Properties Detailed Description Setting Properties for individual Tests Relevant Job Pools AutotestRunner Product that runs all autotests in the project. More...
 List of all members, including inherited members AutotestRunner is part of List of All Items. Properties arguments : stringList auxiliaryInputs : stringList (since Qbs 1.12) environment : stringList limitToSubProject : bool timeout : int (since Qbs 1.15) workingDir : string (since Qbs 1.12) wrapper : stringList Detailed Description An AutotestRunner has a dependency on all products with the type &#34;autotest&#34;. Building the AutotestRunner product will then run the respective executables. The builtByDefault property is set to false by default, so running the autotests has to be explicitly requested. The default name of the product is &#34;autotest-runner&#34;.">
 
 </head>
@@ -105,12 +107,14 @@ List of all members, including inherited members AutotestRunner is part of List 
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsconvenienceitems-qmlmodule/" translate="no">QbsConvenienceItems</a></li>
 <li>AutotestRunner</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <link href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-applicationextension/" rel="prev">
 <link href="https://qbs.io/
@@ -198,7 +202,7 @@ List of all members, including inherited members AutotestRunner is part of List 
     <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-depends/" translate="no">Depends</a></span> { <span class="name">name</span>: <span class="string">"autotest"</span> }
 
-    <span class="name">autotest</span>.timeout: <span class="number">60</span>
+    <span class="name">autotest.timeout</span>: <span class="number">60</span>
 
     <span class="comment">// ...</span>
 }</pre>
@@ -210,93 +214,51 @@ List of all members, including inherited members AutotestRunner is part of List 
 <!-- @@@AutotestRunner -->
 <h2>Property Documentation</h2>
 <!-- $$$arguments -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="arguments-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">arguments</span> : <span class="type">stringList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The list of arguments to invoke the autotest with. A test can override this by setting the <a href="https://qbs.io/
+<h3 class="fn qml-member qml-property" id="arguments-prop" translate="no"><span class="name">arguments</span> : <span class="type">stringList</span></h3>
+<p>The list of arguments to invoke the autotest with. A test can override this by setting the <a href="https://qbs.io/
 /docs/qml-qbsmodules-autotest/#arguments-prop" translate="no">arguments</a> property of the <a href="https://qbs.io/
 /docs/qml-qbsmodules-autotest/" translate="no">autotest</a> module.</p>
 <p>Default: <code translate="no">[]</code></p>
-</div></div><!-- @@@arguments -->
-<br>
+<!-- @@@arguments -->
 <!-- $$$auxiliaryInputs -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="auxiliaryInputs-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">auxiliaryInputs</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[since Qbs 1.12]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>This property can contain arbitrary file tags. The <a href="https://qbs.io/
+<h3 class="fn qml-member qml-property" id="auxiliaryInputs-prop" translate="no"><span class="name">auxiliaryInputs</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[since Qbs 1.12]</code></h3>
+<p>This property can contain arbitrary file tags. The <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-autotestrunner/" translate="no">AutotestRunner</a> will get dependencies on all products whose type matches at least one of these tags, and invocation of the test executables will happen only after all of the respective artifacts have been built. Set this property if your test executables have run-time dependencies on other products.</p>
 <p>Default: Undefined</p>
 <p>This property was introduced in Qbs 1.12.</p>
-</div></div><!-- @@@auxiliaryInputs -->
-<br>
+<!-- @@@auxiliaryInputs -->
 <!-- $$$environment -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="environment-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">environment</span> : <span class="type">stringList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>A list of environment variables that are added to the run environment. They are provided as a list of strings in the form <code translate="no">"varName=value"</code>.</p>
+<h3 class="fn qml-member qml-property" id="environment-prop" translate="no"><span class="name">environment</span> : <span class="type">stringList</span></h3>
+<p>A list of environment variables that are added to the run environment. They are provided as a list of strings in the form <code translate="no">"varName=value"</code>.</p>
 <p>Default: DYLD_LIBRARY_PATH, DYLD_FRAMEWORK_PATH, and DYLD_ROOT_PATH are set on macOS, or an empty list for other platforms.</p>
-</div></div><!-- @@@environment -->
-<br>
+<!-- @@@environment -->
 <!-- $$$limitToSubProject -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="limitToSubProject-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">limitToSubProject</span> : <span class="type">bool</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>By default, only those autotests are considered that are in the same sub-project that <a href="https://qbs.io/
+<h3 class="fn qml-member qml-property" id="limitToSubProject-prop" translate="no"><span class="name">limitToSubProject</span> : <span class="type">bool</span></h3>
+<p>By default, only those autotests are considered that are in the same sub-project that <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-autotestrunner/" translate="no">AutotestRunner</a> was instantiated in. If you want to run all autotests regardless of their location in the project hierarchy, set this property to <code translate="no">false</code>.</p>
 <p>Default: <code translate="no">true</code></p>
-</div></div><!-- @@@limitToSubProject -->
-<br>
+<!-- @@@limitToSubProject -->
 <!-- $$$timeout -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="timeout-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">timeout</span> : <span class="type">int</span> <code class="details extra" translate="no">[since Qbs 1.15]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Time limit for the execution of the individual tests. If a test does not finish within the time limit, the test is cancelled and considered failed. A value below or equal to 0 means no timeout. A test can override this by setting the <a href="https://qbs.io/
+<h3 class="fn qml-member qml-property" id="timeout-prop" translate="no"><span class="name">timeout</span> : <span class="type">int</span> <code class="details extra" translate="no">[since Qbs 1.15]</code></h3>
+<p>Time limit for the execution of the individual tests. If a test does not finish within the time limit, the test is cancelled and considered failed. A value below or equal to 0 means no timeout. A test can override this by setting the <a href="https://qbs.io/
 /docs/qml-qbsmodules-autotest/#timeout-prop" translate="no">timeout</a> property of the <a href="https://qbs.io/
 /docs/qml-qbsmodules-autotest/" translate="no">autotest</a> module.</p>
 <p>Default: -1</p>
 <p>This property was introduced in Qbs 1.15.</p>
-</div></div><!-- @@@timeout -->
-<br>
+<!-- @@@timeout -->
 <!-- $$$workingDir -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="workingDir-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">workingDir</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.12]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>If this property is set, it will be the working directory for all invoked test executables. Otherwise, the working directory will the the parent directory of the respective executable. A test can override this by setting the <a href="https://qbs.io/
+<h3 class="fn qml-member qml-property" id="workingDir-prop" translate="no"><span class="name">workingDir</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.12]</code></h3>
+<p>If this property is set, it will be the working directory for all invoked test executables. Otherwise, the working directory will the the parent directory of the respective executable. A test can override this by setting the <a href="https://qbs.io/
 /docs/qml-qbsmodules-autotest/#workingDir-prop" translate="no">workingDir</a> property of the <a href="https://qbs.io/
 /docs/qml-qbsmodules-autotest/" translate="no">autotest</a> module.</p>
 <p>Default: Undefined</p>
 <p>This property was introduced in Qbs 1.12.</p>
-</div></div><!-- @@@workingDir -->
-<br>
+<!-- @@@workingDir -->
 <!-- $$$wrapper -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="wrapper-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">wrapper</span> : <span class="type">stringList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Wrapper binary and its arguments for wrapping autotest calls. This is useful for tools like Valgrind and alike.</p>
+<h3 class="fn qml-member qml-property" id="wrapper-prop" translate="no"><span class="name">wrapper</span> : <span class="type">stringList</span></h3>
+<p>Wrapper binary and its arguments for wrapping autotest calls. This is useful for tools like Valgrind and alike.</p>
 <p>Default: empty</p>
-</div></div><!-- @@@wrapper -->
-<br>
+<!-- @@@wrapper -->
 <p class="naviNextPrevious footerNavi">
 <a class="prevPage" href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-applicationextension/">ApplicationExtension</a>

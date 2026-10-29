@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsModules
 Qt.scxml
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 Contents
@@ -45,11 +47,8 @@ TagAuto-tagged File NamesSinceDescription
 
 Property Documentation
 
-
-
-
-
-className : string ">
+className : string
+The class name of the generated state machine. ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-qt-scxml/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -65,9 +64,9 @@ className : string ">
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-qt-scxml/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsModules Qt.scxml Qbs 3.3.0 Contents Properties Detailed Description Relevant File Tags Qt.scxml Provides Qt SCXML support. More...
+	<meta property="og:description" content="Qbs Manual QbsModules Qt.scxml Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags Qt.scxml Provides Qt SCXML support. More...
 List of all members, including inherited members Properties className : string generateStateMethods : string (since 1.11) namespace : string qscxmlcName : string Detailed Description The Qt.scxml module provides support for the Qt SCXML module, which enables creating state machines from SCXML files.
-Relevant File Tags TagAuto-tagged File NamesSinceDescription &#34;qt.scxml.compilable&#34;-1.7Source files with this tag serve as inputs to the rule running the Qt SCXML compiler, which will create a C&#43;&#43; class representing a state machine. Property Documentation className : string">
+Relevant File Tags TagAuto-tagged File NamesSinceDescription &#34;qt.scxml.compilable&#34;-1.7Source files with this tag serve as inputs to the rule running the Qt SCXML compiler, which will create a C&#43;&#43; class representing a state machine. Property Documentation className : string The class name of the generated state machine.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -75,9 +74,9 @@ Relevant File Tags TagAuto-tagged File NamesSinceDescription &#34;qt.scxml.compi
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsModules Qt.scxml Qbs 3.3.0 Contents Properties Detailed Description Relevant File Tags Qt.scxml Provides Qt SCXML support. More...
+	<meta name="twitter:description" content="Qbs Manual QbsModules Qt.scxml Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags Qt.scxml Provides Qt SCXML support. More...
 List of all members, including inherited members Properties className : string generateStateMethods : string (since 1.11) namespace : string qscxmlcName : string Detailed Description The Qt.scxml module provides support for the Qt SCXML module, which enables creating state machines from SCXML files.
-Relevant File Tags TagAuto-tagged File NamesSinceDescription &#34;qt.scxml.compilable&#34;-1.7Source files with this tag serve as inputs to the rule running the Qt SCXML compiler, which will create a C&#43;&#43; class representing a state machine. Property Documentation className : string">
+Relevant File Tags TagAuto-tagged File NamesSinceDescription &#34;qt.scxml.compilable&#34;-1.7Source files with this tag serve as inputs to the rule running the Qt SCXML compiler, which will create a C&#43;&#43; class representing a state machine. Property Documentation className : string The class name of the generated state machine.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -109,12 +108,14 @@ Relevant File Tags TagAuto-tagged File NamesSinceDescription &#34;qt.scxml.compi
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>Qt.scxml</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -158,53 +159,29 @@ Relevant File Tags TagAuto-tagged File NamesSinceDescription &#34;qt.scxml.compi
 <!-- @@@Qt.scxml -->
 <h2>Property Documentation</h2>
 <!-- $$$className -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="className-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">className</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The class name of the generated state machine.</p>
+<h3 class="fn qml-member qml-property" id="className-prop" translate="no"><span class="name">className</span> : <span class="type">string</span></h3>
+<p>The class name of the generated state machine.</p>
 <p>By default, the compiler will use the <code translate="no">name</code> attribute of the input file's <code translate="no">&lt;scxml&gt;</code> tag.</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@className -->
-<br>
+<!-- @@@className -->
 <!-- $$$generateStateMethods -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="generateStateMethods-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">generateStateMethods</span> : <span class="type">string</span> <code class="details extra" translate="no">[since 1.11]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>If this property is <code translate="no">true</code>, the Qt SCXML compiler will generate read and notify methods for states.</p>
+<h3 class="fn qml-member qml-property" id="generateStateMethods-prop" translate="no"><span class="name">generateStateMethods</span> : <span class="type">string</span> <code class="details extra" translate="no">[since 1.11]</code></h3>
+<p>If this property is <code translate="no">true</code>, the Qt SCXML compiler will generate read and notify methods for states.</p>
 <p>Default: <code translate="no">false</code></p>
 <p>This property was introduced in 1.11.</p>
-</div></div><!-- @@@generateStateMethods -->
-<br>
+<!-- @@@generateStateMethods -->
 <!-- $$$namespace -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="namespace-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">namespace</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The C++ namespace in which to put the generated class.</p>
+<h3 class="fn qml-member qml-property" id="namespace-prop" translate="no"><span class="name">namespace</span> : <span class="type">string</span></h3>
+<p>The C++ namespace in which to put the generated class.</p>
 <p>By default, the compiler will place the class in the global namespace.</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@namespace -->
-<br>
+<!-- @@@namespace -->
 <!-- $$$qscxmlcName -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="qscxmlcName-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">qscxmlcName</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The base name of the Qt SCXML compiler.</p>
+<h3 class="fn qml-member qml-property" id="qscxmlcName-prop" translate="no"><span class="name">qscxmlcName</span> : <span class="type">string</span></h3>
+<p>The base name of the Qt SCXML compiler.</p>
 <p>Set this value if your system uses a name different from the default value.</p>
 <p>Default: <code translate="no">"qscxmlc"</code></p>
-</div></div><!-- @@@qscxmlcName -->
-<br>
+<!-- @@@qscxmlcName -->
 </div>
 
 

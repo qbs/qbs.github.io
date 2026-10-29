@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsModules
 flatbuf.c
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 Contents
@@ -53,7 +55,7 @@ The flatbuf.c module provides support for generating C headers and sources from 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-flatbuf-c/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsModules flatbuf.c Qbs 3.3.0 Contents Properties Detailed Description Relevant File Tags Dependencies flatbuf.c Provides support for FlatBuffers for the C language. More...
+	<meta property="og:description" content="Qbs Manual QbsModules flatbuf.c Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags Dependencies flatbuf.c Provides support for FlatBuffers for the C language. More...
 Since: Qbs 2.4 List of all members, including inherited members Properties compilerName : string compilerPath : string importPaths : pathList Detailed Description The flatbuf.c module provides support for generating C headers and sources from flatbuffers definition files using the flatcc tool.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
@@ -62,7 +64,7 @@ Since: Qbs 2.4 List of all members, including inherited members Properties compi
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsModules flatbuf.c Qbs 3.3.0 Contents Properties Detailed Description Relevant File Tags Dependencies flatbuf.c Provides support for FlatBuffers for the C language. More...
+	<meta name="twitter:description" content="Qbs Manual QbsModules flatbuf.c Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags Dependencies flatbuf.c Provides support for FlatBuffers for the C language. More...
 Since: Qbs 2.4 List of all members, including inherited members Properties compilerName : string compilerPath : string importPaths : pathList Detailed Description The flatbuf.c module provides support for generating C headers and sources from flatbuffers definition files using the flatcc tool.">
 
 </head>
@@ -95,12 +97,14 @@ Since: Qbs 2.4 List of all members, including inherited members Properties compi
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>flatbuf.c</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -147,39 +151,21 @@ Since: Qbs 2.4 List of all members, including inherited members Properties compi
 <!-- @@@flatbuf.c -->
 <h2>Property Documentation</h2>
 <!-- $$$compilerName -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="compilerName-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">compilerName</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The name of the <code translate="no">flatcc</code> binary.</p>
+<h3 class="fn qml-member qml-property" id="compilerName-prop" translate="no"><span class="name">compilerName</span> : <span class="type">string</span></h3>
+<p>The name of the <code translate="no">flatcc</code> binary.</p>
 <p>Default: <code translate="no">"flatcc"</code></p>
-</div></div><!-- @@@compilerName -->
-<br>
+<!-- @@@compilerName -->
 <!-- $$$compilerPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="compilerPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">compilerPath</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The path to the <code translate="no">flatcc</code> binary.</p>
+<h3 class="fn qml-member qml-property" id="compilerPath-prop" translate="no"><span class="name">compilerPath</span> : <span class="type">string</span></h3>
+<p>The path to the <code translate="no">flatcc</code> binary.</p>
 <p>Use this property to override the auto-detected location.</p>
 <p>Default: <code translate="no">auto-detected</code></p>
-</div></div><!-- @@@compilerPath -->
-<br>
+<!-- @@@compilerPath -->
 <!-- $$$importPaths -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="importPaths-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">importPaths</span> : <span class="type">pathList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The list of import paths that are passed to the <code translate="no">flatcc</code> tool via the <code translate="no">-I</code> option.</p>
+<h3 class="fn qml-member qml-property" id="importPaths-prop" translate="no"><span class="name">importPaths</span> : <span class="type">pathList</span></h3>
+<p>The list of import paths that are passed to the <code translate="no">flatcc</code> tool via the <code translate="no">-I</code> option.</p>
 <p>Default: <code translate="no">[]</code></p>
-</div></div><!-- @@@importPaths -->
-<br>
+<!-- @@@importPaths -->
 </div>
 
 

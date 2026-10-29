@@ -3,9 +3,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 How-tos
-Qbs 3.3.0
+Qbs 3.4.0
+
   
   
 
@@ -61,7 +63,7 @@ This page provides concrete instructions for common scenarios. ">
     <meta property="og:url" content="https://qbs.io/docs/howtos/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual How-tos Qbs 3.3.0 Configurable Library Reference Contents How do I build a Qt-based project? How do I make my app build against my library? Choosing Between Dynamic and Statically-built Qt Projects How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled? How do I run my autotests? How do I use ccache? How do I create a module for a third-party library? How do I create application bundles and frameworks on iOS, macOS, tvOS, and watchOS? How do I build against libraries that provide pkg-config files? How do I apply C/C&#43;&#43; preprocessor macros to only a subset of the files in my product? How do I disable a compiler warning? How do I make the state of my Git repository available to my source files? How do I limit the number of concurrent jobs for the linker only? How do I add QML files to a project? How do I define a reusable Group of files that can be included in other Qbs files? How do I access properties of a base type? How do I print the value of a property? How do I debug Qbs scripts? How do I sign an application for an Apple platform? How-tos This page provides concrete instructions for common scenarios.">
+	<meta property="og:description" content="Qbs Manual How-tos Qbs 3.4.0 Configurable Library Reference Contents How do I build a Qt-based project? How do I make my app build against my library? Choosing Between Dynamic and Statically-built Qt Projects How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled? How do I run my autotests? How do I use ccache? How do I create a module for a third-party library? How do I create application bundles and frameworks on iOS, macOS, tvOS, and watchOS? How do I build against libraries that provide pkg-config files? How do I apply C/C&#43;&#43; preprocessor macros to only a subset of the files in my product? How do I disable a compiler warning? How do I make the state of my Git repository available to my source files? How do I limit the number of concurrent jobs for the linker only? How do I add QML files to a project? How do I define a reusable Group of files that can be included in other Qbs files? How do I access properties of a base type? How do I print the value of a property? How do I debug Qbs scripts? How do I sign an application for an Apple platform? How-tos This page provides concrete instructions for common scenarios.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -69,7 +71,7 @@ This page provides concrete instructions for common scenarios. ">
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual How-tos Qbs 3.3.0 Configurable Library Reference Contents How do I build a Qt-based project? How do I make my app build against my library? Choosing Between Dynamic and Statically-built Qt Projects How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled? How do I run my autotests? How do I use ccache? How do I create a module for a third-party library? How do I create application bundles and frameworks on iOS, macOS, tvOS, and watchOS? How do I build against libraries that provide pkg-config files? How do I apply C/C&#43;&#43; preprocessor macros to only a subset of the files in my product? How do I disable a compiler warning? How do I make the state of my Git repository available to my source files? How do I limit the number of concurrent jobs for the linker only? How do I add QML files to a project? How do I define a reusable Group of files that can be included in other Qbs files? How do I access properties of a base type? How do I print the value of a property? How do I debug Qbs scripts? How do I sign an application for an Apple platform? How-tos This page provides concrete instructions for common scenarios.">
+	<meta name="twitter:description" content="Qbs Manual How-tos Qbs 3.4.0 Configurable Library Reference Contents How do I build a Qt-based project? How do I make my app build against my library? Choosing Between Dynamic and Statically-built Qt Projects How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled? How do I run my autotests? How do I use ccache? How do I create a module for a third-party library? How do I create application bundles and frameworks on iOS, macOS, tvOS, and watchOS? How do I build against libraries that provide pkg-config files? How do I apply C/C&#43;&#43; preprocessor macros to only a subset of the files in my product? How do I disable a compiler warning? How do I make the state of my Git repository available to my source files? How do I limit the number of concurrent jobs for the linker only? How do I add QML files to a project? How do I define a reusable Group of files that can be included in other Qbs files? How do I access properties of a base type? How do I print the value of a property? How do I debug Qbs scripts? How do I sign an application for an Apple platform? How-tos This page provides concrete instructions for common scenarios.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -101,10 +103,12 @@ This page provides concrete instructions for common scenarios. ">
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li>How-tos</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
   <link rel="prev" href="https://qbs.io/
 /docs/tutorial-8/">
   <link rel="next" href="https://qbs.io/
@@ -266,6 +270,8 @@ $ qbs</pre>
     cpp<span class="operator">.</span>debugInformation: qbs<span class="operator">.</span>buildVariant <span class="operator">!</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"release"</span>
     cpp<span class="operator">.</span>separateDebugInformation: <span class="keyword">true</span>
 }</pre>
+<p>On ELF platforms with GCC or Clang, you can choose how separation is done via <a href="https://qbs.io/
+/docs/qml-qbsmodules-cpp/#separateDebugInformationVariant-prop" translate="no">cpp.separateDebugInformationVariant</a>: the default <code translate="no">"objcopy"</code> extracts a <code translate="no">.debug</code> file after linking, while <code translate="no">"fission"</code> passes <code translate="no">-gsplit-dwarf</code> and produces per-object <code translate="no">.dwo</code> files.</p>
 <p>Now, you can install your <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-application/" translate="no">application</a>, <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-dynamiclibrary/" translate="no">dynamic library</a> or <a href="https://qbs.io/

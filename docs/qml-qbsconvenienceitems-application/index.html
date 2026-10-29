@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsConvenienceItems
 Application
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 
@@ -30,7 +32,7 @@ Product of the type application. More...
 
  Inherits: Product
 
- Inherited By: CppApplication and XPCService
+ Inherited By: ApplicationExtension, CppApplication, QtApplication, QtGuiApplication, and XPCService
 
 
 
@@ -62,9 +64,9 @@ An Application item is a Product representing an application. ">
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsconvenienceitems-application/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsConvenienceItems Application Qbs 3.3.0 AppleDiskImage ApplicationExtension Contents Properties Detailed Description Application Product of the type application. More...
+	<meta property="og:description" content="Qbs Manual QbsConvenienceItems Application Qbs 3.4.0 AppleDiskImage ApplicationExtension Contents Properties Detailed Description Application Product of the type application. More...
 Inherits: Product
-Inherited By: CppApplication and XPCService
+Inherited By: ApplicationExtension, CppApplication, QtApplication, QtGuiApplication, and XPCService
 List of all members, including inherited members Application is part of List of All Items. Properties debugInformationInstallDir : string (since Qbs 1.16) install : bool (since Qbs 1.13) installDebugInformation : bool (since Qbs 1.16) installDir : string (since Qbs 1.13) Detailed Description An Application item is a Product representing an application.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
@@ -73,9 +75,9 @@ List of all members, including inherited members Application is part of List of 
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsConvenienceItems Application Qbs 3.3.0 AppleDiskImage ApplicationExtension Contents Properties Detailed Description Application Product of the type application. More...
+	<meta name="twitter:description" content="Qbs Manual QbsConvenienceItems Application Qbs 3.4.0 AppleDiskImage ApplicationExtension Contents Properties Detailed Description Application Product of the type application. More...
 Inherits: Product
-Inherited By: CppApplication and XPCService
+Inherited By: ApplicationExtension, CppApplication, QtApplication, QtGuiApplication, and XPCService
 List of all members, including inherited members Application is part of List of All Items. Properties debugInformationInstallDir : string (since Qbs 1.16) install : bool (since Qbs 1.13) installDebugInformation : bool (since Qbs 1.16) installDir : string (since Qbs 1.13) Detailed Description An Application item is a Product representing an application.">
 
 </head>
@@ -108,12 +110,14 @@ List of all members, including inherited members Application is part of List of 
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsconvenienceitems-qmlmodule/" translate="no">QbsConvenienceItems</a></li>
 <li>Application</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <link href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-applediskimage/" rel="prev">
 <link href="https://qbs.io/
@@ -143,7 +147,10 @@ List of all members, including inherited members Application is part of List of 
 /docs/qml-qbslanguageitems-product/" translate="no">Product</a></p>
 </td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> Inherited By:</td><td class="memItemRight bottomAlign"> <p><a href="https://qbs.io/
-/docs/qml-qbsconvenienceitems-cppapplication/" translate="no">CppApplication</a> and <a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-applicationextension/" translate="no">ApplicationExtension</a>, <a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-cppapplication/" translate="no">CppApplication</a>, <a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-qtapplication/" translate="no">QtApplication</a>, <a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-qtguiapplication/" translate="no">QtGuiApplication</a>, and <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-xpcservice/" translate="no">XPCService</a></p>
 </td></tr>
 </tbody></table></div>
@@ -175,13 +182,8 @@ List of all members, including inherited members Application is part of List of 
 <!-- @@@Application -->
 <h2>Property Documentation</h2>
 <!-- $$$debugInformationInstallDir -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="debugInformationInstallDir-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">debugInformationInstallDir</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.16]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Where to install the debug information if <a href="https://qbs.io/
+<h3 class="fn qml-member qml-property" id="debugInformationInstallDir-prop" translate="no"><span class="name">debugInformationInstallDir</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.16]</code></h3>
+<p>Where to install the debug information if <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-application/#installDebugInformation-prop" translate="no">installDebugInformation</a> is enabled.</p>
 <p>The value is appended to <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#installPrefix-prop" translate="no">qbs.installPrefix</a> when constructing the actual installation directory.</p>
@@ -190,52 +192,33 @@ List of all members, including inherited members Application is part of List of 
 <p>This property was introduced in Qbs 1.16.</p>
 <p><b>See also </b><a href="https://qbs.io/
 /docs/howtos/#how-do-i-separate-and-install-debugging-symbols">How do I separate and install debugging symbols?</a>.</p>
-</div></div><!-- @@@debugInformationInstallDir -->
-<br>
+<!-- @@@debugInformationInstallDir -->
 <!-- $$$install -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="install-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">install</span> : <span class="type">bool</span> <code class="details extra" translate="no">[since Qbs 1.13]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>If <code translate="no">true</code>, the executable that is produced when building the application will be installed to <a href="https://qbs.io/
+<h3 class="fn qml-member qml-property" id="install-prop" translate="no"><span class="name">install</span> : <span class="type">bool</span> <code class="details extra" translate="no">[since Qbs 1.13]</code></h3>
+<p>If <code translate="no">true</code>, the executable that is produced when building the application will be installed to <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-application/#installDir-prop" translate="no">installDir</a>.</p>
 <p>Default: <code translate="no">false</code></p>
 <p>This property was introduced in Qbs 1.13.</p>
-</div></div><!-- @@@install -->
-<br>
+<!-- @@@install -->
 <!-- $$$installDebugInformation -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="installDebugInformation-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">installDebugInformation</span> : <span class="type">bool</span> <code class="details extra" translate="no">[since Qbs 1.16]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>If <code translate="no">true</code>, the debug information will be installed to <a href="https://qbs.io/
+<h3 class="fn qml-member qml-property" id="installDebugInformation-prop" translate="no"><span class="name">installDebugInformation</span> : <span class="type">bool</span> <code class="details extra" translate="no">[since Qbs 1.16]</code></h3>
+<p>If <code translate="no">true</code>, the debug information will be installed to <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-application/#debugInformationInstallDir-prop" translate="no">debugInformationInstallDir</a>.</p>
 <p>Default: <code translate="no">false</code></p>
 <p>This property was introduced in Qbs 1.16.</p>
 <p><b>See also </b><a href="https://qbs.io/
 /docs/howtos/#how-do-i-separate-and-install-debugging-symbols">How do I separate and install debugging symbols?</a>.</p>
-</div></div><!-- @@@installDebugInformation -->
-<br>
+<!-- @@@installDebugInformation -->
 <!-- $$$installDir -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="installDir-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">installDir</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.13]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Where to install the executable that is produced when building the application, if <a href="https://qbs.io/
+<h3 class="fn qml-member qml-property" id="installDir-prop" translate="no"><span class="name">installDir</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.13]</code></h3>
+<p>Where to install the executable that is produced when building the application, if <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-application/#install-prop" translate="no">install</a> is enabled.</p>
 <p>The value is appended to <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#installPrefix-prop" translate="no">qbs.installPrefix</a> when constructing the actual installation directory.</p>
 <p>Default: <code translate="no">Applications</code> if the app is a <a href="https://qbs.io/
 /docs/qml-qbsmodules-bundle/#isBundle-prop" translate="no">bundle</a>, <code translate="no">bin</code> otherwise.</p>
 <p>This property was introduced in Qbs 1.13.</p>
-</div></div><!-- @@@installDir -->
-<br>
+<!-- @@@installDir -->
 <p class="naviNextPrevious footerNavi">
 <a class="prevPage" href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-applediskimage/">AppleDiskImage</a>

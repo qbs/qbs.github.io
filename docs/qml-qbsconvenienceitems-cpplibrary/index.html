@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsConvenienceItems
 CppLibrary
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 
@@ -31,7 +33,7 @@ C&#43;&#43; library. More...
  Since: Qbs 3.2
  Inherits: Library
 
- Inherited By: DynamicLibrary, ObjectLibrary, and StaticLibrary
+ Inherited By: CppStd, DynamicLibrary, LoadableModule, ObjectLibrary, QmlModule, and StaticLibrary
 
 
 
@@ -64,9 +66,9 @@ A CppLibrary is an Library that has a dependency on the cpp module. ">
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsconvenienceitems-cpplibrary/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsConvenienceItems CppLibrary Qbs 3.3.0 CppApplication CppStd Contents Properties Detailed Description CppLibrary C&#43;&#43; library. More...
+	<meta property="og:description" content="Qbs Manual QbsConvenienceItems CppLibrary Qbs 3.4.0 CppApplication CppStd Contents Properties Detailed Description CppLibrary C&#43;&#43; library. More...
 Since: Qbs 3.2 Inherits: Library
-Inherited By: DynamicLibrary, ObjectLibrary, and StaticLibrary
+Inherited By: CppStd, DynamicLibrary, LoadableModule, ObjectLibrary, QmlModule, and StaticLibrary
 List of all members, including inherited members CppLibrary is part of List of All Items. Properties headersDirectoryName : string (since Qbs 3.2) privateHeaders : stringList (since Qbs 3.2) privateHeadersDirectory : string (since Qbs 3.2) publicHeaders : stringList (since Qbs 3.2) publicHeadersDirectory : string (since Qbs 3.2) Detailed Description A CppLibrary is an Library that has a dependency on the cpp module.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
@@ -75,9 +77,9 @@ List of all members, including inherited members CppLibrary is part of List of A
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsConvenienceItems CppLibrary Qbs 3.3.0 CppApplication CppStd Contents Properties Detailed Description CppLibrary C&#43;&#43; library. More...
+	<meta name="twitter:description" content="Qbs Manual QbsConvenienceItems CppLibrary Qbs 3.4.0 CppApplication CppStd Contents Properties Detailed Description CppLibrary C&#43;&#43; library. More...
 Since: Qbs 3.2 Inherits: Library
-Inherited By: DynamicLibrary, ObjectLibrary, and StaticLibrary
+Inherited By: CppStd, DynamicLibrary, LoadableModule, ObjectLibrary, QmlModule, and StaticLibrary
 List of all members, including inherited members CppLibrary is part of List of All Items. Properties headersDirectoryName : string (since Qbs 3.2) privateHeaders : stringList (since Qbs 3.2) privateHeadersDirectory : string (since Qbs 3.2) publicHeaders : stringList (since Qbs 3.2) publicHeadersDirectory : string (since Qbs 3.2) Detailed Description A CppLibrary is an Library that has a dependency on the cpp module.">
 
 </head>
@@ -110,12 +112,14 @@ List of all members, including inherited members CppLibrary is part of List of A
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsconvenienceitems-qmlmodule/" translate="no">QbsConvenienceItems</a></li>
 <li>CppLibrary</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <link href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-cppapplication/" rel="prev">
 <link href="https://qbs.io/
@@ -146,8 +150,11 @@ List of all members, including inherited members CppLibrary is part of List of A
 /docs/qml-qbsconvenienceitems-library/" translate="no">Library</a></p>
 </td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> Inherited By:</td><td class="memItemRight bottomAlign"> <p><a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-cppstd/" translate="no">CppStd</a>, <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-dynamiclibrary/" translate="no">DynamicLibrary</a>, <a href="https://qbs.io/
-/docs/qml-qbsconvenienceitems-objectlibrary/" translate="no">ObjectLibrary</a>, and <a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-loadablemodule/" translate="no">LoadableModule</a>, <a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-objectlibrary/" translate="no">ObjectLibrary</a>, <a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-qmlmodule/" translate="no">QmlModule</a>, and <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-staticlibrary/" translate="no">StaticLibrary</a></p>
 </td></tr>
 </tbody></table></div>
@@ -179,75 +186,45 @@ List of all members, including inherited members CppLibrary is part of List of A
 <!-- @@@CppLibrary -->
 <h2>Property Documentation</h2>
 <!-- $$$headersDirectoryName -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="headersDirectoryName-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">headersDirectoryName</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 3.2]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The name of the directory where headers are installed.</p>
+<h3 class="fn qml-member qml-property" id="headersDirectoryName-prop" translate="no"><span class="name">headersDirectoryName</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 3.2]</code></h3>
+<p>The name of the directory where headers are installed.</p>
 <p>Default: Product.targetName</p>
 <p>This property was introduced in Qbs 3.2.</p>
-</div></div><!-- @@@headersDirectoryName -->
-<br>
+<!-- @@@headersDirectoryName -->
 <!-- $$$privateHeaders -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="privateHeaders-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">privateHeaders</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[since Qbs 3.2]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The list of the private headers.</p>
+<h3 class="fn qml-member qml-property" id="privateHeaders-prop" translate="no"><span class="name">privateHeaders</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[since Qbs 3.2]</code></h3>
+<p>The list of the private headers.</p>
 <p>Files are autoatically tagged with the <code translate="no">"hpp"</code> tag and are installed to <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-cpplibrary/#privateHeadersDirectory-prop" translate="no">privateHeadersDirectory</a> if library installation is requested.</p>
 <p>On Apple platforms, if <a href="https://qbs.io/
 /docs/qml-qbsmodules-bundle/#isBundle-prop" translate="no">isBundle</a> is <code translate="no">true</code>, files are also tagged as <code translate="no">"bundle.input.public_hpp"</code> and are copied into the <code translate="no">PrivateHeaders</code> directory within the bundle.</p>
 <p>Default: <code translate="no">[]</code></p>
 <p>This property was introduced in Qbs 3.2.</p>
-</div></div><!-- @@@privateHeaders -->
-<br>
+<!-- @@@privateHeaders -->
 <!-- $$$privateHeadersDirectory -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="privateHeadersDirectory-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">privateHeadersDirectory</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 3.2]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The directory where to install private headers.</p>
+<h3 class="fn qml-member qml-property" id="privateHeadersDirectory-prop" translate="no"><span class="name">privateHeadersDirectory</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 3.2]</code></h3>
+<p>The directory where to install private headers.</p>
 <p>Default: installpaths.headers + <code translate="no">"/"</code> + <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-cpplibrary/#headersDirectoryName-prop" translate="no">headersDirectoryName</a> + <code translate="no">"/private"</code></p>
 <p>This property was introduced in Qbs 3.2.</p>
-</div></div><!-- @@@privateHeadersDirectory -->
-<br>
+<!-- @@@privateHeadersDirectory -->
 <!-- $$$publicHeaders -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="publicHeaders-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">publicHeaders</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[since Qbs 3.2]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The list of the public headers.</p>
+<h3 class="fn qml-member qml-property" id="publicHeaders-prop" translate="no"><span class="name">publicHeaders</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[since Qbs 3.2]</code></h3>
+<p>The list of the public headers.</p>
 <p>Files are autoatically tagged with the <code translate="no">"hpp"</code> tag and are installed to <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-cpplibrary/#publicHeadersDirectory-prop" translate="no">publicHeadersDirectory</a> if library installation is requested.</p>
 <p>On Apple platforms, if <a href="https://qbs.io/
 /docs/qml-qbsmodules-bundle/#isBundle-prop" translate="no">isBundle</a> is <code translate="no">true</code>, files are also tagged as <code translate="no">"bundle.input.public_hpp"</code> and are copied into the <code translate="no">Headers</code> directory within the bundle.</p>
 <p>Default: <code translate="no">[]</code></p>
 <p>This property was introduced in Qbs 3.2.</p>
-</div></div><!-- @@@publicHeaders -->
-<br>
+<!-- @@@publicHeaders -->
 <!-- $$$publicHeadersDirectory -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="publicHeadersDirectory-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">publicHeadersDirectory</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 3.2]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The directory where to install public headers.</p>
+<h3 class="fn qml-member qml-property" id="publicHeadersDirectory-prop" translate="no"><span class="name">publicHeadersDirectory</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 3.2]</code></h3>
+<p>The directory where to install public headers.</p>
 <p>Default: installpaths.headers + <code translate="no">"/"</code> + <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-cpplibrary/#headersDirectoryName-prop" translate="no">headersDirectoryName</a></p>
 <p>This property was introduced in Qbs 3.2.</p>
-</div></div><!-- @@@publicHeadersDirectory -->
-<br>
+<!-- @@@publicHeadersDirectory -->
 <p class="naviNextPrevious footerNavi">
 <a class="prevPage" href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-cppapplication/">CppApplication</a>

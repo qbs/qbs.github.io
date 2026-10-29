@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsLanguageItems
 Rule
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 
@@ -72,7 +74,7 @@ In Qbs, rules create transformers that produce output files from input files. Th
     <meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-rule/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsLanguageItems Rule Qbs 3.3.0 PropertyOptions Scanner Contents Properties Detailed Description A Simple Example The inputs and outputs Variables Rules and Product Types A Complete Example Rule Creates transformers for input tags. More...
+	<meta property="og:description" content="Qbs Manual QbsLanguageItems Rule Qbs 3.4.0 PropertyOptions Scanner Contents Properties Detailed Description A Simple Example The inputs and outputs Variables Rules and Product Types A Complete Example Rule Creates transformers for input tags. More...
 List of all members, including inherited members Rule is part of List of All Items. Properties alwaysRun : bool auxiliaryInputs : stringList auxiliaryInputsFromDependencies : stringList (since 2.6) condition : bool excludedInputs : stringList (since Qbs 1.12) explicitlyDependsOn : stringList explicitlyDependsOnFromDependencies : stringList (since Qbs 1.12) inputs : stringList inputsFromDependencies : stringList multiplex : bool outputArtifacts : var outputFileTags : stringList prepare : script requiresInputs : bool Detailed Description In Qbs, rules create transformers that produce output files from input files. The term transformer refers to a list of commands. These commands are created in a rule&#39;s prepare script. They do the actual work, either directly or by executing external commands.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
@@ -81,7 +83,7 @@ List of all members, including inherited members Rule is part of List of All Ite
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsLanguageItems Rule Qbs 3.3.0 PropertyOptions Scanner Contents Properties Detailed Description A Simple Example The inputs and outputs Variables Rules and Product Types A Complete Example Rule Creates transformers for input tags. More...
+	<meta name="twitter:description" content="Qbs Manual QbsLanguageItems Rule Qbs 3.4.0 PropertyOptions Scanner Contents Properties Detailed Description A Simple Example The inputs and outputs Variables Rules and Product Types A Complete Example Rule Creates transformers for input tags. More...
 List of all members, including inherited members Rule is part of List of All Items. Properties alwaysRun : bool auxiliaryInputs : stringList auxiliaryInputsFromDependencies : stringList (since 2.6) condition : bool excludedInputs : stringList (since Qbs 1.12) explicitlyDependsOn : stringList explicitlyDependsOnFromDependencies : stringList (since Qbs 1.12) inputs : stringList inputsFromDependencies : stringList multiplex : bool outputArtifacts : var outputFileTags : stringList prepare : script requiresInputs : bool Detailed Description In Qbs, rules create transformers that produce output files from input files. The term transformer refers to a list of commands. These commands are created in a rule&#39;s prepare script. They do the actual work, either directly or by executing external commands.">
 
 </head>
@@ -114,12 +116,14 @@ List of all members, including inherited members Rule is part of List of All Ite
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbslanguageitems-qmlmodule/" translate="no">QbsLanguageItems</a></li>
 <li>Rule</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <link href="https://qbs.io/
 /docs/qml-qbslanguageitems-propertyoptions/" rel="prev">
 <link href="https://qbs.io/
@@ -310,114 +314,61 @@ Product {
 <!-- @@@Rule -->
 <h2>Property Documentation</h2>
 <!-- $$$alwaysRun -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="alwaysRun-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">alwaysRun</span> : <span class="type">bool</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>If <code translate="no">true</code>, the rule's commands are always executed, even if all output artifacts are up to date.</p>
+<h3 class="fn qml-member qml-property" id="alwaysRun-prop" translate="no"><span class="name">alwaysRun</span> : <span class="type">bool</span></h3>
+<p>If <code translate="no">true</code>, the rule's commands are always executed, even if all output artifacts are up to date.</p>
 <p>Default: <code translate="no">false</code></p>
-</div></div><!-- @@@alwaysRun -->
-<br>
+<!-- @@@alwaysRun -->
 <!-- $$$auxiliaryInputs -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="auxiliaryInputs-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">auxiliaryInputs</span> : <span class="type">stringList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>A list of file tags. This rule will be dependent on (that is: applied after) every other rule in the same product that (potentially) produces artifacts that are compatible with the value of this property.</p>
+<h3 class="fn qml-member qml-property" id="auxiliaryInputs-prop" translate="no"><span class="name">auxiliaryInputs</span> : <span class="type">stringList</span></h3>
+<p>A list of file tags. This rule will be dependent on (that is: applied after) every other rule in the same product that (potentially) produces artifacts that are compatible with the value of this property.</p>
 <p>Unlike <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-rule/#inputs-prop" translate="no">inputs</a>, this property has no effect on the content of the <code translate="no">inputs</code> variable of the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-rule/#prepare-prop" translate="no">prepare</a> script.</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@auxiliaryInputs -->
-<br>
+<!-- @@@auxiliaryInputs -->
 <!-- $$$auxiliaryInputsFromDependencies -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="auxiliaryInputsFromDependencies-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">auxiliaryInputsFromDependencies</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[since 2.6]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Like <a href="https://qbs.io/
+<h3 class="fn qml-member qml-property" id="auxiliaryInputsFromDependencies-prop" translate="no"><span class="name">auxiliaryInputsFromDependencies</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[since 2.6]</code></h3>
+<p>Like <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-rule/#auxiliaryInputs-prop" translate="no">auxiliaryInputs</a>, except that instead of rules from the current product, those from product dependencies are considered.</p>
 <p>Default: Undefined</p>
 <p>This property was introduced in 2.6.</p>
-</div></div><!-- @@@auxiliaryInputsFromDependencies -->
-<br>
+<!-- @@@auxiliaryInputsFromDependencies -->
 <!-- $$$condition -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="condition-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">condition</span> : <span class="type">bool</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>If <code translate="no">true</code>, the rule is enabled, otherwise it does nothing.</p>
+<h3 class="fn qml-member qml-property" id="condition-prop" translate="no"><span class="name">condition</span> : <span class="type">bool</span></h3>
+<p>If <code translate="no">true</code>, the rule is enabled, otherwise it does nothing.</p>
 <p>Default: <code translate="no">true</code></p>
-</div></div><!-- @@@condition -->
-<br>
+<!-- @@@condition -->
 <!-- $$$excludedInputs -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="excludedInputs-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">excludedInputs</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[since Qbs 1.12]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>A list of file tags. Connections to rules that produce these file tags are prevented.</p>
+<h3 class="fn qml-member qml-property" id="excludedInputs-prop" translate="no"><span class="name">excludedInputs</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[since Qbs 1.12]</code></h3>
+<p>A list of file tags. Connections to rules that produce these file tags are prevented.</p>
 <p>Default: Undefined</p>
 <p>This property was introduced in Qbs 1.12.</p>
-</div></div><!-- @@@excludedInputs -->
-<br>
+<!-- @@@excludedInputs -->
 <!-- $$$explicitlyDependsOn -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="explicitlyDependsOn-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">explicitlyDependsOn</span> : <span class="type">stringList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>A list of file tags. Each artifact that matches the file tags is added to the dependencies of each output node. All artifacts in the current product are considered.</p>
+<h3 class="fn qml-member qml-property" id="explicitlyDependsOn-prop" translate="no"><span class="name">explicitlyDependsOn</span> : <span class="type">stringList</span></h3>
+<p>A list of file tags. Each artifact that matches the file tags is added to the dependencies of each output node. All artifacts in the current product are considered.</p>
 <p>The main difference between this property and <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-rule/#inputs-prop" translate="no">inputs</a> is that all matching artifacts are dependencies for all output artifacts, regardless of whether <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-rule/#multiplex-prop" translate="no">multiplex</a> is true or not.</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@explicitlyDependsOn -->
-<br>
+<!-- @@@explicitlyDependsOn -->
 <!-- $$$explicitlyDependsOnFromDependencies -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="explicitlyDependsOnFromDependencies-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">explicitlyDependsOnFromDependencies</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[since Qbs 1.12]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Like <a href="https://qbs.io/
+<h3 class="fn qml-member qml-property" id="explicitlyDependsOnFromDependencies-prop" translate="no"><span class="name">explicitlyDependsOnFromDependencies</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[since Qbs 1.12]</code></h3>
+<p>Like <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-rule/#explicitlyDependsOn-prop" translate="no">explicitlyDependsOn</a>, except that instead of artifacts from the current product, those from product dependencies are considered.</p>
 <p>Default: Undefined</p>
 <p>This property was introduced in Qbs 1.12.</p>
-</div></div><!-- @@@explicitlyDependsOnFromDependencies -->
-<br>
+<!-- @@@explicitlyDependsOnFromDependencies -->
 <!-- $$$inputs -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="inputs-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">inputs</span> : <span class="type">stringList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>A list of file tags the input artifacts must match.</p>
+<h3 class="fn qml-member qml-property" id="inputs-prop" translate="no"><span class="name">inputs</span> : <span class="type">stringList</span></h3>
+<p>A list of file tags the input artifacts must match.</p>
 <p>All output artifacts will depend on all artifacts in the product with the given input file tags. Also, these artifacts are available in the <code translate="no">inputs</code> variable of the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-rule/#prepare-prop" translate="no">prepare</a> script.</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@inputs -->
-<br>
+<!-- @@@inputs -->
 <!-- $$$inputsFromDependencies -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="inputsFromDependencies-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">inputsFromDependencies</span> : <span class="type">stringList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>A list of file tags that the artifacts of product dependencies must match.</p>
+<h3 class="fn qml-member qml-property" id="inputsFromDependencies-prop" translate="no"><span class="name">inputsFromDependencies</span> : <span class="type">stringList</span></h3>
+<p>A list of file tags that the artifacts of product dependencies must match.</p>
 <p>For example, the product <i translate="no">foo</i> might appear as follows in the current product:</p>
 <pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-depends/" translate="no">Depends</a></span> {
@@ -426,27 +377,15 @@ Product {
 <p>All artifacts of <i translate="no">foo</i> that match the given file tags will appear in the <code translate="no">inputs</code> variable of the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-rule/#prepare-prop" translate="no">prepare</a> script.</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@inputsFromDependencies -->
-<br>
+<!-- @@@inputsFromDependencies -->
 <!-- $$$multiplex -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="multiplex-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">multiplex</span> : <span class="type">bool</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Determines whether this is a multiplex rule.</p>
+<h3 class="fn qml-member qml-property" id="multiplex-prop" translate="no"><span class="name">multiplex</span> : <span class="type">bool</span></h3>
+<p>Determines whether this is a multiplex rule.</p>
 <p>Default: <code translate="no">false</code></p>
-</div></div><!-- @@@multiplex -->
-<br>
+<!-- @@@multiplex -->
 <!-- $$$outputArtifacts -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="outputArtifacts-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">outputArtifacts</span> : <span class="type">var</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>An array of output artifacts, specified as JavaScript objects.</p>
+<h3 class="fn qml-member qml-property" id="outputArtifacts-prop" translate="no"><span class="name">outputArtifacts</span> : <span class="type">var</span></h3>
+<p>An array of output artifacts, specified as JavaScript objects.</p>
 <p>For example:</p>
 <pre class="cpp" translate="no">outputArtifacts: <span class="operator">[</span>{
     filePath: <span class="string">"myfile.cpp"</span><span class="operator">,</span>
@@ -461,45 +400,26 @@ Product {
 <p>The user may set the property <code translate="no">explicitlyDependsOn</code> on artifact objects, which is similar to <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-rule/#explicitlyDependsOn-prop" translate="no">Rule.explicitlyDependsOn</a>.</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@outputArtifacts -->
-<br>
+<!-- @@@outputArtifacts -->
 <!-- $$$outputFileTags -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="outputFileTags-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">outputFileTags</span> : <span class="type">stringList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>If output artifacts are specified by <a href="https://qbs.io/
+<h3 class="fn qml-member qml-property" id="outputFileTags-prop" translate="no"><span class="name">outputFileTags</span> : <span class="type">stringList</span></h3>
+<p>If output artifacts are specified by <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-rule/#outputArtifacts-prop" translate="no">outputArtifacts</a>, this property must specify a list of file tags that the rule potentially produces.</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@outputFileTags -->
-<br>
+<!-- @@@outputFileTags -->
 <!-- $$$prepare -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="prepare-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">prepare</span> : <span class="type">script</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>A script that prepares the commands to transform the inputs to outputs.</p>
+<h3 class="fn qml-member qml-property" id="prepare-prop" translate="no"><span class="name">prepare</span> : <span class="type">script</span></h3>
+<p>A script that prepares the commands to transform the inputs to outputs.</p>
 <p>The code in this script is treated as a function with the signature <code translate="no">function(project, product, inputs, outputs, input, output, explicitlyDependsOn)</code>.</p>
 <p>The argument <code translate="no">input</code> is <code translate="no">undefined</code> if there's more than one input artifact for this rule. Similarly, <code translate="no">output</code> is only defined if there is exactly one output artifact.</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@prepare -->
-<br>
+<!-- @@@prepare -->
 <!-- $$$requiresInputs -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="requiresInputs-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">requiresInputs</span> : <span class="type">bool</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Specifies whether a rule's commands should be created even if no inputs are available.</p>
+<h3 class="fn qml-member qml-property" id="requiresInputs-prop" translate="no"><span class="name">requiresInputs</span> : <span class="type">bool</span></h3>
+<p>Specifies whether a rule's commands should be created even if no inputs are available.</p>
 <p>Enabling this property can be useful if you are not sure whether input files exist, and you want Qbs to create an output file even if they do not.</p>
 <p>Set to <code translate="no">true</code> if the rule declares any inputs, <code translate="no">false</code> otherwise.</p>
-</div></div><!-- @@@requiresInputs -->
-<br>
+<!-- @@@requiresInputs -->
 <p class="naviNextPrevious footerNavi">
 <a class="prevPage" href="https://qbs.io/
 /docs/qml-qbslanguageitems-propertyoptions/">PropertyOptions</a>

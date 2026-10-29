@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsProbes
 FrameworkProbe
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 Contents
@@ -47,7 +49,7 @@ By default, FrameworkProbe searches for frameworks in ~/Library/Frameworks, /usr
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsprobes-frameworkprobe/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsProbes FrameworkProbe Qbs 3.3.0 Contents Detailed Description FrameworkProbe Locates macOS frameworks outside the project. More...
+	<meta property="og:description" content="Qbs Manual QbsProbes FrameworkProbe Qbs 3.4.0 Contents Detailed Description FrameworkProbe Locates macOS frameworks outside the project. More...
 Inherits: PathProbe
 List of all members, including inherited members FrameworkProbe is part of List of All Items. Detailed Description Finds macOS frameworks that have the specified file names.
 By default, FrameworkProbe searches for frameworks in ~/Library/Frameworks, /usr/local/lib, /Library/Frameworks, and in /System/Library/Frameworks.">
@@ -58,7 +60,7 @@ By default, FrameworkProbe searches for frameworks in ~/Library/Frameworks, /usr
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsProbes FrameworkProbe Qbs 3.3.0 Contents Detailed Description FrameworkProbe Locates macOS frameworks outside the project. More...
+	<meta name="twitter:description" content="Qbs Manual QbsProbes FrameworkProbe Qbs 3.4.0 Contents Detailed Description FrameworkProbe Locates macOS frameworks outside the project. More...
 Inherits: PathProbe
 List of all members, including inherited members FrameworkProbe is part of List of All Items. Detailed Description Finds macOS frameworks that have the specified file names.
 By default, FrameworkProbe searches for frameworks in ~/Library/Frameworks, /usr/local/lib, /Library/Frameworks, and in /System/Library/Frameworks.">
@@ -93,12 +95,14 @@ By default, FrameworkProbe searches for frameworks in ~/Library/Frameworks, /usr
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsprobes-qmlmodule/" translate="no">QbsProbes</a></li>
 <li>FrameworkProbe</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -135,11 +139,12 @@ By default, FrameworkProbe searches for frameworks in ~/Library/Frameworks, /usr
 /docs/qml-qbslanguageitems-product/" translate="no">Product</a></span> {
     <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-depends/" translate="no">Depends</a></span> { <span class="name">name</span>: <span class="string">"cpp"</span>; }
-    <span class="type">Probes</span>.FrameworkProbe {
+    <span class="type"><a href="https://qbs.io/
+/docs/qml-qbsprobes-frameworkprobe/" translate="no">Probes.FrameworkProbe</a></span> {
         <span class="name">id</span>: <span class="name">foundationProbe</span>
         <span class="name">names</span>: [<span class="string">"Foundation"</span>]
     }
-    <span class="name">cpp</span>.frameworkPaths: <span class="name">foundationProbe</span>.<span class="name">found</span> ? [<span class="name">foundationProbe</span>.<span class="name">path</span>] : []
+    <span class="name">cpp.frameworkPaths</span>: <span class="name">foundationProbe</span>.<span class="name">found</span> ? [<span class="name">foundationProbe</span>.<span class="name">path</span>] : []
 }</pre>
 <!-- @@@FrameworkProbe -->
 </div>

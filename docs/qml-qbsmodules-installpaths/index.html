@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsModules
 installpaths
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 Contents
@@ -61,7 +63,7 @@ The installpaths module contains properties indicating directories where files s
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-installpaths/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsModules installpaths Qbs 3.3.0 Contents Properties Detailed Description installpaths Provides properties for install directories. More...
+	<meta property="og:description" content="Qbs Manual QbsModules installpaths Qbs 3.4.0 Contents Properties Detailed Description installpaths Provides properties for install directories. More...
 Since: Qbs 3.1 List of all members, including inherited members Properties applications : string autotedect : string bin : string etc : string frameworks : string include : string lib : string libexec : string library : string loadableModules : string plugins : string share : string subdir : string Detailed Description The installpaths module contains properties indicating directories where files should be installed to in a manner allowing distributors to make necessary adjustments.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
@@ -70,7 +72,7 @@ Since: Qbs 3.1 List of all members, including inherited members Properties appli
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsModules installpaths Qbs 3.3.0 Contents Properties Detailed Description installpaths Provides properties for install directories. More...
+	<meta name="twitter:description" content="Qbs Manual QbsModules installpaths Qbs 3.4.0 Contents Properties Detailed Description installpaths Provides properties for install directories. More...
 Since: Qbs 3.1 List of all members, including inherited members Properties applications : string autotedect : string bin : string etc : string frameworks : string include : string lib : string libexec : string library : string loadableModules : string plugins : string share : string subdir : string Detailed Description The installpaths module contains properties indicating directories where files should be installed to in a manner allowing distributors to make necessary adjustments.">
 
 </head>
@@ -103,12 +105,14 @@ Since: Qbs 3.1 List of all members, including inherited members Properties appli
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>installpaths</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -170,155 +174,77 @@ Since: Qbs 3.1 List of all members, including inherited members Properties appli
 <!-- @@@installpaths -->
 <h2>Property Documentation</h2>
 <!-- $$$applications -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="applications-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">applications</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The location where to install applictaton bundles on Apple platforms.</p>
+<h3 class="fn qml-member qml-property" id="applications-prop" translate="no"><span class="name">applications</span> : <span class="type">string</span></h3>
+<p>The location where to install applictaton bundles on Apple platforms.</p>
 <p>Default: <code translate="no">"Applications"</code></p>
-</div></div><!-- @@@applications -->
-<br>
+<!-- @@@applications -->
 <!-- $$$autotedect -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="autotedect-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">autotedect</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Whether to try autodetecting paths using system tools.</p>
+<h3 class="fn qml-member qml-property" id="autotedect-prop" translate="no"><span class="name">autotedect</span> : <span class="type">string</span></h3>
+<p>Whether to try autodetecting paths using system tools.</p>
 <p>This property has an effect only on Debian-like Linux systems.</p>
 <p>Default: <code translate="no">false</code></p>
-</div></div><!-- @@@autotedect -->
-<br>
+<!-- @@@autotedect -->
 <!-- $$$bin -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="bin-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">bin</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The location where to install binaries.</p>
+<h3 class="fn qml-member qml-property" id="bin-prop" translate="no"><span class="name">bin</span> : <span class="type">string</span></h3>
+<p>The location where to install binaries.</p>
 <p>Default: <code translate="no">"bin"</code></p>
-</div></div><!-- @@@bin -->
-<br>
+<!-- @@@bin -->
 <!-- $$$etc -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="etc-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">etc</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The location where to install configs.</p>
+<h3 class="fn qml-member qml-property" id="etc-prop" translate="no"><span class="name">etc</span> : <span class="type">string</span></h3>
+<p>The location where to install configs.</p>
 <p>Default: <code translate="no">"etc"</code></p>
-</div></div><!-- @@@etc -->
-<br>
+<!-- @@@etc -->
 <!-- $$$frameworks -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="frameworks-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">frameworks</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The location where to install Frameworks on Apple platforms.</p>
+<h3 class="fn qml-member qml-property" id="frameworks-prop" translate="no"><span class="name">frameworks</span> : <span class="type">string</span></h3>
+<p>The location where to install Frameworks on Apple platforms.</p>
 <p>Default: <code translate="no">"Library/Frameworks"</code></p>
-</div></div><!-- @@@frameworks -->
-<br>
+<!-- @@@frameworks -->
 <!-- $$$include -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="include-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">include</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The location where to install include files.</p>
+<h3 class="fn qml-member qml-property" id="include-prop" translate="no"><span class="name">include</span> : <span class="type">string</span></h3>
+<p>The location where to install include files.</p>
 <p>Default: <code translate="no">"include"</code></p>
-</div></div><!-- @@@include -->
-<br>
+<!-- @@@include -->
 <!-- $$$lib -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="lib-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">lib</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The location where to install libraries.</p>
+<h3 class="fn qml-member qml-property" id="lib-prop" translate="no"><span class="name">lib</span> : <span class="type">string</span></h3>
+<p>The location where to install libraries.</p>
 <p>Default: <code translate="no">"lib"</code></p>
-</div></div><!-- @@@lib -->
-<br>
+<!-- @@@lib -->
 <!-- $$$libexec -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="libexec-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">libexec</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The location where to install additional executables.</p>
+<h3 class="fn qml-member qml-property" id="libexec-prop" translate="no"><span class="name">libexec</span> : <span class="type">string</span></h3>
+<p>The location where to install additional executables.</p>
 <p>Default: <code translate="no">"libexec/"</code> + <a href="https://qbs.io/
 /docs/qml-qbsmodules-installpaths/#subdir-prop" translate="no">subdir</a></p>
-</div></div><!-- @@@libexec -->
-<br>
+<!-- @@@libexec -->
 <!-- $$$library -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="library-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">library</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The location where to install support files on Apple platforms.</p>
+<h3 class="fn qml-member qml-property" id="library-prop" translate="no"><span class="name">library</span> : <span class="type">string</span></h3>
+<p>The location where to install support files on Apple platforms.</p>
 <p>Default: <code translate="no">"Library"</code></p>
-</div></div><!-- @@@library -->
-<br>
+<!-- @@@library -->
 <!-- $$$loadableModules -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="loadableModules-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">loadableModules</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The location where to install loadable modules (bundle plugins) on Apple platforms.</p>
+<h3 class="fn qml-member qml-property" id="loadableModules-prop" translate="no"><span class="name">loadableModules</span> : <span class="type">string</span></h3>
+<p>The location where to install loadable modules (bundle plugins) on Apple platforms.</p>
 <p>Default: <code translate="no">"Library/&lt;ProjectName&gt;/PlugIns"</code></p>
-</div></div><!-- @@@loadableModules -->
-<br>
+<!-- @@@loadableModules -->
 <!-- $$$plugins -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="plugins-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">plugins</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The location where to install plugins.</p>
+<h3 class="fn qml-member qml-property" id="plugins-prop" translate="no"><span class="name">plugins</span> : <span class="type">string</span></h3>
+<p>The location where to install plugins.</p>
 <p>On Apple platforms, non-bundle loadable modules are also installed here.</p>
 <p>Default: <a href="https://qbs.io/
 /docs/qml-qbsmodules-installpaths/#lib-prop" translate="no">lib</a> + <code translate="no">"/"</code> + <a href="https://qbs.io/
 /docs/qml-qbsmodules-installpaths/#subdir-prop" translate="no">subdir</a> + <code translate="no">"/plugins"</code></p>
-</div></div><!-- @@@plugins -->
-<br>
+<!-- @@@plugins -->
 <!-- $$$share -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="share-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">share</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The location where to install resources.</p>
+<h3 class="fn qml-member qml-property" id="share-prop" translate="no"><span class="name">share</span> : <span class="type">string</span></h3>
+<p>The location where to install resources.</p>
 <p>Default: <code translate="no">"share/"</code> + <a href="https://qbs.io/
 /docs/qml-qbsmodules-installpaths/#subdir-prop" translate="no">subdir</a></p>
-</div></div><!-- @@@share -->
-<br>
+<!-- @@@share -->
 <!-- $$$subdir -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="subdir-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">subdir</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The additional directory appended to the libexec, share and plugins paths.</p>
+<h3 class="fn qml-member qml-property" id="subdir-prop" translate="no"><span class="name">subdir</span> : <span class="type">string</span></h3>
+<p>The additional directory appended to the libexec, share and plugins paths.</p>
 <p>Default: lower-case <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-project/#name-prop" translate="no">Project.name</a></p>
-</div></div><!-- @@@subdir -->
-<br>
+<!-- @@@subdir -->
 </div>
 
 

@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsLanguageItems
 JobLimit
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 
@@ -57,7 +59,7 @@ In addition to the global limit on concurrently running commands, a project migh
     <meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-joblimit/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsLanguageItems JobLimit Qbs 3.3.0 Group Module Contents Properties Detailed Description JobLimit Restricts concurrent execution of jobs in a given pool. More...
+	<meta property="og:description" content="Qbs Manual QbsLanguageItems JobLimit Qbs 3.4.0 Group Module Contents Properties Detailed Description JobLimit Restricts concurrent execution of jobs in a given pool. More...
 List of all members, including inherited members JobLimit is part of List of All Items. Properties condition : bool jobCount : int jobPool : string Detailed Description In addition to the global limit on concurrently running commands, a project might want to restrict concurrent execution of certain types of commands even further, for instance because they are not well-suited to share certain types of resources.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
@@ -66,7 +68,7 @@ List of all members, including inherited members JobLimit is part of List of All
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsLanguageItems JobLimit Qbs 3.3.0 Group Module Contents Properties Detailed Description JobLimit Restricts concurrent execution of jobs in a given pool. More...
+	<meta name="twitter:description" content="Qbs Manual QbsLanguageItems JobLimit Qbs 3.4.0 Group Module Contents Properties Detailed Description JobLimit Restricts concurrent execution of jobs in a given pool. More...
 List of all members, including inherited members JobLimit is part of List of All Items. Properties condition : bool jobCount : int jobPool : string Detailed Description In addition to the global limit on concurrently running commands, a project might want to restrict concurrent execution of certain types of commands even further, for instance because they are not well-suited to share certain types of resources.">
 
 </head>
@@ -99,12 +101,14 @@ List of all members, including inherited members JobLimit is part of List of All
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbslanguageitems-qmlmodule/" translate="no">QbsLanguageItems</a></li>
 <li>JobLimit</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <link href="https://qbs.io/
 /docs/qml-qbslanguageitems-group/" rel="prev">
 <link href="https://qbs.io/
@@ -172,25 +176,14 @@ JobLimit {
 <!-- @@@JobLimit -->
 <h2>Property Documentation</h2>
 <!-- $$$condition -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="condition-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">condition</span> : <span class="type">bool</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Determines whether the job limit is active.</p>
+<h3 class="fn qml-member qml-property" id="condition-prop" translate="no"><span class="name">condition</span> : <span class="type">bool</span></h3>
+<p>Determines whether the job limit is active.</p>
 <p>If this property is set to <code translate="no">false</code>, the job limit is ignored.</p>
 <p>Default: <code translate="no">true</code></p>
-</div></div><!-- @@@condition -->
-<br>
+<!-- @@@condition -->
 <!-- $$$jobCount -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="jobCount-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">jobCount</span> : <span class="type">int</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The maximum number of commands in the given <a href="https://qbs.io/
+<h3 class="fn qml-member qml-property" id="jobCount-prop" translate="no"><span class="name">jobCount</span> : <span class="type">int</span></h3>
+<p>The maximum number of commands in the given <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-joblimit/#jobPool-prop" translate="no">job pool</a> that can run concurrently.</p>
 <p>A value of zero means "unlimited", negative values are not allowed.</p>
 <div class="admonition note">
@@ -198,20 +191,13 @@ JobLimit {
 </div>
 <p>This property must always be set.</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@jobCount -->
-<br>
+<!-- @@@jobCount -->
 <!-- $$$jobPool -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="jobPool-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">jobPool</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The job pool to which apply the limit.</p>
+<h3 class="fn qml-member qml-property" id="jobPool-prop" translate="no"><span class="name">jobPool</span> : <span class="type">string</span></h3>
+<p>The job pool to which apply the limit.</p>
 <p>This property must always be set to a non-empty value.</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@jobPool -->
-<br>
+<!-- @@@jobPool -->
 <p class="naviNextPrevious footerNavi">
 <a class="prevPage" href="https://qbs.io/
 /docs/qml-qbslanguageitems-group/">Group</a>

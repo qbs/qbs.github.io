@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsModules
 xcode
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 Contents
@@ -59,7 +61,7 @@ The xcode module contains properties and rules for Xcode-based development. This
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-xcode/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsModules xcode Qbs 3.3.0 Contents Properties Detailed Description xcode Provides Xcode support. More...
+	<meta property="og:description" content="Qbs Manual QbsModules xcode Qbs 3.4.0 Contents Properties Detailed Description xcode Provides Xcode support. More...
 Since: Qbs 1.5 List of all members, including inherited members Properties availableSdkNames : stringList availableSdkVersions : stringList developerPath : path latestSdkName : string latestSdkVersion : string platformPath : path sdk : string sdkName : string sdkPath : path sdkVersion : string targetDevices : stringList Detailed Description The xcode module contains properties and rules for Xcode-based development. This module provides the foundation for several other modules on Apple platforms, including the cpp and ib modules.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
@@ -68,7 +70,7 @@ Since: Qbs 1.5 List of all members, including inherited members Properties avail
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsModules xcode Qbs 3.3.0 Contents Properties Detailed Description xcode Provides Xcode support. More...
+	<meta name="twitter:description" content="Qbs Manual QbsModules xcode Qbs 3.4.0 Contents Properties Detailed Description xcode Provides Xcode support. More...
 Since: Qbs 1.5 List of all members, including inherited members Properties availableSdkNames : stringList availableSdkVersions : stringList developerPath : path latestSdkName : string latestSdkVersion : string platformPath : path sdk : string sdkName : string sdkPath : path sdkVersion : string targetDevices : stringList Detailed Description The xcode module contains properties and rules for Xcode-based development. This module provides the foundation for several other modules on Apple platforms, including the cpp and ib modules.">
 
 </head>
@@ -101,12 +103,14 @@ Since: Qbs 1.5 List of all members, including inherited members Properties avail
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>xcode</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -161,148 +165,82 @@ Since: Qbs 1.5 List of all members, including inherited members Properties avail
 <!-- @@@xcode -->
 <h2>Property Documentation</h2>
 <!-- $$$availableSdkNames -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="availableSdkNames-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">availableSdkNames</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The canonical names of all SDKs available in the Xcode installation for the current platform.</p>
+<h3 class="fn qml-member qml-property" id="availableSdkNames-prop" translate="no"><span class="name">availableSdkNames</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[read-only]</code></h3>
+<p>The canonical names of all SDKs available in the Xcode installation for the current platform.</p>
 <p>For example, <code translate="no">[macosx10.9, macosx10.10]</code>.</p>
 <p>Default: <a href="https://qbs.io/
 /docs/qml-qbsmodules-xcode/#developerPath-prop" translate="no">developerPath</a></p>
-</div></div><!-- @@@availableSdkNames -->
-<br>
+<!-- @@@availableSdkNames -->
 <!-- $$$availableSdkVersions -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="availableSdkVersions-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">availableSdkVersions</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The version numbers of all SDK available in the Xcode installation for the current platform.</p>
+<h3 class="fn qml-member qml-property" id="availableSdkVersions-prop" translate="no"><span class="name">availableSdkVersions</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[read-only]</code></h3>
+<p>The version numbers of all SDK available in the Xcode installation for the current platform.</p>
 <p>For example, <code translate="no">[10.9, 10.10]</code>.</p>
 <p>Default: <a href="https://qbs.io/
 /docs/qml-qbsmodules-xcode/#developerPath-prop" translate="no">developerPath</a></p>
-</div></div><!-- @@@availableSdkVersions -->
-<br>
+<!-- @@@availableSdkVersions -->
 <!-- $$$developerPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="developerPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">developerPath</span> : <span class="type">path</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The developer directory of the Xcode installation.</p>
+<h3 class="fn qml-member qml-property" id="developerPath-prop" translate="no"><span class="name">developerPath</span> : <span class="type">path</span></h3>
+<p>The developer directory of the Xcode installation.</p>
 <p>Corresponds to the <code translate="no">DEVELOPER_DIR</code> environment variable.</p>
 <p>Default: The developer directory of the Xcode installation at its default location in <code translate="no">/Applications</code>. For example, <code translate="no">"/Applications/Xcode.app/Contents/Developer"</code>.</p>
-</div></div><!-- @@@developerPath -->
-<br>
+<!-- @@@developerPath -->
 <!-- $$$latestSdkName -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="latestSdkName-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">latestSdkName</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The canonical name of the latest SDK available in the Xcode installation.</p>
+<h3 class="fn qml-member qml-property" id="latestSdkName-prop" translate="no"><span class="name">latestSdkName</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></h3>
+<p>The canonical name of the latest SDK available in the Xcode installation.</p>
 <p>For example, <code translate="no">macosx10.10</code>.</p>
 <p>Default: <a href="https://qbs.io/
 /docs/qml-qbsmodules-xcode/#developerPath-prop" translate="no">developerPath</a></p>
-</div></div><!-- @@@latestSdkName -->
-<br>
+<!-- @@@latestSdkName -->
 <!-- $$$latestSdkVersion -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="latestSdkVersion-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">latestSdkVersion</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The version number of the latest SDK available in the Xcode installation.</p>
+<h3 class="fn qml-member qml-property" id="latestSdkVersion-prop" translate="no"><span class="name">latestSdkVersion</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></h3>
+<p>The version number of the latest SDK available in the Xcode installation.</p>
 <p>For example, 10.10.</p>
 <p>Default: <a href="https://qbs.io/
 /docs/qml-qbsmodules-xcode/#developerPath-prop" translate="no">developerPath</a></p>
-</div></div><!-- @@@latestSdkVersion -->
-<br>
+<!-- @@@latestSdkVersion -->
 <!-- $$$platformPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="platformPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">platformPath</span> : <span class="type">path</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The path of the platform directory containing <a href="https://qbs.io/
+<h3 class="fn qml-member qml-property" id="platformPath-prop" translate="no"><span class="name">platformPath</span> : <span class="type">path</span> <code class="details extra" translate="no">[read-only]</code></h3>
+<p>The path of the platform directory containing <a href="https://qbs.io/
 /docs/qml-qbsmodules-xcode/#sdkPath-prop" translate="no">sdkPath</a>.</p>
 <p>Default: <a href="https://qbs.io/
 /docs/qml-qbsmodules-xcode/#developerPath-prop" translate="no">developerPath</a></p>
-</div></div><!-- @@@platformPath -->
-<br>
+<!-- @@@platformPath -->
 <!-- $$$sdk -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="sdk-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">sdk</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The version of the Xcode SDK used to build products.</p>
+<h3 class="fn qml-member qml-property" id="sdk-prop" translate="no"><span class="name">sdk</span> : <span class="type">string</span></h3>
+<p>The version of the Xcode SDK used to build products.</p>
 <p>This can be specified as a full canonical SDK name (<code translate="no">"macosx10.10"</code>), a platform version number (<code translate="no">"10.10"</code>), or a platform identifier (<code translate="no">"macosx"</code>), in which case the latest SDK available for that platform will be used.</p>
 <p>Default: The latest SDK available in the Xcode installation for the current platform. Determined by <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#targetOS-prop" translate="no">qbs.targetOS</a>.</p>
-</div></div><!-- @@@sdk -->
-<br>
+<!-- @@@sdk -->
 <!-- $$$sdkName -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="sdkName-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">sdkName</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The canonical name of the SDK used to build products.</p>
+<h3 class="fn qml-member qml-property" id="sdkName-prop" translate="no"><span class="name">sdkName</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></h3>
+<p>The canonical name of the SDK used to build products.</p>
 <p>For example, <code translate="no">macosx10.9</code>.</p>
 <p>Default: <a href="https://qbs.io/
 /docs/qml-qbsmodules-xcode/#sdk-prop" translate="no">sdk</a></p>
-</div></div><!-- @@@sdkName -->
-<br>
+<!-- @@@sdkName -->
 <!-- $$$sdkPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="sdkPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">sdkPath</span> : <span class="type">path</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The path of the SDK used to build products. Equivalent to <a href="https://qbs.io/
+<h3 class="fn qml-member qml-property" id="sdkPath-prop" translate="no"><span class="name">sdkPath</span> : <span class="type">path</span> <code class="details extra" translate="no">[read-only]</code></h3>
+<p>The path of the SDK used to build products. Equivalent to <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#sysroot-prop" translate="no">qbs.sysroot</a>.</p>
 <p>Default: Determined by <a href="https://qbs.io/
 /docs/qml-qbsmodules-xcode/#developerPath-prop" translate="no">developerPath</a> and <a href="https://qbs.io/
 /docs/qml-qbsmodules-xcode/#sdk-prop" translate="no">sdk</a>.</p>
-</div></div><!-- @@@sdkPath -->
-<br>
+<!-- @@@sdkPath -->
 <!-- $$$sdkVersion -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="sdkVersion-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">sdkVersion</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The version number of the SDK used to build products.</p>
+<h3 class="fn qml-member qml-property" id="sdkVersion-prop" translate="no"><span class="name">sdkVersion</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></h3>
+<p>The version number of the SDK used to build products.</p>
 <p>For example, 10.9.</p>
 <p>Default: <a href="https://qbs.io/
 /docs/qml-qbsmodules-xcode/#sdk-prop" translate="no">sdk</a></p>
-</div></div><!-- @@@sdkVersion -->
-<br>
+<!-- @@@sdkVersion -->
 <!-- $$$targetDevices -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="targetDevices-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">targetDevices</span> : <span class="type">stringList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>A list of the Apple devices targeted by this product.</p>
+<h3 class="fn qml-member qml-property" id="targetDevices-prop" translate="no"><span class="name">targetDevices</span> : <span class="type">stringList</span></h3>
+<p>A list of the Apple devices targeted by this product.</p>
 <p>For macOS, watchOS, and tvOS, this should always be <code translate="no">"mac"</code>, <code translate="no">"watch"</code>, and <code translate="no">"tv"</code>, respectively. For iOS, this can be one or both of <code translate="no">"iphone"</code> and <code translate="no">"ipad"</code>.</p>
 <p>Default: The list of all device types supported by the current platform. Determined by <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#targetOS-prop" translate="no">qbs.targetOS</a>.</p>
-</div></div><!-- @@@targetDevices -->
-<br>
+<!-- @@@targetDevices -->
 </div>
 
 

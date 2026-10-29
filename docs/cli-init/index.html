@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Qbs</title>
+    <meta name="description" content="
+Qbs Manual
+Command-Line Interface
+init
+Qbs 3.4.0
+
+
+
+Contents
+
+Synopsis
+Description
+Options
+--language|-l &lt;language&gt;
+--version &lt;version&gt;
+--depends &lt;depends&gt;
+--help|-h|-?
+Parameters
+&lt;project-type&gt;
+&lt;name&gt;
+Examples
+
+
+
+init
+
+
+Synopsis
+qbs create-project [--language &lt;language&gt;] [--version &lt;version&gt;] [--depends &lt;depends&gt;] project-type name
+Description
+Sets up a Qbs project directory according to the given options and parameters. The directory has the same name as the project and is generated in the current working directory.
+Options
+--language|-l &lt;language&gt;
+The programming language to use. Possible values are c, c&#43;&#43;, java, and objective-c. Defaults to c&#43;&#43;.
+--version &lt;version&gt;
+The version of the product to create. Defaults to 1.0.0. ">
+    <link rel="canonical" href="https://qbs.io/docs/cli-init/" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+
+    
+      
+      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+    
+
+    <meta property="og:url" content="https://qbs.io/docs/cli-init/">
+	<meta property="og:site_name" content="Qbs">
+	<meta property="og:title" content="Qbs">
+	<meta property="og:description" content="Qbs Manual Command-Line Interface init Qbs 3.4.0 Contents Synopsis Description Options --language|-l &lt;language&gt; --version &lt;version&gt; --depends &lt;depends&gt; --help|-h|-? Parameters &lt;project-type&gt; &lt;name&gt; Examples init Synopsis qbs create-project [--language &lt;language&gt;] [--version &lt;version&gt;] [--depends &lt;depends&gt;] project-type name Description Sets up a Qbs project directory according to the given options and parameters. The directory has the same name as the project and is generated in the current working directory.
+Options --language|-l &lt;language&gt; The programming language to use. Possible values are c, c&#43;&#43;, java, and objective-c. Defaults to c&#43;&#43;.
+--version &lt;version&gt; The version of the product to create. Defaults to 1.0.0.">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="docs">
+
+    
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Qbs">
+	<meta name="twitter:description" content="Qbs Manual Command-Line Interface init Qbs 3.4.0 Contents Synopsis Description Options --language|-l &lt;language&gt; --version &lt;version&gt; --depends &lt;depends&gt; --help|-h|-? Parameters &lt;project-type&gt; &lt;name&gt; Examples init Synopsis qbs create-project [--language &lt;language&gt;] [--version &lt;version&gt;] [--depends &lt;depends&gt;] project-type name Description Sets up a Qbs project directory according to the given options and parameters. The directory has the same name as the project and is generated in the current working directory.
+Options --language|-l &lt;language&gt; The programming language to use. Possible values are c, c&#43;&#43;, java, and objective-c. Defaults to c&#43;&#43;.
+--version &lt;version&gt; The version of the product to create. Defaults to 1.0.0.">
+
+</head>
+<body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
+    <a class="flex items-center" href="/">
+        <img src="https://qbs.io//img/Cubes.svg" class="h-10 effect-shadow-small">
+        <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
+    </a>
+
+    <div>
+        
+        <a href="/blog" class="ml-2">
+            <span>Blog</span>
+        </a>
+        
+        <a href="/docs" class="ml-2">
+            <span>Documentation</span>
+        </a>
+        
+        <a href="/docs/installing/" class="ml-2">
+            <span>Get Qbs</span>
+        </a>
+        
+        <a href="/community" class="ml-2">
+            <span>Community</span>
+        </a>
+        
+    </div>
+</header><main>
+<div class="centre-outer">
+    <article class="centre-inner docs">
+    
+<ul class="breadcrumb">
+<li><a href="https://qbs.io/
+/docs">Qbs Manual</a></li>
+<li><a href="https://qbs.io/
+/docs/cli/">Command-Line Interface</a></li>
+<li>init</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
+<div class="sidebar">
+<div class="toc">
+<h3 id="toc">Contents</h3>
+<ul>
+<li class="level1"><a href="#synopsis">Synopsis</a></li>
+<li class="level1"><a href="#description">Description</a></li>
+<li class="level1"><a href="#options">Options</a></li>
+<li class="level2"><a href="#op-op-op-op-language-op-op-op-op-l-language"><code translate="no">--language|-l</code> &lt;language&gt;</a></li>
+<li class="level2"><a href="#op-op-op-op-version-op-lt-op-version-op-gt-op"><code translate="no">--version &lt;version&gt;</code></a></li>
+<li class="level2"><a href="#op-op-op-op-depends-op-lt-op-depends-op-gt-op"><code translate="no">--depends &lt;depends&gt;</code></a></li>
+<li class="level2"><a href="#op-op-op-op-help-op-op-op-op-h-op-op-op-op-op-op"><code translate="no">--help|-h|-?</code></a></li>
+<li class="level1"><a href="#parameters">Parameters</a></li>
+<li class="level2"><a href="#op-lt-op-project-op-op-type-op-gt-op"><code translate="no">&lt;project-type&gt;</code></a></li>
+<li class="level2"><a href="#op-lt-op-name-op-gt-op"><code translate="no">&lt;name&gt;</code></a></li>
+<li class="level1"><a href="#examples">Examples</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<div class="content"><h1 class="title">init</h1>
+<!-- $$$cli-init.html-description -->
+<div class="descr" id="details">
+<h2 id="synopsis">Synopsis</h2>
+<pre class="cpp" translate="no">qbs create<span class="operator">-</span>project <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>language <span class="operator">&lt;</span>language<span class="operator">&gt;</span><span class="operator">]</span> <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>version <span class="operator">&lt;</span>version<span class="operator">&gt;</span><span class="operator">]</span> <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>depends <span class="operator">&lt;</span>depends<span class="operator">&gt;</span><span class="operator">]</span> project<span class="operator">-</span>type name</pre>
+<h2 id="description">Description</h2>
+<p>Sets up a Qbs project directory according to the given options and parameters. The directory has the same name as the project and is generated in the current working directory.</p>
+<h2 id="options">Options</h2>
+<h3 id="op-op-op-op-language-op-op-op-op-l-language"><code translate="no">--language|-l</code> &lt;language&gt;</h3>
+<p>The programming language to use. Possible values are <code translate="no">c</code>, <code translate="no">c++</code>, <code translate="no">java</code>, and <code translate="no">objective-c</code>. Defaults to <code translate="no">c++</code>.</p>
+<h3 id="op-op-op-op-version-op-lt-op-version-op-gt-op"><code translate="no">--version &lt;version&gt;</code></h3>
+<p>The version of the product to create. Defaults to <code translate="no">1.0.0</code>.</p>
+<h3 id="op-op-op-op-depends-op-lt-op-depends-op-gt-op"><code translate="no">--depends &lt;depends&gt;</code></h3>
+<p>Comma-separated list of module dependencies to add to the product.</p>
+<h3 id="op-op-op-op-help-op-op-op-op-h-op-op-op-op-op-op"><code translate="no">--help|-h|-?</code></h3>
+<p>Displays help for the command.</p>
+<h2 id="parameters">Parameters</h2>
+<h3 id="op-lt-op-project-op-op-type-op-gt-op"><code translate="no">&lt;project-type&gt;</code></h3>
+<p>The type of project to create. Possible values are <code translate="no">application</code> and <code translate="no">library</code>.</p>
+<h3 id="op-lt-op-name-op-gt-op"><code translate="no">&lt;name&gt;</code></h3>
+<p>The name of the project and the generated directory.</p>
+<h2 id="examples">Examples</h2>
+<p>To create a new C application:</p>
+<pre class="cpp" translate="no">qbs init <span class="operator">-</span>c c application hello<span class="operator">-</span>world</pre>
+<p>To create a new Qt-based library:</p>
+<pre class="cpp" translate="no">qbs init <span class="operator">-</span>d <span class="type"><a href="https://qbs.io/
+/docs/qml-qbsmoduleproviders-qt/" translate="no">Qt</a></span><span class="operator">.</span>core library mylib</pre>
+</div>
+<!-- @@@cli-init.html -->
+</div>
+
+
+    </article>
+</div>
+
+        </main></body>
+</html>

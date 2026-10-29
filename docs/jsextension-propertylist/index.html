@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 List of Built-in Services
 PropertyList Service
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 Contents
@@ -16,6 +18,7 @@ Constructor
 clear
 isEmpty
 format
+readFromData
 readFromFile
 readFromObject
 readFromString
@@ -54,7 +57,7 @@ Voids the property list by deleting its internal object reference. ">
     <meta property="og:url" content="https://qbs.io/docs/jsextension-propertylist/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual List of Built-in Services PropertyList Service Qbs 3.3.0 Contents Available operations Constructor clear isEmpty format readFromFile readFromObject readFromString toObject toJSON toString toXMLString writeToFile PropertyList Service The PropertyList service allows you to read and write property list files in all formats supported by the Core Foundation API: XML, binary, JSON, and OpenStep (read-only).
+	<meta property="og:description" content="Qbs Manual List of Built-in Services PropertyList Service Qbs 3.4.0 Contents Available operations Constructor clear isEmpty format readFromData readFromFile readFromObject readFromString toObject toJSON toString toXMLString writeToFile PropertyList Service The PropertyList service allows you to read and write property list files in all formats supported by the Core Foundation API: XML, binary, JSON, and OpenStep (read-only).
 This service is only available on Darwin platforms such as iOS, macOS, tvOS, and watchOS.
 Available operations Constructor PropertyList() Allocates and returns a new PropertyList object.
 clear clear(): void Voids the property list by deleting its internal object reference.">
@@ -65,7 +68,7 @@ clear clear(): void Voids the property list by deleting its internal object refe
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual List of Built-in Services PropertyList Service Qbs 3.3.0 Contents Available operations Constructor clear isEmpty format readFromFile readFromObject readFromString toObject toJSON toString toXMLString writeToFile PropertyList Service The PropertyList service allows you to read and write property list files in all formats supported by the Core Foundation API: XML, binary, JSON, and OpenStep (read-only).
+	<meta name="twitter:description" content="Qbs Manual List of Built-in Services PropertyList Service Qbs 3.4.0 Contents Available operations Constructor clear isEmpty format readFromData readFromFile readFromObject readFromString toObject toJSON toString toXMLString writeToFile PropertyList Service The PropertyList service allows you to read and write property list files in all formats supported by the Core Foundation API: XML, binary, JSON, and OpenStep (read-only).
 This service is only available on Darwin platforms such as iOS, macOS, tvOS, and watchOS.
 Available operations Constructor PropertyList() Allocates and returns a new PropertyList object.
 clear clear(): void Voids the property list by deleting its internal object reference.">
@@ -100,12 +103,14 @@ clear clear(): void Voids the property list by deleting its internal object refe
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/list-of-builtin-services/">List of Built-in Services</a></li>
 <li>PropertyList Service</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -115,6 +120,7 @@ clear clear(): void Voids the property list by deleting its internal object refe
 <li class="level2"><a href="#clear">clear</a></li>
 <li class="level2"><a href="#isempty">isEmpty</a></li>
 <li class="level2"><a href="#format">format</a></li>
+<li class="level2"><a href="#readfromdata">readFromData</a></li>
 <li class="level2"><a href="#readfromfile">readFromFile</a></li>
 <li class="level2"><a href="#readfromobject">readFromObject</a></li>
 <li class="level2"><a href="#readfromstring">readFromString</a></li>
@@ -144,6 +150,9 @@ clear clear(): void Voids the property list by deleting its internal object refe
 <h3 id="format">format</h3>
 <pre class="cpp" translate="no">format(): string</pre>
 <p>Returns the data format that the property list data was deserialized from. This property is set after calling <code translate="no">readFromString</code> or <code translate="no">readFromFile</code>. Possible return values include: <code translate="no">"binary1"</code>, <code translate="no">"json"</code>, <code translate="no">"openstep"</code>, and <code translate="no">"xml1"</code>. If the property list object is empty or the input format could not be determined, returns <code translate="no">undefined</code>.</p>
+<h3 id="readfromdata">readFromData</h3>
+<pre class="cpp" translate="no">readFromData(data: string): <span class="type">void</span></pre>
+<p>Parses the raw property list <code translate="no">data</code>, in any of the supported formats, and stores the result in the property list. <code translate="no">readFromString</code> and <code translate="no">readFromFile</code> are implemented in terms of this operation. Throws an exception if the input is in an invalid format.</p>
 <h3 id="readfromfile">readFromFile</h3>
 <pre class="cpp" translate="no">readFromFile(filePath: string): <span class="type">void</span></pre>
 <p>Parses the file and stores the result in the property list. Throws an exception if an I/O error occurs or the input is in an invalid format.</p>

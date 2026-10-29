@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsModules
 Qt.android_support
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 Contents
@@ -53,7 +55,7 @@ The Qt.android_support module provides the glue for Qbs&#39; Qt and Android supp
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-qt-android-support/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsModules Qt.android_support Qbs 3.3.0 Contents Properties Detailed Description Qt.android_support Provides Qt support for the Android platform. More...
+	<meta property="og:description" content="Qbs Manual QbsModules Qt.android_support Qbs 3.4.0 Contents Properties Detailed Description Qt.android_support Provides Qt support for the Android platform. More...
 List of all members, including inherited members Properties deploymentDependencies : stringList extraLibs : stringList extraPlugins : stringList qmlImportPaths : stringList (since 1.22) qmlRootDir : string verboseAndroidDeployQt : bool Detailed Description The Qt.android_support module provides the glue for Qbs&#39; Qt and Android support. It is automatically pulled in by Qt.core, so you do not need to add an explicit dependency to it in your product, unless you want to set one of its properties.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
@@ -62,7 +64,7 @@ List of all members, including inherited members Properties deploymentDependenci
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsModules Qt.android_support Qbs 3.3.0 Contents Properties Detailed Description Qt.android_support Provides Qt support for the Android platform. More...
+	<meta name="twitter:description" content="Qbs Manual QbsModules Qt.android_support Qbs 3.4.0 Contents Properties Detailed Description Qt.android_support Provides Qt support for the Android platform. More...
 List of all members, including inherited members Properties deploymentDependencies : stringList extraLibs : stringList extraPlugins : stringList qmlImportPaths : stringList (since 1.22) qmlRootDir : string verboseAndroidDeployQt : bool Detailed Description The Qt.android_support module provides the glue for Qbs&#39; Qt and Android support. It is automatically pulled in by Qt.core, so you do not need to add an explicit dependency to it in your product, unless you want to set one of its properties.">
 
 </head>
@@ -95,12 +97,14 @@ List of all members, including inherited members Properties deploymentDependenci
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>Qt.android_support</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -142,72 +146,38 @@ List of all members, including inherited members Properties deploymentDependenci
 <!-- @@@Qt.android_support -->
 <h2>Property Documentation</h2>
 <!-- $$$deploymentDependencies -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="deploymentDependencies-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">deploymentDependencies</span> : <span class="type">stringList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Use this property to completely override the Qt deployment dependencies of your app. Corresponds to qmake's ANDROID_DEPLOYMENT_DEPENDENCIES.</p>
+<h3 class="fn qml-member qml-property" id="deploymentDependencies-prop" translate="no"><span class="name">deploymentDependencies</span> : <span class="type">stringList</span></h3>
+<p>Use this property to completely override the Qt deployment dependencies of your app. Corresponds to qmake's ANDROID_DEPLOYMENT_DEPENDENCIES.</p>
 <p>Default: <code translate="no">undefined</code></p>
-</div></div><!-- @@@deploymentDependencies -->
-<br>
+<!-- @@@deploymentDependencies -->
 <!-- $$$extraLibs -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="extraLibs-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">extraLibs</span> : <span class="type">stringList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Additional libs to be packaged and loaded on start-up (mind the order). Corresponds to qmake's ANDROID_EXTRA_LIBS.</p>
+<h3 class="fn qml-member qml-property" id="extraLibs-prop" translate="no"><span class="name">extraLibs</span> : <span class="type">stringList</span></h3>
+<p>Additional libs to be packaged and loaded on start-up (mind the order). Corresponds to qmake's ANDROID_EXTRA_LIBS.</p>
 <p>Default: <code translate="no">undefined</code></p>
-</div></div><!-- @@@extraLibs -->
-<br>
+<!-- @@@extraLibs -->
 <!-- $$$extraPlugins -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="extraPlugins-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">extraPlugins</span> : <span class="type">stringList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Additional non-asset files to be packaged. Corresponds to qmake's ANDROID_EXTRA_PLUGINS.</p>
+<h3 class="fn qml-member qml-property" id="extraPlugins-prop" translate="no"><span class="name">extraPlugins</span> : <span class="type">stringList</span></h3>
+<p>Additional non-asset files to be packaged. Corresponds to qmake's ANDROID_EXTRA_PLUGINS.</p>
 <p>Default: <code translate="no">undefined</code></p>
-</div></div><!-- @@@extraPlugins -->
-<br>
+<!-- @@@extraPlugins -->
 <!-- $$$qmlImportPaths -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="qmlImportPaths-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">qmlImportPaths</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[since 1.22]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Additional directories to search for QML imports.</p>
+<h3 class="fn qml-member qml-property" id="qmlImportPaths-prop" translate="no"><span class="name">qmlImportPaths</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[since 1.22]</code></h3>
+<p>Additional import-root directories to search for QML imports.</p>
+<p>The module URI is converted to a relative path (dots become slashes) and appended to each entry automatically. Do not include that relative path in these directories.</p>
+<p>If this property is unset, the product-level <code translate="no">qmlImportPaths</code> property is used as a fallback.</p>
 <p>Default: <code translate="no">undefined</code></p>
 <p>This property was introduced in 1.22.</p>
-</div></div><!-- @@@qmlImportPaths -->
-<br>
+<!-- @@@qmlImportPaths -->
 <!-- $$$qmlRootDir -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="qmlRootDir-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">qmlRootDir</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The root directory of the product's QML files. This information is passed to the <code translate="no">androiddeployqt</code> tool, which will use it to decide which resources to include in the APK file.</p>
+<h3 class="fn qml-member qml-property" id="qmlRootDir-prop" translate="no"><span class="name">qmlRootDir</span> : <span class="type">string</span></h3>
+<p>The root directory of the product's QML files. This information is passed to the <code translate="no">androiddeployqt</code> tool, which will use it to decide which resources to include in the APK file.</p>
 <p>Default: <code translate="no">product.sourceDirectory</code></p>
-</div></div><!-- @@@qmlRootDir -->
-<br>
+<!-- @@@qmlRootDir -->
 <!-- $$$verboseAndroidDeployQt -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="verboseAndroidDeployQt-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">verboseAndroidDeployQt</span> : <span class="type">bool</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Enable this property if you want verbose output from the <code translate="no">androiddeployqt</code> tool.</p>
+<h3 class="fn qml-member qml-property" id="verboseAndroidDeployQt-prop" translate="no"><span class="name">verboseAndroidDeployQt</span> : <span class="type">bool</span></h3>
+<p>Enable this property if you want verbose output from the <code translate="no">androiddeployqt</code> tool.</p>
 <p>Default: <code translate="no">false</code></p>
-</div></div><!-- @@@verboseAndroidDeployQt -->
-<br>
+<!-- @@@verboseAndroidDeployQt -->
 </div>
 
 

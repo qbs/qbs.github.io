@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsLanguageItems
 Artifact
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 Depends
@@ -56,7 +58,7 @@ For example, if a rule produces three files, it needs to contain three Artifact 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-artifact/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsLanguageItems Artifact Qbs 3.3.0 Depends Contents Properties Detailed Description Artifact Describes a file produced by a Rule. More...
+	<meta property="og:description" content="Qbs Manual QbsLanguageItems Artifact Qbs 3.4.0 Depends Contents Properties Detailed Description Artifact Describes a file produced by a Rule. More...
 List of all members, including inherited members Artifact is part of List of All Items. Properties alwaysUpdated : bool filePath : string fileTags : stringList Detailed Description An Artifact represents a single file produced by a Rule.
 For example, if a rule produces three files, it needs to contain three Artifact items.">
 	<meta property="og:locale" content="en_us">
@@ -66,7 +68,7 @@ For example, if a rule produces three files, it needs to contain three Artifact 
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsLanguageItems Artifact Qbs 3.3.0 Depends Contents Properties Detailed Description Artifact Describes a file produced by a Rule. More...
+	<meta name="twitter:description" content="Qbs Manual QbsLanguageItems Artifact Qbs 3.4.0 Depends Contents Properties Detailed Description Artifact Describes a file produced by a Rule. More...
 List of all members, including inherited members Artifact is part of List of All Items. Properties alwaysUpdated : bool filePath : string fileTags : stringList Detailed Description An Artifact represents a single file produced by a Rule.
 For example, if a rule produces three files, it needs to contain three Artifact items.">
 
@@ -100,12 +102,14 @@ For example, if a rule produces three files, it needs to contain three Artifact 
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbslanguageitems-qmlmodule/" translate="no">QbsLanguageItems</a></li>
 <li>Artifact</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <link href="https://qbs.io/
 /docs/qml-qbslanguageitems-depends/" rel="next">
 <p class="naviNextPrevious headerNavi">
@@ -153,7 +157,7 @@ For example, if a rule produces three files, it needs to contain three Artifact 
 /docs/qml-qbslanguageitems-artifact/" translate="no">Artifact</a></span> {
     <span class="name">filePath</span>: <span class="string">"somefile.cpp"</span>
     <span class="name">fileTags</span>: [<span class="string">"cpp"</span>]
-    <span class="name">cpp</span>.cxxLanguageVersion: <span class="string">"c++11"</span>
+    <span class="name">cpp.cxxLanguageVersion</span>: <span class="string">"c++11"</span>
     <span class="comment">// ...</span>
 }</pre>
 <div class="admonition note">
@@ -162,39 +166,21 @@ For example, if a rule produces three files, it needs to contain three Artifact 
 <!-- @@@Artifact -->
 <h2>Property Documentation</h2>
 <!-- $$$alwaysUpdated -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="alwaysUpdated-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">alwaysUpdated</span> : <span class="type">bool</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Setting this property to <code translate="no">false</code> means the file is not necessarily always written to by any command run by the rule. If all artifacts of a rule have this property set to <code translate="no">false</code>, the commands of the rule are only executed if all of them are out of date compared to the inputs.</p>
+<h3 class="fn qml-member qml-property" id="alwaysUpdated-prop" translate="no"><span class="name">alwaysUpdated</span> : <span class="type">bool</span></h3>
+<p>Setting this property to <code translate="no">false</code> means the file is not necessarily always written to by any command run by the rule. If all artifacts of a rule have this property set to <code translate="no">false</code>, the commands of the rule are only executed if all of them are out of date compared to the inputs.</p>
 <p>Default: <code translate="no">true</code></p>
-</div></div><!-- @@@alwaysUpdated -->
-<br>
+<!-- @@@alwaysUpdated -->
 <!-- $$$filePath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="filePath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">filePath</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The file path of the target artifact.</p>
+<h3 class="fn qml-member qml-property" id="filePath-prop" translate="no"><span class="name">filePath</span> : <span class="type">string</span></h3>
+<p>The file path of the target artifact.</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@filePath -->
-<br>
+<!-- @@@filePath -->
 <!-- $$$fileTags -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="fileTags-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">fileTags</span> : <span class="type">stringList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>A list of tags to attach to the target file. These can then be matched by a <a href="https://qbs.io/
+<h3 class="fn qml-member qml-property" id="fileTags-prop" translate="no"><span class="name">fileTags</span> : <span class="type">stringList</span></h3>
+<p>A list of tags to attach to the target file. These can then be matched by a <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-rule/" translate="no">Rule</a>.</p>
 <p>Default: An empty list</p>
-</div></div><!-- @@@fileTags -->
-<br>
+<!-- @@@fileTags -->
 <p class="naviNextPrevious footerNavi">
 <a class="nextPage" href="https://qbs.io/
 /docs/qml-qbslanguageitems-depends/">Depends</a>

@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsLanguageItems
 Project
-Qbs 3.3.0
+Qbs 3.4.0
+
   
   
 
@@ -17,15 +19,15 @@ Properties
 List of All Members for Project
 This is the complete list of members for Project, including inherited members.
 
-buildDirectory : path
+buildDirectory : path [read-only]
 condition : bool
 minimumQbsVersion : string
 name : string
-profile : string
+profile : string [read-only]
 qbsModuleProviders : stringList (since Qbs 1.21)
 qbsSearchPaths : stringList
 references : pathList
-sourceDirectory : path
+sourceDirectory : path [read-only]
 
  ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbslanguageitems-project-members/" />
@@ -43,8 +45,8 @@ sourceDirectory : path
     <meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-project-members/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsLanguageItems Project Qbs 3.3.0 Profile Properties List of All Members for Project This is the complete list of members for Project, including inherited members.
-buildDirectory : path condition : bool minimumQbsVersion : string name : string profile : string qbsModuleProviders : stringList (since Qbs 1.21) qbsSearchPaths : stringList references : pathList sourceDirectory : path">
+	<meta property="og:description" content="Qbs Manual QbsLanguageItems Project Qbs 3.4.0 Profile Properties List of All Members for Project This is the complete list of members for Project, including inherited members.
+buildDirectory : path [read-only] condition : bool minimumQbsVersion : string name : string profile : string [read-only] qbsModuleProviders : stringList (since Qbs 1.21) qbsSearchPaths : stringList references : pathList sourceDirectory : path [read-only]">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -52,8 +54,8 @@ buildDirectory : path condition : bool minimumQbsVersion : string name : string 
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsLanguageItems Project Qbs 3.3.0 Profile Properties List of All Members for Project This is the complete list of members for Project, including inherited members.
-buildDirectory : path condition : bool minimumQbsVersion : string name : string profile : string qbsModuleProviders : stringList (since Qbs 1.21) qbsSearchPaths : stringList references : pathList sourceDirectory : path">
+	<meta name="twitter:description" content="Qbs Manual QbsLanguageItems Project Qbs 3.4.0 Profile Properties List of All Members for Project This is the complete list of members for Project, including inherited members.
+buildDirectory : path [read-only] condition : bool minimumQbsVersion : string name : string profile : string [read-only] qbsModuleProviders : stringList (since Qbs 1.21) qbsSearchPaths : stringList references : pathList sourceDirectory : path [read-only]">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -85,12 +87,14 @@ buildDirectory : path condition : bool minimumQbsVersion : string name : string 
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbslanguageitems-qmlmodule/" translate="no">QbsLanguageItems</a></li>
 <li>Project</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
   <link rel="prev" href="https://qbs.io/
 /docs/qml-qbslanguageitems-profile/">
   <link rel="next" href="https://qbs.io/
@@ -107,7 +111,7 @@ buildDirectory : path condition : bool minimumQbsVersion : string name : string 
 /docs/qml-qbslanguageitems-project/">Project</a>, including inherited members.</p>
 <ul>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
-/docs/qml-qbslanguageitems-project/#buildDirectory-prop" translate="no">buildDirectory</a></b> : path</li>
+/docs/qml-qbslanguageitems-project/#buildDirectory-prop" translate="no">buildDirectory</a></b> : path [read-only]</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-project/#condition-prop" translate="no">condition</a></b> : bool</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
@@ -115,7 +119,7 @@ buildDirectory : path condition : bool minimumQbsVersion : string name : string 
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-project/#name-prop" translate="no">name</a></b> : string</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
-/docs/qml-qbslanguageitems-project/#profile-prop" translate="no">profile</a></b> : string</li>
+/docs/qml-qbslanguageitems-project/#profile-prop" translate="no">profile</a></b> : string [read-only]</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-project/#qbsModuleProviders-prop" translate="no">qbsModuleProviders</a></b> : stringList <code class="summary extra" translate="no">(since Qbs 1.21)</code></li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
@@ -123,7 +127,7 @@ buildDirectory : path condition : bool minimumQbsVersion : string name : string 
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-project/#references-prop" translate="no">references</a></b> : pathList</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
-/docs/qml-qbslanguageitems-project/#sourceDirectory-prop" translate="no">sourceDirectory</a></b> : path</li>
+/docs/qml-qbslanguageitems-project/#sourceDirectory-prop" translate="no">sourceDirectory</a></b> : path [read-only]</li>
 </ul>
 </div>
 

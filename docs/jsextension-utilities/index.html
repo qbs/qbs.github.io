@@ -3,18 +3,38 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 List of Built-in Services
 Utilities Service
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 Contents
 
 Available Operations
+builtinExtensionNames
+canonicalArchitecture
+canonicalPlatform
+canonicalTargetArchitecture
+canonicalToolchain
+certificateInfo
+clangClCompilerInfo
 cStringQuote
+getArchitecturesFromBinary
 getHash
+getNativeSetting
+installedClangCls
+installedMSVCs
+isSharedLibrary
+kernelVersion
+msvcCompilerInfo
+nativeSettingGroups
+qmlTypeInfo
 rfc1034Identifier
+signingIdentities
+smimeMessageContent
 versionCompare
 
 
@@ -24,12 +44,12 @@ Utilities Service
 
 The Utilities service offers miscellaneous operations.
 Available Operations
-cStringQuote
-Utilities.cStringQuote(str: string): string
-Takes a string and escapes special characters in a way that the result is suitable for use as a C/C&#43;&#43; string literal. This function is typically used to specify values for cpp.defines.
-getHash
-Utilities.getHash(key: string): string
-Calculates a 16-byte hash of the input and returns it. Rules in modules should use this function to find unique locations for output artifacts in the build directory without duplicating the whole directory structure of the respective input file (to deal with the case of two files with the same name in different subdirectories of the same product). ">
+builtinExtensionNames
+Utilities.builtinExtensionNames(): string[]
+Returns the names of all builtin JavaScript extensions (services), such as &#34;File&#34;, &#34;TextFile&#34;, or &#34;Utilities&#34;. This function was introduced in version 1.9.1.
+canonicalArchitecture
+Utilities.canonicalArchitecture(architecture: string): string
+Returns the canonical name for the given architecture, mapping the various aliases an architecture may be known by to a single value. For example, both &#34;x86_64&#34; and &#34;amd64&#34; map to &#34;x86_64&#34;. An empty input yields an empty string. ">
     <link rel="canonical" href="https://qbs.io/docs/jsextension-utilities/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -45,9 +65,9 @@ Calculates a 16-byte hash of the input and returns it. Rules in modules should u
     <meta property="og:url" content="https://qbs.io/docs/jsextension-utilities/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual List of Built-in Services Utilities Service Qbs 3.3.0 Contents Available Operations cStringQuote getHash rfc1034Identifier versionCompare Utilities Service The Utilities service offers miscellaneous operations.
-Available Operations cStringQuote Utilities.cStringQuote(str: string): string Takes a string and escapes special characters in a way that the result is suitable for use as a C/C&#43;&#43; string literal. This function is typically used to specify values for cpp.defines.
-getHash Utilities.getHash(key: string): string Calculates a 16-byte hash of the input and returns it. Rules in modules should use this function to find unique locations for output artifacts in the build directory without duplicating the whole directory structure of the respective input file (to deal with the case of two files with the same name in different subdirectories of the same product).">
+	<meta property="og:description" content="Qbs Manual List of Built-in Services Utilities Service Qbs 3.4.0 Contents Available Operations builtinExtensionNames canonicalArchitecture canonicalPlatform canonicalTargetArchitecture canonicalToolchain certificateInfo clangClCompilerInfo cStringQuote getArchitecturesFromBinary getHash getNativeSetting installedClangCls installedMSVCs isSharedLibrary kernelVersion msvcCompilerInfo nativeSettingGroups qmlTypeInfo rfc1034Identifier signingIdentities smimeMessageContent versionCompare Utilities Service The Utilities service offers miscellaneous operations.
+Available Operations builtinExtensionNames Utilities.builtinExtensionNames(): string[] Returns the names of all builtin JavaScript extensions (services), such as &#34;File&#34;, &#34;TextFile&#34;, or &#34;Utilities&#34;. This function was introduced in version 1.9.1.
+canonicalArchitecture Utilities.canonicalArchitecture(architecture: string): string Returns the canonical name for the given architecture, mapping the various aliases an architecture may be known by to a single value. For example, both &#34;x86_64&#34; and &#34;amd64&#34; map to &#34;x86_64&#34;. An empty input yields an empty string.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -55,9 +75,9 @@ getHash Utilities.getHash(key: string): string Calculates a 16-byte hash of the 
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual List of Built-in Services Utilities Service Qbs 3.3.0 Contents Available Operations cStringQuote getHash rfc1034Identifier versionCompare Utilities Service The Utilities service offers miscellaneous operations.
-Available Operations cStringQuote Utilities.cStringQuote(str: string): string Takes a string and escapes special characters in a way that the result is suitable for use as a C/C&#43;&#43; string literal. This function is typically used to specify values for cpp.defines.
-getHash Utilities.getHash(key: string): string Calculates a 16-byte hash of the input and returns it. Rules in modules should use this function to find unique locations for output artifacts in the build directory without duplicating the whole directory structure of the respective input file (to deal with the case of two files with the same name in different subdirectories of the same product).">
+	<meta name="twitter:description" content="Qbs Manual List of Built-in Services Utilities Service Qbs 3.4.0 Contents Available Operations builtinExtensionNames canonicalArchitecture canonicalPlatform canonicalTargetArchitecture canonicalToolchain certificateInfo clangClCompilerInfo cStringQuote getArchitecturesFromBinary getHash getNativeSetting installedClangCls installedMSVCs isSharedLibrary kernelVersion msvcCompilerInfo nativeSettingGroups qmlTypeInfo rfc1034Identifier signingIdentities smimeMessageContent versionCompare Utilities Service The Utilities service offers miscellaneous operations.
+Available Operations builtinExtensionNames Utilities.builtinExtensionNames(): string[] Returns the names of all builtin JavaScript extensions (services), such as &#34;File&#34;, &#34;TextFile&#34;, or &#34;Utilities&#34;. This function was introduced in version 1.9.1.
+canonicalArchitecture Utilities.canonicalArchitecture(architecture: string): string Returns the canonical name for the given architecture, mapping the various aliases an architecture may be known by to a single value. For example, both &#34;x86_64&#34; and &#34;amd64&#34; map to &#34;x86_64&#34;. An empty input yields an empty string.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -89,20 +109,40 @@ getHash Utilities.getHash(key: string): string Calculates a 16-byte hash of the 
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/list-of-builtin-services/">List of Built-in Services</a></li>
 <li>Utilities Service</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
 <ul>
 <li class="level1"><a href="#available-operations">Available Operations</a></li>
+<li class="level2"><a href="#builtinextensionnames">builtinExtensionNames</a></li>
+<li class="level2"><a href="#canonicalarchitecture">canonicalArchitecture</a></li>
+<li class="level2"><a href="#canonicalplatform">canonicalPlatform</a></li>
+<li class="level2"><a href="#canonicaltargetarchitecture">canonicalTargetArchitecture</a></li>
+<li class="level2"><a href="#canonicaltoolchain">canonicalToolchain</a></li>
+<li class="level2"><a href="#certificateinfo">certificateInfo</a></li>
+<li class="level2"><a href="#clangclcompilerinfo">clangClCompilerInfo</a></li>
 <li class="level2"><a href="#cstringquote">cStringQuote</a></li>
+<li class="level2"><a href="#getarchitecturesfrombinary">getArchitecturesFromBinary</a></li>
 <li class="level2"><a href="#gethash">getHash</a></li>
+<li class="level2"><a href="#getnativesetting">getNativeSetting</a></li>
+<li class="level2"><a href="#installedclangcls">installedClangCls</a></li>
+<li class="level2"><a href="#installedmsvcs">installedMSVCs</a></li>
+<li class="level2"><a href="#issharedlibrary">isSharedLibrary</a></li>
+<li class="level2"><a href="#kernelversion">kernelVersion</a></li>
+<li class="level2"><a href="#msvccompilerinfo">msvcCompilerInfo</a></li>
+<li class="level2"><a href="#nativesettinggroups">nativeSettingGroups</a></li>
+<li class="level2"><a href="#qmltypeinfo">qmlTypeInfo</a></li>
 <li class="level2"><a href="#rfc1034identifier">rfc1034Identifier</a></li>
+<li class="level2"><a href="#signingidentities">signingIdentities</a></li>
+<li class="level2"><a href="#smimemessagecontent">smimeMessageContent</a></li>
 <li class="level2"><a href="#versioncompare">versionCompare</a></li>
 </ul>
 </div>
@@ -112,20 +152,115 @@ getHash Utilities.getHash(key: string): string Calculates a 16-byte hash of the 
 <div class="descr" id="details">
 <p>The <code translate="no">Utilities</code> service offers miscellaneous operations.</p>
 <h2 id="available-operations">Available Operations</h2>
+<h3 id="builtinextensionnames">builtinExtensionNames</h3>
+<pre class="cpp" translate="no">Utilities<span class="operator">.</span>builtinExtensionNames(): string<span class="operator">[</span><span class="operator">]</span></pre>
+<p>Returns the names of all builtin JavaScript extensions (services), such as <code translate="no">"File"</code>, <code translate="no">"TextFile"</code>, or <code translate="no">"Utilities"</code>. </p><p>This function was introduced in version 1.9.1.</p><p></p>
+<h3 id="canonicalarchitecture">canonicalArchitecture</h3>
+<pre class="cpp" translate="no">Utilities<span class="operator">.</span>canonicalArchitecture(architecture: string): string</pre>
+<p>Returns the canonical name for the given architecture, mapping the various aliases an architecture may be known by to a single value. For example, both <code translate="no">"x86_64"</code> and <code translate="no">"amd64"</code> map to <code translate="no">"x86_64"</code>. An empty input yields an empty string.</p>
+<p>See <a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#architecture-prop" translate="no">qbs.architecture</a>. </p><p>This function was introduced in version 1.2.</p><p></p>
+<h3 id="canonicalplatform">canonicalPlatform</h3>
+<pre class="cpp" translate="no">Utilities<span class="operator">.</span>canonicalPlatform(platform: string): string<span class="operator">[</span><span class="operator">]</span></pre>
+<p>Returns the list of canonical operating system identifiers for the given platform name. For example, <code translate="no">canonicalPlatform("macos")</code> returns <code translate="no">["macos", "darwin", "bsd", "unix"]</code>. These are the same values the <a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#targetOS-prop" translate="no">qbs.targetOS</a> property is populated with; see <a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#relation-between-targetplatform-and-targetos" translate="no">Relation between targetPlatform and targetOS</a> for the full mapping. </p><p>This function was introduced in version 1.11.</p><p></p>
+<h3 id="canonicaltargetarchitecture">canonicalTargetArchitecture</h3>
+<pre class="cpp" translate="no">Utilities<span class="operator">.</span>canonicalTargetArchitecture(architecture: string<span class="operator">,</span>
+                                      endianness<span class="operator">?</span>: string<span class="operator">,</span>
+                                      vendor<span class="operator">?</span>: string<span class="operator">,</span>
+                                      system<span class="operator">?</span>: string<span class="operator">,</span>
+                                      abi<span class="operator">?</span>: string): string</pre>
+<p>Returns the canonical target architecture string built from the given components. Only <code translate="no">architecture</code> is required; the remaining arguments (<code translate="no">endianness</code>, <code translate="no">vendor</code>, <code translate="no">system</code>, and <code translate="no">abi</code>) are optional and default to an empty string. </p><p>This function was introduced in version 1.7.1.</p><p></p>
+<h3 id="canonicaltoolchain">canonicalToolchain</h3>
+<pre class="cpp" translate="no">Utilities<span class="operator">.</span>canonicalToolchain(<span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>toolchain: string): string<span class="operator">[</span><span class="operator">]</span></pre>
+<p>Expands the given toolchain name (or names) into the full, canonically ordered toolchain list. For example, <code translate="no">canonicalToolchain("clang")</code> returns <code translate="no">["clang", "llvm", "gcc"]</code>.</p>
+<p>See <a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#toolchain-prop" translate="no">qbs.toolchain</a>. </p><p>This function was introduced in version 1.6.</p><p></p>
+<h3 id="certificateinfo">certificateInfo</h3>
+<pre class="cpp" translate="no">Utilities<span class="operator">.</span>certificateInfo(certificateData): object</pre>
+<p>Returns the properties of the given DER-encoded certificate as an object.</p>
+<div class="admonition note">
+<p><b>Note: </b>This operation is available on macOS only. </p><p>This function was introduced in version 1.5.</p><p></p>
+</div>
+<h3 id="clangclcompilerinfo">clangClCompilerInfo</h3>
+<pre class="cpp" translate="no">Utilities<span class="operator">.</span>clangClCompilerInfo(compilerFilePath: string<span class="operator">,</span>
+                              architecture: string<span class="operator">,</span>
+                              vcvarsallPath: string<span class="operator">,</span>
+                              compilerLanguage: string<span class="operator">,</span>
+                              sdkVersion: string): object</pre>
+<p>Returns information about the given clang-cl compiler as an object with the properties <code translate="no">buildEnvironment</code> and <code translate="no">macros</code>. The <code translate="no">compilerLanguage</code> argument must be either <code translate="no">"c"</code> or <code translate="no">"cpp"</code>.</p>
+<div class="admonition note">
+<p><b>Note: </b>This operation is available on Windows only. </p><p>This function was introduced in version 1.14.</p><p></p>
+</div>
 <h3 id="cstringquote">cStringQuote</h3>
-<pre class="cpp plain" translate="no">Utilities.cStringQuote(str: string): string</pre>
+<pre class="cpp" translate="no">Utilities<span class="operator">.</span>cStringQuote(str: string): string</pre>
 <p>Takes a string and escapes special characters in a way that the result is suitable for use as a C/C++ string literal. This function is typically used to specify values for <a href="https://qbs.io/
-/docs/qml-qbsmodules-cpp/#defines-prop" translate="no">cpp.defines</a>.</p>
+/docs/qml-qbsmodules-cpp/#defines-prop" translate="no">cpp.defines</a>. </p><p>This function was introduced in version 1.8.</p><p></p>
+<h3 id="getarchitecturesfrombinary">getArchitecturesFromBinary</h3>
+<pre class="cpp" translate="no">Utilities<span class="operator">.</span>getArchitecturesFromBinary(path: string): string<span class="operator">[</span><span class="operator">]</span></pre>
+<p>Returns the list of architectures contained in the given Mach-O file, fat binary, or static archive.</p>
+<div class="admonition note">
+<p><b>Note: </b>This operation is available on macOS only. </p><p>This function was introduced in version 1.13.</p><p></p>
+</div>
 <h3 id="gethash">getHash</h3>
-<pre class="cpp plain" translate="no">Utilities.getHash(key: string): string</pre>
-<p>Calculates a 16-byte hash of the input and returns it. Rules in modules should use this function to find unique locations for output artifacts in the build directory without duplicating the whole directory structure of the respective input file (to deal with the case of two files with the same name in different subdirectories of the same product).</p>
+<pre class="cpp" translate="no">Utilities<span class="operator">.</span>getHash(key: string): string</pre>
+<p>Calculates a 16-byte hash of the input and returns it. Rules in modules should use this function to find unique locations for output artifacts in the build directory without duplicating the whole directory structure of the respective input file (to deal with the case of two files with the same name in different subdirectories of the same product). </p><p>This function was introduced in version 1.4.</p><p></p>
+<h3 id="getnativesetting">getNativeSetting</h3>
+<pre class="cpp" translate="no">Utilities<span class="operator">.</span>getNativeSetting(filePath: string<span class="operator">,</span> key<span class="operator">?</span>: string<span class="operator">,</span> defaultValue<span class="operator">?</span>: var): var</pre>
+<p>Reads a value from a native settings store: the Windows registry, a macOS property list, or an INI file, depending on <code translate="no">filePath</code>. If <code translate="no">key</code> is omitted, the default value of the store is read. Returns <code translate="no">defaultValue</code> (or <code translate="no">undefined</code>) if the requested entry does not exist. </p><p>This function was introduced in version 1.2.</p><p></p>
+<h3 id="installedclangcls">installedClangCls</h3>
+<pre class="cpp" translate="no">Utilities<span class="operator">.</span>installedClangCls(path: string): object<span class="operator">[</span><span class="operator">]</span></pre>
+<p>Returns a list of the clang-cl compilers found under the given <code translate="no">path</code>.</p>
+<div class="admonition note">
+<p><b>Note: </b>This operation is available on Windows only. </p><p>This function was introduced in version 1.16.</p><p></p>
+</div>
+<h3 id="installedmsvcs">installedMSVCs</h3>
+<pre class="cpp" translate="no">Utilities<span class="operator">.</span>installedMSVCs(preferredArchitecture<span class="operator">?</span>: string): object<span class="operator">[</span><span class="operator">]</span></pre>
+<p>Returns a list of the installed MSVC toolchains. If <code translate="no">preferredArchitecture</code> is given, the result is restricted to toolchains targeting that architecture; otherwise the host architecture is used.</p>
+<div class="admonition note">
+<p><b>Note: </b>This operation is available on Windows only. </p><p>This function was introduced in version 1.16.</p><p></p>
+</div>
+<h3 id="issharedlibrary">isSharedLibrary</h3>
+<pre class="cpp" translate="no">Utilities<span class="operator">.</span>isSharedLibrary(fileName: string): boolean</pre>
+<p>Returns <code translate="no">true</code> if the given file name denotes a shared library according to the platform's naming conventions, and <code translate="no">false</code> otherwise. </p><p>This function was introduced in version 1.13.</p><p></p>
+<h3 id="kernelversion">kernelVersion</h3>
+<pre class="cpp" translate="no">Utilities<span class="operator">.</span>kernelVersion(): string</pre>
+<p>Returns the version of the host operating system's kernel. </p><p>This function was introduced in version 1.8.</p><p></p>
+<h3 id="msvccompilerinfo">msvcCompilerInfo</h3>
+<pre class="cpp" translate="no">Utilities<span class="operator">.</span>msvcCompilerInfo(compilerFilePath: string<span class="operator">,</span>
+                           compilerLanguage: string<span class="operator">,</span>
+                           sdkVersion: string): object</pre>
+<p>Returns information about the given MSVC compiler as an object with the properties <code translate="no">buildEnvironment</code> and <code translate="no">macros</code>. The <code translate="no">compilerLanguage</code> argument must be either <code translate="no">"c"</code> or <code translate="no">"cpp"</code>.</p>
+<div class="admonition note">
+<p><b>Note: </b>This operation is available on Windows only. </p><p>This function was introduced in version 1.6.</p><p></p>
+</div>
+<h3 id="nativesettinggroups">nativeSettingGroups</h3>
+<pre class="cpp" translate="no">Utilities<span class="operator">.</span>nativeSettingGroups(filePath: string): string<span class="operator">[</span><span class="operator">]</span></pre>
+<p>Returns the top-level groups of the native settings store identified by <code translate="no">filePath</code>. See also <a href="https://qbs.io/
+/docs/jsextension-utilities/#getnativesetting">getNativeSetting</a>. </p><p>This function was introduced in version 1.5.</p><p></p>
+<h3 id="qmltypeinfo">qmlTypeInfo</h3>
+<pre class="cpp" translate="no">Utilities<span class="operator">.</span>qmlTypeInfo(): string</pre>
+<p>Returns QML type information about the qbs language items. This is primarily intended for use by tooling, such as IDEs. </p><p>This function was introduced in version 1.9.1.</p><p></p>
 <h3 id="rfc1034identifier">rfc1034Identifier</h3>
-<pre class="cpp plain" translate="no">Utilities.rfc1034Identifier(str: string): string</pre>
-<p>Returns an RFC-1034 compliant identifier based on the given string by replacing each character that is not Latin alphanumeric or <code translate="no">.</code> with <code translate="no">-</code>.</p>
+<pre class="cpp" translate="no">Utilities<span class="operator">.</span>rfc1034Identifier(str: string): string</pre>
+<p>Returns an RFC-1034 compliant identifier based on the given string by replacing each character that is not Latin alphanumeric or <code translate="no">.</code> with <code translate="no">-</code>. </p><p>This function was introduced in version 1.0.</p><p></p>
+<h3 id="signingidentities">signingIdentities</h3>
+<pre class="cpp" translate="no">Utilities<span class="operator">.</span>signingIdentities(): object</pre>
+<p>Returns a map of the code-signing identities available on the host.</p>
+<div class="admonition note">
+<p><b>Note: </b>This operation is available on macOS only. </p><p>This function was introduced in version 1.5.</p><p></p>
+</div>
+<h3 id="smimemessagecontent">smimeMessageContent</h3>
+<pre class="cpp" translate="no">Utilities<span class="operator">.</span>smimeMessageContent(filePath: string): string</pre>
+<p>Returns the decoded content of the S/MIME message located at <code translate="no">filePath</code>, or <code translate="no">undefined</code> if the file cannot be read. A provisioning profile is an S/MIME message whose content is an XML property list, so this operation can be used to read such files.</p>
+<div class="admonition note">
+<p><b>Note: </b>This operation is available on macOS only. </p><p>This function was introduced in version 1.5.</p><p></p>
+</div>
 <h3 id="versioncompare">versionCompare</h3>
-<pre class="cpp plain" translate="no">Utilities.versionCompare(version1: string, version2: string): number</pre>
+<pre class="cpp" translate="no">Utilities<span class="operator">.</span>versionCompare(version1: string<span class="operator">,</span> version2: string): number</pre>
 <p>Interprets the two arguments as version numbers and returns a number that is smaller than, equal to, or greater than zero if <code translate="no">version1</code> is smaller than, equal to, or greater than <code translate="no">version2</code>, respectively.</p>
-<p>The version strings consist of up to three numbers separated by dots.</p>
+<p>The version strings consist of up to three numbers separated by dots. </p><p>This function was introduced in version 1.6.</p><p></p>
 </div>
 <!-- @@@jsextension-utilities.html -->
 </div>

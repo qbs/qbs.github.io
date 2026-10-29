@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsProbes
 IncludeProbe
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 Contents
@@ -47,7 +49,7 @@ For example, IncludeProbe can be used to search for a zlib header as follows: ">
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsprobes-includeprobe/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsProbes IncludeProbe Qbs 3.3.0 Contents Detailed Description IncludeProbe Locates header files outside the project. More...
+	<meta property="og:description" content="Qbs Manual QbsProbes IncludeProbe Qbs 3.4.0 Contents Detailed Description IncludeProbe Locates header files outside the project. More...
 Inherits: PathProbe
 List of all members, including inherited members IncludeProbe is part of List of All Items. Detailed Description This is the convenience item that searches for files in &#34;include&#34; directories.
 For example, IncludeProbe can be used to search for a zlib header as follows:">
@@ -58,7 +60,7 @@ For example, IncludeProbe can be used to search for a zlib header as follows:">
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsProbes IncludeProbe Qbs 3.3.0 Contents Detailed Description IncludeProbe Locates header files outside the project. More...
+	<meta name="twitter:description" content="Qbs Manual QbsProbes IncludeProbe Qbs 3.4.0 Contents Detailed Description IncludeProbe Locates header files outside the project. More...
 Inherits: PathProbe
 List of all members, including inherited members IncludeProbe is part of List of All Items. Detailed Description This is the convenience item that searches for files in &#34;include&#34; directories.
 For example, IncludeProbe can be used to search for a zlib header as follows:">
@@ -93,12 +95,14 @@ For example, IncludeProbe can be used to search for a zlib header as follows:">
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsprobes-qmlmodule/" translate="no">QbsProbes</a></li>
 <li>IncludeProbe</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -131,11 +135,12 @@ For example, IncludeProbe can be used to search for a zlib header as follows:">
 
 <span class="type"><a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-cppapplication/" translate="no">CppApplication</a></span> {
-    <span class="type">Probes</span>.IncludeProbe {
+    <span class="type"><a href="https://qbs.io/
+/docs/qml-qbsprobes-includeprobe/" translate="no">Probes.IncludeProbe</a></span> {
         <span class="name">id</span>: <span class="name">zlibProbe</span>
         <span class="name">names</span>: <span class="string">"zlib.h"</span>
     }
-    <span class="name">cpp</span>.includePaths: <span class="name">zlibProbe</span>.<span class="name">found</span> ? [<span class="name">zlibProbe</span>.<span class="name">path</span>] : []
+    <span class="name">cpp.includePaths</span>: <span class="name">zlibProbe</span>.<span class="name">found</span> ? [<span class="name">zlibProbe</span>.<span class="name">path</span>] : []
     <span class="name">files</span>: <span class="string">'main.cpp'</span>
 }</pre>
 <!-- @@@IncludeProbe -->

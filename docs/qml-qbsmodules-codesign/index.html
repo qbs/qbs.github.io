@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsModules
 codesign
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 Contents
@@ -55,7 +57,7 @@ useApksigner : bool (since Qbs 1.19)
 
 
 Detailed Description
-The codesign module contains properties and rules for code signing on Apple and Android platforms. ">
+The codesign module contains properties and rules for code signing on Apple, Android, and Windows platforms. ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-codesign/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -71,8 +73,8 @@ The codesign module contains properties and rules for code signing on Apple and 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-codesign/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsModules codesign Qbs 3.3.0 Contents Properties Detailed Description Relevant File Tags codesign Provides code signing support. More...
-Since: Qbs 1.19 List of all members, including inherited members Properties certificatePassword : string (since Qbs 1.19) certificatePath : string (since Qbs 1.19) codesignFlags : stringList (since Qbs 1.19) codesignName : string (since Qbs 1.19) codesignPath : string (since Qbs 1.19) crossCertificatePath : string (since Qbs 1.19) enableCodeSigning : bool (since Qbs 1.19) hashAlgorithm : string (since Qbs 1.19) keyAlias : string (since Qbs 1.19) keyPassword : string (since Qbs 1.19) keystorePassword : string (since Qbs 1.19) keystorePath : string (since Qbs 1.19) provisioningProfile : string (since Qbs 1.19) provisioningProfilesPath : path (since Qbs 1.19) rootSubjectName : string (since Qbs 1.19) signingIdentity : string (since Qbs 1.19) signingTimestamp : string (since Qbs 1.19) signingType : string (since Qbs 1.19) subjectName : string (since Qbs 1.19) teamIdentifier : string (since Qbs 1.19) timestampAlgorithm : string (since Qbs 1.19.2) useApksigner : bool (since Qbs 1.19) Detailed Description The codesign module contains properties and rules for code signing on Apple and Android platforms.">
+	<meta property="og:description" content="Qbs Manual QbsModules codesign Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags codesign Provides code signing support. More...
+Since: Qbs 1.19 List of all members, including inherited members Properties certificatePassword : string (since Qbs 1.19) certificatePath : string (since Qbs 1.19) codesignFlags : stringList (since Qbs 1.19) codesignName : string (since Qbs 1.19) codesignPath : string (since Qbs 1.19) crossCertificatePath : string (since Qbs 1.19) enableCodeSigning : bool (since Qbs 1.19) hashAlgorithm : string (since Qbs 1.19) keyAlias : string (since Qbs 1.19) keyPassword : string (since Qbs 1.19) keystorePassword : string (since Qbs 1.19) keystorePath : string (since Qbs 1.19) provisioningProfile : string (since Qbs 1.19) provisioningProfilesPath : path (since Qbs 1.19) rootSubjectName : string (since Qbs 1.19) signingIdentity : string (since Qbs 1.19) signingTimestamp : string (since Qbs 1.19) signingType : string (since Qbs 1.19) subjectName : string (since Qbs 1.19) teamIdentifier : string (since Qbs 1.19) timestampAlgorithm : string (since Qbs 1.19.2) useApksigner : bool (since Qbs 1.19) Detailed Description The codesign module contains properties and rules for code signing on Apple, Android, and Windows platforms.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -80,8 +82,8 @@ Since: Qbs 1.19 List of all members, including inherited members Properties cert
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsModules codesign Qbs 3.3.0 Contents Properties Detailed Description Relevant File Tags codesign Provides code signing support. More...
-Since: Qbs 1.19 List of all members, including inherited members Properties certificatePassword : string (since Qbs 1.19) certificatePath : string (since Qbs 1.19) codesignFlags : stringList (since Qbs 1.19) codesignName : string (since Qbs 1.19) codesignPath : string (since Qbs 1.19) crossCertificatePath : string (since Qbs 1.19) enableCodeSigning : bool (since Qbs 1.19) hashAlgorithm : string (since Qbs 1.19) keyAlias : string (since Qbs 1.19) keyPassword : string (since Qbs 1.19) keystorePassword : string (since Qbs 1.19) keystorePath : string (since Qbs 1.19) provisioningProfile : string (since Qbs 1.19) provisioningProfilesPath : path (since Qbs 1.19) rootSubjectName : string (since Qbs 1.19) signingIdentity : string (since Qbs 1.19) signingTimestamp : string (since Qbs 1.19) signingType : string (since Qbs 1.19) subjectName : string (since Qbs 1.19) teamIdentifier : string (since Qbs 1.19) timestampAlgorithm : string (since Qbs 1.19.2) useApksigner : bool (since Qbs 1.19) Detailed Description The codesign module contains properties and rules for code signing on Apple and Android platforms.">
+	<meta name="twitter:description" content="Qbs Manual QbsModules codesign Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags codesign Provides code signing support. More...
+Since: Qbs 1.19 List of all members, including inherited members Properties certificatePassword : string (since Qbs 1.19) certificatePath : string (since Qbs 1.19) codesignFlags : stringList (since Qbs 1.19) codesignName : string (since Qbs 1.19) codesignPath : string (since Qbs 1.19) crossCertificatePath : string (since Qbs 1.19) enableCodeSigning : bool (since Qbs 1.19) hashAlgorithm : string (since Qbs 1.19) keyAlias : string (since Qbs 1.19) keyPassword : string (since Qbs 1.19) keystorePassword : string (since Qbs 1.19) keystorePath : string (since Qbs 1.19) provisioningProfile : string (since Qbs 1.19) provisioningProfilesPath : path (since Qbs 1.19) rootSubjectName : string (since Qbs 1.19) signingIdentity : string (since Qbs 1.19) signingTimestamp : string (since Qbs 1.19) signingType : string (since Qbs 1.19) subjectName : string (since Qbs 1.19) teamIdentifier : string (since Qbs 1.19) timestampAlgorithm : string (since Qbs 1.19.2) useApksigner : bool (since Qbs 1.19) Detailed Description The codesign module contains properties and rules for code signing on Apple, Android, and Windows platforms.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -113,12 +115,14 @@ Since: Qbs 1.19 List of all members, including inherited members Properties cert
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>codesign</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -190,7 +194,24 @@ Since: Qbs 1.19 List of all members, including inherited members Properties cert
 </ul>
 <!-- $$$codesign-description -->
 <h2 id="details">Detailed Description</h2>
-<p>The <code translate="no">codesign</code> module contains properties and rules for code signing on Apple and Android platforms.</p>
+<p>The <code translate="no">codesign</code> module contains properties and rules for code signing on Apple, Android, and Windows platforms.</p>
+<p>The tool used to sign Windows artifacts (applications, libraries, and installers) depends on the host operating system:</p>
+<ul>
+<li>On Windows hosts, signing is performed with the <code translate="no">signtool</code> utility from the Windows SDK. The signing certificate may be selected from the Windows certificate store (via <a href="https://qbs.io/
+/docs/qml-qbsmodules-codesign/#subjectName-prop" translate="no">subjectName</a>) or supplied as a PKCS#12 (PFX) file.</li>
+<li>On non-Windows hosts, signing is performed with <a href="https://github.com/mtrojnar/osslsigncode">osslsigncode</a> version 2.0 or later. By default it is located in the <code translate="no">PATH</code>, but its location can be set explicitly via <a href="https://qbs.io/
+/docs/qml-qbsmodules-codesign/#codesignPath-prop" translate="no">codesignPath</a>. This makes it possible to sign a cross-compiled binary or an NSIS, Inno Setup, or WiX installer that was built on Linux or macOS. The certificate must be supplied as a PKCS#12 (PFX) file. Available since Qbs 3.4.</li>
+</ul>
+<p>Because the two backends are different tools, they do not accept the same set of properties. <a href="https://qbs.io/
+/docs/qml-qbsmodules-codesign/#certificatePath-prop" translate="no">certificatePath</a>, <a href="https://qbs.io/
+/docs/qml-qbsmodules-codesign/#certificatePassword-prop" translate="no">certificatePassword</a>, <a href="https://qbs.io/
+/docs/qml-qbsmodules-codesign/#hashAlgorithm-prop" translate="no">hashAlgorithm</a>, and <a href="https://qbs.io/
+/docs/qml-qbsmodules-codesign/#signingTimestamp-prop" translate="no">signingTimestamp</a> are honored by both <code translate="no">signtool</code> and <code translate="no">osslsigncode</code>. The <a href="https://qbs.io/
+/docs/qml-qbsmodules-codesign/#subjectName-prop" translate="no">subjectName</a>, <a href="https://qbs.io/
+/docs/qml-qbsmodules-codesign/#rootSubjectName-prop" translate="no">rootSubjectName</a>, <a href="https://qbs.io/
+/docs/qml-qbsmodules-codesign/#timestampAlgorithm-prop" translate="no">timestampAlgorithm</a>, and <a href="https://qbs.io/
+/docs/qml-qbsmodules-codesign/#crossCertificatePath-prop" translate="no">crossCertificatePath</a> properties apply to <code translate="no">signtool</code> only and are ignored by <code translate="no">osslsigncode</code>. To pass an option that has no dedicated property to the underlying tool, use <a href="https://qbs.io/
+/docs/qml-qbsmodules-codesign/#codesignFlags-prop" translate="no">codesignFlags</a>.</p>
 <h3 id="relevant-file-tags">Relevant File Tags</h3>
 <div class="table"><table class="generic">
 <thead><tr class="qt-style"><th>Tag</th><th>Auto-tagged File Names</th><th>Since</th><th>Description</th></tr></thead>
@@ -201,207 +222,114 @@ Since: Qbs 1.19 List of all members, including inherited members Properties cert
 <!-- @@@codesign -->
 <h2>Property Documentation</h2>
 <!-- $$$certificatePassword -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="certificatePassword-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">certificatePassword</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Specifies the password to use when opening a signing certificate file (*.pfx).</p>
+<h3 class="fn qml-member qml-property" id="certificatePassword-prop" translate="no"><span class="name">certificatePassword</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></h3>
+<p>Specifies the password to use when opening a signing certificate file (*.pfx).</p>
+<p>This property is also used when signing with osslsigncode on non-Windows hosts.</p>
 <p>Default: <code translate="no">undefined</code></p>
 <p>This property is specific to Windows.</p>
 <p>This property was introduced in Qbs 1.19.</p>
-</div></div><!-- @@@certificatePassword -->
-<br>
+<!-- @@@certificatePassword -->
 <!-- $$$certificatePath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="certificatePath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">certificatePath</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Specifies the full path to the signing certificate file (*.pfx).</p>
+<h3 class="fn qml-member qml-property" id="certificatePath-prop" translate="no"><span class="name">certificatePath</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></h3>
+<p>Specifies the full path to the signing certificate file (*.pfx).</p>
+<p>This property is also used when signing with osslsigncode on non-Windows hosts, where a PKCS#12 (PFX) certificate is required.</p>
 <p>Default: <code translate="no">undefined</code></p>
 <p>This property is specific to Windows.</p>
 <p>This property was introduced in Qbs 1.19.</p>
-</div></div><!-- @@@certificatePath -->
-<br>
+<!-- @@@certificatePath -->
 <!-- $$$codesignFlags -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="codesignFlags-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">codesignFlags</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Additional flags passed to the <code translate="no">codesign</code> tool.</p>
+<h3 class="fn qml-member qml-property" id="codesignFlags-prop" translate="no"><span class="name">codesignFlags</span> : <span class="type">stringList</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></h3>
+<p>Additional command-line flags passed to the underlying code signing tool (for example, <code translate="no">codesign</code> on Apple, or <code translate="no">signtool</code> and <code translate="no">osslsigncode</code> for Windows artifacts). Use this to set options that do not have a dedicated property.</p>
 <p>Default: Undefined</p>
 <p>This property was introduced in Qbs 1.19.</p>
-</div></div><!-- @@@codesignFlags -->
-<br>
+<!-- @@@codesignFlags -->
 <!-- $$$codesignName -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="codesignName-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">codesignName</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The name of the <code translate="no">codesign</code> binary.</p>
+<h3 class="fn qml-member qml-property" id="codesignName-prop" translate="no"><span class="name">codesignName</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></h3>
+<p>The name of the <code translate="no">codesign</code> binary.</p>
 <p>Default: Determined automatically</p>
 <p>This property was introduced in Qbs 1.19.</p>
-</div></div><!-- @@@codesignName -->
-<br>
+<!-- @@@codesignName -->
 <!-- $$$codesignPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="codesignPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">codesignPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Path to the <code translate="no">codesign</code> tool.</p>
+<h3 class="fn qml-member qml-property" id="codesignPath-prop" translate="no"><span class="name">codesignPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></h3>
+<p>Path to the <code translate="no">codesign</code> tool.</p>
 <p>Default: Determined automatically</p>
 <p>This property was introduced in Qbs 1.19.</p>
-</div></div><!-- @@@codesignPath -->
-<br>
+<!-- @@@codesignPath -->
 <!-- $$$crossCertificatePath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="crossCertificatePath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">crossCertificatePath</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Specifies the full path to the additional certificate file (*.cer).</p>
+<h3 class="fn qml-member qml-property" id="crossCertificatePath-prop" translate="no"><span class="name">crossCertificatePath</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></h3>
+<p>Specifies the full path to the additional certificate file (*.cer).</p>
 <p>Default: <code translate="no">undefined</code></p>
 <p>This property is specific to Windows.</p>
 <p>This property was introduced in Qbs 1.19.</p>
-</div></div><!-- @@@crossCertificatePath -->
-<br>
+<!-- @@@crossCertificatePath -->
 <!-- $$$enableCodeSigning -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="enableCodeSigning-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">enableCodeSigning</span> : <span class="type">bool</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Whether to actually perform code signing.</p>
+<h3 class="fn qml-member qml-property" id="enableCodeSigning-prop" translate="no"><span class="name">enableCodeSigning</span> : <span class="type">bool</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></h3>
+<p>Whether to actually perform code signing.</p>
 <p>Default: <code translate="no">false</code></p>
 <p>This property was introduced in Qbs 1.19.</p>
-</div></div><!-- @@@enableCodeSigning -->
-<br>
+<!-- @@@enableCodeSigning -->
 <!-- $$$hashAlgorithm -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="hashAlgorithm-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">hashAlgorithm</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Specifies the default hash algorithm used on the signing certificate. The possible values are <code translate="no">sha1</code>, <code translate="no">sha256</code>, <code translate="no">sha384</code>, and <code translate="no">sha512</code>.</p>
+<h3 class="fn qml-member qml-property" id="hashAlgorithm-prop" translate="no"><span class="name">hashAlgorithm</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></h3>
+<p>Specifies the default hash algorithm used on the signing certificate. The possible values are <code translate="no">sha1</code>, <code translate="no">sha256</code>, <code translate="no">sha384</code>, and <code translate="no">sha512</code>.</p>
 <div class="admonition note">
 <p><b>Note: </b>Only available in Windows 10 kit builds 20236 and later.</p>
 </div>
 <p>Default: <code translate="no">undefined</code></p>
 <p>This property is specific to Windows.</p>
 <p>This property was introduced in Qbs 1.19.</p>
-</div></div><!-- @@@hashAlgorithm -->
-<br>
+<!-- @@@hashAlgorithm -->
 <!-- $$$keyAlias -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="keyAlias-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">keyAlias</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The key alias.</p>
+<h3 class="fn qml-member qml-property" id="keyAlias-prop" translate="no"><span class="name">keyAlias</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></h3>
+<p>The key alias.</p>
 <p>Default: <code translate="no">"androiddebugkey"</code></p>
 <p>This property is specific to Android platforms.</p>
 <p>This property was introduced in Qbs 1.19.</p>
-</div></div><!-- @@@keyAlias -->
-<br>
+<!-- @@@keyAlias -->
 <!-- $$$keyPassword -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="keyPassword-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">keyPassword</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The key password.</p>
+<h3 class="fn qml-member qml-property" id="keyPassword-prop" translate="no"><span class="name">keyPassword</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></h3>
+<p>The key password.</p>
 <p>Default: <code translate="no">"android"</code></p>
 <p>This property is specific to Android platforms.</p>
 <p>This property was introduced in Qbs 1.19.</p>
-</div></div><!-- @@@keyPassword -->
-<br>
+<!-- @@@keyPassword -->
 <!-- $$$keystorePassword -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="keystorePassword-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">keystorePassword</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The keystore password.</p>
+<h3 class="fn qml-member qml-property" id="keystorePassword-prop" translate="no"><span class="name">keystorePassword</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></h3>
+<p>The keystore password.</p>
 <p>Default: <code translate="no">"android"</code></p>
 <p>This property is specific to Android platforms.</p>
 <p>This property was introduced in Qbs 1.19.</p>
-</div></div><!-- @@@keystorePassword -->
-<br>
+<!-- @@@keystorePassword -->
 <!-- $$$keystorePath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="keystorePath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">keystorePath</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The absolute path to the keystore file.</p>
+<h3 class="fn qml-member qml-property" id="keystorePath-prop" translate="no"><span class="name">keystorePath</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></h3>
+<p>The absolute path to the keystore file.</p>
 <p>Default: <code translate="no">"${HOME}/.android/debug.keystore"</code></p>
 <p>This property is specific to Android platforms.</p>
 <p>This property was introduced in Qbs 1.19.</p>
-</div></div><!-- @@@keystorePath -->
-<br>
+<!-- @@@keystorePath -->
 <!-- $$$provisioningProfile -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="provisioningProfile-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">provisioningProfile</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Name or UUID of the provisioning profile to embed in the product. Typically this should be left blank to allow Qbs to use automatic provisioning.</p>
+<h3 class="fn qml-member qml-property" id="provisioningProfile-prop" translate="no"><span class="name">provisioningProfile</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></h3>
+<p>Name or UUID of the provisioning profile to embed in the product. Typically this should be left blank to allow Qbs to use automatic provisioning.</p>
 <p>Default: <code translate="no">undefined</code></p>
 <p>This property is specific to Apple platforms.</p>
 <p>This property was introduced in Qbs 1.19.</p>
-</div></div><!-- @@@provisioningProfile -->
-<br>
+<!-- @@@provisioningProfile -->
 <!-- $$$provisioningProfilesPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="provisioningProfilesPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">provisioningProfilesPath</span> : <span class="type">path</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Path to directory containing provisioning profiles installed on the system. This should not normally need to be changed.</p>
+<h3 class="fn qml-member qml-property" id="provisioningProfilesPath-prop" translate="no"><span class="name">provisioningProfilesPath</span> : <span class="type">path</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></h3>
+<p>Path to directory containing provisioning profiles installed on the system. This should not normally need to be changed.</p>
 <p>Default: <code translate="no">"~/Library/MobileDevice/Provisioning Profiles"</code></p>
 <p>This property is specific to Apple platforms.</p>
 <p>This property was introduced in Qbs 1.19.</p>
-</div></div><!-- @@@provisioningProfilesPath -->
-<br>
+<!-- @@@provisioningProfilesPath -->
 <!-- $$$rootSubjectName -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="rootSubjectName-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">rootSubjectName</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Specifies the name of the subject of the root certificate that the signing certificate must chain to. This value may be a substring of the entire subject name of the root certificate.</p>
+<h3 class="fn qml-member qml-property" id="rootSubjectName-prop" translate="no"><span class="name">rootSubjectName</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></h3>
+<p>Specifies the name of the subject of the root certificate that the signing certificate must chain to. This value may be a substring of the entire subject name of the root certificate.</p>
 <p>Default: <code translate="no">undefined</code></p>
 <p>This property is specific to Windows.</p>
 <p>This property was introduced in Qbs 1.19.</p>
-</div></div><!-- @@@rootSubjectName -->
-<br>
+<!-- @@@rootSubjectName -->
 <!-- $$$signingIdentity -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="signingIdentity-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">signingIdentity</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Search string used to find the certificate to sign the product. This does not have to be a full certificate name like "Mac Developer: John Doe (XXXXXXXXXX)", and can instead be a partial string like "Mac Developer" or the certificate's SHA1 fingerprint. The search string should generally be one of the following:</p>
+<h3 class="fn qml-member qml-property" id="signingIdentity-prop" translate="no"><span class="name">signingIdentity</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></h3>
+<p>Search string used to find the certificate to sign the product. This does not have to be a full certificate name like "Mac Developer: John Doe (XXXXXXXXXX)", and can instead be a partial string like "Mac Developer" or the certificate's SHA1 fingerprint. The search string should generally be one of the following:</p>
 <ul>
 <li>3rd Party Mac Developer Application</li>
 <li>3rd Party Mac Developer Installer</li>
@@ -418,28 +346,16 @@ Since: Qbs 1.19 List of all members, including inherited members Properties cert
 /docs/qml-qbsmodules-codesign/#signingType-prop" translate="no">signingType</a></p>
 <p>This property is specific to Apple platforms.</p>
 <p>This property was introduced in Qbs 1.19.</p>
-</div></div><!-- @@@signingIdentity -->
-<br>
+<!-- @@@signingIdentity -->
 <!-- $$$signingTimestamp -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="signingTimestamp-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">signingTimestamp</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>URL of the timestamp authority RFC 3161 server to be contacted to authenticate code signing. <code translate="no">undefined</code> or <code translate="no">empty</code> indicates that a system-specific default should be used; <code translate="no">"none"</code> explicitly disables the use of timestamp services on Apple platforms.</p>
+<h3 class="fn qml-member qml-property" id="signingTimestamp-prop" translate="no"><span class="name">signingTimestamp</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></h3>
+<p>URL of the timestamp authority RFC 3161 server to be contacted to authenticate code signing. <code translate="no">undefined</code> or <code translate="no">empty</code> indicates that a system-specific default should be used; <code translate="no">"none"</code> explicitly disables the use of timestamp services on Apple platforms.</p>
 <p>Default: <code translate="no">"none"</code> on Apple, <code translate="no">undefined</code> otherwise</p>
 <p>This property was introduced in Qbs 1.19.</p>
-</div></div><!-- @@@signingTimestamp -->
-<br>
+<!-- @@@signingTimestamp -->
 <!-- $$$signingType -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="signingType-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">signingType</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Type of code signing to use. This should generally be used in preference to an explicit signing identity like "Mac Developer: John Doe (XXXXXXXXXX)" since it is not user specific and can be set in a project file. Possible values include: <code translate="no">"app-store"</code>, <code translate="no">"apple-id"</code>, <code translate="no">"ad-hoc"</code>, which sign for the App Store or Mac App Store, Developer ID, and Ad-hoc code signing, respectively.</p>
+<h3 class="fn qml-member qml-property" id="signingType-prop" translate="no"><span class="name">signingType</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></h3>
+<p>Type of code signing to use. This should generally be used in preference to an explicit signing identity like "Mac Developer: John Doe (XXXXXXXXXX)" since it is not user specific and can be set in a project file. Possible values include: <code translate="no">"app-store"</code>, <code translate="no">"apple-id"</code>, <code translate="no">"ad-hoc"</code>, which sign for the App Store or Mac App Store, Developer ID, and Ad-hoc code signing, respectively.</p>
 <h4 id="relation-between-the-signingtype-and-signingidentity">Relation between the signingType and signingIdentity</h4>
 <p>The following table shows how the <a href="https://qbs.io/
 /docs/qml-qbsmodules-codesign/#signingIdentity-prop" translate="no">signingIdentity</a>'s default value is calculated.</p>
@@ -455,63 +371,38 @@ Since: Qbs 1.19 List of all members, including inherited members Properties cert
 <p>Default: Determined automatically</p>
 <p>This property is specific to Apple platforms.</p>
 <p>This property was introduced in Qbs 1.19.</p>
-</div></div><!-- @@@signingType -->
-<br>
+<!-- @@@signingType -->
 <!-- $$$subjectName -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="subjectName-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">subjectName</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Specifies the name of the subject of the signing certificate. This value can be a substring of the entire subject name.</p>
+<h3 class="fn qml-member qml-property" id="subjectName-prop" translate="no"><span class="name">subjectName</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></h3>
+<p>Specifies the name of the subject of the signing certificate. This value can be a substring of the entire subject name.</p>
 <p>Default: <code translate="no">undefined</code></p>
 <p>This property is specific to Windows.</p>
 <p>This property was introduced in Qbs 1.19.</p>
-</div></div><!-- @@@subjectName -->
-<br>
+<!-- @@@subjectName -->
 <!-- $$$teamIdentifier -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="teamIdentifier-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">teamIdentifier</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Human readable name or 10-digit identifier of the Apple development team that the signing identity belongs to. This is used to disambiguate between multiple certificates of the same type in different teams. Typically this can be left blank if the development machine is only signed in to a single development team, and should be set in a profile otherwise.</p>
+<h3 class="fn qml-member qml-property" id="teamIdentifier-prop" translate="no"><span class="name">teamIdentifier</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></h3>
+<p>Human readable name or 10-digit identifier of the Apple development team that the signing identity belongs to. This is used to disambiguate between multiple certificates of the same type in different teams. Typically this can be left blank if the development machine is only signed in to a single development team, and should be set in a profile otherwise.</p>
 <p>Default: <code translate="no">undefined</code></p>
 <p>This property is specific to Apple platforms.</p>
 <p>This property was introduced in Qbs 1.19.</p>
-</div></div><!-- @@@teamIdentifier -->
-<br>
+<!-- @@@teamIdentifier -->
 <!-- $$$timestampAlgorithm -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="timestampAlgorithm-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">timestampAlgorithm</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19.2]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Specifies the default timestamp algorithm used together with the <code translate="no">signingTimestamp</code> property. The possible values are <code translate="no">sha1</code>, <code translate="no">sha256</code>.</p>
+<h3 class="fn qml-member qml-property" id="timestampAlgorithm-prop" translate="no"><span class="name">timestampAlgorithm</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.19.2]</code></h3>
+<p>Specifies the default timestamp algorithm used together with the <code translate="no">signingTimestamp</code> property. The possible values are <code translate="no">sha1</code>, <code translate="no">sha256</code>.</p>
 <div class="admonition note">
 <p><b>Note: </b>If this value is not set, then the default sha1 algorithm will be used.</p>
 </div>
 <p>Default: <code translate="no">undefined</code></p>
 <p>This property is specific to Windows.</p>
 <p>This property was introduced in Qbs 1.19.2.</p>
-</div></div><!-- @@@timestampAlgorithm -->
-<br>
+<!-- @@@timestampAlgorithm -->
 <!-- $$$useApksigner -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="useApksigner-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">useApksigner</span> : <span class="type">bool</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>If <code translate="no">true</code>, the package is signed using apksignerFilePath binary. Set this property to <code translate="no">false</code> to use the jarsignerFilePath one. Set by the Android.sdk module.</p>
+<h3 class="fn qml-member qml-property" id="useApksigner-prop" translate="no"><span class="name">useApksigner</span> : <span class="type">bool</span> <code class="details extra" translate="no">[since Qbs 1.19]</code></h3>
+<p>If <code translate="no">true</code>, the package is signed using apksignerFilePath binary. Set this property to <code translate="no">false</code> to use the jarsignerFilePath one. Set by the Android.sdk module.</p>
 <p>Default: <code translate="no">true</code></p>
 <p>This property is specific to Android platforms.</p>
 <p>This property was introduced in Qbs 1.19.</p>
-</div></div><!-- @@@useApksigner -->
-<br>
+<!-- @@@useApksigner -->
 </div>
 
 

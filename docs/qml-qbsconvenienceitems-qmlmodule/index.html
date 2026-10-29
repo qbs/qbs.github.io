@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en-us" class="bg-white dark:bg-gray-700 font-display text-black dark:text-white"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Qbs</title>
+    <meta name="description" content="
+Qbs Manual
+QbsConvenienceItems
+QmlModule
+Qbs 3.4.0
+
+
+
+
+Plugin
+QtApplication
+
+
+
+Contents
+
+Properties
+Detailed Description
+What QmlModule Does Automatically
+Usage
+Dynamic Plugin — Linked Directly by the Application
+Dynamic Plugin — Loaded at Runtime via Import Path
+Static Plugin
+
+
+
+QmlModule
+
+QML extension module consisting of a plugin library and QML files. More...
+
+
+
+ Since: Qbs 3.4
+ Inherits: CppLibrary
+
+
+
+List of all members, including inherited members
+QmlModule is part of List of All Items.
+
+Properties
+
+modulesInstallDir : string
+uri : string
+
+
+Detailed Description
+A QmlModule is a convenience item that mirrors the functionality of CMake&#39;s qt_add_qml_module() command. It combines a plugin library with automatic QML type registration, qmldir generation, and resource embedding, so that the module can be imported from QML using the module-based import syntax (rather than file or directory imports). ">
+    <link rel="canonical" href="https://qbs.io/docs/qml-qbsconvenienceitems-qmlmodule/" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+
+    
+      
+      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+    
+
+    <meta property="og:url" content="https://qbs.io/docs/qml-qbsconvenienceitems-qmlmodule/">
+	<meta property="og:site_name" content="Qbs">
+	<meta property="og:title" content="Qbs">
+	<meta property="og:description" content="Qbs Manual QbsConvenienceItems QmlModule Qbs 3.4.0 Plugin QtApplication Contents Properties Detailed Description What QmlModule Does Automatically Usage Dynamic Plugin — Linked Directly by the Application Dynamic Plugin — Loaded at Runtime via Import Path Static Plugin QmlModule QML extension module consisting of a plugin library and QML files. More...
+Since: Qbs 3.4 Inherits: CppLibrary
+List of all members, including inherited members QmlModule is part of List of All Items. Properties modulesInstallDir : string uri : string Detailed Description A QmlModule is a convenience item that mirrors the functionality of CMake&#39;s qt_add_qml_module() command. It combines a plugin library with automatic QML type registration, qmldir generation, and resource embedding, so that the module can be imported from QML using the module-based import syntax (rather than file or directory imports).">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="docs">
+
+    
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Qbs">
+	<meta name="twitter:description" content="Qbs Manual QbsConvenienceItems QmlModule Qbs 3.4.0 Plugin QtApplication Contents Properties Detailed Description What QmlModule Does Automatically Usage Dynamic Plugin — Linked Directly by the Application Dynamic Plugin — Loaded at Runtime via Import Path Static Plugin QmlModule QML extension module consisting of a plugin library and QML files. More...
+Since: Qbs 3.4 Inherits: CppLibrary
+List of all members, including inherited members QmlModule is part of List of All Items. Properties modulesInstallDir : string uri : string Detailed Description A QmlModule is a convenience item that mirrors the functionality of CMake&#39;s qt_add_qml_module() command. It combines a plugin library with automatic QML type registration, qmldir generation, and resource embedding, so that the module can be imported from QML using the module-based import syntax (rather than file or directory imports).">
+
+</head>
+<body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
+    <a class="flex items-center" href="/">
+        <img src="https://qbs.io//img/Cubes.svg" class="h-10 effect-shadow-small">
+        <h1 class="font-medium pl-2 text-2xl">Qbs</h1>
+    </a>
+
+    <div>
+        
+        <a href="/blog" class="ml-2">
+            <span>Blog</span>
+        </a>
+        
+        <a href="/docs" class="ml-2">
+            <span>Documentation</span>
+        </a>
+        
+        <a href="/docs/installing/" class="ml-2">
+            <span>Get Qbs</span>
+        </a>
+        
+        <a href="/community" class="ml-2">
+            <span>Community</span>
+        </a>
+        
+    </div>
+</header><main>
+<div class="centre-outer">
+    <article class="centre-inner docs">
+    
+<ul class="breadcrumb">
+<li><a href="https://qbs.io/
+/docs">Qbs Manual</a></li>
+<li><a href="https://qbs.io/
+/docs/qbsconvenienceitems-qmlmodule/" translate="no">QbsConvenienceItems</a></li>
+<li>QmlModule</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
+<link href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-plugin/" rel="prev">
+<link href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-qtapplication/" rel="next">
+<p class="naviNextPrevious headerNavi">
+<a class="prevPage" href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-plugin/">Plugin</a>
+<a class="nextPage" href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-qtapplication/">QtApplication</a>
+</p>
+<div class="sidebar">
+<div class="toc">
+<h3 id="toc">Contents</h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#what-qmlmodule-does-automatically">What QmlModule Does Automatically</a></li>
+<li class="level2"><a href="#usage">Usage</a></li>
+<li class="level3"><a href="#dynamic-plugin-linked-directly-by-the-application-0fd5f99f">Dynamic Plugin — Linked Directly by the Application</a></li>
+<li class="level3"><a href="#dynamic-plugin-loaded-at-runtime-via-import-path-7aad8cc3">Dynamic Plugin — Loaded at Runtime via Import Path</a></li>
+<li class="level3"><a href="#static-plugin">Static Plugin</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<div class="content"><h1 class="title" translate="no">QmlModule</h1>
+<!-- $$$QmlModule-brief -->
+<p>QML extension module consisting of a plugin library and QML files. <a href="#details">More...</a></p>
+<!-- @@@QmlModule -->
+<div class="table"><table class="alignedsummary requisites" translate="no">
+
+<tbody><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qbs 3.4</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> Inherits:</td><td class="memItemRight bottomAlign"> <p><a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-cpplibrary/" translate="no">CppLibrary</a></p>
+</td></tr>
+</tbody></table></div>
+<ul>
+<li><a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-qmlmodule-members/">List of all members, including inherited members</a></li>
+<li>QmlModule is part of <a href="https://qbs.io/
+/docs/list-of-items/">List of All Items</a>.</li>
+</ul>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-qmlmodule/#modulesInstallDir-prop" translate="no">modulesInstallDir</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-qmlmodule/#uri-prop" translate="no">uri</a></b> : string</li>
+</ul>
+<!-- $$$QmlModule-description -->
+<h2 id="details">Detailed Description</h2>
+<p>A QmlModule is a convenience item that mirrors the functionality of CMake's <code translate="no">qt_add_qml_module()</code> command. It combines a plugin library with automatic QML type registration, qmldir generation, and resource embedding, so that the module can be imported from QML using the module-based import syntax (rather than file or directory imports).</p>
+<div class="admonition note">
+<p><b>Note: </b>This functionality requires Qt 6.2 or later.</p>
+</div>
+<h3 id="what-qmlmodule-does-automatically">What QmlModule Does Automatically</h3>
+<ul>
+<li>Runs <code translate="no">qmltyperegistrar</code> on C++ files decorated with <code translate="no">QML_ELEMENT</code> or similar macros and produces a <code translate="no">plugins.qmltypes</code> file.</li>
+<li>Generates a <code translate="no">qmldir</code> file listing all QML files and, if <a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-qml/#loadedAtRuntime-prop" translate="no">Qt.qml.loadedAtRuntime</a> is <code translate="no">true</code>, a <code translate="no">plugin</code> line for dynamic loading.</li>
+<li>Embeds all QML files, JavaScript files, and the <code translate="no">qmldir</code> into the plugin's resources at <code translate="no">:/qt/qml/&lt;URI&gt;/</code>, enabling the <code translate="no">prefer :/qt/qml/&lt;URI&gt;/</code> directive so the QML engine uses embedded resources rather than files on disk.</li>
+<li>Installs <code translate="no">qmldir</code>, <code translate="no">plugins.qmltypes</code>, as well as QML and JavaScript files to <a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-qmlmodule/#modulesInstallDir-prop" translate="no">modulesInstallDir</a>. When the plugin is loaded at runtime (<a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-qml/#loadedAtRuntime-prop" translate="no">Qt.qml.loadedAtRuntime</a> is <code translate="no">true</code>), the library binary is installed there too.</li>
+</ul>
+<h3 id="usage">Usage</h3>
+<h4 id="dynamic-plugin-linked-directly-by-the-application-0fd5f99f">Dynamic Plugin — Linked Directly by the Application</h4>
+<p>The application lists the module as a dependency, which links the plugin at build time. The QML engine finds module types through the pre-registered module without loading a plugin file at runtime. Because <a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-qml/#loadedAtRuntime-prop" translate="no">Qt.qml.loadedAtRuntime</a> defaults to <code translate="no">true</code> for dynamic libraries, set it to <code translate="no">false</code> to suppress the <code translate="no">plugin</code> line in the generated <code translate="no">qmldir</code>.</p>
+<pre class="cpp" translate="no"><span class="comment">// mymodule/mymodule.qbs</span>
+QmlModule {
+    name: <span class="string">"mymoduleplugin"</span>
+    uri: <span class="string">"com.example.MyModule"</span>
+    <span class="type"><a href="https://qbs.io/
+/docs/qml-qbsmoduleproviders-qt/" translate="no">Qt</a></span><span class="operator">.</span>qml<span class="operator">.</span>loadedAtRuntime: <span class="keyword">false</span>
+    files: <span class="operator">[</span><span class="string">"MyItem.qml"</span><span class="operator">,</span> <span class="string">"mytype.h"</span><span class="operator">,</span> <span class="string">"mytype.cpp"</span><span class="operator">]</span>
+}
+
+<span class="comment">// app/app.qbs</span>
+CppApplication {
+    Depends { name: <span class="string">"mymoduleplugin"</span> }
+    <span class="comment">// ...</span>
+}</pre>
+<h4 id="dynamic-plugin-loaded-at-runtime-via-import-path-7aad8cc3">Dynamic Plugin — Loaded at Runtime via Import Path</h4>
+<p>In this mode the plugin <code translate="no">.so</code> is not linked by the application. Instead, the QML engine discovers and loads it at runtime through the QML import path. <a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-qml/#loadedAtRuntime-prop" translate="no">Qt.qml.loadedAtRuntime</a> defaults to <code translate="no">true</code> for dynamic libraries, so no override is needed:</p>
+<pre class="cpp" translate="no">QmlModule {
+    name: <span class="string">"mymoduleplugin"</span>
+    uri: <span class="string">"com.example.MyModule"</span>
+    files: <span class="operator">[</span><span class="operator">.</span><span class="operator">.</span><span class="operator">.</span><span class="operator">]</span>
+}</pre>
+<p>However, you need to point the QML engine to the install location via <code translate="no">QML_IMPORT_PATH</code> or <code translate="no">QQmlEngine::addImportPath()</code>.</p>
+<h4 id="static-plugin">Static Plugin</h4>
+<p>For platforms that require static linking (iOS, tvOS, watchOS), the type is automatically set to <code translate="no">staticlibrary</code>. On other platforms, override <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-product/#type-prop" translate="no">type</a> directly. <a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-qml/#loadedAtRuntime-prop" translate="no">Qt.qml.loadedAtRuntime</a> defaults to <code translate="no">false</code> for static libraries, so no override is needed there either.</p>
+<pre class="cpp" translate="no">QmlModule {
+    name: <span class="string">"mymoduleplugin"</span>
+    uri: <span class="string">"com.example.MyModule"</span>
+    type: <span class="operator">[</span><span class="string">"staticlibrary"</span><span class="operator">]</span>
+    files: <span class="operator">[</span><span class="operator">.</span><span class="operator">.</span><span class="operator">.</span><span class="operator">]</span>
+}
+
+CppApplication {
+    Depends { name: <span class="string">"mymoduleplugin"</span> }
+    <span class="comment">// ...</span>
+}</pre>
+<!-- @@@QmlModule -->
+<h2>Property Documentation</h2>
+<!-- $$$modulesInstallDir -->
+<h3 class="fn qml-member qml-property" id="modulesInstallDir-prop" translate="no"><span class="name">modulesInstallDir</span> : <span class="type">string</span></h3>
+<p>The directory where <code translate="no">qmldir</code>, <code translate="no">plugins.qmltypes</code>, and QML files are installed. When <a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-qml/#loadedAtRuntime-prop" translate="no">Qt.qml.loadedAtRuntime</a> is <code translate="no">true</code>, the plugin library is also installed here so the QML engine can find it.</p>
+<p>Default: <code translate="no">Qt.qml.qmlPath + "/" + uri.replace(/\./g, "/")</code></p>
+<!-- @@@modulesInstallDir -->
+<!-- $$$uri -->
+<h3 class="fn qml-member qml-property" id="uri-prop" translate="no"><span class="name">uri</span> : <span class="type">string</span></h3>
+<p>The QML module URI, for example <code translate="no">"com.example.MyModule"</code>. This value is required.</p>
+<p>The URI is used as the <a href="https://qbs.io/
+/docs/qml-qbsmodules-qt-qml/#importName-prop" translate="no">Qt.qml.importName</a> for type registration, written as the <code translate="no">module</code> line in the generated <code translate="no">qmldir</code>, and determines the resource path <code translate="no">:/qt/qml/&lt;URI&gt;/</code> where QML files and the <code translate="no">qmldir</code> are embedded.</p>
+<p>Default: Undefined</p>
+<!-- @@@uri -->
+<p class="naviNextPrevious footerNavi">
+<a class="prevPage" href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-plugin/">Plugin</a>
+<a class="nextPage" href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-qtapplication/">QtApplication</a>
+</p>
+</div>
+
+
+    </article>
+</div>
+
+        </main></body>
+</html>

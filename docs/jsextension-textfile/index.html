@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 List of Built-in Services
 TextFile Service
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 Contents
@@ -38,8 +40,8 @@ List of modes that a file may be opened in.
 The OpenMode values can be combined with the bitwise or operator.
 Available operations
 Constructor
-TextFile(filePath: string, openMode: OpenMode = TextFile.ReadOnly)
-Opens the file at filePath in the given mode and returns the object representing the file. ">
+TextFile(filePath: string, openMode: OpenMode = TextFile.ReadOnly, codec: string = &#34;UTF-8&#34;)
+Opens the file at filePath in the given mode and returns the object representing the file. The codec is used for reading and writing the file. The supported codecs are the same as for QTextCodec, for example: &#34;UTF-8&#34;, &#34;UTF-16&#34;, and &#34;ISO 8859-1&#34;. ">
     <link rel="canonical" href="https://qbs.io/docs/jsextension-textfile/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -55,10 +57,10 @@ Opens the file at filePath in the given mode and returns the object representing
     <meta property="og:url" content="https://qbs.io/docs/jsextension-textfile/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual List of Built-in Services TextFile Service Qbs 3.3.0 Contents Related Declarations TextFile.OpenMode Available operations Constructor atEof close filePath readAll readLine setCodec truncate write writeLine TextFile Service The TextFile service allows you to read from and write into text files.
+	<meta property="og:description" content="Qbs Manual List of Built-in Services TextFile Service Qbs 3.4.0 Contents Related Declarations TextFile.OpenMode Available operations Constructor atEof close filePath readAll readLine setCodec truncate write writeLine TextFile Service The TextFile service allows you to read from and write into text files.
 Related Declarations TextFile.OpenMode enum TextFile.OpenMode { ReadOnly, WriteOnly, ReadWrite, Append } List of modes that a file may be opened in.
 The OpenMode values can be combined with the bitwise or operator.
-Available operations Constructor TextFile(filePath: string, openMode: OpenMode = TextFile.ReadOnly) Opens the file at filePath in the given mode and returns the object representing the file.">
+Available operations Constructor TextFile(filePath: string, openMode: OpenMode = TextFile.ReadOnly, codec: string = &#34;UTF-8&#34;) Opens the file at filePath in the given mode and returns the object representing the file. The codec is used for reading and writing the file. The supported codecs are the same as for QTextCodec, for example: &#34;UTF-8&#34;, &#34;UTF-16&#34;, and &#34;ISO 8859-1&#34;.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -66,10 +68,10 @@ Available operations Constructor TextFile(filePath: string, openMode: OpenMode =
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual List of Built-in Services TextFile Service Qbs 3.3.0 Contents Related Declarations TextFile.OpenMode Available operations Constructor atEof close filePath readAll readLine setCodec truncate write writeLine TextFile Service The TextFile service allows you to read from and write into text files.
+	<meta name="twitter:description" content="Qbs Manual List of Built-in Services TextFile Service Qbs 3.4.0 Contents Related Declarations TextFile.OpenMode Available operations Constructor atEof close filePath readAll readLine setCodec truncate write writeLine TextFile Service The TextFile service allows you to read from and write into text files.
 Related Declarations TextFile.OpenMode enum TextFile.OpenMode { ReadOnly, WriteOnly, ReadWrite, Append } List of modes that a file may be opened in.
 The OpenMode values can be combined with the bitwise or operator.
-Available operations Constructor TextFile(filePath: string, openMode: OpenMode = TextFile.ReadOnly) Opens the file at filePath in the given mode and returns the object representing the file.">
+Available operations Constructor TextFile(filePath: string, openMode: OpenMode = TextFile.ReadOnly, codec: string = &#34;UTF-8&#34;) Opens the file at filePath in the given mode and returns the object representing the file. The codec is used for reading and writing the file. The supported codecs are the same as for QTextCodec, for example: &#34;UTF-8&#34;, &#34;UTF-16&#34;, and &#34;ISO 8859-1&#34;.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -101,12 +103,14 @@ Available operations Constructor TextFile(filePath: string, openMode: OpenMode =
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/list-of-builtin-services/">List of Built-in Services</a></li>
 <li>TextFile Service</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -138,8 +142,8 @@ Available operations Constructor TextFile(filePath: string, openMode: OpenMode =
 <p>The OpenMode values can be combined with the bitwise or operator.</p>
 <h2 id="available-operations">Available operations</h2>
 <h3 id="constructor">Constructor</h3>
-<pre class="cpp" translate="no">TextFile(filePath: string<span class="operator">,</span> openMode: OpenMode <span class="operator">=</span> TextFile<span class="operator">.</span>ReadOnly)</pre>
-<p>Opens the file at <code translate="no">filePath</code> in the given mode and returns the object representing the file.</p>
+<pre class="cpp" translate="no">TextFile(filePath: string<span class="operator">,</span> openMode: OpenMode <span class="operator">=</span> TextFile<span class="operator">.</span>ReadOnly<span class="operator">,</span> codec: string <span class="operator">=</span> <span class="string">"UTF-8"</span>)</pre>
+<p>Opens the file at <code translate="no">filePath</code> in the given mode and returns the object representing the file. The <code translate="no">codec</code> is used for reading and writing the file. The supported codecs are the same as for <code translate="no">QTextCodec</code>, for example: "UTF-8", "UTF-16", and "ISO 8859-1".</p>
 <div class="admonition note">
 <p><b>Note: </b>The mode influences which of the operations listed below can actually be used on the file.</p>
 </div>

@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsModules
 texttemplate
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 Contents
@@ -55,7 +57,7 @@ The texttemplate module provides support for text template files. ">
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-texttemplate/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsModules texttemplate Qbs 3.3.0 Contents Properties Detailed Description Example Placeholder Syntax Relevant File Tags texttemplate Provides support for text template files. More...
+	<meta property="og:description" content="Qbs Manual QbsModules texttemplate Qbs 3.4.0 Contents Properties Detailed Description Example Placeholder Syntax Relevant File Tags texttemplate Provides support for text template files. More...
 Since: Qbs 1.13 List of all members, including inherited members Properties dict : var outputFileName : string outputTag : string placeholder : string (since Qbs 3.1) Detailed Description The texttemplate module provides support for text template files.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
@@ -64,7 +66,7 @@ Since: Qbs 1.13 List of all members, including inherited members Properties dict
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsModules texttemplate Qbs 3.3.0 Contents Properties Detailed Description Example Placeholder Syntax Relevant File Tags texttemplate Provides support for text template files. More...
+	<meta name="twitter:description" content="Qbs Manual QbsModules texttemplate Qbs 3.4.0 Contents Properties Detailed Description Example Placeholder Syntax Relevant File Tags texttemplate Provides support for text template files. More...
 Since: Qbs 1.13 List of all members, including inherited members Properties dict : var outputFileName : string outputTag : string placeholder : string (since Qbs 3.1) Detailed Description The texttemplate module provides support for text template files.">
 
 </head>
@@ -97,12 +99,14 @@ Since: Qbs 1.13 List of all members, including inherited members Properties dict
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>texttemplate</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -151,7 +155,7 @@ Since: Qbs 1.13 List of all members, including inherited members Properties dict
     <span class="name">files</span>: [<span class="string">"greeting.txt.in"</span>]
     <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-depends/" translate="no">Depends</a></span> { <span class="name">name</span>: <span class="string">"texttemplate"</span> }
-    <span class="name">texttemplate</span>.dict: ({
+    <span class="name">texttemplate.dict</span>: ({
             greeting: <span class="string">"Hello"</span>,
             name: <span class="string">"World"</span>
         })
@@ -165,8 +169,8 @@ Since: Qbs 1.13 List of all members, including inherited members Properties dict
     <span class="name">files</span>: [<span class="string">"greeting.txt.in"</span>]
     <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-depends/" translate="no">Depends</a></span> { <span class="name">name</span>: <span class="string">"texttemplate"</span> }
-    <span class="name">texttemplate</span>.placeholder: <span class="string">"@@"</span>
-    <span class="name">texttemplate</span>.dict: ({
+    <span class="name">texttemplate.placeholder</span>: <span class="string">"@@"</span>
+    <span class="name">texttemplate.dict</span>: ({
             greeting: <span class="string">"Hello"</span>,
             name: <span class="string">"World"</span>
         })
@@ -187,51 +191,27 @@ Since: Qbs 1.13 List of all members, including inherited members Properties dict
 <!-- @@@texttemplate -->
 <h2>Property Documentation</h2>
 <!-- $$$dict -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="dict-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">dict</span> : <span class="type">var</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The dictionary containing values for all keys used in the template file.</p>
+<h3 class="fn qml-member qml-property" id="dict-prop" translate="no"><span class="name">dict</span> : <span class="type">var</span></h3>
+<p>The dictionary containing values for all keys used in the template file.</p>
 <p>Default: <code translate="no">{}</code></p>
-</div></div><!-- @@@dict -->
-<br>
+<!-- @@@dict -->
 <!-- $$$outputFileName -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="outputFileName-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">outputFileName</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The output file name that is assigned to produced artifacts.</p>
+<h3 class="fn qml-member qml-property" id="outputFileName-prop" translate="no"><span class="name">outputFileName</span> : <span class="type">string</span></h3>
+<p>The output file name that is assigned to produced artifacts.</p>
 <p>Default: Complete base name of the input file</p>
-</div></div><!-- @@@outputFileName -->
-<br>
+<!-- @@@outputFileName -->
 <!-- $$$outputTag -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="outputTag-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">outputTag</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The output tag that is assigned to produced artifacts.</p>
+<h3 class="fn qml-member qml-property" id="outputTag-prop" translate="no"><span class="name">outputTag</span> : <span class="type">string</span></h3>
+<p>The output tag that is assigned to produced artifacts.</p>
 <p>Default: <code translate="no">"text"</code></p>
-</div></div><!-- @@@outputTag -->
-<br>
+<!-- @@@outputTag -->
 <!-- $$$placeholder -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="placeholder-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">placeholder</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 3.1]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The placeholder format to use for text template files.</p>
+<h3 class="fn qml-member qml-property" id="placeholder-prop" translate="no"><span class="name">placeholder</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 3.1]</code></h3>
+<p>The placeholder format to use for text template files.</p>
 <p>Possible values: <code translate="no">"${}"</code>, <code translate="no">"@@"</code></p>
 <p>Default: <code translate="no">"${}"</code></p>
 <p>This property was introduced in Qbs 3.1.</p>
-</div></div><!-- @@@placeholder -->
-<br>
+<!-- @@@placeholder -->
 </div>
 
 

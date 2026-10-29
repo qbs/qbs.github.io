@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 List of Built-in Services
 FileInfo Service
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 Contents
@@ -24,6 +26,7 @@ isAbsolutePath
 joinPaths
 path
 relativePath
+resolvePath
 suffix
 toNativeSeparators
 toWindowsSeparators
@@ -59,7 +62,7 @@ Returns a canonicalized filePath, i.e. an absolute path without symbolic links o
     <meta property="og:url" content="https://qbs.io/docs/jsextension-fileinfo/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual List of Built-in Services FileInfo Service Qbs 3.3.0 Contents Available Operations baseName canonicalPath cleanPath completeBaseName completeSuffix fileName fromNativeSeparators fromWindowsSeparators isAbsolutePath joinPaths path relativePath suffix toNativeSeparators toWindowsSeparators pathListSeparator pathSeparator executableSuffix FileInfo Service The FileInfo service offers various operations on file paths, such as turning absolute paths into relative ones, splitting a path into its components, and so on.
+	<meta property="og:description" content="Qbs Manual List of Built-in Services FileInfo Service Qbs 3.4.0 Contents Available Operations baseName canonicalPath cleanPath completeBaseName completeSuffix fileName fromNativeSeparators fromWindowsSeparators isAbsolutePath joinPaths path relativePath resolvePath suffix toNativeSeparators toWindowsSeparators pathListSeparator pathSeparator executableSuffix FileInfo Service The FileInfo service offers various operations on file paths, such as turning absolute paths into relative ones, splitting a path into its components, and so on.
 Available Operations baseName FileInfo.baseName(filePath: string): string Returns the file name of filePath up to (but not including) the first &#39;.&#39; character.
 canonicalPath FileInfo.canonicalPath(filePath: string): string Returns a canonicalized filePath, i.e. an absolute path without symbolic links or redundant &#34;.&#34; or &#34;..&#34; elements. On Windows, drive substitutions are also resolved.">
 	<meta property="og:locale" content="en_us">
@@ -69,7 +72,7 @@ canonicalPath FileInfo.canonicalPath(filePath: string): string Returns a canonic
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual List of Built-in Services FileInfo Service Qbs 3.3.0 Contents Available Operations baseName canonicalPath cleanPath completeBaseName completeSuffix fileName fromNativeSeparators fromWindowsSeparators isAbsolutePath joinPaths path relativePath suffix toNativeSeparators toWindowsSeparators pathListSeparator pathSeparator executableSuffix FileInfo Service The FileInfo service offers various operations on file paths, such as turning absolute paths into relative ones, splitting a path into its components, and so on.
+	<meta name="twitter:description" content="Qbs Manual List of Built-in Services FileInfo Service Qbs 3.4.0 Contents Available Operations baseName canonicalPath cleanPath completeBaseName completeSuffix fileName fromNativeSeparators fromWindowsSeparators isAbsolutePath joinPaths path relativePath resolvePath suffix toNativeSeparators toWindowsSeparators pathListSeparator pathSeparator executableSuffix FileInfo Service The FileInfo service offers various operations on file paths, such as turning absolute paths into relative ones, splitting a path into its components, and so on.
 Available Operations baseName FileInfo.baseName(filePath: string): string Returns the file name of filePath up to (but not including) the first &#39;.&#39; character.
 canonicalPath FileInfo.canonicalPath(filePath: string): string Returns a canonicalized filePath, i.e. an absolute path without symbolic links or redundant &#34;.&#34; or &#34;..&#34; elements. On Windows, drive substitutions are also resolved.">
 
@@ -103,12 +106,14 @@ canonicalPath FileInfo.canonicalPath(filePath: string): string Returns a canonic
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/list-of-builtin-services/">List of Built-in Services</a></li>
 <li>FileInfo Service</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -126,6 +131,7 @@ canonicalPath FileInfo.canonicalPath(filePath: string): string Returns a canonic
 <li class="level2"><a href="#joinpaths">joinPaths</a></li>
 <li class="level2"><a href="#path">path</a></li>
 <li class="level2"><a href="#relativepath">relativePath</a></li>
+<li class="level2"><a href="#resolvepath">resolvePath</a></li>
 <li class="level2"><a href="#suffix">suffix</a></li>
 <li class="level2"><a href="#tonativeseparators">toNativeSeparators</a></li>
 <li class="level2"><a href="#towindowsseparators">toWindowsSeparators</a></li>
@@ -178,6 +184,9 @@ canonicalPath FileInfo.canonicalPath(filePath: string): string Returns a canonic
 <h3 id="relativepath">relativePath</h3>
 <pre class="cpp" translate="no">FileInfo<span class="operator">.</span>relativePath(dirPath: string<span class="operator">,</span> filePath: string): string</pre>
 <p>Returns a relative path so that joining <code translate="no">dirPath</code> and the returned path results in <code translate="no">filePath</code>. If necessary, '..' components are inserted. The function assumes <code translate="no">dirPath</code> and <code translate="no">filePath</code> to be absolute paths and <code translate="no">dirPath</code> to be a directory.</p>
+<h3 id="resolvepath">resolvePath</h3>
+<pre class="cpp" translate="no">FileInfo<span class="operator">.</span>resolvePath(base: string<span class="operator">,</span> rel: string): string</pre>
+<p>Resolves the path <code translate="no">rel</code> against the base directory <code translate="no">base</code> and returns the result. If <code translate="no">rel</code> is already an absolute path, it is returned unchanged.</p>
 <h3 id="suffix">suffix</h3>
 <pre class="cpp" translate="no">FileInfo<span class="operator">.</span>suffix(filePath: string): string</pre>
 <p>Returns the file suffix of <code translate="no">filePath</code> from (but not including) the first '.' character. </p><p>This function was introduced in version 1.12.</p><p></p>

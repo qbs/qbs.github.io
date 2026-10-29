@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 Command-Line Interface
 list-products
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 Contents
@@ -17,6 +19,7 @@ Options
 [--file|-f &lt;file&gt;]
 --build-directory|-d &lt;directory&gt;
 --settings-dir &lt;directory&gt;
+--tags &lt;tag&gt;[,&lt;tag&gt;...]
 Parameters
 config:configuration-name
 Examples
@@ -51,7 +54,7 @@ Specifies a &lt;directory&gt; where build artifacts are stored. ">
     <meta property="og:url" content="https://qbs.io/docs/cli-list-products/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual Command-Line Interface list-products Qbs 3.3.0 Contents Synopsis Description Options [--file|-f &lt;file&gt;] --build-directory|-d &lt;directory&gt; --settings-dir &lt;directory&gt; Parameters config:configuration-name Examples list-products Synopsis qbs list-products [options] [config:configuration-name] Description Lists all products that exist in a project.
+	<meta property="og:description" content="Qbs Manual Command-Line Interface list-products Qbs 3.4.0 Contents Synopsis Description Options [--file|-f &lt;file&gt;] --build-directory|-d &lt;directory&gt; --settings-dir &lt;directory&gt; --tags &lt;tag&gt;[,&lt;tag&gt;...] Parameters config:configuration-name Examples list-products Synopsis qbs list-products [options] [config:configuration-name] Description Lists all products that exist in a project.
 Options [--file|-f &lt;file&gt;] Uses &lt;file&gt; as the project file. If &lt;file&gt; is a directory and it contains a single file with the extension .qbs, that file will be used.
 If this option is not given at all, the behavior is the same as for -f &lt;working-dir&gt;.
 --build-directory|-d &lt;directory&gt; Specifies a &lt;directory&gt; where build artifacts are stored.">
@@ -62,7 +65,7 @@ If this option is not given at all, the behavior is the same as for -f &lt;worki
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual Command-Line Interface list-products Qbs 3.3.0 Contents Synopsis Description Options [--file|-f &lt;file&gt;] --build-directory|-d &lt;directory&gt; --settings-dir &lt;directory&gt; Parameters config:configuration-name Examples list-products Synopsis qbs list-products [options] [config:configuration-name] Description Lists all products that exist in a project.
+	<meta name="twitter:description" content="Qbs Manual Command-Line Interface list-products Qbs 3.4.0 Contents Synopsis Description Options [--file|-f &lt;file&gt;] --build-directory|-d &lt;directory&gt; --settings-dir &lt;directory&gt; --tags &lt;tag&gt;[,&lt;tag&gt;...] Parameters config:configuration-name Examples list-products Synopsis qbs list-products [options] [config:configuration-name] Description Lists all products that exist in a project.
 Options [--file|-f &lt;file&gt;] Uses &lt;file&gt; as the project file. If &lt;file&gt; is a directory and it contains a single file with the extension .qbs, that file will be used.
 If this option is not given at all, the behavior is the same as for -f &lt;working-dir&gt;.
 --build-directory|-d &lt;directory&gt; Specifies a &lt;directory&gt; where build artifacts are stored.">
@@ -97,12 +100,14 @@ If this option is not given at all, the behavior is the same as for -f &lt;worki
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/cli/">Command-Line Interface</a></li>
 <li>list-products</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -113,6 +118,7 @@ If this option is not given at all, the behavior is the same as for -f &lt;worki
 <li class="level2"><a href="#op-op-op-op-op-op-file-op-op-op-op-f-op-lt-op-file-op-gt-op-op-op"><code translate="no">[--file|-f &lt;file&gt;]</code></a></li>
 <li class="level2"><a href="#op-op-op-op-build-op-op-directory-op-op-op-op-d-op-lt-op-directory-op-gt-op"><code translate="no">--build-directory|-d &lt;directory&gt;</code></a></li>
 <li class="level2"><a href="#op-op-op-op-settings-op-op-dir-op-lt-op-directory-op-gt-op"><code translate="no">--settings-dir &lt;directory&gt;</code></a></li>
+<li class="level2"><a href="#op-op-op-op-tags-op-lt-op-tag-op-gt-op-op-op-op-op-op-lt-op-tag-op-gt-op-op-op-op-op-op-op-op-op"><code translate="no">--tags &lt;tag&gt;[,&lt;tag&gt;...]</code></a></li>
 <li class="level1"><a href="#parameters">Parameters</a></li>
 <li class="level2"><a href="#config-configuration-op-op-name"><code translate="no">config:configuration-name</code></a></li>
 <li class="level1"><a href="#examples">Examples</a></li>
@@ -148,6 +154,9 @@ If this option is not given at all, the behavior is the same as for -f &lt;worki
 <li>Windows: <code translate="no">%APPDATA%\QtProject\qbs</code></li>
 <li>macOS: <code translate="no">$HOME/Library/Preferences/qbs</code></li>
 </ul>
+<h3 id="op-op-op-op-tags-op-lt-op-tag-op-gt-op-op-op-op-op-op-lt-op-tag-op-gt-op-op-op-op-op-op-op-op-op"><code translate="no">--tags &lt;tag&gt;[,&lt;tag&gt;...]</code></h3>
+<p>Takes only products whose <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-product/#type-prop" translate="no">type</a> matches one of the specified tags into account.</p>
 <h2 id="parameters">Parameters</h2>
 <h3 id="config-configuration-op-op-name"><code translate="no">config:configuration-name</code></h3>
 <p>Specifies the build configuration to use.</p>
@@ -164,6 +173,9 @@ If this option is not given at all, the behavior is the same as for -f &lt;worki
 <h2 id="examples">Examples</h2>
 <p>To list all products for the project in the current directory:</p>
 <pre class="cpp" translate="no">qbs list<span class="operator">-</span>products</pre>
+<p>To list only the products whose <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-product/#type-prop" translate="no">type</a> contains the tag <code translate="no">staticlibrary</code>:</p>
+<pre class="cpp" translate="no">qbs list<span class="operator">-</span>products <span class="operator">-</span><span class="operator">-</span>tags staticlibrary</pre>
 </div>
 <!-- @@@cli-list-products.html -->
 </div>

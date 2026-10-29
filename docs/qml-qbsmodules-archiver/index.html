@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsModules
 archiver
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 Contents
@@ -56,7 +58,7 @@ The archiver module contains the properties and rules for creating (compressed) 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-archiver/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsModules archiver Qbs 3.3.0 Contents Properties Detailed Description archiver Provides support for building archives. More...
+	<meta property="og:description" content="Qbs Manual QbsModules archiver Qbs 3.4.0 Contents Properties Detailed Description archiver Provides support for building archives. More...
 Since: Qbs 1.4 List of all members, including inherited members Properties archiveBaseName : string command : string compressionLevel : string compressionType : string flags : stringList outputDirectory : string type : string workingDirectory : string Detailed Description The archiver module contains the properties and rules for creating (compressed) archives. The output artifact has the file tag &#34;archiver.archive&#34;. The sole input artifact is a text file containing the list of files to package, with one file path per line. The paths can be relative, in which case they will be looked for in workingDirectory. The file tag of this input artifact is &#34;archiver.input-list&#34;.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
@@ -65,7 +67,7 @@ Since: Qbs 1.4 List of all members, including inherited members Properties archi
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsModules archiver Qbs 3.3.0 Contents Properties Detailed Description archiver Provides support for building archives. More...
+	<meta name="twitter:description" content="Qbs Manual QbsModules archiver Qbs 3.4.0 Contents Properties Detailed Description archiver Provides support for building archives. More...
 Since: Qbs 1.4 List of all members, including inherited members Properties archiveBaseName : string command : string compressionLevel : string compressionType : string flags : stringList outputDirectory : string type : string workingDirectory : string Detailed Description The archiver module contains the properties and rules for creating (compressed) archives. The output artifact has the file tag &#34;archiver.archive&#34;. The sole input artifact is a text file containing the list of files to package, with one file path per line. The paths can be relative, in which case they will be looked for in workingDirectory. The file tag of this input artifact is &#34;archiver.input-list&#34;.">
 
 </head>
@@ -98,12 +100,14 @@ Since: Qbs 1.4 List of all members, including inherited members Properties archi
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>archiver</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -151,25 +155,14 @@ Since: Qbs 1.4 List of all members, including inherited members Properties archi
 <!-- @@@archiver -->
 <h2>Property Documentation</h2>
 <!-- $$$archiveBaseName -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="archiveBaseName-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">archiveBaseName</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The base name of the archive file. That is, the file name without any extensions.</p>
+<h3 class="fn qml-member qml-property" id="archiveBaseName-prop" translate="no"><span class="name">archiveBaseName</span> : <span class="type">string</span></h3>
+<p>The base name of the archive file. That is, the file name without any extensions.</p>
 <p>Default: <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#targetName-prop" translate="no">product.targetName</a></p>
-</div></div><!-- @@@archiveBaseName -->
-<br>
+<!-- @@@archiveBaseName -->
 <!-- $$$command -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="command-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">command</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The path to the executable used to create the archive.</p>
+<h3 class="fn qml-member qml-property" id="command-prop" translate="no"><span class="name">command</span> : <span class="type">string</span></h3>
+<p>The path to the executable used to create the archive.</p>
 <p>This is usually the native tool corresponding to the archive type being produced, but may fall back to another tool also capable of producing that archive type if the native tool is not installed on the host system. This behavior is especially useful on platforms such as Windows, where the native tools for producing <code translate="no">tar</code> and <code translate="no">zip</code> archives in particular are much less likely to be installed.</p>
 <p>The following table lists the supported <a href="https://qbs.io/
 /docs/qml-qbsmodules-archiver/#type-prop" translate="no">archive types</a> and the tools capable of producing them, listed in search order from left to right:</p>
@@ -181,16 +174,10 @@ Since: Qbs 1.4 List of all members, including inherited members Properties archi
 </tbody></table></div>
 <p>Default: Depends on <a href="https://qbs.io/
 /docs/qml-qbsmodules-archiver/#type-prop" translate="no">type</a>.</p>
-</div></div><!-- @@@command -->
-<br>
+<!-- @@@command -->
 <!-- $$$compressionLevel -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="compressionLevel-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">compressionLevel</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>How much effort to put into the compression of a <code translate="no">7-Zip</code> or <code translate="no">zip</code> archive.</p>
+<h3 class="fn qml-member qml-property" id="compressionLevel-prop" translate="no"><span class="name">compressionLevel</span> : <span class="type">string</span></h3>
+<p>How much effort to put into the compression of a <code translate="no">7-Zip</code> or <code translate="no">zip</code> archive.</p>
 <p>Possible values for zip are:</p>
 <ul>
 <li><code translate="no">undefined</code></li>
@@ -209,16 +196,10 @@ Since: Qbs 1.4 List of all members, including inherited members Properties archi
 <p>Higher numbers result in a smaller archive, but the compression process will take more time.</p>
 <p>If the value is left undefined, the default compression level is used.</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@compressionLevel -->
-<br>
+<!-- @@@compressionLevel -->
 <!-- $$$compressionType -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="compressionType-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">compressionType</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>How to compress a <code translate="no">tar</code> or <code translate="no">zip</code> archive.</p>
+<h3 class="fn qml-member qml-property" id="compressionType-prop" translate="no"><span class="name">compressionType</span> : <span class="type">string</span></h3>
+<p>How to compress a <code translate="no">tar</code> or <code translate="no">zip</code> archive.</p>
 <p>Possible options are:</p>
 <ul>
 <li><code translate="no">"bz2"</code></li>
@@ -231,39 +212,21 @@ Since: Qbs 1.4 List of all members, including inherited members Properties archi
 <li><code translate="no">"Z"</code></li>
 </ul>
 <p>Default: <code translate="no">"gz"</code> for <code translate="no">tar</code> archives, otherwise <code translate="no">undefined</code>.</p>
-</div></div><!-- @@@compressionType -->
-<br>
+<!-- @@@compressionType -->
 <!-- $$$flags -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="flags-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">flags</span> : <span class="type">stringList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Custom options not covered by any of the other properties.</p>
+<h3 class="fn qml-member qml-property" id="flags-prop" translate="no"><span class="name">flags</span> : <span class="type">stringList</span></h3>
+<p>Custom options not covered by any of the other properties.</p>
 <p>Default: <code translate="no">[]</code></p>
-</div></div><!-- @@@flags -->
-<br>
+<!-- @@@flags -->
 <!-- $$$outputDirectory -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="outputDirectory-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">outputDirectory</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Where to put the archive file.</p>
+<h3 class="fn qml-member qml-property" id="outputDirectory-prop" translate="no"><span class="name">outputDirectory</span> : <span class="type">string</span></h3>
+<p>Where to put the archive file.</p>
 <p>Default: <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#destinationDirectory-prop" translate="no">product.destinationDirectory</a></p>
-</div></div><!-- @@@outputDirectory -->
-<br>
+<!-- @@@outputDirectory -->
 <!-- $$$type -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="type-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">type</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Which kind of archiver to use.</p>
+<h3 class="fn qml-member qml-property" id="type-prop" translate="no"><span class="name">type</span> : <span class="type">string</span></h3>
+<p>Which kind of archiver to use.</p>
 <p>The currently supported values are:</p>
 <ul>
 <li><code translate="no">"7zip"</code></li>
@@ -271,20 +234,13 @@ Since: Qbs 1.4 List of all members, including inherited members Properties archi
 <li><code translate="no">"zip"</code></li>
 </ul>
 <p>Default: Undefined</p>
-</div></div><!-- @@@type -->
-<br>
+<!-- @@@type -->
 <!-- $$$workingDirectory -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="workingDirectory-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">workingDirectory</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The directory in which to execute the archiver tool specified by <a href="https://qbs.io/
+<h3 class="fn qml-member qml-property" id="workingDirectory-prop" translate="no"><span class="name">workingDirectory</span> : <span class="type">string</span></h3>
+<p>The directory in which to execute the archiver tool specified by <a href="https://qbs.io/
 /docs/qml-qbsmodules-archiver/#command-prop" translate="no">command</a>.</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@workingDirectory -->
-<br>
+<!-- @@@workingDirectory -->
 </div>
 
 

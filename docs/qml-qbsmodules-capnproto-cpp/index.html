@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsModules
 capnproto.cpp
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 Contents
@@ -55,7 +57,7 @@ The capnproto.cpp module provides support for generating C&#43;&#43; headers and
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-capnproto-cpp/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsModules capnproto.cpp Qbs 3.3.0 Contents Properties Detailed Description Relevant File Tags Dependencies capnproto.cpp Provides support for Cap&#39;n Proto for the C&#43;&#43; language. More...
+	<meta property="og:description" content="Qbs Manual QbsModules capnproto.cpp Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags Dependencies capnproto.cpp Provides support for Cap&#39;n Proto for the C&#43;&#43; language. More...
 Since: Qbs 1.17 List of all members, including inherited members Properties compilerName : string compilerPath : string importPaths : pathList outputDir : string useRpc : bool Detailed Description The capnproto.cpp module provides support for generating C&#43;&#43; headers and sources from proto definition files using the capnpc tool.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
@@ -64,7 +66,7 @@ Since: Qbs 1.17 List of all members, including inherited members Properties comp
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsModules capnproto.cpp Qbs 3.3.0 Contents Properties Detailed Description Relevant File Tags Dependencies capnproto.cpp Provides support for Cap&#39;n Proto for the C&#43;&#43; language. More...
+	<meta name="twitter:description" content="Qbs Manual QbsModules capnproto.cpp Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags Dependencies capnproto.cpp Provides support for Cap&#39;n Proto for the C&#43;&#43; language. More...
 Since: Qbs 1.17 List of all members, including inherited members Properties compilerName : string compilerPath : string importPaths : pathList outputDir : string useRpc : bool Detailed Description The capnproto.cpp module provides support for generating C&#43;&#43; headers and sources from proto definition files using the capnpc tool.">
 
 </head>
@@ -97,12 +99,14 @@ Since: Qbs 1.17 List of all members, including inherited members Properties comp
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>capnproto.cpp</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -171,58 +175,29 @@ Since: Qbs 1.17 List of all members, including inherited members Properties comp
 <!-- @@@capnproto.cpp -->
 <h2>Property Documentation</h2>
 <!-- $$$compilerName -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="compilerName-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">compilerName</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The name of the capnp binary.</p>
+<h3 class="fn qml-member qml-property" id="compilerName-prop" translate="no"><span class="name">compilerName</span> : <span class="type">string</span></h3>
+<p>The name of the capnp binary.</p>
 <p>Default: <code translate="no">"capnpc"</code></p>
-</div></div><!-- @@@compilerName -->
-<br>
+<!-- @@@compilerName -->
 <!-- $$$compilerPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="compilerPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">compilerPath</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The path to the protoc binary.</p>
+<h3 class="fn qml-member qml-property" id="compilerPath-prop" translate="no"><span class="name">compilerPath</span> : <span class="type">string</span></h3>
+<p>The path to the protoc binary.</p>
 <p>Use this property to override the auto-detected location.</p>
 <p>Default: <code translate="no">auto-detected</code></p>
-</div></div><!-- @@@compilerPath -->
-<br>
+<!-- @@@compilerPath -->
 <!-- $$$importPaths -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="importPaths-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">importPaths</span> : <span class="type">pathList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The list of import paths that are passed to the <code translate="no">capnpc</code> tool via the <code translate="no">--import-path</code> option.</p>
+<h3 class="fn qml-member qml-property" id="importPaths-prop" translate="no"><span class="name">importPaths</span> : <span class="type">pathList</span></h3>
+<p>The list of import paths that are passed to the <code translate="no">capnpc</code> tool via the <code translate="no">--import-path</code> option.</p>
 <p>Default: <code translate="no">[]</code></p>
-</div></div><!-- @@@importPaths -->
-<br>
+<!-- @@@importPaths -->
 <!-- $$$outputDir -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="outputDir-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">outputDir</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The directory where the <code translate="no">capnpc</code> compiler generated files are placed.</p>
+<h3 class="fn qml-member qml-property" id="outputDir-prop" translate="no"><span class="name">outputDir</span> : <span class="type">string</span></h3>
+<p>The directory where the <code translate="no">capnpc</code> compiler generated files are placed.</p>
 <p>Default: <code translate="no">product.buildDirectory</code> + "/capnp"</p>
-</div></div><!-- @@@outputDir -->
-<br>
+<!-- @@@outputDir -->
 <!-- $$$useRpc -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="useRpc-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">useRpc</span> : <span class="type">bool</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Use this property to enable support for the RPC framework.</p>
+<h3 class="fn qml-member qml-property" id="useRpc-prop" translate="no"><span class="name">useRpc</span> : <span class="type">bool</span></h3>
+<p>Use this property to enable support for the RPC framework.</p>
 <p>A simple qbs file that uses rpc can be written as follows:</p>
 <pre class="cpp" translate="no">import qbs.Host
 
@@ -253,8 +228,7 @@ Project {
     }
 }</pre>
 <p>Default: <code translate="no">false</code></p>
-</div></div><!-- @@@useRpc -->
-<br>
+<!-- @@@useRpc -->
 </div>
 
 

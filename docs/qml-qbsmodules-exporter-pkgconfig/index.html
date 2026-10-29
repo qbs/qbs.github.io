@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsModules
 Exporter.pkgconfig
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 Contents
@@ -63,7 +65,7 @@ The Exporter.pkgconfig module contains the properties and rules to create a pkg-
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-exporter-pkgconfig/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsModules Exporter.pkgconfig Qbs 3.3.0 Contents Properties Detailed Description Relevant File Tags Exporter.pkgconfig Provides support for generating pkg-config files. More...
+	<meta property="og:description" content="Qbs Manual QbsModules Exporter.pkgconfig Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags Exporter.pkgconfig Provides support for generating pkg-config files. More...
 Since: Qbs 1.12 List of all members, including inherited members Properties autoDetect : bool cflagsEntry : stringList conflictsEntry : stringList customVariables : string excludedDependencies : stringList fileName : string libsEntry : stringList libsPrivateEntry : stringList nameEntry : string requiresEntry : stringList requiresPrivateEntry : stringList transformFunction : var urlEntry : string versionEntry : string Detailed Description The Exporter.pkgconfig module contains the properties and rules to create a pkg-config metadata (.pc) file for a Product.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
@@ -72,7 +74,7 @@ Since: Qbs 1.12 List of all members, including inherited members Properties auto
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsModules Exporter.pkgconfig Qbs 3.3.0 Contents Properties Detailed Description Relevant File Tags Exporter.pkgconfig Provides support for generating pkg-config files. More...
+	<meta name="twitter:description" content="Qbs Manual QbsModules Exporter.pkgconfig Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags Exporter.pkgconfig Provides support for generating pkg-config files. More...
 Since: Qbs 1.12 List of all members, including inherited members Properties autoDetect : bool cflagsEntry : stringList conflictsEntry : stringList customVariables : string excludedDependencies : stringList fileName : string libsEntry : stringList libsPrivateEntry : stringList nameEntry : string requiresEntry : stringList requiresPrivateEntry : stringList transformFunction : var urlEntry : string versionEntry : string Detailed Description The Exporter.pkgconfig module contains the properties and rules to create a pkg-config metadata (.pc) file for a Product.">
 
 </head>
@@ -105,12 +107,14 @@ Since: Qbs 1.12 List of all members, including inherited members Properties auto
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>Exporter.pkgconfig</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -179,125 +183,66 @@ Since: Qbs 1.12 List of all members, including inherited members Properties auto
 <!-- @@@Exporter.pkgconfig -->
 <h2>Property Documentation</h2>
 <!-- $$$autoDetect -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="autoDetect-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">autoDetect</span> : <span class="type">bool</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>If this property is enabled, then Qbs will try to derive various <code translate="no">.pc</code> file entries from the contents of the product's <a href="https://qbs.io/
+<h3 class="fn qml-member qml-property" id="autoDetect-prop" translate="no"><span class="name">autoDetect</span> : <span class="type">bool</span></h3>
+<p>If this property is enabled, then Qbs will try to derive various <code translate="no">.pc</code> file entries from the contents of the product's <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-export/" translate="no">Export</a> item, including the dependencies declared therein. Values for these fields can still be explicitly provided via the respective properties, in which case they will be concatenated with the auto-detected ones. If an exported dependency is known to correspond to a pkg-config module (either by pulling in the <code translate="no">Exporter.pkgconfig</code> module or by appearing in the <a href="https://qbs.io/
 /docs/qml-qbsmodules-exporter-pkgconfig/#requiresEntry-prop" translate="no">requiresEntry</a> property), it will end up in the <code translate="no">Requires</code> field of the <code translate="no">.pc</code> file, otherwise its exported <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/" translate="no">cpp</a> properties will be collected for use in the <code translate="no">Cflags</code> and <code translate="no">Libs</code> fields. The <a href="https://qbs.io/
 /docs/qml-qbsmodules-exporter-pkgconfig/#excludedDependencies-prop" translate="no">excludedDependencies</a> property can be used to ignore specific products altogether.</p>
 <p>Default: <code translate="no">true</code></p>
-</div></div><!-- @@@autoDetect -->
-<br>
+<!-- @@@autoDetect -->
 <!-- $$$cflagsEntry -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="cflagsEntry-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">cflagsEntry</span> : <span class="type">stringList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The value of the <code translate="no">Cflags</code> field in the <code translate="no">.pc</code> file.</p>
+<h3 class="fn qml-member qml-property" id="cflagsEntry-prop" translate="no"><span class="name">cflagsEntry</span> : <span class="type">stringList</span></h3>
+<p>The value of the <code translate="no">Cflags</code> field in the <code translate="no">.pc</code> file.</p>
 <p>If <a href="https://qbs.io/
 /docs/qml-qbsmodules-exporter-pkgconfig/#autoDetect-prop" translate="no">autoDetect</a> is enabled, then this value will be appended to the flags derived from the product's <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-export/" translate="no">Export</a> item and the dependencies declared therein.</p>
 <p>Default: <code translate="no">[]</code></p>
-</div></div><!-- @@@cflagsEntry -->
-<br>
+<!-- @@@cflagsEntry -->
 <!-- $$$conflictsEntry -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="conflictsEntry-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">conflictsEntry</span> : <span class="type">stringList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The value of the <code translate="no">Conflicts</code> field in the <code translate="no">.pc</code> file.</p>
+<h3 class="fn qml-member qml-property" id="conflictsEntry-prop" translate="no"><span class="name">conflictsEntry</span> : <span class="type">stringList</span></h3>
+<p>The value of the <code translate="no">Conflicts</code> field in the <code translate="no">.pc</code> file.</p>
 <p>Default: <code translate="no">[]</code></p>
-</div></div><!-- @@@conflictsEntry -->
-<br>
+<!-- @@@conflictsEntry -->
 <!-- $$$customVariables -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="customVariables-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">customVariables</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Use this property to add arbitrary variable assignments into the <code translate="no">.pc</code> file. The property is a map that will produce one assignment per entry. The keys and values of the map represent the left-hand sides and right-hand sides of these assignments, respectively. The values are strings that will be written into the file verbatim.</p>
+<h3 class="fn qml-member qml-property" id="customVariables-prop" translate="no"><span class="name">customVariables</span> : <span class="type">string</span></h3>
+<p>Use this property to add arbitrary variable assignments into the <code translate="no">.pc</code> file. The property is a map that will produce one assignment per entry. The keys and values of the map represent the left-hand sides and right-hand sides of these assignments, respectively. The values are strings that will be written into the file verbatim.</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@customVariables -->
-<br>
+<!-- @@@customVariables -->
 <!-- $$$excludedDependencies -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="excludedDependencies-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">excludedDependencies</span> : <span class="type">stringList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>If <a href="https://qbs.io/
+<h3 class="fn qml-member qml-property" id="excludedDependencies-prop" translate="no"><span class="name">excludedDependencies</span> : <span class="type">stringList</span></h3>
+<p>If <a href="https://qbs.io/
 /docs/qml-qbsmodules-exporter-pkgconfig/#autoDetect-prop" translate="no">autoDetect</a> is enabled, the entries of this property will be matched against the product's exported dependencies. In case such a dependency's name is present in the array, Qbs will not traverse that dependency to collect entries for the <code translate="no">Cflags</code>, <code translate="no">Libs</code>, <code translate="no">Requires</code> and <code translate="no">Requires.private</code> fields.</p>
 <p>This list must not contain any values that are present in <a href="https://qbs.io/
 /docs/qml-qbsmodules-exporter-pkgconfig/#requiresEntry-prop" translate="no">requiresEntry</a>.</p>
 <p>Default: <code translate="no">undefined</code></p>
-</div></div><!-- @@@excludedDependencies -->
-<br>
+<!-- @@@excludedDependencies -->
 <!-- $$$fileName -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="fileName-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">fileName</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The file name of the generated pkg-config metadata file.</p>
+<h3 class="fn qml-member qml-property" id="fileName-prop" translate="no"><span class="name">fileName</span> : <span class="type">string</span></h3>
+<p>The file name of the generated pkg-config metadata file.</p>
 <p>Default: <code translate="no">product.targetName + ".pc"</code></p>
-</div></div><!-- @@@fileName -->
-<br>
+<!-- @@@fileName -->
 <!-- $$$libsEntry -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="libsEntry-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">libsEntry</span> : <span class="type">stringList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The value of the <code translate="no">Libs</code> field in the <code translate="no">.pc</code> file.</p>
+<h3 class="fn qml-member qml-property" id="libsEntry-prop" translate="no"><span class="name">libsEntry</span> : <span class="type">stringList</span></h3>
+<p>The value of the <code translate="no">Libs</code> field in the <code translate="no">.pc</code> file.</p>
 <p>If <a href="https://qbs.io/
 /docs/qml-qbsmodules-exporter-pkgconfig/#autoDetect-prop" translate="no">autoDetect</a> is enabled, then this value will be appended to the flags derived from the product's <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-export/" translate="no">Export</a> item and the dependencies declared therein.</p>
 <p>Default: <code translate="no">[]</code></p>
-</div></div><!-- @@@libsEntry -->
-<br>
+<!-- @@@libsEntry -->
 <!-- $$$libsPrivateEntry -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="libsPrivateEntry-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">libsPrivateEntry</span> : <span class="type">stringList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The value of the <code translate="no">Libs.Private</code> field in the <code translate="no">.pc</code> file.</p>
+<h3 class="fn qml-member qml-property" id="libsPrivateEntry-prop" translate="no"><span class="name">libsPrivateEntry</span> : <span class="type">stringList</span></h3>
+<p>The value of the <code translate="no">Libs.Private</code> field in the <code translate="no">.pc</code> file.</p>
 <p>Default: <code translate="no">[]</code></p>
-</div></div><!-- @@@libsPrivateEntry -->
-<br>
+<!-- @@@libsPrivateEntry -->
 <!-- $$$nameEntry -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="nameEntry-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">nameEntry</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The value of the <code translate="no">Name</code> field in the <code translate="no">.pc</code> file.</p>
+<h3 class="fn qml-member qml-property" id="nameEntry-prop" translate="no"><span class="name">nameEntry</span> : <span class="type">string</span></h3>
+<p>The value of the <code translate="no">Name</code> field in the <code translate="no">.pc</code> file.</p>
 <p>Default: <code translate="no">product.name</code></p>
-</div></div><!-- @@@nameEntry -->
-<br>
+<!-- @@@nameEntry -->
 <!-- $$$requiresEntry -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="requiresEntry-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">requiresEntry</span> : <span class="type">stringList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The value of the <code translate="no">Requires</code> field in the <code translate="no">.pc</code> file.</p>
+<h3 class="fn qml-member qml-property" id="requiresEntry-prop" translate="no"><span class="name">requiresEntry</span> : <span class="type">stringList</span></h3>
+<p>The value of the <code translate="no">Requires</code> field in the <code translate="no">.pc</code> file.</p>
 <p>If <a href="https://qbs.io/
 /docs/qml-qbsmodules-exporter-pkgconfig/#autoDetect-prop" translate="no">autoDetect</a> is enabled, then those of the product's exported dependencies that pull in the <code translate="no">Exporter.pkgconfig</code> module will also end up in the <code translate="no">Requires</code> field, provided they are not listed in <a href="https://qbs.io/
 /docs/qml-qbsmodules-exporter-pkgconfig/#excludedDependencies-prop" translate="no">excludedDependencies</a>.</p>
@@ -306,56 +251,31 @@ Since: Qbs 1.12 List of all members, including inherited members Properties auto
 /docs/qml-qbsmodules-exporter-pkgconfig/#cflagsEntry-prop" translate="no">cflagsEntry</a> and <a href="https://qbs.io/
 /docs/qml-qbsmodules-exporter-pkgconfig/#libsEntry-prop" translate="no">libsEntry</a> values, as pkg-config takes care of that itself.</p>
 <p>Default: <code translate="no">[]</code></p>
-</div></div><!-- @@@requiresEntry -->
-<br>
+<!-- @@@requiresEntry -->
 <!-- $$$requiresPrivateEntry -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="requiresPrivateEntry-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">requiresPrivateEntry</span> : <span class="type">stringList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The value of the <code translate="no">Requires.private</code> field in the <code translate="no">.pc</code> file.</p>
+<h3 class="fn qml-member qml-property" id="requiresPrivateEntry-prop" translate="no"><span class="name">requiresPrivateEntry</span> : <span class="type">stringList</span></h3>
+<p>The value of the <code translate="no">Requires.private</code> field in the <code translate="no">.pc</code> file.</p>
 <p>If <a href="https://qbs.io/
 /docs/qml-qbsmodules-exporter-pkgconfig/#autoDetect-prop" translate="no">autoDetect</a> is enabled, then those of the product's non-exported dependencies that pull in the <code translate="no">Exporter.pkgconfig</code> module will also end up in the <code translate="no">Requires.private</code> field, provided they are not listed in <a href="https://qbs.io/
 /docs/qml-qbsmodules-exporter-pkgconfig/#excludedDependencies-prop" translate="no">excludedDependencies</a>.</p>
 <p>Default: <code translate="no">[]</code></p>
-</div></div><!-- @@@requiresPrivateEntry -->
-<br>
+<!-- @@@requiresPrivateEntry -->
 <!-- $$$transformFunction -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="transformFunction-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">transformFunction</span> : <span class="type">var</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>A function with the signature <code translate="no">function(product, moduleName, propertyName, value)</code>. This can be useful to "fine-tune" property values if <a href="https://qbs.io/
+<h3 class="fn qml-member qml-property" id="transformFunction-prop" translate="no"><span class="name">transformFunction</span> : <span class="type">var</span></h3>
+<p>A function with the signature <code translate="no">function(product, moduleName, propertyName, value)</code>. This can be useful to "fine-tune" property values if <a href="https://qbs.io/
 /docs/qml-qbsmodules-exporter-pkgconfig/#autoDetect-prop" translate="no">autoDetect</a> is enabled, in case they need amending for the purpose of pkg-config. The <code translate="no">product</code> parameter represents the exporting product, the remaining parameters describe the module property. The modified value of the module property shall be returned.</p>
 <p>Default: <code translate="no">undefined</code></p>
-</div></div><!-- @@@transformFunction -->
-<br>
+<!-- @@@transformFunction -->
 <!-- $$$urlEntry -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="urlEntry-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">urlEntry</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The value of the <code translate="no">URL</code> field in the <code translate="no">.pc</code> file.</p>
+<h3 class="fn qml-member qml-property" id="urlEntry-prop" translate="no"><span class="name">urlEntry</span> : <span class="type">string</span></h3>
+<p>The value of the <code translate="no">URL</code> field in the <code translate="no">.pc</code> file.</p>
 <p>Default: <code translate="no">undefined</code></p>
-</div></div><!-- @@@urlEntry -->
-<br>
+<!-- @@@urlEntry -->
 <!-- $$$versionEntry -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="versionEntry-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">versionEntry</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The value of the <code translate="no">Version</code> field in the <code translate="no">.pc</code> file.</p>
+<h3 class="fn qml-member qml-property" id="versionEntry-prop" translate="no"><span class="name">versionEntry</span> : <span class="type">string</span></h3>
+<p>The value of the <code translate="no">Version</code> field in the <code translate="no">.pc</code> file.</p>
 <p>Default: <code translate="no">product.version</code></p>
-</div></div><!-- @@@versionEntry -->
-<br>
+<!-- @@@versionEntry -->
 </div>
 
 

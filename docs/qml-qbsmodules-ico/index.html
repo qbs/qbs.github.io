@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsModules
 ico
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 Contents
@@ -53,7 +55,7 @@ The ico module contains properties and rules for building Microsoft Windows Icon
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-ico/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsModules ico Qbs 3.3.0 Contents Properties Detailed Description Relevant File Tags ico Provides support for building ICO (.ico) and CUR (.cur) files. More...
+	<meta property="og:description" content="Qbs Manual QbsModules ico Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags ico Provides support for building ICO (.ico) and CUR (.cur) files. More...
 Since: Qbs 1.11 List of all members, including inherited members Properties cursorHotspotX : int cursorHotspotY : int icotoolFilePath : string raw : bool Detailed Description The ico module contains properties and rules for building Microsoft Windows Icon (.ico) and Microsoft Windows Cursor (.cur) files.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
@@ -62,7 +64,7 @@ Since: Qbs 1.11 List of all members, including inherited members Properties curs
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsModules ico Qbs 3.3.0 Contents Properties Detailed Description Relevant File Tags ico Provides support for building ICO (.ico) and CUR (.cur) files. More...
+	<meta name="twitter:description" content="Qbs Manual QbsModules ico Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags ico Provides support for building ICO (.ico) and CUR (.cur) files. More...
 Since: Qbs 1.11 List of all members, including inherited members Properties cursorHotspotX : int cursorHotspotY : int icotoolFilePath : string raw : bool Detailed Description The ico module contains properties and rules for building Microsoft Windows Icon (.ico) and Microsoft Windows Cursor (.cur) files.">
 
 </head>
@@ -95,12 +97,14 @@ Since: Qbs 1.11 List of all members, including inherited members Properties curs
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>ico</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -150,61 +154,37 @@ Since: Qbs 1.11 List of all members, including inherited members Properties curs
 <!-- @@@ico -->
 <h2>Property Documentation</h2>
 <!-- $$$cursorHotspotX -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="cursorHotspotX-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">cursorHotspotX</span> : <span class="type">int</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The cursor hotspot x coordinate. Only relevant when building .cur files.</p>
+<h3 class="fn qml-member qml-property" id="cursorHotspotX-prop" translate="no"><span class="name">cursorHotspotX</span> : <span class="type">int</span></h3>
+<p>The cursor hotspot x coordinate. Only relevant when building .cur files.</p>
 <p>This property must be set individually for each input PNG file.</p>
 <div class="admonition note">
 <p><b>Note: </b><code translate="no">icoutils</code> version 0.32 or greater is required to set the hotspot in cursor files with multiple images.</p>
 </div>
 <p>Default: Undefined</p>
-</div></div><!-- @@@cursorHotspotX -->
-<br>
+<!-- @@@cursorHotspotX -->
 <!-- $$$cursorHotspotY -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="cursorHotspotY-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">cursorHotspotY</span> : <span class="type">int</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The cursor hotspot y coordinate. Only relevant when building .cur files.</p>
+<h3 class="fn qml-member qml-property" id="cursorHotspotY-prop" translate="no"><span class="name">cursorHotspotY</span> : <span class="type">int</span></h3>
+<p>The cursor hotspot y coordinate. Only relevant when building .cur files.</p>
 <p>This property must be set individually for each input PNG file.</p>
 <div class="admonition note">
 <p><b>Note: </b><code translate="no">icoutils</code> version 0.32 or greater is required to set the hotspot in cursor files with multiple images.</p>
 </div>
 <p>Default: Undefined</p>
-</div></div><!-- @@@cursorHotspotY -->
-<br>
+<!-- @@@cursorHotspotY -->
 <!-- $$$icotoolFilePath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="icotoolFilePath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">icotoolFilePath</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The full path of the <code translate="no">icotool</code> binary.</p>
+<h3 class="fn qml-member qml-property" id="icotoolFilePath-prop" translate="no"><span class="name">icotoolFilePath</span> : <span class="type">string</span></h3>
+<p>The full path of the <code translate="no">icotool</code> binary.</p>
 <p>This property should not normally need to be changed if Qbs was able to automatically detect it.</p>
 <p>Default: Determined automatically.</p>
-</div></div><!-- @@@icotoolFilePath -->
-<br>
+<!-- @@@icotoolFilePath -->
 <!-- $$$raw -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="raw-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">raw</span> : <span class="type">bool</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Whether to store the input file as a raw PNG, as supported in Windows Vista.</p>
+<h3 class="fn qml-member qml-property" id="raw-prop" translate="no"><span class="name">raw</span> : <span class="type">bool</span></h3>
+<p>Whether to store the input file as a raw PNG, as supported in Windows Vista.</p>
 <p>Only relevant when building .ico files.</p>
 <p>This property must be set individually for each input PNG file.</p>
 <p>It is recommended to set this value only for icon sizes larger than or equal to 256x256.</p>
 <p>Default: <code translate="no">false</code></p>
-</div></div><!-- @@@raw -->
-<br>
+<!-- @@@raw -->
 </div>
 
 

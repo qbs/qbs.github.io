@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsModules
 bundle
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 Contents
@@ -92,7 +94,7 @@ The bundle module contains properties and rules for building and working with Co
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-bundle/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsModules bundle Qbs 3.3.0 Contents Properties Detailed Description Dependency Parameters Relevant File Tags Main bundles bundle Provides Core Foundation bundle support. More...
+	<meta property="og:description" content="Qbs Manual QbsModules bundle Qbs 3.4.0 Contents Properties Detailed Description Dependency Parameters Relevant File Tags Main bundles bundle Provides Core Foundation bundle support. More...
 Since: Qbs 1.4 List of all members, including inherited members Properties applicationsFolderPath : string bundleName : string contentsFolderPath : string documentationFolderPath : string (since Qbs 1.5) embedInfoPlist : bool executableFolderPath : string executablePath : string executablesFolderPath : string extension : string frameworkVersion : string frameworksFolderPath : string generatePackageInfo : bool (since Qbs 1.5) identifier : string identifierPrefix : string infoPlist : var infoPlistFormat : string infoPlistPath : string infoStringsPath : string (since Qbs 1.5) isBundle : bool isForMainBundle : bool (since Qbs 3.1) isMainBundle : bool (since Qbs 3.1) isShallow : bool javaFolderPath : string (since Qbs 1.5) localizedResourcesFolderPath : string (since Qbs 1.5) packageType : string pkgInfoPath : string pluginsFolderPath : string privateHeaders : pathList privateHeadersFolderPath : string processInfoPlist : bool publicHeaders : pathList publicHeadersFolderPath : string resources : pathList scriptsFolderPath : string sharedFrameworksFolderPath : string sharedSupportFolderPath : string signature : string unlocalizedResourcesFolderPath : string useBuiltinXcodeBuildSpecs : bool versionPlistPath : string versionsFolderPath : string (since Qbs 1.5) Detailed Description The bundle module contains properties and rules for building and working with Core Foundation bundles on Apple platforms (commonly known as CFBundles or simply bundles), directories with a standardized hierarchical structure that hold executable code and resources. Examples include applications, frameworks, and plugins.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
@@ -101,7 +103,7 @@ Since: Qbs 1.4 List of all members, including inherited members Properties appli
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsModules bundle Qbs 3.3.0 Contents Properties Detailed Description Dependency Parameters Relevant File Tags Main bundles bundle Provides Core Foundation bundle support. More...
+	<meta name="twitter:description" content="Qbs Manual QbsModules bundle Qbs 3.4.0 Contents Properties Detailed Description Dependency Parameters Relevant File Tags Main bundles bundle Provides Core Foundation bundle support. More...
 Since: Qbs 1.4 List of all members, including inherited members Properties applicationsFolderPath : string bundleName : string contentsFolderPath : string documentationFolderPath : string (since Qbs 1.5) embedInfoPlist : bool executableFolderPath : string executablePath : string executablesFolderPath : string extension : string frameworkVersion : string frameworksFolderPath : string generatePackageInfo : bool (since Qbs 1.5) identifier : string identifierPrefix : string infoPlist : var infoPlistFormat : string infoPlistPath : string infoStringsPath : string (since Qbs 1.5) isBundle : bool isForMainBundle : bool (since Qbs 3.1) isMainBundle : bool (since Qbs 3.1) isShallow : bool javaFolderPath : string (since Qbs 1.5) localizedResourcesFolderPath : string (since Qbs 1.5) packageType : string pkgInfoPath : string pluginsFolderPath : string privateHeaders : pathList privateHeadersFolderPath : string processInfoPlist : bool publicHeaders : pathList publicHeadersFolderPath : string resources : pathList scriptsFolderPath : string sharedFrameworksFolderPath : string sharedSupportFolderPath : string signature : string unlocalizedResourcesFolderPath : string useBuiltinXcodeBuildSpecs : bool versionPlistPath : string versionsFolderPath : string (since Qbs 1.5) Detailed Description The bundle module contains properties and rules for building and working with Core Foundation bundles on Apple platforms (commonly known as CFBundles or simply bundles), directories with a standardized hierarchical structure that hold executable code and resources. Examples include applications, frameworks, and plugins.">
 
 </head>
@@ -134,12 +136,14 @@ Since: Qbs 1.4 List of all members, including inherited members Properties appli
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>bundle</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -294,14 +298,14 @@ DynamicLibrary {
     <span class="name">name</span>: <span class="string">"otherlib"</span>
     <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-depends/" translate="no">Depends</a></span> { <span class="name">name</span>: <span class="string">"bundle"</span> }
-    <span class="name">bundle</span>.isForMainBundle: <span class="number">false</span>
+    <span class="name">bundle.isForMainBundle</span>: <span class="number">false</span>
 }</pre>
 <p>Alternatively, set the <code translate="no">bundle.isForMainBundle</code> dependency parameter in the main bundle itself:</p>
 <pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-cppapplication/" translate="no">CppApplication</a></span> {
     <span class="name">name</span>: <span class="string">"main"</span>
     <span class="type"><a href="https://qbs.io/
-/docs/qml-qbslanguageitems-depends/" translate="no">Depends</a></span> { <span class="name">name</span>: <span class="string">"otherlib"</span>; <span class="name">bundle</span>.isForMainBundle: <span class="number">false</span> }
+/docs/qml-qbslanguageitems-depends/" translate="no">Depends</a></span> { <span class="name">name</span>: <span class="string">"otherlib"</span>; <span class="name">bundle.isForMainBundle</span>: <span class="number">false</span> }
     <span class="comment">// ...</span>
 }</pre>
 <p>See the full example the the <a href="https://github.com/qbs/qbs/tree/master/examples/main-bundle">examples</a> folder.</p>
@@ -311,201 +315,106 @@ DynamicLibrary {
 <!-- @@@bundle -->
 <h2>Property Documentation</h2>
 <!-- $$$applicationsFolderPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="applicationsFolderPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">applicationsFolderPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The path of the directory where dependent applications will be copied.</p>
+<h3 class="fn qml-member qml-property" id="applicationsFolderPath-prop" translate="no"><span class="name">applicationsFolderPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></h3>
+<p>The path of the directory where dependent applications will be copied.</p>
 <p>This property applies only if <a href="https://qbs.io/
 /docs/qml-qbsmodules-bundle/#isMainBundle-prop" translate="no">isMainBundle</a> is <code translate="no">true</code>.</p>
 <p>The path is relative to the directory that contains the bundle.</p>
-</div></div><!-- @@@applicationsFolderPath -->
-<br>
+<!-- @@@applicationsFolderPath -->
 <!-- $$$bundleName -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="bundleName-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">bundleName</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The file name of the bundle's wrapper directory.</p>
+<h3 class="fn qml-member qml-property" id="bundleName-prop" translate="no"><span class="name">bundleName</span> : <span class="type">string</span></h3>
+<p>The file name of the bundle's wrapper directory.</p>
 <p>This property should not normally need to be changed.</p>
 <p>Default: A combination of the product's <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#targetName-prop" translate="no">targetName</a> and bundle's <a href="https://qbs.io/
 /docs/qml-qbsmodules-bundle/#extension-prop" translate="no">extension</a>.</p>
-</div></div><!-- @@@bundleName -->
-<br>
+<!-- @@@bundleName -->
 <!-- $$$contentsFolderPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="contentsFolderPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">contentsFolderPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The path of the bundle's <code translate="no">Contents</code> subdirectory.</p>
+<h3 class="fn qml-member qml-property" id="contentsFolderPath-prop" translate="no"><span class="name">contentsFolderPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></h3>
+<p>The path of the bundle's <code translate="no">Contents</code> subdirectory.</p>
 <p>The path is relative to the directory that contains the bundle.</p>
-</div></div><!-- @@@contentsFolderPath -->
-<br>
+<!-- @@@contentsFolderPath -->
 <!-- $$$documentationFolderPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="documentationFolderPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">documentationFolderPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only, since Qbs 1.5]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The path of the directory where documentation will be written.</p>
+<h3 class="fn qml-member qml-property" id="documentationFolderPath-prop" translate="no"><span class="name">documentationFolderPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only, since Qbs 1.5]</code></h3>
+<p>The path of the directory where documentation will be written.</p>
 <p>The path is relative to the directory that contains the bundle.</p>
 <p>This property was introduced in Qbs 1.5.</p>
-</div></div><!-- @@@documentationFolderPath -->
-<br>
+<!-- @@@documentationFolderPath -->
 <!-- $$$embedInfoPlist -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="embedInfoPlist-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">embedInfoPlist</span> : <span class="type">bool</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Whether to create a <code translate="no">__TEXT</code> section in the product's executable containing the processed <code translate="no">Info.plist</code>.</p>
+<h3 class="fn qml-member qml-property" id="embedInfoPlist-prop" translate="no"><span class="name">embedInfoPlist</span> : <span class="type">bool</span></h3>
+<p>Whether to create a <code translate="no">__TEXT</code> section in the product's executable containing the processed <code translate="no">Info.plist</code>.</p>
 <p>Only applies to command line applications.</p>
 <p>Default: <code translate="no">true</code> if the product is a command line tool, otherwise <code translate="no">false</code>.</p>
-</div></div><!-- @@@embedInfoPlist -->
-<br>
+<!-- @@@embedInfoPlist -->
 <!-- $$$executableFolderPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="executableFolderPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">executableFolderPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The path of the directory where the main exectuable will be written.</p>
+<h3 class="fn qml-member qml-property" id="executableFolderPath-prop" translate="no"><span class="name">executableFolderPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></h3>
+<p>The path of the directory where the main exectuable will be written.</p>
 <p>The path is relative to the directory that contains the bundle.</p>
 <p>Not to be confused with <a href="https://qbs.io/
 /docs/qml-qbsmodules-bundle/#executablesFolderPath-prop" translate="no">executablesFolderPath</a>.</p>
-</div></div><!-- @@@executableFolderPath -->
-<br>
+<!-- @@@executableFolderPath -->
 <!-- $$$executablePath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="executablePath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">executablePath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The path that the main executable file will be written to.</p>
+<h3 class="fn qml-member qml-property" id="executablePath-prop" translate="no"><span class="name">executablePath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></h3>
+<p>The path that the main executable file will be written to.</p>
 <p>The path is relative to the directory that contains the bundle.</p>
-</div></div><!-- @@@executablePath -->
-<br>
+<!-- @@@executablePath -->
 <!-- $$$executablesFolderPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="executablesFolderPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">executablesFolderPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The path of the directory where auxiliary executables will be copied.</p>
+<h3 class="fn qml-member qml-property" id="executablesFolderPath-prop" translate="no"><span class="name">executablesFolderPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></h3>
+<p>The path of the directory where auxiliary executables will be copied.</p>
 <p>The path is relative to the directory that contains the bundle.</p>
 <p>Not to be confused with <a href="https://qbs.io/
 /docs/qml-qbsmodules-bundle/#executableFolderPath-prop" translate="no">executableFolderPath</a>.</p>
-</div></div><!-- @@@executablesFolderPath -->
-<br>
+<!-- @@@executablesFolderPath -->
 <!-- $$$extension -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="extension-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">extension</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The extension of the bundle's wrapper directory, without the leading period (.).</p>
+<h3 class="fn qml-member qml-property" id="extension-prop" translate="no"><span class="name">extension</span> : <span class="type">string</span></h3>
+<p>The extension of the bundle's wrapper directory, without the leading period (.).</p>
 <p>This property should not normally need to be set unless creating a custom bundle type.</p>
 <p>Default: <code translate="no">"app"</code> for <code translate="no">"APPL"</code> packages, <code translate="no">"framework"</code> for <code translate="no">"FMWK"</code> packages, and <code translate="no">"bundle"</code> for <code translate="no">"BNDL"</code> and custom packages.</p>
-</div></div><!-- @@@extension -->
-<br>
+<!-- @@@extension -->
 <!-- $$$frameworkVersion -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="frameworkVersion-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">frameworkVersion</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>For framework bundles, the version of the framework. Not used for other package types.</p>
+<h3 class="fn qml-member qml-property" id="frameworkVersion-prop" translate="no"><span class="name">frameworkVersion</span> : <span class="type">string</span></h3>
+<p>For framework bundles, the version of the framework. Not used for other package types.</p>
 <p>Default: <code translate="no">"A"</code></p>
-</div></div><!-- @@@frameworkVersion -->
-<br>
+<!-- @@@frameworkVersion -->
 <!-- $$$frameworksFolderPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="frameworksFolderPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">frameworksFolderPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The path of the directory where internal frameworks will be copied.</p>
+<h3 class="fn qml-member qml-property" id="frameworksFolderPath-prop" translate="no"><span class="name">frameworksFolderPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></h3>
+<p>The path of the directory where internal frameworks will be copied.</p>
 <p>The path is relative to the directory that contains the bundle.</p>
-</div></div><!-- @@@frameworksFolderPath -->
-<br>
+<!-- @@@frameworksFolderPath -->
 <!-- $$$generatePackageInfo -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="generatePackageInfo-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">generatePackageInfo</span> : <span class="type">bool</span> <code class="details extra" translate="no">[since Qbs 1.5]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Whether to generate a <code translate="no">PkgInfo</code> file for the bundle.</p>
+<h3 class="fn qml-member qml-property" id="generatePackageInfo-prop" translate="no"><span class="name">generatePackageInfo</span> : <span class="type">bool</span> <code class="details extra" translate="no">[since Qbs 1.5]</code></h3>
+<p>Whether to generate a <code translate="no">PkgInfo</code> file for the bundle.</p>
 <p>This property should almost never need to be changed, even though enabling it when specifying an alternative package type for custom bundles using <a href="https://qbs.io/
 /docs/qml-qbsmodules-bundle/#packageType-prop" translate="no">packageType</a> is allowed.</p>
 <p>Default: <code translate="no">true</code> for applications, otherwise <code translate="no">false</code>.</p>
 <p>This property was introduced in Qbs 1.5.</p>
-</div></div><!-- @@@generatePackageInfo -->
-<br>
+<!-- @@@generatePackageInfo -->
 <!-- $$$identifier -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="identifier-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">identifier</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The bundle's identifier. If left unset, the bundle identifier will be a concatenation of the <a href="https://qbs.io/
+<h3 class="fn qml-member qml-property" id="identifier-prop" translate="no"><span class="name">identifier</span> : <span class="type">string</span></h3>
+<p>The bundle's identifier. If left unset, the bundle identifier will be a concatenation of the <a href="https://qbs.io/
 /docs/qml-qbsmodules-bundle/#identifierPrefix-prop" translate="no">identifierPrefix</a> value and the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#targetName-prop" translate="no">Product.targetName</a> propertyy formatted as an RFC-1034 identifier, separated by a period (.).</p>
 <p>Default: A combination of <a href="https://qbs.io/
 /docs/qml-qbsmodules-bundle/#identifierPrefix-prop" translate="no">identifierPrefix</a> and the product's target name formatted as an RFC-1034 identifier.</p>
-</div></div><!-- @@@identifier -->
-<br>
+<!-- @@@identifier -->
 <!-- $$$identifierPrefix -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="identifierPrefix-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">identifierPrefix</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>A prefix for the product's bundle identifier. If <a href="https://qbs.io/
+<h3 class="fn qml-member qml-property" id="identifierPrefix-prop" translate="no"><span class="name">identifierPrefix</span> : <span class="type">string</span></h3>
+<p>A prefix for the product's bundle identifier. If <a href="https://qbs.io/
 /docs/qml-qbsmodules-bundle/#identifier-prop" translate="no">identifier</a> is left unset, the bundle identifier will be a concatenation of this value and the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#targetName-prop" translate="no">Product.targetName</a> property formatted as an RFC-1034 identifier, separated by a period (.). This corresponds to the organization identifier in Xcode.</p>
 <p>Default: <code translate="no">org.example</code></p>
-</div></div><!-- @@@identifierPrefix -->
-<br>
+<!-- @@@identifierPrefix -->
 <!-- $$$infoPlist -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="infoPlist-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">infoPlist</span> : <span class="type">var</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>A dictionary of key-value pairs to add to the bundle's <code translate="no">Info.plist</code>.</p>
+<h3 class="fn qml-member qml-property" id="infoPlist-prop" translate="no"><span class="name">infoPlist</span> : <span class="type">var</span></h3>
+<p>A dictionary of key-value pairs to add to the bundle's <code translate="no">Info.plist</code>.</p>
 <p>The contents of this property will be aggregated with the values from any <code translate="no">plist</code> files. If this property and any <code translate="no">plist</code> files contain the same key, this property will take precedence. However, it might be overridden during postprocessing (see <a href="https://qbs.io/
 /docs/qml-qbsmodules-bundle/#processInfoPlist-prop" translate="no">processInfoPlist</a>).</p>
 <p>If <code translate="no">undefined</code>, will not be taken into account.</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@infoPlist -->
-<br>
+<!-- @@@infoPlist -->
 <!-- $$$infoPlistFormat -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="infoPlistFormat-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">infoPlistFormat</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The file format to write the product's resulting <code translate="no">Info.plist</code> in.</p>
+<h3 class="fn qml-member qml-property" id="infoPlistFormat-prop" translate="no"><span class="name">infoPlistFormat</span> : <span class="type">string</span></h3>
+<p>The file format to write the product's resulting <code translate="no">Info.plist</code> in.</p>
 <p>Possible values are:</p>
 <ul>
 <li><code translate="no">"binary1"</code></li>
@@ -514,147 +423,75 @@ DynamicLibrary {
 <li><code translate="no">"xml1"</code></li>
 </ul>
 <p>Default: <code translate="no">"binary1"</code> for iOS, <code translate="no">"same-as-input"</code> or <code translate="no">"xml1"</code> for macOS depending on whether a <code translate="no">plist</code> file is used, and <code translate="no">undefined</code> for all other operating systems.</p>
-</div></div><!-- @@@infoPlistFormat -->
-<br>
+<!-- @@@infoPlistFormat -->
 <!-- $$$infoPlistPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="infoPlistPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">infoPlistPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The path that the <code translate="no">Info.plist</code> file will be written to.</p>
+<h3 class="fn qml-member qml-property" id="infoPlistPath-prop" translate="no"><span class="name">infoPlistPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></h3>
+<p>The path that the <code translate="no">Info.plist</code> file will be written to.</p>
 <p>The path is relative to the directory that contains the bundle.</p>
-</div></div><!-- @@@infoPlistPath -->
-<br>
+<!-- @@@infoPlistPath -->
 <!-- $$$infoStringsPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="infoStringsPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">infoStringsPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only, since Qbs 1.5]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The path that the <code translate="no">InfoPlist.strings</code> file will be written to.</p>
+<h3 class="fn qml-member qml-property" id="infoStringsPath-prop" translate="no"><span class="name">infoStringsPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only, since Qbs 1.5]</code></h3>
+<p>The path that the <code translate="no">InfoPlist.strings</code> file will be written to.</p>
 <p>The path is relative to the directory that contains the bundle.</p>
 <p>This property was introduced in Qbs 1.5.</p>
-</div></div><!-- @@@infoStringsPath -->
-<br>
+<!-- @@@infoStringsPath -->
 <!-- $$$isBundle -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="isBundle-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">isBundle</span> : <span class="type">bool</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Whether the product should actually be packaged as a bundle as opposed to a flat file. This allows a product indirectly dependent on the <code translate="no">bundle</code> module to retain control of whether it should actually be built as a bundle.</p>
+<h3 class="fn qml-member qml-property" id="isBundle-prop" translate="no"><span class="name">isBundle</span> : <span class="type">bool</span></h3>
+<p>Whether the product should actually be packaged as a bundle as opposed to a flat file. This allows a product indirectly dependent on the <code translate="no">bundle</code> module to retain control of whether it should actually be built as a bundle.</p>
 <p>Default: <code translate="no">true</code> for applications and dynamic libraries on Apple platforms, <code translate="no">false</code> otherwise.</p>
-</div></div><!-- @@@isBundle -->
-<br>
+<!-- @@@isBundle -->
 <!-- $$$isForMainBundle -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="isForMainBundle-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">isForMainBundle</span> : <span class="type">bool</span> <code class="details extra" translate="no">[since Qbs 3.1]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Set this property to <code translate="no">false</code> to skip copying of this product into any dependent main bundle.</p>
+<h3 class="fn qml-member qml-property" id="isForMainBundle-prop" translate="no"><span class="name">isForMainBundle</span> : <span class="type">bool</span> <code class="details extra" translate="no">[since Qbs 3.1]</code></h3>
+<p>Set this property to <code translate="no">false</code> to skip copying of this product into any dependent main bundle.</p>
 <p>Default: <code translate="no">true</code>.</p>
 <p>This property was introduced in Qbs 3.1.</p>
 <p><b>See also </b><a href="https://qbs.io/
 /docs/qml-qbsmodules-bundle/#isMainBundle-prop" translate="no">isMainBundle</a>.</p>
-</div></div><!-- @@@isForMainBundle -->
-<br>
+<!-- @@@isForMainBundle -->
 <!-- $$$isMainBundle -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="isMainBundle-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">isMainBundle</span> : <span class="type">bool</span> <code class="details extra" translate="no">[since Qbs 3.1]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Whether to copy dependencies into this bundle.</p>
+<h3 class="fn qml-member qml-property" id="isMainBundle-prop" translate="no"><span class="name">isMainBundle</span> : <span class="type">bool</span> <code class="details extra" translate="no">[since Qbs 3.1]</code></h3>
+<p>Whether to copy dependencies into this bundle.</p>
 <p>Default: <code translate="no">false</code></p>
 <p>This property was introduced in Qbs 3.1.</p>
 <p><b>See also </b><a href="https://qbs.io/
 /docs/qml-qbsmodules-bundle/#isForMainBundle-prop" translate="no">isForMainBundle</a>.</p>
-</div></div><!-- @@@isMainBundle -->
-<br>
+<!-- @@@isMainBundle -->
 <!-- $$$isShallow -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="isShallow-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">isShallow</span> : <span class="type">bool</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Whether the bundle directory tree is <i>shallow</i>. That is, whether it lacks a <code translate="no">Contents</code> subdirectory. This is the default on all platforms other than macOS.</p>
+<h3 class="fn qml-member qml-property" id="isShallow-prop" translate="no"><span class="name">isShallow</span> : <span class="type">bool</span> <code class="details extra" translate="no">[read-only]</code></h3>
+<p>Whether the bundle directory tree is <i>shallow</i>. That is, whether it lacks a <code translate="no">Contents</code> subdirectory. This is the default on all platforms other than macOS.</p>
 <p>Default: <code translate="no">false</code> on macOS, otherwise <code translate="no">true</code>.</p>
-</div></div><!-- @@@isShallow -->
-<br>
+<!-- @@@isShallow -->
 <!-- $$$javaFolderPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="javaFolderPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">javaFolderPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only, since Qbs 1.5]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The path of the directory where Java content will be written.</p>
+<h3 class="fn qml-member qml-property" id="javaFolderPath-prop" translate="no"><span class="name">javaFolderPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only, since Qbs 1.5]</code></h3>
+<p>The path of the directory where Java content will be written.</p>
 <p>The path is relative to the directory that contains the bundle.</p>
 <p>This property was introduced in Qbs 1.5.</p>
-</div></div><!-- @@@javaFolderPath -->
-<br>
+<!-- @@@javaFolderPath -->
 <!-- $$$localizedResourcesFolderPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="localizedResourcesFolderPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">localizedResourcesFolderPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only, since Qbs 1.5]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The path of the directory where localized resource files will be copied.</p>
+<h3 class="fn qml-member qml-property" id="localizedResourcesFolderPath-prop" translate="no"><span class="name">localizedResourcesFolderPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only, since Qbs 1.5]</code></h3>
+<p>The path of the directory where localized resource files will be copied.</p>
 <p>The path is relative to the directory that contains the bundle.</p>
 <p>This property was introduced in Qbs 1.5.</p>
-</div></div><!-- @@@localizedResourcesFolderPath -->
-<br>
+<!-- @@@localizedResourcesFolderPath -->
 <!-- $$$packageType -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="packageType-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">packageType</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The four-letter file type code of the bundle, specified in the bundle's <code translate="no">PkgInfo</code> file and in the bundle's <code translate="no">Info.plist</code> as the value for the <code translate="no">CFBundlePackageType</code> key.</p>
+<h3 class="fn qml-member qml-property" id="packageType-prop" translate="no"><span class="name">packageType</span> : <span class="type">string</span></h3>
+<p>The four-letter file type code of the bundle, specified in the bundle's <code translate="no">PkgInfo</code> file and in the bundle's <code translate="no">Info.plist</code> as the value for the <code translate="no">CFBundlePackageType</code> key.</p>
 <p>This property should almost never need to be changed, even though specifying an alternative package type for custom bundles is allowed.</p>
 <p>Default: <code translate="no">"APPL"</code> for applications, <code translate="no">"FMWK"</code> for frameworks, and <code translate="no">"BNDL"</code> for custom bundles.</p>
-</div></div><!-- @@@packageType -->
-<br>
+<!-- @@@packageType -->
 <!-- $$$pkgInfoPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="pkgInfoPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">pkgInfoPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The path that the <code translate="no">PkgInfo</code> file will be written to.</p>
+<h3 class="fn qml-member qml-property" id="pkgInfoPath-prop" translate="no"><span class="name">pkgInfoPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></h3>
+<p>The path that the <code translate="no">PkgInfo</code> file will be written to.</p>
 <p>The path is relative to the directory that contains the bundle.</p>
-</div></div><!-- @@@pkgInfoPath -->
-<br>
+<!-- @@@pkgInfoPath -->
 <!-- $$$pluginsFolderPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="pluginsFolderPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">pluginsFolderPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The path of the directory where plugins will be copied.</p>
+<h3 class="fn qml-member qml-property" id="pluginsFolderPath-prop" translate="no"><span class="name">pluginsFolderPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></h3>
+<p>The path of the directory where plugins will be copied.</p>
 <p>The path is relative to the directory that contains the bundle.</p>
-</div></div><!-- @@@pluginsFolderPath -->
-<br>
+<!-- @@@pluginsFolderPath -->
 <!-- $$$privateHeaders -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="privateHeaders-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">privateHeaders</span> : <span class="type">pathList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>A list of private header files to copy to a framework bundle's <code translate="no">PrivateHeaders</code> subdirectory</p>
+<h3 class="fn qml-member qml-property" id="privateHeaders-prop" translate="no"><span class="name">privateHeaders</span> : <span class="type">pathList</span></h3>
+<p>A list of private header files to copy to a framework bundle's <code translate="no">PrivateHeaders</code> subdirectory</p>
 <p>It is recommended to attach the <code translate="no">"bundle.input.private_hpp"</code> file tag to headers instead:</p>
 <pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-cppapplication/" translate="no">CppApplication</a></span> {
@@ -674,41 +511,23 @@ DynamicLibrary {
 /docs/qml-qbslanguageitems-filetagger/" translate="no">FileTagger</a> item, the <code translate="no">"hpp"</code> tag should also be present.</p>
 </div>
 <p>Default: Undefined</p>
-</div></div><!-- @@@privateHeaders -->
-<br>
+<!-- @@@privateHeaders -->
 <!-- $$$privateHeadersFolderPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="privateHeadersFolderPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">privateHeadersFolderPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The path of the directory where private header files will be copied.</p>
+<h3 class="fn qml-member qml-property" id="privateHeadersFolderPath-prop" translate="no"><span class="name">privateHeadersFolderPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></h3>
+<p>The path of the directory where private header files will be copied.</p>
 <p>The path is relative to the directory that contains the bundle.</p>
-</div></div><!-- @@@privateHeadersFolderPath -->
-<br>
+<!-- @@@privateHeadersFolderPath -->
 <!-- $$$processInfoPlist -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="processInfoPlist-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">processInfoPlist</span> : <span class="type">bool</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Whether to perform post-processing on the aggregated <code translate="no">Info.plist</code> contents.</p>
+<h3 class="fn qml-member qml-property" id="processInfoPlist-prop" translate="no"><span class="name">processInfoPlist</span> : <span class="type">bool</span></h3>
+<p>Whether to perform post-processing on the aggregated <code translate="no">Info.plist</code> contents.</p>
 <p>If this property is <code translate="no">true</code>, various post-processing operations will be applied to the bundle's property list dictionary after it has been aggregated from the contents of any <code translate="no">plist</code> files on disk, and the <a href="https://qbs.io/
 /docs/qml-qbsmodules-bundle/#infoPlist-prop" translate="no">infoPlist</a> property.</p>
 <p>First, values from a list of defaults will be added to the dictionary if they were not already present. Second, values from the <code translate="no">AdditionalInfo</code> key of the platform SDK's <code translate="no">Info.plist</code> file will be added to the dictionary if they were not already present, as well as some other miscellaneous keys, such as <code translate="no">BuildMachineOSBuild</code> and <code translate="no">UIDeviceFamily</code> (on iOS). Finally, variable expansions will be performed such that substrings of the form <code translate="no">$(VAR)</code> or <code translate="no">${VAR}</code> will be replaced with their corresponding environment variables.</p>
 <p>Default: <code translate="no">true</code></p>
-</div></div><!-- @@@processInfoPlist -->
-<br>
+<!-- @@@processInfoPlist -->
 <!-- $$$publicHeaders -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="publicHeaders-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">publicHeaders</span> : <span class="type">pathList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>A list of public header files to copy to a framework bundle's <code translate="no">Headers</code> subdirectory.</p>
+<h3 class="fn qml-member qml-property" id="publicHeaders-prop" translate="no"><span class="name">publicHeaders</span> : <span class="type">pathList</span></h3>
+<p>A list of public header files to copy to a framework bundle's <code translate="no">Headers</code> subdirectory.</p>
 <p>It is recommended to attach the <code translate="no">"bundle.input.public_hpp"</code> file tag to headers instead:</p>
 <pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-cppapplication/" translate="no">CppApplication</a></span> {
@@ -728,27 +547,15 @@ DynamicLibrary {
 /docs/qml-qbslanguageitems-filetagger/" translate="no">FileTagger</a> item, the <code translate="no">"hpp"</code> tag should also be present.</p>
 </div>
 <p>Default: Undefined</p>
-</div></div><!-- @@@publicHeaders -->
-<br>
+<!-- @@@publicHeaders -->
 <!-- $$$publicHeadersFolderPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="publicHeadersFolderPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">publicHeadersFolderPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The path of the directory where public headers files will be copied.</p>
+<h3 class="fn qml-member qml-property" id="publicHeadersFolderPath-prop" translate="no"><span class="name">publicHeadersFolderPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></h3>
+<p>The path of the directory where public headers files will be copied.</p>
 <p>The path is relative to the directory that contains the bundle.</p>
-</div></div><!-- @@@publicHeadersFolderPath -->
-<br>
+<!-- @@@publicHeadersFolderPath -->
 <!-- $$$resources -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="resources-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">resources</span> : <span class="type">pathList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>A list of resources to copy to a bundle's <code translate="no">Resources</code> subdirectory. Files will automatically be copied into <code translate="no">lproj</code> subdirectories corresponding to the input files' paths.</p>
+<h3 class="fn qml-member qml-property" id="resources-prop" translate="no"><span class="name">resources</span> : <span class="type">pathList</span></h3>
+<p>A list of resources to copy to a bundle's <code translate="no">Resources</code> subdirectory. Files will automatically be copied into <code translate="no">lproj</code> subdirectories corresponding to the input files' paths.</p>
 <p>It is recommended to attach the <code translate="no">"bundle.input.resources"</code> file tag to resources instead:</p>
 <pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-cppapplication/" translate="no">CppApplication</a></span> {
@@ -763,100 +570,51 @@ DynamicLibrary {
     }
 }</pre>
 <p>Default: Undefined</p>
-</div></div><!-- @@@resources -->
-<br>
+<!-- @@@resources -->
 <!-- $$$scriptsFolderPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="scriptsFolderPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">scriptsFolderPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The path of the directory where script files will be copied.</p>
+<h3 class="fn qml-member qml-property" id="scriptsFolderPath-prop" translate="no"><span class="name">scriptsFolderPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></h3>
+<p>The path of the directory where script files will be copied.</p>
 <p>The path is relative to the directory that contains the bundle.</p>
-</div></div><!-- @@@scriptsFolderPath -->
-<br>
+<!-- @@@scriptsFolderPath -->
 <!-- $$$sharedFrameworksFolderPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="sharedFrameworksFolderPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">sharedFrameworksFolderPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The path of the directory where shared frameworks will be copied.</p>
+<h3 class="fn qml-member qml-property" id="sharedFrameworksFolderPath-prop" translate="no"><span class="name">sharedFrameworksFolderPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></h3>
+<p>The path of the directory where shared frameworks will be copied.</p>
 <p>The path is relative to the directory that contains the bundle.</p>
-</div></div><!-- @@@sharedFrameworksFolderPath -->
-<br>
+<!-- @@@sharedFrameworksFolderPath -->
 <!-- $$$sharedSupportFolderPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="sharedSupportFolderPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">sharedSupportFolderPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The path of the directory where shared support files will be copied.</p>
+<h3 class="fn qml-member qml-property" id="sharedSupportFolderPath-prop" translate="no"><span class="name">sharedSupportFolderPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></h3>
+<p>The path of the directory where shared support files will be copied.</p>
 <p>The path is relative to the directory that contains the bundle.</p>
-</div></div><!-- @@@sharedSupportFolderPath -->
-<br>
+<!-- @@@sharedSupportFolderPath -->
 <!-- $$$signature -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="signature-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">signature</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The four-letter signature specific to the bundle, also known as the creator code, specified in the bundle's <code translate="no">PkgInfo</code> file and in the bundle's <code translate="no">Info.plist</code> as the value for the <code translate="no">CFBundleSignature</code> key.</p>
+<h3 class="fn qml-member qml-property" id="signature-prop" translate="no"><span class="name">signature</span> : <span class="type">string</span></h3>
+<p>The four-letter signature specific to the bundle, also known as the creator code, specified in the bundle's <code translate="no">PkgInfo</code> file and in the bundle's <code translate="no">Info.plist</code> as the value for the <code translate="no">CFBundleSignature</code> key.</p>
 <p>This property should normally never need to be set.</p>
 <p>Default: <code translate="no">"????"</code></p>
-</div></div><!-- @@@signature -->
-<br>
+<!-- @@@signature -->
 <!-- $$$unlocalizedResourcesFolderPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="unlocalizedResourcesFolderPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">unlocalizedResourcesFolderPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The path of the directory where non-localized resource files will be copied.</p>
+<h3 class="fn qml-member qml-property" id="unlocalizedResourcesFolderPath-prop" translate="no"><span class="name">unlocalizedResourcesFolderPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></h3>
+<p>The path of the directory where non-localized resource files will be copied.</p>
 <p>The path is relative to the directory that contains the bundle.</p>
 <p>This is the same as the base resources path.</p>
-</div></div><!-- @@@unlocalizedResourcesFolderPath -->
-<br>
+<!-- @@@unlocalizedResourcesFolderPath -->
 <!-- $$$useBuiltinXcodeBuildSpecs -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="useBuiltinXcodeBuildSpecs-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">useBuiltinXcodeBuildSpecs</span> : <span class="type">bool</span> <code class="details extra" translate="no">[default: false]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Set this property to <code translate="no">true</code> to use Xcode <code translate="no">.xcspec</code> files shipped with Qbs.</p>
+<h3 class="fn qml-member qml-property" id="useBuiltinXcodeBuildSpecs-prop" translate="no"><span class="name">useBuiltinXcodeBuildSpecs</span> : <span class="type">bool</span> <code class="details extra" translate="no">[default: false]</code></h3>
+<p>Set this property to <code translate="no">true</code> to use Xcode <code translate="no">.xcspec</code> files shipped with Qbs.</p>
 <p>This property can be used as a workaround when using a new Xcode version that is not supported by Qbs yet.</p>
-</div></div><!-- @@@useBuiltinXcodeBuildSpecs -->
-<br>
+<!-- @@@useBuiltinXcodeBuildSpecs -->
 <!-- $$$versionPlistPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="versionPlistPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">versionPlistPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The path that the <code translate="no">version.plist</code> file will be written to.</p>
+<h3 class="fn qml-member qml-property" id="versionPlistPath-prop" translate="no"><span class="name">versionPlistPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></h3>
+<p>The path that the <code translate="no">version.plist</code> file will be written to.</p>
 <p>The path is relative to the directory that contains the bundle.</p>
-</div></div><!-- @@@versionPlistPath -->
-<br>
+<!-- @@@versionPlistPath -->
 <!-- $$$versionsFolderPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="versionsFolderPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">versionsFolderPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only, since Qbs 1.5]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The path of the bundle's <code translate="no">Versions</code> subdirectory.</p>
+<h3 class="fn qml-member qml-property" id="versionsFolderPath-prop" translate="no"><span class="name">versionsFolderPath</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only, since Qbs 1.5]</code></h3>
+<p>The path of the bundle's <code translate="no">Versions</code> subdirectory.</p>
 <p>The path is relative to the directory that contains the bundle.</p>
 <p>This is only relevant for (non-shallow) framework bundles.</p>
 <p>This property was introduced in Qbs 1.5.</p>
-</div></div><!-- @@@versionsFolderPath -->
-<br>
+<!-- @@@versionsFolderPath -->
 </div>
 
 

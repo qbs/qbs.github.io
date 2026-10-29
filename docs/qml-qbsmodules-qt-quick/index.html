@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsModules
 Qt.quick
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 Contents
@@ -57,7 +59,7 @@ TagAuto-tagged File NamesSinceDescription
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-qt-quick/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsModules Qt.quick Qbs 3.3.0 Contents Properties Detailed Description Relevant File Tags Qt.quick Provides Qt Quick 2 support. More...
+	<meta property="og:description" content="Qbs Manual QbsModules Qt.quick Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags Qt.quick Provides Qt Quick 2 support. More...
 List of all members, including inherited members Properties compilerAvailable : bool (since 1.10) qmlDebugging : bool qmlImportsPath : string qmlPath : string useCompiler : bool (since 1.11) Detailed Description The Qt.quick module provides support for Qt Quick 2.
 Relevant File Tags TagAuto-tagged File NamesSinceDescription &#34;qt.quick.qrc&#34;*.qrc1.10Qt resource files with this file tag will be picked up by the Qt Quick compiler rule, and all QML files in the resource will be compiled.This file tag will only be added automatically if the Qt Quick compiler is available.">
 	<meta property="og:locale" content="en_us">
@@ -67,7 +69,7 @@ Relevant File Tags TagAuto-tagged File NamesSinceDescription &#34;qt.quick.qrc&#
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsModules Qt.quick Qbs 3.3.0 Contents Properties Detailed Description Relevant File Tags Qt.quick Provides Qt Quick 2 support. More...
+	<meta name="twitter:description" content="Qbs Manual QbsModules Qt.quick Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags Qt.quick Provides Qt Quick 2 support. More...
 List of all members, including inherited members Properties compilerAvailable : bool (since 1.10) qmlDebugging : bool qmlImportsPath : string qmlPath : string useCompiler : bool (since 1.11) Detailed Description The Qt.quick module provides support for Qt Quick 2.
 Relevant File Tags TagAuto-tagged File NamesSinceDescription &#34;qt.quick.qrc&#34;*.qrc1.10Qt resource files with this file tag will be picked up by the Qt Quick compiler rule, and all QML files in the resource will be compiled.This file tag will only be added automatically if the Qt Quick compiler is available.">
 
@@ -101,12 +103,14 @@ Relevant File Tags TagAuto-tagged File NamesSinceDescription &#34;qt.quick.qrc&#
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>Qt.quick</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -156,66 +160,36 @@ Relevant File Tags TagAuto-tagged File NamesSinceDescription &#34;qt.quick.qrc&#
 <!-- @@@Qt.quick -->
 <h2>Property Documentation</h2>
 <!-- $$$compilerAvailable -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="compilerAvailable-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">compilerAvailable</span> : <span class="type">bool</span> <code class="details extra" translate="no">[since 1.10]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Whether the Qt installation contains the Qt Quick compiler.</p>
+<h3 class="fn qml-member qml-property" id="compilerAvailable-prop" translate="no"><span class="name">compilerAvailable</span> : <span class="type">bool</span> <code class="details extra" translate="no">[since 1.10]</code></h3>
+<p>Whether the Qt installation contains the Qt Quick compiler.</p>
 <p>Default: auto-detected</p>
 <p>This property was introduced in 1.10.</p>
-</div></div><!-- @@@compilerAvailable -->
-<br>
+<!-- @@@compilerAvailable -->
 <!-- $$$qmlDebugging -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="qmlDebugging-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">qmlDebugging</span> : <span class="type">bool</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Whether QML debugging support should be compiled into your binaries.</p>
+<h3 class="fn qml-member qml-property" id="qmlDebugging-prop" translate="no"><span class="name">qmlDebugging</span> : <span class="type">bool</span></h3>
+<p>Whether QML debugging support should be compiled into your binaries.</p>
 <p>Default: <code translate="no">false</code></p>
-</div></div><!-- @@@qmlDebugging -->
-<br>
+<!-- @@@qmlDebugging -->
 <!-- $$$qmlImportsPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="qmlImportsPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">qmlImportsPath</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The absolute path to the directory where Qt's QML imports are installed.</p>
+<h3 class="fn qml-member qml-property" id="qmlImportsPath-prop" translate="no"><span class="name">qmlImportsPath</span> : <span class="type">string</span></h3>
+<p>The absolute path to the directory where Qt's QML imports are installed.</p>
 <p>Default: Determined by <a href="https://qbs.io/
 /docs/cli-setup-qt/">setup-qt</a>.</p>
-</div></div><!-- @@@qmlImportsPath -->
-<br>
+<!-- @@@qmlImportsPath -->
 <!-- $$$qmlPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="qmlPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">qmlPath</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The absolute path to the directory where Qt's QML files are installed.</p>
+<h3 class="fn qml-member qml-property" id="qmlPath-prop" translate="no"><span class="name">qmlPath</span> : <span class="type">string</span></h3>
+<p>The absolute path to the directory where Qt's QML files are installed.</p>
 <p>This property is left undefined for Qt 4.</p>
 <p>Default: Determined by <a href="https://qbs.io/
 /docs/cli-setup-qt/">setup-qt</a>.</p>
-</div></div><!-- @@@qmlPath -->
-<br>
+<!-- @@@qmlPath -->
 <!-- $$$useCompiler -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="useCompiler-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">useCompiler</span> : <span class="type">bool</span> <code class="details extra" translate="no">[since 1.11]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Whether to make use of the Qt Quick compiler.</p>
+<h3 class="fn qml-member qml-property" id="useCompiler-prop" translate="no"><span class="name">useCompiler</span> : <span class="type">bool</span> <code class="details extra" translate="no">[since 1.11]</code></h3>
+<p>Whether to make use of the Qt Quick compiler.</p>
 <p>Default: <a href="https://qbs.io/
 /docs/qml-qbsmodules-qt-quick/#compilerAvailable-prop" translate="no">compilerAvailable</a></p>
 <p>This property was introduced in 1.11.</p>
-</div></div><!-- @@@useCompiler -->
-<br>
+<!-- @@@useCompiler -->
 </div>
 
 

@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsModules
 java
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 Contents
@@ -67,7 +69,7 @@ The java module contains the properties and rules for building Java projects. ">
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-java/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsModules java Qbs 3.3.0 Contents Properties Detailed Description Relevant File Tags java Provides Java support. More...
+	<meta property="og:description" content="Qbs Manual QbsModules java Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags java Provides Java support. More...
 Since: Qbs 1.4 List of all members, including inherited members Properties additionalClassPaths : stringList additionalCompilerFlags : stringList additionalJarFlags : stringList bootClassPaths : stringList compilerFilePath : string compilerName : string enableWarnings : bool interpreterFilePath : string interpreterName : string jarFilePath : string jarName : string jdkIncludePaths : pathList (since Qbs 1.4.1) jdkPath : string languageVersion : string manifest : var (since Qbs 1.4.2) manifestClassPath : stringList runtimeVersion : string warningsAsErrors : bool Detailed Description The java module contains the properties and rules for building Java projects.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
@@ -76,7 +78,7 @@ Since: Qbs 1.4 List of all members, including inherited members Properties addit
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsModules java Qbs 3.3.0 Contents Properties Detailed Description Relevant File Tags java Provides Java support. More...
+	<meta name="twitter:description" content="Qbs Manual QbsModules java Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags java Provides Java support. More...
 Since: Qbs 1.4 List of all members, including inherited members Properties additionalClassPaths : stringList additionalCompilerFlags : stringList additionalJarFlags : stringList bootClassPaths : stringList compilerFilePath : string compilerName : string enableWarnings : bool interpreterFilePath : string interpreterName : string jarFilePath : string jarName : string jdkIncludePaths : pathList (since Qbs 1.4.1) jdkPath : string languageVersion : string manifest : var (since Qbs 1.4.2) manifestClassPath : stringList runtimeVersion : string warningsAsErrors : bool Detailed Description The java module contains the properties and rules for building Java projects.">
 
 </head>
@@ -109,12 +111,14 @@ Since: Qbs 1.4 List of all members, including inherited members Properties addit
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>java</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -191,154 +195,77 @@ Since: Qbs 1.4 List of all members, including inherited members Properties addit
 <!-- @@@java -->
 <h2>Property Documentation</h2>
 <!-- $$$additionalClassPaths -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="additionalClassPaths-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">additionalClassPaths</span> : <span class="type">stringList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The locations beside this product's class output path to consider when compiling.</p>
+<h3 class="fn qml-member qml-property" id="additionalClassPaths-prop" translate="no"><span class="name">additionalClassPaths</span> : <span class="type">stringList</span></h3>
+<p>The locations beside this product's class output path to consider when compiling.</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@additionalClassPaths -->
-<br>
+<!-- @@@additionalClassPaths -->
 <!-- $$$additionalCompilerFlags -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="additionalCompilerFlags-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">additionalCompilerFlags</span> : <span class="type">stringList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>A list of compiler flags not covered by any of the properties in this module.</p>
+<h3 class="fn qml-member qml-property" id="additionalCompilerFlags-prop" translate="no"><span class="name">additionalCompilerFlags</span> : <span class="type">stringList</span></h3>
+<p>A list of compiler flags not covered by any of the properties in this module.</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@additionalCompilerFlags -->
-<br>
+<!-- @@@additionalCompilerFlags -->
 <!-- $$$additionalJarFlags -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="additionalJarFlags-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">additionalJarFlags</span> : <span class="type">stringList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>A list of archiver flags not covered by any of the properties in this module.</p>
+<h3 class="fn qml-member qml-property" id="additionalJarFlags-prop" translate="no"><span class="name">additionalJarFlags</span> : <span class="type">stringList</span></h3>
+<p>A list of archiver flags not covered by any of the properties in this module.</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@additionalJarFlags -->
-<br>
+<!-- @@@additionalJarFlags -->
 <!-- $$$bootClassPaths -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="bootClassPaths-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">bootClassPaths</span> : <span class="type">stringList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>A list of non-standard bootstrap class files.</p>
+<h3 class="fn qml-member qml-property" id="bootClassPaths-prop" translate="no"><span class="name">bootClassPaths</span> : <span class="type">stringList</span></h3>
+<p>A list of non-standard bootstrap class files.</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@bootClassPaths -->
-<br>
+<!-- @@@bootClassPaths -->
 <!-- $$$compilerFilePath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="compilerFilePath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">compilerFilePath</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The command to invoke when compiling Java sources.</p>
+<h3 class="fn qml-member qml-property" id="compilerFilePath-prop" translate="no"><span class="name">compilerFilePath</span> : <span class="type">string</span></h3>
+<p>The command to invoke when compiling Java sources.</p>
 <p>Default: <a href="https://qbs.io/
 /docs/qml-qbsmodules-java/#compilerName-prop" translate="no">compilerName</a>, prefixed by <a href="https://qbs.io/
 /docs/qml-qbsmodules-java/#jdkPath-prop" translate="no">jdkPath</a> if it is defined.</p>
-</div></div><!-- @@@compilerFilePath -->
-<br>
+<!-- @@@compilerFilePath -->
 <!-- $$$compilerName -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="compilerName-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">compilerName</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The file name of the Java compiler.</p>
+<h3 class="fn qml-member qml-property" id="compilerName-prop" translate="no"><span class="name">compilerName</span> : <span class="type">string</span></h3>
+<p>The file name of the Java compiler.</p>
 <p>Default: <code translate="no">"javac"</code></p>
-</div></div><!-- @@@compilerName -->
-<br>
+<!-- @@@compilerName -->
 <!-- $$$enableWarnings -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="enableWarnings-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">enableWarnings</span> : <span class="type">bool</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Whether warnings are emitted when compiling Java sources.</p>
+<h3 class="fn qml-member qml-property" id="enableWarnings-prop" translate="no"><span class="name">enableWarnings</span> : <span class="type">bool</span></h3>
+<p>Whether warnings are emitted when compiling Java sources.</p>
 <p>Default: <code translate="no">true</code></p>
-</div></div><!-- @@@enableWarnings -->
-<br>
+<!-- @@@enableWarnings -->
 <!-- $$$interpreterFilePath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="interpreterFilePath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">interpreterFilePath</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The command to invoke when executing Java code.</p>
+<h3 class="fn qml-member qml-property" id="interpreterFilePath-prop" translate="no"><span class="name">interpreterFilePath</span> : <span class="type">string</span></h3>
+<p>The command to invoke when executing Java code.</p>
 <p>Default: <a href="https://qbs.io/
 /docs/qml-qbsmodules-java/#interpreterName-prop" translate="no">interpreterName</a>, prefixed by <a href="https://qbs.io/
 /docs/qml-qbsmodules-java/#jdkPath-prop" translate="no">jdkPath</a> if it is defined.</p>
-</div></div><!-- @@@interpreterFilePath -->
-<br>
+<!-- @@@interpreterFilePath -->
 <!-- $$$interpreterName -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="interpreterName-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">interpreterName</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The file name of the Java interpreter.</p>
+<h3 class="fn qml-member qml-property" id="interpreterName-prop" translate="no"><span class="name">interpreterName</span> : <span class="type">string</span></h3>
+<p>The file name of the Java interpreter.</p>
 <p>Default: <code translate="no">"java"</code></p>
-</div></div><!-- @@@interpreterName -->
-<br>
+<!-- @@@interpreterName -->
 <!-- $$$jarFilePath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="jarFilePath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">jarFilePath</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The command to run when creating or extracting <code translate="no">jar</code> files.</p>
+<h3 class="fn qml-member qml-property" id="jarFilePath-prop" translate="no"><span class="name">jarFilePath</span> : <span class="type">string</span></h3>
+<p>The command to run when creating or extracting <code translate="no">jar</code> files.</p>
 <p>Default: <a href="https://qbs.io/
 /docs/qml-qbsmodules-java/#jarName-prop" translate="no">jarName</a>, prefixed by <a href="https://qbs.io/
 /docs/qml-qbsmodules-java/#jdkPath-prop" translate="no">jdkPath</a> if it is defined.</p>
-</div></div><!-- @@@jarFilePath -->
-<br>
+<!-- @@@jarFilePath -->
 <!-- $$$jarName -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="jarName-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">jarName</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The file name of the <code translate="no">jar</code> tool.</p>
+<h3 class="fn qml-member qml-property" id="jarName-prop" translate="no"><span class="name">jarName</span> : <span class="type">string</span></h3>
+<p>The file name of the <code translate="no">jar</code> tool.</p>
 <p>Default: <code translate="no">"jar"</code></p>
-</div></div><!-- @@@jarName -->
-<br>
+<!-- @@@jarName -->
 <!-- $$$jdkIncludePaths -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="jdkIncludePaths-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">jdkIncludePaths</span> : <span class="type">pathList</span> <code class="details extra" translate="no">[since Qbs 1.4.1]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>A list of include paths for native header files.</p>
+<h3 class="fn qml-member qml-property" id="jdkIncludePaths-prop" translate="no"><span class="name">jdkIncludePaths</span> : <span class="type">pathList</span> <code class="details extra" translate="no">[since Qbs 1.4.1]</code></h3>
+<p>A list of include paths for native header files.</p>
 <p>Applications using JNI to interface with native code should add these paths to <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#includePaths-prop" translate="no">cpp.includePaths</a>.</p>
 <p>Default: Determined automatically.</p>
 <p>This property was introduced in Qbs 1.4.1.</p>
-</div></div><!-- @@@jdkIncludePaths -->
-<br>
+<!-- @@@jdkIncludePaths -->
 <!-- $$$jdkPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="jdkPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">jdkPath</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The base path of the Java Development Kit (JDK).</p>
+<h3 class="fn qml-member qml-property" id="jdkPath-prop" translate="no"><span class="name">jdkPath</span> : <span class="type">string</span></h3>
+<p>The base path of the Java Development Kit (JDK).</p>
 <p>This is equivalent to the <code translate="no">JAVA_HOME</code> environment variable, and by default will be determined automatically from one of the following:</p>
 <ul>
 <li><code translate="no">JAVA_HOME</code> environment variable (all platforms)</li>
@@ -347,69 +274,38 @@ Since: Qbs 1.4 List of all members, including inherited members Properties addit
 <li>Known JDK paths (other Unix platforms)</li>
 </ul>
 <p>Default: Determined automatically.</p>
-</div></div><!-- @@@jdkPath -->
-<br>
+<!-- @@@jdkPath -->
 <!-- $$$languageVersion -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="languageVersion-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">languageVersion</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The Java language version to interpret source code as.</p>
+<h3 class="fn qml-member qml-property" id="languageVersion-prop" translate="no"><span class="name">languageVersion</span> : <span class="type">string</span></h3>
+<p>The Java language version to interpret source code as.</p>
 <p>If left undefined, the compiler will use its default.</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@languageVersion -->
-<br>
+<!-- @@@languageVersion -->
 <!-- $$$manifest -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="manifest-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">manifest</span> : <span class="type">var</span> <code class="details extra" translate="no">[since Qbs 1.4.2]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The properties to add to the manifest file when building a JAR.</p>
+<h3 class="fn qml-member qml-property" id="manifest-prop" translate="no"><span class="name">manifest</span> : <span class="type">var</span> <code class="details extra" translate="no">[since Qbs 1.4.2]</code></h3>
+<p>The properties to add to the manifest file when building a JAR.</p>
 <p>The contents of this property will be aggregated with the values from any files tagged <a href="https://qbs.io/
 /docs/qml-qbsmodules-java/#filetags-java" translate="no">"java.manifest"</a>.</p>
 <p>If this property and a manifest file contain the same key, this property will take precedence. If left undefined, this property will not be taken into account.</p>
 <p>Default: Undefined</p>
 <p>This property was introduced in Qbs 1.4.2.</p>
-</div></div><!-- @@@manifest -->
-<br>
+<!-- @@@manifest -->
 <!-- $$$manifestClassPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="manifestClassPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">manifestClassPath</span> : <span class="type">stringList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>A list of entries to add to the manifest's Class-Path when building a JAR.</p>
+<h3 class="fn qml-member qml-property" id="manifestClassPath-prop" translate="no"><span class="name">manifestClassPath</span> : <span class="type">stringList</span></h3>
+<p>A list of entries to add to the manifest's Class-Path when building a JAR.</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@manifestClassPath -->
-<br>
+<!-- @@@manifestClassPath -->
 <!-- $$$runtimeVersion -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="runtimeVersion-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">runtimeVersion</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The version of the Java runtime to generate compatible bytecode for.</p>
+<h3 class="fn qml-member qml-property" id="runtimeVersion-prop" translate="no"><span class="name">runtimeVersion</span> : <span class="type">string</span></h3>
+<p>The version of the Java runtime to generate compatible bytecode for.</p>
 <p>If left undefined, the compiler will use its default.</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@runtimeVersion -->
-<br>
+<!-- @@@runtimeVersion -->
 <!-- $$$warningsAsErrors -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="warningsAsErrors-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">warningsAsErrors</span> : <span class="type">bool</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>If this property is <code translate="no">true</code>, the compiler will abort where it would normally emit a warning.</p>
+<h3 class="fn qml-member qml-property" id="warningsAsErrors-prop" translate="no"><span class="name">warningsAsErrors</span> : <span class="type">bool</span></h3>
+<p>If this property is <code translate="no">true</code>, the compiler will abort where it would normally emit a warning.</p>
 <p>Default: <code translate="no">false</code></p>
-</div></div><!-- @@@warningsAsErrors -->
-<br>
+<!-- @@@warningsAsErrors -->
 </div>
 
 

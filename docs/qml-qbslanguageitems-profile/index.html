@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsLanguageItems
 Profile
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 
@@ -57,7 +59,7 @@ The profiles used by Qbs are normally set up on a user&#39;s machine and are the
     <meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-profile/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsLanguageItems Profile Qbs 3.3.0 Product Project Contents Properties Detailed Description Profile Creates a profile within the project. More...
+	<meta property="og:description" content="Qbs Manual QbsLanguageItems Profile Qbs 3.4.0 Product Project Contents Properties Detailed Description Profile Creates a profile within the project. More...
 List of all members, including inherited members Profile is part of List of All Items. Properties baseProfile : string condition : bool name : string Detailed Description The profiles used by Qbs are normally set up on a user&#39;s machine and are then available to all projects. See Configuring Profiles and Preferences for information on how to set up and use profiles on the command line. In some rare cases, however, the creator of a project has complete knowledge about the system on which that project is to be built. Then it can make sense to integrate the profile into the project:">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
@@ -66,7 +68,7 @@ List of all members, including inherited members Profile is part of List of All 
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsLanguageItems Profile Qbs 3.3.0 Product Project Contents Properties Detailed Description Profile Creates a profile within the project. More...
+	<meta name="twitter:description" content="Qbs Manual QbsLanguageItems Profile Qbs 3.4.0 Product Project Contents Properties Detailed Description Profile Creates a profile within the project. More...
 List of all members, including inherited members Profile is part of List of All Items. Properties baseProfile : string condition : bool name : string Detailed Description The profiles used by Qbs are normally set up on a user&#39;s machine and are then available to all projects. See Configuring Profiles and Preferences for information on how to set up and use profiles on the command line. In some rare cases, however, the creator of a project has complete knowledge about the system on which that project is to be built. Then it can make sense to integrate the profile into the project:">
 
 </head>
@@ -99,12 +101,14 @@ List of all members, including inherited members Profile is part of List of All 
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbslanguageitems-qmlmodule/" translate="no">QbsLanguageItems</a></li>
 <li>Profile</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <link href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/" rel="prev">
 <link href="https://qbs.io/
@@ -156,13 +160,13 @@ List of all members, including inherited members Profile is part of List of All 
     <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-profile/" translate="no">Profile</a></span> {
         <span class="name">name</span>: <span class="string">"my-special-profile"</span>
-        <span class="name">qbs</span>.toolchainType: <span class="string">"gcc"</span>
-        <span class="name">qbs</span>.targetPlatform: <span class="string">"linux"</span>
-        <span class="name">qbs</span>.architecture: <span class="string">"armv7a"</span>
-        <span class="name">cpp</span>.toolchainInstallPath: <span class="string">"/opt/special-gcc/bin"</span>
-        <span class="name">cpp</span>.toolchainPrefix: <span class="string">"arm-linux-gnueabi-"</span>
+        <span class="name">qbs.toolchainType</span>: <span class="string">"gcc"</span>
+        <span class="name">qbs.targetPlatform</span>: <span class="string">"linux"</span>
+        <span class="name">qbs.architecture</span>: <span class="string">"armv7a"</span>
+        <span class="name">cpp.toolchainInstallPath</span>: <span class="string">"/opt/special-gcc/bin"</span>
+        <span class="name">cpp.toolchainPrefix</span>: <span class="string">"arm-linux-gnueabi-"</span>
     }
-    <span class="name">qbs</span>.profiles: [<span class="string">"my-special-profile"</span>]
+    <span class="name">qbs.profiles</span>: [<span class="string">"my-special-profile"</span>]
     <span class="comment">// ...</span>
 }</pre>
 <p>The project in the above example can be built in a particular well-known environment without any additional setup.</p>
@@ -172,39 +176,21 @@ List of all members, including inherited members Profile is part of List of All 
 <!-- @@@Profile -->
 <h2>Property Documentation</h2>
 <!-- $$$baseProfile -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="baseProfile-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">baseProfile</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The name of a profile from which this profile inherits. If the same property is set in both this profile and the base profile, the value from this profile takes precedence.</p>
+<h3 class="fn qml-member qml-property" id="baseProfile-prop" translate="no"><span class="name">baseProfile</span> : <span class="type">string</span></h3>
+<p>The name of a profile from which this profile inherits. If the same property is set in both this profile and the base profile, the value from this profile takes precedence.</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@baseProfile -->
-<br>
+<!-- @@@baseProfile -->
 <!-- $$$condition -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="condition-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">condition</span> : <span class="type">bool</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Determines whether this profile can be used.</p>
+<h3 class="fn qml-member qml-property" id="condition-prop" translate="no"><span class="name">condition</span> : <span class="type">bool</span></h3>
+<p>Determines whether this profile can be used.</p>
 <p>If this property is set to <code translate="no">false</code>, the profile cannot be used.</p>
 <p>Default: <code translate="no">true</code></p>
-</div></div><!-- @@@condition -->
-<br>
+<!-- @@@condition -->
 <!-- $$$name -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="name-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">name</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The name under which the profile can be referenced later. Setting this property is required. The value must be unique among all profiles in an entire project.</p>
+<h3 class="fn qml-member qml-property" id="name-prop" translate="no"><span class="name">name</span> : <span class="type">string</span></h3>
+<p>The name under which the profile can be referenced later. Setting this property is required. The value must be unique among all profiles in an entire project.</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@name -->
-<br>
+<!-- @@@name -->
 <p class="naviNextPrevious footerNavi">
 <a class="prevPage" href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/">Product</a>

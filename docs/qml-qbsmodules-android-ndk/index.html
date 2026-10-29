@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsModules
 Android.ndk
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 Contents
@@ -54,7 +56,7 @@ The Android.ndk module contains the properties and rules to create native librar
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-android-ndk/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsModules Android.ndk Qbs 3.3.0 Contents Properties Detailed Description Relevant File Tags Android.ndk Provides support for building native Android libraries. More...
+	<meta property="og:description" content="Qbs Manual QbsModules Android.ndk Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags Android.ndk Provides support for building native Android libraries. More...
 Since: Qbs 1.4 List of all members, including inherited members Properties abi : string appStl : string buildId : string (since Qbs 1.21) ndkDir : path platform : string Detailed Description The Android.ndk module contains the properties and rules to create native libraries for use in Android applications.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
@@ -63,7 +65,7 @@ Since: Qbs 1.4 List of all members, including inherited members Properties abi :
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsModules Android.ndk Qbs 3.3.0 Contents Properties Detailed Description Relevant File Tags Android.ndk Provides support for building native Android libraries. More...
+	<meta name="twitter:description" content="Qbs Manual QbsModules Android.ndk Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags Android.ndk Provides support for building native Android libraries. More...
 Since: Qbs 1.4 List of all members, including inherited members Properties abi : string appStl : string buildId : string (since Qbs 1.21) ndkDir : path platform : string Detailed Description The Android.ndk module contains the properties and rules to create native libraries for use in Android applications.">
 
 </head>
@@ -96,12 +98,14 @@ Since: Qbs 1.4 List of all members, including inherited members Properties abi :
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>Android.ndk</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -148,8 +152,8 @@ Since: Qbs 1.4 List of all members, including inherited members Properties abi :
 <pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-cppapplication/" translate="no">CppApplication</a></span> {
     <span class="name">name</span>: <span class="string">"HelloJni"</span>
-    <span class="name">Android</span>.sdk.packageName: <span class="string">"com.example.hellojni"</span>
-    <span class="name">qbs</span>.architectures: [<span class="string">"arm"</span>, <span class="string">"x86"</span>]
+    <span class="name">Android.sdk.packageName</span>: <span class="string">"com.example.hellojni"</span>
+    <span class="name">qbs.architectures</span>: [<span class="string">"arm"</span>, <span class="string">"x86"</span>]
     <span class="name">files</span>: <span class="string">"app/src/main/jni/hello-jni.c"</span>
 }</pre>
 <h3 id="relevant-file-tags">Relevant File Tags</h3>
@@ -161,65 +165,35 @@ Since: Qbs 1.4 List of all members, including inherited members Properties abi :
 <!-- @@@Android.ndk -->
 <h2>Property Documentation</h2>
 <!-- $$$abi -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="abi-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">abi</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The ABI name as it appears under <code translate="no">"lib/"</code> in the application package. Corresponds to <code translate="no">APP_ABI</code> in <code translate="no">Android.mk</code>.</p>
+<h3 class="fn qml-member qml-property" id="abi-prop" translate="no"><span class="name">abi</span> : <span class="type">string</span></h3>
+<p>The ABI name as it appears under <code translate="no">"lib/"</code> in the application package. Corresponds to <code translate="no">APP_ABI</code> in <code translate="no">Android.mk</code>.</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@abi -->
-<br>
+<!-- @@@abi -->
 <!-- $$$appStl -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="appStl-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">appStl</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The library to use for C++. The possible values are:</p>
+<h3 class="fn qml-member qml-property" id="appStl-prop" translate="no"><span class="name">appStl</span> : <span class="type">string</span></h3>
+<p>The library to use for C++. The possible values are:</p>
 <ul>
 <li><code translate="no">"c++_shared"</code></li>
 <li><code translate="no">"c++_static"</code></li>
 </ul>
 <p>Default: <code translate="no">"c++_shared"</code></p>
-</div></div><!-- @@@appStl -->
-<br>
+<!-- @@@appStl -->
 <!-- $$$buildId -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="buildId-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">buildId</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.21]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Value to pass to the –build-id linker flag. Plain –build-id option is used when buildId property is empty.</p>
+<h3 class="fn qml-member qml-property" id="buildId-prop" translate="no"><span class="name">buildId</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.21]</code></h3>
+<p>Value to pass to the –build-id linker flag. Plain –build-id option is used when buildId property is empty.</p>
 <p>Default: <code translate="no">"sha1"</code></p>
 <p>This property was introduced in Qbs 1.21.</p>
-</div></div><!-- @@@buildId -->
-<br>
+<!-- @@@buildId -->
 <!-- $$$ndkDir -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="ndkDir-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">ndkDir</span> : <span class="type">path</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The NDK base directory.</p>
+<h3 class="fn qml-member qml-property" id="ndkDir-prop" translate="no"><span class="name">ndkDir</span> : <span class="type">path</span></h3>
+<p>The NDK base directory.</p>
 <p>Default: Undefined</p>
-</div></div><!-- @@@ndkDir -->
-<br>
+<!-- @@@ndkDir -->
 <!-- $$$platform -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="platform-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">platform</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The versioned platform name.</p>
+<h3 class="fn qml-member qml-property" id="platform-prop" translate="no"><span class="name">platform</span> : <span class="type">string</span></h3>
+<p>The versioned platform name.</p>
 <p>Default: <code translate="no">"android-16"</code> for 32 bit arm ABIs and <code translate="no">"android-21"</code> for all 64 bit ABIs and x86. x86 ABI has broken wstring support in android-16 to android-19.</p>
-</div></div><!-- @@@platform -->
-<br>
+<!-- @@@platform -->
 </div>
 
 

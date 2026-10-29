@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsLanguageItems
 SubProject
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 Scanner
@@ -55,7 +57,7 @@ A SubProject item is used to add a sub-project that is defined in a separate fil
     <meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-subproject/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsLanguageItems SubProject Qbs 3.3.0 Scanner Contents Properties Detailed Description SubProject Adds a project from a different file. More...
+	<meta property="og:description" content="Qbs Manual QbsLanguageItems SubProject Qbs 3.4.0 Scanner Contents Properties Detailed Description SubProject Adds a project from a different file. More...
 List of all members, including inherited members SubProject is part of List of All Items. Properties condition : bool filePath : path inheritProperties : bool Detailed Description A SubProject item is used to add a sub-project that is defined in a separate file. Additionally, properties of the sub-project can be set without modifying the separate project file.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
@@ -64,7 +66,7 @@ List of all members, including inherited members SubProject is part of List of A
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsLanguageItems SubProject Qbs 3.3.0 Scanner Contents Properties Detailed Description SubProject Adds a project from a different file. More...
+	<meta name="twitter:description" content="Qbs Manual QbsLanguageItems SubProject Qbs 3.4.0 Scanner Contents Properties Detailed Description SubProject Adds a project from a different file. More...
 List of all members, including inherited members SubProject is part of List of All Items. Properties condition : bool filePath : path inheritProperties : bool Detailed Description A SubProject item is used to add a sub-project that is defined in a separate file. Additionally, properties of the sub-project can be set without modifying the separate project file.">
 
 </head>
@@ -97,12 +99,14 @@ List of all members, including inherited members SubProject is part of List of A
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbslanguageitems-qmlmodule/" translate="no">QbsLanguageItems</a></li>
 <li>SubProject</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <link href="https://qbs.io/
 /docs/qml-qbslanguageitems-scanner/" rel="prev">
 <p class="naviNextPrevious headerNavi">
@@ -183,43 +187,25 @@ List of all members, including inherited members SubProject is part of List of A
 <!-- @@@SubProject -->
 <h2>Property Documentation</h2>
 <!-- $$$condition -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="condition-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">condition</span> : <span class="type">bool</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Whether the sub-project is added. If <code translate="no">false</code>, the sub-project is not included.</p>
+<h3 class="fn qml-member qml-property" id="condition-prop" translate="no"><span class="name">condition</span> : <span class="type">bool</span></h3>
+<p>Whether the sub-project is added. If <code translate="no">false</code>, the sub-project is not included.</p>
 <p>Setting this property has the same effect as setting the <code translate="no">condition</code> property within a <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-properties/" translate="no">Properties</a> item. If both this property and the <code translate="no">condition</code> property within a <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-properties/" translate="no">Properties</a> item are defined, the sub-project is included only if both properties evaluate to <code translate="no">true</code>.</p>
 <p>Default: <code translate="no">true</code></p>
-</div></div><!-- @@@condition -->
-<br>
+<!-- @@@condition -->
 <!-- $$$filePath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="filePath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">filePath</span> : <span class="type">path</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The file path of the project to add as a sub-project. If the top-level item in this file is a <a href="https://qbs.io/
+<h3 class="fn qml-member qml-property" id="filePath-prop" translate="no"><span class="name">filePath</span> : <span class="type">path</span></h3>
+<p>The file path of the project to add as a sub-project. If the top-level item in this file is a <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/" translate="no">Product</a>, it gets wrapped automatically in a new project.</p>
 <p>Default: empty</p>
-</div></div><!-- @@@filePath -->
-<br>
+<!-- @@@filePath -->
 <!-- $$$inheritProperties -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="inheritProperties-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">inheritProperties</span> : <span class="type">bool</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Determines whether the sub-project should inherit the properties of the surrounding <a href="https://qbs.io/
+<h3 class="fn qml-member qml-property" id="inheritProperties-prop" translate="no"><span class="name">inheritProperties</span> : <span class="type">bool</span></h3>
+<p>Determines whether the sub-project should inherit the properties of the surrounding <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-project/" translate="no">Project</a>. You can use this feature to share global settings between projects and sub-projects.</p>
 <p>Default: <code translate="no">true</code></p>
-</div></div><!-- @@@inheritProperties -->
-<br>
+<!-- @@@inheritProperties -->
 <p class="naviNextPrevious footerNavi">
 <a class="prevPage" href="https://qbs.io/
 /docs/qml-qbslanguageitems-scanner/">Scanner</a>

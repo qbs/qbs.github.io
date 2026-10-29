@@ -3,9 +3,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 Static Library
-Qbs 3.3.0
+Qbs 3.4.0
+
   
   
 
@@ -41,7 +43,7 @@ Let&#39;s take a look at the the library file now: ">
     <meta property="og:url" content="https://qbs.io/docs/tutorial-2/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual Static Library Qbs 3.3.0 Console Application Dynamic Library Static Library Let&#39;s add a static library to our project so we can reuse some code. Analogous to what we did for the application, we put the file into the lib directory and add it to the references property in our project. The modified project may look like this:
+	<meta property="og:description" content="Qbs Manual Static Library Qbs 3.4.0 Console Application Dynamic Library Static Library Let&#39;s add a static library to our project so we can reuse some code. Analogous to what we did for the application, we put the file into the lib directory and add it to the references property in our project. The modified project may look like this:
 Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references: [ &#34;app/app.qbs&#34;, &#34;lib/lib.qbs&#34; ] } Let&#39;s take a look at the the library file now:">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
@@ -50,7 +52,7 @@ Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual Static Library Qbs 3.3.0 Console Application Dynamic Library Static Library Let&#39;s add a static library to our project so we can reuse some code. Analogous to what we did for the application, we put the file into the lib directory and add it to the references property in our project. The modified project may look like this:
+	<meta name="twitter:description" content="Qbs Manual Static Library Qbs 3.4.0 Console Application Dynamic Library Static Library Let&#39;s add a static library to our project so we can reuse some code. Analogous to what we did for the application, we put the file into the lib directory and add it to the references property in our project. The modified project may look like this:
 Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references: [ &#34;app/app.qbs&#34;, &#34;lib/lib.qbs&#34; ] } Let&#39;s take a look at the the library file now:">
 
 </head>
@@ -83,10 +85,12 @@ Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li>Static Library</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
   <link rel="prev" href="https://qbs.io/
 /docs/tutorial-1/">
   <link rel="next" href="https://qbs.io/
@@ -136,6 +140,11 @@ Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references
 /docs/qml-qbsconvenienceitems-staticlibrary/" translate="no">StaticLibrary</a> item inherits the <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-cpplibrary/" translate="no">CppLibrary</a> item which pulls in the dependency on the <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/" translate="no">cpp</a> module.</p>
+<div class="admonition note">
+<p><b>Note: </b>If the library does not need to be installed and distributed - for instance, when it is used only as an internal abstraction inside the project - consider <a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-objectlibrary/" translate="no">ObjectLibrary</a> instead. It behaves exactly like <a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-staticlibrary/" translate="no">StaticLibrary</a>, except that the object files are not packaged into a container.</p>
+</div>
 <p>As before, we set the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#files-prop" translate="no">files</a> property with a header:</p>
 <pre class="cpp" translate="no"><span class="comment">// lib/lib.h</span>

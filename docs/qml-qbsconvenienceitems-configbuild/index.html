@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsConvenienceItems
 ConfigBuild
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 
@@ -57,7 +59,7 @@ This items contains properties that configure built-in items such as Application
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsconvenienceitems-configbuild/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsConvenienceItems ConfigBuild Qbs 3.3.0 AutotestRunner ConfigInstall Contents Properties Detailed Description ConfigBuild This is the base item for the config.build module. More...
+	<meta property="og:description" content="Qbs Manual QbsConvenienceItems ConfigBuild Qbs 3.4.0 AutotestRunner ConfigInstall Contents Properties Detailed Description ConfigBuild This is the base item for the config.build module. More...
 Since: Qbs 3.1 List of all members, including inherited members ConfigBuild is part of List of All Items. Properties libraryType : string pluginType : string Detailed Description This items contains properties that configure built-in items such as Application, Library, and Plugin.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
@@ -66,7 +68,7 @@ Since: Qbs 3.1 List of all members, including inherited members ConfigBuild is p
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsConvenienceItems ConfigBuild Qbs 3.3.0 AutotestRunner ConfigInstall Contents Properties Detailed Description ConfigBuild This is the base item for the config.build module. More...
+	<meta name="twitter:description" content="Qbs Manual QbsConvenienceItems ConfigBuild Qbs 3.4.0 AutotestRunner ConfigInstall Contents Properties Detailed Description ConfigBuild This is the base item for the config.build module. More...
 Since: Qbs 3.1 List of all members, including inherited members ConfigBuild is part of List of All Items. Properties libraryType : string pluginType : string Detailed Description This items contains properties that configure built-in items such as Application, Library, and Plugin.">
 
 </head>
@@ -99,12 +101,14 @@ Since: Qbs 3.1 List of all members, including inherited members ConfigBuild is p
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsconvenienceitems-qmlmodule/" translate="no">QbsConvenienceItems</a></li>
 <li>ConfigBuild</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <link href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-autotestrunner/" rel="prev">
 <link href="https://qbs.io/
@@ -155,35 +159,23 @@ Since: Qbs 3.1 List of all members, including inherited members ConfigBuild is p
 <!-- @@@ConfigBuild -->
 <h2>Property Documentation</h2>
 <!-- $$$libraryType -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="libraryType-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">libraryType</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Controls the default library kind produced by <a href="https://qbs.io/
+<h3 class="fn qml-member qml-property" id="libraryType-prop" translate="no"><span class="name">libraryType</span> : <span class="type">string</span></h3>
+<p>Controls the default library kind produced by <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-library/" translate="no">Library</a> items.</p>
 <p>Allowed values are <code translate="no">"dynamic"</code> and <code translate="no">"static"</code>.</p>
 <p>Default: <code translate="no">"dynamic"</code>.</p>
 <p>On Apple iOS targets prior to iOS 8, dynamic libraries are not supported; in that case a static library will be produced regardless of this setting.</p>
-</div></div><!-- @@@libraryType -->
-<br>
+<!-- @@@libraryType -->
 <!-- $$$pluginType -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="pluginType-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">pluginType</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>Controls the default library kind produced by <a href="https://qbs.io/
+<h3 class="fn qml-member qml-property" id="pluginType-prop" translate="no"><span class="name">pluginType</span> : <span class="type">string</span></h3>
+<p>Controls the default library kind produced by <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-plugin/" translate="no">Plugin</a> and l{<a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-loadablemodule/" translate="no">LoadableModule</a>} items.</p>
 <p>Allowed values are <code translate="no">"dynamic"</code> and <code translate="no">"static"</code>.</p>
 <p>Default: <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-configbuild/#libraryType-prop" translate="no">libraryType</a>.</p>
 <p>On Apple iOS targets prior to iOS 8, dynamic libraries are not supported; in that case a static plugin will be produced regardless of this setting.</p>
-</div></div><!-- @@@pluginType -->
-<br>
+<!-- @@@pluginType -->
 <p class="naviNextPrevious footerNavi">
 <a class="prevPage" href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-autotestrunner/">AutotestRunner</a>

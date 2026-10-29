@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsProbes
 LibraryProbe
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 Contents
@@ -47,7 +49,7 @@ On Unix, searches for library files within directories specified by the LIBRARY_
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsprobes-libraryprobe/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsProbes LibraryProbe Qbs 3.3.0 Contents Detailed Description LibraryProbe Locates library files outside the project. More...
+	<meta property="og:description" content="Qbs Manual QbsProbes LibraryProbe Qbs 3.4.0 Contents Detailed Description LibraryProbe Locates library files outside the project. More...
 Inherits: PathProbe
 List of all members, including inherited members LibraryProbe is part of List of All Items. Detailed Description On Windows, searches for library files within directories specified by the PATH environment variable.
 On Unix, searches for library files within directories specified by the LIBRARY_PATH environment variable, as well as in &#34;/usr/lib&#34; and &#34;/usr/local/lib&#34;.">
@@ -58,7 +60,7 @@ On Unix, searches for library files within directories specified by the LIBRARY_
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsProbes LibraryProbe Qbs 3.3.0 Contents Detailed Description LibraryProbe Locates library files outside the project. More...
+	<meta name="twitter:description" content="Qbs Manual QbsProbes LibraryProbe Qbs 3.4.0 Contents Detailed Description LibraryProbe Locates library files outside the project. More...
 Inherits: PathProbe
 List of all members, including inherited members LibraryProbe is part of List of All Items. Detailed Description On Windows, searches for library files within directories specified by the PATH environment variable.
 On Unix, searches for library files within directories specified by the LIBRARY_PATH environment variable, as well as in &#34;/usr/lib&#34; and &#34;/usr/local/lib&#34;.">
@@ -93,12 +95,14 @@ On Unix, searches for library files within directories specified by the LIBRARY_
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsprobes-qmlmodule/" translate="no">QbsProbes</a></li>
 <li>LibraryProbe</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -133,12 +137,13 @@ On Unix, searches for library files within directories specified by the LIBRARY_
 
 <span class="type"><a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-cppapplication/" translate="no">CppApplication</a></span> {
-    <span class="type">Probes</span>.LibraryProbe {
+    <span class="type"><a href="https://qbs.io/
+/docs/qml-qbsprobes-libraryprobe/" translate="no">Probes.LibraryProbe</a></span> {
         <span class="name">id</span>: <span class="name">zlibProbe</span>
         <span class="name">names</span>: <span class="string">"z"</span>
     }
-    <span class="name">cpp</span>.libraryPaths: <span class="name">zlibProbe</span>.<span class="name">found</span> ? [<span class="name">zlibProbe</span>.<span class="name">path</span>] : []
-    <span class="name">cpp</span>.dynamicLibraries: <span class="name">zlibProbe</span>.<span class="name">found</span> ? [<span class="name">zlibProbe</span>.<span class="name">names</span>] : []
+    <span class="name">cpp.libraryPaths</span>: <span class="name">zlibProbe</span>.<span class="name">found</span> ? [<span class="name">zlibProbe</span>.<span class="name">path</span>] : []
+    <span class="name">cpp.dynamicLibraries</span>: <span class="name">zlibProbe</span>.<span class="name">found</span> ? [<span class="name">zlibProbe</span>.<span class="name">names</span>] : []
     <span class="name">files</span>: <span class="string">'main.cpp'</span>
 }</pre>
 <!-- @@@LibraryProbe -->

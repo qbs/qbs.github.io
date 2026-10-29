@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QtHelpProject version="1.0">
-    <namespace>org.qt-project.qbs.330</namespace>
+    <namespace>org.qt-project.qbs.340</namespace>
     <virtualFolder>doc</virtualFolder>
     <metaData name="version" value=""/>
-    <customFilter name="Qbs 3.3.0">
-        <filterAttribute>3.3.0</filterAttribute>
+    <customFilter name="Qbs 3.4.0">
+        <filterAttribute>3.4.0</filterAttribute>
         <filterAttribute>qbs</filterAttribute>
     </customFilter>
     <filterSection>
-        <filterAttribute>3.3.0</filterAttribute>
+        <filterAttribute>3.4.0</filterAttribute>
         <filterAttribute>qbs</filterAttribute>
         <toc>
             <section ref="index.html" title="Qbs">
@@ -243,6 +243,7 @@
             <keyword name="QML.Project" id="QML.Project" ref="qml-qbslanguageitems-project.html"/>
             <keyword name="QML.Properties" id="QML.Properties" ref="qml-qbslanguageitems-properties.html"/>
             <keyword name="QML.PropertyOptions" id="QML.PropertyOptions" ref="qml-qbslanguageitems-propertyoptions.html"/>
+            <keyword name="QML.QmlModule" id="QML.QmlModule" ref="qml-qbsconvenienceitems-qmlmodule.html"/>
             <keyword name="QML.QtApplication" id="QML.QtApplication" ref="qml-qbsconvenienceitems-qtapplication.html"/>
             <keyword name="QML.QtGuiApplication" id="QML.QtGuiApplication" ref="qml-qbsconvenienceitems-qtguiapplication.html"/>
             <keyword name="QML.QtLupdateRunner" id="QML.QtLupdateRunner" ref="qml-qbsconvenienceitems-qtlupdaterunner.html"/>
@@ -257,6 +258,8 @@
             <keyword name="QbsModuleProviders" id="QML.QbsModuleProviders" ref="qbsmoduleproviders-qmlmodule.html"/>
             <keyword name="QbsModules" id="QML.QbsModules" ref="qbsmodules-qmlmodule.html"/>
             <keyword name="QbsProbes" id="QML.QbsProbes" ref="qbsprobes-qmlmodule.html"/>
+            <keyword name="QmlModule" id="QML.QmlModule" ref="qml-qbsconvenienceitems-qmlmodule.html"/>
+            <keyword name="QmlModule" id="QML.QbsConvenienceItems.QmlModule" ref="qml-qbsconvenienceitems-qmlmodule.html"/>
             <keyword name="Qt" id="QML.Qt" ref="qml-qbsmoduleproviders-qt.html"/>
             <keyword name="Qt" id="QML.QbsModuleProviders.Qt" ref="qml-qbsmoduleproviders-qt.html"/>
             <keyword name="Qt Modules" id="Qt Modules" ref="qt-modules.html"/>
@@ -720,6 +723,7 @@
             <keyword name="infoPlistPath" id="bundle::infoPlistPath" ref="qml-qbsmodules-bundle.html#infoPlistPath-prop"/>
             <keyword name="infoStringsPath" id="bundle::infoStringsPath" ref="qml-qbsmodules-bundle.html#infoStringsPath-prop"/>
             <keyword name="inheritProperties" id="SubProject::inheritProperties" ref="qml-qbslanguageitems-subproject.html#inheritProperties-prop"/>
+            <keyword name="init" id="init" ref="cli-init.html"/>
             <keyword name="innosetup" id="QML.innosetup" ref="qml-qbsmodules-innosetup.html"/>
             <keyword name="innosetup" id="QML.QbsModules.innosetup" ref="qml-qbsmodules-innosetup.html"/>
             <keyword name="inputs" id="Rule::inputs" ref="qml-qbslanguageitems-rule.html#inputs-prop"/>
@@ -819,6 +823,7 @@
             <keyword name="loadableModules" id="ConfigInstall::loadableModules" ref="qml-qbsconvenienceitems-configinstall.html#loadableModules-prop"/>
             <keyword name="loadableModules" id="installpaths::loadableModules" ref="qml-qbsmodules-installpaths.html#loadableModules-prop"/>
             <keyword name="loadableModulesDirectory" id="ConfigInstall::loadableModulesDirectory" ref="qml-qbsconvenienceitems-configinstall.html#loadableModulesDirectory-prop"/>
+            <keyword name="loadedAtRuntime" id="Qt.qml::loadedAtRuntime" ref="qml-qbsmodules-qt-qml.html#loadedAtRuntime-prop"/>
             <keyword name="localizedResourcesFolderPath" id="bundle::localizedResourcesFolderPath" ref="qml-qbsmodules-bundle.html#localizedResourcesFolderPath-prop"/>
             <keyword name="lreleaseMultiplexMode" id="Qt.core::lreleaseMultiplexMode" ref="qml-qbsmodules-qt-core.html#lreleaseMultiplexMode-prop"/>
             <keyword name="lreleaseName" id="Qt.core::lreleaseName" ref="qml-qbsmodules-qt-core.html#lreleaseName-prop"/>
@@ -846,6 +851,7 @@
             <keyword name="module" id="ib::module" ref="qml-qbsmodules-ib.html#module-prop"/>
             <keyword name="moduleLoader" id="typescript::moduleLoader" ref="qml-qbsmodules-typescript.html#moduleLoader-prop"/>
             <keyword name="moduleName" id="ModuleProvider::moduleName" ref="qml-qbslanguageitems-moduleprovider.html#moduleName-prop"/>
+            <keyword name="modulesInstallDir" id="QmlModule::modulesInstallDir" ref="qml-qbsconvenienceitems-qmlmodule.html#modulesInstallDir-prop"/>
             <keyword name="modversion" id="PkgConfigProbe::modversion" ref="qml-qbsprobes-pkgconfigprobe.html#modversion-prop"/>
             <keyword name="mslVersions" id="Qt.shadertools::mslVersions" ref="qml-qbsmodules-qt-shadertools.html#mslVersions-prop"/>
             <keyword name="multiplex" id="Rule::multiplex" ref="qml-qbslanguageitems-rule.html#multiplex-prop"/>
@@ -905,6 +911,7 @@
             <keyword name="path" id="PathProbe::path" ref="qml-qbsprobes-pathprobe.html#path-prop"/>
             <keyword name="pathSuffixes" id="PathProbe::pathSuffixes" ref="qml-qbsprobes-pathprobe.html#pathSuffixes-prop"/>
             <keyword name="patterns" id="FileTagger::patterns" ref="qml-qbslanguageitems-filetagger.html#patterns-prop"/>
+            <keyword name="pchDependsOnSystemHeaders" id="cpp::pchDependsOnSystemHeaders" ref="qml-qbsmodules-cpp.html#pchDependsOnSystemHeaders-prop"/>
             <keyword name="pkgInfoPath" id="bundle::pkgInfoPath" ref="qml-qbsmodules-bundle.html#pkgInfoPath-prop"/>
             <keyword name="pkgconfig" id="QML.pkgconfig" ref="qml-qbsmodules-pkgconfig.html"/>
             <keyword name="pkgconfig" id="QML.QbsModules.pkgconfig" ref="qml-qbsmodules-pkgconfig.html"/>
@@ -915,6 +922,7 @@
             <keyword name="platformEnvironmentPaths" id="PathProbe::platformEnvironmentPaths" ref="qml-qbsprobes-pathprobe.html#platformEnvironmentPaths-prop"/>
             <keyword name="platformPath" id="xcode::platformPath" ref="qml-qbsmodules-xcode.html#platformPath-prop"/>
             <keyword name="platformSearchPaths" id="PathProbe::platformSearchPaths" ref="qml-qbsprobes-pathprobe.html#platformSearchPaths-prop"/>
+            <keyword name="pluginClassName" id="Qt.qml::pluginClassName" ref="qml-qbsmodules-qt-qml.html#pluginClassName-prop"/>
             <keyword name="pluginMetaData" id="Qt.core::pluginMetaData" ref="qml-qbsmodules-qt-core.html#pluginMetaData-prop"/>
             <keyword name="pluginName" id="protobuf.nanopb::pluginName" ref="qml-qbsmodules-protobuf-nanopb.html#pluginName-prop"/>
             <keyword name="pluginPath" id="protobuf.nanopb::pluginPath" ref="qml-qbsmodules-protobuf-nanopb.html#pluginPath-prop"/>
@@ -979,6 +987,7 @@
             <keyword name="qmlPath" id="Qt.qml::qmlPath" ref="qml-qbsmodules-qt-qml.html#qmlPath-prop"/>
             <keyword name="qmlPath" id="Qt.quick::qmlPath" ref="qml-qbsmodules-qt-quick.html#qmlPath-prop"/>
             <keyword name="qmlRootDir" id="Qt.android_support::qmlRootDir" ref="qml-qbsmodules-qt-android-support.html#qmlRootDir-prop"/>
+            <keyword name="qmldirInstallDir" id="Qt.qml::qmldirInstallDir" ref="qml-qbsmodules-qt-qml.html#qmldirInstallDir-prop"/>
             <keyword name="qnx" id="QML.qnx" ref="qml-qbsmodules-qnx.html"/>
             <keyword name="qnx" id="QML.QbsModules.qnx" ref="qml-qbsmodules-qnx.html"/>
             <keyword name="qsbName" id="Qt.shadertools::qsbName" ref="qml-qbsmodules-qt-shadertools.html#qsbName-prop"/>
@@ -1016,6 +1025,7 @@
             <keyword name="runtimeLibrary" id="cpp::runtimeLibrary" ref="qml-qbsmodules-cpp.html#runtimeLibrary-prop"/>
             <keyword name="runtimeVersion" id="java::runtimeVersion" ref="qml-qbsmodules-java.html#runtimeVersion-prop"/>
             <keyword name="scan" id="Scanner::scan" ref="qml-qbslanguageitems-scanner.html#scan-prop"/>
+            <keyword name="scannerId" id="Scanner::scannerId" ref="qml-qbslanguageitems-scanner.html#scannerId-prop"/>
             <keyword name="scriptsFolderPath" id="bundle::scriptsFolderPath" ref="qml-qbsmodules-bundle.html#scriptsFolderPath-prop"/>
             <keyword name="sdk" id="xcode::sdk" ref="qml-qbsmodules-xcode.html#sdk-prop"/>
             <keyword name="sdkDir" id="Android.sdk::sdkDir" ref="qml-qbsmodules-android-sdk.html#sdkDir-prop"/>
@@ -1027,6 +1037,7 @@
             <keyword name="searchPaths" id="PathProbe::searchPaths" ref="qml-qbsprobes-pathprobe.html#searchPaths-prop"/>
             <keyword name="selectors" id="PathProbe::selectors" ref="qml-qbsprobes-pathprobe.html#selectors-prop"/>
             <keyword name="separateDebugInformation" id="cpp::separateDebugInformation" ref="qml-qbsmodules-cpp.html#separateDebugInformation-prop"/>
+            <keyword name="separateDebugInformationVariant" id="cpp::separateDebugInformationVariant" ref="qml-qbsmodules-cpp.html#separateDebugInformationVariant-prop"/>
             <keyword name="session" id="session" ref="cli-session.html"/>
             <keyword name="settings" id="ConanfileProbe::settings" ref="qml-qbsprobes-conanfileprobe.html#settings-prop"/>
             <keyword name="setup-android" id="setup-android" ref="cli-setup-android.html"/>
@@ -1117,6 +1128,7 @@
             <keyword name="uniqueSymbolPrefix" id="lex_yacc::uniqueSymbolPrefix" ref="qml-qbsmodules-lex-yacc.html#uniqueSymbolPrefix-prop"/>
             <keyword name="unlocalizedResourcesFolderPath" id="bundle::unlocalizedResourcesFolderPath" ref="qml-qbsmodules-bundle.html#unlocalizedResourcesFolderPath-prop"/>
             <keyword name="update-timestamps" id="update-timestamps" ref="cli-update-timestamps.html"/>
+            <keyword name="uri" id="QmlModule::uri" ref="qml-qbsconvenienceitems-qmlmodule.html#uri-prop"/>
             <keyword name="urlEntry" id="Exporter.pkgconfig::urlEntry" ref="qml-qbsmodules-exporter-pkgconfig.html#urlEntry-prop"/>
             <keyword name="useApksigner" id="codesign::useApksigner" ref="qml-qbsmodules-codesign.html#useApksigner-prop"/>
             <keyword name="useBuiltinXcodeBuildSpecs" id="bundle::useBuiltinXcodeBuildSpecs" ref="qml-qbsmodules-bundle.html#useBuiltinXcodeBuildSpecs-prop"/>
@@ -1248,6 +1260,7 @@
             <file>cli-dump-nodes-tree.html</file>
             <file>cli-generate.html</file>
             <file>cli-help.html</file>
+            <file>cli-init.html</file>
             <file>cli-install.html</file>
             <file>cli-list-products.html</file>
             <file>cli-resolve.html</file>
@@ -1352,6 +1365,8 @@
             <file>qml-qbsconvenienceitems-objectlibrary.html</file>
             <file>qml-qbsconvenienceitems-plugin-members.html</file>
             <file>qml-qbsconvenienceitems-plugin.html</file>
+            <file>qml-qbsconvenienceitems-qmlmodule-members.html</file>
+            <file>qml-qbsconvenienceitems-qmlmodule.html</file>
             <file>qml-qbsconvenienceitems-qtapplication-members.html</file>
             <file>qml-qbsconvenienceitems-qtapplication.html</file>
             <file>qml-qbsconvenienceitems-qtguiapplication-members.html</file>

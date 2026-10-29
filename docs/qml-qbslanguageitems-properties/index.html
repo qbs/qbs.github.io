@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsLanguageItems
 Properties
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 
@@ -57,7 +59,7 @@ Note: This topic documents the Properties item in the context of products. For m
     <meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-properties/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsLanguageItems Properties Qbs 3.3.0 Project PropertyOptions Contents Properties Detailed Description Properties Provides conditional setting of properties. More...
+	<meta property="og:description" content="Qbs Manual QbsLanguageItems Properties Qbs 3.4.0 Project PropertyOptions Contents Properties Detailed Description Properties Provides conditional setting of properties. More...
 List of all members, including inherited members Properties is part of List of All Items. Properties condition : bool overrideListProperties : bool Detailed Description Note: This topic documents the Properties item in the context of products. For more information about using it in sub-projects, see SubProject.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
@@ -66,7 +68,7 @@ List of all members, including inherited members Properties is part of List of A
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsLanguageItems Properties Qbs 3.3.0 Project PropertyOptions Contents Properties Detailed Description Properties Provides conditional setting of properties. More...
+	<meta name="twitter:description" content="Qbs Manual QbsLanguageItems Properties Qbs 3.4.0 Project PropertyOptions Contents Properties Detailed Description Properties Provides conditional setting of properties. More...
 List of all members, including inherited members Properties is part of List of All Items. Properties condition : bool overrideListProperties : bool Detailed Description Note: This topic documents the Properties item in the context of products. For more information about using it in sub-projects, see SubProject.">
 
 </head>
@@ -99,12 +101,14 @@ List of all members, including inherited members Properties is part of List of A
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbslanguageitems-qmlmodule/" translate="no">QbsLanguageItems</a></li>
 <li>Properties</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <link href="https://qbs.io/
 /docs/qml-qbslanguageitems-project/" rel="prev">
 <link href="https://qbs.io/
@@ -158,8 +162,8 @@ List of all members, including inherited members Properties is part of List of A
     <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-properties/" translate="no">Properties</a></span> {
         <span class="name">condition</span>: <span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">includes</span>(<span class="string">"windows"</span>)
-        <span class="name">cpp</span>.defines: [<span class="string">"ON_WINDOWS"</span>]
-        <span class="name">cpp</span>.includePaths: [<span class="string">"extraWindowsIncludes"</span>]
+        <span class="name">cpp.defines</span>: [<span class="string">"ON_WINDOWS"</span>]
+        <span class="name">cpp.includePaths</span>: [<span class="string">"extraWindowsIncludes"</span>]
     }
 }</pre>
 <p>As the above example demonstrates, the <code translate="no">Properties</code> item is especially useful if there are several properties whose values depend on the same set of conditions. These conditions do not need to be mutually exclusive, but care should be taken not to set the same scalar property in more than one matching <code translate="no">Properties</code> item. Qbs makes no guarantees about the value of the property in such cases.</p>
@@ -173,23 +177,23 @@ List of all members, including inherited members Properties is part of List of A
     <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-properties/" translate="no">Properties</a></span> {
         <span class="name">condition</span>: <span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">includes</span>(<span class="string">"windows"</span>)
-        <span class="name">cpp</span>.defines: [<span class="string">"ON_WINDOWS"</span>]
-        <span class="name">cpp</span>.includePaths: [<span class="string">"myWindowsIncludes"</span>]
-        <span class="name">cpp</span>.treatWarningsAsErrors: <span class="number">false</span>
+        <span class="name">cpp.defines</span>: [<span class="string">"ON_WINDOWS"</span>]
+        <span class="name">cpp.includePaths</span>: [<span class="string">"myWindowsIncludes"</span>]
+        <span class="name">cpp.treatWarningsAsErrors</span>: <span class="number">false</span>
     }
     <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-properties/" translate="no">Properties</a></span> {
         <span class="name">condition</span>: <span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">includes</span>(<span class="string">"linux"</span>)
-        <span class="name">cpp</span>.defines: [<span class="string">"ON_LINUX"</span>]
-        <span class="name">cpp</span>.includePaths: [<span class="string">"myLinuxIncludes"</span>]
+        <span class="name">cpp.defines</span>: [<span class="string">"ON_LINUX"</span>]
+        <span class="name">cpp.includePaths</span>: [<span class="string">"myLinuxIncludes"</span>]
     }
-    <span class="name">cpp</span>.defines: [<span class="string">"ALL_PLATFORMS"</span>]
-    <span class="name">cpp</span>.treatWarningsAsErrors: <span class="number">true</span>
+    <span class="name">cpp.defines</span>: [<span class="string">"ALL_PLATFORMS"</span>]
+    <span class="name">cpp.treatWarningsAsErrors</span>: <span class="number">true</span>
 }</pre>
 <p>is roughly equivalent to</p>
 <pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/" translate="no">Product</a></span> {
-    <span class="name">cpp</span>.defines: {
+    <span class="name">cpp.defines</span>: {
         var defines = [<span class="string">"ALL_PLATFORMS"</span>];
         <span class="keyword">if</span> (<span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">includes</span>(<span class="string">"windows"</span>))
             <span class="name">defines</span>.<span class="name">push</span>(<span class="string">"ON_WINDOWS"</span>);
@@ -197,14 +201,14 @@ List of all members, including inherited members Properties is part of List of A
             <span class="name">defines</span>.<span class="name">push</span>(<span class="string">"ON_LINUX"</span>);
         <span class="keyword">return</span> <span class="name">defines</span>;
     }
-    <span class="name">cpp</span>.includePaths: {
+    <span class="name">cpp.includePaths</span>: {
         <span class="keyword">if</span> (<span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">includes</span>(<span class="string">"windows"</span>))
             <span class="keyword">return</span> [<span class="string">"myWindowsIncludes"</span>];
         <span class="keyword">if</span> (<span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">includes</span>(<span class="string">"linux"</span>))
             <span class="keyword">return</span> [<span class="string">"myLinuxIncludes"</span>];
         <span class="keyword">return</span> <span class="name">base</span> ? <span class="name">base</span> : <span class="name">original</span>;
     }
-    <span class="name">cpp</span>.treatWarningsAsErrors: !<span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">includes</span>(<span class="string">"windows"</span>)
+    <span class="name">cpp.treatWarningsAsErrors</span>: !<span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">includes</span>(<span class="string">"windows"</span>)
 }</pre>
 <p>In Properties items, one can access the <a href="https://qbs.io/
 /docs/special-property-values/#outer">outer</a> value of a property.</p>
@@ -221,34 +225,22 @@ List of all members, including inherited members Properties is part of List of A
         <span class="name">condition</span>: <span class="name">qbs</span>.<span class="name">targetOS</span>.<span class="name">includes</span>(<span class="string">"linux"</span>)
         <span class="name">theFeature</span>: <span class="name">outer</span> <span class="operator">+</span> <span class="string">"_plus_linux"</span>   <span class="comment">// === "basic_plus_linux"</span>
     }
-    <span class="name">cpp</span>.defines: <span class="string">'THE_FEATURE="'</span> <span class="operator">+</span> <span class="name">theFeature</span> <span class="operator">+</span> <span class="string">'"'</span>
+    <span class="name">cpp.defines</span>: <span class="string">'THE_FEATURE="'</span> <span class="operator">+</span> <span class="name">theFeature</span> <span class="operator">+</span> <span class="string">'"'</span>
 }</pre>
 <!-- @@@Properties -->
 <h2>Property Documentation</h2>
 <!-- $$$condition -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="condition-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">condition</span> : <span class="type">bool</span> <code class="details extra" translate="no">[default: true]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The condition to be used for the other bindings in this item.</p>
+<h3 class="fn qml-member qml-property" id="condition-prop" translate="no"><span class="name">condition</span> : <span class="type">bool</span> <code class="details extra" translate="no">[default: true]</code></h3>
+<p>The condition to be used for the other bindings in this item.</p>
 <div class="admonition note">
 <p><b>Note: </b>The special value <code translate="no">undefined</code> can be used to indicate that this condition should be considered true if and only if none of the other Properties items matched for a given property binding.</p>
 </div>
-</div></div><!-- @@@condition -->
-<br>
+<!-- @@@condition -->
 <!-- $$$overrideListProperties -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="overrideListProperties-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">overrideListProperties</span> : <span class="type">bool</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>List properties set within this item will override the values coming from modules, rather than getting merged with them, which is the default behavior. Use this in the rare case that a module you depend on inserts a value into a list property that is problematic for some product.</p>
+<h3 class="fn qml-member qml-property" id="overrideListProperties-prop" translate="no"><span class="name">overrideListProperties</span> : <span class="type">bool</span></h3>
+<p>List properties set within this item will override the values coming from modules, rather than getting merged with them, which is the default behavior. Use this in the rare case that a module you depend on inserts a value into a list property that is problematic for some product.</p>
 <p>Default: <code translate="no">false</code></p>
-</div></div><!-- @@@overrideListProperties -->
-<br>
+<!-- @@@overrideListProperties -->
 <p class="naviNextPrevious footerNavi">
 <a class="prevPage" href="https://qbs.io/
 /docs/qml-qbslanguageitems-project/">Project</a>

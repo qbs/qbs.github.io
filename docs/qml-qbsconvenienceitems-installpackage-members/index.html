@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsConvenienceItems
 InstallPackage
-Qbs 3.3.0
+Qbs 3.4.0
+
   
   
 
@@ -19,7 +21,7 @@ This is the complete list of members for InstallPackage, including inherited mem
 The following members are inherited from Product.
 
 aggregate : bool
-buildDirectory : path
+buildDirectory : path [read-only]
 builtByDefault : bool
 condition : bool
 consoleApplication : bool
@@ -31,7 +33,7 @@ multiplexedType : stringList
 name : string
 qbsModuleProviders : stringList (since Qbs 1.21)
 qbsSearchPaths : stringList
-sourceDirectory : path
+sourceDirectory : path [read-only]
 targetName : string
 type : stringList
 version : string
@@ -52,9 +54,9 @@ version : string
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsconvenienceitems-installpackage-members/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsConvenienceItems InstallPackage Qbs 3.3.0 InnoSetup JavaClassCollection List of All Members for InstallPackage This is the complete list of members for InstallPackage, including inherited members.
+	<meta property="og:description" content="Qbs Manual QbsConvenienceItems InstallPackage Qbs 3.4.0 InnoSetup JavaClassCollection List of All Members for InstallPackage This is the complete list of members for InstallPackage, including inherited members.
 The following members are inherited from Product.
-aggregate : bool buildDirectory : path builtByDefault : bool condition : bool consoleApplication : bool destinationDirectory : string excludeFiles : stringList files : stringList multiplexByQbsProperties : stringList multiplexedType : stringList name : string qbsModuleProviders : stringList (since Qbs 1.21) qbsSearchPaths : stringList sourceDirectory : path targetName : string type : stringList version : string">
+aggregate : bool buildDirectory : path [read-only] builtByDefault : bool condition : bool consoleApplication : bool destinationDirectory : string excludeFiles : stringList files : stringList multiplexByQbsProperties : stringList multiplexedType : stringList name : string qbsModuleProviders : stringList (since Qbs 1.21) qbsSearchPaths : stringList sourceDirectory : path [read-only] targetName : string type : stringList version : string">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -62,9 +64,9 @@ aggregate : bool buildDirectory : path builtByDefault : bool condition : bool co
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsConvenienceItems InstallPackage Qbs 3.3.0 InnoSetup JavaClassCollection List of All Members for InstallPackage This is the complete list of members for InstallPackage, including inherited members.
+	<meta name="twitter:description" content="Qbs Manual QbsConvenienceItems InstallPackage Qbs 3.4.0 InnoSetup JavaClassCollection List of All Members for InstallPackage This is the complete list of members for InstallPackage, including inherited members.
 The following members are inherited from Product.
-aggregate : bool buildDirectory : path builtByDefault : bool condition : bool consoleApplication : bool destinationDirectory : string excludeFiles : stringList files : stringList multiplexByQbsProperties : stringList multiplexedType : stringList name : string qbsModuleProviders : stringList (since Qbs 1.21) qbsSearchPaths : stringList sourceDirectory : path targetName : string type : stringList version : string">
+aggregate : bool buildDirectory : path [read-only] builtByDefault : bool condition : bool consoleApplication : bool destinationDirectory : string excludeFiles : stringList files : stringList multiplexByQbsProperties : stringList multiplexedType : stringList name : string qbsModuleProviders : stringList (since Qbs 1.21) qbsSearchPaths : stringList sourceDirectory : path [read-only] targetName : string type : stringList version : string">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -96,12 +98,14 @@ aggregate : bool buildDirectory : path builtByDefault : bool condition : bool co
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsconvenienceitems-qmlmodule/" translate="no">QbsConvenienceItems</a></li>
 <li>InstallPackage</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
   <link rel="prev" href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-innosetup/">
   <link rel="next" href="https://qbs.io/
@@ -122,7 +126,7 @@ aggregate : bool buildDirectory : path builtByDefault : bool condition : bool co
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#aggregate-prop" translate="no">aggregate</a></b> : bool</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
-/docs/qml-qbslanguageitems-product/#buildDirectory-prop" translate="no">buildDirectory</a></b> : path</li>
+/docs/qml-qbslanguageitems-product/#buildDirectory-prop" translate="no">buildDirectory</a></b> : path [read-only]</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#builtByDefault-prop" translate="no">builtByDefault</a></b> : bool</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
@@ -146,7 +150,7 @@ aggregate : bool buildDirectory : path builtByDefault : bool condition : bool co
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#qbsSearchPaths-prop" translate="no">qbsSearchPaths</a></b> : stringList</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
-/docs/qml-qbslanguageitems-product/#sourceDirectory-prop" translate="no">sourceDirectory</a></b> : path</li>
+/docs/qml-qbslanguageitems-product/#sourceDirectory-prop" translate="no">sourceDirectory</a></b> : path [read-only]</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#targetName-prop" translate="no">targetName</a></b> : string</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/

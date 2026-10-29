@@ -3,10 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <title>Qbs</title>
-    <meta name="description" content="Qbs Manual
+    <meta name="description" content="
+Qbs Manual
 QbsModules
 protobuf.nanopb
-Qbs 3.3.0
+Qbs 3.4.0
+
 
 
 Contents
@@ -57,7 +59,7 @@ The protobuf.nanopb module provides support for generating nanopb C headers and 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-protobuf-nanopb/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsModules protobuf.nanopb Qbs 3.3.0 Contents Properties Detailed Description Relevant File Tags protobuf.nanopb Provides support for protocol buffers for embedded systems. More...
+	<meta property="og:description" content="Qbs Manual QbsModules protobuf.nanopb Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags protobuf.nanopb Provides support for protocol buffers for embedded systems. More...
 Since: Qbs 1.18 List of all members, including inherited members Properties compilerName : string compilerPath : string importPaths : pathList includePath : string libraryPath : string outputDir : string pluginName : string pluginPath : string Detailed Description The protobuf.nanopb module provides support for generating nanopb C headers and sources from proto definition files using the nanopb plugin for the protoc tool suitable for embedded systems.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
@@ -66,7 +68,7 @@ Since: Qbs 1.18 List of all members, including inherited members Properties comp
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsModules protobuf.nanopb Qbs 3.3.0 Contents Properties Detailed Description Relevant File Tags protobuf.nanopb Provides support for protocol buffers for embedded systems. More...
+	<meta name="twitter:description" content="Qbs Manual QbsModules protobuf.nanopb Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags protobuf.nanopb Provides support for protocol buffers for embedded systems. More...
 Since: Qbs 1.18 List of all members, including inherited members Properties compilerName : string compilerPath : string importPaths : pathList includePath : string libraryPath : string outputDir : string pluginName : string pluginPath : string Detailed Description The protobuf.nanopb module provides support for generating nanopb C headers and sources from proto definition files using the nanopb plugin for the protoc tool suitable for embedded systems.">
 
 </head>
@@ -99,12 +101,14 @@ Since: Qbs 1.18 List of all members, including inherited members Properties comp
 <div class="centre-outer">
     <article class="centre-inner docs">
     
+<ul class="breadcrumb">
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>protobuf.nanopb</li>
-<li id="buildversion">Qbs 3.3.0</li>
+<li id="buildversion">Qbs 3.4.0</li>
+</ul>
 <div class="sidebar">
 <div class="toc">
 <h3 id="toc">Contents</h3>
@@ -175,98 +179,50 @@ Since: Qbs 1.18 List of all members, including inherited members Properties comp
 <!-- @@@protobuf.nanopb -->
 <h2>Property Documentation</h2>
 <!-- $$$compilerName -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="compilerName-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">compilerName</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The name of the protoc binary.</p>
+<h3 class="fn qml-member qml-property" id="compilerName-prop" translate="no"><span class="name">compilerName</span> : <span class="type">string</span></h3>
+<p>The name of the protoc binary.</p>
 <p>Default: <code translate="no">"protoc"</code></p>
-</div></div><!-- @@@compilerName -->
-<br>
+<!-- @@@compilerName -->
 <!-- $$$compilerPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="compilerPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">compilerPath</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The path to the protoc binary.</p>
+<h3 class="fn qml-member qml-property" id="compilerPath-prop" translate="no"><span class="name">compilerPath</span> : <span class="type">string</span></h3>
+<p>The path to the protoc binary.</p>
 <p>Use this property to override the auto-detected location.</p>
 <p>Default: <code translate="no">auto-detected</code></p>
-</div></div><!-- @@@compilerPath -->
-<br>
+<!-- @@@compilerPath -->
 <!-- $$$importPaths -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="importPaths-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">importPaths</span> : <span class="type">pathList</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The list of imports that are passed to the <code translate="no">protoc</code> tool via the <code translate="no">--proto_path</code> option. These imports should contain the proto files. They are used to determine the relative structure of the generated files.</p>
+<h3 class="fn qml-member qml-property" id="importPaths-prop" translate="no"><span class="name">importPaths</span> : <span class="type">pathList</span></h3>
+<p>The list of imports that are passed to the <code translate="no">protoc</code> tool via the <code translate="no">--proto_path</code> option. These imports should contain the proto files. They are used to determine the relative structure of the generated files.</p>
 <div class="admonition note">
 <p><b>Note: </b>The paths are passed to <code translate="no">protoc</code> in the same order as specified in this property and <code translate="no">protoc</code> output may differ depending on that order.</p>
 </div>
 <p>Default: <code translate="no">[]</code></p>
-</div></div><!-- @@@importPaths -->
-<br>
+<!-- @@@importPaths -->
 <!-- $$$includePath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="includePath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">includePath</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The path where protobuf nanopb C headers are located. Set this property to override the default location.</p>
+<h3 class="fn qml-member qml-property" id="includePath-prop" translate="no"><span class="name">includePath</span> : <span class="type">string</span></h3>
+<p>The path where protobuf nanopb C headers are located. Set this property to override the default location.</p>
 <p>Default: <code translate="no">auto-detected</code></p>
-</div></div><!-- @@@includePath -->
-<br>
+<!-- @@@includePath -->
 <!-- $$$libraryPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="libraryPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">libraryPath</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The path where the protobuf nanopb runtime library is located. Set this property to override the default location.</p>
+<h3 class="fn qml-member qml-property" id="libraryPath-prop" translate="no"><span class="name">libraryPath</span> : <span class="type">string</span></h3>
+<p>The path where the protobuf nanopb runtime library is located. Set this property to override the default location.</p>
 <p>Default: <code translate="no">auto-detected</code></p>
-</div></div><!-- @@@libraryPath -->
-<br>
+<!-- @@@libraryPath -->
 <!-- $$$outputDir -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="outputDir-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">outputDir</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The directory where the <code translate="no">protoc</code> compiler generated files are placed.</p>
+<h3 class="fn qml-member qml-property" id="outputDir-prop" translate="no"><span class="name">outputDir</span> : <span class="type">string</span> <code class="details extra" translate="no">[read-only]</code></h3>
+<p>The directory where the <code translate="no">protoc</code> compiler generated files are placed.</p>
 <p>The value of this property is automatically set by Qbs and cannot be changed by the user.</p>
-</div></div><!-- @@@outputDir -->
-<br>
+<!-- @@@outputDir -->
 <!-- $$$pluginName -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="pluginName-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">pluginName</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The name of the nanopb protoc plugin.</p>
+<h3 class="fn qml-member qml-property" id="pluginName-prop" translate="no"><span class="name">pluginName</span> : <span class="type">string</span></h3>
+<p>The name of the nanopb protoc plugin.</p>
 <p>Default: <code translate="no">"protoc-gen-nanopb"</code></p>
-</div></div><!-- @@@pluginName -->
-<br>
+<!-- @@@pluginName -->
 <!-- $$$pluginPath -->
-<div class="qmlitem"><div class="qmlproto" translate="no">
-<div class="table"><table class="qmlname">
-<tbody><tr class="odd" id="pluginPath-prop" valign="top">
-<td class="tblQmlPropNode"><p>
-<span class="name">pluginPath</span> : <span class="type">string</span></p></td></tr>
-</tbody></table></div></div>
-<div class="qmldoc"><p>The path to the nanopb protoc plugin.</p>
+<h3 class="fn qml-member qml-property" id="pluginPath-prop" translate="no"><span class="name">pluginPath</span> : <span class="type">string</span></h3>
+<p>The path to the nanopb protoc plugin.</p>
 <p>Use this property to override the auto-detected location.</p>
 <p>Default: <code translate="no">auto-detected</code></p>
-</div></div><!-- @@@pluginPath -->
-<br>
+<!-- @@@pluginPath -->
 </div>
 
 
