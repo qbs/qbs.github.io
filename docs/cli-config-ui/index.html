@@ -33,7 +33,23 @@ Opens the Qbs Settings application for managing Qbs settings, such as preference
 For more information, see Configuring Profiles and Preferences.
 Options
 --settings-dir &lt;directory&gt;
-Reads all settings (such as profile information) from the specified &lt;directory&gt;. If the directory does not exist, it will be created. ">
+Reads all settings (such as profile information) from the specified &lt;directory&gt;. If the directory does not exist, it will be created.
+The default value is system-specific. For example:
+
+Linux: $HOME/.config/QtProject/qbs
+Windows: %APPDATA%\QtProject\qbs
+macOS: $HOME/Library/Preferences/qbs
+
+--system
+Instructs the tool to work on the system-level settings. Otherwise, the user-level settings are presented.
+--help|-h|-?
+Displays help for the command.
+Examples
+Opens Qbs Settings:
+qbs config-ui
+
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/cli-config-ui/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -43,7 +59,7 @@ Reads all settings (such as profile information) from the specified &lt;director
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/cli-config-ui/">
@@ -51,7 +67,12 @@ Reads all settings (such as profile information) from the specified &lt;director
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual Command-Line Interface config-ui Qbs 3.4.0 Contents Synopsis Description Options --settings-dir &lt;directory&gt; --system --help|-h|-? Examples config-ui Synopsis qbs config-ui [--settings-dir &lt;directory&gt;] [--system] Description Opens the Qbs Settings application for managing Qbs settings, such as preferences and profiles, in a hierarchical view. This makes it easier to manage a large number of settings than using the config command from the command line.
 For more information, see Configuring Profiles and Preferences.
-Options --settings-dir &lt;directory&gt; Reads all settings (such as profile information) from the specified &lt;directory&gt;. If the directory does not exist, it will be created.">
+Options --settings-dir &lt;directory&gt; Reads all settings (such as profile information) from the specified &lt;directory&gt;. If the directory does not exist, it will be created.
+The default value is system-specific. For example:
+Linux: $HOME/.config/QtProject/qbs Windows: %APPDATA%\QtProject\qbs macOS: $HOME/Library/Preferences/qbs --system Instructs the tool to work on the system-level settings. Otherwise, the user-level settings are presented.
+--help|-h|-? Displays help for the command.
+Examples Opens Qbs Settings:
+qbs config-ui">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -61,7 +82,12 @@ Options --settings-dir &lt;directory&gt; Reads all settings (such as profile inf
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual Command-Line Interface config-ui Qbs 3.4.0 Contents Synopsis Description Options --settings-dir &lt;directory&gt; --system --help|-h|-? Examples config-ui Synopsis qbs config-ui [--settings-dir &lt;directory&gt;] [--system] Description Opens the Qbs Settings application for managing Qbs settings, such as preferences and profiles, in a hierarchical view. This makes it easier to manage a large number of settings than using the config command from the command line.
 For more information, see Configuring Profiles and Preferences.
-Options --settings-dir &lt;directory&gt; Reads all settings (such as profile information) from the specified &lt;directory&gt;. If the directory does not exist, it will be created.">
+Options --settings-dir &lt;directory&gt; Reads all settings (such as profile information) from the specified &lt;directory&gt;. If the directory does not exist, it will be created.
+The default value is system-specific. For example:
+Linux: $HOME/.config/QtProject/qbs Windows: %APPDATA%\QtProject\qbs macOS: $HOME/Library/Preferences/qbs --system Instructs the tool to work on the system-level settings. Otherwise, the user-level settings are presented.
+--help|-h|-? Displays help for the command.
+Examples Opens Qbs Settings:
+qbs config-ui">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -119,7 +145,7 @@ Options --settings-dir &lt;directory&gt; Reads all settings (such as profile inf
 <!-- $$$cli-config-ui.html-description -->
 <div class="descr" id="details">
 <h2 id="synopsis">Synopsis</h2>
-<pre class="cpp" translate="no">qbs config<span class="operator">-</span>ui <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>settings<span class="operator">-</span>dir <span class="operator">&lt;</span>directory<span class="operator">&gt;</span><span class="operator">]</span> <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>system<span class="operator">]</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs config<span class="operator">-</span>ui <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>settings<span class="operator">-</span>dir <span class="operator">&lt;</span>directory<span class="operator">&gt;</span><span class="operator">]</span> <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>system<span class="operator">]</span></code></pre>
 <h2 id="description">Description</h2>
 <p>Opens the Qbs Settings application for managing Qbs settings, such as preferences and profiles, in a hierarchical view. This makes it easier to manage a large number of settings than using the <a href="https://qbs.io/
 /docs/cli-config/">config</a> command from the command line.</p>
@@ -142,7 +168,7 @@ Options --settings-dir &lt;directory&gt; Reads all settings (such as profile inf
 <p>Displays help for the command.</p>
 <h2 id="examples">Examples</h2>
 <p>Opens Qbs Settings:</p>
-<pre class="cpp" translate="no">qbs config<span class="operator">-</span>ui</pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs config<span class="operator">-</span>ui</code></pre>
 </div>
 <!-- @@@cli-config-ui.html -->
 </div>

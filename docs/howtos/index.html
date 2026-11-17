@@ -47,7 +47,520 @@ How do I sign an application for an Apple platform?
 How-tos
 
 
-This page provides concrete instructions for common scenarios. ">
+This page provides concrete instructions for common scenarios.
+
+How do I build a Qt-based project?
+How do I make my app build against my library?
+How do I build release with debug information?
+How do I separate and install debugging symbols?
+How do I use precompiled headers?
+How do I make use of rpaths?
+How do I make sure my generated sources are getting compiled?
+How do I run my autotests?
+How do I use ccache?
+How do I create a module for a third-party library?
+How do I build against libraries that provide pkg-config files?
+How do I create application bundles and frameworks on iOS, macOS, tvOS, and watchOS?
+How do I apply C/C&#43;&#43; preprocessor macros to only a subset of the files in my product?
+How do I disable a compiler warning?
+How do I make the state of my Git repository available to my source files?
+How do I limit the number of concurrent jobs for the linker only?
+How do I add QML files to a project?
+How do I define a reusable Group of files that can be included in other Qbs files?
+How do I access properties of a base type?
+How do I print the value of a property?
+How do I debug Qbs scripts?
+How do I sign an application for an Apple platform?
+
+How do I build a Qt-based project?
+First of all, your project files need to declare dependencies on Qt modules.
+To build the project, you need a matching profile. The following commands set up and use a Qt-specific profile:
+$ qbs setup-qt /usr/bin/qmake qt
+$ cd my_project
+$ qbs profile:qt
+If you plan to use this profile a lot, consider making it the default one:
+$ qbs config defaultProfile qt
+$ cd my_project
+$ qbs
+See Managing Qt Versions for more details.
+
+Note: These instructions are only relevant for building from the command line. If you use Qt Creator, profiles are set up automatically from the information in the Kit.
+
+How do I make my app build against my library?
+This is achieved by introducing a dependency between the two products using the Depends item. Here is a simple, but complete example:
+Project {
+    CppApplication {
+        name : &#34;the-app&#34;
+        files : [ &#34;main.cpp&#34; ]
+        Depends { name: &#34;the-lib&#34; }
+    }
+    DynamicLibrary {
+        name: &#34;the-lib&#34;
+        Depends { name: &#34;cpp&#34; }
+        files: [
+            &#34;lib.cpp&#34;,
+            &#34;lib.h&#34;,
+        ]
+        Export {
+            Depends { name: &#34;cpp&#34; }
+            cpp.includePaths: [exportingProduct.sourceDirectory]
+       }
+    }
+}
+The product the-lib is a dynamic library. It expects other products to build against it, and for that purpose, it exports an include path (via an Export item), so that the source files in these products can include the library&#39;s header file.
+The product the-app is an application that expresses its intent to link against the-lib by declaring a dependency on it. Now main.cpp can include lib.h (because of the exported include path) and the application binary will link against the library (because the linker rule in the cpp module considers library dependencies as inputs).
+
+Note: In a non-trivial project, the two products would not be defined in the same file. Instead, you would put them into files of their own and use the Project.references property to pull them into the project. The product definitions would stay exactly the same. In particular, their location in the project tree is irrelevant to the relationship between them.
+
+Choosing Between Dynamic and Statically-built Qt Projects
+To build &#34;the-lib&#34; as either a dynamic or static library, depending on how Qt was built, you can use the following code:
+Product {
+    name: &#34;the-lib&#34;
+    type: Qt.core.staticBuild ? &#34;staticlibrary&#34; : &#34;dynamiclibrary&#34;
+
+    Depends { name: &#34;Qt.core&#34; }
+    // ...
+}
+How do I build release with debug information?
+You can simply use the &#34;profiling&#34; qbs.buildVariant:
+qbs build qbs.buildVariant:profiling
+How do I separate and install debugging symbols?
+First, you need to set the cpp.debugInformation and cpp.separateDebugInformation properties to true or use some conditional expression in your product:
+CppApplication {
+    // ...
+    cpp.debugInformation: qbs.buildVariant !== &#34;release&#34;
+    cpp.separateDebugInformation: true
+}
+On ELF platforms with GCC or Clang, you can choose how separation is done via cpp.separateDebugInformationVariant: the default &#34;objcopy&#34; extracts a .debug file after linking, while &#34;fission&#34; passes -gsplit-dwarf and produces per-object .dwo files.
+Now, you can install your application, dynamic library or loadable module among with its debugging symbols as follows:
+CppApplication {
+    // ...
+    install: true
+    installDir: &#34;bin&#34;
+    installDebugInformation: true
+    debugInformationInstallDir: &#34;bin&#34;
+}
+If you are not using convenience items, you can install debug symbols manually using the Group item. If the cpp.separateDebugInformation property is set to true, Qbs will create debugging symbols with the corresponding file tags &#34;debuginfo_app&#34; (for an application), &#34;debuginfo_dll&#34; (for a dynamic library), or &#34;debuginfo_loadablemodule&#34; (for a macOS plugin).
+Product {
+    type: &#34;application&#34;
+    Depends { name: &#34;cpp&#34; }
+    cpp.debugInformation: qbs.buildVariant !== &#34;release&#34;
+    cpp.separateDebugInformation: true
+    Group {
+        fileTagsFilter: cpp.separateDebugInformation ? [&#34;debuginfo_app&#34;] : []
+        qbs.install: true
+        qbs.installDir: &#34;bin&#34;
+        qbs.installSourceBase: buildDirectory
+    }
+}
+If you&#39;re building a shared library, you need to use the &#34;debuginfo_dll&#34; tag instead:
+Product {
+    type: &#34;dynamic_library&#34;
+    // ...
+    Group {
+        fileTagsFilter: cpp.separateDebugInformation ? [&#34;debuginfo_dll&#34;] : []
+        qbs.install: true
+        qbs.installDir: &#34;lib&#34;
+        qbs.installSourceBase: buildDirectory
+    }
+}
+If you&#39;re building a macOS plugin, you need to use the &#34;debuginfo_loadablemodule&#34; tag instead:
+Product {
+    type: &#34;loadablemodule&#34;
+    // ...
+    Group {
+        fileTagsFilter: cpp.separateDebugInformation ? [&#34;debuginfo_loadablemodule&#34;] : []
+        qbs.install: true
+        qbs.installDir: &#34;PlugIns&#34;
+        qbs.installSourceBase: buildDirectory
+    }
+}
+How do I use precompiled headers?
+If you use a Group item to add a precompiled header file to a product and mark it with the relevant file tag (c_pch_src, cpp_pch_src, objc_pch_src, or objcpp_pch_src), it is used automatically.
+Only one precompiled header is allowed per product and language.
+For example:
+CppApplication {
+    name: &#34;the-app&#34;
+    files: [&#34;main.cpp&#34;]
+
+    Group {
+        files: [&#34;precompiled-header.pch&#34;]
+        fileTags: [&#34;cpp_pch_src&#34;]
+    }
+}
+How do I make use of rpaths?
+rpath designates the run-time search path used by the dynamic linker when loading libraries on UNIX platforms. This concept does not apply to Windows.
+Suppose you have a project with two dynamic library products LibraryA and LibraryB and one dependent application product. Also, LibraryB depends on LibraryA. The application is installed to the bin folder and the libraries are installed to the lib folder next to the bin folder. You want the application to be able to find the dependent libraries relative to its own location. This can be achieved by usage of the cpp.rpaths property.
+First, you need to set cpp.rpaths in your libraries so they can find dependent libraries in the same folder where they are located. This can be done as follows:
+DynamicLibrary {
+    Depends { name: &#34;cpp&#34; }
+    Depends { name: &#34;bundle&#34; }
+    name: &#34;LibraryA&#34;
+    bundle.isBundle: false
+    cpp.sonamePrefix: qbs.targetOS.contains(&#34;macos&#34;) ? &#34;@rpath&#34; : undefined
+    cpp.rpaths: cpp.rpathOrigin
+    cpp.cxxLanguageVersion: &#34;c&#43;&#43;11&#34;
+    cpp.minimumMacosVersion: &#34;10.8&#34;
+    files: [
+        &#34;objecta.cpp&#34;,
+        &#34;objecta.h&#34;,
+    ]
+    install: true
+    installDir: &#34;examples/lib&#34;
+}
+We are setting cpp.rpaths to cpp.rpathOrigin which expands to &#34;$ORIGIN&#34; on Linux and to &#34;@loader_path&#34; on macOS.
+On macOS you also need to set cpp.sonamePrefix to &#34;@rpath&#34; to tell the dynamic linker to use RPATHs when loading this library.
+LibraryB looks exactly the same:
+DynamicLibrary {
+    Depends { name: &#34;cpp&#34; }
+    Depends { name: &#34;bundle&#34; }
+    Depends { name: &#34;LibraryA&#34; }
+    name: &#34;LibraryB&#34;
+    bundle.isBundle: false
+    cpp.cxxLanguageVersion: &#34;c&#43;&#43;11&#34;
+    cpp.minimumMacosVersion: &#34;10.8&#34;
+    cpp.sonamePrefix: qbs.targetOS.contains(&#34;macos&#34;) ? &#34;@rpath&#34; : undefined
+    cpp.rpaths: cpp.rpathOrigin
+    files: [
+        &#34;objectb.cpp&#34;,
+        &#34;objectb.h&#34;,
+    ]
+    install: true
+    installDir: &#34;examples/lib&#34;
+}
+In a real project, it might be a good idea to move common properties to some base item and inherit it in library items.
+The application item is a bit different. It sets cpp.rpaths to the &#34;lib&#34; folder which is located one level up from the bin folder:
+CppApplication {
+    Depends { name: &#34;bundle&#34; }
+    Depends { name: &#34;LibraryA&#34; }
+    Depends { name: &#34;LibraryB&#34; }
+    name: &#34;rpaths-app&#34;
+    files: &#34;main.cpp&#34;
+    consoleApplication: true
+    bundle.isBundle: false
+    cpp.rpaths: FileInfo.joinPaths(cpp.rpathOrigin, &#34;..&#34;, &#34;lib&#34;)
+    cpp.cxxLanguageVersion: &#34;c&#43;&#43;11&#34;
+    cpp.minimumMacosVersion: &#34;10.8&#34;
+    install: true
+    installDir: &#34;examples/bin&#34;
+}
+How do I make sure my generated sources are getting compiled?
+The rules in a Qbs project do not care whether its inputs are actual source files listed on the right-hand side of a files property or artifacts that were generated by another rule. For instance, the C&#43;&#43; compiler rule considers all input files of type &#34;cpp&#34;, no matter how they got into the product. The following example project demonstrates this. One of its source files exists in the repository, the other one is generated at build time. Both are getting compiled the same way.
+
+Note: Do not try to add the generated files to a files property. Declaring them as rule outputs is all that is needed to make Qbs know about them.
+
+import qbs.TextFile
+CppApplication {
+    files: [&#34;impl.cpp&#34;, &#34;impl.h&#34;]
+    cpp.includePaths: sourceDirectory
+    Rule {
+        multiplex: true
+        Artifact { filePath: &#34;main.cpp&#34;; fileTags: &#34;cpp&#34; }
+        prepare: {
+            var cmd = new JavaScriptCommand();
+            cmd.description = &#34;generating &#34; &#43; output.fileName;
+            cmd.sourceCode = function() {
+                var f = new TextFile(output.filePath, TextFile.WriteOnly);
+                f.writeLine(&#34;#include &lt;impl.h&gt;&#34;);
+                f.writeLine(&#34;int main()&#34;);
+                f.writeLine(&#34;{&#34;);
+                f.writeLine(&#34;    return functionFromImpl();&#34;);
+                f.writeLine(&#34;}&#34;);
+                f.close();
+            };
+            return cmd;
+        }
+    }
+}
+How do I run my autotests?
+There are two simple things you need to do in your project. Firstly, you mark your test executables as such. This is done by adding the tag &#34;autotest&#34; to the product type:
+CppApplication {
+    name: &#34;test1&#34;
+    type: base.concat(&#34;autotest&#34;)
+    // ...
+}
+The second step is to instantiate an AutotestRunner product in your project:
+Project {
+    // ...
+    AutotestRunner { name: &#34;run_my_tests&#34; }
+}
+Building an AutotestRunner product does not produce artifacts, but triggers execution of all applications whose products are tagged as autotests:
+$ qbs -p run_my_tests
+test1: PASS
+test2: PASS
+test3: FAIL
+...
+See the AutotestRunner documentation for how to fine-tune the behavior.
+How do I use ccache?
+ccache is a popular C/C&#43;&#43; compiler cache on Unix to speed up compiling the same content multiple times.
+Qbs excels at tracking dependencies and avoiding needless recompilations, so for linear development of one project and configuration using ccache has little benefit. But if you switch between revisions of a project, or build the same project with different configurations, a global cache like ccache can speed up compilations significantly.
+ccache can be used by setting up symbolic links to compiler executables (such as g&#43;&#43;, gcc) in the file system. In this setup, the use of ccache is transparent to Qbs. If you prefer to call ccache explicitly, you should set cpp.compilerWrapper to ccache.
+
+Note: Using precompiled headers might prevent ccache from actually using cached results. To work around this, you can set sloppiness=pch_defines,time_macros in your local ccache options. See the ccache documentation about precompiled headers for further details.
+
+How do I create a module for a third-party library?
+If you have pre-built binary files in your source tree, you can create modules for them and then introduce dependencies between your project and the modules to pull in the functionality of a third-party library.
+Create the following folder structure to store the module files:
+$projectroot/modules/ThirdParty
+Then create a file in the directory that specifies the module properties for each supported toolchain. The filename must have the .qbs extension. The module will be pulled in if a product declares a dependency on it.
+In the following example, lib1.dylib is a multi-architecture library containing both 32-bit and 64-bit code.
+---ThirdParty.qbs---
+
+Module {
+    Depends { name: &#34;cpp&#34; }
+    cpp.includePaths: [&#34;/somewhere/include&#34;]
+    Properties {
+        condition: qbs.targetOS.includes(&#34;android&#34;)
+        cpp.dynamicLibraries: [&#34;/somewhere/android/&#34; &#43; Android.ndk.abi &#43; &#34;/lib1.so&#34;]
+    }
+    Properties {
+        condition: qbs.targetOS.includes(&#34;macos&#34;)
+        cpp.dynamicLibraries: [&#34;/somewhere/macos/lib1.dylib&#34;]
+    }
+    Properties {
+        condition: qbs.targetOS.includes(&#34;windows&#34;) &amp;&amp; qbs.architecture === &#34;x86&#34;
+        cpp.dynamicLibraries: [&#34;/somewhere/windows_x86/lib1.lib&#34;]
+    }
+    Properties {
+        condition: qbs.targetOS.includes(&#34;windows&#34;) &amp;&amp; qbs.architecture === &#34;x86_64&#34;
+        cpp.dynamicLibraries: [&#34;/somewhere/windows_x86_64/lib1.lib&#34;]
+    }
+}
+Finally, declare dependencies on ThirdParty in your project:
+CppApplication {
+    name: &#34;the-app&#34;
+    files: [&#34;main.cpp&#34;]
+    Depends { name: &#34;ThirdParty&#34; }
+}
+How do I create application bundles and frameworks on iOS, macOS, tvOS, and watchOS?
+Creating an application bundle or framework is achieved by introducing a dependency on the bundle module and setting the bundle.isBundle property to true.
+Here is a simple example for an application:
+Application {
+    Depends { name: &#34;cpp&#34; }
+    Depends { name: &#34;bundle&#34; }
+    bundle.isBundle: true
+    name: &#34;the-app&#34;
+    files: [&#34;main.cpp&#34;]
+}
+and for a framework:
+DynamicLibrary {
+    Depends { name: &#34;cpp&#34; }
+    Depends { name: &#34;bundle&#34; }
+    bundle.isBundle: true
+    name: &#34;the-lib&#34;
+    files: [&#34;lib.cpp&#34;, &#34;lib.h&#34;]
+}
+Qbs also supports building static frameworks. You can create one by replacing the DynamicLibrary item with a StaticLibrary item in the example above.
+
+Note: When using the Application item (or convenience items, such as CppApplication, DynamicLibrary, and StaticLibrary), your products will be built as bundles on Apple platforms by default (this behavior is subject to change in a future release).
+
+To explicitly control whether your product is built as a bundle, set the bundle.isBundle property. Setting the consoleApplication property of your product will also influence whether your product is built as a bundle.
+Building your application against your framework is the same as linking a normal dynamic or static library; see the How do I make my app build against my library? section for an example.
+How do I build against libraries that provide pkg-config files?
+Just add a Depends item that matches the name of the pkg-config module, set the Product::qbsModuleProviders property to &#34;qbspkgconfig&#34;, and Qbs will employ pkg-config to find the headers and libraries if no matching Qbs module can be found. For instance, to build against the OpenSSL library, you would write this:
+qbsModuleProviders: &#34;qbspkgconfig&#34;
+Depends { name: &#34;openssl&#34; }
+That&#39;s it. The pkg-config behavior can be fine-tuned via the qbspkgconfig provider.
+Internally, this functionality is implemented via Module Providers
+How do I apply C/C&#43;&#43; preprocessor macros to only a subset of the files in my product?
+Use a Group item to define a subset of project files. To add macros within the group, you need to use the outer.concat property, because you are adding macros to those specified in the outer scope.
+In the following example, MACRO_EVERYWHERE is defined for all files in the Product unless a Group overrides the macro, whereas MACRO_GROUP is only defined for groupFile.cpp.
+Product {
+    Depends { name: &#34;cpp&#34; }
+    cpp.defines: [&#34;MACRO_EVERYWHERE&#34;]
+    Group {
+        cpp.defines: outer.concat(&#34;MACRO_GROUP&#34;)
+        files: &#34;groupFile.cpp&#34;
+    }
+}
+The cpp.defines statements inside a Group only apply to the files in that Group, and therefore you cannot use a Group to include a bunch of files and globally visible macros. The macros must be specified in a Properties item at the same level as the Group if they need to be visible to files outside the Group:
+Product {
+    Depends { name: &#34;cpp&#34; }
+    Group {
+        condition: project.supportMyFeature
+        files: &#34;myFile.cpp&#34;
+    }
+
+    property stringList commonDefines: [&#34;ONE&#34;, &#34;TWO&#34;]
+
+    Properties {
+        condition: project.supportMyFeature
+        cpp.defines: commonDefines.concat(&#34;MYFEATURE_SUPPORTED&#34;)
+    }
+}
+How do I disable a compiler warning?
+You can use the cpp.commonCompilerFlags property to pass flags to the compiler. For example, to disable deprecation warnings:
+CppApplication {
+    // ...
+
+    readonly property bool isMsvc: qbs.toolchain.includes(&#34;msvc&#34;)
+
+    cpp.commonCompilerFlags: isMsvc ? &#34;/wd4996&#34; : &#34;-Wno-deprecated-declarations&#34;
+}
+It is also possible to disable all warnings at once by setting the cpp.warningLevel property to &#34;none&#34;. Usually this approach is discouraged, but it can be useful in some cases, such as when compiling third party code:
+Group {
+    cpp.warningLevel: &#34;none&#34;
+
+    files: [
+        &#34;3rdparty.h&#34;,
+        &#34;3rdparty.cpp&#34;
+    ]
+}
+How do I make the state of my Git repository available to my source files?
+Add a dependency to the vcs module to your product:
+CppApplication {
+    // ...
+    Depends { name: &#34;vcs&#34; }
+    // ...
+}
+Your source files will now have access to a macro whose value is a string representing the current Git or Subversion HEAD:
+#include &lt;vcs-repo-state.h&gt;
+#include &lt;iostream&gt;
+
+int main()
+{
+    std::cout &lt;&lt; &#34;I was built from &#34; &lt;&lt; VCS_REPO_STATE &lt;&lt; std::endl;
+}
+This value is also available via the vcs.repoState property.
+How do I limit the number of concurrent jobs for the linker only?
+While it is usually desirable to run as many compiler jobs as there are CPU cores, the same is not true for linker jobs. The reason is that linkers are typically I/O bound rather than CPU bound. When building large libraries, they also tend to use up enormous amounts of memory. Therefore, we&#39;d like to make sure that only a few linkers are running at the same time without limiting other types of jobs. In Qbs, this is achieved via job pools. There are several ways to make use of them.
+Firstly, you can provide a limit via the command line:
+$ qbs --job-limits linker:4
+The above call instructs Qbs to run at most four linker instances at the same time, while leaving the general number of concurrent jobs at the default value, which is derived from the number of CPU cores. The linker string on the command line refers to the job pool of the same name, which the cpp module assigns to all its commands that invoke a linker.
+Secondly, you can set a limit via the settings, either generally or for a specific profile:
+$ qbs config preferences.jobLimit.linker 4
+$ qbs config profiles.myprofile.preferences.jobLimit.linker 2
+And finally, you can also set the limit per project or per product, using a JobLimit item:
+Product {
+    name: &#34;my_huge_library&#34;
+    JobLimit {
+        jobPool: &#34;linker&#34;
+        jobCount: 1
+    }
+    // ...
+}
+The above construct ensures that this specific library is never linked at the same time as any other binary in the project.
+Job limits set on the command line override those from the settings, which in turn override the ones defined within a project. Use the --enforce-project-job-limits option to give the job limits defined via JobLimit items maximum precedence.
+How do I add QML files to a project?
+The simplest way to add QML files to a project is to add them to a Qt resource file:
+QtGuiApplication {
+    // ...
+
+    files: &#34;main.cpp&#34;
+
+    Group {
+        prefix: &#34;qml/&#34;
+        files: [&#34;main.qml&#34;, &#34;HomePage.qml&#34;]
+        fileTags: [&#34;qt.qml.qml&#34;, &#34;qt.core.resource_data&#34;]
+    }
+}
+In the example above, we declare each QML file as having the &#34;qt.core.resource_data&#34; file tag. This ensures that it is added to a generated resource file.
+How do I define a reusable Group of files that can be included in other Qbs files?
+Suppose you have an application and tests for that application, and that the project is structured in the following way:
+├── app
+│   ├── app.qbs
+│   ├── ...
+│   └── qml
+│       └── ui
+│           ├── AboutPopup.qml
+│           └── ...
+├── my-project.qbs
+└── tests
+    ├── tst_app.cpp
+    ├── ...
+    └── tests.qbs
+Both projects need access to the QML files used by the application. To demonstrate how this can be done, we&#39;ll create a file named qml-ui.qbs and put it in the app/qml/ui directory:
+Group {
+    prefix: path &#43; &#34;/&#34;
+    fileTags: [&#34;qt.qml.qml&#34;, &#34;qt.core.resource_data&#34;]
+    files: [
+        &#34;AboutPopup.qml&#34;,
+        // ...
+    ]
+}
+This Group is a variation of the one in the section above.
+If no prefix is specified, the file names listed in the files property are resolved relative to the importing product&#39;s (e.g. app.qbs) directory. For that reason, we set the prefix to inform Qbs that the file names should be resolved relative to the imported item instead: qml-ui.qbs. Conveniently, this also means that we don&#39;t need to specify the path prefix for each file.
+The application can then import the file like so:
+import &#34;qml/ui/qml-ui.qbs&#34; as QmlUiFiles
+
+QtGuiApplication {
+    // ...
+
+    files: &#34;main.cpp&#34;
+
+    QmlUiFiles {}
+}
+The tests can use a relative path to import the file:
+import &#34;../app/qml/ui/qml-ui.qbs&#34; as QmlUiFiles
+
+QtGuiApplication {
+    // ...
+
+    files: &#34;tst_app.cpp&#34;
+
+    QmlUiFiles {}
+}
+How do I access properties of a base type?
+You can use the base property. For example, to append to a list of files that come from the base type, you can use base.concat():
+// TestBase.qbs
+
+QtGuiApplication {
+    files: [
+        &#34;TestCaseBase.h&#34;,
+        &#34;TestCaseBase.cpp&#34;
+    ]
+}
+// tst_stuff.qbs
+TestBase {
+    files: base.concat([&#34;tst_stuff.cpp&#34;])
+}
+See Special Property Values for more details.
+How do I print the value of a property?
+Use the console API. For example, suppose your project is not built the way you expect it to be, and you suspect that qbs.targetOS has the wrong value:
+readonly property bool unix: qbs.targetOS.includes(&#34;unix&#34;)
+To find out the value of qbs.targetOS, use console.info():
+readonly property bool unix: {
+    console.info(&#34;qbs.targetOS: &#34; &#43; qbs.targetOS)
+    return qbs.targetOS.includes(&#34;unix&#34;)
+}
+It is also possible to throw an exception with the text saying what is wrong - this might be useful if the property contains invalid or unsupported value:
+readonly property bool unix: {
+    if (qbs.targetOS.includes(&#34;darwin&#34;))
+        throw &#34;Apple platforms are not supported&#34;;
+    return qbs.targetOS.includes(&#34;unix&#34;)
+}
+How do I debug Qbs scripts?
+To debug the value of a specific property, see the How do I print the value of a property section.
+Similar debugging techniques could be used within Rules or .js files.
+It is also possible to increase Qbs&#39; logging level using the --more-verbose (-v) option of the qbs build command:
+qbs build -v config:release
+Qbs uses the Qt Categorized Logging system which allows to configure logging categories in multiple ways. For example, to enable debug logging for the moduleloader category, use the following command:
+QT_LOGGING_RULES=&#34;qbs.moduleloader.debug=true&#34; qbs resolve
+To list all the files in the project directory and show whether they are known to qbs in the respective configuration, use the qbs status command:
+qbs status config:release
+How do I sign an application for an Apple platform?
+To sign an application for an Apple platform, you need to use the codesign module.
+Depends { name: &#34;codesign&#34; }
+Several properties should be set to do signing as shown below.
+Make sure that bundle and team indentifiers match the one used for signing:
+bundle.identifierPrefix: &#34;com.johndoe&#34;
+codesign.teamIdentifier: &#34;John Doe&#34;
+It is also possible to use an ID of the team identifier instead of a name:
+codesign.teamIdentifier: &#34;1234ABCDEF&#34;
+Qbs will then try to find the matching signing identity and provisioning profile based on codesign.signingType.
+It is also possible to specify codesign.signingIdentity manually:
+codesign.signingIdentity: &#34;Apple Development: johndoe@apple.com (ABCDEF1234)&#34;
+It is also possible to use an ID of the signing identity instead of a name:
+codesign.signingIdentity: &#34;ABCDEF1234567890ABCDEF1234567890ABCDEF12&#34;
+If Qbs cannot find the suitable provisioning profile, you can specify it manually as well:
+codesign.provisioningProfile: &#34;abcdef12-1234-5678-1111-abcdef123456&#34;
+
+
+
+Configurable Library
+Reference
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/howtos/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -57,13 +570,108 @@ This page provides concrete instructions for common scenarios. ">
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/howtos/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual How-tos Qbs 3.4.0 Configurable Library Reference Contents How do I build a Qt-based project? How do I make my app build against my library? Choosing Between Dynamic and Statically-built Qt Projects How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled? How do I run my autotests? How do I use ccache? How do I create a module for a third-party library? How do I create application bundles and frameworks on iOS, macOS, tvOS, and watchOS? How do I build against libraries that provide pkg-config files? How do I apply C/C&#43;&#43; preprocessor macros to only a subset of the files in my product? How do I disable a compiler warning? How do I make the state of my Git repository available to my source files? How do I limit the number of concurrent jobs for the linker only? How do I add QML files to a project? How do I define a reusable Group of files that can be included in other Qbs files? How do I access properties of a base type? How do I print the value of a property? How do I debug Qbs scripts? How do I sign an application for an Apple platform? How-tos This page provides concrete instructions for common scenarios.">
+	<meta property="og:description" content="Qbs Manual How-tos Qbs 3.4.0 Configurable Library Reference Contents How do I build a Qt-based project? How do I make my app build against my library? Choosing Between Dynamic and Statically-built Qt Projects How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled? How do I run my autotests? How do I use ccache? How do I create a module for a third-party library? How do I create application bundles and frameworks on iOS, macOS, tvOS, and watchOS? How do I build against libraries that provide pkg-config files? How do I apply C/C&#43;&#43; preprocessor macros to only a subset of the files in my product? How do I disable a compiler warning? How do I make the state of my Git repository available to my source files? How do I limit the number of concurrent jobs for the linker only? How do I add QML files to a project? How do I define a reusable Group of files that can be included in other Qbs files? How do I access properties of a base type? How do I print the value of a property? How do I debug Qbs scripts? How do I sign an application for an Apple platform? How-tos This page provides concrete instructions for common scenarios.
+How do I build a Qt-based project? How do I make my app build against my library? How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled? How do I run my autotests? How do I use ccache? How do I create a module for a third-party library? How do I build against libraries that provide pkg-config files? How do I create application bundles and frameworks on iOS, macOS, tvOS, and watchOS? How do I apply C/C&#43;&#43; preprocessor macros to only a subset of the files in my product? How do I disable a compiler warning? How do I make the state of my Git repository available to my source files? How do I limit the number of concurrent jobs for the linker only? How do I add QML files to a project? How do I define a reusable Group of files that can be included in other Qbs files? How do I access properties of a base type? How do I print the value of a property? How do I debug Qbs scripts? How do I sign an application for an Apple platform? How do I build a Qt-based project? First of all, your project files need to declare dependencies on Qt modules.
+To build the project, you need a matching profile. The following commands set up and use a Qt-specific profile:
+$ qbs setup-qt /usr/bin/qmake qt $ cd my_project $ qbs profile:qt If you plan to use this profile a lot, consider making it the default one:
+$ qbs config defaultProfile qt $ cd my_project $ qbs See Managing Qt Versions for more details.
+Note: These instructions are only relevant for building from the command line. If you use Qt Creator, profiles are set up automatically from the information in the Kit.
+How do I make my app build against my library? This is achieved by introducing a dependency between the two products using the Depends item. Here is a simple, but complete example:
+Project { CppApplication { name : &#34;the-app&#34; files : [ &#34;main.cpp&#34; ] Depends { name: &#34;the-lib&#34; } } DynamicLibrary { name: &#34;the-lib&#34; Depends { name: &#34;cpp&#34; } files: [ &#34;lib.cpp&#34;, &#34;lib.h&#34;, ] Export { Depends { name: &#34;cpp&#34; } cpp.includePaths: [exportingProduct.sourceDirectory] } } } The product the-lib is a dynamic library. It expects other products to build against it, and for that purpose, it exports an include path (via an Export item), so that the source files in these products can include the library&#39;s header file.
+The product the-app is an application that expresses its intent to link against the-lib by declaring a dependency on it. Now main.cpp can include lib.h (because of the exported include path) and the application binary will link against the library (because the linker rule in the cpp module considers library dependencies as inputs).
+Note: In a non-trivial project, the two products would not be defined in the same file. Instead, you would put them into files of their own and use the Project.references property to pull them into the project. The product definitions would stay exactly the same. In particular, their location in the project tree is irrelevant to the relationship between them.
+Choosing Between Dynamic and Statically-built Qt Projects To build &#34;the-lib&#34; as either a dynamic or static library, depending on how Qt was built, you can use the following code:
+Product { name: &#34;the-lib&#34; type: Qt.core.staticBuild ? &#34;staticlibrary&#34; : &#34;dynamiclibrary&#34; Depends { name: &#34;Qt.core&#34; } // ... } How do I build release with debug information? You can simply use the &#34;profiling&#34; qbs.buildVariant:
+qbs build qbs.buildVariant:profiling How do I separate and install debugging symbols? First, you need to set the cpp.debugInformation and cpp.separateDebugInformation properties to true or use some conditional expression in your product:
+CppApplication { // ... cpp.debugInformation: qbs.buildVariant !== &#34;release&#34; cpp.separateDebugInformation: true } On ELF platforms with GCC or Clang, you can choose how separation is done via cpp.separateDebugInformationVariant: the default &#34;objcopy&#34; extracts a .debug file after linking, while &#34;fission&#34; passes -gsplit-dwarf and produces per-object .dwo files.
+Now, you can install your application, dynamic library or loadable module among with its debugging symbols as follows:
+CppApplication { // ... install: true installDir: &#34;bin&#34; installDebugInformation: true debugInformationInstallDir: &#34;bin&#34; } If you are not using convenience items, you can install debug symbols manually using the Group item. If the cpp.separateDebugInformation property is set to true, Qbs will create debugging symbols with the corresponding file tags &#34;debuginfo_app&#34; (for an application), &#34;debuginfo_dll&#34; (for a dynamic library), or &#34;debuginfo_loadablemodule&#34; (for a macOS plugin).
+Product { type: &#34;application&#34; Depends { name: &#34;cpp&#34; } cpp.debugInformation: qbs.buildVariant !== &#34;release&#34; cpp.separateDebugInformation: true Group { fileTagsFilter: cpp.separateDebugInformation ? [&#34;debuginfo_app&#34;] : [] qbs.install: true qbs.installDir: &#34;bin&#34; qbs.installSourceBase: buildDirectory } } If you&#39;re building a shared library, you need to use the &#34;debuginfo_dll&#34; tag instead:
+Product { type: &#34;dynamic_library&#34; // ... Group { fileTagsFilter: cpp.separateDebugInformation ? [&#34;debuginfo_dll&#34;] : [] qbs.install: true qbs.installDir: &#34;lib&#34; qbs.installSourceBase: buildDirectory } } If you&#39;re building a macOS plugin, you need to use the &#34;debuginfo_loadablemodule&#34; tag instead:
+Product { type: &#34;loadablemodule&#34; // ... Group { fileTagsFilter: cpp.separateDebugInformation ? [&#34;debuginfo_loadablemodule&#34;] : [] qbs.install: true qbs.installDir: &#34;PlugIns&#34; qbs.installSourceBase: buildDirectory } } How do I use precompiled headers? If you use a Group item to add a precompiled header file to a product and mark it with the relevant file tag (c_pch_src, cpp_pch_src, objc_pch_src, or objcpp_pch_src), it is used automatically.
+Only one precompiled header is allowed per product and language.
+For example:
+CppApplication { name: &#34;the-app&#34; files: [&#34;main.cpp&#34;] Group { files: [&#34;precompiled-header.pch&#34;] fileTags: [&#34;cpp_pch_src&#34;] } } How do I make use of rpaths? rpath designates the run-time search path used by the dynamic linker when loading libraries on UNIX platforms. This concept does not apply to Windows.
+Suppose you have a project with two dynamic library products LibraryA and LibraryB and one dependent application product. Also, LibraryB depends on LibraryA. The application is installed to the bin folder and the libraries are installed to the lib folder next to the bin folder. You want the application to be able to find the dependent libraries relative to its own location. This can be achieved by usage of the cpp.rpaths property.
+First, you need to set cpp.rpaths in your libraries so they can find dependent libraries in the same folder where they are located. This can be done as follows:
+DynamicLibrary { Depends { name: &#34;cpp&#34; } Depends { name: &#34;bundle&#34; } name: &#34;LibraryA&#34; bundle.isBundle: false cpp.sonamePrefix: qbs.targetOS.contains(&#34;macos&#34;) ? &#34;@rpath&#34; : undefined cpp.rpaths: cpp.rpathOrigin cpp.cxxLanguageVersion: &#34;c&#43;&#43;11&#34; cpp.minimumMacosVersion: &#34;10.8&#34; files: [ &#34;objecta.cpp&#34;, &#34;objecta.h&#34;, ] install: true installDir: &#34;examples/lib&#34; } We are setting cpp.rpaths to cpp.rpathOrigin which expands to &#34;$ORIGIN&#34; on Linux and to &#34;@loader_path&#34; on macOS.
+On macOS you also need to set cpp.sonamePrefix to &#34;@rpath&#34; to tell the dynamic linker to use RPATHs when loading this library.
+LibraryB looks exactly the same:
+DynamicLibrary { Depends { name: &#34;cpp&#34; } Depends { name: &#34;bundle&#34; } Depends { name: &#34;LibraryA&#34; } name: &#34;LibraryB&#34; bundle.isBundle: false cpp.cxxLanguageVersion: &#34;c&#43;&#43;11&#34; cpp.minimumMacosVersion: &#34;10.8&#34; cpp.sonamePrefix: qbs.targetOS.contains(&#34;macos&#34;) ? &#34;@rpath&#34; : undefined cpp.rpaths: cpp.rpathOrigin files: [ &#34;objectb.cpp&#34;, &#34;objectb.h&#34;, ] install: true installDir: &#34;examples/lib&#34; } In a real project, it might be a good idea to move common properties to some base item and inherit it in library items.
+The application item is a bit different. It sets cpp.rpaths to the &#34;lib&#34; folder which is located one level up from the bin folder:
+CppApplication { Depends { name: &#34;bundle&#34; } Depends { name: &#34;LibraryA&#34; } Depends { name: &#34;LibraryB&#34; } name: &#34;rpaths-app&#34; files: &#34;main.cpp&#34; consoleApplication: true bundle.isBundle: false cpp.rpaths: FileInfo.joinPaths(cpp.rpathOrigin, &#34;..&#34;, &#34;lib&#34;) cpp.cxxLanguageVersion: &#34;c&#43;&#43;11&#34; cpp.minimumMacosVersion: &#34;10.8&#34; install: true installDir: &#34;examples/bin&#34; } How do I make sure my generated sources are getting compiled? The rules in a Qbs project do not care whether its inputs are actual source files listed on the right-hand side of a files property or artifacts that were generated by another rule. For instance, the C&#43;&#43; compiler rule considers all input files of type &#34;cpp&#34;, no matter how they got into the product. The following example project demonstrates this. One of its source files exists in the repository, the other one is generated at build time. Both are getting compiled the same way.
+Note: Do not try to add the generated files to a files property. Declaring them as rule outputs is all that is needed to make Qbs know about them.
+import qbs.TextFile CppApplication { files: [&#34;impl.cpp&#34;, &#34;impl.h&#34;] cpp.includePaths: sourceDirectory Rule { multiplex: true Artifact { filePath: &#34;main.cpp&#34;; fileTags: &#34;cpp&#34; } prepare: { var cmd = new JavaScriptCommand(); cmd.description = &#34;generating &#34; &#43; output.fileName; cmd.sourceCode = function() { var f = new TextFile(output.filePath, TextFile.WriteOnly); f.writeLine(&#34;#include &lt;impl.h&gt;&#34;); f.writeLine(&#34;int main()&#34;); f.writeLine(&#34;{&#34;); f.writeLine(&#34; return functionFromImpl();&#34;); f.writeLine(&#34;}&#34;); f.close(); }; return cmd; } } } How do I run my autotests? There are two simple things you need to do in your project. Firstly, you mark your test executables as such. This is done by adding the tag &#34;autotest&#34; to the product type:
+CppApplication { name: &#34;test1&#34; type: base.concat(&#34;autotest&#34;) // ... } The second step is to instantiate an AutotestRunner product in your project:
+Project { // ... AutotestRunner { name: &#34;run_my_tests&#34; } } Building an AutotestRunner product does not produce artifacts, but triggers execution of all applications whose products are tagged as autotests:
+$ qbs -p run_my_tests test1: PASS test2: PASS test3: FAIL ... See the AutotestRunner documentation for how to fine-tune the behavior.
+How do I use ccache? ccache is a popular C/C&#43;&#43; compiler cache on Unix to speed up compiling the same content multiple times.
+Qbs excels at tracking dependencies and avoiding needless recompilations, so for linear development of one project and configuration using ccache has little benefit. But if you switch between revisions of a project, or build the same project with different configurations, a global cache like ccache can speed up compilations significantly.
+ccache can be used by setting up symbolic links to compiler executables (such as g&#43;&#43;, gcc) in the file system. In this setup, the use of ccache is transparent to Qbs. If you prefer to call ccache explicitly, you should set cpp.compilerWrapper to ccache.
+Note: Using precompiled headers might prevent ccache from actually using cached results. To work around this, you can set sloppiness=pch_defines,time_macros in your local ccache options. See the ccache documentation about precompiled headers for further details.
+How do I create a module for a third-party library? If you have pre-built binary files in your source tree, you can create modules for them and then introduce dependencies between your project and the modules to pull in the functionality of a third-party library.
+Create the following folder structure to store the module files:
+$projectroot/modules/ThirdParty Then create a file in the directory that specifies the module properties for each supported toolchain. The filename must have the .qbs extension. The module will be pulled in if a product declares a dependency on it.
+In the following example, lib1.dylib is a multi-architecture library containing both 32-bit and 64-bit code.
+---ThirdParty.qbs--- Module { Depends { name: &#34;cpp&#34; } cpp.includePaths: [&#34;/somewhere/include&#34;] Properties { condition: qbs.targetOS.includes(&#34;android&#34;) cpp.dynamicLibraries: [&#34;/somewhere/android/&#34; &#43; Android.ndk.abi &#43; &#34;/lib1.so&#34;] } Properties { condition: qbs.targetOS.includes(&#34;macos&#34;) cpp.dynamicLibraries: [&#34;/somewhere/macos/lib1.dylib&#34;] } Properties { condition: qbs.targetOS.includes(&#34;windows&#34;) &amp;&amp; qbs.architecture === &#34;x86&#34; cpp.dynamicLibraries: [&#34;/somewhere/windows_x86/lib1.lib&#34;] } Properties { condition: qbs.targetOS.includes(&#34;windows&#34;) &amp;&amp; qbs.architecture === &#34;x86_64&#34; cpp.dynamicLibraries: [&#34;/somewhere/windows_x86_64/lib1.lib&#34;] } } Finally, declare dependencies on ThirdParty in your project:
+CppApplication { name: &#34;the-app&#34; files: [&#34;main.cpp&#34;] Depends { name: &#34;ThirdParty&#34; } } How do I create application bundles and frameworks on iOS, macOS, tvOS, and watchOS? Creating an application bundle or framework is achieved by introducing a dependency on the bundle module and setting the bundle.isBundle property to true.
+Here is a simple example for an application:
+Application { Depends { name: &#34;cpp&#34; } Depends { name: &#34;bundle&#34; } bundle.isBundle: true name: &#34;the-app&#34; files: [&#34;main.cpp&#34;] } and for a framework:
+DynamicLibrary { Depends { name: &#34;cpp&#34; } Depends { name: &#34;bundle&#34; } bundle.isBundle: true name: &#34;the-lib&#34; files: [&#34;lib.cpp&#34;, &#34;lib.h&#34;] } Qbs also supports building static frameworks. You can create one by replacing the DynamicLibrary item with a StaticLibrary item in the example above.
+Note: When using the Application item (or convenience items, such as CppApplication, DynamicLibrary, and StaticLibrary), your products will be built as bundles on Apple platforms by default (this behavior is subject to change in a future release).
+To explicitly control whether your product is built as a bundle, set the bundle.isBundle property. Setting the consoleApplication property of your product will also influence whether your product is built as a bundle.
+Building your application against your framework is the same as linking a normal dynamic or static library; see the How do I make my app build against my library? section for an example.
+How do I build against libraries that provide pkg-config files? Just add a Depends item that matches the name of the pkg-config module, set the Product::qbsModuleProviders property to &#34;qbspkgconfig&#34;, and Qbs will employ pkg-config to find the headers and libraries if no matching Qbs module can be found. For instance, to build against the OpenSSL library, you would write this:
+qbsModuleProviders: &#34;qbspkgconfig&#34; Depends { name: &#34;openssl&#34; } That&#39;s it. The pkg-config behavior can be fine-tuned via the qbspkgconfig provider.
+Internally, this functionality is implemented via Module Providers
+How do I apply C/C&#43;&#43; preprocessor macros to only a subset of the files in my product? Use a Group item to define a subset of project files. To add macros within the group, you need to use the outer.concat property, because you are adding macros to those specified in the outer scope.
+In the following example, MACRO_EVERYWHERE is defined for all files in the Product unless a Group overrides the macro, whereas MACRO_GROUP is only defined for groupFile.cpp.
+Product { Depends { name: &#34;cpp&#34; } cpp.defines: [&#34;MACRO_EVERYWHERE&#34;] Group { cpp.defines: outer.concat(&#34;MACRO_GROUP&#34;) files: &#34;groupFile.cpp&#34; } } The cpp.defines statements inside a Group only apply to the files in that Group, and therefore you cannot use a Group to include a bunch of files and globally visible macros. The macros must be specified in a Properties item at the same level as the Group if they need to be visible to files outside the Group:
+Product { Depends { name: &#34;cpp&#34; } Group { condition: project.supportMyFeature files: &#34;myFile.cpp&#34; } property stringList commonDefines: [&#34;ONE&#34;, &#34;TWO&#34;] Properties { condition: project.supportMyFeature cpp.defines: commonDefines.concat(&#34;MYFEATURE_SUPPORTED&#34;) } } How do I disable a compiler warning? You can use the cpp.commonCompilerFlags property to pass flags to the compiler. For example, to disable deprecation warnings:
+CppApplication { // ... readonly property bool isMsvc: qbs.toolchain.includes(&#34;msvc&#34;) cpp.commonCompilerFlags: isMsvc ? &#34;/wd4996&#34; : &#34;-Wno-deprecated-declarations&#34; } It is also possible to disable all warnings at once by setting the cpp.warningLevel property to &#34;none&#34;. Usually this approach is discouraged, but it can be useful in some cases, such as when compiling third party code:
+Group { cpp.warningLevel: &#34;none&#34; files: [ &#34;3rdparty.h&#34;, &#34;3rdparty.cpp&#34; ] } How do I make the state of my Git repository available to my source files? Add a dependency to the vcs module to your product:
+CppApplication { // ... Depends { name: &#34;vcs&#34; } // ... } Your source files will now have access to a macro whose value is a string representing the current Git or Subversion HEAD:
+#include &lt;vcs-repo-state.h&gt; #include &lt;iostream&gt; int main() { std::cout &lt;&lt; &#34;I was built from &#34; &lt;&lt; VCS_REPO_STATE &lt;&lt; std::endl; } This value is also available via the vcs.repoState property.
+How do I limit the number of concurrent jobs for the linker only? While it is usually desirable to run as many compiler jobs as there are CPU cores, the same is not true for linker jobs. The reason is that linkers are typically I/O bound rather than CPU bound. When building large libraries, they also tend to use up enormous amounts of memory. Therefore, we&#39;d like to make sure that only a few linkers are running at the same time without limiting other types of jobs. In Qbs, this is achieved via job pools. There are several ways to make use of them.
+Firstly, you can provide a limit via the command line:
+$ qbs --job-limits linker:4 The above call instructs Qbs to run at most four linker instances at the same time, while leaving the general number of concurrent jobs at the default value, which is derived from the number of CPU cores. The linker string on the command line refers to the job pool of the same name, which the cpp module assigns to all its commands that invoke a linker.
+Secondly, you can set a limit via the settings, either generally or for a specific profile:
+$ qbs config preferences.jobLimit.linker 4 $ qbs config profiles.myprofile.preferences.jobLimit.linker 2 And finally, you can also set the limit per project or per product, using a JobLimit item:
+Product { name: &#34;my_huge_library&#34; JobLimit { jobPool: &#34;linker&#34; jobCount: 1 } // ... } The above construct ensures that this specific library is never linked at the same time as any other binary in the project.
+Job limits set on the command line override those from the settings, which in turn override the ones defined within a project. Use the --enforce-project-job-limits option to give the job limits defined via JobLimit items maximum precedence.
+How do I add QML files to a project? The simplest way to add QML files to a project is to add them to a Qt resource file:
+QtGuiApplication { // ... files: &#34;main.cpp&#34; Group { prefix: &#34;qml/&#34; files: [&#34;main.qml&#34;, &#34;HomePage.qml&#34;] fileTags: [&#34;qt.qml.qml&#34;, &#34;qt.core.resource_data&#34;] } } In the example above, we declare each QML file as having the &#34;qt.core.resource_data&#34; file tag. This ensures that it is added to a generated resource file.
+How do I define a reusable Group of files that can be included in other Qbs files? Suppose you have an application and tests for that application, and that the project is structured in the following way:
+├── app │ ├── app.qbs │ ├── ... │ └── qml │ └── ui │ ├── AboutPopup.qml │ └── ... ├── my-project.qbs └── tests ├── tst_app.cpp ├── ... └── tests.qbs Both projects need access to the QML files used by the application. To demonstrate how this can be done, we&#39;ll create a file named qml-ui.qbs and put it in the app/qml/ui directory:
+Group { prefix: path &#43; &#34;/&#34; fileTags: [&#34;qt.qml.qml&#34;, &#34;qt.core.resource_data&#34;] files: [ &#34;AboutPopup.qml&#34;, // ... ] } This Group is a variation of the one in the section above.
+If no prefix is specified, the file names listed in the files property are resolved relative to the importing product&#39;s (e.g. app.qbs) directory. For that reason, we set the prefix to inform Qbs that the file names should be resolved relative to the imported item instead: qml-ui.qbs. Conveniently, this also means that we don&#39;t need to specify the path prefix for each file.
+The application can then import the file like so:
+import &#34;qml/ui/qml-ui.qbs&#34; as QmlUiFiles QtGuiApplication { // ... files: &#34;main.cpp&#34; QmlUiFiles {} } The tests can use a relative path to import the file:
+import &#34;../app/qml/ui/qml-ui.qbs&#34; as QmlUiFiles QtGuiApplication { // ... files: &#34;tst_app.cpp&#34; QmlUiFiles {} } How do I access properties of a base type? You can use the base property. For example, to append to a list of files that come from the base type, you can use base.concat():
+// TestBase.qbs QtGuiApplication { files: [ &#34;TestCaseBase.h&#34;, &#34;TestCaseBase.cpp&#34; ] } // tst_stuff.qbs TestBase { files: base.concat([&#34;tst_stuff.cpp&#34;]) } See Special Property Values for more details.
+How do I print the value of a property? Use the console API. For example, suppose your project is not built the way you expect it to be, and you suspect that qbs.targetOS has the wrong value:
+readonly property bool unix: qbs.targetOS.includes(&#34;unix&#34;) To find out the value of qbs.targetOS, use console.info():
+readonly property bool unix: { console.info(&#34;qbs.targetOS: &#34; &#43; qbs.targetOS) return qbs.targetOS.includes(&#34;unix&#34;) } It is also possible to throw an exception with the text saying what is wrong - this might be useful if the property contains invalid or unsupported value:
+readonly property bool unix: { if (qbs.targetOS.includes(&#34;darwin&#34;)) throw &#34;Apple platforms are not supported&#34;; return qbs.targetOS.includes(&#34;unix&#34;) } How do I debug Qbs scripts? To debug the value of a specific property, see the How do I print the value of a property section.
+Similar debugging techniques could be used within Rules or .js files.
+It is also possible to increase Qbs&#39; logging level using the --more-verbose (-v) option of the qbs build command:
+qbs build -v config:release Qbs uses the Qt Categorized Logging system which allows to configure logging categories in multiple ways. For example, to enable debug logging for the moduleloader category, use the following command:
+QT_LOGGING_RULES=&#34;qbs.moduleloader.debug=true&#34; qbs resolve To list all the files in the project directory and show whether they are known to qbs in the respective configuration, use the qbs status command:
+qbs status config:release How do I sign an application for an Apple platform? To sign an application for an Apple platform, you need to use the codesign module.
+Depends { name: &#34;codesign&#34; } Several properties should be set to do signing as shown below.
+Make sure that bundle and team indentifiers match the one used for signing:
+bundle.identifierPrefix: &#34;com.johndoe&#34; codesign.teamIdentifier: &#34;John Doe&#34; It is also possible to use an ID of the team identifier instead of a name:
+codesign.teamIdentifier: &#34;1234ABCDEF&#34; Qbs will then try to find the matching signing identity and provisioning profile based on codesign.signingType.
+It is also possible to specify codesign.signingIdentity manually:
+codesign.signingIdentity: &#34;Apple Development: johndoe@apple.com (ABCDEF1234)&#34; It is also possible to use an ID of the signing identity instead of a name:
+codesign.signingIdentity: &#34;ABCDEF1234567890ABCDEF1234567890ABCDEF12&#34; If Qbs cannot find the suitable provisioning profile, you can specify it manually as well:
+codesign.provisioningProfile: &#34;abcdef12-1234-5678-1111-abcdef123456&#34; Configurable Library Reference">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -71,7 +679,102 @@ This page provides concrete instructions for common scenarios. ">
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual How-tos Qbs 3.4.0 Configurable Library Reference Contents How do I build a Qt-based project? How do I make my app build against my library? Choosing Between Dynamic and Statically-built Qt Projects How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled? How do I run my autotests? How do I use ccache? How do I create a module for a third-party library? How do I create application bundles and frameworks on iOS, macOS, tvOS, and watchOS? How do I build against libraries that provide pkg-config files? How do I apply C/C&#43;&#43; preprocessor macros to only a subset of the files in my product? How do I disable a compiler warning? How do I make the state of my Git repository available to my source files? How do I limit the number of concurrent jobs for the linker only? How do I add QML files to a project? How do I define a reusable Group of files that can be included in other Qbs files? How do I access properties of a base type? How do I print the value of a property? How do I debug Qbs scripts? How do I sign an application for an Apple platform? How-tos This page provides concrete instructions for common scenarios.">
+	<meta name="twitter:description" content="Qbs Manual How-tos Qbs 3.4.0 Configurable Library Reference Contents How do I build a Qt-based project? How do I make my app build against my library? Choosing Between Dynamic and Statically-built Qt Projects How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled? How do I run my autotests? How do I use ccache? How do I create a module for a third-party library? How do I create application bundles and frameworks on iOS, macOS, tvOS, and watchOS? How do I build against libraries that provide pkg-config files? How do I apply C/C&#43;&#43; preprocessor macros to only a subset of the files in my product? How do I disable a compiler warning? How do I make the state of my Git repository available to my source files? How do I limit the number of concurrent jobs for the linker only? How do I add QML files to a project? How do I define a reusable Group of files that can be included in other Qbs files? How do I access properties of a base type? How do I print the value of a property? How do I debug Qbs scripts? How do I sign an application for an Apple platform? How-tos This page provides concrete instructions for common scenarios.
+How do I build a Qt-based project? How do I make my app build against my library? How do I build release with debug information? How do I separate and install debugging symbols? How do I use precompiled headers? How do I make use of rpaths? How do I make sure my generated sources are getting compiled? How do I run my autotests? How do I use ccache? How do I create a module for a third-party library? How do I build against libraries that provide pkg-config files? How do I create application bundles and frameworks on iOS, macOS, tvOS, and watchOS? How do I apply C/C&#43;&#43; preprocessor macros to only a subset of the files in my product? How do I disable a compiler warning? How do I make the state of my Git repository available to my source files? How do I limit the number of concurrent jobs for the linker only? How do I add QML files to a project? How do I define a reusable Group of files that can be included in other Qbs files? How do I access properties of a base type? How do I print the value of a property? How do I debug Qbs scripts? How do I sign an application for an Apple platform? How do I build a Qt-based project? First of all, your project files need to declare dependencies on Qt modules.
+To build the project, you need a matching profile. The following commands set up and use a Qt-specific profile:
+$ qbs setup-qt /usr/bin/qmake qt $ cd my_project $ qbs profile:qt If you plan to use this profile a lot, consider making it the default one:
+$ qbs config defaultProfile qt $ cd my_project $ qbs See Managing Qt Versions for more details.
+Note: These instructions are only relevant for building from the command line. If you use Qt Creator, profiles are set up automatically from the information in the Kit.
+How do I make my app build against my library? This is achieved by introducing a dependency between the two products using the Depends item. Here is a simple, but complete example:
+Project { CppApplication { name : &#34;the-app&#34; files : [ &#34;main.cpp&#34; ] Depends { name: &#34;the-lib&#34; } } DynamicLibrary { name: &#34;the-lib&#34; Depends { name: &#34;cpp&#34; } files: [ &#34;lib.cpp&#34;, &#34;lib.h&#34;, ] Export { Depends { name: &#34;cpp&#34; } cpp.includePaths: [exportingProduct.sourceDirectory] } } } The product the-lib is a dynamic library. It expects other products to build against it, and for that purpose, it exports an include path (via an Export item), so that the source files in these products can include the library&#39;s header file.
+The product the-app is an application that expresses its intent to link against the-lib by declaring a dependency on it. Now main.cpp can include lib.h (because of the exported include path) and the application binary will link against the library (because the linker rule in the cpp module considers library dependencies as inputs).
+Note: In a non-trivial project, the two products would not be defined in the same file. Instead, you would put them into files of their own and use the Project.references property to pull them into the project. The product definitions would stay exactly the same. In particular, their location in the project tree is irrelevant to the relationship between them.
+Choosing Between Dynamic and Statically-built Qt Projects To build &#34;the-lib&#34; as either a dynamic or static library, depending on how Qt was built, you can use the following code:
+Product { name: &#34;the-lib&#34; type: Qt.core.staticBuild ? &#34;staticlibrary&#34; : &#34;dynamiclibrary&#34; Depends { name: &#34;Qt.core&#34; } // ... } How do I build release with debug information? You can simply use the &#34;profiling&#34; qbs.buildVariant:
+qbs build qbs.buildVariant:profiling How do I separate and install debugging symbols? First, you need to set the cpp.debugInformation and cpp.separateDebugInformation properties to true or use some conditional expression in your product:
+CppApplication { // ... cpp.debugInformation: qbs.buildVariant !== &#34;release&#34; cpp.separateDebugInformation: true } On ELF platforms with GCC or Clang, you can choose how separation is done via cpp.separateDebugInformationVariant: the default &#34;objcopy&#34; extracts a .debug file after linking, while &#34;fission&#34; passes -gsplit-dwarf and produces per-object .dwo files.
+Now, you can install your application, dynamic library or loadable module among with its debugging symbols as follows:
+CppApplication { // ... install: true installDir: &#34;bin&#34; installDebugInformation: true debugInformationInstallDir: &#34;bin&#34; } If you are not using convenience items, you can install debug symbols manually using the Group item. If the cpp.separateDebugInformation property is set to true, Qbs will create debugging symbols with the corresponding file tags &#34;debuginfo_app&#34; (for an application), &#34;debuginfo_dll&#34; (for a dynamic library), or &#34;debuginfo_loadablemodule&#34; (for a macOS plugin).
+Product { type: &#34;application&#34; Depends { name: &#34;cpp&#34; } cpp.debugInformation: qbs.buildVariant !== &#34;release&#34; cpp.separateDebugInformation: true Group { fileTagsFilter: cpp.separateDebugInformation ? [&#34;debuginfo_app&#34;] : [] qbs.install: true qbs.installDir: &#34;bin&#34; qbs.installSourceBase: buildDirectory } } If you&#39;re building a shared library, you need to use the &#34;debuginfo_dll&#34; tag instead:
+Product { type: &#34;dynamic_library&#34; // ... Group { fileTagsFilter: cpp.separateDebugInformation ? [&#34;debuginfo_dll&#34;] : [] qbs.install: true qbs.installDir: &#34;lib&#34; qbs.installSourceBase: buildDirectory } } If you&#39;re building a macOS plugin, you need to use the &#34;debuginfo_loadablemodule&#34; tag instead:
+Product { type: &#34;loadablemodule&#34; // ... Group { fileTagsFilter: cpp.separateDebugInformation ? [&#34;debuginfo_loadablemodule&#34;] : [] qbs.install: true qbs.installDir: &#34;PlugIns&#34; qbs.installSourceBase: buildDirectory } } How do I use precompiled headers? If you use a Group item to add a precompiled header file to a product and mark it with the relevant file tag (c_pch_src, cpp_pch_src, objc_pch_src, or objcpp_pch_src), it is used automatically.
+Only one precompiled header is allowed per product and language.
+For example:
+CppApplication { name: &#34;the-app&#34; files: [&#34;main.cpp&#34;] Group { files: [&#34;precompiled-header.pch&#34;] fileTags: [&#34;cpp_pch_src&#34;] } } How do I make use of rpaths? rpath designates the run-time search path used by the dynamic linker when loading libraries on UNIX platforms. This concept does not apply to Windows.
+Suppose you have a project with two dynamic library products LibraryA and LibraryB and one dependent application product. Also, LibraryB depends on LibraryA. The application is installed to the bin folder and the libraries are installed to the lib folder next to the bin folder. You want the application to be able to find the dependent libraries relative to its own location. This can be achieved by usage of the cpp.rpaths property.
+First, you need to set cpp.rpaths in your libraries so they can find dependent libraries in the same folder where they are located. This can be done as follows:
+DynamicLibrary { Depends { name: &#34;cpp&#34; } Depends { name: &#34;bundle&#34; } name: &#34;LibraryA&#34; bundle.isBundle: false cpp.sonamePrefix: qbs.targetOS.contains(&#34;macos&#34;) ? &#34;@rpath&#34; : undefined cpp.rpaths: cpp.rpathOrigin cpp.cxxLanguageVersion: &#34;c&#43;&#43;11&#34; cpp.minimumMacosVersion: &#34;10.8&#34; files: [ &#34;objecta.cpp&#34;, &#34;objecta.h&#34;, ] install: true installDir: &#34;examples/lib&#34; } We are setting cpp.rpaths to cpp.rpathOrigin which expands to &#34;$ORIGIN&#34; on Linux and to &#34;@loader_path&#34; on macOS.
+On macOS you also need to set cpp.sonamePrefix to &#34;@rpath&#34; to tell the dynamic linker to use RPATHs when loading this library.
+LibraryB looks exactly the same:
+DynamicLibrary { Depends { name: &#34;cpp&#34; } Depends { name: &#34;bundle&#34; } Depends { name: &#34;LibraryA&#34; } name: &#34;LibraryB&#34; bundle.isBundle: false cpp.cxxLanguageVersion: &#34;c&#43;&#43;11&#34; cpp.minimumMacosVersion: &#34;10.8&#34; cpp.sonamePrefix: qbs.targetOS.contains(&#34;macos&#34;) ? &#34;@rpath&#34; : undefined cpp.rpaths: cpp.rpathOrigin files: [ &#34;objectb.cpp&#34;, &#34;objectb.h&#34;, ] install: true installDir: &#34;examples/lib&#34; } In a real project, it might be a good idea to move common properties to some base item and inherit it in library items.
+The application item is a bit different. It sets cpp.rpaths to the &#34;lib&#34; folder which is located one level up from the bin folder:
+CppApplication { Depends { name: &#34;bundle&#34; } Depends { name: &#34;LibraryA&#34; } Depends { name: &#34;LibraryB&#34; } name: &#34;rpaths-app&#34; files: &#34;main.cpp&#34; consoleApplication: true bundle.isBundle: false cpp.rpaths: FileInfo.joinPaths(cpp.rpathOrigin, &#34;..&#34;, &#34;lib&#34;) cpp.cxxLanguageVersion: &#34;c&#43;&#43;11&#34; cpp.minimumMacosVersion: &#34;10.8&#34; install: true installDir: &#34;examples/bin&#34; } How do I make sure my generated sources are getting compiled? The rules in a Qbs project do not care whether its inputs are actual source files listed on the right-hand side of a files property or artifacts that were generated by another rule. For instance, the C&#43;&#43; compiler rule considers all input files of type &#34;cpp&#34;, no matter how they got into the product. The following example project demonstrates this. One of its source files exists in the repository, the other one is generated at build time. Both are getting compiled the same way.
+Note: Do not try to add the generated files to a files property. Declaring them as rule outputs is all that is needed to make Qbs know about them.
+import qbs.TextFile CppApplication { files: [&#34;impl.cpp&#34;, &#34;impl.h&#34;] cpp.includePaths: sourceDirectory Rule { multiplex: true Artifact { filePath: &#34;main.cpp&#34;; fileTags: &#34;cpp&#34; } prepare: { var cmd = new JavaScriptCommand(); cmd.description = &#34;generating &#34; &#43; output.fileName; cmd.sourceCode = function() { var f = new TextFile(output.filePath, TextFile.WriteOnly); f.writeLine(&#34;#include &lt;impl.h&gt;&#34;); f.writeLine(&#34;int main()&#34;); f.writeLine(&#34;{&#34;); f.writeLine(&#34; return functionFromImpl();&#34;); f.writeLine(&#34;}&#34;); f.close(); }; return cmd; } } } How do I run my autotests? There are two simple things you need to do in your project. Firstly, you mark your test executables as such. This is done by adding the tag &#34;autotest&#34; to the product type:
+CppApplication { name: &#34;test1&#34; type: base.concat(&#34;autotest&#34;) // ... } The second step is to instantiate an AutotestRunner product in your project:
+Project { // ... AutotestRunner { name: &#34;run_my_tests&#34; } } Building an AutotestRunner product does not produce artifacts, but triggers execution of all applications whose products are tagged as autotests:
+$ qbs -p run_my_tests test1: PASS test2: PASS test3: FAIL ... See the AutotestRunner documentation for how to fine-tune the behavior.
+How do I use ccache? ccache is a popular C/C&#43;&#43; compiler cache on Unix to speed up compiling the same content multiple times.
+Qbs excels at tracking dependencies and avoiding needless recompilations, so for linear development of one project and configuration using ccache has little benefit. But if you switch between revisions of a project, or build the same project with different configurations, a global cache like ccache can speed up compilations significantly.
+ccache can be used by setting up symbolic links to compiler executables (such as g&#43;&#43;, gcc) in the file system. In this setup, the use of ccache is transparent to Qbs. If you prefer to call ccache explicitly, you should set cpp.compilerWrapper to ccache.
+Note: Using precompiled headers might prevent ccache from actually using cached results. To work around this, you can set sloppiness=pch_defines,time_macros in your local ccache options. See the ccache documentation about precompiled headers for further details.
+How do I create a module for a third-party library? If you have pre-built binary files in your source tree, you can create modules for them and then introduce dependencies between your project and the modules to pull in the functionality of a third-party library.
+Create the following folder structure to store the module files:
+$projectroot/modules/ThirdParty Then create a file in the directory that specifies the module properties for each supported toolchain. The filename must have the .qbs extension. The module will be pulled in if a product declares a dependency on it.
+In the following example, lib1.dylib is a multi-architecture library containing both 32-bit and 64-bit code.
+---ThirdParty.qbs--- Module { Depends { name: &#34;cpp&#34; } cpp.includePaths: [&#34;/somewhere/include&#34;] Properties { condition: qbs.targetOS.includes(&#34;android&#34;) cpp.dynamicLibraries: [&#34;/somewhere/android/&#34; &#43; Android.ndk.abi &#43; &#34;/lib1.so&#34;] } Properties { condition: qbs.targetOS.includes(&#34;macos&#34;) cpp.dynamicLibraries: [&#34;/somewhere/macos/lib1.dylib&#34;] } Properties { condition: qbs.targetOS.includes(&#34;windows&#34;) &amp;&amp; qbs.architecture === &#34;x86&#34; cpp.dynamicLibraries: [&#34;/somewhere/windows_x86/lib1.lib&#34;] } Properties { condition: qbs.targetOS.includes(&#34;windows&#34;) &amp;&amp; qbs.architecture === &#34;x86_64&#34; cpp.dynamicLibraries: [&#34;/somewhere/windows_x86_64/lib1.lib&#34;] } } Finally, declare dependencies on ThirdParty in your project:
+CppApplication { name: &#34;the-app&#34; files: [&#34;main.cpp&#34;] Depends { name: &#34;ThirdParty&#34; } } How do I create application bundles and frameworks on iOS, macOS, tvOS, and watchOS? Creating an application bundle or framework is achieved by introducing a dependency on the bundle module and setting the bundle.isBundle property to true.
+Here is a simple example for an application:
+Application { Depends { name: &#34;cpp&#34; } Depends { name: &#34;bundle&#34; } bundle.isBundle: true name: &#34;the-app&#34; files: [&#34;main.cpp&#34;] } and for a framework:
+DynamicLibrary { Depends { name: &#34;cpp&#34; } Depends { name: &#34;bundle&#34; } bundle.isBundle: true name: &#34;the-lib&#34; files: [&#34;lib.cpp&#34;, &#34;lib.h&#34;] } Qbs also supports building static frameworks. You can create one by replacing the DynamicLibrary item with a StaticLibrary item in the example above.
+Note: When using the Application item (or convenience items, such as CppApplication, DynamicLibrary, and StaticLibrary), your products will be built as bundles on Apple platforms by default (this behavior is subject to change in a future release).
+To explicitly control whether your product is built as a bundle, set the bundle.isBundle property. Setting the consoleApplication property of your product will also influence whether your product is built as a bundle.
+Building your application against your framework is the same as linking a normal dynamic or static library; see the How do I make my app build against my library? section for an example.
+How do I build against libraries that provide pkg-config files? Just add a Depends item that matches the name of the pkg-config module, set the Product::qbsModuleProviders property to &#34;qbspkgconfig&#34;, and Qbs will employ pkg-config to find the headers and libraries if no matching Qbs module can be found. For instance, to build against the OpenSSL library, you would write this:
+qbsModuleProviders: &#34;qbspkgconfig&#34; Depends { name: &#34;openssl&#34; } That&#39;s it. The pkg-config behavior can be fine-tuned via the qbspkgconfig provider.
+Internally, this functionality is implemented via Module Providers
+How do I apply C/C&#43;&#43; preprocessor macros to only a subset of the files in my product? Use a Group item to define a subset of project files. To add macros within the group, you need to use the outer.concat property, because you are adding macros to those specified in the outer scope.
+In the following example, MACRO_EVERYWHERE is defined for all files in the Product unless a Group overrides the macro, whereas MACRO_GROUP is only defined for groupFile.cpp.
+Product { Depends { name: &#34;cpp&#34; } cpp.defines: [&#34;MACRO_EVERYWHERE&#34;] Group { cpp.defines: outer.concat(&#34;MACRO_GROUP&#34;) files: &#34;groupFile.cpp&#34; } } The cpp.defines statements inside a Group only apply to the files in that Group, and therefore you cannot use a Group to include a bunch of files and globally visible macros. The macros must be specified in a Properties item at the same level as the Group if they need to be visible to files outside the Group:
+Product { Depends { name: &#34;cpp&#34; } Group { condition: project.supportMyFeature files: &#34;myFile.cpp&#34; } property stringList commonDefines: [&#34;ONE&#34;, &#34;TWO&#34;] Properties { condition: project.supportMyFeature cpp.defines: commonDefines.concat(&#34;MYFEATURE_SUPPORTED&#34;) } } How do I disable a compiler warning? You can use the cpp.commonCompilerFlags property to pass flags to the compiler. For example, to disable deprecation warnings:
+CppApplication { // ... readonly property bool isMsvc: qbs.toolchain.includes(&#34;msvc&#34;) cpp.commonCompilerFlags: isMsvc ? &#34;/wd4996&#34; : &#34;-Wno-deprecated-declarations&#34; } It is also possible to disable all warnings at once by setting the cpp.warningLevel property to &#34;none&#34;. Usually this approach is discouraged, but it can be useful in some cases, such as when compiling third party code:
+Group { cpp.warningLevel: &#34;none&#34; files: [ &#34;3rdparty.h&#34;, &#34;3rdparty.cpp&#34; ] } How do I make the state of my Git repository available to my source files? Add a dependency to the vcs module to your product:
+CppApplication { // ... Depends { name: &#34;vcs&#34; } // ... } Your source files will now have access to a macro whose value is a string representing the current Git or Subversion HEAD:
+#include &lt;vcs-repo-state.h&gt; #include &lt;iostream&gt; int main() { std::cout &lt;&lt; &#34;I was built from &#34; &lt;&lt; VCS_REPO_STATE &lt;&lt; std::endl; } This value is also available via the vcs.repoState property.
+How do I limit the number of concurrent jobs for the linker only? While it is usually desirable to run as many compiler jobs as there are CPU cores, the same is not true for linker jobs. The reason is that linkers are typically I/O bound rather than CPU bound. When building large libraries, they also tend to use up enormous amounts of memory. Therefore, we&#39;d like to make sure that only a few linkers are running at the same time without limiting other types of jobs. In Qbs, this is achieved via job pools. There are several ways to make use of them.
+Firstly, you can provide a limit via the command line:
+$ qbs --job-limits linker:4 The above call instructs Qbs to run at most four linker instances at the same time, while leaving the general number of concurrent jobs at the default value, which is derived from the number of CPU cores. The linker string on the command line refers to the job pool of the same name, which the cpp module assigns to all its commands that invoke a linker.
+Secondly, you can set a limit via the settings, either generally or for a specific profile:
+$ qbs config preferences.jobLimit.linker 4 $ qbs config profiles.myprofile.preferences.jobLimit.linker 2 And finally, you can also set the limit per project or per product, using a JobLimit item:
+Product { name: &#34;my_huge_library&#34; JobLimit { jobPool: &#34;linker&#34; jobCount: 1 } // ... } The above construct ensures that this specific library is never linked at the same time as any other binary in the project.
+Job limits set on the command line override those from the settings, which in turn override the ones defined within a project. Use the --enforce-project-job-limits option to give the job limits defined via JobLimit items maximum precedence.
+How do I add QML files to a project? The simplest way to add QML files to a project is to add them to a Qt resource file:
+QtGuiApplication { // ... files: &#34;main.cpp&#34; Group { prefix: &#34;qml/&#34; files: [&#34;main.qml&#34;, &#34;HomePage.qml&#34;] fileTags: [&#34;qt.qml.qml&#34;, &#34;qt.core.resource_data&#34;] } } In the example above, we declare each QML file as having the &#34;qt.core.resource_data&#34; file tag. This ensures that it is added to a generated resource file.
+How do I define a reusable Group of files that can be included in other Qbs files? Suppose you have an application and tests for that application, and that the project is structured in the following way:
+├── app │ ├── app.qbs │ ├── ... │ └── qml │ └── ui │ ├── AboutPopup.qml │ └── ... ├── my-project.qbs └── tests ├── tst_app.cpp ├── ... └── tests.qbs Both projects need access to the QML files used by the application. To demonstrate how this can be done, we&#39;ll create a file named qml-ui.qbs and put it in the app/qml/ui directory:
+Group { prefix: path &#43; &#34;/&#34; fileTags: [&#34;qt.qml.qml&#34;, &#34;qt.core.resource_data&#34;] files: [ &#34;AboutPopup.qml&#34;, // ... ] } This Group is a variation of the one in the section above.
+If no prefix is specified, the file names listed in the files property are resolved relative to the importing product&#39;s (e.g. app.qbs) directory. For that reason, we set the prefix to inform Qbs that the file names should be resolved relative to the imported item instead: qml-ui.qbs. Conveniently, this also means that we don&#39;t need to specify the path prefix for each file.
+The application can then import the file like so:
+import &#34;qml/ui/qml-ui.qbs&#34; as QmlUiFiles QtGuiApplication { // ... files: &#34;main.cpp&#34; QmlUiFiles {} } The tests can use a relative path to import the file:
+import &#34;../app/qml/ui/qml-ui.qbs&#34; as QmlUiFiles QtGuiApplication { // ... files: &#34;tst_app.cpp&#34; QmlUiFiles {} } How do I access properties of a base type? You can use the base property. For example, to append to a list of files that come from the base type, you can use base.concat():
+// TestBase.qbs QtGuiApplication { files: [ &#34;TestCaseBase.h&#34;, &#34;TestCaseBase.cpp&#34; ] } // tst_stuff.qbs TestBase { files: base.concat([&#34;tst_stuff.cpp&#34;]) } See Special Property Values for more details.
+How do I print the value of a property? Use the console API. For example, suppose your project is not built the way you expect it to be, and you suspect that qbs.targetOS has the wrong value:
+readonly property bool unix: qbs.targetOS.includes(&#34;unix&#34;) To find out the value of qbs.targetOS, use console.info():
+readonly property bool unix: { console.info(&#34;qbs.targetOS: &#34; &#43; qbs.targetOS) return qbs.targetOS.includes(&#34;unix&#34;) } It is also possible to throw an exception with the text saying what is wrong - this might be useful if the property contains invalid or unsupported value:
+readonly property bool unix: { if (qbs.targetOS.includes(&#34;darwin&#34;)) throw &#34;Apple platforms are not supported&#34;; return qbs.targetOS.includes(&#34;unix&#34;) } How do I debug Qbs scripts? To debug the value of a specific property, see the How do I print the value of a property section.
+Similar debugging techniques could be used within Rules or .js files.
+It is also possible to increase Qbs&#39; logging level using the --more-verbose (-v) option of the qbs build command:
+qbs build -v config:release Qbs uses the Qt Categorized Logging system which allows to configure logging categories in multiple ways. For example, to enable debug logging for the moduleloader category, use the following command:
+QT_LOGGING_RULES=&#34;qbs.moduleloader.debug=true&#34; qbs resolve To list all the files in the project directory and show whether they are known to qbs in the respective configuration, use the qbs status command:
+qbs status config:release How do I sign an application for an Apple platform? To sign an application for an Apple platform, you need to use the codesign module.
+Depends { name: &#34;codesign&#34; } Several properties should be set to do signing as shown below.
+Make sure that bundle and team indentifiers match the one used for signing:
+bundle.identifierPrefix: &#34;com.johndoe&#34; codesign.teamIdentifier: &#34;John Doe&#34; It is also possible to use an ID of the team identifier instead of a name:
+codesign.teamIdentifier: &#34;1234ABCDEF&#34; Qbs will then try to find the matching signing identity and provisioning profile based on codesign.signingType.
+It is also possible to specify codesign.signingIdentity manually:
+codesign.signingIdentity: &#34;Apple Development: johndoe@apple.com (ABCDEF1234)&#34; It is also possible to use an ID of the signing identity instead of a name:
+codesign.signingIdentity: &#34;ABCDEF1234567890ABCDEF1234567890ABCDEF12&#34; If Qbs cannot find the suitable provisioning profile, you can specify it manually as well:
+codesign.provisioningProfile: &#34;abcdef12-1234-5678-1111-abcdef123456&#34; Configurable Library Reference">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -204,13 +907,13 @@ This page provides concrete instructions for common scenarios. ">
 /docs/qml-qbslanguageitems-depends/" translate="no">dependencies</a> on <a href="https://qbs.io/
 /docs/qml-qbsmoduleproviders-qt/" translate="no">Qt</a> modules.</p>
 <p>To build the project, you need a matching <i>profile</i>. The following commands set up and use a Qt-specific profile:</p>
-<pre class="cpp" translate="no">$ qbs setup<span class="operator">-</span>qt <span class="operator">/</span>usr<span class="operator">/</span>bin<span class="operator">/</span>qmake qt
+<pre class="cpp" translate="no"><code class="cpp">$ qbs setup<span class="operator">-</span>qt <span class="operator">/</span>usr<span class="operator">/</span>bin<span class="operator">/</span>qmake qt
 $ cd my_project
-$ qbs profile:qt</pre>
+$ qbs profile:qt</code></pre>
 <p>If you plan to use this profile a lot, consider making it the default one:</p>
-<pre class="cpp" translate="no">$ qbs config defaultProfile qt
+<pre class="cpp" translate="no"><code class="cpp">$ qbs config defaultProfile qt
 $ cd my_project
-$ qbs</pre>
+$ qbs</code></pre>
 <p>See <a href="https://qbs.io/
 /docs/qt-versions/">Managing Qt Versions</a> for more details.</p>
 <div class="admonition note">
@@ -219,7 +922,7 @@ $ qbs</pre>
 <h2 id="how-do-i-make-my-app-build-against-my-library">How do I make my app build against my library?</h2>
 <p>This is achieved by introducing a <i>dependency</i> between the two products using the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-depends/" translate="no">Depends</a> item. Here is a simple, but complete example:</p>
-<pre class="cpp" translate="no">Project {
+<pre class="cpp" translate="no"><code class="cpp">Project {
     CppApplication {
         name : <span class="string">"the-app"</span>
         files : <span class="operator">[</span> <span class="string">"main.cpp"</span> <span class="operator">]</span>
@@ -237,7 +940,7 @@ $ qbs</pre>
             cpp<span class="operator">.</span>includePaths: <span class="operator">[</span>exportingProduct<span class="operator">.</span>sourceDirectory<span class="operator">]</span>
        }
     }
-}</pre>
+}</code></pre>
 <p>The product <code translate="no">the-lib</code> is a dynamic library. It expects other products to build against it, and for that purpose, it exports an include path (via an <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-export/" translate="no">Export</a> item), so that the source files in these products can include the library's header file.</p>
 <p>The product <code translate="no">the-app</code> is an application that expresses its intent to link against <code translate="no">the-lib</code> by declaring a dependency on it. Now <code translate="no">main.cpp</code> can include <code translate="no">lib.h</code> (because of the exported include path) and the application binary will link against the library (because the linker <a href="https://qbs.io/
@@ -249,45 +952,45 @@ $ qbs</pre>
 </div>
 <h3 id="choosing-between-dynamic-and-statically-built-qt-projects">Choosing Between Dynamic and Statically-built Qt Projects</h3>
 <p>To build <code translate="no">"the-lib"</code> as either a dynamic or static library, depending on how Qt was built, you can use the following code:</p>
-<pre class="cpp" translate="no">Product {
+<pre class="cpp" translate="no"><code class="cpp">Product {
     name: <span class="string">"the-lib"</span>
     type: <span class="type"><a href="https://qbs.io/
 /docs/qml-qbsmoduleproviders-qt/" translate="no">Qt</a></span><span class="operator">.</span>core<span class="operator">.</span>staticBuild <span class="operator">?</span> <span class="string">"staticlibrary"</span> : <span class="string">"dynamiclibrary"</span>
 
     Depends { name: <span class="string">"Qt.core"</span> }
     <span class="comment">// ...</span>
-}</pre>
+}</code></pre>
 <h2 id="how-do-i-build-release-with-debug-information">How do I build release with debug information?</h2>
 <p>You can simply use the <code translate="no">"profiling"</code> <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#buildVariant-prop" translate="no">qbs.buildVariant</a>:</p>
-<pre class="cpp" translate="no">qbs build qbs<span class="operator">.</span>buildVariant:profiling</pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs build qbs<span class="operator">.</span>buildVariant:profiling</code></pre>
 <h2 id="how-do-i-separate-and-install-debugging-symbols">How do I separate and install debugging symbols?</h2>
 <p>First, you need to set the <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#debugInformation-prop" translate="no">cpp.debugInformation</a> and <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#separateDebugInformation-prop" translate="no">cpp.separateDebugInformation</a> properties to <code translate="no">true</code> or use some conditional expression in your product:</p>
-<pre class="cpp" translate="no">CppApplication {
+<pre class="cpp" translate="no"><code class="cpp">CppApplication {
     <span class="comment">// ...</span>
     cpp<span class="operator">.</span>debugInformation: qbs<span class="operator">.</span>buildVariant <span class="operator">!</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"release"</span>
     cpp<span class="operator">.</span>separateDebugInformation: <span class="keyword">true</span>
-}</pre>
+}</code></pre>
 <p>On ELF platforms with GCC or Clang, you can choose how separation is done via <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#separateDebugInformationVariant-prop" translate="no">cpp.separateDebugInformationVariant</a>: the default <code translate="no">"objcopy"</code> extracts a <code translate="no">.debug</code> file after linking, while <code translate="no">"fission"</code> passes <code translate="no">-gsplit-dwarf</code> and produces per-object <code translate="no">.dwo</code> files.</p>
 <p>Now, you can install your <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-application/" translate="no">application</a>, <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-dynamiclibrary/" translate="no">dynamic library</a> or <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-loadablemodule/" translate="no">loadable module</a> among with its debugging symbols as follows:</p>
-<pre class="cpp" translate="no">CppApplication {
+<pre class="cpp" translate="no"><code class="cpp">CppApplication {
     <span class="comment">// ...</span>
     install: <span class="keyword">true</span>
     installDir: <span class="string">"bin"</span>
     installDebugInformation: <span class="keyword">true</span>
     debugInformationInstallDir: <span class="string">"bin"</span>
-}</pre>
+}</code></pre>
 <p>If you are not using <a href="https://qbs.io/
 /docs/qbsconvenienceitems-qmlmodule/" translate="no">convenience items</a>, you can install debug symbols manually using the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-group/" translate="no">Group</a> item. If the <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#separateDebugInformation-prop" translate="no">cpp.separateDebugInformation</a> property is set to <code translate="no">true</code>, Qbs will create debugging symbols with the corresponding file tags <code translate="no">"debuginfo_app"</code> (for an application), <code translate="no">"debuginfo_dll"</code> (for a dynamic library), or <code translate="no">"debuginfo_loadablemodule"</code> (for a macOS plugin).</p>
-<pre class="cpp" translate="no">Product {
+<pre class="cpp" translate="no"><code class="cpp">Product {
     type: <span class="string">"application"</span>
     Depends { name: <span class="string">"cpp"</span> }
     cpp<span class="operator">.</span>debugInformation: qbs<span class="operator">.</span>buildVariant <span class="operator">!</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"release"</span>
@@ -298,9 +1001,9 @@ $ qbs</pre>
         qbs<span class="operator">.</span>installDir: <span class="string">"bin"</span>
         qbs<span class="operator">.</span>installSourceBase: buildDirectory
     }
-}</pre>
+}</code></pre>
 <p>If you're building a shared library, you need to use the <code translate="no">"debuginfo_dll"</code> tag instead:</p>
-<pre class="cpp" translate="no">Product {
+<pre class="cpp" translate="no"><code class="cpp">Product {
     type: <span class="string">"dynamic_library"</span>
     <span class="comment">// ...</span>
     Group {
@@ -309,9 +1012,9 @@ $ qbs</pre>
         qbs<span class="operator">.</span>installDir: <span class="string">"lib"</span>
         qbs<span class="operator">.</span>installSourceBase: buildDirectory
     }
-}</pre>
+}</code></pre>
 <p>If you're building a macOS plugin, you need to use the <code translate="no">"debuginfo_loadablemodule"</code> tag instead:</p>
-<pre class="cpp" translate="no">Product {
+<pre class="cpp" translate="no"><code class="cpp">Product {
     type: <span class="string">"loadablemodule"</span>
     <span class="comment">// ...</span>
     Group {
@@ -320,14 +1023,14 @@ $ qbs</pre>
         qbs<span class="operator">.</span>installDir: <span class="string">"PlugIns"</span>
         qbs<span class="operator">.</span>installSourceBase: buildDirectory
     }
-}</pre>
+}</code></pre>
 <h2 id="how-do-i-use-precompiled-headers">How do I use precompiled headers?</h2>
 <p>If you use a <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-group/" translate="no">Group</a> item to add a precompiled header file to a product and mark it with the <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#filetags-cpp" translate="no">relevant file tag</a> (<code translate="no">c_pch_src</code>, <code translate="no">cpp_pch_src</code>, <code translate="no">objc_pch_src</code>, or <code translate="no">objcpp_pch_src</code>), it is used automatically.</p>
 <p>Only one precompiled header is allowed per product and language.</p>
 <p>For example:</p>
-<pre class="cpp" translate="no">CppApplication {
+<pre class="cpp" translate="no"><code class="cpp">CppApplication {
     name: <span class="string">"the-app"</span>
     files: <span class="operator">[</span><span class="string">"main.cpp"</span><span class="operator">]</span>
 
@@ -335,14 +1038,14 @@ $ qbs</pre>
         files: <span class="operator">[</span><span class="string">"precompiled-header.pch"</span><span class="operator">]</span>
         fileTags: <span class="operator">[</span><span class="string">"cpp_pch_src"</span><span class="operator">]</span>
     }
-}</pre>
+}</code></pre>
 <h2 id="how-do-i-make-use-of-rpaths">How do I make use of rpaths?</h2>
 <p>rpath designates the run-time search path used by the dynamic linker when loading libraries on UNIX platforms. This concept does not apply to Windows.</p>
 <p>Suppose you have a project with two dynamic library products <code translate="no">LibraryA</code> and <code translate="no">LibraryB</code> and one dependent application product. Also, <code translate="no">LibraryB</code> depends on <code translate="no">LibraryA</code>. The application is installed to the <code translate="no">bin</code> folder and the libraries are installed to the <code translate="no">lib</code> folder next to the <code translate="no">bin</code> folder. You want the application to be able to find the dependent libraries relative to its own location. This can be achieved by usage of the <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#rpaths-prop" translate="no">cpp.rpaths</a> property.</p>
 <p>First, you need to set <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#rpaths-prop" translate="no">cpp.rpaths</a> in your libraries so they can find dependent libraries in the same folder where they are located. This can be done as follows:</p>
-<pre class="cpp" translate="no">DynamicLibrary {
+<pre class="cpp" translate="no"><code class="cpp">DynamicLibrary {
     Depends { name: "cpp" }
     Depends { name: "bundle" }
     name: "LibraryA"
@@ -357,14 +1060,14 @@ $ qbs</pre>
     ]
     install: true
     installDir: "examples/lib"
-}</pre>
+}</code></pre>
 <p>We are setting <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#rpaths-prop" translate="no">cpp.rpaths</a> to <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#rpathOrigin-prop" translate="no">cpp.rpathOrigin</a> which expands to <code translate="no">"$ORIGIN"</code> on Linux and to <code translate="no">"@loader_path"</code> on macOS.</p>
 <p>On macOS you also need to set <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#sonamePrefix-prop" translate="no">cpp.sonamePrefix</a> to <code translate="no">"@rpath"</code> to tell the dynamic linker to use RPATHs when loading this library.</p>
 <p><code translate="no">LibraryB</code> looks exactly the same:</p>
-<pre class="cpp" translate="no">DynamicLibrary {
+<pre class="cpp" translate="no"><code class="cpp">DynamicLibrary {
     Depends { name: "cpp" }
     Depends { name: "bundle" }
     Depends { name: "LibraryA" }
@@ -380,11 +1083,11 @@ $ qbs</pre>
     ]
     install: true
     installDir: "examples/lib"
-}</pre>
+}</code></pre>
 <p>In a real project, it might be a good idea to move common properties to some base item and inherit it in library items.</p>
 <p>The application item is a bit different. It sets <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#rpaths-prop" translate="no">cpp.rpaths</a> to the <code translate="no">"lib"</code> folder which is located one level up from the <code translate="no">bin</code> folder:</p>
-<pre class="cpp" translate="no">CppApplication {
+<pre class="cpp" translate="no"><code class="cpp">CppApplication {
     Depends { name: "bundle" }
     Depends { name: "LibraryA" }
     Depends { name: "LibraryB" }
@@ -397,14 +1100,14 @@ $ qbs</pre>
     cpp.minimumMacosVersion: "10.8"
     install: true
     installDir: "examples/bin"
-}</pre>
+}</code></pre>
 <h2 id="how-do-i-make-sure-my-generated-sources-are-getting-compiled">How do I make sure my generated sources are getting compiled?</h2>
 <p>The rules in a Qbs project do not care whether its inputs are actual source files listed on the right-hand side of a <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#files-prop" translate="no">files</a> property or artifacts that were generated by another rule. For instance, the C++ compiler rule considers all input files of type "cpp", no matter how they got into the product. The following example project demonstrates this. One of its source files exists in the repository, the other one is generated at build time. Both are getting compiled the same way.</p>
 <div class="admonition note">
 <p><b>Note: </b>Do not try to add the generated files to a <code translate="no">files</code> property. Declaring them as rule outputs is all that is needed to make Qbs know about them.</p>
 </div>
-<pre class="cpp" translate="no">import qbs<span class="operator">.</span>TextFile
+<pre class="cpp" translate="no"><code class="cpp">import qbs<span class="operator">.</span>TextFile
 CppApplication {
     files: <span class="operator">[</span><span class="string">"impl.cpp"</span><span class="operator">,</span> <span class="string">"impl.h"</span><span class="operator">]</span>
     cpp<span class="operator">.</span>includePaths: sourceDirectory
@@ -426,27 +1129,27 @@ CppApplication {
             <span class="keyword">return</span> cmd;
         }
     }
-}</pre>
+}</code></pre>
 <h2 id="how-do-i-run-my-autotests">How do I run my autotests?</h2>
 <p>There are two simple things you need to do in your project. Firstly, you mark your test executables as such. This is done by adding the tag <code translate="no">"autotest"</code> to the product type:</p>
-<pre class="cpp" translate="no">CppApplication {
+<pre class="cpp" translate="no"><code class="cpp">CppApplication {
     name: <span class="string">"test1"</span>
     type: base<span class="operator">.</span>concat(<span class="string">"autotest"</span>)
     <span class="comment">// ...</span>
-}</pre>
+}</code></pre>
 <p>The second step is to instantiate an <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-autotestrunner/" translate="no">AutotestRunner</a> product in your project:</p>
-<pre class="cpp" translate="no">Project {
+<pre class="cpp" translate="no"><code class="cpp">Project {
     <span class="comment">// ...</span>
     AutotestRunner { name: <span class="string">"run_my_tests"</span> }
-}</pre>
+}</code></pre>
 <p>Building an <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-autotestrunner/" translate="no">AutotestRunner</a> product does not produce artifacts, but triggers execution of all applications whose products are tagged as autotests:</p>
-<pre class="cpp" translate="no">$ qbs <span class="operator">-</span>p run_my_tests
+<pre class="cpp" translate="no"><code class="cpp">$ qbs <span class="operator">-</span>p run_my_tests
 test1: PASS
 test2: PASS
 test3: FAIL
-<span class="operator">.</span><span class="operator">.</span><span class="operator">.</span></pre>
+<span class="operator">.</span><span class="operator">.</span><span class="operator">.</span></code></pre>
 <p>See the <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-autotestrunner/" translate="no">AutotestRunner documentation</a> for how to fine-tune the behavior.</p>
 <h2 id="how-do-i-use-ccache">How do I use ccache?</h2>
@@ -460,10 +1163,10 @@ test3: FAIL
 <h2 id="how-do-i-create-a-module-for-a-third-party-library">How do I create a module for a third-party library?</h2>
 <p>If you have pre-built binary files in your source tree, you can create modules for them and then introduce dependencies between your project and the modules to pull in the functionality of a third-party library.</p>
 <p>Create the following folder structure to store the module files:</p>
-<pre class="cpp" translate="no">$projectroot<span class="operator">/</span>modules<span class="operator">/</span>ThirdParty</pre>
+<pre class="cpp" translate="no"><code class="cpp">$projectroot<span class="operator">/</span>modules<span class="operator">/</span>ThirdParty</code></pre>
 <p>Then create a file in the directory that specifies the module properties for each supported toolchain. The filename must have the <code translate="no">.qbs</code> extension. The module will be pulled in if a product declares a dependency on it.</p>
 <p>In the following example, <code translate="no">lib1.dylib</code> is a multi-architecture library containing both 32-bit and 64-bit code.</p>
-<pre class="cpp" translate="no"><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span>ThirdParty<span class="operator">.</span>qbs<span class="operator">-</span><span class="operator">-</span><span class="operator">-</span>
+<pre class="cpp" translate="no"><code class="cpp"><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span>ThirdParty<span class="operator">.</span>qbs<span class="operator">-</span><span class="operator">-</span><span class="operator">-</span>
 
 Module {
     Depends { name: <span class="string">"cpp"</span> }
@@ -484,33 +1187,33 @@ Module {
         condition: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"windows"</span>) <span class="operator">&amp;</span><span class="operator">&amp;</span> qbs<span class="operator">.</span>architecture <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"x86_64"</span>
         cpp<span class="operator">.</span>dynamicLibraries: <span class="operator">[</span><span class="string">"/somewhere/windows_x86_64/lib1.lib"</span><span class="operator">]</span>
     }
-}</pre>
+}</code></pre>
 <p>Finally, declare dependencies on <code translate="no">ThirdParty</code> in your project:</p>
-<pre class="cpp" translate="no">CppApplication {
+<pre class="cpp" translate="no"><code class="cpp">CppApplication {
     name: <span class="string">"the-app"</span>
     files: <span class="operator">[</span><span class="string">"main.cpp"</span><span class="operator">]</span>
     Depends { name: <span class="string">"ThirdParty"</span> }
-}</pre>
+}</code></pre>
 <h2 id="how-do-i-create-application-bundles-and-frameworks-on-ios-macos-tvos-and-watchos">How do I create application bundles and frameworks on iOS, macOS, tvOS, and watchOS?</h2>
 <p>Creating an application bundle or framework is achieved by introducing a dependency on the <a href="https://qbs.io/
 /docs/qml-qbsmodules-bundle/" translate="no">bundle</a> module and setting the <a href="https://qbs.io/
 /docs/qml-qbsmodules-bundle/#isBundle-prop" translate="no">bundle.isBundle</a> property to <code translate="no">true</code>.</p>
 <p>Here is a simple example for an application:</p>
-<pre class="cpp" translate="no">Application {
+<pre class="cpp" translate="no"><code class="cpp">Application {
     Depends { name: <span class="string">"cpp"</span> }
     Depends { name: <span class="string">"bundle"</span> }
     bundle<span class="operator">.</span>isBundle: <span class="keyword">true</span>
     name: <span class="string">"the-app"</span>
     files: <span class="operator">[</span><span class="string">"main.cpp"</span><span class="operator">]</span>
-}</pre>
+}</code></pre>
 <p>and for a framework:</p>
-<pre class="cpp" translate="no">DynamicLibrary {
+<pre class="cpp" translate="no"><code class="cpp">DynamicLibrary {
     Depends { name: <span class="string">"cpp"</span> }
     Depends { name: <span class="string">"bundle"</span> }
     bundle<span class="operator">.</span>isBundle: <span class="keyword">true</span>
     name: <span class="string">"the-lib"</span>
     files: <span class="operator">[</span><span class="string">"lib.cpp"</span><span class="operator">,</span> <span class="string">"lib.h"</span><span class="operator">]</span>
-}</pre>
+}</code></pre>
 <p>Qbs also supports building static frameworks. You can create one by replacing the <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-dynamiclibrary/" translate="no">DynamicLibrary</a> item with a <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-staticlibrary/" translate="no">StaticLibrary</a> item in the example above.</p>
@@ -529,8 +1232,8 @@ Module {
 <p>Just add a <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-depends/" translate="no">Depends</a> item that matches the name of the pkg-config module, set the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#qbsModuleProviders-prop" translate="no">Product::qbsModuleProviders</a> property to <code translate="no">"qbspkgconfig"</code>, and Qbs will employ <a href="https://www.freedesktop.org/wiki/Software/pkg-config">pkg-config</a> to find the headers and libraries if no matching Qbs module can be found. For instance, to build against the OpenSSL library, you would write this:</p>
-<pre class="cpp" translate="no">qbsModuleProviders: <span class="string">"qbspkgconfig"</span>
-Depends { name: <span class="string">"openssl"</span> }</pre>
+<pre class="cpp" translate="no"><code class="cpp">qbsModuleProviders: <span class="string">"qbspkgconfig"</span>
+Depends { name: <span class="string">"openssl"</span> }</code></pre>
 <p>That's it. The pkg-config behavior can be fine-tuned via the <a href="https://qbs.io/
 /docs/qml-qbsmoduleproviders-qbspkgconfig/" translate="no">qbspkgconfig</a> provider.</p>
 <p>Internally, this functionality is implemented via <a href="https://qbs.io/
@@ -540,17 +1243,17 @@ Depends { name: <span class="string">"openssl"</span> }</pre>
 /docs/qml-qbslanguageitems-group/" translate="no">Group</a> item to define a subset of project files. To add macros within the group, you need to use the <code translate="no">outer.concat</code> property, because you are adding macros to those specified in the outer scope.</p>
 <p>In the following example, <code translate="no">MACRO_EVERYWHERE</code> is defined for all files in the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/" translate="no">Product</a> unless a Group overrides the macro, whereas <code translate="no">MACRO_GROUP</code> is only defined for <code translate="no">groupFile.cpp</code>.</p>
-<pre class="cpp" translate="no">Product {
+<pre class="cpp" translate="no"><code class="cpp">Product {
     Depends { name: <span class="string">"cpp"</span> }
     cpp<span class="operator">.</span>defines: <span class="operator">[</span><span class="string">"MACRO_EVERYWHERE"</span><span class="operator">]</span>
     Group {
         cpp<span class="operator">.</span>defines: outer<span class="operator">.</span>concat(<span class="string">"MACRO_GROUP"</span>)
         files: <span class="string">"groupFile.cpp"</span>
     }
-}</pre>
+}</code></pre>
 <p>The <code translate="no">cpp.defines</code> statements inside a <code translate="no">Group</code> only apply to the files in that <code translate="no">Group</code>, and therefore you cannot use a <code translate="no">Group</code> to include a bunch of files and globally visible macros. The macros must be specified in a <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-properties/" translate="no">Properties</a> item at the same level as the <code translate="no">Group</code> if they need to be visible to files outside the <code translate="no">Group</code>:</p>
-<pre class="cpp" translate="no">Product {
+<pre class="cpp" translate="no"><code class="cpp">Product {
     Depends { name: <span class="string">"cpp"</span> }
     Group {
         condition: project<span class="operator">.</span>supportMyFeature
@@ -563,69 +1266,69 @@ Depends { name: <span class="string">"openssl"</span> }</pre>
         condition: project<span class="operator">.</span>supportMyFeature
         cpp<span class="operator">.</span>defines: commonDefines<span class="operator">.</span>concat(<span class="string">"MYFEATURE_SUPPORTED"</span>)
     }
-}</pre>
+}</code></pre>
 <h2 id="how-do-i-disable-a-compiler-warning">How do I disable a compiler warning?</h2>
 <p>You can use the <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#commonCompilerFlags-prop" translate="no">cpp.commonCompilerFlags</a> property to pass flags to the compiler. For example, to disable deprecation warnings:</p>
-<pre class="cpp" translate="no">CppApplication {
+<pre class="cpp" translate="no"><code class="cpp">CppApplication {
     <span class="comment">// ...</span>
 
     readonly property <span class="type">bool</span> isMsvc: qbs<span class="operator">.</span>toolchain<span class="operator">.</span>includes(<span class="string">"msvc"</span>)
 
     cpp<span class="operator">.</span>commonCompilerFlags: isMsvc <span class="operator">?</span> <span class="string">"/wd4996"</span> : <span class="string">"-Wno-deprecated-declarations"</span>
-}</pre>
+}</code></pre>
 <p>It is also possible to disable all warnings at once by setting the <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#commonCompilerFlags-prop" translate="no">cpp.warningLevel</a> property to <code translate="no">"none"</code>. Usually this approach is discouraged, but it can be useful in some cases, such as when compiling third party code:</p>
-<pre class="cpp" translate="no">Group {
+<pre class="cpp" translate="no"><code class="cpp">Group {
     cpp<span class="operator">.</span>warningLevel: <span class="string">"none"</span>
 
     files: <span class="operator">[</span>
         <span class="string">"3rdparty.h"</span><span class="operator">,</span>
         <span class="string">"3rdparty.cpp"</span>
     <span class="operator">]</span>
-}</pre>
+}</code></pre>
 <h2 id="how-do-i-make-the-state-of-my-git-repository-available-to-my-source-files">How do I make the state of my Git repository available to my source files?</h2>
 <p>Add a dependency to the <a href="https://qbs.io/
 /docs/qml-qbsmodules-vcs/" translate="no">vcs</a> module to your product:</p>
-<pre class="cpp" translate="no">CppApplication {
+<pre class="cpp" translate="no"><code class="cpp">CppApplication {
     <span class="comment">// ...</span>
     Depends { name: <span class="string">"vcs"</span> }
     <span class="comment">// ...</span>
-}</pre>
+}</code></pre>
 <p>Your source files will now have access to a macro whose value is a string representing the current Git or Subversion HEAD:</p>
-<pre class="cpp" translate="no"><span class="preprocessor">#include &lt;vcs-repo-state.h&gt;</span>
+<pre class="cpp" translate="no"><code class="cpp"><span class="preprocessor">#include &lt;vcs-repo-state.h&gt;</span>
 <span class="preprocessor">#include &lt;iostream&gt;</span>
 
 <span class="type">int</span> main()
 {
     std<span class="operator">::</span>cout <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">"I was built from "</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> VCS_REPO_STATE <span class="operator">&lt;</span><span class="operator">&lt;</span> std<span class="operator">::</span>endl;
-}</pre>
+}</code></pre>
 <p>This value is also available via the <a href="https://qbs.io/
 /docs/qml-qbsmodules-vcs/#repoState-prop" translate="no">vcs.repoState</a> property.</p>
 <h2 id="how-do-i-limit-the-number-of-concurrent-jobs-for-the-linker-only">How do I limit the number of concurrent jobs for the linker only?</h2>
 <span id="job-pool-howto"></span><p>While it is usually desirable to run as many compiler jobs as there are CPU cores, the same is not true for linker jobs. The reason is that linkers are typically I/O bound rather than CPU bound. When building large libraries, they also tend to use up enormous amounts of memory. Therefore, we'd like to make sure that only a few linkers are running at the same time without limiting other types of jobs. In Qbs, this is achieved via <i>job pools</i>. There are several ways to make use of them.</p>
 <p>Firstly, you can provide a limit via the command line:</p>
-<pre class="cpp" translate="no">$ qbs <span class="operator">-</span><span class="operator">-</span>job<span class="operator">-</span>limits linker:<span class="number">4</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">$ qbs <span class="operator">-</span><span class="operator">-</span>job<span class="operator">-</span>limits linker:<span class="number">4</span></code></pre>
 <p>The above call instructs Qbs to run at most four linker instances at the same time, while leaving the general number of concurrent jobs at the default value, which is derived from the number of CPU cores. The <code translate="no">linker</code> string on the command line refers to the job pool of the same name, which the <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#cpp-job-pools" translate="no">cpp module</a> assigns to all its commands that invoke a linker.</p>
 <p>Secondly, you can set a limit via the settings, either generally or for a specific profile:</p>
-<pre class="cpp" translate="no">$ qbs config preferences<span class="operator">.</span>jobLimit<span class="operator">.</span>linker <span class="number">4</span>
-$ qbs config profiles<span class="operator">.</span>myprofile<span class="operator">.</span>preferences<span class="operator">.</span>jobLimit<span class="operator">.</span>linker <span class="number">2</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">$ qbs config preferences<span class="operator">.</span>jobLimit<span class="operator">.</span>linker <span class="number">4</span>
+$ qbs config profiles<span class="operator">.</span>myprofile<span class="operator">.</span>preferences<span class="operator">.</span>jobLimit<span class="operator">.</span>linker <span class="number">2</span></code></pre>
 <p>And finally, you can also set the limit per project or per product, using a <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-joblimit/" translate="no">JobLimit</a> item:</p>
-<pre class="cpp" translate="no">Product {
+<pre class="cpp" translate="no"><code class="cpp">Product {
     name: <span class="string">"my_huge_library"</span>
     JobLimit {
         jobPool: <span class="string">"linker"</span>
         jobCount: <span class="number">1</span>
     }
     <span class="comment">// ...</span>
-}</pre>
+}</code></pre>
 <p>The above construct ensures that this specific library is never linked at the same time as any other binary in the project.</p>
 <p>Job limits set on the command line override those from the settings, which in turn override the ones defined within a project. Use the <code translate="no">--enforce-project-job-limits</code> option to give the job limits defined via <code translate="no">JobLimit</code> items maximum precedence.</p>
 <h2 id="how-do-i-add-qml-files-to-a-project">How do I add QML files to a project?</h2>
 <p>The simplest way to add QML files to a project is to add them to a <a href="https://doc.qt.io/qt/resources.html">Qt resource file</a>:</p>
-<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
+<pre class="cpp" translate="no"><code class="cpp"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-qtguiapplication/" translate="no">QtGuiApplication</a></span> {
     <span class="comment">// ...</span>
 
@@ -636,12 +1339,12 @@ $ qbs config profiles<span class="operator">.</span>myprofile<span class="operat
         files: <span class="operator">[</span><span class="string">"main.qml"</span><span class="operator">,</span> <span class="string">"HomePage.qml"</span><span class="operator">]</span>
         fileTags: <span class="operator">[</span><span class="string">"qt.qml.qml"</span><span class="operator">,</span> <span class="string">"qt.core.resource_data"</span><span class="operator">]</span>
     }
-}</pre>
+}</code></pre>
 <p>In the example above, we declare each QML file as having the <a href="https://qbs.io/
 /docs/qml-qbsmodules-qt-core/#filetags-qtcore" translate="no">"qt.core.resource_data"</a> file tag. This ensures that it is added to a generated resource file.</p>
 <h2 id="how-do-i-define-a-reusable-group-of-files-that-can-be-included-in-other-qbs-files">How do I define a reusable Group of files that can be included in other Qbs files?</h2>
 <p>Suppose you have an application and tests for that application, and that the project is structured in the following way:</p>
-<pre class="cpp plain" translate="no">├── app
+<pre class="cpp plain" translate="no"><code class="text">├── app
 │   ├── app.qbs
 │   ├── ...
 │   └── qml
@@ -652,21 +1355,21 @@ $ qbs config profiles<span class="operator">.</span>myprofile<span class="operat
 └── tests
     ├── tst_app.cpp
     ├── ...
-    └── tests.qbs</pre>
+    └── tests.qbs</code></pre>
 <p>Both projects need access to the QML files used by the application. To demonstrate how this can be done, we'll create a file named <code translate="no">qml-ui.qbs</code> and put it in the <code translate="no">app/qml/ui</code> directory:</p>
-<pre class="cpp" translate="no">Group {
+<pre class="cpp" translate="no"><code class="cpp">Group {
     prefix: path <span class="operator">+</span> <span class="string">"/"</span>
     fileTags: <span class="operator">[</span><span class="string">"qt.qml.qml"</span><span class="operator">,</span> <span class="string">"qt.core.resource_data"</span><span class="operator">]</span>
     files: <span class="operator">[</span>
         <span class="string">"AboutPopup.qml"</span><span class="operator">,</span>
         <span class="comment">// ...</span>
     <span class="operator">]</span>
-}</pre>
+}</code></pre>
 <p>This Group is a variation of the one in the <a href="https://qbs.io/
 /docs/howtos/#how-do-i-add-qml-files-to-a-project">section above</a>.</p>
 <p>If no prefix is specified, the file names listed in the <code translate="no">files</code> property are resolved relative to the <i>importing</i> product's (e.g. <code translate="no">app.qbs</code>) directory. For that reason, we set the prefix to inform Qbs that the file names should be resolved relative to the <i>imported</i> item instead: <code translate="no">qml-ui.qbs</code>. Conveniently, this also means that we don't need to specify the path prefix for each file.</p>
 <p>The application can then import the file like so:</p>
-<pre class="cpp" translate="no">import <span class="string">"qml/ui/qml-ui.qbs"</span> as QmlUiFiles
+<pre class="cpp" translate="no"><code class="cpp">import <span class="string">"qml/ui/qml-ui.qbs"</span> as QmlUiFiles
 
 <span class="type"><a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-qtguiapplication/" translate="no">QtGuiApplication</a></span> {
@@ -675,9 +1378,9 @@ $ qbs config profiles<span class="operator">.</span>myprofile<span class="operat
     files: <span class="string">"main.cpp"</span>
 
     QmlUiFiles {}
-}</pre>
+}</code></pre>
 <p>The tests can use a relative path to import the file:</p>
-<pre class="cpp" translate="no">import <span class="string">"../app/qml/ui/qml-ui.qbs"</span> as QmlUiFiles
+<pre class="cpp" translate="no"><code class="cpp">import <span class="string">"../app/qml/ui/qml-ui.qbs"</span> as QmlUiFiles
 
 <span class="type"><a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-qtguiapplication/" translate="no">QtGuiApplication</a></span> {
@@ -686,11 +1389,11 @@ $ qbs config profiles<span class="operator">.</span>myprofile<span class="operat
     files: <span class="string">"tst_app.cpp"</span>
 
     QmlUiFiles {}
-}</pre>
+}</code></pre>
 <h2 id="how-do-i-access-properties-of-a-base-type">How do I access properties of a base type?</h2>
 <p>You can use the <a href="https://qbs.io/
 /docs/special-property-values/#base">base</a> property. For example, to append to a list of files that come from the base type, you can use <code translate="no">base.concat()</code>:</p>
-<pre class="cpp" translate="no"><span class="comment">// TestBase.qbs</span>
+<pre class="cpp" translate="no"><code class="cpp"><span class="comment">// TestBase.qbs</span>
 
 <span class="type"><a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-qtguiapplication/" translate="no">QtGuiApplication</a></span> {
@@ -698,58 +1401,58 @@ $ qbs config profiles<span class="operator">.</span>myprofile<span class="operat
         <span class="string">"TestCaseBase.h"</span><span class="operator">,</span>
         <span class="string">"TestCaseBase.cpp"</span>
     <span class="operator">]</span>
-}</pre>
-<pre class="cpp" translate="no"><span class="comment">// tst_stuff.qbs</span>
+}</code></pre>
+<pre class="cpp" translate="no"><code class="cpp"><span class="comment">// tst_stuff.qbs</span>
 TestBase {
     files: base<span class="operator">.</span>concat(<span class="operator">[</span><span class="string">"tst_stuff.cpp"</span><span class="operator">]</span>)
-}</pre>
+}</code></pre>
 <p>See <a href="https://qbs.io/
 /docs/special-property-values/">Special Property Values</a> for more details.</p>
 <h2 id="how-do-i-print-the-value-of-a-property">How do I print the value of a property?</h2>
 <p>Use the <a href="https://qbs.io/
 /docs/jsextensions-general/#console-api">console API</a>. For example, suppose your project is not built the way you expect it to be, and you suspect that <code translate="no">qbs.targetOS</code> has the wrong value:</p>
-<pre class="cpp" translate="no">readonly property <span class="type">bool</span> unix: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"unix"</span>)</pre>
+<pre class="cpp" translate="no"><code class="cpp">readonly property <span class="type">bool</span> unix: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"unix"</span>)</code></pre>
 <p>To find out the value of <code translate="no">qbs.targetOS</code>, use <code translate="no">console.info()</code>:</p>
-<pre class="cpp" translate="no">readonly property <span class="type">bool</span> unix: {
+<pre class="cpp" translate="no"><code class="cpp">readonly property <span class="type">bool</span> unix: {
     console<span class="operator">.</span>info(<span class="string">"qbs.targetOS: "</span> <span class="operator">+</span> qbs<span class="operator">.</span>targetOS)
     <span class="keyword">return</span> qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"unix"</span>)
-}</pre>
+}</code></pre>
 <p>It is also possible to throw an exception with the text saying what is wrong - this might be useful if the property contains invalid or unsupported value:</p>
-<pre class="cpp" translate="no">readonly property <span class="type">bool</span> unix: {
+<pre class="cpp" translate="no"><code class="cpp">readonly property <span class="type">bool</span> unix: {
     <span class="keyword">if</span> (qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"darwin"</span>))
         <span class="keyword">throw</span> <span class="string">"Apple platforms are not supported"</span>;
     <span class="keyword">return</span> qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"unix"</span>)
-}</pre>
+}</code></pre>
 <h2 id="how-do-i-debug-qbs-scripts">How do I debug Qbs scripts?</h2>
 <p>To debug the value of a specific property, see the <a href="https://qbs.io/
 /docs/howtos/#how-do-i-print-the-value-of-a-property">How do I print the value of a property</a> section.</p>
 <p>Similar debugging techniques could be used within <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-rule/" translate="no">Rules</a> or <code translate="no">.js</code> files.</p>
 <p>It is also possible to increase Qbs' logging level using the <code translate="no">--more-verbose</code> (<code translate="no">-v</code>) option of the <code translate="no">qbs build</code> command:</p>
-<pre class="cpp" translate="no">qbs build <span class="operator">-</span>v config:release</pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs build <span class="operator">-</span>v config:release</code></pre>
 <p>Qbs uses the Qt Categorized Logging system which allows to configure logging categories in <a href="https://doc.qt.io/qt-5/qloggingcategory.html#configuring-categories">multiple ways</a>. For example, to enable debug logging for the <code translate="no">moduleloader</code> category, use the following command:</p>
-<pre class="cpp" translate="no">QT_LOGGING_RULES<span class="operator">=</span><span class="string">"qbs.moduleloader.debug=true"</span> qbs resolve</pre>
+<pre class="cpp" translate="no"><code class="cpp">QT_LOGGING_RULES<span class="operator">=</span><span class="string">"qbs.moduleloader.debug=true"</span> qbs resolve</code></pre>
 <p>To list all the files in the project directory and show whether they are known to qbs in the respective configuration, use the <code translate="no">qbs status</code> command:</p>
-<pre class="cpp" translate="no">qbs status config:release</pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs status config:release</code></pre>
 <h2 id="how-do-i-sign-an-application-for-an-apple-platform">How do I sign an application for an Apple platform?</h2>
 <p>To sign an application for an Apple platform, you need to use the <a href="https://qbs.io/
 /docs/qml-qbsmodules-codesign/" translate="no">codesign</a> module.</p>
-<pre class="cpp" translate="no">Depends { name: <span class="string">"codesign"</span> }</pre>
+<pre class="cpp" translate="no"><code class="cpp">Depends { name: <span class="string">"codesign"</span> }</code></pre>
 <p>Several properties should be set to do signing as shown below.</p>
 <p>Make sure that bundle and team indentifiers match the one used for signing:</p>
-<pre class="cpp" translate="no">bundle<span class="operator">.</span>identifierPrefix: <span class="string">"com.johndoe"</span>
-codesign<span class="operator">.</span>teamIdentifier: <span class="string">"John Doe"</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">bundle<span class="operator">.</span>identifierPrefix: <span class="string">"com.johndoe"</span>
+codesign<span class="operator">.</span>teamIdentifier: <span class="string">"John Doe"</span></code></pre>
 <p>It is also possible to use an ID of the team identifier instead of a name:</p>
-<pre class="cpp" translate="no">codesign<span class="operator">.</span>teamIdentifier: <span class="string">"1234ABCDEF"</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">codesign<span class="operator">.</span>teamIdentifier: <span class="string">"1234ABCDEF"</span></code></pre>
 <p>Qbs will then try to find the matching signing identity and provisioning profile based on <a href="https://qbs.io/
 /docs/qml-qbsmodules-codesign/#signingType-prop" translate="no">codesign.signingType</a>.</p>
 <p>It is also possible to specify <a href="https://qbs.io/
 /docs/qml-qbsmodules-codesign/#signingIdentity-prop" translate="no">codesign.signingIdentity</a> manually:</p>
-<pre class="cpp" translate="no">codesign<span class="operator">.</span>signingIdentity: <span class="string">"Apple Development: johndoe@apple.com (ABCDEF1234)"</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">codesign<span class="operator">.</span>signingIdentity: <span class="string">"Apple Development: johndoe@apple.com (ABCDEF1234)"</span></code></pre>
 <p>It is also possible to use an ID of the signing identity instead of a name:</p>
-<pre class="cpp" translate="no">codesign<span class="operator">.</span>signingIdentity: <span class="string">"ABCDEF1234567890ABCDEF1234567890ABCDEF12"</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">codesign<span class="operator">.</span>signingIdentity: <span class="string">"ABCDEF1234567890ABCDEF1234567890ABCDEF12"</span></code></pre>
 <p>If Qbs cannot find the suitable provisioning profile, you can specify it manually as well:</p>
-<pre class="cpp" translate="no">codesign<span class="operator">.</span>provisioningProfile: <span class="string">"abcdef12-1234-5678-1111-abcdef123456"</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">codesign<span class="operator">.</span>provisioningProfile: <span class="string">"abcdef12-1234-5678-1111-abcdef123456"</span></code></pre>
 </div>
 <!-- @@@howtos.html -->
 <p class="naviNextPrevious footerNavi">

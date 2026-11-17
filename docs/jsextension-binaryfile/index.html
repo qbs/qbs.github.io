@@ -41,7 +41,40 @@ The OpenMode values can be combined with the bitwise or operator.
 Available operations
 Constructor
 BinaryFile(filePath: string, openMode: OpenMode = BinaryFile.ReadOnly)
-Opens the file at filePath in the given mode and returns the object representing the file. ">
+Opens the file at filePath in the given mode and returns the object representing the file.
+
+Note: The mode influences which of the operations listed below can actually be used on the file.
+
+atEof
+atEof(): boolean
+Returns true if no more data can be read from the file, false otherwise.
+close
+close(): void
+Closes the file. It is recommended to always call this function as soon as you are finished with the file, in order to keep the number of in-flight file descriptors as low as possible.
+filePath
+filePath(): string
+The absolute path of the file represented by this object.
+size
+size(): number
+Returns the size of the file (in bytes).
+resize
+resize(size: number): void
+Sets the file size (in bytes). If size is larger than the file currently is, the new bytes will be set to 0; if size is smaller, the file is truncated.
+pos
+pos(): number
+Returns the position that data is written to or read from.
+seek
+seek(pos: number): void
+Sets the current position to pos.
+read
+read(size: number): number[]
+Reads at most size bytes of data from the file and returns it as an array.
+write
+write(data: number[]): void
+Writes data into the file at the current position.
+
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/jsextension-binaryfile/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -51,7 +84,7 @@ Opens the file at filePath in the given mode and returns the object representing
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/jsextension-binaryfile/">
@@ -60,7 +93,17 @@ Opens the file at filePath in the given mode and returns the object representing
 	<meta property="og:description" content="Qbs Manual List of Built-in Services BinaryFile Service Qbs 3.4.0 Contents Related Declarations BinaryFile.OpenMode Available operations Constructor atEof close filePath size resize pos seek read write BinaryFile Service The BinaryFile service allows you to read from and write into binary files.
 Related Declarations BinaryFile.OpenMode enum BinaryFile.OpenMode { ReadOnly, WriteOnly, ReadWrite } List of modes that a file may be opened in.
 The OpenMode values can be combined with the bitwise or operator.
-Available operations Constructor BinaryFile(filePath: string, openMode: OpenMode = BinaryFile.ReadOnly) Opens the file at filePath in the given mode and returns the object representing the file.">
+Available operations Constructor BinaryFile(filePath: string, openMode: OpenMode = BinaryFile.ReadOnly) Opens the file at filePath in the given mode and returns the object representing the file.
+Note: The mode influences which of the operations listed below can actually be used on the file.
+atEof atEof(): boolean Returns true if no more data can be read from the file, false otherwise.
+close close(): void Closes the file. It is recommended to always call this function as soon as you are finished with the file, in order to keep the number of in-flight file descriptors as low as possible.
+filePath filePath(): string The absolute path of the file represented by this object.
+size size(): number Returns the size of the file (in bytes).
+resize resize(size: number): void Sets the file size (in bytes). If size is larger than the file currently is, the new bytes will be set to 0; if size is smaller, the file is truncated.
+pos pos(): number Returns the position that data is written to or read from.
+seek seek(pos: number): void Sets the current position to pos.
+read read(size: number): number[] Reads at most size bytes of data from the file and returns it as an array.
+write write(data: number[]): void Writes data into the file at the current position.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -71,7 +114,17 @@ Available operations Constructor BinaryFile(filePath: string, openMode: OpenMode
 	<meta name="twitter:description" content="Qbs Manual List of Built-in Services BinaryFile Service Qbs 3.4.0 Contents Related Declarations BinaryFile.OpenMode Available operations Constructor atEof close filePath size resize pos seek read write BinaryFile Service The BinaryFile service allows you to read from and write into binary files.
 Related Declarations BinaryFile.OpenMode enum BinaryFile.OpenMode { ReadOnly, WriteOnly, ReadWrite } List of modes that a file may be opened in.
 The OpenMode values can be combined with the bitwise or operator.
-Available operations Constructor BinaryFile(filePath: string, openMode: OpenMode = BinaryFile.ReadOnly) Opens the file at filePath in the given mode and returns the object representing the file.">
+Available operations Constructor BinaryFile(filePath: string, openMode: OpenMode = BinaryFile.ReadOnly) Opens the file at filePath in the given mode and returns the object representing the file.
+Note: The mode influences which of the operations listed below can actually be used on the file.
+atEof atEof(): boolean Returns true if no more data can be read from the file, false otherwise.
+close close(): void Closes the file. It is recommended to always call this function as soon as you are finished with the file, in order to keep the number of in-flight file descriptors as low as possible.
+filePath filePath(): string The absolute path of the file represented by this object.
+size size(): number Returns the size of the file (in bytes).
+resize resize(size: number): void Sets the file size (in bytes). If size is larger than the file currently is, the new bytes will be set to 0; if size is smaller, the file is truncated.
+pos pos(): number Returns the position that data is written to or read from.
+seek seek(pos: number): void Sets the current position to pos.
+read read(size: number): number[] Reads at most size bytes of data from the file and returns it as an array.
+write write(data: number[]): void Writes data into the file at the current position.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -137,42 +190,42 @@ Available operations Constructor BinaryFile(filePath: string, openMode: OpenMode
 <p>The <code translate="no">BinaryFile</code> service allows you to read from and write into binary files.</p>
 <h2 id="related-declarations">Related Declarations</h2>
 <h3 id="binaryfile-openmode">BinaryFile.OpenMode</h3>
-<pre class="cpp" translate="no"><span class="keyword">enum</span> BinaryFile<span class="operator">.</span>OpenMode { ReadOnly<span class="operator">,</span> WriteOnly<span class="operator">,</span> ReadWrite }</pre>
+<pre class="cpp" translate="no"><code class="cpp"><span class="keyword">enum</span> BinaryFile<span class="operator">.</span>OpenMode { ReadOnly<span class="operator">,</span> WriteOnly<span class="operator">,</span> ReadWrite }</code></pre>
 <p>List of modes that a file may be opened in.</p>
 <p>The OpenMode values can be combined with the bitwise or operator.</p>
 <h2 id="available-operations">Available operations</h2>
 <h3 id="constructor">Constructor</h3>
-<pre class="cpp" translate="no">BinaryFile(filePath: string<span class="operator">,</span> openMode: OpenMode <span class="operator">=</span> BinaryFile<span class="operator">.</span>ReadOnly)</pre>
+<pre class="cpp" translate="no"><code class="cpp">BinaryFile(filePath: string<span class="operator">,</span> openMode: OpenMode <span class="operator">=</span> BinaryFile<span class="operator">.</span>ReadOnly)</code></pre>
 <p>Opens the file at <code translate="no">filePath</code> in the given mode and returns the object representing the file.</p>
 <div class="admonition note">
 <p><b>Note: </b>The mode influences which of the operations listed below can actually be used on the file.</p>
 </div>
 <h3 id="ateof">atEof</h3>
-<pre class="cpp" translate="no">atEof(): boolean</pre>
+<pre class="cpp" translate="no"><code class="cpp">atEof(): boolean</code></pre>
 <p>Returns <code translate="no">true</code> if no more data can be read from the file, <code translate="no">false</code> otherwise.</p>
 <h3 id="close">close</h3>
-<pre class="cpp" translate="no">close(): <span class="type">void</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">close(): <span class="type">void</span></code></pre>
 <p>Closes the file. It is recommended to always call this function as soon as you are finished with the file, in order to keep the number of in-flight file descriptors as low as possible.</p>
 <h3 id="filepath">filePath</h3>
-<pre class="cpp" translate="no">filePath(): string</pre>
+<pre class="cpp" translate="no"><code class="cpp">filePath(): string</code></pre>
 <p>The absolute path of the file represented by this object.</p>
 <h3 id="size">size</h3>
-<pre class="cpp" translate="no">size(): number</pre>
+<pre class="cpp" translate="no"><code class="cpp">size(): number</code></pre>
 <p>Returns the size of the file (in bytes).</p>
 <h3 id="resize">resize</h3>
-<pre class="cpp" translate="no">resize(size: number): <span class="type">void</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">resize(size: number): <span class="type">void</span></code></pre>
 <p>Sets the file <code translate="no">size</code> (in bytes). If <code translate="no">size</code> is larger than the file currently is, the new bytes will be set to 0; if <code translate="no">size</code> is smaller, the file is truncated.</p>
 <h3 id="pos">pos</h3>
-<pre class="cpp" translate="no">pos(): number</pre>
+<pre class="cpp" translate="no"><code class="cpp">pos(): number</code></pre>
 <p>Returns the position that data is written to or read from.</p>
 <h3 id="seek">seek</h3>
-<pre class="cpp" translate="no">seek(pos: number): <span class="type">void</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">seek(pos: number): <span class="type">void</span></code></pre>
 <p>Sets the current position to <code translate="no">pos</code>.</p>
 <h3 id="read">read</h3>
-<pre class="cpp" translate="no">read(size: number): number<span class="operator">[</span><span class="operator">]</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">read(size: number): number<span class="operator">[</span><span class="operator">]</span></code></pre>
 <p>Reads at most <code translate="no">size</code> bytes of data from the file and returns it as an array.</p>
 <h3 id="write">write</h3>
-<pre class="cpp" translate="no">write(data: number<span class="operator">[</span><span class="operator">]</span>): <span class="type">void</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">write(data: number<span class="operator">[</span><span class="operator">]</span>): <span class="type">void</span></code></pre>
 <p>Writes <code translate="no">data</code> into the file at the current position.</p>
 </div>
 <!-- @@@jsextension-binaryfile.html -->

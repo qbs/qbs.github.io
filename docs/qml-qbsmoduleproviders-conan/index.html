@@ -39,7 +39,55 @@ installDirectory : string
 Detailed Description
 This module provider allows integration with the Conan package manager.
 Prerequisites
-In order to use this provider, you will need Conan version 2.5.0 or higher. Earlier versions do not have the QbsDeps generator. ">
+In order to use this provider, you will need Conan version 2.5.0 or higher. Earlier versions do not have the QbsDeps generator.
+Example
+For details on how to setup a project to use with Conan, see the l{https://github.com/qbs/qbs/blob/master/examples/protobuf/addressbook_conan}{addressbook_conan} folder in examples. First, you will need a conanfile as shown below.
+[requires]
+protobuf/3.21.12
+[tool_requires]
+protobuf/3.21.12
+[generators]
+QbsDeps
+We use the text version for simplicity, but you can use the Python conanfile as well.
+Next, set the qbsModuleProviders property to &#34;conan&#34;:
+import qbs.Host
+
+CppApplication {
+    consoleApplication: true
+    condition: protobuf.cpp.present &amp;&amp; qbs.targetPlatform === Host.platform()
+
+    Depends { name: &#34;cpp&#34; }
+    cpp.minimumMacosVersion: &#34;11.0&#34;
+
+    Depends { name: &#34;protobuf.cpp&#34;; required: false }
+
+    files: [
+        &#34;../shared/addressbook.proto&#34;,
+        &#34;main.cpp&#34;,
+    ]
+    qbsModuleProviders: &#34;conan&#34;
+}
+Install Conan dependencies and run the QbsDeps generator from the addressbook_conan dir:
+$ conan install . -g=QbsDeps --output-folder=build --build missing
+This will create the ./build/qbs-deps directory contaning files for provider. Now you can pass the conan install directory to the provider:
+$ qbs moduleProviders.conan.installDirectory:build
+You should see the following output if everything is correct:
+Build graph does not yet exist for configuration &#39;default&#39;. Starting from scratch.
+Resolving project for configuration default
+Setting up Conan module &#39;protobuflib&#39;
+Setting up Conan module &#39;zlib&#39;
+...
+Build done for configuration default.
+
+Property Documentation
+
+installDirectory : string
+The path to the conan install installDirectory.
+Qbs searches for files created by the QbsDeps generator in that directory.
+If not set, the provider will not be run.
+Default: undefined
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmoduleproviders-conan/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -49,7 +97,7 @@ In order to use this provider, you will need Conan version 2.5.0 or higher. Earl
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmoduleproviders-conan/">
@@ -57,7 +105,17 @@ In order to use this provider, you will need Conan version 2.5.0 or higher. Earl
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual QbsModuleProviders conan Qbs 3.4.0 Contents Properties Detailed Description Prerequisites Example conan Module provider for the Conan package manager. More...
 Since: 2.4 List of all members, including inherited members Properties installDirectory : string Detailed Description This module provider allows integration with the Conan package manager.
-Prerequisites In order to use this provider, you will need Conan version 2.5.0 or higher. Earlier versions do not have the QbsDeps generator.">
+Prerequisites In order to use this provider, you will need Conan version 2.5.0 or higher. Earlier versions do not have the QbsDeps generator.
+Example For details on how to setup a project to use with Conan, see the l{https://github.com/qbs/qbs/blob/master/examples/protobuf/addressbook_conan}{addressbook_conan} folder in examples. First, you will need a conanfile as shown below.
+[requires] protobuf/3.21.12 [tool_requires] protobuf/3.21.12 [generators] QbsDeps We use the text version for simplicity, but you can use the Python conanfile as well.
+Next, set the qbsModuleProviders property to &#34;conan&#34;:
+import qbs.Host CppApplication { consoleApplication: true condition: protobuf.cpp.present &amp;&amp; qbs.targetPlatform === Host.platform() Depends { name: &#34;cpp&#34; } cpp.minimumMacosVersion: &#34;11.0&#34; Depends { name: &#34;protobuf.cpp&#34;; required: false } files: [ &#34;../shared/addressbook.proto&#34;, &#34;main.cpp&#34;, ] qbsModuleProviders: &#34;conan&#34; } Install Conan dependencies and run the QbsDeps generator from the addressbook_conan dir:
+$ conan install . -g=QbsDeps --output-folder=build --build missing This will create the ./build/qbs-deps directory contaning files for provider. Now you can pass the conan install directory to the provider:
+$ qbs moduleProviders.conan.installDirectory:build You should see the following output if everything is correct:
+Build graph does not yet exist for configuration &#39;default&#39;. Starting from scratch. Resolving project for configuration default Setting up Conan module &#39;protobuflib&#39; Setting up Conan module &#39;zlib&#39; ... Build done for configuration default. Property Documentation installDirectory : string The path to the conan install installDirectory.
+Qbs searches for files created by the QbsDeps generator in that directory.
+If not set, the provider will not be run.
+Default: undefined">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -67,7 +125,17 @@ Prerequisites In order to use this provider, you will need Conan version 2.5.0 o
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual QbsModuleProviders conan Qbs 3.4.0 Contents Properties Detailed Description Prerequisites Example conan Module provider for the Conan package manager. More...
 Since: 2.4 List of all members, including inherited members Properties installDirectory : string Detailed Description This module provider allows integration with the Conan package manager.
-Prerequisites In order to use this provider, you will need Conan version 2.5.0 or higher. Earlier versions do not have the QbsDeps generator.">
+Prerequisites In order to use this provider, you will need Conan version 2.5.0 or higher. Earlier versions do not have the QbsDeps generator.
+Example For details on how to setup a project to use with Conan, see the l{https://github.com/qbs/qbs/blob/master/examples/protobuf/addressbook_conan}{addressbook_conan} folder in examples. First, you will need a conanfile as shown below.
+[requires] protobuf/3.21.12 [tool_requires] protobuf/3.21.12 [generators] QbsDeps We use the text version for simplicity, but you can use the Python conanfile as well.
+Next, set the qbsModuleProviders property to &#34;conan&#34;:
+import qbs.Host CppApplication { consoleApplication: true condition: protobuf.cpp.present &amp;&amp; qbs.targetPlatform === Host.platform() Depends { name: &#34;cpp&#34; } cpp.minimumMacosVersion: &#34;11.0&#34; Depends { name: &#34;protobuf.cpp&#34;; required: false } files: [ &#34;../shared/addressbook.proto&#34;, &#34;main.cpp&#34;, ] qbsModuleProviders: &#34;conan&#34; } Install Conan dependencies and run the QbsDeps generator from the addressbook_conan dir:
+$ conan install . -g=QbsDeps --output-folder=build --build missing This will create the ./build/qbs-deps directory contaning files for provider. Now you can pass the conan install directory to the provider:
+$ qbs moduleProviders.conan.installDirectory:build You should see the following output if everything is correct:
+Build graph does not yet exist for configuration &#39;default&#39;. Starting from scratch. Resolving project for configuration default Setting up Conan module &#39;protobuflib&#39; Setting up Conan module &#39;zlib&#39; ... Build done for configuration default. Property Documentation installDirectory : string The path to the conan install installDirectory.
+Qbs searches for files created by the QbsDeps generator in that directory.
+If not set, the provider will not be run.
+Default: undefined">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -142,16 +210,16 @@ Prerequisites In order to use this provider, you will need Conan version 2.5.0 o
 <p>In order to use this provider, you will need <code translate="no">Conan</code> version 2.5.0 or higher. Earlier versions do not have the <code translate="no">QbsDeps</code> generator.</p>
 <h2 id="example">Example</h2>
 <p>For details on how to setup a project to use with Conan, see the l{https://github.com/qbs/qbs/blob/master/examples/protobuf/addressbook_conan}{addressbook_conan} folder in examples. First, you will need a <a href="https://docs.conan.io/2/reference/conanfile_txt.html">conanfile</a> as shown below.</p>
-<pre class="cpp" translate="no"><span class="operator">[</span>requires<span class="operator">]</span>
+<pre class="cpp" translate="no"><code class="cpp"><span class="operator">[</span>requires<span class="operator">]</span>
 protobuf<span class="operator">/</span><span class="number">3.21.12</span>
 <span class="operator">[</span>tool_requires<span class="operator">]</span>
 protobuf<span class="operator">/</span><span class="number">3.21.12</span>
 <span class="operator">[</span>generators<span class="operator">]</span>
-QbsDeps</pre>
+QbsDeps</code></pre>
 <p>We use the text version for simplicity, but you can use the Python conanfile as well.</p>
 <p>Next, set the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#qbsModuleProviders-prop" translate="no">qbsModuleProviders</a> property to <code translate="no">"conan"</code>:</p>
-<pre class="cpp" translate="no">import qbs.Host
+<pre class="cpp" translate="no"><code class="cpp">import qbs.Host
 
 CppApplication {
     consoleApplication: true
@@ -167,18 +235,18 @@ CppApplication {
         "main.cpp",
     ]
     qbsModuleProviders: "conan"
-}</pre>
+}</code></pre>
 <p>Install Conan dependencies and run the QbsDeps generator from the <code translate="no">addressbook_conan</code> dir:</p>
-<pre class="cpp" translate="no">$ conan install <span class="operator">.</span> <span class="operator">-</span>g<span class="operator">=</span>QbsDeps <span class="operator">-</span><span class="operator">-</span>output<span class="operator">-</span>folder<span class="operator">=</span>build <span class="operator">-</span><span class="operator">-</span>build missing</pre>
+<pre class="cpp" translate="no"><code class="cpp">$ conan install <span class="operator">.</span> <span class="operator">-</span>g<span class="operator">=</span>QbsDeps <span class="operator">-</span><span class="operator">-</span>output<span class="operator">-</span>folder<span class="operator">=</span>build <span class="operator">-</span><span class="operator">-</span>build missing</code></pre>
 <p>This will create the <code translate="no">./build/qbs-deps</code> directory contaning files for provider. Now you can pass the conan install directory to the provider:</p>
-<pre class="cpp" translate="no">$ qbs moduleProviders<span class="operator">.</span>conan<span class="operator">.</span>installDirectory:build</pre>
+<pre class="cpp" translate="no"><code class="cpp">$ qbs moduleProviders<span class="operator">.</span>conan<span class="operator">.</span>installDirectory:build</code></pre>
 <p>You should see the following output if everything is correct:</p>
-<pre class="cpp" translate="no">Build graph does <span class="keyword">not</span> yet exist <span class="keyword">for</span> configuration <span class="char">'default'</span><span class="operator">.</span> Starting from scratch<span class="operator">.</span>
+<pre class="cpp" translate="no"><code class="cpp">Build graph does <span class="keyword">not</span> yet exist <span class="keyword">for</span> configuration <span class="char">'default'</span><span class="operator">.</span> Starting from scratch<span class="operator">.</span>
 Resolving project <span class="keyword">for</span> configuration <span class="keyword">default</span>
 Setting up Conan module <span class="char">'protobuflib'</span>
 Setting up Conan module <span class="char">'zlib'</span>
 <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
-Build done <span class="keyword">for</span> configuration <span class="keyword">default</span><span class="operator">.</span></pre>
+Build done <span class="keyword">for</span> configuration <span class="keyword">default</span><span class="operator">.</span></code></pre>
 <!-- @@@conan -->
 <h2>Property Documentation</h2>
 <!-- $$$installDirectory -->

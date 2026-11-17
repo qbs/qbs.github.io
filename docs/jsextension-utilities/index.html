@@ -49,7 +49,107 @@ Utilities.builtinExtensionNames(): string[]
 Returns the names of all builtin JavaScript extensions (services), such as &#34;File&#34;, &#34;TextFile&#34;, or &#34;Utilities&#34;. This function was introduced in version 1.9.1.
 canonicalArchitecture
 Utilities.canonicalArchitecture(architecture: string): string
-Returns the canonical name for the given architecture, mapping the various aliases an architecture may be known by to a single value. For example, both &#34;x86_64&#34; and &#34;amd64&#34; map to &#34;x86_64&#34;. An empty input yields an empty string. ">
+Returns the canonical name for the given architecture, mapping the various aliases an architecture may be known by to a single value. For example, both &#34;x86_64&#34; and &#34;amd64&#34; map to &#34;x86_64&#34;. An empty input yields an empty string.
+See qbs.architecture. This function was introduced in version 1.2.
+canonicalPlatform
+Utilities.canonicalPlatform(platform: string): string[]
+Returns the list of canonical operating system identifiers for the given platform name. For example, canonicalPlatform(&#34;macos&#34;) returns [&#34;macos&#34;, &#34;darwin&#34;, &#34;bsd&#34;, &#34;unix&#34;]. These are the same values the qbs.targetOS property is populated with; see Relation between targetPlatform and targetOS for the full mapping. This function was introduced in version 1.11.
+canonicalTargetArchitecture
+Utilities.canonicalTargetArchitecture(architecture: string,
+                                      endianness?: string,
+                                      vendor?: string,
+                                      system?: string,
+                                      abi?: string): string
+Returns the canonical target architecture string built from the given components. Only architecture is required; the remaining arguments (endianness, vendor, system, and abi) are optional and default to an empty string. This function was introduced in version 1.7.1.
+canonicalToolchain
+Utilities.canonicalToolchain(...toolchain: string): string[]
+Expands the given toolchain name (or names) into the full, canonically ordered toolchain list. For example, canonicalToolchain(&#34;clang&#34;) returns [&#34;clang&#34;, &#34;llvm&#34;, &#34;gcc&#34;].
+See qbs.toolchain. This function was introduced in version 1.6.
+certificateInfo
+Utilities.certificateInfo(certificateData): object
+Returns the properties of the given DER-encoded certificate as an object.
+
+Note: This operation is available on macOS only. This function was introduced in version 1.5.
+
+clangClCompilerInfo
+Utilities.clangClCompilerInfo(compilerFilePath: string,
+                              architecture: string,
+                              vcvarsallPath: string,
+                              compilerLanguage: string,
+                              sdkVersion: string): object
+Returns information about the given clang-cl compiler as an object with the properties buildEnvironment and macros. The compilerLanguage argument must be either &#34;c&#34; or &#34;cpp&#34;.
+
+Note: This operation is available on Windows only. This function was introduced in version 1.14.
+
+cStringQuote
+Utilities.cStringQuote(str: string): string
+Takes a string and escapes special characters in a way that the result is suitable for use as a C/C&#43;&#43; string literal. This function is typically used to specify values for cpp.defines. This function was introduced in version 1.8.
+getArchitecturesFromBinary
+Utilities.getArchitecturesFromBinary(path: string): string[]
+Returns the list of architectures contained in the given Mach-O file, fat binary, or static archive.
+
+Note: This operation is available on macOS only. This function was introduced in version 1.13.
+
+getHash
+Utilities.getHash(key: string): string
+Calculates a 16-byte hash of the input and returns it. Rules in modules should use this function to find unique locations for output artifacts in the build directory without duplicating the whole directory structure of the respective input file (to deal with the case of two files with the same name in different subdirectories of the same product). This function was introduced in version 1.4.
+getNativeSetting
+Utilities.getNativeSetting(filePath: string, key?: string, defaultValue?: var): var
+Reads a value from a native settings store: the Windows registry, a macOS property list, or an INI file, depending on filePath. If key is omitted, the default value of the store is read. Returns defaultValue (or undefined) if the requested entry does not exist. This function was introduced in version 1.2.
+installedClangCls
+Utilities.installedClangCls(path: string): object[]
+Returns a list of the clang-cl compilers found under the given path.
+
+Note: This operation is available on Windows only. This function was introduced in version 1.16.
+
+installedMSVCs
+Utilities.installedMSVCs(preferredArchitecture?: string): object[]
+Returns a list of the installed MSVC toolchains. If preferredArchitecture is given, the result is restricted to toolchains targeting that architecture; otherwise the host architecture is used.
+
+Note: This operation is available on Windows only. This function was introduced in version 1.16.
+
+isSharedLibrary
+Utilities.isSharedLibrary(fileName: string): boolean
+Returns true if the given file name denotes a shared library according to the platform&#39;s naming conventions, and false otherwise. This function was introduced in version 1.13.
+kernelVersion
+Utilities.kernelVersion(): string
+Returns the version of the host operating system&#39;s kernel. This function was introduced in version 1.8.
+msvcCompilerInfo
+Utilities.msvcCompilerInfo(compilerFilePath: string,
+                           compilerLanguage: string,
+                           sdkVersion: string): object
+Returns information about the given MSVC compiler as an object with the properties buildEnvironment and macros. The compilerLanguage argument must be either &#34;c&#34; or &#34;cpp&#34;.
+
+Note: This operation is available on Windows only. This function was introduced in version 1.6.
+
+nativeSettingGroups
+Utilities.nativeSettingGroups(filePath: string): string[]
+Returns the top-level groups of the native settings store identified by filePath. See also getNativeSetting. This function was introduced in version 1.5.
+qmlTypeInfo
+Utilities.qmlTypeInfo(): string
+Returns QML type information about the qbs language items. This is primarily intended for use by tooling, such as IDEs. This function was introduced in version 1.9.1.
+rfc1034Identifier
+Utilities.rfc1034Identifier(str: string): string
+Returns an RFC-1034 compliant identifier based on the given string by replacing each character that is not Latin alphanumeric or . with -. This function was introduced in version 1.0.
+signingIdentities
+Utilities.signingIdentities(): object
+Returns a map of the code-signing identities available on the host.
+
+Note: This operation is available on macOS only. This function was introduced in version 1.5.
+
+smimeMessageContent
+Utilities.smimeMessageContent(filePath: string): string
+Returns the decoded content of the S/MIME message located at filePath, or undefined if the file cannot be read. A provisioning profile is an S/MIME message whose content is an XML property list, so this operation can be used to read such files.
+
+Note: This operation is available on macOS only. This function was introduced in version 1.5.
+
+versionCompare
+Utilities.versionCompare(version1: string, version2: string): number
+Interprets the two arguments as version numbers and returns a number that is smaller than, equal to, or greater than zero if version1 is smaller than, equal to, or greater than version2, respectively.
+The version strings consist of up to three numbers separated by dots. This function was introduced in version 1.6.
+
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/jsextension-utilities/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -59,7 +159,7 @@ Returns the canonical name for the given architecture, mapping the various alias
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/jsextension-utilities/">
@@ -67,7 +167,38 @@ Returns the canonical name for the given architecture, mapping the various alias
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual List of Built-in Services Utilities Service Qbs 3.4.0 Contents Available Operations builtinExtensionNames canonicalArchitecture canonicalPlatform canonicalTargetArchitecture canonicalToolchain certificateInfo clangClCompilerInfo cStringQuote getArchitecturesFromBinary getHash getNativeSetting installedClangCls installedMSVCs isSharedLibrary kernelVersion msvcCompilerInfo nativeSettingGroups qmlTypeInfo rfc1034Identifier signingIdentities smimeMessageContent versionCompare Utilities Service The Utilities service offers miscellaneous operations.
 Available Operations builtinExtensionNames Utilities.builtinExtensionNames(): string[] Returns the names of all builtin JavaScript extensions (services), such as &#34;File&#34;, &#34;TextFile&#34;, or &#34;Utilities&#34;. This function was introduced in version 1.9.1.
-canonicalArchitecture Utilities.canonicalArchitecture(architecture: string): string Returns the canonical name for the given architecture, mapping the various aliases an architecture may be known by to a single value. For example, both &#34;x86_64&#34; and &#34;amd64&#34; map to &#34;x86_64&#34;. An empty input yields an empty string.">
+canonicalArchitecture Utilities.canonicalArchitecture(architecture: string): string Returns the canonical name for the given architecture, mapping the various aliases an architecture may be known by to a single value. For example, both &#34;x86_64&#34; and &#34;amd64&#34; map to &#34;x86_64&#34;. An empty input yields an empty string.
+See qbs.architecture. This function was introduced in version 1.2.
+canonicalPlatform Utilities.canonicalPlatform(platform: string): string[] Returns the list of canonical operating system identifiers for the given platform name. For example, canonicalPlatform(&#34;macos&#34;) returns [&#34;macos&#34;, &#34;darwin&#34;, &#34;bsd&#34;, &#34;unix&#34;]. These are the same values the qbs.targetOS property is populated with; see Relation between targetPlatform and targetOS for the full mapping. This function was introduced in version 1.11.
+canonicalTargetArchitecture Utilities.canonicalTargetArchitecture(architecture: string, endianness?: string, vendor?: string, system?: string, abi?: string): string Returns the canonical target architecture string built from the given components. Only architecture is required; the remaining arguments (endianness, vendor, system, and abi) are optional and default to an empty string. This function was introduced in version 1.7.1.
+canonicalToolchain Utilities.canonicalToolchain(...toolchain: string): string[] Expands the given toolchain name (or names) into the full, canonically ordered toolchain list. For example, canonicalToolchain(&#34;clang&#34;) returns [&#34;clang&#34;, &#34;llvm&#34;, &#34;gcc&#34;].
+See qbs.toolchain. This function was introduced in version 1.6.
+certificateInfo Utilities.certificateInfo(certificateData): object Returns the properties of the given DER-encoded certificate as an object.
+Note: This operation is available on macOS only. This function was introduced in version 1.5.
+clangClCompilerInfo Utilities.clangClCompilerInfo(compilerFilePath: string, architecture: string, vcvarsallPath: string, compilerLanguage: string, sdkVersion: string): object Returns information about the given clang-cl compiler as an object with the properties buildEnvironment and macros. The compilerLanguage argument must be either &#34;c&#34; or &#34;cpp&#34;.
+Note: This operation is available on Windows only. This function was introduced in version 1.14.
+cStringQuote Utilities.cStringQuote(str: string): string Takes a string and escapes special characters in a way that the result is suitable for use as a C/C&#43;&#43; string literal. This function is typically used to specify values for cpp.defines. This function was introduced in version 1.8.
+getArchitecturesFromBinary Utilities.getArchitecturesFromBinary(path: string): string[] Returns the list of architectures contained in the given Mach-O file, fat binary, or static archive.
+Note: This operation is available on macOS only. This function was introduced in version 1.13.
+getHash Utilities.getHash(key: string): string Calculates a 16-byte hash of the input and returns it. Rules in modules should use this function to find unique locations for output artifacts in the build directory without duplicating the whole directory structure of the respective input file (to deal with the case of two files with the same name in different subdirectories of the same product). This function was introduced in version 1.4.
+getNativeSetting Utilities.getNativeSetting(filePath: string, key?: string, defaultValue?: var): var Reads a value from a native settings store: the Windows registry, a macOS property list, or an INI file, depending on filePath. If key is omitted, the default value of the store is read. Returns defaultValue (or undefined) if the requested entry does not exist. This function was introduced in version 1.2.
+installedClangCls Utilities.installedClangCls(path: string): object[] Returns a list of the clang-cl compilers found under the given path.
+Note: This operation is available on Windows only. This function was introduced in version 1.16.
+installedMSVCs Utilities.installedMSVCs(preferredArchitecture?: string): object[] Returns a list of the installed MSVC toolchains. If preferredArchitecture is given, the result is restricted to toolchains targeting that architecture; otherwise the host architecture is used.
+Note: This operation is available on Windows only. This function was introduced in version 1.16.
+isSharedLibrary Utilities.isSharedLibrary(fileName: string): boolean Returns true if the given file name denotes a shared library according to the platform&#39;s naming conventions, and false otherwise. This function was introduced in version 1.13.
+kernelVersion Utilities.kernelVersion(): string Returns the version of the host operating system&#39;s kernel. This function was introduced in version 1.8.
+msvcCompilerInfo Utilities.msvcCompilerInfo(compilerFilePath: string, compilerLanguage: string, sdkVersion: string): object Returns information about the given MSVC compiler as an object with the properties buildEnvironment and macros. The compilerLanguage argument must be either &#34;c&#34; or &#34;cpp&#34;.
+Note: This operation is available on Windows only. This function was introduced in version 1.6.
+nativeSettingGroups Utilities.nativeSettingGroups(filePath: string): string[] Returns the top-level groups of the native settings store identified by filePath. See also getNativeSetting. This function was introduced in version 1.5.
+qmlTypeInfo Utilities.qmlTypeInfo(): string Returns QML type information about the qbs language items. This is primarily intended for use by tooling, such as IDEs. This function was introduced in version 1.9.1.
+rfc1034Identifier Utilities.rfc1034Identifier(str: string): string Returns an RFC-1034 compliant identifier based on the given string by replacing each character that is not Latin alphanumeric or . with -. This function was introduced in version 1.0.
+signingIdentities Utilities.signingIdentities(): object Returns a map of the code-signing identities available on the host.
+Note: This operation is available on macOS only. This function was introduced in version 1.5.
+smimeMessageContent Utilities.smimeMessageContent(filePath: string): string Returns the decoded content of the S/MIME message located at filePath, or undefined if the file cannot be read. A provisioning profile is an S/MIME message whose content is an XML property list, so this operation can be used to read such files.
+Note: This operation is available on macOS only. This function was introduced in version 1.5.
+versionCompare Utilities.versionCompare(version1: string, version2: string): number Interprets the two arguments as version numbers and returns a number that is smaller than, equal to, or greater than zero if version1 is smaller than, equal to, or greater than version2, respectively.
+The version strings consist of up to three numbers separated by dots. This function was introduced in version 1.6.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -77,7 +208,38 @@ canonicalArchitecture Utilities.canonicalArchitecture(architecture: string): str
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual List of Built-in Services Utilities Service Qbs 3.4.0 Contents Available Operations builtinExtensionNames canonicalArchitecture canonicalPlatform canonicalTargetArchitecture canonicalToolchain certificateInfo clangClCompilerInfo cStringQuote getArchitecturesFromBinary getHash getNativeSetting installedClangCls installedMSVCs isSharedLibrary kernelVersion msvcCompilerInfo nativeSettingGroups qmlTypeInfo rfc1034Identifier signingIdentities smimeMessageContent versionCompare Utilities Service The Utilities service offers miscellaneous operations.
 Available Operations builtinExtensionNames Utilities.builtinExtensionNames(): string[] Returns the names of all builtin JavaScript extensions (services), such as &#34;File&#34;, &#34;TextFile&#34;, or &#34;Utilities&#34;. This function was introduced in version 1.9.1.
-canonicalArchitecture Utilities.canonicalArchitecture(architecture: string): string Returns the canonical name for the given architecture, mapping the various aliases an architecture may be known by to a single value. For example, both &#34;x86_64&#34; and &#34;amd64&#34; map to &#34;x86_64&#34;. An empty input yields an empty string.">
+canonicalArchitecture Utilities.canonicalArchitecture(architecture: string): string Returns the canonical name for the given architecture, mapping the various aliases an architecture may be known by to a single value. For example, both &#34;x86_64&#34; and &#34;amd64&#34; map to &#34;x86_64&#34;. An empty input yields an empty string.
+See qbs.architecture. This function was introduced in version 1.2.
+canonicalPlatform Utilities.canonicalPlatform(platform: string): string[] Returns the list of canonical operating system identifiers for the given platform name. For example, canonicalPlatform(&#34;macos&#34;) returns [&#34;macos&#34;, &#34;darwin&#34;, &#34;bsd&#34;, &#34;unix&#34;]. These are the same values the qbs.targetOS property is populated with; see Relation between targetPlatform and targetOS for the full mapping. This function was introduced in version 1.11.
+canonicalTargetArchitecture Utilities.canonicalTargetArchitecture(architecture: string, endianness?: string, vendor?: string, system?: string, abi?: string): string Returns the canonical target architecture string built from the given components. Only architecture is required; the remaining arguments (endianness, vendor, system, and abi) are optional and default to an empty string. This function was introduced in version 1.7.1.
+canonicalToolchain Utilities.canonicalToolchain(...toolchain: string): string[] Expands the given toolchain name (or names) into the full, canonically ordered toolchain list. For example, canonicalToolchain(&#34;clang&#34;) returns [&#34;clang&#34;, &#34;llvm&#34;, &#34;gcc&#34;].
+See qbs.toolchain. This function was introduced in version 1.6.
+certificateInfo Utilities.certificateInfo(certificateData): object Returns the properties of the given DER-encoded certificate as an object.
+Note: This operation is available on macOS only. This function was introduced in version 1.5.
+clangClCompilerInfo Utilities.clangClCompilerInfo(compilerFilePath: string, architecture: string, vcvarsallPath: string, compilerLanguage: string, sdkVersion: string): object Returns information about the given clang-cl compiler as an object with the properties buildEnvironment and macros. The compilerLanguage argument must be either &#34;c&#34; or &#34;cpp&#34;.
+Note: This operation is available on Windows only. This function was introduced in version 1.14.
+cStringQuote Utilities.cStringQuote(str: string): string Takes a string and escapes special characters in a way that the result is suitable for use as a C/C&#43;&#43; string literal. This function is typically used to specify values for cpp.defines. This function was introduced in version 1.8.
+getArchitecturesFromBinary Utilities.getArchitecturesFromBinary(path: string): string[] Returns the list of architectures contained in the given Mach-O file, fat binary, or static archive.
+Note: This operation is available on macOS only. This function was introduced in version 1.13.
+getHash Utilities.getHash(key: string): string Calculates a 16-byte hash of the input and returns it. Rules in modules should use this function to find unique locations for output artifacts in the build directory without duplicating the whole directory structure of the respective input file (to deal with the case of two files with the same name in different subdirectories of the same product). This function was introduced in version 1.4.
+getNativeSetting Utilities.getNativeSetting(filePath: string, key?: string, defaultValue?: var): var Reads a value from a native settings store: the Windows registry, a macOS property list, or an INI file, depending on filePath. If key is omitted, the default value of the store is read. Returns defaultValue (or undefined) if the requested entry does not exist. This function was introduced in version 1.2.
+installedClangCls Utilities.installedClangCls(path: string): object[] Returns a list of the clang-cl compilers found under the given path.
+Note: This operation is available on Windows only. This function was introduced in version 1.16.
+installedMSVCs Utilities.installedMSVCs(preferredArchitecture?: string): object[] Returns a list of the installed MSVC toolchains. If preferredArchitecture is given, the result is restricted to toolchains targeting that architecture; otherwise the host architecture is used.
+Note: This operation is available on Windows only. This function was introduced in version 1.16.
+isSharedLibrary Utilities.isSharedLibrary(fileName: string): boolean Returns true if the given file name denotes a shared library according to the platform&#39;s naming conventions, and false otherwise. This function was introduced in version 1.13.
+kernelVersion Utilities.kernelVersion(): string Returns the version of the host operating system&#39;s kernel. This function was introduced in version 1.8.
+msvcCompilerInfo Utilities.msvcCompilerInfo(compilerFilePath: string, compilerLanguage: string, sdkVersion: string): object Returns information about the given MSVC compiler as an object with the properties buildEnvironment and macros. The compilerLanguage argument must be either &#34;c&#34; or &#34;cpp&#34;.
+Note: This operation is available on Windows only. This function was introduced in version 1.6.
+nativeSettingGroups Utilities.nativeSettingGroups(filePath: string): string[] Returns the top-level groups of the native settings store identified by filePath. See also getNativeSetting. This function was introduced in version 1.5.
+qmlTypeInfo Utilities.qmlTypeInfo(): string Returns QML type information about the qbs language items. This is primarily intended for use by tooling, such as IDEs. This function was introduced in version 1.9.1.
+rfc1034Identifier Utilities.rfc1034Identifier(str: string): string Returns an RFC-1034 compliant identifier based on the given string by replacing each character that is not Latin alphanumeric or . with -. This function was introduced in version 1.0.
+signingIdentities Utilities.signingIdentities(): object Returns a map of the code-signing identities available on the host.
+Note: This operation is available on macOS only. This function was introduced in version 1.5.
+smimeMessageContent Utilities.smimeMessageContent(filePath: string): string Returns the decoded content of the S/MIME message located at filePath, or undefined if the file cannot be read. A provisioning profile is an S/MIME message whose content is an XML property list, so this operation can be used to read such files.
+Note: This operation is available on macOS only. This function was introduced in version 1.5.
+versionCompare Utilities.versionCompare(version1: string, version2: string): number Interprets the two arguments as version numbers and returns a number that is smaller than, equal to, or greater than zero if version1 is smaller than, equal to, or greater than version2, respectively.
+The version strings consist of up to three numbers separated by dots. This function was introduced in version 1.6.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -153,112 +315,112 @@ canonicalArchitecture Utilities.canonicalArchitecture(architecture: string): str
 <p>The <code translate="no">Utilities</code> service offers miscellaneous operations.</p>
 <h2 id="available-operations">Available Operations</h2>
 <h3 id="builtinextensionnames">builtinExtensionNames</h3>
-<pre class="cpp" translate="no">Utilities<span class="operator">.</span>builtinExtensionNames(): string<span class="operator">[</span><span class="operator">]</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">Utilities<span class="operator">.</span>builtinExtensionNames(): string<span class="operator">[</span><span class="operator">]</span></code></pre>
 <p>Returns the names of all builtin JavaScript extensions (services), such as <code translate="no">"File"</code>, <code translate="no">"TextFile"</code>, or <code translate="no">"Utilities"</code>. </p><p>This function was introduced in version 1.9.1.</p><p></p>
 <h3 id="canonicalarchitecture">canonicalArchitecture</h3>
-<pre class="cpp" translate="no">Utilities<span class="operator">.</span>canonicalArchitecture(architecture: string): string</pre>
+<pre class="cpp" translate="no"><code class="cpp">Utilities<span class="operator">.</span>canonicalArchitecture(architecture: string): string</code></pre>
 <p>Returns the canonical name for the given architecture, mapping the various aliases an architecture may be known by to a single value. For example, both <code translate="no">"x86_64"</code> and <code translate="no">"amd64"</code> map to <code translate="no">"x86_64"</code>. An empty input yields an empty string.</p>
 <p>See <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#architecture-prop" translate="no">qbs.architecture</a>. </p><p>This function was introduced in version 1.2.</p><p></p>
 <h3 id="canonicalplatform">canonicalPlatform</h3>
-<pre class="cpp" translate="no">Utilities<span class="operator">.</span>canonicalPlatform(platform: string): string<span class="operator">[</span><span class="operator">]</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">Utilities<span class="operator">.</span>canonicalPlatform(platform: string): string<span class="operator">[</span><span class="operator">]</span></code></pre>
 <p>Returns the list of canonical operating system identifiers for the given platform name. For example, <code translate="no">canonicalPlatform("macos")</code> returns <code translate="no">["macos", "darwin", "bsd", "unix"]</code>. These are the same values the <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#targetOS-prop" translate="no">qbs.targetOS</a> property is populated with; see <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#relation-between-targetplatform-and-targetos" translate="no">Relation between targetPlatform and targetOS</a> for the full mapping. </p><p>This function was introduced in version 1.11.</p><p></p>
 <h3 id="canonicaltargetarchitecture">canonicalTargetArchitecture</h3>
-<pre class="cpp" translate="no">Utilities<span class="operator">.</span>canonicalTargetArchitecture(architecture: string<span class="operator">,</span>
+<pre class="cpp" translate="no"><code class="cpp">Utilities<span class="operator">.</span>canonicalTargetArchitecture(architecture: string<span class="operator">,</span>
                                       endianness<span class="operator">?</span>: string<span class="operator">,</span>
                                       vendor<span class="operator">?</span>: string<span class="operator">,</span>
                                       system<span class="operator">?</span>: string<span class="operator">,</span>
-                                      abi<span class="operator">?</span>: string): string</pre>
+                                      abi<span class="operator">?</span>: string): string</code></pre>
 <p>Returns the canonical target architecture string built from the given components. Only <code translate="no">architecture</code> is required; the remaining arguments (<code translate="no">endianness</code>, <code translate="no">vendor</code>, <code translate="no">system</code>, and <code translate="no">abi</code>) are optional and default to an empty string. </p><p>This function was introduced in version 1.7.1.</p><p></p>
 <h3 id="canonicaltoolchain">canonicalToolchain</h3>
-<pre class="cpp" translate="no">Utilities<span class="operator">.</span>canonicalToolchain(<span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>toolchain: string): string<span class="operator">[</span><span class="operator">]</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">Utilities<span class="operator">.</span>canonicalToolchain(<span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>toolchain: string): string<span class="operator">[</span><span class="operator">]</span></code></pre>
 <p>Expands the given toolchain name (or names) into the full, canonically ordered toolchain list. For example, <code translate="no">canonicalToolchain("clang")</code> returns <code translate="no">["clang", "llvm", "gcc"]</code>.</p>
 <p>See <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#toolchain-prop" translate="no">qbs.toolchain</a>. </p><p>This function was introduced in version 1.6.</p><p></p>
 <h3 id="certificateinfo">certificateInfo</h3>
-<pre class="cpp" translate="no">Utilities<span class="operator">.</span>certificateInfo(certificateData): object</pre>
+<pre class="cpp" translate="no"><code class="cpp">Utilities<span class="operator">.</span>certificateInfo(certificateData): object</code></pre>
 <p>Returns the properties of the given DER-encoded certificate as an object.</p>
 <div class="admonition note">
 <p><b>Note: </b>This operation is available on macOS only. </p><p>This function was introduced in version 1.5.</p><p></p>
 </div>
 <h3 id="clangclcompilerinfo">clangClCompilerInfo</h3>
-<pre class="cpp" translate="no">Utilities<span class="operator">.</span>clangClCompilerInfo(compilerFilePath: string<span class="operator">,</span>
+<pre class="cpp" translate="no"><code class="cpp">Utilities<span class="operator">.</span>clangClCompilerInfo(compilerFilePath: string<span class="operator">,</span>
                               architecture: string<span class="operator">,</span>
                               vcvarsallPath: string<span class="operator">,</span>
                               compilerLanguage: string<span class="operator">,</span>
-                              sdkVersion: string): object</pre>
+                              sdkVersion: string): object</code></pre>
 <p>Returns information about the given clang-cl compiler as an object with the properties <code translate="no">buildEnvironment</code> and <code translate="no">macros</code>. The <code translate="no">compilerLanguage</code> argument must be either <code translate="no">"c"</code> or <code translate="no">"cpp"</code>.</p>
 <div class="admonition note">
 <p><b>Note: </b>This operation is available on Windows only. </p><p>This function was introduced in version 1.14.</p><p></p>
 </div>
 <h3 id="cstringquote">cStringQuote</h3>
-<pre class="cpp" translate="no">Utilities<span class="operator">.</span>cStringQuote(str: string): string</pre>
+<pre class="cpp" translate="no"><code class="cpp">Utilities<span class="operator">.</span>cStringQuote(str: string): string</code></pre>
 <p>Takes a string and escapes special characters in a way that the result is suitable for use as a C/C++ string literal. This function is typically used to specify values for <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#defines-prop" translate="no">cpp.defines</a>. </p><p>This function was introduced in version 1.8.</p><p></p>
 <h3 id="getarchitecturesfrombinary">getArchitecturesFromBinary</h3>
-<pre class="cpp" translate="no">Utilities<span class="operator">.</span>getArchitecturesFromBinary(path: string): string<span class="operator">[</span><span class="operator">]</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">Utilities<span class="operator">.</span>getArchitecturesFromBinary(path: string): string<span class="operator">[</span><span class="operator">]</span></code></pre>
 <p>Returns the list of architectures contained in the given Mach-O file, fat binary, or static archive.</p>
 <div class="admonition note">
 <p><b>Note: </b>This operation is available on macOS only. </p><p>This function was introduced in version 1.13.</p><p></p>
 </div>
 <h3 id="gethash">getHash</h3>
-<pre class="cpp" translate="no">Utilities<span class="operator">.</span>getHash(key: string): string</pre>
+<pre class="cpp" translate="no"><code class="cpp">Utilities<span class="operator">.</span>getHash(key: string): string</code></pre>
 <p>Calculates a 16-byte hash of the input and returns it. Rules in modules should use this function to find unique locations for output artifacts in the build directory without duplicating the whole directory structure of the respective input file (to deal with the case of two files with the same name in different subdirectories of the same product). </p><p>This function was introduced in version 1.4.</p><p></p>
 <h3 id="getnativesetting">getNativeSetting</h3>
-<pre class="cpp" translate="no">Utilities<span class="operator">.</span>getNativeSetting(filePath: string<span class="operator">,</span> key<span class="operator">?</span>: string<span class="operator">,</span> defaultValue<span class="operator">?</span>: var): var</pre>
+<pre class="cpp" translate="no"><code class="cpp">Utilities<span class="operator">.</span>getNativeSetting(filePath: string<span class="operator">,</span> key<span class="operator">?</span>: string<span class="operator">,</span> defaultValue<span class="operator">?</span>: var): var</code></pre>
 <p>Reads a value from a native settings store: the Windows registry, a macOS property list, or an INI file, depending on <code translate="no">filePath</code>. If <code translate="no">key</code> is omitted, the default value of the store is read. Returns <code translate="no">defaultValue</code> (or <code translate="no">undefined</code>) if the requested entry does not exist. </p><p>This function was introduced in version 1.2.</p><p></p>
 <h3 id="installedclangcls">installedClangCls</h3>
-<pre class="cpp" translate="no">Utilities<span class="operator">.</span>installedClangCls(path: string): object<span class="operator">[</span><span class="operator">]</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">Utilities<span class="operator">.</span>installedClangCls(path: string): object<span class="operator">[</span><span class="operator">]</span></code></pre>
 <p>Returns a list of the clang-cl compilers found under the given <code translate="no">path</code>.</p>
 <div class="admonition note">
 <p><b>Note: </b>This operation is available on Windows only. </p><p>This function was introduced in version 1.16.</p><p></p>
 </div>
 <h3 id="installedmsvcs">installedMSVCs</h3>
-<pre class="cpp" translate="no">Utilities<span class="operator">.</span>installedMSVCs(preferredArchitecture<span class="operator">?</span>: string): object<span class="operator">[</span><span class="operator">]</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">Utilities<span class="operator">.</span>installedMSVCs(preferredArchitecture<span class="operator">?</span>: string): object<span class="operator">[</span><span class="operator">]</span></code></pre>
 <p>Returns a list of the installed MSVC toolchains. If <code translate="no">preferredArchitecture</code> is given, the result is restricted to toolchains targeting that architecture; otherwise the host architecture is used.</p>
 <div class="admonition note">
 <p><b>Note: </b>This operation is available on Windows only. </p><p>This function was introduced in version 1.16.</p><p></p>
 </div>
 <h3 id="issharedlibrary">isSharedLibrary</h3>
-<pre class="cpp" translate="no">Utilities<span class="operator">.</span>isSharedLibrary(fileName: string): boolean</pre>
+<pre class="cpp" translate="no"><code class="cpp">Utilities<span class="operator">.</span>isSharedLibrary(fileName: string): boolean</code></pre>
 <p>Returns <code translate="no">true</code> if the given file name denotes a shared library according to the platform's naming conventions, and <code translate="no">false</code> otherwise. </p><p>This function was introduced in version 1.13.</p><p></p>
 <h3 id="kernelversion">kernelVersion</h3>
-<pre class="cpp" translate="no">Utilities<span class="operator">.</span>kernelVersion(): string</pre>
+<pre class="cpp" translate="no"><code class="cpp">Utilities<span class="operator">.</span>kernelVersion(): string</code></pre>
 <p>Returns the version of the host operating system's kernel. </p><p>This function was introduced in version 1.8.</p><p></p>
 <h3 id="msvccompilerinfo">msvcCompilerInfo</h3>
-<pre class="cpp" translate="no">Utilities<span class="operator">.</span>msvcCompilerInfo(compilerFilePath: string<span class="operator">,</span>
+<pre class="cpp" translate="no"><code class="cpp">Utilities<span class="operator">.</span>msvcCompilerInfo(compilerFilePath: string<span class="operator">,</span>
                            compilerLanguage: string<span class="operator">,</span>
-                           sdkVersion: string): object</pre>
+                           sdkVersion: string): object</code></pre>
 <p>Returns information about the given MSVC compiler as an object with the properties <code translate="no">buildEnvironment</code> and <code translate="no">macros</code>. The <code translate="no">compilerLanguage</code> argument must be either <code translate="no">"c"</code> or <code translate="no">"cpp"</code>.</p>
 <div class="admonition note">
 <p><b>Note: </b>This operation is available on Windows only. </p><p>This function was introduced in version 1.6.</p><p></p>
 </div>
 <h3 id="nativesettinggroups">nativeSettingGroups</h3>
-<pre class="cpp" translate="no">Utilities<span class="operator">.</span>nativeSettingGroups(filePath: string): string<span class="operator">[</span><span class="operator">]</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">Utilities<span class="operator">.</span>nativeSettingGroups(filePath: string): string<span class="operator">[</span><span class="operator">]</span></code></pre>
 <p>Returns the top-level groups of the native settings store identified by <code translate="no">filePath</code>. See also <a href="https://qbs.io/
 /docs/jsextension-utilities/#getnativesetting">getNativeSetting</a>. </p><p>This function was introduced in version 1.5.</p><p></p>
 <h3 id="qmltypeinfo">qmlTypeInfo</h3>
-<pre class="cpp" translate="no">Utilities<span class="operator">.</span>qmlTypeInfo(): string</pre>
+<pre class="cpp" translate="no"><code class="cpp">Utilities<span class="operator">.</span>qmlTypeInfo(): string</code></pre>
 <p>Returns QML type information about the qbs language items. This is primarily intended for use by tooling, such as IDEs. </p><p>This function was introduced in version 1.9.1.</p><p></p>
 <h3 id="rfc1034identifier">rfc1034Identifier</h3>
-<pre class="cpp" translate="no">Utilities<span class="operator">.</span>rfc1034Identifier(str: string): string</pre>
+<pre class="cpp" translate="no"><code class="cpp">Utilities<span class="operator">.</span>rfc1034Identifier(str: string): string</code></pre>
 <p>Returns an RFC-1034 compliant identifier based on the given string by replacing each character that is not Latin alphanumeric or <code translate="no">.</code> with <code translate="no">-</code>. </p><p>This function was introduced in version 1.0.</p><p></p>
 <h3 id="signingidentities">signingIdentities</h3>
-<pre class="cpp" translate="no">Utilities<span class="operator">.</span>signingIdentities(): object</pre>
+<pre class="cpp" translate="no"><code class="cpp">Utilities<span class="operator">.</span>signingIdentities(): object</code></pre>
 <p>Returns a map of the code-signing identities available on the host.</p>
 <div class="admonition note">
 <p><b>Note: </b>This operation is available on macOS only. </p><p>This function was introduced in version 1.5.</p><p></p>
 </div>
 <h3 id="smimemessagecontent">smimeMessageContent</h3>
-<pre class="cpp" translate="no">Utilities<span class="operator">.</span>smimeMessageContent(filePath: string): string</pre>
+<pre class="cpp" translate="no"><code class="cpp">Utilities<span class="operator">.</span>smimeMessageContent(filePath: string): string</code></pre>
 <p>Returns the decoded content of the S/MIME message located at <code translate="no">filePath</code>, or <code translate="no">undefined</code> if the file cannot be read. A provisioning profile is an S/MIME message whose content is an XML property list, so this operation can be used to read such files.</p>
 <div class="admonition note">
 <p><b>Note: </b>This operation is available on macOS only. </p><p>This function was introduced in version 1.5.</p><p></p>
 </div>
 <h3 id="versioncompare">versionCompare</h3>
-<pre class="cpp" translate="no">Utilities<span class="operator">.</span>versionCompare(version1: string<span class="operator">,</span> version2: string): number</pre>
+<pre class="cpp" translate="no"><code class="cpp">Utilities<span class="operator">.</span>versionCompare(version1: string<span class="operator">,</span> version2: string): number</code></pre>
 <p>Interprets the two arguments as version numbers and returns a number that is smaller than, equal to, or greater than zero if <code translate="no">version1</code> is smaller than, equal to, or greater than <code translate="no">version2</code>, respectively.</p>
 <p>The version strings consist of up to three numbers separated by dots. </p><p>This function was introduced in version 1.6.</p><p></p>
 </div>

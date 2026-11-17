@@ -33,7 +33,19 @@ IncludeProbe is part of List of All Items.
 
 Detailed Description
 This is the convenience item that searches for files in &#34;include&#34; directories.
-For example, IncludeProbe can be used to search for a zlib header as follows: ">
+For example, IncludeProbe can be used to search for a zlib header as follows:
+import qbs.Probes
+
+CppApplication {
+    Probes.IncludeProbe {
+        id: zlibProbe
+        names: &#34;zlib.h&#34;
+    }
+    cpp.includePaths: zlibProbe.found ? [zlibProbe.path] : []
+    files: &#39;main.cpp&#39;
+}
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsprobes-includeprobe/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -43,7 +55,7 @@ For example, IncludeProbe can be used to search for a zlib header as follows: ">
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsprobes-includeprobe/">
@@ -52,7 +64,8 @@ For example, IncludeProbe can be used to search for a zlib header as follows: ">
 	<meta property="og:description" content="Qbs Manual QbsProbes IncludeProbe Qbs 3.4.0 Contents Detailed Description IncludeProbe Locates header files outside the project. More...
 Inherits: PathProbe
 List of all members, including inherited members IncludeProbe is part of List of All Items. Detailed Description This is the convenience item that searches for files in &#34;include&#34; directories.
-For example, IncludeProbe can be used to search for a zlib header as follows:">
+For example, IncludeProbe can be used to search for a zlib header as follows:
+import qbs.Probes CppApplication { Probes.IncludeProbe { id: zlibProbe names: &#34;zlib.h&#34; } cpp.includePaths: zlibProbe.found ? [zlibProbe.path] : [] files: &#39;main.cpp&#39; }">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -63,7 +76,8 @@ For example, IncludeProbe can be used to search for a zlib header as follows:">
 	<meta name="twitter:description" content="Qbs Manual QbsProbes IncludeProbe Qbs 3.4.0 Contents Detailed Description IncludeProbe Locates header files outside the project. More...
 Inherits: PathProbe
 List of all members, including inherited members IncludeProbe is part of List of All Items. Detailed Description This is the convenience item that searches for files in &#34;include&#34; directories.
-For example, IncludeProbe can be used to search for a zlib header as follows:">
+For example, IncludeProbe can be used to search for a zlib header as follows:
+import qbs.Probes CppApplication { Probes.IncludeProbe { id: zlibProbe names: &#34;zlib.h&#34; } cpp.includePaths: zlibProbe.found ? [zlibProbe.path] : [] files: &#39;main.cpp&#39; }">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -131,7 +145,7 @@ For example, IncludeProbe can be used to search for a zlib header as follows:">
 <h2 id="details">Detailed Description</h2>
 <p>This is the convenience item that searches for files in "include" directories.</p>
 <p>For example, IncludeProbe can be used to search for a zlib header as follows:</p>
-<pre class="cpp" translate="no">import qbs.Probes
+<pre class="cpp" translate="no"><code class="cpp">import qbs.Probes
 
 <span class="type"><a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-cppapplication/" translate="no">CppApplication</a></span> {
@@ -142,7 +156,7 @@ For example, IncludeProbe can be used to search for a zlib header as follows:">
     }
     <span class="name">cpp.includePaths</span>: <span class="name">zlibProbe</span>.<span class="name">found</span> ? [<span class="name">zlibProbe</span>.<span class="name">path</span>] : []
     <span class="name">files</span>: <span class="string">'main.cpp'</span>
-}</pre>
+}</code></pre>
 <!-- @@@IncludeProbe -->
 </div>
 

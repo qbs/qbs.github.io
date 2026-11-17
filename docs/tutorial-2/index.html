@@ -27,7 +27,69 @@ Project {
        &#34;lib/lib.qbs&#34;
    ]
 }
-Let&#39;s take a look at the the library file now: ">
+Let&#39;s take a look at the the library file now:
+StaticLibrary {
+    name: &#34;mylib&#34;
+    files: [
+        &#34;lib.c&#34;,
+        &#34;lib.h&#34;,
+    ]
+    version: &#34;1.0.0&#34;
+
+    cpp.defines: [&#39;CRUCIAL_DEFINE&#39;]
+
+    Export {
+        Depends { name: &#34;cpp&#34; }
+        cpp.includePaths: [exportingProduct.sourceDirectory]
+    }
+
+    Depends { name: &#39;bundle&#39; }
+    bundle.isBundle: false
+}
+It contains the StaticLibrary item which sets the type of the product to &#34;staticlibrary&#34; and sets some defaults like where to install that library. The StaticLibrary item inherits the CppLibrary item which pulls in the dependency on the cpp module.
+
+Note: If the library does not need to be installed and distributed - for instance, when it is used only as an internal abstraction inside the project - consider ObjectLibrary instead. It behaves exactly like StaticLibrary, except that the object files are not packaged into a container.
+
+As before, we set the files property with a header:
+// lib/lib.h
+#ifndef LIB_H
+#define LIB_H
+
+const char *get_string();
+
+#endif // LIB_H
+And we set the implementation file of our library:
+// lib/lib.cpp
+#include &#34;lib.h&#34;
+
+#ifndef CRUCIAL_DEFINE
+#   error CRUCIAL_DEFINE not defined
+#endif
+
+const char *get_string()
+{
+    return &#34;Hello from library&#34;;
+}
+We will keep our library really simple - it only contains one function, which we will later use in our application. The source file requires a &#34;CRUCIAL_DEFINE&#34; to be passed to a preprocessor. That is why we set the cpp.defines property:
+cpp.defines: [&#39;CRUCIAL_DEFINE&#39;]
+Next, we need to tell Qbs where to look for public headers of our library when building products that depend on it. By default, Qbs knows nothing about the layout of our library, so we tell it to look for headers in the library&#39;s source directory using the Export item:
+Export {
+    Depends { name: &#34;cpp&#34; }
+    cpp.includePaths: [exportingProduct.sourceDirectory]
+}
+You can export any Module property within the Export item - it will be merged in the depending product with other properties. For example, you can export cpp.defines or specific compiler flags that are required to use this product.
+We depend on the cpp module twice - once within the StaticLibrary item and once in the Export item. This is because by default Qbs does not export anything when depending on this product and the dependencies in this item (as well as properties set in this item) are private to this product while dependencies and properties set in the Export item are for export only.
+Finally, we have some Apple-specific settings. You can skip this part of the tutorial if you are using some other platform. We depend on the bundle module and set the bundle.isBundle to false:
+Depends { name: &#39;bundle&#39; }
+bundle.isBundle: false
+By default, Qbs builds static and dynamic libraries as Frameworks on macOS. So, to keep things simple, we disable the framework build and build a plain old static library file here.
+
+
+
+Console Application
+Dynamic Library
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/tutorial-2/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -37,14 +99,25 @@ Let&#39;s take a look at the the library file now: ">
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/tutorial-2/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual Static Library Qbs 3.4.0 Console Application Dynamic Library Static Library Let&#39;s add a static library to our project so we can reuse some code. Analogous to what we did for the application, we put the file into the lib directory and add it to the references property in our project. The modified project may look like this:
-Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references: [ &#34;app/app.qbs&#34;, &#34;lib/lib.qbs&#34; ] } Let&#39;s take a look at the the library file now:">
+Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references: [ &#34;app/app.qbs&#34;, &#34;lib/lib.qbs&#34; ] } Let&#39;s take a look at the the library file now:
+StaticLibrary { name: &#34;mylib&#34; files: [ &#34;lib.c&#34;, &#34;lib.h&#34;, ] version: &#34;1.0.0&#34; cpp.defines: [&#39;CRUCIAL_DEFINE&#39;] Export { Depends { name: &#34;cpp&#34; } cpp.includePaths: [exportingProduct.sourceDirectory] } Depends { name: &#39;bundle&#39; } bundle.isBundle: false } It contains the StaticLibrary item which sets the type of the product to &#34;staticlibrary&#34; and sets some defaults like where to install that library. The StaticLibrary item inherits the CppLibrary item which pulls in the dependency on the cpp module.
+Note: If the library does not need to be installed and distributed - for instance, when it is used only as an internal abstraction inside the project - consider ObjectLibrary instead. It behaves exactly like StaticLibrary, except that the object files are not packaged into a container.
+As before, we set the files property with a header:
+// lib/lib.h #ifndef LIB_H #define LIB_H const char *get_string(); #endif // LIB_H And we set the implementation file of our library:
+// lib/lib.cpp #include &#34;lib.h&#34; #ifndef CRUCIAL_DEFINE # error CRUCIAL_DEFINE not defined #endif const char *get_string() { return &#34;Hello from library&#34;; } We will keep our library really simple - it only contains one function, which we will later use in our application. The source file requires a &#34;CRUCIAL_DEFINE&#34; to be passed to a preprocessor. That is why we set the cpp.defines property:
+cpp.defines: [&#39;CRUCIAL_DEFINE&#39;] Next, we need to tell Qbs where to look for public headers of our library when building products that depend on it. By default, Qbs knows nothing about the layout of our library, so we tell it to look for headers in the library&#39;s source directory using the Export item:
+Export { Depends { name: &#34;cpp&#34; } cpp.includePaths: [exportingProduct.sourceDirectory] } You can export any Module property within the Export item - it will be merged in the depending product with other properties. For example, you can export cpp.defines or specific compiler flags that are required to use this product.
+We depend on the cpp module twice - once within the StaticLibrary item and once in the Export item. This is because by default Qbs does not export anything when depending on this product and the dependencies in this item (as well as properties set in this item) are private to this product while dependencies and properties set in the Export item are for export only.
+Finally, we have some Apple-specific settings. You can skip this part of the tutorial if you are using some other platform. We depend on the bundle module and set the bundle.isBundle to false:
+Depends { name: &#39;bundle&#39; } bundle.isBundle: false By default, Qbs builds static and dynamic libraries as Frameworks on macOS. So, to keep things simple, we disable the framework build and build a plain old static library file here.
+Console Application Dynamic Library">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -53,7 +126,18 @@ Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual Static Library Qbs 3.4.0 Console Application Dynamic Library Static Library Let&#39;s add a static library to our project so we can reuse some code. Analogous to what we did for the application, we put the file into the lib directory and add it to the references property in our project. The modified project may look like this:
-Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references: [ &#34;app/app.qbs&#34;, &#34;lib/lib.qbs&#34; ] } Let&#39;s take a look at the the library file now:">
+Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references: [ &#34;app/app.qbs&#34;, &#34;lib/lib.qbs&#34; ] } Let&#39;s take a look at the the library file now:
+StaticLibrary { name: &#34;mylib&#34; files: [ &#34;lib.c&#34;, &#34;lib.h&#34;, ] version: &#34;1.0.0&#34; cpp.defines: [&#39;CRUCIAL_DEFINE&#39;] Export { Depends { name: &#34;cpp&#34; } cpp.includePaths: [exportingProduct.sourceDirectory] } Depends { name: &#39;bundle&#39; } bundle.isBundle: false } It contains the StaticLibrary item which sets the type of the product to &#34;staticlibrary&#34; and sets some defaults like where to install that library. The StaticLibrary item inherits the CppLibrary item which pulls in the dependency on the cpp module.
+Note: If the library does not need to be installed and distributed - for instance, when it is used only as an internal abstraction inside the project - consider ObjectLibrary instead. It behaves exactly like StaticLibrary, except that the object files are not packaged into a container.
+As before, we set the files property with a header:
+// lib/lib.h #ifndef LIB_H #define LIB_H const char *get_string(); #endif // LIB_H And we set the implementation file of our library:
+// lib/lib.cpp #include &#34;lib.h&#34; #ifndef CRUCIAL_DEFINE # error CRUCIAL_DEFINE not defined #endif const char *get_string() { return &#34;Hello from library&#34;; } We will keep our library really simple - it only contains one function, which we will later use in our application. The source file requires a &#34;CRUCIAL_DEFINE&#34; to be passed to a preprocessor. That is why we set the cpp.defines property:
+cpp.defines: [&#39;CRUCIAL_DEFINE&#39;] Next, we need to tell Qbs where to look for public headers of our library when building products that depend on it. By default, Qbs knows nothing about the layout of our library, so we tell it to look for headers in the library&#39;s source directory using the Export item:
+Export { Depends { name: &#34;cpp&#34; } cpp.includePaths: [exportingProduct.sourceDirectory] } You can export any Module property within the Export item - it will be merged in the depending product with other properties. For example, you can export cpp.defines or specific compiler flags that are required to use this product.
+We depend on the cpp module twice - once within the StaticLibrary item and once in the Export item. This is because by default Qbs does not export anything when depending on this product and the dependencies in this item (as well as properties set in this item) are private to this product while dependencies and properties set in the Export item are for export only.
+Finally, we have some Apple-specific settings. You can skip this part of the tutorial if you are using some other platform. We depend on the bundle module and set the bundle.isBundle to false:
+Depends { name: &#39;bundle&#39; } bundle.isBundle: false By default, Qbs builds static and dynamic libraries as Frameworks on macOS. So, to keep things simple, we disable the framework build and build a plain old static library file here.
+Console Application Dynamic Library">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -107,16 +191,16 @@ Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references
 <div class="descr" id="details">
 <p>Let's add a static library to our project so we can reuse some code. Analogous to what we did for the application, we put the file into the <code translate="no">lib</code> directory and add it to the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-project/#references-prop" translate="no">references</a> property in our project. The modified project may look like this:</p>
-<pre class="cpp" translate="no">Project {
+<pre class="cpp" translate="no"><code class="cpp">Project {
    name: "My Project"
    minimumQbsVersion: "2.0"
    references: [
        "app/app.qbs",
        "lib/lib.qbs"
    ]
-}</pre>
+}</code></pre>
 <p>Let's take a look at the the library file now:</p>
-<pre class="cpp" translate="no">StaticLibrary {
+<pre class="cpp" translate="no"><code class="cpp">StaticLibrary {
     name: "mylib"
     files: [
         "lib.c",
@@ -133,7 +217,7 @@ Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references
 
     Depends { name: 'bundle' }
     bundle.isBundle: false
-}</pre>
+}</code></pre>
 <p>It contains the <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-staticlibrary/" translate="no">StaticLibrary</a> item which sets the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#type-prop" translate="no">type</a> of the product to <code translate="no">"staticlibrary"</code> and sets some defaults like where to install that library. The <a href="https://qbs.io/
@@ -147,15 +231,15 @@ Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references
 </div>
 <p>As before, we set the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#files-prop" translate="no">files</a> property with a header:</p>
-<pre class="cpp" translate="no"><span class="comment">// lib/lib.h</span>
+<pre class="cpp" translate="no"><code class="cpp"><span class="comment">// lib/lib.h</span>
 <span class="preprocessor">#ifndef LIB_H</span>
 <span class="preprocessor">#define LIB_H</span>
 
 <span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span>get_string();
 
-<span class="preprocessor">#endif // LIB_H</span></pre>
+<span class="preprocessor">#endif // LIB_H</span></code></pre>
 <p>And we set the implementation file of our library:</p>
-<pre class="cpp" translate="no"><span class="comment">// lib/lib.cpp</span>
+<pre class="cpp" translate="no"><code class="cpp"><span class="comment">// lib/lib.cpp</span>
 <span class="preprocessor">#include "lib.h"</span>
 
 <span class="preprocessor">#ifndef CRUCIAL_DEFINE</span>
@@ -165,16 +249,16 @@ Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references
 <span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span>get_string()
 {
     <span class="keyword">return</span> <span class="string">"Hello from library"</span>;
-}</pre>
+}</code></pre>
 <p>We will keep our library really simple - it only contains one function, which we will later use in our application. The source file requires a <code translate="no">"CRUCIAL_DEFINE"</code> to be passed to a preprocessor. That is why we set the <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#defines-prop" translate="no">cpp.defines</a> property:</p>
-<pre class="cpp" translate="no">cpp.defines: ['CRUCIAL_DEFINE']</pre>
+<pre class="cpp" translate="no"><code class="cpp">cpp.defines: ['CRUCIAL_DEFINE']</code></pre>
 <p>Next, we need to tell Qbs where to look for public headers of our library when building products that depend on it. By default, Qbs knows nothing about the layout of our library, so we tell it to look for headers in the library's source directory using the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-export/" translate="no">Export</a> item:</p>
-<pre class="cpp" translate="no">Export {
+<pre class="cpp" translate="no"><code class="cpp">Export {
     Depends { name: "cpp" }
     cpp.includePaths: [exportingProduct.sourceDirectory]
-}</pre>
+}</code></pre>
 <p>You can export any <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-module/" translate="no">Module</a> property within the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-export/" translate="no">Export</a> item - it will be merged in the depending product with other properties. For example, you can export <a href="https://qbs.io/
@@ -188,8 +272,8 @@ Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references
 <p>Finally, we have some Apple-specific settings. You can skip this part of the tutorial if you are using some other platform. We depend on the <a href="https://qbs.io/
 /docs/qml-qbsmodules-bundle/" translate="no">bundle</a> module and set the <a href="https://qbs.io/
 /docs/qml-qbsmodules-bundle/#isBundle-prop" translate="no">bundle.isBundle</a> to false:</p>
-<pre class="cpp" translate="no">Depends { name: 'bundle' }
-bundle.isBundle: false</pre>
+<pre class="cpp" translate="no"><code class="cpp">Depends { name: 'bundle' }
+bundle.isBundle: false</code></pre>
 <p>By default, Qbs builds static and dynamic libraries as <a href="https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPFrameworks/Concepts/WhatAreFrameworks.html">Frameworks</a> on macOS. So, to keep things simple, we disable the framework build and build a plain old static library file here.</p>
 </div>
 <!-- @@@tutorial-2.html -->

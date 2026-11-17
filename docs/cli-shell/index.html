@@ -39,7 +39,46 @@ Options
 --build-directory|-d &lt;directory&gt;
 Specifies a &lt;directory&gt; where build artifacts are stored.
 The default value is the current directory unless preferences.defaultBuildDirectory is set.
-Relative paths will be interpreted relative to the current directory. ">
+Relative paths will be interpreted relative to the current directory.
+You can use the following special values as placeholders:
+
+@project is expanded to the name of the project file excluding the extension .qbs.
+@path is expanded to the name of the directory containing the project file.
+
+[--file|-f &lt;file&gt;]
+Uses &lt;file&gt; as the project file. If &lt;file&gt; is a directory and it contains a single file with the extension .qbs, that file will be used.
+If this option is not given at all, the behavior is the same as for -f &lt;working-dir&gt;.
+--products|-p &lt;name&gt;[,&lt;name&gt;...]
+Takes only the products specified by &lt;name&gt; and their dependencies into account.
+--settings-dir &lt;directory&gt;
+Reads all settings (such as profile information) from the specified &lt;directory&gt;. If the directory does not exist, it will be created.
+The default value is system-specific. For example:
+
+Linux: $HOME/.config/QtProject/qbs
+Windows: %APPDATA%\QtProject\qbs
+macOS: $HOME/Library/Preferences/qbs
+
+Parameters
+config:configuration-name
+Specifies the build configuration to use.
+Qbs can build a project for one or multiple configurations at once, each having a different set of parameters. The config parameter has a special function: with each occurrence a new configuration instance begins and all subsequent parameters until the next config are assigned to this instance. Parameter assignments before the first occurrence of config are applied to all build configurations. Inside products and modules, the current active build configuration can be retrieved via qbs.configurationName.
+In the following snippet, a profile clang is applied to all configurations while cpp.optimization is different for debug and release:
+profile:clang config:debug cpp.optimization:none config:release cpp.optimization:small
+The value of config determines the name of the build folder and affects the default value of the qbs.buildVariant property. Qbs knows the config values &#34;debug&#34; and &#34;release&#34;, but in general any name can be chosen. When naming configurations created for special purposes, follow the rules for legal names generally used in programming languages:
+
+The first character must be a letter (a-z), an underscore (_), or a dollar sign ($).
+Subsequent characters may be letters, digits, underscores, or dollar signs.
+
+property:value
+Property values set in project files or profiles can be overridden on the command line. The syntax is:
+&lt;prefix&gt;.&lt;property-name&gt;:&lt;property-value&gt;
+For more information, see Overriding Property Values from the Command Line.
+Examples
+Opens a shell with the same environment that Qbs uses when building the project:
+qbs shell
+
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/cli-shell/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -49,7 +88,7 @@ Relative paths will be interpreted relative to the current directory. ">
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/cli-shell/">
@@ -59,7 +98,21 @@ Relative paths will be interpreted relative to the current directory. ">
 For more information, see Using the Shell.
 Options --build-directory|-d &lt;directory&gt; Specifies a &lt;directory&gt; where build artifacts are stored.
 The default value is the current directory unless preferences.defaultBuildDirectory is set.
-Relative paths will be interpreted relative to the current directory.">
+Relative paths will be interpreted relative to the current directory.
+You can use the following special values as placeholders:
+@project is expanded to the name of the project file excluding the extension .qbs. @path is expanded to the name of the directory containing the project file. [--file|-f &lt;file&gt;] Uses &lt;file&gt; as the project file. If &lt;file&gt; is a directory and it contains a single file with the extension .qbs, that file will be used.
+If this option is not given at all, the behavior is the same as for -f &lt;working-dir&gt;.
+--products|-p &lt;name&gt;[,&lt;name&gt;...] Takes only the products specified by &lt;name&gt; and their dependencies into account.
+--settings-dir &lt;directory&gt; Reads all settings (such as profile information) from the specified &lt;directory&gt;. If the directory does not exist, it will be created.
+The default value is system-specific. For example:
+Linux: $HOME/.config/QtProject/qbs Windows: %APPDATA%\QtProject\qbs macOS: $HOME/Library/Preferences/qbs Parameters config:configuration-name Specifies the build configuration to use.
+Qbs can build a project for one or multiple configurations at once, each having a different set of parameters. The config parameter has a special function: with each occurrence a new configuration instance begins and all subsequent parameters until the next config are assigned to this instance. Parameter assignments before the first occurrence of config are applied to all build configurations. Inside products and modules, the current active build configuration can be retrieved via qbs.configurationName.
+In the following snippet, a profile clang is applied to all configurations while cpp.optimization is different for debug and release:
+profile:clang config:debug cpp.optimization:none config:release cpp.optimization:small The value of config determines the name of the build folder and affects the default value of the qbs.buildVariant property. Qbs knows the config values &#34;debug&#34; and &#34;release&#34;, but in general any name can be chosen. When naming configurations created for special purposes, follow the rules for legal names generally used in programming languages:
+The first character must be a letter (a-z), an underscore (_), or a dollar sign ($). Subsequent characters may be letters, digits, underscores, or dollar signs. property:value Property values set in project files or profiles can be overridden on the command line. The syntax is:
+&lt;prefix&gt;.&lt;property-name&gt;:&lt;property-value&gt; For more information, see Overriding Property Values from the Command Line.
+Examples Opens a shell with the same environment that Qbs uses when building the project:
+qbs shell">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -71,7 +124,21 @@ Relative paths will be interpreted relative to the current directory.">
 For more information, see Using the Shell.
 Options --build-directory|-d &lt;directory&gt; Specifies a &lt;directory&gt; where build artifacts are stored.
 The default value is the current directory unless preferences.defaultBuildDirectory is set.
-Relative paths will be interpreted relative to the current directory.">
+Relative paths will be interpreted relative to the current directory.
+You can use the following special values as placeholders:
+@project is expanded to the name of the project file excluding the extension .qbs. @path is expanded to the name of the directory containing the project file. [--file|-f &lt;file&gt;] Uses &lt;file&gt; as the project file. If &lt;file&gt; is a directory and it contains a single file with the extension .qbs, that file will be used.
+If this option is not given at all, the behavior is the same as for -f &lt;working-dir&gt;.
+--products|-p &lt;name&gt;[,&lt;name&gt;...] Takes only the products specified by &lt;name&gt; and their dependencies into account.
+--settings-dir &lt;directory&gt; Reads all settings (such as profile information) from the specified &lt;directory&gt;. If the directory does not exist, it will be created.
+The default value is system-specific. For example:
+Linux: $HOME/.config/QtProject/qbs Windows: %APPDATA%\QtProject\qbs macOS: $HOME/Library/Preferences/qbs Parameters config:configuration-name Specifies the build configuration to use.
+Qbs can build a project for one or multiple configurations at once, each having a different set of parameters. The config parameter has a special function: with each occurrence a new configuration instance begins and all subsequent parameters until the next config are assigned to this instance. Parameter assignments before the first occurrence of config are applied to all build configurations. Inside products and modules, the current active build configuration can be retrieved via qbs.configurationName.
+In the following snippet, a profile clang is applied to all configurations while cpp.optimization is different for debug and release:
+profile:clang config:debug cpp.optimization:none config:release cpp.optimization:small The value of config determines the name of the build folder and affects the default value of the qbs.buildVariant property. Qbs knows the config values &#34;debug&#34; and &#34;release&#34;, but in general any name can be chosen. When naming configurations created for special purposes, follow the rules for legal names generally used in programming languages:
+The first character must be a letter (a-z), an underscore (_), or a dollar sign ($). Subsequent characters may be letters, digits, underscores, or dollar signs. property:value Property values set in project files or profiles can be overridden on the command line. The syntax is:
+&lt;prefix&gt;.&lt;property-name&gt;:&lt;property-value&gt; For more information, see Overriding Property Values from the Command Line.
+Examples Opens a shell with the same environment that Qbs uses when building the project:
+qbs shell">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -133,7 +200,7 @@ Relative paths will be interpreted relative to the current directory.">
 <!-- $$$cli-shell.html-description -->
 <div class="descr" id="details">
 <h2 id="synopsis">Synopsis</h2>
-<pre class="cpp" translate="no">qbs shell <span class="operator">[</span>options<span class="operator">]</span> <span class="operator">[</span>config:configuration<span class="operator">-</span>name<span class="operator">]</span> <span class="operator">[</span>property:value<span class="operator">]</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs shell <span class="operator">[</span>options<span class="operator">]</span> <span class="operator">[</span>config:configuration<span class="operator">-</span>name<span class="operator">]</span> <span class="operator">[</span>property:value<span class="operator">]</span></code></pre>
 <h2 id="description">Description</h2>
 <p>Opens a shell in the environment that a build with the specified parameters would use.</p>
 <p>For more information, see <a href="https://qbs.io/
@@ -169,7 +236,7 @@ Relative paths will be interpreted relative to the current directory.">
 <p>Qbs can build a project for one or multiple configurations at once, each having a different set of parameters. The <code translate="no">config</code> parameter has a special function: with each occurrence a new configuration instance begins and all subsequent parameters until the next <code translate="no">config</code> are assigned to this instance. Parameter assignments before the first occurrence of <code translate="no">config</code> are applied to all build configurations. Inside products and modules, the current active build configuration can be retrieved via <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#configurationName-prop" translate="no">qbs.configurationName</a>.</p>
 <p>In the following snippet, a profile <code translate="no">clang</code> is applied to all configurations while <code translate="no">cpp.optimization</code> is different for <code translate="no">debug</code> and <code translate="no">release</code>:</p>
-<pre class="cpp" translate="no">profile:clang config:debug cpp<span class="operator">.</span>optimization:none config:release cpp<span class="operator">.</span>optimization:small</pre>
+<pre class="cpp" translate="no"><code class="cpp">profile:clang config:debug cpp<span class="operator">.</span>optimization:none config:release cpp<span class="operator">.</span>optimization:small</code></pre>
 <p>The value of <code translate="no">config</code> determines the name of the build folder and affects the default value of the <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#buildVariant-prop" translate="no">qbs.buildVariant</a> property. Qbs knows the <code translate="no">config</code> values <code translate="no">"debug"</code> and <code translate="no">"release"</code>, but in general any name can be chosen. When naming configurations created for special purposes, follow the rules for legal names generally used in programming languages:</p>
 <ul>
@@ -178,12 +245,12 @@ Relative paths will be interpreted relative to the current directory.">
 </ul>
 <h3 id="property-value"><code translate="no">property:value</code></h3>
 <p>Property values set in project files or profiles can be overridden on the command line. The syntax is:</p>
-<pre class="cpp" translate="no"><span class="operator">&lt;</span>prefix<span class="operator">&gt;</span><span class="operator">.</span><span class="operator">&lt;</span>property<span class="operator">-</span>name<span class="operator">&gt;</span>:<span class="operator">&lt;</span>property<span class="operator">-</span>value<span class="operator">&gt;</span></pre>
+<pre class="cpp" translate="no"><code class="cpp"><span class="operator">&lt;</span>prefix<span class="operator">&gt;</span><span class="operator">.</span><span class="operator">&lt;</span>property<span class="operator">-</span>name<span class="operator">&gt;</span>:<span class="operator">&lt;</span>property<span class="operator">-</span>value<span class="operator">&gt;</span></code></pre>
 <p>For more information, see <a href="https://qbs.io/
 /docs/language-introduction/#overriding-property-values-from-the-command-line">Overriding Property Values from the Command Line</a>.</p>
 <h2 id="examples">Examples</h2>
 <p>Opens a shell with the same environment that Qbs uses when building the project:</p>
-<pre class="cpp" translate="no">qbs shell</pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs shell</code></pre>
 </div>
 <!-- @@@cli-shell.html -->
 </div>

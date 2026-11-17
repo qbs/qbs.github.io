@@ -38,7 +38,37 @@ sysroot : path
 
 
 Detailed Description
-The pkgconfig module is used to fine-tune the behavior of the pkg-config tool, which is potentially employed when looking up dependencies. ">
+The pkgconfig module is used to fine-tune the behavior of the pkg-config tool, which is potentially employed when looking up dependencies.
+
+Property Documentation
+
+executableFilePath : string
+The path to the pkg-config executable.
+Default: auto-detected
+
+
+libDirs : stringList
+Set this if you need to overwrite the default search directories. The values given here will be forwarded to the tool via the PKG_CONFIG_LIBDIR environment variable.
+
+Note: You do not need to set this for cross-compilation in order to point pkg-config to the sysroot. Qbs does that for you.
+
+Default: Undefined
+
+
+staticMode : bool
+If this property is true, then calls to pkg-config will include the --static option. Set this if your product is to be linked statically.
+Default: false
+
+
+sysroot : path
+This property controls the value of the PkgConfigProbe.sysroot property.
+Set this property if you need to overwrite the default search sysroot path used by pkg-config.
+This can be useful if pkg-config files are located in the directory other than qbs.sysroot. This is the case on macOS platform - all XCode profiles are sysrooted to the SDK directory, but pkg-config is typically intalled using Brew and resides in the /usr/local directory.
+Setting this property to undefined or empty (&#34;&#34;) value will use pkg-config&#39;s default search paths:
+qbs build modules.pkgconfig.sysroot:undefined
+Default: &#34;&#34; on macOS, qbs.sysroot on other platforms
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-pkgconfig/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -48,14 +78,26 @@ The pkgconfig module is used to fine-tune the behavior of the pkg-config tool, w
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-pkgconfig/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual QbsModules pkgconfig Qbs 3.4.0 Contents Properties Detailed Description pkgconfig Allows to configure the pkg-config tool. More...
-Since: 1.13 List of all members, including inherited members Properties executableFilePath : string libDirs : stringList staticMode : bool sysroot : path Detailed Description The pkgconfig module is used to fine-tune the behavior of the pkg-config tool, which is potentially employed when looking up dependencies.">
+Since: 1.13 List of all members, including inherited members Properties executableFilePath : string libDirs : stringList staticMode : bool sysroot : path Detailed Description The pkgconfig module is used to fine-tune the behavior of the pkg-config tool, which is potentially employed when looking up dependencies.
+Property Documentation executableFilePath : string The path to the pkg-config executable.
+Default: auto-detected
+libDirs : stringList Set this if you need to overwrite the default search directories. The values given here will be forwarded to the tool via the PKG_CONFIG_LIBDIR environment variable.
+Note: You do not need to set this for cross-compilation in order to point pkg-config to the sysroot. Qbs does that for you.
+Default: Undefined
+staticMode : bool If this property is true, then calls to pkg-config will include the --static option. Set this if your product is to be linked statically.
+Default: false
+sysroot : path This property controls the value of the PkgConfigProbe.sysroot property.
+Set this property if you need to overwrite the default search sysroot path used by pkg-config.
+This can be useful if pkg-config files are located in the directory other than qbs.sysroot. This is the case on macOS platform - all XCode profiles are sysrooted to the SDK directory, but pkg-config is typically intalled using Brew and resides in the /usr/local directory.
+Setting this property to undefined or empty (&#34;&#34;) value will use pkg-config&#39;s default search paths:
+qbs build modules.pkgconfig.sysroot:undefined Default: &#34;&#34; on macOS, qbs.sysroot on other platforms">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -64,7 +106,19 @@ Since: 1.13 List of all members, including inherited members Properties executab
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual QbsModules pkgconfig Qbs 3.4.0 Contents Properties Detailed Description pkgconfig Allows to configure the pkg-config tool. More...
-Since: 1.13 List of all members, including inherited members Properties executableFilePath : string libDirs : stringList staticMode : bool sysroot : path Detailed Description The pkgconfig module is used to fine-tune the behavior of the pkg-config tool, which is potentially employed when looking up dependencies.">
+Since: 1.13 List of all members, including inherited members Properties executableFilePath : string libDirs : stringList staticMode : bool sysroot : path Detailed Description The pkgconfig module is used to fine-tune the behavior of the pkg-config tool, which is potentially employed when looking up dependencies.
+Property Documentation executableFilePath : string The path to the pkg-config executable.
+Default: auto-detected
+libDirs : stringList Set this if you need to overwrite the default search directories. The values given here will be forwarded to the tool via the PKG_CONFIG_LIBDIR environment variable.
+Note: You do not need to set this for cross-compilation in order to point pkg-config to the sysroot. Qbs does that for you.
+Default: Undefined
+staticMode : bool If this property is true, then calls to pkg-config will include the --static option. Set this if your product is to be linked statically.
+Default: false
+sysroot : path This property controls the value of the PkgConfigProbe.sysroot property.
+Set this property if you need to overwrite the default search sysroot path used by pkg-config.
+This can be useful if pkg-config files are located in the directory other than qbs.sysroot. This is the case on macOS platform - all XCode profiles are sysrooted to the SDK directory, but pkg-config is typically intalled using Brew and resides in the /usr/local directory.
+Setting this property to undefined or empty (&#34;&#34;) value will use pkg-config&#39;s default search paths:
+qbs build modules.pkgconfig.sysroot:undefined Default: &#34;&#34; on macOS, qbs.sysroot on other platforms">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -167,7 +221,7 @@ Since: 1.13 List of all members, including inherited members Properties executab
 <p>Set this property if you need to overwrite the default search sysroot path used by <code translate="no">pkg-config</code>.</p>
 <p>This can be useful if <code translate="no">pkg-config</code> files are located in the directory other than qbs.sysroot. This is the case on macOS platform - all XCode profiles are sysrooted to the SDK directory, but <code translate="no">pkg-config</code> is typically intalled using Brew and resides in the <code translate="no">/usr/local</code> directory.</p>
 <p>Setting this property to <code translate="no">undefined</code> or empty (<code translate="no">""</code>) value will use pkg-config's default search paths:</p>
-<pre class="cpp" translate="no">qbs build modules<span class="operator">.</span>pkgconfig<span class="operator">.</span>sysroot:undefined</pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs build modules<span class="operator">.</span>pkgconfig<span class="operator">.</span>sysroot:undefined</code></pre>
 <p>Default: <code translate="no">""</code> on macOS, <code translate="no">qbs.sysroot</code> on other platforms</p>
 <!-- @@@sysroot -->
 </div>

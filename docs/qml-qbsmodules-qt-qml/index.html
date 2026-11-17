@@ -48,7 +48,116 @@ typesInstallDir : string (since Qbs 1.16)
 
 
 Detailed Description
-The Qt.qml module provides support for the Qt QML module, which contains classes for QML and JavaScript languages. ">
+The Qt.qml module provides support for the Qt QML module, which contains classes for QML and JavaScript languages.
+
+Note: If the current value of qbs.architecture is not supported by qmlcachegen, the QML cache file generator rule is disabled.
+
+Relevant File Tags
+
+TagAuto-tagged File NamesSinceDescription
+&#34;qt.qml.js&#34;*.js1.10QML companion JavaScript files. Source files with this tag serve as input for the QML cache file generator.
+&#34;qt.qml.qml&#34;*.qml1.8Source files with this tag serve as inputs to the QML plugin scanner.
+&#34;qt.qml.types&#34;n/a1.16This tag is attached to the files created by the qmltyperegistrar tool if the importName property is set.
+
+See also Qt.quick and Qt.declarative.
+
+Property Documentation
+
+cacheFilesInstallDir : string
+The path to the directory where the cache files are installed.
+If this property is set, QML cache files are automatically installed.
+Default: Undefined
+
+
+cachingEnabled : bool [read-only]
+This property is true if generateCacheFiles is true and the platform supports QML cache generation.
+Default: false
+
+
+extraMetaTypesFiles : stringList [since Qbs 1.16]
+Specifies extra metatypes files to pass to the qmltyperegistrar tool via the --foreign-types option when registering QML types.
+
+Note: This property is only needed for external libraries, not products or modules pulled via Depends items. In particular, you don&#39;t need to (and should not) use it to collect the metatypes files of Qt modules. These are found automatically. This property has no effect if importName is not set.
+
+Default: Undefined
+This property was introduced in Qbs 1.16.
+
+
+generateCacheFiles : bool
+Whether QML cache files are generated.
+Default: false
+
+
+importName : string [since Qbs 1.16]
+Setting this value triggers QML type registration via the qmltyperegistrar tool, which results in the creation of a file with the tag &#34;qt.qml.types&#34;. The given string is the name under which the registered types can be imported by QML code that wants to use them.
+
+Note: This functionality is only available with Qt 5.15 or later.
+
+Default: Undefined
+This property was introduced in Qbs 1.16.
+
+
+importVersion : string [since Qbs 1.16]
+Specifies the version of the types to be registered. Values consist of a major and an optional minor number, separated by dots. This property has no effect if importName is not set.
+Default: The product version
+This property was introduced in Qbs 1.16.
+
+
+loadedAtRuntime : bool [since Qbs 3.4]
+Controls whether the generated qmldir contains a plugin line (and, if pluginClassName is set, a classname line).
+The default value already matches the expected behaviour in most cases: true for dynamic and loadable-module products so the QML engine can discover and load the plugin at runtime, and false for static libraries where no dynamic loading takes place.
+The one case that requires an explicit override is a dynamic library that is linked directly into the application at build time. In that case set this property to false so that the QML engine can adapt its run-time behavior accordingly.
+This property has no effect if importName is not set.
+Default: true for dynamic and loadable-module products, false for static libraries.
+This property was introduced in Qbs 3.4.
+
+
+pluginClassName : string [since Qbs 3.4]
+The C&#43;&#43; class name of the QQmlExtensionPlugin subclass.
+When loadedAtRuntime is true and this property is set, a classname line is written into the generated qmldir. The QML engine uses this name to instantiate the plugin object after loading the plugin library at runtime.
+This property has no effect if importName is not set.
+Default: Undefined
+This property was introduced in Qbs 3.4.
+
+
+qmlCacheGenPath : string
+The absolute path to the qmlcachegen executable.
+Default: Determined by setup-qt.
+
+
+qmlImportScannerName : string
+The base name of the QML import scanner.
+Set this value if your system uses a name different from the default value.
+Default: &#34;qmlimportscanner&#34;
+
+
+qmlPath : string
+The absolute path to the directory where Qt&#39;s QML files are installed.
+Default: Determined by setup-qt.
+
+
+qmldirInstallDir : string [since Qbs 3.4]
+The directory where the generated qmldir file is installed. If empty or undefined, the file will not be installed.
+This property has no effect if importName is not set.
+Default: Undefined
+This property was introduced in Qbs 3.4.
+
+
+typesFileName : string [since Qbs 1.16]
+Specifies the name of the file that declares the types registered for this product. For applications, the default value is &lt;name&gt;.qmltypes, where &lt;name&gt; is the product&#39;s target name. Otherwise, the default value is &#34;plugins.qmltypes&#34;.
+
+Note: The naming conventions are still in flux. When in doubt, consult the Qt documentation.
+
+This property has no effect if importName is not set.
+This property was introduced in Qbs 1.16.
+
+
+typesInstallDir : string [since Qbs 1.16]
+The directory to install the qmltypes file into. If this property is empty or undefined, the file will not be installed. This property has no effect if importName is not set.
+Default: Undefined
+This property was introduced in Qbs 1.16.
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-qt-qml/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -58,14 +167,63 @@ The Qt.qml module provides support for the Qt QML module, which contains classes
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-qt-qml/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual QbsModules Qt.qml Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags Qt.qml Provides Qt QML support. More...
-List of all members, including inherited members Properties cacheFilesInstallDir : string cachingEnabled : bool extraMetaTypesFiles : stringList (since Qbs 1.16) generateCacheFiles : bool importName : string (since Qbs 1.16) importVersion : string (since Qbs 1.16) loadedAtRuntime : bool (since Qbs 3.4) pluginClassName : string (since Qbs 3.4) qmlCacheGenPath : string qmlImportScannerName : string qmlPath : string qmldirInstallDir : string (since Qbs 3.4) typesFileName : string (since Qbs 1.16) typesInstallDir : string (since Qbs 1.16) Detailed Description The Qt.qml module provides support for the Qt QML module, which contains classes for QML and JavaScript languages.">
+List of all members, including inherited members Properties cacheFilesInstallDir : string cachingEnabled : bool extraMetaTypesFiles : stringList (since Qbs 1.16) generateCacheFiles : bool importName : string (since Qbs 1.16) importVersion : string (since Qbs 1.16) loadedAtRuntime : bool (since Qbs 3.4) pluginClassName : string (since Qbs 3.4) qmlCacheGenPath : string qmlImportScannerName : string qmlPath : string qmldirInstallDir : string (since Qbs 3.4) typesFileName : string (since Qbs 1.16) typesInstallDir : string (since Qbs 1.16) Detailed Description The Qt.qml module provides support for the Qt QML module, which contains classes for QML and JavaScript languages.
+Note: If the current value of qbs.architecture is not supported by qmlcachegen, the QML cache file generator rule is disabled.
+Relevant File Tags Tag Auto-tagged File Names Since Description &#34;qt.qml.js&#34; *.js 1.10 QML companion JavaScript files. Source files with this tag serve as input for the QML cache file generator. &#34;qt.qml.qml&#34; *.qml 1.8 Source files with this tag serve as inputs to the QML plugin scanner. &#34;qt.qml.types&#34; n/a 1.16 This tag is attached to the files created by the qmltyperegistrar tool if the importName property is set. See also Qt.quick and Qt.declarative.
+Property Documentation cacheFilesInstallDir : string The path to the directory where the cache files are installed.
+If this property is set, QML cache files are automatically installed.
+Default: Undefined
+cachingEnabled : bool [read-only] This property is true if generateCacheFiles is true and the platform supports QML cache generation.
+Default: false
+extraMetaTypesFiles : stringList [since Qbs 1.16] Specifies extra metatypes files to pass to the qmltyperegistrar tool via the --foreign-types option when registering QML types.
+Note: This property is only needed for external libraries, not products or modules pulled via Depends items. In particular, you don&#39;t need to (and should not) use it to collect the metatypes files of Qt modules. These are found automatically. This property has no effect if importName is not set.
+Default: Undefined
+This property was introduced in Qbs 1.16.
+generateCacheFiles : bool Whether QML cache files are generated.
+Default: false
+importName : string [since Qbs 1.16] Setting this value triggers QML type registration via the qmltyperegistrar tool, which results in the creation of a file with the tag &#34;qt.qml.types&#34;. The given string is the name under which the registered types can be imported by QML code that wants to use them.
+Note: This functionality is only available with Qt 5.15 or later.
+Default: Undefined
+This property was introduced in Qbs 1.16.
+importVersion : string [since Qbs 1.16] Specifies the version of the types to be registered. Values consist of a major and an optional minor number, separated by dots. This property has no effect if importName is not set.
+Default: The product version
+This property was introduced in Qbs 1.16.
+loadedAtRuntime : bool [since Qbs 3.4] Controls whether the generated qmldir contains a plugin line (and, if pluginClassName is set, a classname line).
+The default value already matches the expected behaviour in most cases: true for dynamic and loadable-module products so the QML engine can discover and load the plugin at runtime, and false for static libraries where no dynamic loading takes place.
+The one case that requires an explicit override is a dynamic library that is linked directly into the application at build time. In that case set this property to false so that the QML engine can adapt its run-time behavior accordingly.
+This property has no effect if importName is not set.
+Default: true for dynamic and loadable-module products, false for static libraries.
+This property was introduced in Qbs 3.4.
+pluginClassName : string [since Qbs 3.4] The C&#43;&#43; class name of the QQmlExtensionPlugin subclass.
+When loadedAtRuntime is true and this property is set, a classname line is written into the generated qmldir. The QML engine uses this name to instantiate the plugin object after loading the plugin library at runtime.
+This property has no effect if importName is not set.
+Default: Undefined
+This property was introduced in Qbs 3.4.
+qmlCacheGenPath : string The absolute path to the qmlcachegen executable.
+Default: Determined by setup-qt.
+qmlImportScannerName : string The base name of the QML import scanner.
+Set this value if your system uses a name different from the default value.
+Default: &#34;qmlimportscanner&#34;
+qmlPath : string The absolute path to the directory where Qt&#39;s QML files are installed.
+Default: Determined by setup-qt.
+qmldirInstallDir : string [since Qbs 3.4] The directory where the generated qmldir file is installed. If empty or undefined, the file will not be installed.
+This property has no effect if importName is not set.
+Default: Undefined
+This property was introduced in Qbs 3.4.
+typesFileName : string [since Qbs 1.16] Specifies the name of the file that declares the types registered for this product. For applications, the default value is &lt;name&gt;.qmltypes, where &lt;name&gt; is the product&#39;s target name. Otherwise, the default value is &#34;plugins.qmltypes&#34;.
+Note: The naming conventions are still in flux. When in doubt, consult the Qt documentation.
+This property has no effect if importName is not set.
+This property was introduced in Qbs 1.16.
+typesInstallDir : string [since Qbs 1.16] The directory to install the qmltypes file into. If this property is empty or undefined, the file will not be installed. This property has no effect if importName is not set.
+Default: Undefined
+This property was introduced in Qbs 1.16.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -74,7 +232,56 @@ List of all members, including inherited members Properties cacheFilesInstallDir
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual QbsModules Qt.qml Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags Qt.qml Provides Qt QML support. More...
-List of all members, including inherited members Properties cacheFilesInstallDir : string cachingEnabled : bool extraMetaTypesFiles : stringList (since Qbs 1.16) generateCacheFiles : bool importName : string (since Qbs 1.16) importVersion : string (since Qbs 1.16) loadedAtRuntime : bool (since Qbs 3.4) pluginClassName : string (since Qbs 3.4) qmlCacheGenPath : string qmlImportScannerName : string qmlPath : string qmldirInstallDir : string (since Qbs 3.4) typesFileName : string (since Qbs 1.16) typesInstallDir : string (since Qbs 1.16) Detailed Description The Qt.qml module provides support for the Qt QML module, which contains classes for QML and JavaScript languages.">
+List of all members, including inherited members Properties cacheFilesInstallDir : string cachingEnabled : bool extraMetaTypesFiles : stringList (since Qbs 1.16) generateCacheFiles : bool importName : string (since Qbs 1.16) importVersion : string (since Qbs 1.16) loadedAtRuntime : bool (since Qbs 3.4) pluginClassName : string (since Qbs 3.4) qmlCacheGenPath : string qmlImportScannerName : string qmlPath : string qmldirInstallDir : string (since Qbs 3.4) typesFileName : string (since Qbs 1.16) typesInstallDir : string (since Qbs 1.16) Detailed Description The Qt.qml module provides support for the Qt QML module, which contains classes for QML and JavaScript languages.
+Note: If the current value of qbs.architecture is not supported by qmlcachegen, the QML cache file generator rule is disabled.
+Relevant File Tags Tag Auto-tagged File Names Since Description &#34;qt.qml.js&#34; *.js 1.10 QML companion JavaScript files. Source files with this tag serve as input for the QML cache file generator. &#34;qt.qml.qml&#34; *.qml 1.8 Source files with this tag serve as inputs to the QML plugin scanner. &#34;qt.qml.types&#34; n/a 1.16 This tag is attached to the files created by the qmltyperegistrar tool if the importName property is set. See also Qt.quick and Qt.declarative.
+Property Documentation cacheFilesInstallDir : string The path to the directory where the cache files are installed.
+If this property is set, QML cache files are automatically installed.
+Default: Undefined
+cachingEnabled : bool [read-only] This property is true if generateCacheFiles is true and the platform supports QML cache generation.
+Default: false
+extraMetaTypesFiles : stringList [since Qbs 1.16] Specifies extra metatypes files to pass to the qmltyperegistrar tool via the --foreign-types option when registering QML types.
+Note: This property is only needed for external libraries, not products or modules pulled via Depends items. In particular, you don&#39;t need to (and should not) use it to collect the metatypes files of Qt modules. These are found automatically. This property has no effect if importName is not set.
+Default: Undefined
+This property was introduced in Qbs 1.16.
+generateCacheFiles : bool Whether QML cache files are generated.
+Default: false
+importName : string [since Qbs 1.16] Setting this value triggers QML type registration via the qmltyperegistrar tool, which results in the creation of a file with the tag &#34;qt.qml.types&#34;. The given string is the name under which the registered types can be imported by QML code that wants to use them.
+Note: This functionality is only available with Qt 5.15 or later.
+Default: Undefined
+This property was introduced in Qbs 1.16.
+importVersion : string [since Qbs 1.16] Specifies the version of the types to be registered. Values consist of a major and an optional minor number, separated by dots. This property has no effect if importName is not set.
+Default: The product version
+This property was introduced in Qbs 1.16.
+loadedAtRuntime : bool [since Qbs 3.4] Controls whether the generated qmldir contains a plugin line (and, if pluginClassName is set, a classname line).
+The default value already matches the expected behaviour in most cases: true for dynamic and loadable-module products so the QML engine can discover and load the plugin at runtime, and false for static libraries where no dynamic loading takes place.
+The one case that requires an explicit override is a dynamic library that is linked directly into the application at build time. In that case set this property to false so that the QML engine can adapt its run-time behavior accordingly.
+This property has no effect if importName is not set.
+Default: true for dynamic and loadable-module products, false for static libraries.
+This property was introduced in Qbs 3.4.
+pluginClassName : string [since Qbs 3.4] The C&#43;&#43; class name of the QQmlExtensionPlugin subclass.
+When loadedAtRuntime is true and this property is set, a classname line is written into the generated qmldir. The QML engine uses this name to instantiate the plugin object after loading the plugin library at runtime.
+This property has no effect if importName is not set.
+Default: Undefined
+This property was introduced in Qbs 3.4.
+qmlCacheGenPath : string The absolute path to the qmlcachegen executable.
+Default: Determined by setup-qt.
+qmlImportScannerName : string The base name of the QML import scanner.
+Set this value if your system uses a name different from the default value.
+Default: &#34;qmlimportscanner&#34;
+qmlPath : string The absolute path to the directory where Qt&#39;s QML files are installed.
+Default: Determined by setup-qt.
+qmldirInstallDir : string [since Qbs 3.4] The directory where the generated qmldir file is installed. If empty or undefined, the file will not be installed.
+This property has no effect if importName is not set.
+Default: Undefined
+This property was introduced in Qbs 3.4.
+typesFileName : string [since Qbs 1.16] Specifies the name of the file that declares the types registered for this product. For applications, the default value is &lt;name&gt;.qmltypes, where &lt;name&gt; is the product&#39;s target name. Otherwise, the default value is &#34;plugins.qmltypes&#34;.
+Note: The naming conventions are still in flux. When in doubt, consult the Qt documentation.
+This property has no effect if importName is not set.
+This property was introduced in Qbs 1.16.
+typesInstallDir : string [since Qbs 1.16] The directory to install the qmltypes file into. If this property is empty or undefined, the file will not be installed. This property has no effect if importName is not set.
+Default: Undefined
+This property was introduced in Qbs 1.16.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">

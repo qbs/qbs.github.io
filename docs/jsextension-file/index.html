@@ -29,7 +29,53 @@ File Service
 
 
 The File service offers limited access to the file system for operations such as copying or removing files.
-Operations that return information about a file have their result tracked, which means the call will be re-run on the next invocation of Qbs and compared to the previous value. If the values differ, the project will be re-resolved (if the call appears on the right-hand side of a property) or, if it is in a rule or command script, that rule or command will be re-run. ">
+Operations that return information about a file have their result tracked, which means the call will be re-run on the next invocation of Qbs and compared to the previous value. If the values differ, the project will be re-resolved (if the call appears on the right-hand side of a property) or, if it is in a rule or command script, that rule or command will be re-run.
+Available Operations
+canonicalFilePath
+File.canonicalFilePath(filePath: string): string
+Returns the canonical path of filePath, that is, an absolute path without symbolic links or redundant &#34;.&#34; or &#34;..&#34; elements. If the file does not exist, an empty string is returned.
+
+Note: The result of this operation is tracked.
+
+copy
+File.copy(sourceFilePath: string, targetFilePath: string): boolean
+Copies sourceFilePath to targetFilePath. Any directory components in targetFilePath that do not yet exist will be created. If sourceFilePath is a directory, a recursive copy will be made. If an error occurs, a JavaScript exception will be thrown.
+
+Note: targetFilePath must be the counterpart of sourceFilePath at the new location, not the new parent directory. This allows the copy to have a different name and is true even if sourceFilePath is a directory.
+
+
+Note: The file is not copied if the source file timestamp is older than the destination file timestamp. If you want to replace the newer file, you need to remove it first via File.remove().
+
+exists
+File.exists(filePath: string): boolean
+Returns true if and only if there is a file at filePath.
+
+Note: The result of this operation is tracked.
+
+directoryEntries
+File.directoryEntries(path: string, filter: File.Filter): string[]
+Returns a sorted list of the directory path&#39;s contents non-recursively, filtered by filter. The values of filter are equivalent to Qt&#39;s QDir::Filter.
+
+Note: The result of this operation is tracked.
+
+lastModified
+File.lastModified(filePath: string): number
+Returns the time of last modification for the file at filePath. The concrete semantics of the returned value are platform-specific. You should only rely on the property that a smaller value indicates an older timestamp.
+
+Note: The result of this operation is tracked.
+
+makePath
+File.makePath(path: string): boolean
+Makes the directory at path, creating intermediate directories if necessary. Conceptually equivalent to mkdir -p
+move
+File.move(oldPath: string, newPath: string, overwrite: boolean = true): boolean
+Renames the file oldPath to newPath. Returns true on success and throws an error on failure. If a file with the name newPath already exists and overwrite is false, the file is not overwritten and an error is thrown.
+remove
+File.remove(filePath: string): boolean
+Removes the file at filePath. In case of a directory, it will be removed recursively.
+
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/jsextension-file/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -39,14 +85,28 @@ Operations that return information about a file have their result tracked, which
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/jsextension-file/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual List of Built-in Services File Service Qbs 3.4.0 Contents Available Operations canonicalFilePath copy exists directoryEntries lastModified makePath move remove File Service The File service offers limited access to the file system for operations such as copying or removing files.
-Operations that return information about a file have their result tracked, which means the call will be re-run on the next invocation of Qbs and compared to the previous value. If the values differ, the project will be re-resolved (if the call appears on the right-hand side of a property) or, if it is in a rule or command script, that rule or command will be re-run.">
+Operations that return information about a file have their result tracked, which means the call will be re-run on the next invocation of Qbs and compared to the previous value. If the values differ, the project will be re-resolved (if the call appears on the right-hand side of a property) or, if it is in a rule or command script, that rule or command will be re-run.
+Available Operations canonicalFilePath File.canonicalFilePath(filePath: string): string Returns the canonical path of filePath, that is, an absolute path without symbolic links or redundant &#34;.&#34; or &#34;..&#34; elements. If the file does not exist, an empty string is returned.
+Note: The result of this operation is tracked.
+copy File.copy(sourceFilePath: string, targetFilePath: string): boolean Copies sourceFilePath to targetFilePath. Any directory components in targetFilePath that do not yet exist will be created. If sourceFilePath is a directory, a recursive copy will be made. If an error occurs, a JavaScript exception will be thrown.
+Note: targetFilePath must be the counterpart of sourceFilePath at the new location, not the new parent directory. This allows the copy to have a different name and is true even if sourceFilePath is a directory.
+Note: The file is not copied if the source file timestamp is older than the destination file timestamp. If you want to replace the newer file, you need to remove it first via File.remove().
+exists File.exists(filePath: string): boolean Returns true if and only if there is a file at filePath.
+Note: The result of this operation is tracked.
+directoryEntries File.directoryEntries(path: string, filter: File.Filter): string[] Returns a sorted list of the directory path&#39;s contents non-recursively, filtered by filter. The values of filter are equivalent to Qt&#39;s QDir::Filter.
+Note: The result of this operation is tracked.
+lastModified File.lastModified(filePath: string): number Returns the time of last modification for the file at filePath. The concrete semantics of the returned value are platform-specific. You should only rely on the property that a smaller value indicates an older timestamp.
+Note: The result of this operation is tracked.
+makePath File.makePath(path: string): boolean Makes the directory at path, creating intermediate directories if necessary. Conceptually equivalent to mkdir -p
+move File.move(oldPath: string, newPath: string, overwrite: boolean = true): boolean Renames the file oldPath to newPath. Returns true on success and throws an error on failure. If a file with the name newPath already exists and overwrite is false, the file is not overwritten and an error is thrown.
+remove File.remove(filePath: string): boolean Removes the file at filePath. In case of a directory, it will be removed recursively.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -55,7 +115,21 @@ Operations that return information about a file have their result tracked, which
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual List of Built-in Services File Service Qbs 3.4.0 Contents Available Operations canonicalFilePath copy exists directoryEntries lastModified makePath move remove File Service The File service offers limited access to the file system for operations such as copying or removing files.
-Operations that return information about a file have their result tracked, which means the call will be re-run on the next invocation of Qbs and compared to the previous value. If the values differ, the project will be re-resolved (if the call appears on the right-hand side of a property) or, if it is in a rule or command script, that rule or command will be re-run.">
+Operations that return information about a file have their result tracked, which means the call will be re-run on the next invocation of Qbs and compared to the previous value. If the values differ, the project will be re-resolved (if the call appears on the right-hand side of a property) or, if it is in a rule or command script, that rule or command will be re-run.
+Available Operations canonicalFilePath File.canonicalFilePath(filePath: string): string Returns the canonical path of filePath, that is, an absolute path without symbolic links or redundant &#34;.&#34; or &#34;..&#34; elements. If the file does not exist, an empty string is returned.
+Note: The result of this operation is tracked.
+copy File.copy(sourceFilePath: string, targetFilePath: string): boolean Copies sourceFilePath to targetFilePath. Any directory components in targetFilePath that do not yet exist will be created. If sourceFilePath is a directory, a recursive copy will be made. If an error occurs, a JavaScript exception will be thrown.
+Note: targetFilePath must be the counterpart of sourceFilePath at the new location, not the new parent directory. This allows the copy to have a different name and is true even if sourceFilePath is a directory.
+Note: The file is not copied if the source file timestamp is older than the destination file timestamp. If you want to replace the newer file, you need to remove it first via File.remove().
+exists File.exists(filePath: string): boolean Returns true if and only if there is a file at filePath.
+Note: The result of this operation is tracked.
+directoryEntries File.directoryEntries(path: string, filter: File.Filter): string[] Returns a sorted list of the directory path&#39;s contents non-recursively, filtered by filter. The values of filter are equivalent to Qt&#39;s QDir::Filter.
+Note: The result of this operation is tracked.
+lastModified File.lastModified(filePath: string): number Returns the time of last modification for the file at filePath. The concrete semantics of the returned value are platform-specific. You should only rely on the property that a smaller value indicates an older timestamp.
+Note: The result of this operation is tracked.
+makePath File.makePath(path: string): boolean Makes the directory at path, creating intermediate directories if necessary. Conceptually equivalent to mkdir -p
+move File.move(oldPath: string, newPath: string, overwrite: boolean = true): boolean Renames the file oldPath to newPath. Returns true on success and throws an error on failure. If a file with the name newPath already exists and overwrite is false, the file is not overwritten and an error is thrown.
+remove File.remove(filePath: string): boolean Removes the file at filePath. In case of a directory, it will be removed recursively.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -120,14 +194,14 @@ Operations that return information about a file have their result tracked, which
 /docs/commands/#command">command</a> script, that rule or command will be re-run.</p>
 <h2 id="available-operations">Available Operations</h2>
 <h3 id="canonicalfilepath">canonicalFilePath</h3>
-<pre class="cpp" translate="no">File<span class="operator">.</span>canonicalFilePath(filePath: string): string</pre>
+<pre class="cpp" translate="no"><code class="cpp">File<span class="operator">.</span>canonicalFilePath(filePath: string): string</code></pre>
 <p>Returns the canonical path of <code translate="no">filePath</code>, that is, an absolute path without symbolic links or redundant "." or ".." elements. If the file does not exist, an empty string is returned.</p>
 <div class="admonition note">
 <p><b>Note: </b>The result of this operation is <a href="https://qbs.io/
 /docs/jsextension-file/#tracking">tracked</a>.</p>
 </div>
 <h3 id="copy">copy</h3>
-<pre class="cpp" translate="no">File<span class="operator">.</span>copy(sourceFilePath: string<span class="operator">,</span> targetFilePath: string): boolean</pre>
+<pre class="cpp" translate="no"><code class="cpp">File<span class="operator">.</span>copy(sourceFilePath: string<span class="operator">,</span> targetFilePath: string): boolean</code></pre>
 <p>Copies <code translate="no">sourceFilePath</code> to <code translate="no">targetFilePath</code>. Any directory components in <code translate="no">targetFilePath</code> that do not yet exist will be created. If <code translate="no">sourceFilePath</code> is a directory, a recursive copy will be made. If an error occurs, a JavaScript exception will be thrown.</p>
 <div class="admonition note">
 <p><b>Note: </b><code translate="no">targetFilePath</code> must be the counterpart of <code translate="no">sourceFilePath</code> at the new location, <b>not</b> the new parent directory. This allows the copy to have a different name and is true even if <code translate="no">sourceFilePath</code> is a directory.</p>
@@ -136,34 +210,34 @@ Operations that return information about a file have their result tracked, which
 <p><b>Note: </b>The file is not copied if the source file timestamp is older than the destination file timestamp. If you want to replace the newer file, you need to remove it first via File.remove().</p>
 </div>
 <h3 id="exists">exists</h3>
-<pre class="cpp" translate="no">File<span class="operator">.</span>exists(filePath: string): boolean</pre>
+<pre class="cpp" translate="no"><code class="cpp">File<span class="operator">.</span>exists(filePath: string): boolean</code></pre>
 <p>Returns true if and only if there is a file at <code translate="no">filePath</code>.</p>
 <div class="admonition note">
 <p><b>Note: </b>The result of this operation is <a href="https://qbs.io/
 /docs/jsextension-file/#tracking">tracked</a>.</p>
 </div>
 <h3 id="directoryentries">directoryEntries</h3>
-<pre class="cpp" translate="no">File<span class="operator">.</span>directoryEntries(path: string<span class="operator">,</span> filter: File<span class="operator">.</span>Filter): string<span class="operator">[</span><span class="operator">]</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">File<span class="operator">.</span>directoryEntries(path: string<span class="operator">,</span> filter: File<span class="operator">.</span>Filter): string<span class="operator">[</span><span class="operator">]</span></code></pre>
 <p>Returns a sorted list of the directory <code translate="no">path</code>'s contents non-recursively, filtered by <code translate="no">filter</code>. The values of <code translate="no">filter</code> are equivalent to Qt's <code translate="no">QDir::Filter</code>.</p>
 <div class="admonition note">
 <p><b>Note: </b>The result of this operation is <a href="https://qbs.io/
 /docs/jsextension-file/#tracking">tracked</a>.</p>
 </div>
 <h3 id="lastmodified">lastModified</h3>
-<pre class="cpp" translate="no">File<span class="operator">.</span>lastModified(filePath: string): number</pre>
+<pre class="cpp" translate="no"><code class="cpp">File<span class="operator">.</span>lastModified(filePath: string): number</code></pre>
 <p>Returns the time of last modification for the file at <code translate="no">filePath</code>. The concrete semantics of the returned value are platform-specific. You should only rely on the property that a smaller value indicates an older timestamp.</p>
 <div class="admonition note">
 <p><b>Note: </b>The result of this operation is <a href="https://qbs.io/
 /docs/jsextension-file/#tracking">tracked</a>.</p>
 </div>
 <h3 id="makepath">makePath</h3>
-<pre class="cpp" translate="no">File<span class="operator">.</span>makePath(path: string): boolean</pre>
+<pre class="cpp" translate="no"><code class="cpp">File<span class="operator">.</span>makePath(path: string): boolean</code></pre>
 <p>Makes the directory at <code translate="no">path</code>, creating intermediate directories if necessary. Conceptually equivalent to <code translate="no">mkdir -p</code></p>
 <h3 id="move">move</h3>
-<pre class="cpp" translate="no">File<span class="operator">.</span>move(oldPath: string<span class="operator">,</span> newPath: string<span class="operator">,</span> overwrite: boolean <span class="operator">=</span> <span class="keyword">true</span>): boolean</pre>
+<pre class="cpp" translate="no"><code class="cpp">File<span class="operator">.</span>move(oldPath: string<span class="operator">,</span> newPath: string<span class="operator">,</span> overwrite: boolean <span class="operator">=</span> <span class="keyword">true</span>): boolean</code></pre>
 <p>Renames the file <code translate="no">oldPath</code> to <code translate="no">newPath</code>. Returns <code translate="no">true</code> on success and throws an error on failure. If a file with the name <code translate="no">newPath</code> already exists and <code translate="no">overwrite</code> is <code translate="no">false</code>, the file is not overwritten and an error is thrown.</p>
 <h3 id="remove">remove</h3>
-<pre class="cpp" translate="no">File<span class="operator">.</span>remove(filePath: string): boolean</pre>
+<pre class="cpp" translate="no"><code class="cpp">File<span class="operator">.</span>remove(filePath: string): boolean</code></pre>
 <p>Removes the file at <code translate="no">filePath</code>. In case of a directory, it will be removed recursively.</p>
 </div>
 <!-- @@@jsextension-file.html -->

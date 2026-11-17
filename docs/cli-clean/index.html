@@ -50,7 +50,59 @@ You can use the following special values as placeholders:
 @path is expanded to the name of the directory containing the project file.
 
 --dry-run|-n
-Performs a dry run. No commands will be executed and no permanent changes to the build graph will be done. ">
+Performs a dry run. No commands will be executed and no permanent changes to the build graph will be done.
+--keep-going|-k
+Keeps going when errors occur, if at all possible.
+--less-verbose|-q
+Becomes more quiet by decreasing the log level by one. This option can be given more than once. Excessive occurrences have no effect.
+If the option --log-level appears anywhere on the command line in addition to this option, its value is taken as the base for the decrease.
+--log-level &lt;level&gt;
+Uses the specified log level.
+Possible values of &lt;level&gt; are:
+
+error
+warning
+info (default value)
+debug
+trace
+
+--log-time
+Logs the time that the operations involved in this command take.
+This option is implied in log levels debug and higher.
+This option is mutually exclusive with --show-progress.
+--more-verbose|-v
+Becomes more verbose by increasing the log level by one. This option can be given more than once. Excessive occurrences have no effect.
+If the option --log-level appears anywhere on the command line in addition to this option, its value is taken as the base for the increase.
+--products|-p &lt;name&gt;[,&lt;name&gt;...]
+Takes only the products specified by &lt;name&gt; and their dependencies into account.
+--settings-dir &lt;directory&gt;
+Reads all settings (such as profile information) from the specified &lt;directory&gt;. If the directory does not exist, it will be created.
+The default value is system-specific. For example:
+
+Linux: $HOME/.config/QtProject/qbs
+Windows: %APPDATA%\QtProject\qbs
+macOS: $HOME/Library/Preferences/qbs
+
+--show-progress
+Shows how command execution is progressing.
+This option is mutually exclusive with --log-time.
+Parameters
+config:configuration-name
+Specifies the build configuration to use.
+Qbs can build a project for one or multiple configurations at once, each having a different set of parameters. The config parameter has a special function: with each occurrence a new configuration instance begins and all subsequent parameters until the next config are assigned to this instance. Parameter assignments before the first occurrence of config are applied to all build configurations. Inside products and modules, the current active build configuration can be retrieved via qbs.configurationName.
+In the following snippet, a profile clang is applied to all configurations while cpp.optimization is different for debug and release:
+profile:clang config:debug cpp.optimization:none config:release cpp.optimization:small
+The value of config determines the name of the build folder and affects the default value of the qbs.buildVariant property. Qbs knows the config values &#34;debug&#34; and &#34;release&#34;, but in general any name can be chosen. When naming configurations created for special purposes, follow the rules for legal names generally used in programming languages:
+
+The first character must be a letter (a-z), an underscore (_), or a dollar sign ($).
+Subsequent characters may be letters, digits, underscores, or dollar signs.
+
+Examples
+Removes the build artifacts in the current directory for the default build configuration:
+qbs clean
+
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/cli-clean/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -60,7 +112,7 @@ Performs a dry run. No commands will be executed and no permanent changes to the
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/cli-clean/">
@@ -71,7 +123,28 @@ Options --build-directory|-d &lt;directory&gt; Specifies a &lt;directory&gt; whe
 The default value is the current directory unless preferences.defaultBuildDirectory is set.
 Relative paths will be interpreted relative to the current directory.
 You can use the following special values as placeholders:
-@project is expanded to the name of the project file excluding the extension .qbs. @path is expanded to the name of the directory containing the project file. --dry-run|-n Performs a dry run. No commands will be executed and no permanent changes to the build graph will be done.">
+@project is expanded to the name of the project file excluding the extension .qbs. @path is expanded to the name of the directory containing the project file. --dry-run|-n Performs a dry run. No commands will be executed and no permanent changes to the build graph will be done.
+--keep-going|-k Keeps going when errors occur, if at all possible.
+--less-verbose|-q Becomes more quiet by decreasing the log level by one. This option can be given more than once. Excessive occurrences have no effect.
+If the option --log-level appears anywhere on the command line in addition to this option, its value is taken as the base for the decrease.
+--log-level &lt;level&gt; Uses the specified log level.
+Possible values of &lt;level&gt; are:
+error warning info (default value) debug trace --log-time Logs the time that the operations involved in this command take.
+This option is implied in log levels debug and higher.
+This option is mutually exclusive with --show-progress.
+--more-verbose|-v Becomes more verbose by increasing the log level by one. This option can be given more than once. Excessive occurrences have no effect.
+If the option --log-level appears anywhere on the command line in addition to this option, its value is taken as the base for the increase.
+--products|-p &lt;name&gt;[,&lt;name&gt;...] Takes only the products specified by &lt;name&gt; and their dependencies into account.
+--settings-dir &lt;directory&gt; Reads all settings (such as profile information) from the specified &lt;directory&gt;. If the directory does not exist, it will be created.
+The default value is system-specific. For example:
+Linux: $HOME/.config/QtProject/qbs Windows: %APPDATA%\QtProject\qbs macOS: $HOME/Library/Preferences/qbs --show-progress Shows how command execution is progressing.
+This option is mutually exclusive with --log-time.
+Parameters config:configuration-name Specifies the build configuration to use.
+Qbs can build a project for one or multiple configurations at once, each having a different set of parameters. The config parameter has a special function: with each occurrence a new configuration instance begins and all subsequent parameters until the next config are assigned to this instance. Parameter assignments before the first occurrence of config are applied to all build configurations. Inside products and modules, the current active build configuration can be retrieved via qbs.configurationName.
+In the following snippet, a profile clang is applied to all configurations while cpp.optimization is different for debug and release:
+profile:clang config:debug cpp.optimization:none config:release cpp.optimization:small The value of config determines the name of the build folder and affects the default value of the qbs.buildVariant property. Qbs knows the config values &#34;debug&#34; and &#34;release&#34;, but in general any name can be chosen. When naming configurations created for special purposes, follow the rules for legal names generally used in programming languages:
+The first character must be a letter (a-z), an underscore (_), or a dollar sign ($). Subsequent characters may be letters, digits, underscores, or dollar signs. Examples Removes the build artifacts in the current directory for the default build configuration:
+qbs clean">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -84,7 +157,28 @@ Options --build-directory|-d &lt;directory&gt; Specifies a &lt;directory&gt; whe
 The default value is the current directory unless preferences.defaultBuildDirectory is set.
 Relative paths will be interpreted relative to the current directory.
 You can use the following special values as placeholders:
-@project is expanded to the name of the project file excluding the extension .qbs. @path is expanded to the name of the directory containing the project file. --dry-run|-n Performs a dry run. No commands will be executed and no permanent changes to the build graph will be done.">
+@project is expanded to the name of the project file excluding the extension .qbs. @path is expanded to the name of the directory containing the project file. --dry-run|-n Performs a dry run. No commands will be executed and no permanent changes to the build graph will be done.
+--keep-going|-k Keeps going when errors occur, if at all possible.
+--less-verbose|-q Becomes more quiet by decreasing the log level by one. This option can be given more than once. Excessive occurrences have no effect.
+If the option --log-level appears anywhere on the command line in addition to this option, its value is taken as the base for the decrease.
+--log-level &lt;level&gt; Uses the specified log level.
+Possible values of &lt;level&gt; are:
+error warning info (default value) debug trace --log-time Logs the time that the operations involved in this command take.
+This option is implied in log levels debug and higher.
+This option is mutually exclusive with --show-progress.
+--more-verbose|-v Becomes more verbose by increasing the log level by one. This option can be given more than once. Excessive occurrences have no effect.
+If the option --log-level appears anywhere on the command line in addition to this option, its value is taken as the base for the increase.
+--products|-p &lt;name&gt;[,&lt;name&gt;...] Takes only the products specified by &lt;name&gt; and their dependencies into account.
+--settings-dir &lt;directory&gt; Reads all settings (such as profile information) from the specified &lt;directory&gt;. If the directory does not exist, it will be created.
+The default value is system-specific. For example:
+Linux: $HOME/.config/QtProject/qbs Windows: %APPDATA%\QtProject\qbs macOS: $HOME/Library/Preferences/qbs --show-progress Shows how command execution is progressing.
+This option is mutually exclusive with --log-time.
+Parameters config:configuration-name Specifies the build configuration to use.
+Qbs can build a project for one or multiple configurations at once, each having a different set of parameters. The config parameter has a special function: with each occurrence a new configuration instance begins and all subsequent parameters until the next config are assigned to this instance. Parameter assignments before the first occurrence of config are applied to all build configurations. Inside products and modules, the current active build configuration can be retrieved via qbs.configurationName.
+In the following snippet, a profile clang is applied to all configurations while cpp.optimization is different for debug and release:
+profile:clang config:debug cpp.optimization:none config:release cpp.optimization:small The value of config determines the name of the build folder and affects the default value of the qbs.buildVariant property. Qbs knows the config values &#34;debug&#34; and &#34;release&#34;, but in general any name can be chosen. When naming configurations created for special purposes, follow the rules for legal names generally used in programming languages:
+The first character must be a letter (a-z), an underscore (_), or a dollar sign ($). Subsequent characters may be letters, digits, underscores, or dollar signs. Examples Removes the build artifacts in the current directory for the default build configuration:
+qbs clean">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -151,7 +245,7 @@ You can use the following special values as placeholders:
 <!-- $$$cli-clean.html-description -->
 <div class="descr" id="details">
 <h2 id="synopsis">Synopsis</h2>
-<pre class="cpp" translate="no">qbs clean <span class="operator">[</span>options<span class="operator">]</span> <span class="operator">[</span>config:configuration<span class="operator">-</span>name<span class="operator">]</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs clean <span class="operator">[</span>options<span class="operator">]</span> <span class="operator">[</span>config:configuration<span class="operator">-</span>name<span class="operator">]</span></code></pre>
 <h2 id="description">Description</h2>
 <p>Removes build <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-artifact/" translate="no">artifacts</a> for the specified build configuration.</p>
@@ -210,7 +304,7 @@ You can use the following special values as placeholders:
 <p>Qbs can build a project for one or multiple configurations at once, each having a different set of parameters. The <code translate="no">config</code> parameter has a special function: with each occurrence a new configuration instance begins and all subsequent parameters until the next <code translate="no">config</code> are assigned to this instance. Parameter assignments before the first occurrence of <code translate="no">config</code> are applied to all build configurations. Inside products and modules, the current active build configuration can be retrieved via <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#configurationName-prop" translate="no">qbs.configurationName</a>.</p>
 <p>In the following snippet, a profile <code translate="no">clang</code> is applied to all configurations while <code translate="no">cpp.optimization</code> is different for <code translate="no">debug</code> and <code translate="no">release</code>:</p>
-<pre class="cpp" translate="no">profile:clang config:debug cpp<span class="operator">.</span>optimization:none config:release cpp<span class="operator">.</span>optimization:small</pre>
+<pre class="cpp" translate="no"><code class="cpp">profile:clang config:debug cpp<span class="operator">.</span>optimization:none config:release cpp<span class="operator">.</span>optimization:small</code></pre>
 <p>The value of <code translate="no">config</code> determines the name of the build folder and affects the default value of the <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#buildVariant-prop" translate="no">qbs.buildVariant</a> property. Qbs knows the <code translate="no">config</code> values <code translate="no">"debug"</code> and <code translate="no">"release"</code>, but in general any name can be chosen. When naming configurations created for special purposes, follow the rules for legal names generally used in programming languages:</p>
 <ul>
@@ -219,7 +313,7 @@ You can use the following special values as placeholders:
 </ul>
 <h2 id="examples">Examples</h2>
 <p>Removes the build artifacts in the current directory for the default build configuration:</p>
-<pre class="cpp" translate="no">qbs clean</pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs clean</code></pre>
 </div>
 <!-- @@@cli-clean.html -->
 </div>

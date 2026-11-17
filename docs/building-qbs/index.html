@@ -36,7 +36,137 @@ Building Release Packages
 Appendix A: Building Qbs
 
 
-Qbs can be installed from binary packages or built from sources, as described in this appendix. In addition, this appendix describes how to use Docker images for developing Qbs. ">
+Qbs can be installed from binary packages or built from sources, as described in this appendix. In addition, this appendix describes how to use Docker images for developing Qbs.
+Supported Platforms
+Qbs can be installed and run on the following platforms:
+
+Windows 7, or later
+Linux (tested on Debian 8 and 9, Ubuntu 16.04, OpenSuSE 13.2, and Arch Linux)
+macOS 10.7, or later
+
+System Requirements
+To build Qbs from the source, you need:
+
+Qt 5.15, or later
+Windows: MinGW with GCC 4.9 or Microsoft Visual Studio 2015, or later
+Linux: GCC 4.9, or later, or Clang 3.9.0, or later
+macOS: Xcode 6.2, or later
+
+An installed toolchain has to match the one that Qt was compiled with.
+Documentation
+Building the Qbs documentation requires Python 2.7 or 3.2 or above, as well as some third party Python modules. These can be installed via pip:
+pip install beautifulsoup4 lxml
+Regenerating the man page requires the help2man tool.
+Building Qbs with СMake
+To build Qbs, enter the following commands:
+mkdir build &amp;&amp; cd build
+cmake -DQt5_DIR=${QT_DIR}/lib/cmake/Qt5/ ..
+make
+Where ${QT_DIR} is the directory where Qt is installed. Passing the Qt5_DIR option is not necessary if qmake is present in PATH.
+Depending on your platform, you might use mingw32-make, nmake, or jom instead of make.
+Alternatively, you can use the Ninja generator:
+cmake -GNinja -DQt5_DIR=${QT_DIR}/lib/cmake/Qt5/ ..
+ninja
+CMake Configure Options
+Qbs recognizes the following CMake options (passed to CMake in the form of -DOPTION=value) to customize the build:
+
+ OptionNotesDefault value
+WITH_TESTSEnable autotests.ON
+WITH_UNIT_TESTSEnable additional autotests.OFFOFF
+INSTALL_PUBLIC_HEADERSWhether to install public headers.ON
+
+Using ccache with CMake
+To enable using ccache when building Qbs, pass the following options to CMake:
+cmake -DQt5_DIR=${QT_DIR}/lib/cmake/Qt5/ -DCMAKE_C_COMPILER_LAUNCHER=ccache -DCMAKE_CXX_COMPILER_LAUNCHER=ccache ..
+Building Qbs with Qbs
+It is also possible to build Qbs with the previously installed Qbs version. To build Qbs, enter the following command in the source directory:
+qbs
+This will use the defaultProfile or pick up the Qt version and the toolchain from the PATH if the defaultProfile is not set. See Configuring Profiles and Preferences for details about profiles.
+To run automatic tests, the autotest-runner product should be built:
+qbs build -p autotest-runner
+Qbs will use an empty profile when running tests which means it will try to autodetect toolchains, Qt versions and other things based on the system environment. It is possible to specify which profile should be used during the test-run by passing the QBS_AUTOTEST_PROFILE environment variable. This variable should be set prior to building Qbs itself; otherwise the resolve command should be used to update the environment stored in the buildgraph:
+export QBS_AUTOTEST_PROFILE=qt
+qbs resolve
+qbs build -p autotest-runner
+It is also possible to set up a separate profile for a particular testsuite. A profile for the tst_blackbox_android suite can be set up as follows:
+qbs setup-android pie
+export QBS_AUTOTEST_PROFILE_BLACKBOX_ANDROID=pie
+It might be useful to set up the directory with the Qbs settings to isolate the test environment:
+export QBS_AUTOTEST_SETTINGS_DIR=~/path/to/qbs/settings
+Qbs Build Options
+The qbsbuildconfig module can be used to customize the build. Properties of that module can be passed using command line as follows:
+qbs build modules.qbsbuildconfig.enableAddressSanitizer:true
+Qbs recognizes the following properties:
+
+ PropertyDefault valueNotes
+enableAddressSanitizerfalseWhether to use address sanitizer or not. Enabling this option will add the -fsanitize=address flag.
+enableUnitTestsfalseEnable additional autotests. Enabling this option will export some symbols that would otherwise be private.
+enableRPathtrueUse this property to disable the use of rpath. This can be used when packaging Qbs for distributions which do not permit the use of rpath, such as Fedora.
+installApiHeaderstrueHolds whether to install the header files for the Qbs libraries or not. This option is required to build against the Qbs libraries.
+enableBundledQtfalseHolds whether the Qt libraries that Qbs depends on will be bundled with Qbs during the install step. This option is only implemented on macOS.
+libDirName&#34;lib&#34;Directory name used by libInstallDir and importLibInstallDir properties.
+appInstallDir&#34;bin&#34;Relative directory path under the install prefix path to put application binaries.
+libInstallDir&#34;bin&#34; on Windows, libDirName otherwiseRelative directory path under the install prefix path where to put shared libraries (excluding plugins, see the relativePluginsPath property).
+importLibInstallDirlibDirNameRelative directory path under the install prefix path where to put import libs.
+libexecInstallDirappInstallDir on Windows, &#34;libexec/qbs&#34; otherwiseRelative directory path under the install prefix path where to put auxiliary binaries executed by the Qbs libraries.
+systemSettingsDirundefinedDirectory that will be used by Qbs to store its settings. If not specified, a default platform-dependent directory is used.
+installManPagetrue on Unix, false otherwiseWhether to install man pages.
+installHtmltrueWhether to install HTML help pages.
+installQchfalseWhether to install qch files. See The Qt Help Framework for details about qch files.
+generatePkgConfigFilesauto-detectedWhether to generate files for pkg-config.
+generateQbsModulesauto-detectedWhether to generate Qbs modules for the exported Qbs libraries. Use this when building another product against Qbs libraries using Qbs as build system.
+docInstallDir&#34;share/doc/qbs/html&#34;Relative directory path under the install prefix path where to put documentation.
+pkgConfigInstallDirlibDirName &#43; &#34;/pkgconfig&#34;Relative directory path under the install prefix path where to put pkg-config files.
+qbsModulesBaseDirlibDirName &#43; &#34;/qbs/modules&#34;Relative directory path under the install prefix path where to put Qbs modules. Applies only when generateQbsModules is true.
+relativeLibexecPath&#34;../&#34; &#43; libexecInstallDirPath to the auxiliary binaries relative to the application binary.
+relativePluginsPath&#34;../&#34; &#43; libDirNamePath to plugin libraries relative to the application binary.
+relativeSearchPath&#34;..&#34;Relative path to the directory where to look for Qbs development modules and items.
+libRPathsauto-detectedList of rpaths.
+resourcesInstallDir&#34;&#34;Relative directory path under the install prefix path where to put shared resources like documentation, Qbs user modules and items.
+pluginsInstallDirlibDirName &#43; &#34;/qbs/plugins&#34;Relative path to the directory where to put plugins to.
+
+Using Docker
+A set of Docker images for developing Qbs (which are maintained by the Qbs team) is available on Docker Hub. Both Windows 10 and Debian Linux container types are available.
+
+Note: The source code for the Qbs development Docker images is located in the docker/ directory of the Qbs source tree, if you wish to build them yourself.
+
+Linux Containers
+The easiest way to get started is to build Qbs using a Linux container. These types of containers are supported out of the box on all the supported host platforms: Windows, macOS, and Linux.
+The images provide everything that is necessary to build and test Qbs:
+
+Qt SDK for building Qbs with qmake
+Latest stable release of Qbs for building Qbs with Qbs
+
+We are using docker-compose for building and running the Docker images because it simplifies the Docker command line and ensures that the correct image tag is used. All available images are listed in the docker-compose.yml file in the project root directory.
+Run the following command to download the Qbs development image based on Ubuntu 20.04 Focal:
+docker-compose pull focal
+You can then create a new container with the Qbs source directory mounted from your host machine&#39;s file system, by running:
+docker-compose run --rm focal
+You will now be in an interactive Linux shell where you can develop and build Qbs.
+Windows Containers
+To build Qbs for Windows using Windows containers, your host OS must be running Windows 10 Pro and have Hyper-V enabled. Switch your Docker environment to use Windows containers.
+We are using docker-compose for building and running the Docker images because it simplifies the Docker command line and ensures that the correct image tag is used. All available images are listed in the docker-compose.yml file in the project root directory.
+Run the following command to download the Qbs development image based on Windows 10:
+docker-compose pull windows
+You can then create a new container with the Qbs source directory mounted from your host machine&#39;s file system, by running:
+docker-compose run --rm windows
+If you want to use Windows containers on a macOS or Linux host, you will have to create a virtual machine running Windows 10 and register it with docker-machine. There is at least one Open Source project that helps to facilitate this by using using Packer, Vagrant, and VirtualBox.
+The docker run command to spawn a Windows container on a Unix host will look slightly different (assuming windows is the name of the Docker machine associated with the Windows container hosting VM):
+eval $(docker-machine env windows)
+docker-compose run --rm windows
+Building Release Packages
+Release packages for Qbs for Windows can be built using the following command on Windows:
+docker-compose run --rm windows cmd /c scripts\make-release-archives
+For building release packages for Windows on macOS or Linux:
+eval $(docker-machine env windows)
+docker-compose run --rm windows cmd /c scripts\\make-release-archives
+
+
+
+Reference
+Appendix B: Migrating from Other Build Systems
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/building-qbs/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -46,13 +176,49 @@ Qbs can be installed from binary packages or built from sources, as described in
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/building-qbs/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual Appendix A: Building Qbs Qbs 3.4.0 Reference Appendix B: Migrating from Other Build Systems Contents Supported Platforms System Requirements Documentation Building Qbs with СMake CMake Configure Options Using ccache with CMake Building Qbs with Qbs Qbs Build Options Using Docker Linux Containers Windows Containers Building Release Packages Appendix A: Building Qbs Qbs can be installed from binary packages or built from sources, as described in this appendix. In addition, this appendix describes how to use Docker images for developing Qbs.">
+	<meta property="og:description" content="Qbs Manual Appendix A: Building Qbs Qbs 3.4.0 Reference Appendix B: Migrating from Other Build Systems Contents Supported Platforms System Requirements Documentation Building Qbs with СMake CMake Configure Options Using ccache with CMake Building Qbs with Qbs Qbs Build Options Using Docker Linux Containers Windows Containers Building Release Packages Appendix A: Building Qbs Qbs can be installed from binary packages or built from sources, as described in this appendix. In addition, this appendix describes how to use Docker images for developing Qbs.
+Supported Platforms Qbs can be installed and run on the following platforms:
+Windows 7, or later Linux (tested on Debian 8 and 9, Ubuntu 16.04, OpenSuSE 13.2, and Arch Linux) macOS 10.7, or later System Requirements To build Qbs from the source, you need:
+Qt 5.15, or later Windows: MinGW with GCC 4.9 or Microsoft Visual Studio 2015, or later Linux: GCC 4.9, or later, or Clang 3.9.0, or later macOS: Xcode 6.2, or later An installed toolchain has to match the one that Qt was compiled with.
+Documentation Building the Qbs documentation requires Python 2.7 or 3.2 or above, as well as some third party Python modules. These can be installed via pip:
+pip install beautifulsoup4 lxml Regenerating the man page requires the help2man tool.
+Building Qbs with СMake To build Qbs, enter the following commands:
+mkdir build &amp;&amp; cd build cmake -DQt5_DIR=${QT_DIR}/lib/cmake/Qt5/ .. make Where ${QT_DIR} is the directory where Qt is installed. Passing the Qt5_DIR option is not necessary if qmake is present in PATH.
+Depending on your platform, you might use mingw32-make, nmake, or jom instead of make.
+Alternatively, you can use the Ninja generator:
+cmake -GNinja -DQt5_DIR=${QT_DIR}/lib/cmake/Qt5/ .. ninja CMake Configure Options Qbs recognizes the following CMake options (passed to CMake in the form of -DOPTION=value) to customize the build:
+Option Notes Default value WITH_TESTS Enable autotests. ON WITH_UNIT_TESTS Enable additional autotests. OFF OFF INSTALL_PUBLIC_HEADERS Whether to install public headers. ON Using ccache with CMake To enable using ccache when building Qbs, pass the following options to CMake:
+cmake -DQt5_DIR=${QT_DIR}/lib/cmake/Qt5/ -DCMAKE_C_COMPILER_LAUNCHER=ccache -DCMAKE_CXX_COMPILER_LAUNCHER=ccache .. Building Qbs with Qbs It is also possible to build Qbs with the previously installed Qbs version. To build Qbs, enter the following command in the source directory:
+qbs This will use the defaultProfile or pick up the Qt version and the toolchain from the PATH if the defaultProfile is not set. See Configuring Profiles and Preferences for details about profiles.
+To run automatic tests, the autotest-runner product should be built:
+qbs build -p autotest-runner Qbs will use an empty profile when running tests which means it will try to autodetect toolchains, Qt versions and other things based on the system environment. It is possible to specify which profile should be used during the test-run by passing the QBS_AUTOTEST_PROFILE environment variable. This variable should be set prior to building Qbs itself; otherwise the resolve command should be used to update the environment stored in the buildgraph:
+export QBS_AUTOTEST_PROFILE=qt qbs resolve qbs build -p autotest-runner It is also possible to set up a separate profile for a particular testsuite. A profile for the tst_blackbox_android suite can be set up as follows:
+qbs setup-android pie export QBS_AUTOTEST_PROFILE_BLACKBOX_ANDROID=pie It might be useful to set up the directory with the Qbs settings to isolate the test environment:
+export QBS_AUTOTEST_SETTINGS_DIR=~/path/to/qbs/settings Qbs Build Options The qbsbuildconfig module can be used to customize the build. Properties of that module can be passed using command line as follows:
+qbs build modules.qbsbuildconfig.enableAddressSanitizer:true Qbs recognizes the following properties:
+Property Default value Notes enableAddressSanitizer false Whether to use address sanitizer or not. Enabling this option will add the -fsanitize=address flag. enableUnitTests false Enable additional autotests. Enabling this option will export some symbols that would otherwise be private. enableRPath true Use this property to disable the use of rpath. This can be used when packaging Qbs for distributions which do not permit the use of rpath, such as Fedora. installApiHeaders true Holds whether to install the header files for the Qbs libraries or not. This option is required to build against the Qbs libraries. enableBundledQt false Holds whether the Qt libraries that Qbs depends on will be bundled with Qbs during the install step. This option is only implemented on macOS. libDirName &#34;lib&#34; Directory name used by libInstallDir and importLibInstallDir properties. appInstallDir &#34;bin&#34; Relative directory path under the install prefix path to put application binaries. libInstallDir &#34;bin&#34; on Windows, libDirName otherwise Relative directory path under the install prefix path where to put shared libraries (excluding plugins, see the relativePluginsPath property). importLibInstallDir libDirName Relative directory path under the install prefix path where to put import libs. libexecInstallDir appInstallDir on Windows, &#34;libexec/qbs&#34; otherwise Relative directory path under the install prefix path where to put auxiliary binaries executed by the Qbs libraries. systemSettingsDir undefined Directory that will be used by Qbs to store its settings. If not specified, a default platform-dependent directory is used. installManPage true on Unix, false otherwise Whether to install man pages. installHtml true Whether to install HTML help pages. installQch false Whether to install qch files. See The Qt Help Framework for details about qch files. generatePkgConfigFiles auto-detected Whether to generate files for pkg-config. generateQbsModules auto-detected Whether to generate Qbs modules for the exported Qbs libraries. Use this when building another product against Qbs libraries using Qbs as build system. docInstallDir &#34;share/doc/qbs/html&#34; Relative directory path under the install prefix path where to put documentation. pkgConfigInstallDir libDirName &#43; &#34;/pkgconfig&#34; Relative directory path under the install prefix path where to put pkg-config files. qbsModulesBaseDir libDirName &#43; &#34;/qbs/modules&#34; Relative directory path under the install prefix path where to put Qbs modules. Applies only when generateQbsModules is true. relativeLibexecPath &#34;../&#34; &#43; libexecInstallDir Path to the auxiliary binaries relative to the application binary. relativePluginsPath &#34;../&#34; &#43; libDirName Path to plugin libraries relative to the application binary. relativeSearchPath &#34;..&#34; Relative path to the directory where to look for Qbs development modules and items. libRPaths auto-detected List of rpaths. resourcesInstallDir &#34;&#34; Relative directory path under the install prefix path where to put shared resources like documentation, Qbs user modules and items. pluginsInstallDir libDirName &#43; &#34;/qbs/plugins&#34; Relative path to the directory where to put plugins to. Using Docker A set of Docker images for developing Qbs (which are maintained by the Qbs team) is available on Docker Hub. Both Windows 10 and Debian Linux container types are available.
+Note: The source code for the Qbs development Docker images is located in the docker/ directory of the Qbs source tree, if you wish to build them yourself.
+Linux Containers The easiest way to get started is to build Qbs using a Linux container. These types of containers are supported out of the box on all the supported host platforms: Windows, macOS, and Linux.
+The images provide everything that is necessary to build and test Qbs:
+Qt SDK for building Qbs with qmake Latest stable release of Qbs for building Qbs with Qbs We are using docker-compose for building and running the Docker images because it simplifies the Docker command line and ensures that the correct image tag is used. All available images are listed in the docker-compose.yml file in the project root directory.
+Run the following command to download the Qbs development image based on Ubuntu 20.04 Focal:
+docker-compose pull focal You can then create a new container with the Qbs source directory mounted from your host machine&#39;s file system, by running:
+docker-compose run --rm focal You will now be in an interactive Linux shell where you can develop and build Qbs.
+Windows Containers To build Qbs for Windows using Windows containers, your host OS must be running Windows 10 Pro and have Hyper-V enabled. Switch your Docker environment to use Windows containers.
+We are using docker-compose for building and running the Docker images because it simplifies the Docker command line and ensures that the correct image tag is used. All available images are listed in the docker-compose.yml file in the project root directory.
+Run the following command to download the Qbs development image based on Windows 10:
+docker-compose pull windows You can then create a new container with the Qbs source directory mounted from your host machine&#39;s file system, by running:
+docker-compose run --rm windows If you want to use Windows containers on a macOS or Linux host, you will have to create a virtual machine running Windows 10 and register it with docker-machine. There is at least one Open Source project that helps to facilitate this by using using Packer, Vagrant, and VirtualBox.
+The docker run command to spawn a Windows container on a Unix host will look slightly different (assuming windows is the name of the Docker machine associated with the Windows container hosting VM):
+eval $(docker-machine env windows) docker-compose run --rm windows Building Release Packages Release packages for Qbs for Windows can be built using the following command on Windows:
+docker-compose run --rm windows cmd /c scripts\make-release-archives For building release packages for Windows on macOS or Linux:
+eval $(docker-machine env windows) docker-compose run --rm windows cmd /c scripts\\make-release-archives Reference Appendix B: Migrating from Other Build Systems">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -60,7 +226,43 @@ Qbs can be installed from binary packages or built from sources, as described in
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual Appendix A: Building Qbs Qbs 3.4.0 Reference Appendix B: Migrating from Other Build Systems Contents Supported Platforms System Requirements Documentation Building Qbs with СMake CMake Configure Options Using ccache with CMake Building Qbs with Qbs Qbs Build Options Using Docker Linux Containers Windows Containers Building Release Packages Appendix A: Building Qbs Qbs can be installed from binary packages or built from sources, as described in this appendix. In addition, this appendix describes how to use Docker images for developing Qbs.">
+	<meta name="twitter:description" content="Qbs Manual Appendix A: Building Qbs Qbs 3.4.0 Reference Appendix B: Migrating from Other Build Systems Contents Supported Platforms System Requirements Documentation Building Qbs with СMake CMake Configure Options Using ccache with CMake Building Qbs with Qbs Qbs Build Options Using Docker Linux Containers Windows Containers Building Release Packages Appendix A: Building Qbs Qbs can be installed from binary packages or built from sources, as described in this appendix. In addition, this appendix describes how to use Docker images for developing Qbs.
+Supported Platforms Qbs can be installed and run on the following platforms:
+Windows 7, or later Linux (tested on Debian 8 and 9, Ubuntu 16.04, OpenSuSE 13.2, and Arch Linux) macOS 10.7, or later System Requirements To build Qbs from the source, you need:
+Qt 5.15, or later Windows: MinGW with GCC 4.9 or Microsoft Visual Studio 2015, or later Linux: GCC 4.9, or later, or Clang 3.9.0, or later macOS: Xcode 6.2, or later An installed toolchain has to match the one that Qt was compiled with.
+Documentation Building the Qbs documentation requires Python 2.7 or 3.2 or above, as well as some third party Python modules. These can be installed via pip:
+pip install beautifulsoup4 lxml Regenerating the man page requires the help2man tool.
+Building Qbs with СMake To build Qbs, enter the following commands:
+mkdir build &amp;&amp; cd build cmake -DQt5_DIR=${QT_DIR}/lib/cmake/Qt5/ .. make Where ${QT_DIR} is the directory where Qt is installed. Passing the Qt5_DIR option is not necessary if qmake is present in PATH.
+Depending on your platform, you might use mingw32-make, nmake, or jom instead of make.
+Alternatively, you can use the Ninja generator:
+cmake -GNinja -DQt5_DIR=${QT_DIR}/lib/cmake/Qt5/ .. ninja CMake Configure Options Qbs recognizes the following CMake options (passed to CMake in the form of -DOPTION=value) to customize the build:
+Option Notes Default value WITH_TESTS Enable autotests. ON WITH_UNIT_TESTS Enable additional autotests. OFF OFF INSTALL_PUBLIC_HEADERS Whether to install public headers. ON Using ccache with CMake To enable using ccache when building Qbs, pass the following options to CMake:
+cmake -DQt5_DIR=${QT_DIR}/lib/cmake/Qt5/ -DCMAKE_C_COMPILER_LAUNCHER=ccache -DCMAKE_CXX_COMPILER_LAUNCHER=ccache .. Building Qbs with Qbs It is also possible to build Qbs with the previously installed Qbs version. To build Qbs, enter the following command in the source directory:
+qbs This will use the defaultProfile or pick up the Qt version and the toolchain from the PATH if the defaultProfile is not set. See Configuring Profiles and Preferences for details about profiles.
+To run automatic tests, the autotest-runner product should be built:
+qbs build -p autotest-runner Qbs will use an empty profile when running tests which means it will try to autodetect toolchains, Qt versions and other things based on the system environment. It is possible to specify which profile should be used during the test-run by passing the QBS_AUTOTEST_PROFILE environment variable. This variable should be set prior to building Qbs itself; otherwise the resolve command should be used to update the environment stored in the buildgraph:
+export QBS_AUTOTEST_PROFILE=qt qbs resolve qbs build -p autotest-runner It is also possible to set up a separate profile for a particular testsuite. A profile for the tst_blackbox_android suite can be set up as follows:
+qbs setup-android pie export QBS_AUTOTEST_PROFILE_BLACKBOX_ANDROID=pie It might be useful to set up the directory with the Qbs settings to isolate the test environment:
+export QBS_AUTOTEST_SETTINGS_DIR=~/path/to/qbs/settings Qbs Build Options The qbsbuildconfig module can be used to customize the build. Properties of that module can be passed using command line as follows:
+qbs build modules.qbsbuildconfig.enableAddressSanitizer:true Qbs recognizes the following properties:
+Property Default value Notes enableAddressSanitizer false Whether to use address sanitizer or not. Enabling this option will add the -fsanitize=address flag. enableUnitTests false Enable additional autotests. Enabling this option will export some symbols that would otherwise be private. enableRPath true Use this property to disable the use of rpath. This can be used when packaging Qbs for distributions which do not permit the use of rpath, such as Fedora. installApiHeaders true Holds whether to install the header files for the Qbs libraries or not. This option is required to build against the Qbs libraries. enableBundledQt false Holds whether the Qt libraries that Qbs depends on will be bundled with Qbs during the install step. This option is only implemented on macOS. libDirName &#34;lib&#34; Directory name used by libInstallDir and importLibInstallDir properties. appInstallDir &#34;bin&#34; Relative directory path under the install prefix path to put application binaries. libInstallDir &#34;bin&#34; on Windows, libDirName otherwise Relative directory path under the install prefix path where to put shared libraries (excluding plugins, see the relativePluginsPath property). importLibInstallDir libDirName Relative directory path under the install prefix path where to put import libs. libexecInstallDir appInstallDir on Windows, &#34;libexec/qbs&#34; otherwise Relative directory path under the install prefix path where to put auxiliary binaries executed by the Qbs libraries. systemSettingsDir undefined Directory that will be used by Qbs to store its settings. If not specified, a default platform-dependent directory is used. installManPage true on Unix, false otherwise Whether to install man pages. installHtml true Whether to install HTML help pages. installQch false Whether to install qch files. See The Qt Help Framework for details about qch files. generatePkgConfigFiles auto-detected Whether to generate files for pkg-config. generateQbsModules auto-detected Whether to generate Qbs modules for the exported Qbs libraries. Use this when building another product against Qbs libraries using Qbs as build system. docInstallDir &#34;share/doc/qbs/html&#34; Relative directory path under the install prefix path where to put documentation. pkgConfigInstallDir libDirName &#43; &#34;/pkgconfig&#34; Relative directory path under the install prefix path where to put pkg-config files. qbsModulesBaseDir libDirName &#43; &#34;/qbs/modules&#34; Relative directory path under the install prefix path where to put Qbs modules. Applies only when generateQbsModules is true. relativeLibexecPath &#34;../&#34; &#43; libexecInstallDir Path to the auxiliary binaries relative to the application binary. relativePluginsPath &#34;../&#34; &#43; libDirName Path to plugin libraries relative to the application binary. relativeSearchPath &#34;..&#34; Relative path to the directory where to look for Qbs development modules and items. libRPaths auto-detected List of rpaths. resourcesInstallDir &#34;&#34; Relative directory path under the install prefix path where to put shared resources like documentation, Qbs user modules and items. pluginsInstallDir libDirName &#43; &#34;/qbs/plugins&#34; Relative path to the directory where to put plugins to. Using Docker A set of Docker images for developing Qbs (which are maintained by the Qbs team) is available on Docker Hub. Both Windows 10 and Debian Linux container types are available.
+Note: The source code for the Qbs development Docker images is located in the docker/ directory of the Qbs source tree, if you wish to build them yourself.
+Linux Containers The easiest way to get started is to build Qbs using a Linux container. These types of containers are supported out of the box on all the supported host platforms: Windows, macOS, and Linux.
+The images provide everything that is necessary to build and test Qbs:
+Qt SDK for building Qbs with qmake Latest stable release of Qbs for building Qbs with Qbs We are using docker-compose for building and running the Docker images because it simplifies the Docker command line and ensures that the correct image tag is used. All available images are listed in the docker-compose.yml file in the project root directory.
+Run the following command to download the Qbs development image based on Ubuntu 20.04 Focal:
+docker-compose pull focal You can then create a new container with the Qbs source directory mounted from your host machine&#39;s file system, by running:
+docker-compose run --rm focal You will now be in an interactive Linux shell where you can develop and build Qbs.
+Windows Containers To build Qbs for Windows using Windows containers, your host OS must be running Windows 10 Pro and have Hyper-V enabled. Switch your Docker environment to use Windows containers.
+We are using docker-compose for building and running the Docker images because it simplifies the Docker command line and ensures that the correct image tag is used. All available images are listed in the docker-compose.yml file in the project root directory.
+Run the following command to download the Qbs development image based on Windows 10:
+docker-compose pull windows You can then create a new container with the Qbs source directory mounted from your host machine&#39;s file system, by running:
+docker-compose run --rm windows If you want to use Windows containers on a macOS or Linux host, you will have to create a virtual machine running Windows 10 and register it with docker-machine. There is at least one Open Source project that helps to facilitate this by using using Packer, Vagrant, and VirtualBox.
+The docker run command to spawn a Windows container on a Unix host will look slightly different (assuming windows is the name of the Docker machine associated with the Windows container hosting VM):
+eval $(docker-machine env windows) docker-compose run --rm windows Building Release Packages Release packages for Qbs for Windows can be built using the following command on Windows:
+docker-compose run --rm windows cmd /c scripts\make-release-archives For building release packages for Windows on macOS or Linux:
+eval $(docker-machine env windows) docker-compose run --rm windows cmd /c scripts\\make-release-archives Reference Appendix B: Migrating from Other Build Systems">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -150,18 +352,18 @@ Qbs can be installed from binary packages or built from sources, as described in
 <p>An installed toolchain has to match the one that Qt was compiled with.</p>
 <h3 id="documentation">Documentation</h3>
 <p>Building the Qbs documentation requires Python 2.7 or 3.2 or above, as well as some third party Python modules. These can be installed via <code translate="no">pip</code>:</p>
-<pre class="cpp" translate="no">pip install beautifulsoup4 lxml</pre>
+<pre class="cpp" translate="no"><code class="cpp">pip install beautifulsoup4 lxml</code></pre>
 <p>Regenerating the man page requires the <code translate="no">help2man</code> tool.</p>
 <h2 id="building-qbs-with-make-d4922719">Building Qbs with СMake</h2>
 <p>To build Qbs, enter the following commands:</p>
-<pre class="cpp" translate="no">mkdir build <span class="operator">&amp;</span><span class="operator">&amp;</span> cd build
+<pre class="cpp" translate="no"><code class="cpp">mkdir build <span class="operator">&amp;</span><span class="operator">&amp;</span> cd build
 cmake <span class="operator">-</span>DQt5_DIR<span class="operator">=</span>${QT_DIR}<span class="operator">/</span>lib<span class="operator">/</span>cmake<span class="operator">/</span>Qt5<span class="operator">/</span> <span class="operator">.</span><span class="operator">.</span>
-make</pre>
+make</code></pre>
 <p>Where <code translate="no">${QT_DIR}</code> is the directory where Qt is installed. Passing the <code translate="no">Qt5_DIR</code> option is not necessary if <code translate="no">qmake</code> is present in <code translate="no">PATH</code>.</p>
 <p>Depending on your platform, you might use <code translate="no">mingw32-make</code>, <code translate="no">nmake</code>, or <code translate="no">jom</code> instead of <code translate="no">make</code>.</p>
 <p>Alternatively, you can use the <a href="https://cmake.org/cmake/help/latest/generator/Ninja.html">Ninja</a> generator:</p>
-<pre class="cpp" translate="no">cmake <span class="operator">-</span>GNinja <span class="operator">-</span>DQt5_DIR<span class="operator">=</span>${QT_DIR}<span class="operator">/</span>lib<span class="operator">/</span>cmake<span class="operator">/</span>Qt5<span class="operator">/</span> <span class="operator">.</span><span class="operator">.</span>
-ninja</pre>
+<pre class="cpp" translate="no"><code class="cpp">cmake <span class="operator">-</span>GNinja <span class="operator">-</span>DQt5_DIR<span class="operator">=</span>${QT_DIR}<span class="operator">/</span>lib<span class="operator">/</span>cmake<span class="operator">/</span>Qt5<span class="operator">/</span> <span class="operator">.</span><span class="operator">.</span>
+ninja</code></pre>
 <h3 id="cmake-configure-options">CMake Configure Options</h3>
 <p>Qbs recognizes the following CMake options (passed to CMake in the form of <code translate="no">-DOPTION=value</code>) to customize the build:</p>
 <div class="table"><table class="generic">
@@ -172,26 +374,26 @@ ninja</pre>
 </tbody></table></div>
 <h3 id="using-ccache-with-cmake">Using ccache with CMake</h3>
 <p>To enable using <a href="https://ccache.dev">ccache</a> when building Qbs, pass the following options to CMake:</p>
-<pre class="cpp" translate="no">cmake <span class="operator">-</span>DQt5_DIR<span class="operator">=</span>${QT_DIR}<span class="operator">/</span>lib<span class="operator">/</span>cmake<span class="operator">/</span>Qt5<span class="operator">/</span> <span class="operator">-</span>DCMAKE_C_COMPILER_LAUNCHER<span class="operator">=</span>ccache <span class="operator">-</span>DCMAKE_CXX_COMPILER_LAUNCHER<span class="operator">=</span>ccache <span class="operator">.</span><span class="operator">.</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">cmake <span class="operator">-</span>DQt5_DIR<span class="operator">=</span>${QT_DIR}<span class="operator">/</span>lib<span class="operator">/</span>cmake<span class="operator">/</span>Qt5<span class="operator">/</span> <span class="operator">-</span>DCMAKE_C_COMPILER_LAUNCHER<span class="operator">=</span>ccache <span class="operator">-</span>DCMAKE_CXX_COMPILER_LAUNCHER<span class="operator">=</span>ccache <span class="operator">.</span><span class="operator">.</span></code></pre>
 <h2 id="building-qbs-with-qbs">Building Qbs with Qbs</h2>
 <p>It is also possible to build Qbs with the previously installed Qbs version. To build Qbs, enter the following command in the source directory:</p>
-<pre class="cpp" translate="no">qbs</pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs</code></pre>
 <p>This will use the <code translate="no">defaultProfile</code> or pick up the Qt version and the toolchain from the <code translate="no">PATH</code> if the <code translate="no">defaultProfile</code> is not set. See <a href="https://qbs.io/
 /docs/configuring/">Configuring Profiles and Preferences</a> for details about profiles.</p>
 <p>To run automatic tests, the <code translate="no">autotest-runner</code> product should be built:</p>
-<pre class="cpp" translate="no">qbs build <span class="operator">-</span>p autotest<span class="operator">-</span>runner</pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs build <span class="operator">-</span>p autotest<span class="operator">-</span>runner</code></pre>
 <p>Qbs will use an empty profile when running tests which means it will try to autodetect toolchains, Qt versions and other things based on the system environment. It is possible to specify which profile should be used during the test-run by passing the <code translate="no">QBS_AUTOTEST_PROFILE</code> environment variable. This variable should be set prior to building Qbs itself; otherwise the <code translate="no">resolve</code> command should be used to update the environment stored in the buildgraph:</p>
-<pre class="cpp" translate="no"><span class="keyword">export</span> QBS_AUTOTEST_PROFILE<span class="operator">=</span>qt
+<pre class="cpp" translate="no"><code class="cpp"><span class="keyword">export</span> QBS_AUTOTEST_PROFILE<span class="operator">=</span>qt
 qbs resolve
-qbs build <span class="operator">-</span>p autotest<span class="operator">-</span>runner</pre>
+qbs build <span class="operator">-</span>p autotest<span class="operator">-</span>runner</code></pre>
 <p>It is also possible to set up a separate profile for a particular testsuite. A profile for the <code translate="no">tst_blackbox_android</code> suite can be set up as follows:</p>
-<pre class="cpp" translate="no">qbs setup<span class="operator">-</span>android pie
-<span class="keyword">export</span> QBS_AUTOTEST_PROFILE_BLACKBOX_ANDROID<span class="operator">=</span>pie</pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs setup<span class="operator">-</span>android pie
+<span class="keyword">export</span> QBS_AUTOTEST_PROFILE_BLACKBOX_ANDROID<span class="operator">=</span>pie</code></pre>
 <p>It might be useful to set up the directory with the Qbs settings to isolate the test environment:</p>
-<pre class="cpp" translate="no"><span class="keyword">export</span> QBS_AUTOTEST_SETTINGS_DIR<span class="operator">=</span><span class="operator">~</span><span class="operator">/</span>path<span class="operator">/</span>to<span class="operator">/</span>qbs<span class="operator">/</span>settings</pre>
+<pre class="cpp" translate="no"><code class="cpp"><span class="keyword">export</span> QBS_AUTOTEST_SETTINGS_DIR<span class="operator">=</span><span class="operator">~</span><span class="operator">/</span>path<span class="operator">/</span>to<span class="operator">/</span>qbs<span class="operator">/</span>settings</code></pre>
 <h3 id="qbs-build-options">Qbs Build Options</h3>
 <p>The <code translate="no">qbsbuildconfig</code> module can be used to customize the build. Properties of that module can be passed using command line as follows:</p>
-<pre class="cpp" translate="no">qbs build modules<span class="operator">.</span>qbsbuildconfig<span class="operator">.</span>enableAddressSanitizer:<span class="keyword">true</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs build modules<span class="operator">.</span>qbsbuildconfig<span class="operator">.</span>enableAddressSanitizer:<span class="keyword">true</span></code></pre>
 <p>Qbs recognizes the following properties:</p>
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th>Property</th><th>Default value</th><th>Notes</th></tr></thead>
@@ -235,27 +437,27 @@ qbs build <span class="operator">-</span>p autotest<span class="operator">-</spa
 </ul>
 <p>We are using docker-compose for building and running the Docker images because it simplifies the Docker command line and ensures that the correct image tag is used. All available images are listed in the <code translate="no">docker-compose.yml</code> file in the project root directory.</p>
 <p>Run the following command to download the Qbs development image based on Ubuntu 20.04 <i>Focal</i>:</p>
-<pre class="cpp" translate="no">docker<span class="operator">-</span>compose pull focal</pre>
+<pre class="cpp" translate="no"><code class="cpp">docker<span class="operator">-</span>compose pull focal</code></pre>
 <p>You can then create a new container with the Qbs source directory mounted from your host machine's file system, by running:</p>
-<pre class="cpp" translate="no">docker<span class="operator">-</span>compose run <span class="operator">-</span><span class="operator">-</span>rm focal</pre>
+<pre class="cpp" translate="no"><code class="cpp">docker<span class="operator">-</span>compose run <span class="operator">-</span><span class="operator">-</span>rm focal</code></pre>
 <p>You will now be in an interactive Linux shell where you can develop and build Qbs.</p>
 <h3 id="windows-containers">Windows Containers</h3>
 <p>To build Qbs for Windows using Windows containers, your host OS must be running Windows 10 Pro and have Hyper-V enabled. <a href="https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers">Switch your Docker environment to use Windows containers</a>.</p>
 <p>We are using docker-compose for building and running the Docker images because it simplifies the Docker command line and ensures that the correct image tag is used. All available images are listed in the <code translate="no">docker-compose.yml</code> file in the project root directory.</p>
 <p>Run the following command to download the Qbs development image based on Windows 10:</p>
-<pre class="cpp" translate="no">docker<span class="operator">-</span>compose pull windows</pre>
+<pre class="cpp" translate="no"><code class="cpp">docker<span class="operator">-</span>compose pull windows</code></pre>
 <p>You can then create a new container with the Qbs source directory mounted from your host machine's file system, by running:</p>
-<pre class="cpp" translate="no">docker<span class="operator">-</span>compose run <span class="operator">-</span><span class="operator">-</span>rm windows</pre>
+<pre class="cpp" translate="no"><code class="cpp">docker<span class="operator">-</span>compose run <span class="operator">-</span><span class="operator">-</span>rm windows</code></pre>
 <p>If you want to use Windows containers on a macOS or Linux host, you will have to create a virtual machine running Windows 10 and register it with <code translate="no">docker-machine</code>. There is at least <a href="https://github.com/StefanScherer/windows-docker-machine">one Open Source project</a> that helps to facilitate this by using using Packer, Vagrant, and VirtualBox.</p>
 <p>The <code translate="no">docker run</code> command to spawn a Windows container on a Unix host will look slightly different (assuming <code translate="no">windows</code> is the name of the Docker machine associated with the Windows container hosting VM):</p>
-<pre class="cpp" translate="no">eval $(docker<span class="operator">-</span>machine env windows)
-docker<span class="operator">-</span>compose run <span class="operator">-</span><span class="operator">-</span>rm windows</pre>
+<pre class="cpp" translate="no"><code class="cpp">eval $(docker<span class="operator">-</span>machine env windows)
+docker<span class="operator">-</span>compose run <span class="operator">-</span><span class="operator">-</span>rm windows</code></pre>
 <h3 id="building-release-packages">Building Release Packages</h3>
 <p>Release packages for Qbs for Windows can be built using the following command on Windows:</p>
-<pre class="cpp" translate="no">docker<span class="operator">-</span>compose run <span class="operator">-</span><span class="operator">-</span>rm windows cmd <span class="operator">/</span>c scripts\make<span class="operator">-</span>release<span class="operator">-</span>archives</pre>
+<pre class="cpp" translate="no"><code class="cpp">docker<span class="operator">-</span>compose run <span class="operator">-</span><span class="operator">-</span>rm windows cmd <span class="operator">/</span>c scripts\make<span class="operator">-</span>release<span class="operator">-</span>archives</code></pre>
 <p>For building release packages for Windows on macOS or Linux:</p>
-<pre class="cpp" translate="no">eval $(docker<span class="operator">-</span>machine env windows)
-docker<span class="operator">-</span>compose run <span class="operator">-</span><span class="operator">-</span>rm windows cmd <span class="operator">/</span>c scripts\\make<span class="operator">-</span>release<span class="operator">-</span>archives</pre>
+<pre class="cpp" translate="no"><code class="cpp">eval $(docker<span class="operator">-</span>machine env windows)
+docker<span class="operator">-</span>compose run <span class="operator">-</span><span class="operator">-</span>rm windows cmd <span class="operator">/</span>c scripts\\make<span class="operator">-</span>release<span class="operator">-</span>archives</code></pre>
 </div>
 <!-- @@@building-qbs.html -->
 <p class="naviNextPrevious footerNavi">

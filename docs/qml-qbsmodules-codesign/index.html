@@ -57,7 +57,202 @@ useApksigner : bool (since Qbs 1.19)
 
 
 Detailed Description
-The codesign module contains properties and rules for code signing on Apple, Android, and Windows platforms. ">
+The codesign module contains properties and rules for code signing on Apple, Android, and Windows platforms.
+The tool used to sign Windows artifacts (applications, libraries, and installers) depends on the host operating system:
+
+On Windows hosts, signing is performed with the signtool utility from the Windows SDK. The signing certificate may be selected from the Windows certificate store (via subjectName) or supplied as a PKCS#12 (PFX) file.
+On non-Windows hosts, signing is performed with osslsigncode version 2.0 or later. By default it is located in the PATH, but its location can be set explicitly via codesignPath. This makes it possible to sign a cross-compiled binary or an NSIS, Inno Setup, or WiX installer that was built on Linux or macOS. The certificate must be supplied as a PKCS#12 (PFX) file. Available since Qbs 3.4.
+
+Because the two backends are different tools, they do not accept the same set of properties. certificatePath, certificatePassword, hashAlgorithm, and signingTimestamp are honored by both signtool and osslsigncode. The subjectName, rootSubjectName, timestampAlgorithm, and crossCertificatePath properties apply to signtool only and are ignored by osslsigncode. To pass an option that has no dedicated property to the underlying tool, use codesignFlags.
+Relevant File Tags
+
+TagAuto-tagged File NamesSinceDescription
+&#34;codesign.entitlements&#34;*.entitlements1.19.0Xcode entitlements
+&#34;codesign.provisioningprofile&#34;*.mobileprovision, *.provisionprofile1.19.0Xcode provisioning profiles
+&#34;codesign.signed_artifact&#34;n/a1.19.0This tag is attached to all signed artifacts such as applications or libraries
+
+
+Property Documentation
+
+certificatePassword : string [since Qbs 1.19]
+Specifies the password to use when opening a signing certificate file (*.pfx).
+This property is also used when signing with osslsigncode on non-Windows hosts.
+Default: undefined
+This property is specific to Windows.
+This property was introduced in Qbs 1.19.
+
+
+certificatePath : string [since Qbs 1.19]
+Specifies the full path to the signing certificate file (*.pfx).
+This property is also used when signing with osslsigncode on non-Windows hosts, where a PKCS#12 (PFX) certificate is required.
+Default: undefined
+This property is specific to Windows.
+This property was introduced in Qbs 1.19.
+
+
+codesignFlags : stringList [since Qbs 1.19]
+Additional command-line flags passed to the underlying code signing tool (for example, codesign on Apple, or signtool and osslsigncode for Windows artifacts). Use this to set options that do not have a dedicated property.
+Default: Undefined
+This property was introduced in Qbs 1.19.
+
+
+codesignName : string [since Qbs 1.19]
+The name of the codesign binary.
+Default: Determined automatically
+This property was introduced in Qbs 1.19.
+
+
+codesignPath : string [since Qbs 1.19]
+Path to the codesign tool.
+Default: Determined automatically
+This property was introduced in Qbs 1.19.
+
+
+crossCertificatePath : string [since Qbs 1.19]
+Specifies the full path to the additional certificate file (*.cer).
+Default: undefined
+This property is specific to Windows.
+This property was introduced in Qbs 1.19.
+
+
+enableCodeSigning : bool [since Qbs 1.19]
+Whether to actually perform code signing.
+Default: false
+This property was introduced in Qbs 1.19.
+
+
+hashAlgorithm : string [since Qbs 1.19]
+Specifies the default hash algorithm used on the signing certificate. The possible values are sha1, sha256, sha384, and sha512.
+
+Note: Only available in Windows 10 kit builds 20236 and later.
+
+Default: undefined
+This property is specific to Windows.
+This property was introduced in Qbs 1.19.
+
+
+keyAlias : string [since Qbs 1.19]
+The key alias.
+Default: &#34;androiddebugkey&#34;
+This property is specific to Android platforms.
+This property was introduced in Qbs 1.19.
+
+
+keyPassword : string [since Qbs 1.19]
+The key password.
+Default: &#34;android&#34;
+This property is specific to Android platforms.
+This property was introduced in Qbs 1.19.
+
+
+keystorePassword : string [since Qbs 1.19]
+The keystore password.
+Default: &#34;android&#34;
+This property is specific to Android platforms.
+This property was introduced in Qbs 1.19.
+
+
+keystorePath : string [since Qbs 1.19]
+The absolute path to the keystore file.
+Default: &#34;${HOME}/.android/debug.keystore&#34;
+This property is specific to Android platforms.
+This property was introduced in Qbs 1.19.
+
+
+provisioningProfile : string [since Qbs 1.19]
+Name or UUID of the provisioning profile to embed in the product. Typically this should be left blank to allow Qbs to use automatic provisioning.
+Default: undefined
+This property is specific to Apple platforms.
+This property was introduced in Qbs 1.19.
+
+
+provisioningProfilesPath : path [since Qbs 1.19]
+Path to directory containing provisioning profiles installed on the system. This should not normally need to be changed.
+Default: &#34;~/Library/MobileDevice/Provisioning Profiles&#34;
+This property is specific to Apple platforms.
+This property was introduced in Qbs 1.19.
+
+
+rootSubjectName : string [since Qbs 1.19]
+Specifies the name of the subject of the root certificate that the signing certificate must chain to. This value may be a substring of the entire subject name of the root certificate.
+Default: undefined
+This property is specific to Windows.
+This property was introduced in Qbs 1.19.
+
+
+signingIdentity : string [since Qbs 1.19]
+Search string used to find the certificate to sign the product. This does not have to be a full certificate name like &#34;Mac Developer: John Doe (XXXXXXXXXX)&#34;, and can instead be a partial string like &#34;Mac Developer&#34; or the certificate&#39;s SHA1 fingerprint. The search string should generally be one of the following:
+
+3rd Party Mac Developer Application
+3rd Party Mac Developer Installer
+Developer ID Application
+Developer ID Installer
+iPhone Developer
+iPhone Distribution
+Mac Developer
+
+It is also possible to use the special &#34;-&#34; value to use the ad-hoc signing.
+See Maintaining Your Signing Identities and Certificates for complete documentation on the existing certificate types. In general you should use signingType instead.
+Default: Determined by signingType
+This property is specific to Apple platforms.
+This property was introduced in Qbs 1.19.
+
+
+signingTimestamp : string [since Qbs 1.19]
+URL of the timestamp authority RFC 3161 server to be contacted to authenticate code signing. undefined or empty indicates that a system-specific default should be used; &#34;none&#34; explicitly disables the use of timestamp services on Apple platforms.
+Default: &#34;none&#34; on Apple, undefined otherwise
+This property was introduced in Qbs 1.19.
+
+
+signingType : string [since Qbs 1.19]
+Type of code signing to use. This should generally be used in preference to an explicit signing identity like &#34;Mac Developer: John Doe (XXXXXXXXXX)&#34; since it is not user specific and can be set in a project file. Possible values include: &#34;app-store&#34;, &#34;apple-id&#34;, &#34;ad-hoc&#34;, which sign for the App Store or Mac App Store, Developer ID, and Ad-hoc code signing, respectively.
+Relation between the signingType and signingIdentity
+The following table shows how the signingIdentity&#39;s default value is calculated.
+
+qbs.targetOScodesign.signingTypeqbs.buildVariantcodesign.signingIdentity
+&#34;macos&#34;&#34;ad-hoc&#34;any&#34;-&#34;
+&#34;app-store&#34;&#34;debug&#34;, &#34;profiling&#34;&#34;Mac Developer&#34;
+&#34;release&#34;&#34;3rd Party Mac Developer Application&#34;
+&#34;apple-id&#34;any&#34;Developer ID Application&#34;
+&#34;ios&#34;, &#34;tvos&#34;, &#34;watchos&#34;&#34;app-store&#34;&#34;debug&#34;, &#34;profiling&#34;&#34;iPhone Developer&#34;
+&#34;release&#34;&#34;iPhone Distribution&#34;
+
+Default: Determined automatically
+This property is specific to Apple platforms.
+This property was introduced in Qbs 1.19.
+
+
+subjectName : string [since Qbs 1.19]
+Specifies the name of the subject of the signing certificate. This value can be a substring of the entire subject name.
+Default: undefined
+This property is specific to Windows.
+This property was introduced in Qbs 1.19.
+
+
+teamIdentifier : string [since Qbs 1.19]
+Human readable name or 10-digit identifier of the Apple development team that the signing identity belongs to. This is used to disambiguate between multiple certificates of the same type in different teams. Typically this can be left blank if the development machine is only signed in to a single development team, and should be set in a profile otherwise.
+Default: undefined
+This property is specific to Apple platforms.
+This property was introduced in Qbs 1.19.
+
+
+timestampAlgorithm : string [since Qbs 1.19.2]
+Specifies the default timestamp algorithm used together with the signingTimestamp property. The possible values are sha1, sha256.
+
+Note: If this value is not set, then the default sha1 algorithm will be used.
+
+Default: undefined
+This property is specific to Windows.
+This property was introduced in Qbs 1.19.2.
+
+
+useApksigner : bool [since Qbs 1.19]
+If true, the package is signed using apksignerFilePath binary. Set this property to false to use the jarsignerFilePath one. Set by the Android.sdk module.
+Default: true
+This property is specific to Android platforms.
+This property was introduced in Qbs 1.19.
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-codesign/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -67,14 +262,106 @@ The codesign module contains properties and rules for code signing on Apple, And
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-codesign/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual QbsModules codesign Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags codesign Provides code signing support. More...
-Since: Qbs 1.19 List of all members, including inherited members Properties certificatePassword : string (since Qbs 1.19) certificatePath : string (since Qbs 1.19) codesignFlags : stringList (since Qbs 1.19) codesignName : string (since Qbs 1.19) codesignPath : string (since Qbs 1.19) crossCertificatePath : string (since Qbs 1.19) enableCodeSigning : bool (since Qbs 1.19) hashAlgorithm : string (since Qbs 1.19) keyAlias : string (since Qbs 1.19) keyPassword : string (since Qbs 1.19) keystorePassword : string (since Qbs 1.19) keystorePath : string (since Qbs 1.19) provisioningProfile : string (since Qbs 1.19) provisioningProfilesPath : path (since Qbs 1.19) rootSubjectName : string (since Qbs 1.19) signingIdentity : string (since Qbs 1.19) signingTimestamp : string (since Qbs 1.19) signingType : string (since Qbs 1.19) subjectName : string (since Qbs 1.19) teamIdentifier : string (since Qbs 1.19) timestampAlgorithm : string (since Qbs 1.19.2) useApksigner : bool (since Qbs 1.19) Detailed Description The codesign module contains properties and rules for code signing on Apple, Android, and Windows platforms.">
+Since: Qbs 1.19 List of all members, including inherited members Properties certificatePassword : string (since Qbs 1.19) certificatePath : string (since Qbs 1.19) codesignFlags : stringList (since Qbs 1.19) codesignName : string (since Qbs 1.19) codesignPath : string (since Qbs 1.19) crossCertificatePath : string (since Qbs 1.19) enableCodeSigning : bool (since Qbs 1.19) hashAlgorithm : string (since Qbs 1.19) keyAlias : string (since Qbs 1.19) keyPassword : string (since Qbs 1.19) keystorePassword : string (since Qbs 1.19) keystorePath : string (since Qbs 1.19) provisioningProfile : string (since Qbs 1.19) provisioningProfilesPath : path (since Qbs 1.19) rootSubjectName : string (since Qbs 1.19) signingIdentity : string (since Qbs 1.19) signingTimestamp : string (since Qbs 1.19) signingType : string (since Qbs 1.19) subjectName : string (since Qbs 1.19) teamIdentifier : string (since Qbs 1.19) timestampAlgorithm : string (since Qbs 1.19.2) useApksigner : bool (since Qbs 1.19) Detailed Description The codesign module contains properties and rules for code signing on Apple, Android, and Windows platforms.
+The tool used to sign Windows artifacts (applications, libraries, and installers) depends on the host operating system:
+On Windows hosts, signing is performed with the signtool utility from the Windows SDK. The signing certificate may be selected from the Windows certificate store (via subjectName) or supplied as a PKCS#12 (PFX) file. On non-Windows hosts, signing is performed with osslsigncode version 2.0 or later. By default it is located in the PATH, but its location can be set explicitly via codesignPath. This makes it possible to sign a cross-compiled binary or an NSIS, Inno Setup, or WiX installer that was built on Linux or macOS. The certificate must be supplied as a PKCS#12 (PFX) file. Available since Qbs 3.4. Because the two backends are different tools, they do not accept the same set of properties. certificatePath, certificatePassword, hashAlgorithm, and signingTimestamp are honored by both signtool and osslsigncode. The subjectName, rootSubjectName, timestampAlgorithm, and crossCertificatePath properties apply to signtool only and are ignored by osslsigncode. To pass an option that has no dedicated property to the underlying tool, use codesignFlags.
+Relevant File Tags Tag Auto-tagged File Names Since Description &#34;codesign.entitlements&#34; *.entitlements 1.19.0 Xcode entitlements &#34;codesign.provisioningprofile&#34; *.mobileprovision, *.provisionprofile 1.19.0 Xcode provisioning profiles &#34;codesign.signed_artifact&#34; n/a 1.19.0 This tag is attached to all signed artifacts such as applications or libraries Property Documentation certificatePassword : string [since Qbs 1.19] Specifies the password to use when opening a signing certificate file (*.pfx).
+This property is also used when signing with osslsigncode on non-Windows hosts.
+Default: undefined
+This property is specific to Windows.
+This property was introduced in Qbs 1.19.
+certificatePath : string [since Qbs 1.19] Specifies the full path to the signing certificate file (*.pfx).
+This property is also used when signing with osslsigncode on non-Windows hosts, where a PKCS#12 (PFX) certificate is required.
+Default: undefined
+This property is specific to Windows.
+This property was introduced in Qbs 1.19.
+codesignFlags : stringList [since Qbs 1.19] Additional command-line flags passed to the underlying code signing tool (for example, codesign on Apple, or signtool and osslsigncode for Windows artifacts). Use this to set options that do not have a dedicated property.
+Default: Undefined
+This property was introduced in Qbs 1.19.
+codesignName : string [since Qbs 1.19] The name of the codesign binary.
+Default: Determined automatically
+This property was introduced in Qbs 1.19.
+codesignPath : string [since Qbs 1.19] Path to the codesign tool.
+Default: Determined automatically
+This property was introduced in Qbs 1.19.
+crossCertificatePath : string [since Qbs 1.19] Specifies the full path to the additional certificate file (*.cer).
+Default: undefined
+This property is specific to Windows.
+This property was introduced in Qbs 1.19.
+enableCodeSigning : bool [since Qbs 1.19] Whether to actually perform code signing.
+Default: false
+This property was introduced in Qbs 1.19.
+hashAlgorithm : string [since Qbs 1.19] Specifies the default hash algorithm used on the signing certificate. The possible values are sha1, sha256, sha384, and sha512.
+Note: Only available in Windows 10 kit builds 20236 and later.
+Default: undefined
+This property is specific to Windows.
+This property was introduced in Qbs 1.19.
+keyAlias : string [since Qbs 1.19] The key alias.
+Default: &#34;androiddebugkey&#34;
+This property is specific to Android platforms.
+This property was introduced in Qbs 1.19.
+keyPassword : string [since Qbs 1.19] The key password.
+Default: &#34;android&#34;
+This property is specific to Android platforms.
+This property was introduced in Qbs 1.19.
+keystorePassword : string [since Qbs 1.19] The keystore password.
+Default: &#34;android&#34;
+This property is specific to Android platforms.
+This property was introduced in Qbs 1.19.
+keystorePath : string [since Qbs 1.19] The absolute path to the keystore file.
+Default: &#34;${HOME}/.android/debug.keystore&#34;
+This property is specific to Android platforms.
+This property was introduced in Qbs 1.19.
+provisioningProfile : string [since Qbs 1.19] Name or UUID of the provisioning profile to embed in the product. Typically this should be left blank to allow Qbs to use automatic provisioning.
+Default: undefined
+This property is specific to Apple platforms.
+This property was introduced in Qbs 1.19.
+provisioningProfilesPath : path [since Qbs 1.19] Path to directory containing provisioning profiles installed on the system. This should not normally need to be changed.
+Default: &#34;~/Library/MobileDevice/Provisioning Profiles&#34;
+This property is specific to Apple platforms.
+This property was introduced in Qbs 1.19.
+rootSubjectName : string [since Qbs 1.19] Specifies the name of the subject of the root certificate that the signing certificate must chain to. This value may be a substring of the entire subject name of the root certificate.
+Default: undefined
+This property is specific to Windows.
+This property was introduced in Qbs 1.19.
+signingIdentity : string [since Qbs 1.19] Search string used to find the certificate to sign the product. This does not have to be a full certificate name like &#34;Mac Developer: John Doe (XXXXXXXXXX)&#34;, and can instead be a partial string like &#34;Mac Developer&#34; or the certificate&#39;s SHA1 fingerprint. The search string should generally be one of the following:
+3rd Party Mac Developer Application 3rd Party Mac Developer Installer Developer ID Application Developer ID Installer iPhone Developer iPhone Distribution Mac Developer It is also possible to use the special &#34;-&#34; value to use the ad-hoc signing.
+See Maintaining Your Signing Identities and Certificates for complete documentation on the existing certificate types. In general you should use signingType instead.
+Default: Determined by signingType
+This property is specific to Apple platforms.
+This property was introduced in Qbs 1.19.
+signingTimestamp : string [since Qbs 1.19] URL of the timestamp authority RFC 3161 server to be contacted to authenticate code signing. undefined or empty indicates that a system-specific default should be used; &#34;none&#34; explicitly disables the use of timestamp services on Apple platforms.
+Default: &#34;none&#34; on Apple, undefined otherwise
+This property was introduced in Qbs 1.19.
+signingType : string [since Qbs 1.19] Type of code signing to use. This should generally be used in preference to an explicit signing identity like &#34;Mac Developer: John Doe (XXXXXXXXXX)&#34; since it is not user specific and can be set in a project file. Possible values include: &#34;app-store&#34;, &#34;apple-id&#34;, &#34;ad-hoc&#34;, which sign for the App Store or Mac App Store, Developer ID, and Ad-hoc code signing, respectively.
+Relation between the signingType and signingIdentity The following table shows how the signingIdentity&#39;s default value is calculated.
+qbs.targetOS codesign.signingType qbs.buildVariant codesign.signingIdentity &#34;macos&#34; &#34;ad-hoc&#34; any &#34;-&#34; &#34;app-store&#34; &#34;debug&#34;, &#34;profiling&#34; &#34;Mac Developer&#34; &#34;release&#34; &#34;3rd Party Mac Developer Application&#34; &#34;apple-id&#34; any &#34;Developer ID Application&#34; &#34;ios&#34;, &#34;tvos&#34;, &#34;watchos&#34; &#34;app-store&#34; &#34;debug&#34;, &#34;profiling&#34; &#34;iPhone Developer&#34; &#34;release&#34; &#34;iPhone Distribution&#34; Default: Determined automatically
+This property is specific to Apple platforms.
+This property was introduced in Qbs 1.19.
+subjectName : string [since Qbs 1.19] Specifies the name of the subject of the signing certificate. This value can be a substring of the entire subject name.
+Default: undefined
+This property is specific to Windows.
+This property was introduced in Qbs 1.19.
+teamIdentifier : string [since Qbs 1.19] Human readable name or 10-digit identifier of the Apple development team that the signing identity belongs to. This is used to disambiguate between multiple certificates of the same type in different teams. Typically this can be left blank if the development machine is only signed in to a single development team, and should be set in a profile otherwise.
+Default: undefined
+This property is specific to Apple platforms.
+This property was introduced in Qbs 1.19.
+timestampAlgorithm : string [since Qbs 1.19.2] Specifies the default timestamp algorithm used together with the signingTimestamp property. The possible values are sha1, sha256.
+Note: If this value is not set, then the default sha1 algorithm will be used.
+Default: undefined
+This property is specific to Windows.
+This property was introduced in Qbs 1.19.2.
+useApksigner : bool [since Qbs 1.19] If true, the package is signed using apksignerFilePath binary. Set this property to false to use the jarsignerFilePath one. Set by the Android.sdk module.
+Default: true
+This property is specific to Android platforms.
+This property was introduced in Qbs 1.19.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -83,7 +370,99 @@ Since: Qbs 1.19 List of all members, including inherited members Properties cert
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual QbsModules codesign Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags codesign Provides code signing support. More...
-Since: Qbs 1.19 List of all members, including inherited members Properties certificatePassword : string (since Qbs 1.19) certificatePath : string (since Qbs 1.19) codesignFlags : stringList (since Qbs 1.19) codesignName : string (since Qbs 1.19) codesignPath : string (since Qbs 1.19) crossCertificatePath : string (since Qbs 1.19) enableCodeSigning : bool (since Qbs 1.19) hashAlgorithm : string (since Qbs 1.19) keyAlias : string (since Qbs 1.19) keyPassword : string (since Qbs 1.19) keystorePassword : string (since Qbs 1.19) keystorePath : string (since Qbs 1.19) provisioningProfile : string (since Qbs 1.19) provisioningProfilesPath : path (since Qbs 1.19) rootSubjectName : string (since Qbs 1.19) signingIdentity : string (since Qbs 1.19) signingTimestamp : string (since Qbs 1.19) signingType : string (since Qbs 1.19) subjectName : string (since Qbs 1.19) teamIdentifier : string (since Qbs 1.19) timestampAlgorithm : string (since Qbs 1.19.2) useApksigner : bool (since Qbs 1.19) Detailed Description The codesign module contains properties and rules for code signing on Apple, Android, and Windows platforms.">
+Since: Qbs 1.19 List of all members, including inherited members Properties certificatePassword : string (since Qbs 1.19) certificatePath : string (since Qbs 1.19) codesignFlags : stringList (since Qbs 1.19) codesignName : string (since Qbs 1.19) codesignPath : string (since Qbs 1.19) crossCertificatePath : string (since Qbs 1.19) enableCodeSigning : bool (since Qbs 1.19) hashAlgorithm : string (since Qbs 1.19) keyAlias : string (since Qbs 1.19) keyPassword : string (since Qbs 1.19) keystorePassword : string (since Qbs 1.19) keystorePath : string (since Qbs 1.19) provisioningProfile : string (since Qbs 1.19) provisioningProfilesPath : path (since Qbs 1.19) rootSubjectName : string (since Qbs 1.19) signingIdentity : string (since Qbs 1.19) signingTimestamp : string (since Qbs 1.19) signingType : string (since Qbs 1.19) subjectName : string (since Qbs 1.19) teamIdentifier : string (since Qbs 1.19) timestampAlgorithm : string (since Qbs 1.19.2) useApksigner : bool (since Qbs 1.19) Detailed Description The codesign module contains properties and rules for code signing on Apple, Android, and Windows platforms.
+The tool used to sign Windows artifacts (applications, libraries, and installers) depends on the host operating system:
+On Windows hosts, signing is performed with the signtool utility from the Windows SDK. The signing certificate may be selected from the Windows certificate store (via subjectName) or supplied as a PKCS#12 (PFX) file. On non-Windows hosts, signing is performed with osslsigncode version 2.0 or later. By default it is located in the PATH, but its location can be set explicitly via codesignPath. This makes it possible to sign a cross-compiled binary or an NSIS, Inno Setup, or WiX installer that was built on Linux or macOS. The certificate must be supplied as a PKCS#12 (PFX) file. Available since Qbs 3.4. Because the two backends are different tools, they do not accept the same set of properties. certificatePath, certificatePassword, hashAlgorithm, and signingTimestamp are honored by both signtool and osslsigncode. The subjectName, rootSubjectName, timestampAlgorithm, and crossCertificatePath properties apply to signtool only and are ignored by osslsigncode. To pass an option that has no dedicated property to the underlying tool, use codesignFlags.
+Relevant File Tags Tag Auto-tagged File Names Since Description &#34;codesign.entitlements&#34; *.entitlements 1.19.0 Xcode entitlements &#34;codesign.provisioningprofile&#34; *.mobileprovision, *.provisionprofile 1.19.0 Xcode provisioning profiles &#34;codesign.signed_artifact&#34; n/a 1.19.0 This tag is attached to all signed artifacts such as applications or libraries Property Documentation certificatePassword : string [since Qbs 1.19] Specifies the password to use when opening a signing certificate file (*.pfx).
+This property is also used when signing with osslsigncode on non-Windows hosts.
+Default: undefined
+This property is specific to Windows.
+This property was introduced in Qbs 1.19.
+certificatePath : string [since Qbs 1.19] Specifies the full path to the signing certificate file (*.pfx).
+This property is also used when signing with osslsigncode on non-Windows hosts, where a PKCS#12 (PFX) certificate is required.
+Default: undefined
+This property is specific to Windows.
+This property was introduced in Qbs 1.19.
+codesignFlags : stringList [since Qbs 1.19] Additional command-line flags passed to the underlying code signing tool (for example, codesign on Apple, or signtool and osslsigncode for Windows artifacts). Use this to set options that do not have a dedicated property.
+Default: Undefined
+This property was introduced in Qbs 1.19.
+codesignName : string [since Qbs 1.19] The name of the codesign binary.
+Default: Determined automatically
+This property was introduced in Qbs 1.19.
+codesignPath : string [since Qbs 1.19] Path to the codesign tool.
+Default: Determined automatically
+This property was introduced in Qbs 1.19.
+crossCertificatePath : string [since Qbs 1.19] Specifies the full path to the additional certificate file (*.cer).
+Default: undefined
+This property is specific to Windows.
+This property was introduced in Qbs 1.19.
+enableCodeSigning : bool [since Qbs 1.19] Whether to actually perform code signing.
+Default: false
+This property was introduced in Qbs 1.19.
+hashAlgorithm : string [since Qbs 1.19] Specifies the default hash algorithm used on the signing certificate. The possible values are sha1, sha256, sha384, and sha512.
+Note: Only available in Windows 10 kit builds 20236 and later.
+Default: undefined
+This property is specific to Windows.
+This property was introduced in Qbs 1.19.
+keyAlias : string [since Qbs 1.19] The key alias.
+Default: &#34;androiddebugkey&#34;
+This property is specific to Android platforms.
+This property was introduced in Qbs 1.19.
+keyPassword : string [since Qbs 1.19] The key password.
+Default: &#34;android&#34;
+This property is specific to Android platforms.
+This property was introduced in Qbs 1.19.
+keystorePassword : string [since Qbs 1.19] The keystore password.
+Default: &#34;android&#34;
+This property is specific to Android platforms.
+This property was introduced in Qbs 1.19.
+keystorePath : string [since Qbs 1.19] The absolute path to the keystore file.
+Default: &#34;${HOME}/.android/debug.keystore&#34;
+This property is specific to Android platforms.
+This property was introduced in Qbs 1.19.
+provisioningProfile : string [since Qbs 1.19] Name or UUID of the provisioning profile to embed in the product. Typically this should be left blank to allow Qbs to use automatic provisioning.
+Default: undefined
+This property is specific to Apple platforms.
+This property was introduced in Qbs 1.19.
+provisioningProfilesPath : path [since Qbs 1.19] Path to directory containing provisioning profiles installed on the system. This should not normally need to be changed.
+Default: &#34;~/Library/MobileDevice/Provisioning Profiles&#34;
+This property is specific to Apple platforms.
+This property was introduced in Qbs 1.19.
+rootSubjectName : string [since Qbs 1.19] Specifies the name of the subject of the root certificate that the signing certificate must chain to. This value may be a substring of the entire subject name of the root certificate.
+Default: undefined
+This property is specific to Windows.
+This property was introduced in Qbs 1.19.
+signingIdentity : string [since Qbs 1.19] Search string used to find the certificate to sign the product. This does not have to be a full certificate name like &#34;Mac Developer: John Doe (XXXXXXXXXX)&#34;, and can instead be a partial string like &#34;Mac Developer&#34; or the certificate&#39;s SHA1 fingerprint. The search string should generally be one of the following:
+3rd Party Mac Developer Application 3rd Party Mac Developer Installer Developer ID Application Developer ID Installer iPhone Developer iPhone Distribution Mac Developer It is also possible to use the special &#34;-&#34; value to use the ad-hoc signing.
+See Maintaining Your Signing Identities and Certificates for complete documentation on the existing certificate types. In general you should use signingType instead.
+Default: Determined by signingType
+This property is specific to Apple platforms.
+This property was introduced in Qbs 1.19.
+signingTimestamp : string [since Qbs 1.19] URL of the timestamp authority RFC 3161 server to be contacted to authenticate code signing. undefined or empty indicates that a system-specific default should be used; &#34;none&#34; explicitly disables the use of timestamp services on Apple platforms.
+Default: &#34;none&#34; on Apple, undefined otherwise
+This property was introduced in Qbs 1.19.
+signingType : string [since Qbs 1.19] Type of code signing to use. This should generally be used in preference to an explicit signing identity like &#34;Mac Developer: John Doe (XXXXXXXXXX)&#34; since it is not user specific and can be set in a project file. Possible values include: &#34;app-store&#34;, &#34;apple-id&#34;, &#34;ad-hoc&#34;, which sign for the App Store or Mac App Store, Developer ID, and Ad-hoc code signing, respectively.
+Relation between the signingType and signingIdentity The following table shows how the signingIdentity&#39;s default value is calculated.
+qbs.targetOS codesign.signingType qbs.buildVariant codesign.signingIdentity &#34;macos&#34; &#34;ad-hoc&#34; any &#34;-&#34; &#34;app-store&#34; &#34;debug&#34;, &#34;profiling&#34; &#34;Mac Developer&#34; &#34;release&#34; &#34;3rd Party Mac Developer Application&#34; &#34;apple-id&#34; any &#34;Developer ID Application&#34; &#34;ios&#34;, &#34;tvos&#34;, &#34;watchos&#34; &#34;app-store&#34; &#34;debug&#34;, &#34;profiling&#34; &#34;iPhone Developer&#34; &#34;release&#34; &#34;iPhone Distribution&#34; Default: Determined automatically
+This property is specific to Apple platforms.
+This property was introduced in Qbs 1.19.
+subjectName : string [since Qbs 1.19] Specifies the name of the subject of the signing certificate. This value can be a substring of the entire subject name.
+Default: undefined
+This property is specific to Windows.
+This property was introduced in Qbs 1.19.
+teamIdentifier : string [since Qbs 1.19] Human readable name or 10-digit identifier of the Apple development team that the signing identity belongs to. This is used to disambiguate between multiple certificates of the same type in different teams. Typically this can be left blank if the development machine is only signed in to a single development team, and should be set in a profile otherwise.
+Default: undefined
+This property is specific to Apple platforms.
+This property was introduced in Qbs 1.19.
+timestampAlgorithm : string [since Qbs 1.19.2] Specifies the default timestamp algorithm used together with the signingTimestamp property. The possible values are sha1, sha256.
+Note: If this value is not set, then the default sha1 algorithm will be used.
+Default: undefined
+This property is specific to Windows.
+This property was introduced in Qbs 1.19.2.
+useApksigner : bool [since Qbs 1.19] If true, the package is signed using apksignerFilePath binary. Set this property to false to use the jarsignerFilePath one. Set by the Android.sdk module.
+Default: true
+This property is specific to Android platforms.
+This property was introduced in Qbs 1.19.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">

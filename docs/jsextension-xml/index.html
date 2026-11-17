@@ -57,7 +57,134 @@ Xml Service
 
 
 The Xml service enables you to access and manipulate XML Document Object Model (DOM) documents. The entire document is a document node, each XML element is an element node, the text paragraphs in the XML elements are text nodes, and each attribute is an attribute node.
-XML DOM presents documents as tree structures. The contents of the nodes can be accessed in the tree. They can be modified or deleted, and new nodes can be created. ">
+XML DOM presents documents as tree structures. The contents of the nodes can be accessed in the tree. They can be modified or deleted, and new nodes can be created.
+The nodes in the node tree have a hierarchical relationship to each other. The top node is called the root. Each node, except the root, has exactly one parent node, while it can have any number of children. Nodes with the same parent are called siblings.
+Example
+Tree-manipulation operations such as appendChild operate on node objects. Create the nodes with the document&#39;s factory methods (createElement, createTextNode, and so on), then insert those objects into the tree:
+var doc = new Xml.DomDocument();
+
+var root = doc.createElement(&#34;root&#34;);
+doc.appendChild(root);
+
+var greeting = doc.createElement(&#34;Greeting&#34;);
+root.appendChild(greeting);
+greeting.appendChild(doc.createTextNode(&#34;text node&#34;));
+
+doc.save(&#34;out.xml&#34;, 4);
+The code above produces:
+&lt;root&gt;
+    &lt;Greeting&gt;text node&lt;/Greeting&gt;
+&lt;/root&gt;
+XML DOM Document Node Operations
+A document node represents an entire document. That is, the root of the DOM tree.
+Constructor
+Xml.DomDocument()
+Creates an XML DOM root node that can contain one element.
+createCDATASection
+Xml.DomDocument.createCDATASection(value: string)
+Creates a CDATA section that is not parsed by a parser. It can be used to include XML fragments without having to escape the delimiters, for example. Tags inside the section are not treated as markup nor are entities expanded.
+createElement
+Xml.DomDocument.createElement(tagName: string)
+Creates an element that can contain other elements, CDATA sections, and text nodes.
+createTextNode
+Xml.DomDocument.createTextNode(value: string)
+Creates a text node that represents textual content in an element or attribute.
+documentElement
+Xml.DomDocument.documentElement()
+Returns the document element.
+load
+Xml.DomDocument.load(filePath: string): void
+Loads the document specified by filePath.
+save
+Xml.DomDocument.save(filePath: string, indentation: int): void
+Saves the document at the location specified by filePath with the indentation specified by int.
+setContent
+Xml.DomDocument.setContent(content: string)
+Returns the content of the document.
+toString
+Xml.DomDocument.toString(indentation: int)
+Converts the document to a string with the indentation specified by int.
+XML DOM Node Operations
+A node represents a single node in the document tree. There are several different types of nodes, such as element, attribute, and text nodes.
+All objects inherit the node properties for handling parents and children, even if they cannot have parents or children. For example, attempting to add children to text nodes results in a DOM error.
+Constructor
+Xml.DomNode()
+Creates an XML DOM node.
+appendChild
+Xml.DomNode.appendChild(newChild: DomNode)
+Appends a new child node to the end of the list of children of a node.
+attribute
+Xml.DomNode.attribute(name: string, defaultValue: string)
+Returns the name and default value of the attribute.
+clear
+Xml.DomNode.clear()
+Clears the contents of the node.
+data
+Xml.DomNode.data()
+Returns the contents of the text node, CDATA section, or character data node.
+firstChild
+Xml.DomNode.firstChild(tagName: string = &#34;&#34;)
+Returns the first child of a node.
+hasAttribute
+Xml.DomNode.hasAttribute(name: string) boolean
+Returns true if the node has the specified attribute.
+hasAttributes
+Xml.DomNode.hasAttributes() boolean
+Returns true if the node has attributes.
+hasChildNodes
+Xml.DomNode.hasChildNodes() boolean
+Returns true if the node has children.
+insertAfter
+Xml.DomNode.insertAfter(newChild: DomNode, refChild: DomNode)
+Inserts a new child node after the child node specified by refChild.
+insertBefore
+Xml.DomNode.insertBefore(newChild: DomNode, refChild: DomNode)
+Inserts a new child node before the child node specified by refChild.
+isCDATASection
+Xml.DomNode.isCDATASection() boolean
+Returns true if this is a CDATA section.
+isElement
+Xml.DomNode.isElement() boolean
+Returns true if this is an element.
+isText
+Xml.DomNode.isText() boolean
+Returns true if this is a text node.
+lastChild
+Xml.DomNode.lastChild(tagName: string = &#34;&#34;)
+Returns the last child of a node.
+nextSibling
+Xml.DomNode.nextSibling(tagName: string = &#34;&#34;)
+Returns the node immediately following a node.
+parentNode
+Xml.DomNode.parentNode()
+Returns the parent of the node.
+previousSibling
+Xml.DomNode.previousSibling(tagName: string = &#34;&#34;)
+Returns the node before a node.
+removeChild
+Xml.DomNode.removeChild(oldChild: DomNode)
+Removes the child node.
+replaceChild
+Xml.DomNode.replaceChild(newChild: DomNode, oldChild: DomNode)
+Replaces a child node with another one.
+setAttribute
+Xml.DomNode.setAttribute(name: string, value: string)
+Sets the name and value of an attribute.
+setData
+Xml.DomNode.setData(value: string): void
+Sets the data of the node to a text node, CDATA section, or character data node.
+setTagName
+Xml.DomNode.setTagName(tagName: string)
+Sets the tag name of the node.
+tagName
+Xml.DomNode.tagName()
+Returns the tag name of the node.
+text
+Xml.DomNode.text()
+Returns the text of the node.
+
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/jsextension-xml/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -67,14 +194,54 @@ XML DOM presents documents as tree structures. The contents of the nodes can be 
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/jsextension-xml/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual List of Built-in Services Xml Service Qbs 3.4.0 Contents Example XML DOM Document Node Operations Constructor createCDATASection createElement createTextNode documentElement load save setContent toString XML DOM Node Operations Constructor appendChild attribute clear data firstChild hasAttribute hasAttributes hasChildNodes insertAfter insertBefore isCDATASection isElement isText lastChild nextSibling parentNode previousSibling removeChild replaceChild setAttribute setData setTagName tagName text Xml Service The Xml service enables you to access and manipulate XML Document Object Model (DOM) documents. The entire document is a document node, each XML element is an element node, the text paragraphs in the XML elements are text nodes, and each attribute is an attribute node.
-XML DOM presents documents as tree structures. The contents of the nodes can be accessed in the tree. They can be modified or deleted, and new nodes can be created.">
+XML DOM presents documents as tree structures. The contents of the nodes can be accessed in the tree. They can be modified or deleted, and new nodes can be created.
+The nodes in the node tree have a hierarchical relationship to each other. The top node is called the root. Each node, except the root, has exactly one parent node, while it can have any number of children. Nodes with the same parent are called siblings.
+Example Tree-manipulation operations such as appendChild operate on node objects. Create the nodes with the document&#39;s factory methods (createElement, createTextNode, and so on), then insert those objects into the tree:
+var doc = new Xml.DomDocument(); var root = doc.createElement(&#34;root&#34;); doc.appendChild(root); var greeting = doc.createElement(&#34;Greeting&#34;); root.appendChild(greeting); greeting.appendChild(doc.createTextNode(&#34;text node&#34;)); doc.save(&#34;out.xml&#34;, 4); The code above produces:
+&lt;root&gt; &lt;Greeting&gt;text node&lt;/Greeting&gt; &lt;/root&gt; XML DOM Document Node Operations A document node represents an entire document. That is, the root of the DOM tree.
+Constructor Xml.DomDocument() Creates an XML DOM root node that can contain one element.
+createCDATASection Xml.DomDocument.createCDATASection(value: string) Creates a CDATA section that is not parsed by a parser. It can be used to include XML fragments without having to escape the delimiters, for example. Tags inside the section are not treated as markup nor are entities expanded.
+createElement Xml.DomDocument.createElement(tagName: string) Creates an element that can contain other elements, CDATA sections, and text nodes.
+createTextNode Xml.DomDocument.createTextNode(value: string) Creates a text node that represents textual content in an element or attribute.
+documentElement Xml.DomDocument.documentElement() Returns the document element.
+load Xml.DomDocument.load(filePath: string): void Loads the document specified by filePath.
+save Xml.DomDocument.save(filePath: string, indentation: int): void Saves the document at the location specified by filePath with the indentation specified by int.
+setContent Xml.DomDocument.setContent(content: string) Returns the content of the document.
+toString Xml.DomDocument.toString(indentation: int) Converts the document to a string with the indentation specified by int.
+XML DOM Node Operations A node represents a single node in the document tree. There are several different types of nodes, such as element, attribute, and text nodes.
+All objects inherit the node properties for handling parents and children, even if they cannot have parents or children. For example, attempting to add children to text nodes results in a DOM error.
+Constructor Xml.DomNode() Creates an XML DOM node.
+appendChild Xml.DomNode.appendChild(newChild: DomNode) Appends a new child node to the end of the list of children of a node.
+attribute Xml.DomNode.attribute(name: string, defaultValue: string) Returns the name and default value of the attribute.
+clear Xml.DomNode.clear() Clears the contents of the node.
+data Xml.DomNode.data() Returns the contents of the text node, CDATA section, or character data node.
+firstChild Xml.DomNode.firstChild(tagName: string = &#34;&#34;) Returns the first child of a node.
+hasAttribute Xml.DomNode.hasAttribute(name: string) boolean Returns true if the node has the specified attribute.
+hasAttributes Xml.DomNode.hasAttributes() boolean Returns true if the node has attributes.
+hasChildNodes Xml.DomNode.hasChildNodes() boolean Returns true if the node has children.
+insertAfter Xml.DomNode.insertAfter(newChild: DomNode, refChild: DomNode) Inserts a new child node after the child node specified by refChild.
+insertBefore Xml.DomNode.insertBefore(newChild: DomNode, refChild: DomNode) Inserts a new child node before the child node specified by refChild.
+isCDATASection Xml.DomNode.isCDATASection() boolean Returns true if this is a CDATA section.
+isElement Xml.DomNode.isElement() boolean Returns true if this is an element.
+isText Xml.DomNode.isText() boolean Returns true if this is a text node.
+lastChild Xml.DomNode.lastChild(tagName: string = &#34;&#34;) Returns the last child of a node.
+nextSibling Xml.DomNode.nextSibling(tagName: string = &#34;&#34;) Returns the node immediately following a node.
+parentNode Xml.DomNode.parentNode() Returns the parent of the node.
+previousSibling Xml.DomNode.previousSibling(tagName: string = &#34;&#34;) Returns the node before a node.
+removeChild Xml.DomNode.removeChild(oldChild: DomNode) Removes the child node.
+replaceChild Xml.DomNode.replaceChild(newChild: DomNode, oldChild: DomNode) Replaces a child node with another one.
+setAttribute Xml.DomNode.setAttribute(name: string, value: string) Sets the name and value of an attribute.
+setData Xml.DomNode.setData(value: string): void Sets the data of the node to a text node, CDATA section, or character data node.
+setTagName Xml.DomNode.setTagName(tagName: string) Sets the tag name of the node.
+tagName Xml.DomNode.tagName() Returns the tag name of the node.
+text Xml.DomNode.text() Returns the text of the node.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -83,7 +250,47 @@ XML DOM presents documents as tree structures. The contents of the nodes can be 
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual List of Built-in Services Xml Service Qbs 3.4.0 Contents Example XML DOM Document Node Operations Constructor createCDATASection createElement createTextNode documentElement load save setContent toString XML DOM Node Operations Constructor appendChild attribute clear data firstChild hasAttribute hasAttributes hasChildNodes insertAfter insertBefore isCDATASection isElement isText lastChild nextSibling parentNode previousSibling removeChild replaceChild setAttribute setData setTagName tagName text Xml Service The Xml service enables you to access and manipulate XML Document Object Model (DOM) documents. The entire document is a document node, each XML element is an element node, the text paragraphs in the XML elements are text nodes, and each attribute is an attribute node.
-XML DOM presents documents as tree structures. The contents of the nodes can be accessed in the tree. They can be modified or deleted, and new nodes can be created.">
+XML DOM presents documents as tree structures. The contents of the nodes can be accessed in the tree. They can be modified or deleted, and new nodes can be created.
+The nodes in the node tree have a hierarchical relationship to each other. The top node is called the root. Each node, except the root, has exactly one parent node, while it can have any number of children. Nodes with the same parent are called siblings.
+Example Tree-manipulation operations such as appendChild operate on node objects. Create the nodes with the document&#39;s factory methods (createElement, createTextNode, and so on), then insert those objects into the tree:
+var doc = new Xml.DomDocument(); var root = doc.createElement(&#34;root&#34;); doc.appendChild(root); var greeting = doc.createElement(&#34;Greeting&#34;); root.appendChild(greeting); greeting.appendChild(doc.createTextNode(&#34;text node&#34;)); doc.save(&#34;out.xml&#34;, 4); The code above produces:
+&lt;root&gt; &lt;Greeting&gt;text node&lt;/Greeting&gt; &lt;/root&gt; XML DOM Document Node Operations A document node represents an entire document. That is, the root of the DOM tree.
+Constructor Xml.DomDocument() Creates an XML DOM root node that can contain one element.
+createCDATASection Xml.DomDocument.createCDATASection(value: string) Creates a CDATA section that is not parsed by a parser. It can be used to include XML fragments without having to escape the delimiters, for example. Tags inside the section are not treated as markup nor are entities expanded.
+createElement Xml.DomDocument.createElement(tagName: string) Creates an element that can contain other elements, CDATA sections, and text nodes.
+createTextNode Xml.DomDocument.createTextNode(value: string) Creates a text node that represents textual content in an element or attribute.
+documentElement Xml.DomDocument.documentElement() Returns the document element.
+load Xml.DomDocument.load(filePath: string): void Loads the document specified by filePath.
+save Xml.DomDocument.save(filePath: string, indentation: int): void Saves the document at the location specified by filePath with the indentation specified by int.
+setContent Xml.DomDocument.setContent(content: string) Returns the content of the document.
+toString Xml.DomDocument.toString(indentation: int) Converts the document to a string with the indentation specified by int.
+XML DOM Node Operations A node represents a single node in the document tree. There are several different types of nodes, such as element, attribute, and text nodes.
+All objects inherit the node properties for handling parents and children, even if they cannot have parents or children. For example, attempting to add children to text nodes results in a DOM error.
+Constructor Xml.DomNode() Creates an XML DOM node.
+appendChild Xml.DomNode.appendChild(newChild: DomNode) Appends a new child node to the end of the list of children of a node.
+attribute Xml.DomNode.attribute(name: string, defaultValue: string) Returns the name and default value of the attribute.
+clear Xml.DomNode.clear() Clears the contents of the node.
+data Xml.DomNode.data() Returns the contents of the text node, CDATA section, or character data node.
+firstChild Xml.DomNode.firstChild(tagName: string = &#34;&#34;) Returns the first child of a node.
+hasAttribute Xml.DomNode.hasAttribute(name: string) boolean Returns true if the node has the specified attribute.
+hasAttributes Xml.DomNode.hasAttributes() boolean Returns true if the node has attributes.
+hasChildNodes Xml.DomNode.hasChildNodes() boolean Returns true if the node has children.
+insertAfter Xml.DomNode.insertAfter(newChild: DomNode, refChild: DomNode) Inserts a new child node after the child node specified by refChild.
+insertBefore Xml.DomNode.insertBefore(newChild: DomNode, refChild: DomNode) Inserts a new child node before the child node specified by refChild.
+isCDATASection Xml.DomNode.isCDATASection() boolean Returns true if this is a CDATA section.
+isElement Xml.DomNode.isElement() boolean Returns true if this is an element.
+isText Xml.DomNode.isText() boolean Returns true if this is a text node.
+lastChild Xml.DomNode.lastChild(tagName: string = &#34;&#34;) Returns the last child of a node.
+nextSibling Xml.DomNode.nextSibling(tagName: string = &#34;&#34;) Returns the node immediately following a node.
+parentNode Xml.DomNode.parentNode() Returns the parent of the node.
+previousSibling Xml.DomNode.previousSibling(tagName: string = &#34;&#34;) Returns the node before a node.
+removeChild Xml.DomNode.removeChild(oldChild: DomNode) Removes the child node.
+replaceChild Xml.DomNode.replaceChild(newChild: DomNode, oldChild: DomNode) Replaces a child node with another one.
+setAttribute Xml.DomNode.setAttribute(name: string, value: string) Sets the name and value of an attribute.
+setData Xml.DomNode.setData(value: string): void Sets the data of the node to a text node, CDATA section, or character data node.
+setTagName Xml.DomNode.setTagName(tagName: string) Sets the tag name of the node.
+tagName Xml.DomNode.tagName() Returns the tag name of the node.
+text Xml.DomNode.text() Returns the text of the node.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -175,7 +382,7 @@ XML DOM presents documents as tree structures. The contents of the nodes can be 
 <p>The nodes in the node tree have a hierarchical relationship to each other. The top node is called the <i>root</i>. Each node, except the root, has exactly one <i>parent</i> node, while it can have any number of <i>children</i>. Nodes with the same parent are called <i>siblings</i>.</p>
 <h2 id="example">Example</h2>
 <p>Tree-manipulation operations such as <code translate="no">appendChild</code> operate on node <i>objects</i>. Create the nodes with the document's factory methods (<code translate="no">createElement</code>, <code translate="no">createTextNode</code>, and so on), then insert those objects into the tree:</p>
-<pre class="cpp" translate="no">var doc <span class="operator">=</span> <span class="keyword">new</span> Xml<span class="operator">.</span>DomDocument();
+<pre class="cpp" translate="no"><code class="cpp">var doc <span class="operator">=</span> <span class="keyword">new</span> Xml<span class="operator">.</span>DomDocument();
 
 var root <span class="operator">=</span> doc<span class="operator">.</span>createElement(<span class="string">"root"</span>);
 doc<span class="operator">.</span>appendChild(root);
@@ -184,117 +391,117 @@ var greeting <span class="operator">=</span> doc<span class="operator">.</span>c
 root<span class="operator">.</span>appendChild(greeting);
 greeting<span class="operator">.</span>appendChild(doc<span class="operator">.</span>createTextNode(<span class="string">"text node"</span>));
 
-doc<span class="operator">.</span>save(<span class="string">"out.xml"</span><span class="operator">,</span> <span class="number">4</span>);</pre>
+doc<span class="operator">.</span>save(<span class="string">"out.xml"</span><span class="operator">,</span> <span class="number">4</span>);</code></pre>
 <p>The code above produces:</p>
-<pre class="cpp plain" translate="no">&lt;root&gt;
+<pre class="cpp plain" translate="no"><code class="text">&lt;root&gt;
     &lt;Greeting&gt;text node&lt;/Greeting&gt;
-&lt;/root&gt;</pre>
+&lt;/root&gt;</code></pre>
 <h2 id="xml-dom-document-node-operations">XML DOM Document Node Operations</h2>
 <p>A document node represents an entire document. That is, the root of the DOM tree.</p>
 <h3 id="constructor">Constructor</h3>
-<pre class="cpp plain" translate="no">Xml.DomDocument()</pre>
+<pre class="cpp plain" translate="no"><code class="text">Xml.DomDocument()</code></pre>
 <p>Creates an XML DOM root node that can contain one element.</p>
 <h3 id="createcdatasection">createCDATASection</h3>
-<pre class="cpp plain" translate="no">Xml.DomDocument.createCDATASection(value: string)</pre>
+<pre class="cpp plain" translate="no"><code class="text">Xml.DomDocument.createCDATASection(value: string)</code></pre>
 <p>Creates a CDATA section that is not parsed by a parser. It can be used to include XML fragments without having to escape the delimiters, for example. Tags inside the section are not treated as markup nor are entities expanded.</p>
 <h3 id="createelement">createElement</h3>
-<pre class="cpp plain" translate="no">Xml.DomDocument.createElement(tagName: string)</pre>
+<pre class="cpp plain" translate="no"><code class="text">Xml.DomDocument.createElement(tagName: string)</code></pre>
 <p>Creates an element that can contain other elements, CDATA sections, and text nodes.</p>
 <h3 id="createtextnode">createTextNode</h3>
-<pre class="cpp plain" translate="no">Xml.DomDocument.createTextNode(value: string)</pre>
+<pre class="cpp plain" translate="no"><code class="text">Xml.DomDocument.createTextNode(value: string)</code></pre>
 <p>Creates a text node that represents textual content in an element or attribute.</p>
 <h3 id="documentelement">documentElement</h3>
-<pre class="cpp plain" translate="no">Xml.DomDocument.documentElement()</pre>
+<pre class="cpp plain" translate="no"><code class="text">Xml.DomDocument.documentElement()</code></pre>
 <p>Returns the document element.</p>
 <h3 id="load">load</h3>
-<pre class="cpp plain" translate="no">Xml.DomDocument.load(filePath: string): void</pre>
+<pre class="cpp plain" translate="no"><code class="text">Xml.DomDocument.load(filePath: string): void</code></pre>
 <p>Loads the document specified by <code translate="no">filePath</code>.</p>
 <h3 id="save">save</h3>
-<pre class="cpp plain" translate="no">Xml.DomDocument.save(filePath: string, indentation: int): void</pre>
+<pre class="cpp plain" translate="no"><code class="text">Xml.DomDocument.save(filePath: string, indentation: int): void</code></pre>
 <p>Saves the document at the location specified by <code translate="no">filePath</code> with the indentation specified by <code translate="no">int</code>.</p>
 <h3 id="setcontent">setContent</h3>
-<pre class="cpp plain" translate="no">Xml.DomDocument.setContent(content: string)</pre>
+<pre class="cpp plain" translate="no"><code class="text">Xml.DomDocument.setContent(content: string)</code></pre>
 <p>Returns the content of the document.</p>
 <h3 id="tostring">toString</h3>
-<pre class="cpp plain" translate="no">Xml.DomDocument.toString(indentation: int)</pre>
+<pre class="cpp plain" translate="no"><code class="text">Xml.DomDocument.toString(indentation: int)</code></pre>
 <p>Converts the document to a string with the indentation specified by <code translate="no">int</code>.</p>
 <h2 id="xml-dom-node-operations">XML DOM Node Operations</h2>
 <p>A node represents a single node in the document tree. There are several different types of nodes, such as element, attribute, and text nodes.</p>
 <p>All objects inherit the node properties for handling parents and children, even if they cannot have parents or children. For example, attempting to add children to text nodes results in a DOM error.</p>
 <h3 id="xml-dom-node-operations-constructor-12">Constructor</h3>
-<pre class="cpp plain" translate="no">Xml.DomNode()</pre>
+<pre class="cpp plain" translate="no"><code class="text">Xml.DomNode()</code></pre>
 <p>Creates an XML DOM node.</p>
 <h3 id="appendchild">appendChild</h3>
-<pre class="cpp plain" translate="no">Xml.DomNode.appendChild(newChild: DomNode)</pre>
+<pre class="cpp plain" translate="no"><code class="text">Xml.DomNode.appendChild(newChild: DomNode)</code></pre>
 <p>Appends a new child node to the end of the list of children of a node.</p>
 <h3 id="attribute">attribute</h3>
-<pre class="cpp plain" translate="no">Xml.DomNode.attribute(name: string, defaultValue: string)</pre>
+<pre class="cpp plain" translate="no"><code class="text">Xml.DomNode.attribute(name: string, defaultValue: string)</code></pre>
 <p>Returns the name and default value of the attribute.</p>
 <h3 id="clear">clear</h3>
-<pre class="cpp plain" translate="no">Xml.DomNode.clear()</pre>
+<pre class="cpp plain" translate="no"><code class="text">Xml.DomNode.clear()</code></pre>
 <p>Clears the contents of the node.</p>
 <h3 id="data">data</h3>
-<pre class="cpp plain" translate="no">Xml.DomNode.data()</pre>
+<pre class="cpp plain" translate="no"><code class="text">Xml.DomNode.data()</code></pre>
 <p>Returns the contents of the text node, CDATA section, or character data node.</p>
 <h3 id="firstchild">firstChild</h3>
-<pre class="cpp plain" translate="no">Xml.DomNode.firstChild(tagName: string = "")</pre>
+<pre class="cpp plain" translate="no"><code class="text">Xml.DomNode.firstChild(tagName: string = "")</code></pre>
 <p>Returns the first child of a node.</p>
 <h3 id="hasattribute">hasAttribute</h3>
-<pre class="cpp plain" translate="no">Xml.DomNode.hasAttribute(name: string) boolean</pre>
+<pre class="cpp plain" translate="no"><code class="text">Xml.DomNode.hasAttribute(name: string) boolean</code></pre>
 <p>Returns <code translate="no">true</code> if the node has the specified attribute.</p>
 <h3 id="hasattributes">hasAttributes</h3>
-<pre class="cpp plain" translate="no">Xml.DomNode.hasAttributes() boolean</pre>
+<pre class="cpp plain" translate="no"><code class="text">Xml.DomNode.hasAttributes() boolean</code></pre>
 <p>Returns <code translate="no">true</code> if the node has attributes.</p>
 <h3 id="haschildnodes">hasChildNodes</h3>
-<pre class="cpp plain" translate="no">Xml.DomNode.hasChildNodes() boolean</pre>
+<pre class="cpp plain" translate="no"><code class="text">Xml.DomNode.hasChildNodes() boolean</code></pre>
 <p>Returns <code translate="no">true</code> if the node has children.</p>
 <h3 id="insertafter">insertAfter</h3>
-<pre class="cpp plain" translate="no">Xml.DomNode.insertAfter(newChild: DomNode, refChild: DomNode)</pre>
+<pre class="cpp plain" translate="no"><code class="text">Xml.DomNode.insertAfter(newChild: DomNode, refChild: DomNode)</code></pre>
 <p>Inserts a new child node after the child node specified by <code translate="no">refChild</code>.</p>
 <h3 id="insertbefore">insertBefore</h3>
-<pre class="cpp plain" translate="no">Xml.DomNode.insertBefore(newChild: DomNode, refChild: DomNode)</pre>
+<pre class="cpp plain" translate="no"><code class="text">Xml.DomNode.insertBefore(newChild: DomNode, refChild: DomNode)</code></pre>
 <p>Inserts a new child node before the child node specified by <code translate="no">refChild</code>.</p>
 <h3 id="iscdatasection">isCDATASection</h3>
-<pre class="cpp plain" translate="no">Xml.DomNode.isCDATASection() boolean</pre>
+<pre class="cpp plain" translate="no"><code class="text">Xml.DomNode.isCDATASection() boolean</code></pre>
 <p>Returns <code translate="no">true</code> if this is a CDATA section.</p>
 <h3 id="iselement">isElement</h3>
-<pre class="cpp plain" translate="no">Xml.DomNode.isElement() boolean</pre>
+<pre class="cpp plain" translate="no"><code class="text">Xml.DomNode.isElement() boolean</code></pre>
 <p>Returns <code translate="no">true</code> if this is an element.</p>
 <h3 id="istext">isText</h3>
-<pre class="cpp plain" translate="no">Xml.DomNode.isText() boolean</pre>
+<pre class="cpp plain" translate="no"><code class="text">Xml.DomNode.isText() boolean</code></pre>
 <p>Returns <code translate="no">true</code> if this is a text node.</p>
 <h3 id="lastchild">lastChild</h3>
-<pre class="cpp plain" translate="no">Xml.DomNode.lastChild(tagName: string = "")</pre>
+<pre class="cpp plain" translate="no"><code class="text">Xml.DomNode.lastChild(tagName: string = "")</code></pre>
 <p>Returns the last child of a node.</p>
 <h3 id="nextsibling">nextSibling</h3>
-<pre class="cpp plain" translate="no">Xml.DomNode.nextSibling(tagName: string = "")</pre>
+<pre class="cpp plain" translate="no"><code class="text">Xml.DomNode.nextSibling(tagName: string = "")</code></pre>
 <p>Returns the node immediately following a node.</p>
 <h3 id="parentnode">parentNode</h3>
-<pre class="cpp plain" translate="no">Xml.DomNode.parentNode()</pre>
+<pre class="cpp plain" translate="no"><code class="text">Xml.DomNode.parentNode()</code></pre>
 <p>Returns the parent of the node.</p>
 <h3 id="previoussibling">previousSibling</h3>
-<pre class="cpp plain" translate="no">Xml.DomNode.previousSibling(tagName: string = "")</pre>
+<pre class="cpp plain" translate="no"><code class="text">Xml.DomNode.previousSibling(tagName: string = "")</code></pre>
 <p>Returns the node before a node.</p>
 <h3 id="removechild">removeChild</h3>
-<pre class="cpp plain" translate="no">Xml.DomNode.removeChild(oldChild: DomNode)</pre>
+<pre class="cpp plain" translate="no"><code class="text">Xml.DomNode.removeChild(oldChild: DomNode)</code></pre>
 <p>Removes the child node.</p>
 <h3 id="replacechild">replaceChild</h3>
-<pre class="cpp plain" translate="no">Xml.DomNode.replaceChild(newChild: DomNode, oldChild: DomNode)</pre>
+<pre class="cpp plain" translate="no"><code class="text">Xml.DomNode.replaceChild(newChild: DomNode, oldChild: DomNode)</code></pre>
 <p>Replaces a child node with another one.</p>
 <h3 id="setattribute">setAttribute</h3>
-<pre class="cpp plain" translate="no">Xml.DomNode.setAttribute(name: string, value: string)</pre>
+<pre class="cpp plain" translate="no"><code class="text">Xml.DomNode.setAttribute(name: string, value: string)</code></pre>
 <p>Sets the name and value of an attribute.</p>
 <h3 id="setdata">setData</h3>
-<pre class="cpp plain" translate="no">Xml.DomNode.setData(value: string): void</pre>
+<pre class="cpp plain" translate="no"><code class="text">Xml.DomNode.setData(value: string): void</code></pre>
 <p>Sets the data of the node to a text node, CDATA section, or character data node.</p>
 <h3 id="settagname">setTagName</h3>
-<pre class="cpp plain" translate="no">Xml.DomNode.setTagName(tagName: string)</pre>
+<pre class="cpp plain" translate="no"><code class="text">Xml.DomNode.setTagName(tagName: string)</code></pre>
 <p>Sets the tag name of the node.</p>
 <h3 id="tagname">tagName</h3>
-<pre class="cpp plain" translate="no">Xml.DomNode.tagName()</pre>
+<pre class="cpp plain" translate="no"><code class="text">Xml.DomNode.tagName()</code></pre>
 <p>Returns the tag name of the node.</p>
 <h3 id="text">text</h3>
-<pre class="cpp plain" translate="no">Xml.DomNode.text()</pre>
+<pre class="cpp plain" translate="no"><code class="text">Xml.DomNode.text()</code></pre>
 <p>Returns the text of the node.</p>
 </div>
 <!-- @@@jsextension-xml.html -->

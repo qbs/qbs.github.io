@@ -24,7 +24,32 @@ Building for Windows
 
 This topic describes the Qbs features specific to Windows.
 
-Note: Qbs does not currently support building applications using .NET technologies and languages such as C#, F#, and Visual Basic. At this time we recommend that you use MSBuild and the tools shipped with the various implementations of the .NET platform. ">
+Note: Qbs does not currently support building applications using .NET technologies and languages such as C#, F#, and Visual Basic. At this time we recommend that you use MSBuild and the tools shipped with the various implementations of the .NET platform.
+
+Windows Resources
+The ico module contains rules and properties for building Windows icon (.ico) and cursor (.cur) files from a set of raw PNGs.
+Universal Windows Platform
+Building applications for the Universal Windows Platform is currently only partially supported. Notably, support for building APPX packages is missing, but will be added in a future release.
+Relevant properties include:
+
+cpp.windowsApiFamily
+cpp.windowsApiAdditionalPartitions
+cpp.requireAppContainer
+
+See the cpp module for more information.
+
+Note: Qbs does not (and will not) support building Windows Runtime applications targeting Windows 8 or Windows 8.1. We encourage users to instead build desktop applications for older versions of Windows, or migrate to Windows 10 and the Universal Windows Platform.
+
+Building Windows Installers
+The following modules contain properties and rules for building Windows installers using a number of different technologies:
+
+innosetup - Inno Setup
+nsis - Nullsoft Scriptable Install System
+wix - Windows Installer XML Toolset
+
+
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qbs-target-windows/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -34,14 +59,21 @@ Note: Qbs does not currently support building applications using .NET technologi
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qbs-target-windows/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual Target Platforms Building for Windows Qbs 3.4.0 Contents Windows Resources Universal Windows Platform Building Windows Installers Building for Windows This topic describes the Qbs features specific to Windows.
-Note: Qbs does not currently support building applications using .NET technologies and languages such as C#, F#, and Visual Basic. At this time we recommend that you use MSBuild and the tools shipped with the various implementations of the .NET platform.">
+Note: Qbs does not currently support building applications using .NET technologies and languages such as C#, F#, and Visual Basic. At this time we recommend that you use MSBuild and the tools shipped with the various implementations of the .NET platform.
+Windows Resources The ico module contains rules and properties for building Windows icon (.ico) and cursor (.cur) files from a set of raw PNGs.
+Universal Windows Platform Building applications for the Universal Windows Platform is currently only partially supported. Notably, support for building APPX packages is missing, but will be added in a future release.
+Relevant properties include:
+cpp.windowsApiFamily cpp.windowsApiAdditionalPartitions cpp.requireAppContainer See the cpp module for more information.
+Note: Qbs does not (and will not) support building Windows Runtime applications targeting Windows 8 or Windows 8.1. We encourage users to instead build desktop applications for older versions of Windows, or migrate to Windows 10 and the Universal Windows Platform.
+Building Windows Installers The following modules contain properties and rules for building Windows installers using a number of different technologies:
+innosetup - Inno Setup nsis - Nullsoft Scriptable Install System wix - Windows Installer XML Toolset">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -50,7 +82,14 @@ Note: Qbs does not currently support building applications using .NET technologi
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual Target Platforms Building for Windows Qbs 3.4.0 Contents Windows Resources Universal Windows Platform Building Windows Installers Building for Windows This topic describes the Qbs features specific to Windows.
-Note: Qbs does not currently support building applications using .NET technologies and languages such as C#, F#, and Visual Basic. At this time we recommend that you use MSBuild and the tools shipped with the various implementations of the .NET platform.">
+Note: Qbs does not currently support building applications using .NET technologies and languages such as C#, F#, and Visual Basic. At this time we recommend that you use MSBuild and the tools shipped with the various implementations of the .NET platform.
+Windows Resources The ico module contains rules and properties for building Windows icon (.ico) and cursor (.cur) files from a set of raw PNGs.
+Universal Windows Platform Building applications for the Universal Windows Platform is currently only partially supported. Notably, support for building APPX packages is missing, but will be added in a future release.
+Relevant properties include:
+cpp.windowsApiFamily cpp.windowsApiAdditionalPartitions cpp.requireAppContainer See the cpp module for more information.
+Note: Qbs does not (and will not) support building Windows Runtime applications targeting Windows 8 or Windows 8.1. We encourage users to instead build desktop applications for older versions of Windows, or migrate to Windows 10 and the Universal Windows Platform.
+Building Windows Installers The following modules contain properties and rules for building Windows installers using a number of different technologies:
+innosetup - Inno Setup nsis - Nullsoft Scriptable Install System wix - Windows Installer XML Toolset">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">

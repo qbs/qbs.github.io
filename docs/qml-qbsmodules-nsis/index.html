@@ -50,7 +50,109 @@ warningLevel : string
 
 
 Detailed Description
-The nsis module contains properties and rules for building EXE installers for Windows using the Nullsoft Scriptable Install System (NSIS). ">
+The nsis module contains properties and rules for building EXE installers for Windows using the Nullsoft Scriptable Install System (NSIS).
+This module is available on all platforms.
+
+Note: A typical NSIS script includes an OutFile command to set the filename of the generated installer executable. However, Qbs overrides any OutFile commands found in the script, and therefore, you must use the product.targetName property to set the filename.
+
+The generated installer executable can be code-signed by enabling the codesign module. Set codesign.enableCodeSigning to true and configure the related codesign properties (such as codesign.certificatePath or codesign.subjectName). Signing currently requires the signtool utility and is therefore performed only when building on Windows.
+Relevant File Tags
+
+TagAuto-tagged File NamesSinceDescription
+&#34;nsh&#34;*.nsh1.2This tag is attached to NSIS header files.
+&#34;nsi&#34;*.nsi1.2This tag is attached to NSIS script files.
+&#34;nsissetup&#34;-1.2The rule that creates the NSIS setup executable attaches this tag to its output artifact.
+
+
+Property Documentation
+
+compilerFlags : stringList
+A list of additional flags for the NSIS compiler.
+Default: Undefined
+
+
+compilerName : string
+The name of the compiler binary.
+This property should not normally need to be changed.
+Default: &#34;makensis&#34;
+
+
+compilerPath : string
+The directory where the compiler binary is located.
+This property should not normally need to be changed.
+Default: compilerName
+
+
+compressor : string
+The compression algorithm used to compress files and data in the installer.
+Setting this property overrides any SetCompressor command in the NSI file being compiled.
+Possible values include: &#34;default&#34;, &#34;zlib&#34;, &#34;zlib-solid&#34;, &#34;bzip2&#34;, &#34;bzip2-solid&#34;, &#34;lzma&#34;, &#34;lzma-solid&#34;.
+Default: &#34;default&#34;
+
+
+defines : stringList
+A list of preprocessor macros that get passed to the compiler.
+To set macro values, use the following syntax:
+cpp.defines: [&#34;USE_COLORS=1&#34;, &#39;COLOR_STR=&#34;blanched almond&#34;&#39;]
+Default: Undefined
+
+
+disableConfig : bool
+Whether to exclude nsisconf.nsh.
+Generally, you do not need to set this property.
+Default: false
+
+
+enableQbsDefines : bool
+Whether to define preprocessor macros corresponding to the values from the project and product objects.
+When building a 64-bit package, the preprocessor variable Win64 will also be defined.
+Default: true
+
+
+toolchainInstallPath : path
+The NSIS installation directory.
+Determined by searching from the known registry keys and known installation paths until a match is found.
+This property should not normally need to be changed.
+Default: Determined automatically.
+
+
+version : string
+The NSIS version. Consists of four numbers separated by dots. For example, &#34;2.46.0.0&#34;.
+Default: Undefined
+
+
+versionBuild : int
+The fourth NSIS version number component.
+Default: versionParts[3]
+
+
+versionMajor : int
+The NSIS major version.
+Default: versionParts[0]
+
+
+versionMinor : int
+The NSIS minor version.
+Default: versionParts[1]
+
+
+versionParts : list
+The NSIS version as a list.
+For example, the NSIS version 2.46.0.0 would correspond to a value of [2, 46, 0, 0].
+Default: []
+
+
+versionPatch : int
+The NSIS patch level.
+Default: versionParts[2]
+
+
+warningLevel : string
+The severity of the warnings to emit. The higher the level, the more warnings will be shown.
+The levels none, errors, warnings, info, and all correspond to the NSIS verbosity levels 0 through 4, inclusive. normal corresponds to the default level.
+Default: &#34;normal&#34;
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-nsis/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -60,14 +162,58 @@ The nsis module contains properties and rules for building EXE installers for Wi
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-nsis/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual QbsModules nsis Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags nsis Provides Nullsoft Scriptable Install System support. More...
-Since: Qbs 1.2 List of all members, including inherited members Properties compilerFlags : stringList compilerName : string compilerPath : string compressor : string defines : stringList disableConfig : bool enableQbsDefines : bool toolchainInstallPath : path version : string versionBuild : int versionMajor : int versionMinor : int versionParts : list versionPatch : int warningLevel : string Detailed Description The nsis module contains properties and rules for building EXE installers for Windows using the Nullsoft Scriptable Install System (NSIS).">
+Since: Qbs 1.2 List of all members, including inherited members Properties compilerFlags : stringList compilerName : string compilerPath : string compressor : string defines : stringList disableConfig : bool enableQbsDefines : bool toolchainInstallPath : path version : string versionBuild : int versionMajor : int versionMinor : int versionParts : list versionPatch : int warningLevel : string Detailed Description The nsis module contains properties and rules for building EXE installers for Windows using the Nullsoft Scriptable Install System (NSIS).
+This module is available on all platforms.
+Note: A typical NSIS script includes an OutFile command to set the filename of the generated installer executable. However, Qbs overrides any OutFile commands found in the script, and therefore, you must use the product.targetName property to set the filename.
+The generated installer executable can be code-signed by enabling the codesign module. Set codesign.enableCodeSigning to true and configure the related codesign properties (such as codesign.certificatePath or codesign.subjectName). Signing currently requires the signtool utility and is therefore performed only when building on Windows.
+Relevant File Tags Tag Auto-tagged File Names Since Description &#34;nsh&#34; *.nsh 1.2 This tag is attached to NSIS header files. &#34;nsi&#34; *.nsi 1.2 This tag is attached to NSIS script files. &#34;nsissetup&#34; - 1.2 The rule that creates the NSIS setup executable attaches this tag to its output artifact. Property Documentation compilerFlags : stringList A list of additional flags for the NSIS compiler.
+Default: Undefined
+compilerName : string The name of the compiler binary.
+This property should not normally need to be changed.
+Default: &#34;makensis&#34;
+compilerPath : string The directory where the compiler binary is located.
+This property should not normally need to be changed.
+Default: compilerName
+compressor : string The compression algorithm used to compress files and data in the installer.
+Setting this property overrides any SetCompressor command in the NSI file being compiled.
+Possible values include: &#34;default&#34;, &#34;zlib&#34;, &#34;zlib-solid&#34;, &#34;bzip2&#34;, &#34;bzip2-solid&#34;, &#34;lzma&#34;, &#34;lzma-solid&#34;.
+Default: &#34;default&#34;
+defines : stringList A list of preprocessor macros that get passed to the compiler.
+To set macro values, use the following syntax:
+cpp.defines: [&#34;USE_COLORS=1&#34;, &#39;COLOR_STR=&#34;blanched almond&#34;&#39;] Default: Undefined
+disableConfig : bool Whether to exclude nsisconf.nsh.
+Generally, you do not need to set this property.
+Default: false
+enableQbsDefines : bool Whether to define preprocessor macros corresponding to the values from the project and product objects.
+When building a 64-bit package, the preprocessor variable Win64 will also be defined.
+Default: true
+toolchainInstallPath : path The NSIS installation directory.
+Determined by searching from the known registry keys and known installation paths until a match is found.
+This property should not normally need to be changed.
+Default: Determined automatically.
+version : string The NSIS version. Consists of four numbers separated by dots. For example, &#34;2.46.0.0&#34;.
+Default: Undefined
+versionBuild : int The fourth NSIS version number component.
+Default: versionParts[3]
+versionMajor : int The NSIS major version.
+Default: versionParts[0]
+versionMinor : int The NSIS minor version.
+Default: versionParts[1]
+versionParts : list The NSIS version as a list.
+For example, the NSIS version 2.46.0.0 would correspond to a value of [2, 46, 0, 0].
+Default: []
+versionPatch : int The NSIS patch level.
+Default: versionParts[2]
+warningLevel : string The severity of the warnings to emit. The higher the level, the more warnings will be shown.
+The levels none, errors, warnings, info, and all correspond to the NSIS verbosity levels 0 through 4, inclusive. normal corresponds to the default level.
+Default: &#34;normal&#34;">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -76,7 +222,51 @@ Since: Qbs 1.2 List of all members, including inherited members Properties compi
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual QbsModules nsis Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags nsis Provides Nullsoft Scriptable Install System support. More...
-Since: Qbs 1.2 List of all members, including inherited members Properties compilerFlags : stringList compilerName : string compilerPath : string compressor : string defines : stringList disableConfig : bool enableQbsDefines : bool toolchainInstallPath : path version : string versionBuild : int versionMajor : int versionMinor : int versionParts : list versionPatch : int warningLevel : string Detailed Description The nsis module contains properties and rules for building EXE installers for Windows using the Nullsoft Scriptable Install System (NSIS).">
+Since: Qbs 1.2 List of all members, including inherited members Properties compilerFlags : stringList compilerName : string compilerPath : string compressor : string defines : stringList disableConfig : bool enableQbsDefines : bool toolchainInstallPath : path version : string versionBuild : int versionMajor : int versionMinor : int versionParts : list versionPatch : int warningLevel : string Detailed Description The nsis module contains properties and rules for building EXE installers for Windows using the Nullsoft Scriptable Install System (NSIS).
+This module is available on all platforms.
+Note: A typical NSIS script includes an OutFile command to set the filename of the generated installer executable. However, Qbs overrides any OutFile commands found in the script, and therefore, you must use the product.targetName property to set the filename.
+The generated installer executable can be code-signed by enabling the codesign module. Set codesign.enableCodeSigning to true and configure the related codesign properties (such as codesign.certificatePath or codesign.subjectName). Signing currently requires the signtool utility and is therefore performed only when building on Windows.
+Relevant File Tags Tag Auto-tagged File Names Since Description &#34;nsh&#34; *.nsh 1.2 This tag is attached to NSIS header files. &#34;nsi&#34; *.nsi 1.2 This tag is attached to NSIS script files. &#34;nsissetup&#34; - 1.2 The rule that creates the NSIS setup executable attaches this tag to its output artifact. Property Documentation compilerFlags : stringList A list of additional flags for the NSIS compiler.
+Default: Undefined
+compilerName : string The name of the compiler binary.
+This property should not normally need to be changed.
+Default: &#34;makensis&#34;
+compilerPath : string The directory where the compiler binary is located.
+This property should not normally need to be changed.
+Default: compilerName
+compressor : string The compression algorithm used to compress files and data in the installer.
+Setting this property overrides any SetCompressor command in the NSI file being compiled.
+Possible values include: &#34;default&#34;, &#34;zlib&#34;, &#34;zlib-solid&#34;, &#34;bzip2&#34;, &#34;bzip2-solid&#34;, &#34;lzma&#34;, &#34;lzma-solid&#34;.
+Default: &#34;default&#34;
+defines : stringList A list of preprocessor macros that get passed to the compiler.
+To set macro values, use the following syntax:
+cpp.defines: [&#34;USE_COLORS=1&#34;, &#39;COLOR_STR=&#34;blanched almond&#34;&#39;] Default: Undefined
+disableConfig : bool Whether to exclude nsisconf.nsh.
+Generally, you do not need to set this property.
+Default: false
+enableQbsDefines : bool Whether to define preprocessor macros corresponding to the values from the project and product objects.
+When building a 64-bit package, the preprocessor variable Win64 will also be defined.
+Default: true
+toolchainInstallPath : path The NSIS installation directory.
+Determined by searching from the known registry keys and known installation paths until a match is found.
+This property should not normally need to be changed.
+Default: Determined automatically.
+version : string The NSIS version. Consists of four numbers separated by dots. For example, &#34;2.46.0.0&#34;.
+Default: Undefined
+versionBuild : int The fourth NSIS version number component.
+Default: versionParts[3]
+versionMajor : int The NSIS major version.
+Default: versionParts[0]
+versionMinor : int The NSIS minor version.
+Default: versionParts[1]
+versionParts : list The NSIS version as a list.
+For example, the NSIS version 2.46.0.0 would correspond to a value of [2, 46, 0, 0].
+Default: []
+versionPatch : int The NSIS patch level.
+Default: versionParts[2]
+warningLevel : string The severity of the warnings to emit. The higher the level, the more warnings will be shown.
+The levels none, errors, warnings, info, and all correspond to the NSIS verbosity levels 0 through 4, inclusive. normal corresponds to the default level.
+Default: &#34;normal&#34;">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -222,7 +412,7 @@ Since: Qbs 1.2 List of all members, including inherited members Properties compi
 <h3 class="fn qml-member qml-property" id="defines-prop" translate="no"><span class="name">defines</span> : <span class="type">stringList</span></h3>
 <p>A list of preprocessor macros that get passed to the compiler.</p>
 <p>To set macro values, use the following syntax:</p>
-<pre class="cpp plain" translate="no">cpp.defines: ["USE_COLORS=1", 'COLOR_STR="blanched almond"']</pre>
+<pre class="cpp plain" translate="no"><code class="text">cpp.defines: ["USE_COLORS=1", 'COLOR_STR="blanched almond"']</code></pre>
 <p>Default: Undefined</p>
 <!-- @@@defines -->
 <!-- $$$disableConfig -->

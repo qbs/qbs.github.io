@@ -44,7 +44,42 @@ limitToSubProject : bool
 
 
 Detailed Description
-A QtLupdateRunner has a dependency on all products that have a Qt dependency. ">
+A QtLupdateRunner has a dependency on all products that have a Qt dependency.
+Building the QtLupdateRunner product will run the lupdate tool on eligible source files from these products in order to update the project&#39;s translation files with regard to the translatable strings in these sources.
+The builtByDefault property is set to false by default, so updating the translation files has to be explicitly requested.
+The default name of the product is &#34;lupdate-runner&#34;.
+To use this feature:
+Instantiate a QtLupdateRunner in your project, typically at the top level:Project {
+    // ...
+    QtLupdateRunner { }
+    // ...
+}
+
+Trigger the translation files update by building the product:qbs build -p lupdate-runner
+
+
+Relevant File Tags
+
+TagSinceDescription
+&#34;qt.untranslatable&#34;2.6Attach this tag to source files that lupdate should not consider.
+
+
+Property Documentation
+
+extraArguments : stringList
+Additional arguments to pass to the lupdate tool.
+Default: Undefined
+
+
+limitToSubProject : bool
+By default, only the source files of products that live in the same sub-project that QtLupdateRunner was instantiated in are looked at. Set this property to false to consider all products in the project.
+Default: true
+
+
+QtGuiApplication
+StaticLibrary
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsconvenienceitems-qtlupdaterunner/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -54,14 +89,23 @@ A QtLupdateRunner has a dependency on all products that have a Qt dependency. ">
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsconvenienceitems-qtlupdaterunner/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual QbsConvenienceItems QtLupdateRunner Qbs 3.4.0 QtGuiApplication StaticLibrary Contents Properties Detailed Description Relevant File Tags QtLupdateRunner A product that updates all Qt translation files in the project. More...
-Since: 2.6 List of all members, including inherited members QtLupdateRunner is part of List of All Items. Properties extraArguments : stringList limitToSubProject : bool Detailed Description A QtLupdateRunner has a dependency on all products that have a Qt dependency.">
+Since: 2.6 List of all members, including inherited members QtLupdateRunner is part of List of All Items. Properties extraArguments : stringList limitToSubProject : bool Detailed Description A QtLupdateRunner has a dependency on all products that have a Qt dependency.
+Building the QtLupdateRunner product will run the lupdate tool on eligible source files from these products in order to update the project&#39;s translation files with regard to the translatable strings in these sources.
+The builtByDefault property is set to false by default, so updating the translation files has to be explicitly requested.
+The default name of the product is &#34;lupdate-runner&#34;.
+To use this feature:
+Instantiate a QtLupdateRunner in your project, typically at the top level: Project { // ... QtLupdateRunner { } // ... } Trigger the translation files update by building the product: qbs build -p lupdate-runner Relevant File Tags Tag Since Description &#34;qt.untranslatable&#34; 2.6 Attach this tag to source files that lupdate should not consider. Property Documentation extraArguments : stringList Additional arguments to pass to the lupdate tool.
+Default: Undefined
+limitToSubProject : bool By default, only the source files of products that live in the same sub-project that QtLupdateRunner was instantiated in are looked at. Set this property to false to consider all products in the project.
+Default: true
+QtGuiApplication StaticLibrary">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -70,7 +114,16 @@ Since: 2.6 List of all members, including inherited members QtLupdateRunner is p
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual QbsConvenienceItems QtLupdateRunner Qbs 3.4.0 QtGuiApplication StaticLibrary Contents Properties Detailed Description Relevant File Tags QtLupdateRunner A product that updates all Qt translation files in the project. More...
-Since: 2.6 List of all members, including inherited members QtLupdateRunner is part of List of All Items. Properties extraArguments : stringList limitToSubProject : bool Detailed Description A QtLupdateRunner has a dependency on all products that have a Qt dependency.">
+Since: 2.6 List of all members, including inherited members QtLupdateRunner is part of List of All Items. Properties extraArguments : stringList limitToSubProject : bool Detailed Description A QtLupdateRunner has a dependency on all products that have a Qt dependency.
+Building the QtLupdateRunner product will run the lupdate tool on eligible source files from these products in order to update the project&#39;s translation files with regard to the translatable strings in these sources.
+The builtByDefault property is set to false by default, so updating the translation files has to be explicitly requested.
+The default name of the product is &#34;lupdate-runner&#34;.
+To use this feature:
+Instantiate a QtLupdateRunner in your project, typically at the top level: Project { // ... QtLupdateRunner { } // ... } Trigger the translation files update by building the product: qbs build -p lupdate-runner Relevant File Tags Tag Since Description &#34;qt.untranslatable&#34; 2.6 Attach this tag to source files that lupdate should not consider. Property Documentation extraArguments : stringList Additional arguments to pass to the lupdate tool.
+Default: Undefined
+limitToSubProject : bool By default, only the source files of products that live in the same sub-project that QtLupdateRunner was instantiated in are looked at. Set this property to false to consider all products in the project.
+Default: true
+QtGuiApplication StaticLibrary">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -160,15 +213,15 @@ Since: 2.6 List of all members, including inherited members QtLupdateRunner is p
 /docs/qml-qbslanguageitems-product/#builtByDefault-prop" translate="no">builtByDefault</a> property is set to <code translate="no">false</code> by default, so updating the translation files has to be explicitly requested.</p>
 <p>The default name of the product is <code translate="no">"lupdate-runner"</code>.</p>
 <p>To use this feature:</p>
-<ol class="1" type="1"><li>Instantiate a <code translate="no">QtLupdateRunner</code> in your project, typically at the top level:<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
+<ol class="1" type="1"><li>Instantiate a <code translate="no">QtLupdateRunner</code> in your project, typically at the top level:<pre class="cpp" translate="no"><code class="cpp"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-project/" translate="no">Project</a></span> {
     <span class="comment">// ...</span>
     <span class="type"><a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-qtlupdaterunner/" translate="no">QtLupdateRunner</a></span> { }
     <span class="comment">// ...</span>
-}</pre>
+}</code></pre>
 </li>
-<li>Trigger the translation files update by building the product:<pre class="cpp" translate="no">qbs build <span class="operator">-</span>p lupdate<span class="operator">-</span>runner</pre>
+<li>Trigger the translation files update by building the product:<pre class="cpp" translate="no"><code class="cpp">qbs build <span class="operator">-</span>p lupdate<span class="operator">-</span>runner</code></pre>
 </li>
 </ol>
 <h3 id="relevant-file-tags">Relevant File Tags</h3>

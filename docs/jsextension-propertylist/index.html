@@ -41,7 +41,43 @@ PropertyList()
 Allocates and returns a new PropertyList object.
 clear
 clear(): void
-Voids the property list by deleting its internal object reference. ">
+Voids the property list by deleting its internal object reference.
+isEmpty
+isEmpty(): boolean
+Returns true if the property list has no internal object reference set, otherwise false.
+format
+format(): string
+Returns the data format that the property list data was deserialized from. This property is set after calling readFromString or readFromFile. Possible return values include: &#34;binary1&#34;, &#34;json&#34;, &#34;openstep&#34;, and &#34;xml1&#34;. If the property list object is empty or the input format could not be determined, returns undefined.
+readFromData
+readFromData(data: string): void
+Parses the raw property list data, in any of the supported formats, and stores the result in the property list. readFromString and readFromFile are implemented in terms of this operation. Throws an exception if the input is in an invalid format.
+readFromFile
+readFromFile(filePath: string): void
+Parses the file and stores the result in the property list. Throws an exception if an I/O error occurs or the input is in an invalid format.
+readFromObject
+readFromObject(obj: any): void
+Sets the given object as the property list&#39;s internal object. format() will return undefined as this method does not deserialize a storage format.
+readFromString
+readFromString(input: string): void
+Parses input and stores the result in the property list. This is most useful for initializing a property list object from the result of a JSON.stringify call. Throws an exception if the input is in an invalid format.
+toObject
+toObject(): any
+Returns an object representing the property list.
+toJSON
+toJSON(style: string = &#34;compact&#34;): string
+Returns a string representation of the property list in JSON format. Possible values for style include &#34;pretty&#34; and &#34;compact&#34;. The default is compact.
+toString
+toString(format: string): string
+Returns a string representation of the property list in the specified format. Possible values for format include: &#34;json&#34; (compact), &#34;json-compact&#34;, &#34;json-pretty&#34;, and &#34;xml1&#34;. Currently, the OpenStep format is not supported. Throws an exception if the object cannot be written in the given format.
+toXMLString
+toXMLString(): string
+Returns a string representation of the property list in XML format. This function is a synonym for toString(&#34;xml1&#34;).
+writeToFile
+writeToFile(filePath: string, format: string): void
+Writes the property list to the file in the given format. Possible values for format include: &#34;binary1&#34;, &#34;json&#34; (compact), &#34;json-compact&#34;, &#34;json-pretty&#34;, and &#34;xml1&#34;. Currently, the OpenStep format is not supported for writing. Throws an exception if an I/O error occurs or the object cannot be written in the given format.
+
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/jsextension-propertylist/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -51,7 +87,7 @@ Voids the property list by deleting its internal object reference. ">
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/jsextension-propertylist/">
@@ -60,7 +96,18 @@ Voids the property list by deleting its internal object reference. ">
 	<meta property="og:description" content="Qbs Manual List of Built-in Services PropertyList Service Qbs 3.4.0 Contents Available operations Constructor clear isEmpty format readFromData readFromFile readFromObject readFromString toObject toJSON toString toXMLString writeToFile PropertyList Service The PropertyList service allows you to read and write property list files in all formats supported by the Core Foundation API: XML, binary, JSON, and OpenStep (read-only).
 This service is only available on Darwin platforms such as iOS, macOS, tvOS, and watchOS.
 Available operations Constructor PropertyList() Allocates and returns a new PropertyList object.
-clear clear(): void Voids the property list by deleting its internal object reference.">
+clear clear(): void Voids the property list by deleting its internal object reference.
+isEmpty isEmpty(): boolean Returns true if the property list has no internal object reference set, otherwise false.
+format format(): string Returns the data format that the property list data was deserialized from. This property is set after calling readFromString or readFromFile. Possible return values include: &#34;binary1&#34;, &#34;json&#34;, &#34;openstep&#34;, and &#34;xml1&#34;. If the property list object is empty or the input format could not be determined, returns undefined.
+readFromData readFromData(data: string): void Parses the raw property list data, in any of the supported formats, and stores the result in the property list. readFromString and readFromFile are implemented in terms of this operation. Throws an exception if the input is in an invalid format.
+readFromFile readFromFile(filePath: string): void Parses the file and stores the result in the property list. Throws an exception if an I/O error occurs or the input is in an invalid format.
+readFromObject readFromObject(obj: any): void Sets the given object as the property list&#39;s internal object. format() will return undefined as this method does not deserialize a storage format.
+readFromString readFromString(input: string): void Parses input and stores the result in the property list. This is most useful for initializing a property list object from the result of a JSON.stringify call. Throws an exception if the input is in an invalid format.
+toObject toObject(): any Returns an object representing the property list.
+toJSON toJSON(style: string = &#34;compact&#34;): string Returns a string representation of the property list in JSON format. Possible values for style include &#34;pretty&#34; and &#34;compact&#34;. The default is compact.
+toString toString(format: string): string Returns a string representation of the property list in the specified format. Possible values for format include: &#34;json&#34; (compact), &#34;json-compact&#34;, &#34;json-pretty&#34;, and &#34;xml1&#34;. Currently, the OpenStep format is not supported. Throws an exception if the object cannot be written in the given format.
+toXMLString toXMLString(): string Returns a string representation of the property list in XML format. This function is a synonym for toString(&#34;xml1&#34;).
+writeToFile writeToFile(filePath: string, format: string): void Writes the property list to the file in the given format. Possible values for format include: &#34;binary1&#34;, &#34;json&#34; (compact), &#34;json-compact&#34;, &#34;json-pretty&#34;, and &#34;xml1&#34;. Currently, the OpenStep format is not supported for writing. Throws an exception if an I/O error occurs or the object cannot be written in the given format.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -71,7 +118,18 @@ clear clear(): void Voids the property list by deleting its internal object refe
 	<meta name="twitter:description" content="Qbs Manual List of Built-in Services PropertyList Service Qbs 3.4.0 Contents Available operations Constructor clear isEmpty format readFromData readFromFile readFromObject readFromString toObject toJSON toString toXMLString writeToFile PropertyList Service The PropertyList service allows you to read and write property list files in all formats supported by the Core Foundation API: XML, binary, JSON, and OpenStep (read-only).
 This service is only available on Darwin platforms such as iOS, macOS, tvOS, and watchOS.
 Available operations Constructor PropertyList() Allocates and returns a new PropertyList object.
-clear clear(): void Voids the property list by deleting its internal object reference.">
+clear clear(): void Voids the property list by deleting its internal object reference.
+isEmpty isEmpty(): boolean Returns true if the property list has no internal object reference set, otherwise false.
+format format(): string Returns the data format that the property list data was deserialized from. This property is set after calling readFromString or readFromFile. Possible return values include: &#34;binary1&#34;, &#34;json&#34;, &#34;openstep&#34;, and &#34;xml1&#34;. If the property list object is empty or the input format could not be determined, returns undefined.
+readFromData readFromData(data: string): void Parses the raw property list data, in any of the supported formats, and stores the result in the property list. readFromString and readFromFile are implemented in terms of this operation. Throws an exception if the input is in an invalid format.
+readFromFile readFromFile(filePath: string): void Parses the file and stores the result in the property list. Throws an exception if an I/O error occurs or the input is in an invalid format.
+readFromObject readFromObject(obj: any): void Sets the given object as the property list&#39;s internal object. format() will return undefined as this method does not deserialize a storage format.
+readFromString readFromString(input: string): void Parses input and stores the result in the property list. This is most useful for initializing a property list object from the result of a JSON.stringify call. Throws an exception if the input is in an invalid format.
+toObject toObject(): any Returns an object representing the property list.
+toJSON toJSON(style: string = &#34;compact&#34;): string Returns a string representation of the property list in JSON format. Possible values for style include &#34;pretty&#34; and &#34;compact&#34;. The default is compact.
+toString toString(format: string): string Returns a string representation of the property list in the specified format. Possible values for format include: &#34;json&#34; (compact), &#34;json-compact&#34;, &#34;json-pretty&#34;, and &#34;xml1&#34;. Currently, the OpenStep format is not supported. Throws an exception if the object cannot be written in the given format.
+toXMLString toXMLString(): string Returns a string representation of the property list in XML format. This function is a synonym for toString(&#34;xml1&#34;).
+writeToFile writeToFile(filePath: string, format: string): void Writes the property list to the file in the given format. Possible values for format include: &#34;binary1&#34;, &#34;json&#34; (compact), &#34;json-compact&#34;, &#34;json-pretty&#34;, and &#34;xml1&#34;. Currently, the OpenStep format is not supported for writing. Throws an exception if an I/O error occurs or the object cannot be written in the given format.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -139,43 +197,43 @@ clear clear(): void Voids the property list by deleting its internal object refe
 <p>This service is only available on Darwin platforms such as iOS, macOS, tvOS, and watchOS.</p>
 <h2 id="available-operations">Available operations</h2>
 <h3 id="constructor">Constructor</h3>
-<pre class="cpp" translate="no">PropertyList()</pre>
+<pre class="cpp" translate="no"><code class="cpp">PropertyList()</code></pre>
 <p>Allocates and returns a new PropertyList object.</p>
 <h3 id="clear">clear</h3>
-<pre class="cpp" translate="no">clear(): <span class="type">void</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">clear(): <span class="type">void</span></code></pre>
 <p>Voids the property list by deleting its internal object reference.</p>
 <h3 id="isempty">isEmpty</h3>
-<pre class="cpp" translate="no">isEmpty(): boolean</pre>
+<pre class="cpp" translate="no"><code class="cpp">isEmpty(): boolean</code></pre>
 <p>Returns true if the property list has no internal object reference set, otherwise false.</p>
 <h3 id="format">format</h3>
-<pre class="cpp" translate="no">format(): string</pre>
+<pre class="cpp" translate="no"><code class="cpp">format(): string</code></pre>
 <p>Returns the data format that the property list data was deserialized from. This property is set after calling <code translate="no">readFromString</code> or <code translate="no">readFromFile</code>. Possible return values include: <code translate="no">"binary1"</code>, <code translate="no">"json"</code>, <code translate="no">"openstep"</code>, and <code translate="no">"xml1"</code>. If the property list object is empty or the input format could not be determined, returns <code translate="no">undefined</code>.</p>
 <h3 id="readfromdata">readFromData</h3>
-<pre class="cpp" translate="no">readFromData(data: string): <span class="type">void</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">readFromData(data: string): <span class="type">void</span></code></pre>
 <p>Parses the raw property list <code translate="no">data</code>, in any of the supported formats, and stores the result in the property list. <code translate="no">readFromString</code> and <code translate="no">readFromFile</code> are implemented in terms of this operation. Throws an exception if the input is in an invalid format.</p>
 <h3 id="readfromfile">readFromFile</h3>
-<pre class="cpp" translate="no">readFromFile(filePath: string): <span class="type">void</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">readFromFile(filePath: string): <span class="type">void</span></code></pre>
 <p>Parses the file and stores the result in the property list. Throws an exception if an I/O error occurs or the input is in an invalid format.</p>
 <h3 id="readfromobject">readFromObject</h3>
-<pre class="cpp" translate="no">readFromObject(obj: any): <span class="type">void</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">readFromObject(obj: any): <span class="type">void</span></code></pre>
 <p>Sets the given object as the property list's internal object. <code translate="no">format()</code> will return <code translate="no">undefined</code> as this method does not deserialize a storage format.</p>
 <h3 id="readfromstring">readFromString</h3>
-<pre class="cpp" translate="no">readFromString(input: string): <span class="type">void</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">readFromString(input: string): <span class="type">void</span></code></pre>
 <p>Parses <code translate="no">input</code> and stores the result in the property list. This is most useful for initializing a property list object from the result of a <code translate="no">JSON.stringify</code> call. Throws an exception if the input is in an invalid format.</p>
 <h3 id="toobject">toObject</h3>
-<pre class="cpp" translate="no">toObject(): any</pre>
+<pre class="cpp" translate="no"><code class="cpp">toObject(): any</code></pre>
 <p>Returns an object representing the property list.</p>
 <h3 id="tojson">toJSON</h3>
-<pre class="cpp" translate="no">toJSON(style: string <span class="operator">=</span> <span class="string">"compact"</span>): string</pre>
+<pre class="cpp" translate="no"><code class="cpp">toJSON(style: string <span class="operator">=</span> <span class="string">"compact"</span>): string</code></pre>
 <p>Returns a string representation of the property list in JSON format. Possible values for <code translate="no">style</code> include <code translate="no">"pretty"</code> and <code translate="no">"compact"</code>. The default is compact.</p>
 <h3 id="tostring">toString</h3>
-<pre class="cpp" translate="no">toString(format: string): string</pre>
+<pre class="cpp" translate="no"><code class="cpp">toString(format: string): string</code></pre>
 <p>Returns a string representation of the property list in the specified format. Possible values for <code translate="no">format</code> include: <code translate="no">"json"</code> (compact), <code translate="no">"json-compact"</code>, <code translate="no">"json-pretty"</code>, and <code translate="no">"xml1"</code>. Currently, the OpenStep format is not supported. Throws an exception if the object cannot be written in the given format.</p>
 <h3 id="toxmlstring">toXMLString</h3>
-<pre class="cpp" translate="no">toXMLString(): string</pre>
+<pre class="cpp" translate="no"><code class="cpp">toXMLString(): string</code></pre>
 <p>Returns a string representation of the property list in XML format. This function is a synonym for <code translate="no">toString("xml1")</code>.</p>
 <h3 id="writetofile">writeToFile</h3>
-<pre class="cpp" translate="no">writeToFile(filePath: string<span class="operator">,</span> format: string): <span class="type">void</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">writeToFile(filePath: string<span class="operator">,</span> format: string): <span class="type">void</span></code></pre>
 <p>Writes the property list to the file in the given format. Possible values for <code translate="no">format</code> include: <code translate="no">"binary1"</code>, <code translate="no">"json"</code> (compact), <code translate="no">"json-compact"</code>, <code translate="no">"json-pretty"</code>, and <code translate="no">"xml1"</code>. Currently, the OpenStep format is not supported for writing. Throws an exception if an I/O error occurs or the object cannot be written in the given format.</p>
 </div>
 <!-- @@@jsextension-propertylist.html -->

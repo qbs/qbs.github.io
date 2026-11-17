@@ -76,7 +76,263 @@ versionPatch : int
 
 
 Detailed Description
-All other Qt modules have a dependency on the Qt.core module, and therefore you do not need to list it in your dependencies if you depend on at least one other Qt module. ">
+All other Qt modules have a dependency on the Qt.core module, and therefore you do not need to list it in your dependencies if you depend on at least one other Qt module.
+Some of the Qt.core properties only need to be defined if the respective installation of Qt was built in some unusual way, for instance by setting non-default configure flags.
+Relevant File Tags
+
+TagAuto-tagged File NamesSinceDescription
+&#34;qch&#34;n/a1.1This tag is attached to the output artifacts of the rule that runs the qhelpgenerator tool.
+&#34;qdoc&#34;*.qdoc1.1Source files with this tag trigger a re-execution of the rule running the qdoc tool when their timestamp changes.
+&#34;qdocconf&#34;*.qdocconf1.1Source files with this tag trigger a re-execution of the rule running the qdoc tool when their timestamp changes.
+&#34;qdocconf-main&#34;-1.1Source files with this tag serve as inputs to the rule running the qdoc tool.
+&#34;qdoc-output&#34;n/a1.5Use this tag to match all qdoc outputs, for instance in a Group using the group.fileTagsFilter property.
+&#34;qhp&#34;*.qhp1.1Files with this tag serve as inputs to the rule running the qhelpgenerator tool. Such files are created by qdoc, but can also appear as source files.
+&#34;qm&#34;n/a1.1This tag is attached to the output artifacts of the rule that runs the lrelease tool.
+&#34;qrc&#34;*.qrc1.0Files with this tag serve as inputs to the rule running the rcc tool.
+&#34;qt_plugin_metadata&#34;-1.0Source files with this tag trigger a re-execution of the rule running the moc tool when their timestamp changes.
+&#34;qt.core.metatypes&#34;n/a1.16This tag is attached to the JSON files that are potentially created if generateMetaTypesFile is enabled.
+&#34;qt.core.resource_data&#34;-1.7Source files with this tag serve as inputs to the rule creating qrc files.
+&#34;ts&#34;*.ts1.0Files with this tag serve as inputs to the rule running the lrelease tool.
+&#34;mocable&#34;-1.13Use this tag to force Qbs to run moc on the respective files, even though they do not contain Q_OBJECT or a related macro.
+&#34;unmocable&#34;-1.2Use this tag for files that Qbs should not run moc on, even though they contain Q_OBJECT or a related macro.
+
+
+Property Documentation
+
+availableBuildVariants : stringList
+The build variants that this Qt installation offers.
+Default: Set by setup-qt.
+
+
+binPath : path
+The path in which Qt tools such as qmake, moc, and so on are located.
+Default: Undefined
+
+
+combineMocOutput : bool
+Whether the C&#43;&#43; sources created by moc are combined into a single C&#43;&#43; file per product. For projects where many header files are to be handled by moc, this can speed up compilation considerably. However, side effects may occur as a result of merging translation units.
+Default: cpp.combineCxxSources
+
+
+config : stringList
+Corresponds to the default value of qmake&#39;s CONFIG variable.
+Default: []
+
+
+disabledFeatures : stringList [read-only]
+Corresponds to cmake&#39;s QT_DISABLED_PUBLIC_FEATURES variable.
+
+
+docPath : path
+The path in which the Qt documentation is located.
+Default: Undefined
+
+
+enableBigResources : bool
+Whether the Qt resource compiler is run in a two-pass fashion that supports the creation of big resources.
+Default: false
+
+
+enableKeywords : bool
+Set this property to false if you do not want Qt to define the symbols signals, slots, and emit. This can be necessary if your project interacts with code that also defines such symbols.
+Default: true
+
+
+enabledFeatures : stringList [read-only]
+Corresponds to cmake&#39;s QT_ENABLED_PUBLIC_FEATURES variable.
+
+
+frameworkBuild : bool
+Whether Qt was built as a framework. This is only relevant for Darwin systems.
+Default: Undefined
+
+
+generateMetaTypesFile : bool [since Qbs 1.16]
+If this property is enabled, a JSON file tagged as &#34;qt.core.metatypes&#34; will potentially be generated from metatype information collected by moc.
+Default: Undefined
+This property was introduced in Qbs 1.16.
+
+
+generatedHeadersDir : string
+The directory where tools that generate headers (such as moc or uic) put resulting files.
+Normally, you don&#39;t need to change this property. The one use-case is when there are several files with the same file name in the Product. The file name produced by moc is based only on the source file&#39;s base file name (without the directory path) which leads to a conflict in the mentioned case. You can resolve the conflict by setting this property to a non-default value for one of the files. For example:
+QtApplication {
+    files: [&#34;my_cool_header.h&#34;, &#34;main.cpp&#34;]
+    Group {
+        name: &#34;legacy&#34;
+        files: &#34;legacy/my_cool_header.h&#34;
+        Qt.core.generatedHeadersDir: &#34;qt.legacy.headers&#34;
+    }
+}
+Default: product.buildDirectory &#43; &#34;/qt.headers&#34;
+
+
+incPath : path
+The base path of the Qt headers.
+Default: Undefined
+
+
+libInfix : string
+The library infix can be set at Qt build time to change the name of Qt&#39;s libraries.
+For example, if the infix is &#34;Test&#34;, on Unix systems, the Qt Core library will be in a file called libQt5CoreTest.so instead of the default libQt5Core.so.
+Default: []
+
+
+libPath : path
+The path in which the Qt libraries are located.
+Default: Undefined
+
+
+lreleaseMultiplexMode : bool
+If this property is true, lrelease will merge all .ts files into one .qm file. Otherwise, one .qm file will be created for each .ts file.
+Default: false
+
+
+lreleaseName : string
+The base name of the lrelease tool. Set this if your system uses a name such as &#34;lrelease-qt4&#34;.
+Default: &#34;lrelease&#34;
+
+
+metaTypesInstallDir : bool [since Qbs 1.16]
+The directory to install the metatypes file into. If this property is empty or undefined, the metatypes file will not be installed. If the generateMetaTypesFile property is not true, then this property has no effect.
+Default: Undefined
+This property was introduced in Qbs 1.16.
+
+
+mkspecPath : path
+The path in which the Qt mkspecs are located.
+Default: Undefined
+
+
+mocFlags : stringList
+A list of additional flags to moc.
+You will rarely need to set this property.
+Default: []
+
+
+mocName : string
+The base name of the moc tool.
+Set this if your system uses a name such as &#34;moc-qt4&#34;.
+Default: &#34;moc&#34;
+
+
+namespace : string
+The Qt namespace that can be set at build time via the configure script.
+By default, Qt is not built in a namespace.
+Default: Undefined
+
+
+pluginMetaData : stringList
+A list of additional plugin metadata.
+The elements of the list are key-value pairs separated by the = character.
+A possible use case is to set the plugin URI when building a static QML plugin:
+Qt.core.pluginMetaData: [&#34;uri=thePlugin&#34;]
+Default: []
+
+
+pluginPath : path
+The path in which the Qt plugins are located.
+Default: Undefined
+
+
+qdocEnvironment : stringList
+The environment for calls to qdoc. Typically, you will need to set some variables here when running qdoc to build your project documentation.
+Default: Undefined
+
+
+qdocName : string
+The base name of the qdoc tool.
+Default: &#34;qdoc3&#34; for Qt 4, &#34;qdoc&#34; otherwise.
+
+
+qdocOutputDir : string
+The directory name where the qdoc tool writes its output.
+Default: product.buildDirectory &#43; &#34;/qdoc_html&#34;
+
+
+qmBaseName : string
+The base name of the .qm file to be built from the .ts files in the product.
+This property is ignored if lreleaseMultiplexMode is false.
+Default: product.targetName
+
+
+qmDir : string
+The directory name where to put the .qm file to be built.
+Default: product.destinationDirectory
+
+
+qtBuildVariant : string
+Specifies the type of Qt libraries to build against: &#34;debug&#34; or &#34;release&#34;.
+
+Note: On some systems, it is not possible to link code built in debug mode against libraries built in release mode and vice versa.
+
+Default: The build variant of the code linking against Qt. If Qt does not offer that build variant, the build variant offered by Qt is chosen instead.
+
+
+qtConfig : stringList
+Corresponds to the default value of qmake&#39;s QT_CONFIG variable.
+Default: []
+
+
+resourceFileBaseName : string
+For files tagged as qt.core.resource_data, this property determines the base name of the generated .qrc file.
+If this property needs to be changed, it must be set in the corresponding product rather than in a Group.
+Default: product.targetName
+
+
+resourcePrefix : string
+For files tagged as qt.core.resource_data, this property determines the prefix under which they will be available in the generated .qrc file.
+Default: &#34;/&#34;
+
+
+resourceSourceBase : path
+For files tagged as qt.core.resource_data, this property determines which part of their path will end up in the generated .qrc file. If this property is set to undefined, only the file name is used.
+Default: Undefined
+
+
+staticBuild : bool
+Whether Qt was built statically.
+Default: Undefined
+
+
+translationsPath : path [since 2.5]
+This property provides the absolute path to the directory where the Qt translation files (.qm) are installed.
+Default: Undefined
+This property was introduced in 2.5.
+
+
+useRPaths : bool
+Whether to add Qt.core.libPath to cpp.rpaths.
+Default: true on Linux, false everywhere else.
+
+
+version : string
+The Qt version.
+Consists of three numbers separated by dots. For example &#34;5.9.1&#34;.
+Default: Undefined
+
+
+versionMajor : int
+The Qt major version.
+Default: versionParts[0]
+
+
+versionMinor : int
+The Qt minor version.
+Default: versionParts[1]
+
+
+versionParts : list
+The Qt version as a list.
+For example, Qt version 5.9.1 would correspond to a value of [5, 9, 1].
+Default: []
+
+
+versionPatch : int
+The Qt patch level.
+Default: versionParts[2]
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-qt-core/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -86,14 +342,112 @@ All other Qt modules have a dependency on the Qt.core module, and therefore you 
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-qt-core/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual QbsModules Qt.core Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags Qt.core Provides Qt Core support. More...
-List of all members, including inherited members Properties availableBuildVariants : stringList binPath : path combineMocOutput : bool config : stringList disabledFeatures : stringList docPath : path enableBigResources : bool enableKeywords : bool enabledFeatures : stringList frameworkBuild : bool generateMetaTypesFile : bool (since Qbs 1.16) generatedHeadersDir : string incPath : path libInfix : string libPath : path lreleaseMultiplexMode : bool lreleaseName : string metaTypesInstallDir : bool (since Qbs 1.16) mkspecPath : path mocFlags : stringList mocName : string namespace : string pluginMetaData : stringList pluginPath : path qdocEnvironment : stringList qdocName : string qdocOutputDir : string qmBaseName : string qmDir : string qtBuildVariant : string qtConfig : stringList resourceFileBaseName : string resourcePrefix : string resourceSourceBase : path staticBuild : bool translationsPath : path (since 2.5) useRPaths : bool version : string versionMajor : int versionMinor : int versionParts : list versionPatch : int Detailed Description All other Qt modules have a dependency on the Qt.core module, and therefore you do not need to list it in your dependencies if you depend on at least one other Qt module.">
+List of all members, including inherited members Properties availableBuildVariants : stringList binPath : path combineMocOutput : bool config : stringList disabledFeatures : stringList docPath : path enableBigResources : bool enableKeywords : bool enabledFeatures : stringList frameworkBuild : bool generateMetaTypesFile : bool (since Qbs 1.16) generatedHeadersDir : string incPath : path libInfix : string libPath : path lreleaseMultiplexMode : bool lreleaseName : string metaTypesInstallDir : bool (since Qbs 1.16) mkspecPath : path mocFlags : stringList mocName : string namespace : string pluginMetaData : stringList pluginPath : path qdocEnvironment : stringList qdocName : string qdocOutputDir : string qmBaseName : string qmDir : string qtBuildVariant : string qtConfig : stringList resourceFileBaseName : string resourcePrefix : string resourceSourceBase : path staticBuild : bool translationsPath : path (since 2.5) useRPaths : bool version : string versionMajor : int versionMinor : int versionParts : list versionPatch : int Detailed Description All other Qt modules have a dependency on the Qt.core module, and therefore you do not need to list it in your dependencies if you depend on at least one other Qt module.
+Some of the Qt.core properties only need to be defined if the respective installation of Qt was built in some unusual way, for instance by setting non-default configure flags.
+Relevant File Tags Tag Auto-tagged File Names Since Description &#34;qch&#34; n/a 1.1 This tag is attached to the output artifacts of the rule that runs the qhelpgenerator tool. &#34;qdoc&#34; *.qdoc 1.1 Source files with this tag trigger a re-execution of the rule running the qdoc tool when their timestamp changes. &#34;qdocconf&#34; *.qdocconf 1.1 Source files with this tag trigger a re-execution of the rule running the qdoc tool when their timestamp changes. &#34;qdocconf-main&#34; - 1.1 Source files with this tag serve as inputs to the rule running the qdoc tool. &#34;qdoc-output&#34; n/a 1.5 Use this tag to match all qdoc outputs, for instance in a Group using the group.fileTagsFilter property. &#34;qhp&#34; *.qhp 1.1 Files with this tag serve as inputs to the rule running the qhelpgenerator tool. Such files are created by qdoc, but can also appear as source files. &#34;qm&#34; n/a 1.1 This tag is attached to the output artifacts of the rule that runs the lrelease tool. &#34;qrc&#34; *.qrc 1.0 Files with this tag serve as inputs to the rule running the rcc tool. &#34;qt_plugin_metadata&#34; - 1.0 Source files with this tag trigger a re-execution of the rule running the moc tool when their timestamp changes. &#34;qt.core.metatypes&#34; n/a 1.16 This tag is attached to the JSON files that are potentially created if generateMetaTypesFile is enabled. &#34;qt.core.resource_data&#34; - 1.7 Source files with this tag serve as inputs to the rule creating qrc files. &#34;ts&#34; *.ts 1.0 Files with this tag serve as inputs to the rule running the lrelease tool. &#34;mocable&#34; - 1.13 Use this tag to force Qbs to run moc on the respective files, even though they do not contain Q_OBJECT or a related macro. &#34;unmocable&#34; - 1.2 Use this tag for files that Qbs should not run moc on, even though they contain Q_OBJECT or a related macro. Property Documentation availableBuildVariants : stringList The build variants that this Qt installation offers.
+Default: Set by setup-qt.
+binPath : path The path in which Qt tools such as qmake, moc, and so on are located.
+Default: Undefined
+combineMocOutput : bool Whether the C&#43;&#43; sources created by moc are combined into a single C&#43;&#43; file per product. For projects where many header files are to be handled by moc, this can speed up compilation considerably. However, side effects may occur as a result of merging translation units.
+Default: cpp.combineCxxSources
+config : stringList Corresponds to the default value of qmake&#39;s CONFIG variable.
+Default: []
+disabledFeatures : stringList [read-only] Corresponds to cmake&#39;s QT_DISABLED_PUBLIC_FEATURES variable.
+docPath : path The path in which the Qt documentation is located.
+Default: Undefined
+enableBigResources : bool Whether the Qt resource compiler is run in a two-pass fashion that supports the creation of big resources.
+Default: false
+enableKeywords : bool Set this property to false if you do not want Qt to define the symbols signals, slots, and emit. This can be necessary if your project interacts with code that also defines such symbols.
+Default: true
+enabledFeatures : stringList [read-only] Corresponds to cmake&#39;s QT_ENABLED_PUBLIC_FEATURES variable.
+frameworkBuild : bool Whether Qt was built as a framework. This is only relevant for Darwin systems.
+Default: Undefined
+generateMetaTypesFile : bool [since Qbs 1.16] If this property is enabled, a JSON file tagged as &#34;qt.core.metatypes&#34; will potentially be generated from metatype information collected by moc.
+Default: Undefined
+This property was introduced in Qbs 1.16.
+generatedHeadersDir : string The directory where tools that generate headers (such as moc or uic) put resulting files.
+Normally, you don&#39;t need to change this property. The one use-case is when there are several files with the same file name in the Product. The file name produced by moc is based only on the source file&#39;s base file name (without the directory path) which leads to a conflict in the mentioned case. You can resolve the conflict by setting this property to a non-default value for one of the files. For example:
+QtApplication { files: [&#34;my_cool_header.h&#34;, &#34;main.cpp&#34;] Group { name: &#34;legacy&#34; files: &#34;legacy/my_cool_header.h&#34; Qt.core.generatedHeadersDir: &#34;qt.legacy.headers&#34; } } Default: product.buildDirectory &#43; &#34;/qt.headers&#34;
+incPath : path The base path of the Qt headers.
+Default: Undefined
+libInfix : string The library infix can be set at Qt build time to change the name of Qt&#39;s libraries.
+For example, if the infix is &#34;Test&#34;, on Unix systems, the Qt Core library will be in a file called libQt5CoreTest.so instead of the default libQt5Core.so.
+Default: []
+libPath : path The path in which the Qt libraries are located.
+Default: Undefined
+lreleaseMultiplexMode : bool If this property is true, lrelease will merge all .ts files into one .qm file. Otherwise, one .qm file will be created for each .ts file.
+Default: false
+lreleaseName : string The base name of the lrelease tool. Set this if your system uses a name such as &#34;lrelease-qt4&#34;.
+Default: &#34;lrelease&#34;
+metaTypesInstallDir : bool [since Qbs 1.16] The directory to install the metatypes file into. If this property is empty or undefined, the metatypes file will not be installed. If the generateMetaTypesFile property is not true, then this property has no effect.
+Default: Undefined
+This property was introduced in Qbs 1.16.
+mkspecPath : path The path in which the Qt mkspecs are located.
+Default: Undefined
+mocFlags : stringList A list of additional flags to moc.
+You will rarely need to set this property.
+Default: []
+mocName : string The base name of the moc tool.
+Set this if your system uses a name such as &#34;moc-qt4&#34;.
+Default: &#34;moc&#34;
+namespace : string The Qt namespace that can be set at build time via the configure script.
+By default, Qt is not built in a namespace.
+Default: Undefined
+pluginMetaData : stringList A list of additional plugin metadata.
+The elements of the list are key-value pairs separated by the = character.
+A possible use case is to set the plugin URI when building a static QML plugin:
+Qt.core.pluginMetaData: [&#34;uri=thePlugin&#34;] Default: []
+pluginPath : path The path in which the Qt plugins are located.
+Default: Undefined
+qdocEnvironment : stringList The environment for calls to qdoc. Typically, you will need to set some variables here when running qdoc to build your project documentation.
+Default: Undefined
+qdocName : string The base name of the qdoc tool.
+Default: &#34;qdoc3&#34; for Qt 4, &#34;qdoc&#34; otherwise.
+qdocOutputDir : string The directory name where the qdoc tool writes its output.
+Default: product.buildDirectory &#43; &#34;/qdoc_html&#34;
+qmBaseName : string The base name of the .qm file to be built from the .ts files in the product.
+This property is ignored if lreleaseMultiplexMode is false.
+Default: product.targetName
+qmDir : string The directory name where to put the .qm file to be built.
+Default: product.destinationDirectory
+qtBuildVariant : string Specifies the type of Qt libraries to build against: &#34;debug&#34; or &#34;release&#34;.
+Note: On some systems, it is not possible to link code built in debug mode against libraries built in release mode and vice versa.
+Default: The build variant of the code linking against Qt. If Qt does not offer that build variant, the build variant offered by Qt is chosen instead.
+qtConfig : stringList Corresponds to the default value of qmake&#39;s QT_CONFIG variable.
+Default: []
+resourceFileBaseName : string For files tagged as qt.core.resource_data, this property determines the base name of the generated .qrc file.
+If this property needs to be changed, it must be set in the corresponding product rather than in a Group.
+Default: product.targetName
+resourcePrefix : string For files tagged as qt.core.resource_data, this property determines the prefix under which they will be available in the generated .qrc file.
+Default: &#34;/&#34;
+resourceSourceBase : path For files tagged as qt.core.resource_data, this property determines which part of their path will end up in the generated .qrc file. If this property is set to undefined, only the file name is used.
+Default: Undefined
+staticBuild : bool Whether Qt was built statically.
+Default: Undefined
+translationsPath : path [since 2.5] This property provides the absolute path to the directory where the Qt translation files (.qm) are installed.
+Default: Undefined
+This property was introduced in 2.5.
+useRPaths : bool Whether to add Qt.core.libPath to cpp.rpaths.
+Default: true on Linux, false everywhere else.
+version : string The Qt version.
+Consists of three numbers separated by dots. For example &#34;5.9.1&#34;.
+Default: Undefined
+versionMajor : int The Qt major version.
+Default: versionParts[0]
+versionMinor : int The Qt minor version.
+Default: versionParts[1]
+versionParts : list The Qt version as a list.
+For example, Qt version 5.9.1 would correspond to a value of [5, 9, 1].
+Default: []
+versionPatch : int The Qt patch level.
+Default: versionParts[2]">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -102,7 +456,105 @@ List of all members, including inherited members Properties availableBuildVarian
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual QbsModules Qt.core Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags Qt.core Provides Qt Core support. More...
-List of all members, including inherited members Properties availableBuildVariants : stringList binPath : path combineMocOutput : bool config : stringList disabledFeatures : stringList docPath : path enableBigResources : bool enableKeywords : bool enabledFeatures : stringList frameworkBuild : bool generateMetaTypesFile : bool (since Qbs 1.16) generatedHeadersDir : string incPath : path libInfix : string libPath : path lreleaseMultiplexMode : bool lreleaseName : string metaTypesInstallDir : bool (since Qbs 1.16) mkspecPath : path mocFlags : stringList mocName : string namespace : string pluginMetaData : stringList pluginPath : path qdocEnvironment : stringList qdocName : string qdocOutputDir : string qmBaseName : string qmDir : string qtBuildVariant : string qtConfig : stringList resourceFileBaseName : string resourcePrefix : string resourceSourceBase : path staticBuild : bool translationsPath : path (since 2.5) useRPaths : bool version : string versionMajor : int versionMinor : int versionParts : list versionPatch : int Detailed Description All other Qt modules have a dependency on the Qt.core module, and therefore you do not need to list it in your dependencies if you depend on at least one other Qt module.">
+List of all members, including inherited members Properties availableBuildVariants : stringList binPath : path combineMocOutput : bool config : stringList disabledFeatures : stringList docPath : path enableBigResources : bool enableKeywords : bool enabledFeatures : stringList frameworkBuild : bool generateMetaTypesFile : bool (since Qbs 1.16) generatedHeadersDir : string incPath : path libInfix : string libPath : path lreleaseMultiplexMode : bool lreleaseName : string metaTypesInstallDir : bool (since Qbs 1.16) mkspecPath : path mocFlags : stringList mocName : string namespace : string pluginMetaData : stringList pluginPath : path qdocEnvironment : stringList qdocName : string qdocOutputDir : string qmBaseName : string qmDir : string qtBuildVariant : string qtConfig : stringList resourceFileBaseName : string resourcePrefix : string resourceSourceBase : path staticBuild : bool translationsPath : path (since 2.5) useRPaths : bool version : string versionMajor : int versionMinor : int versionParts : list versionPatch : int Detailed Description All other Qt modules have a dependency on the Qt.core module, and therefore you do not need to list it in your dependencies if you depend on at least one other Qt module.
+Some of the Qt.core properties only need to be defined if the respective installation of Qt was built in some unusual way, for instance by setting non-default configure flags.
+Relevant File Tags Tag Auto-tagged File Names Since Description &#34;qch&#34; n/a 1.1 This tag is attached to the output artifacts of the rule that runs the qhelpgenerator tool. &#34;qdoc&#34; *.qdoc 1.1 Source files with this tag trigger a re-execution of the rule running the qdoc tool when their timestamp changes. &#34;qdocconf&#34; *.qdocconf 1.1 Source files with this tag trigger a re-execution of the rule running the qdoc tool when their timestamp changes. &#34;qdocconf-main&#34; - 1.1 Source files with this tag serve as inputs to the rule running the qdoc tool. &#34;qdoc-output&#34; n/a 1.5 Use this tag to match all qdoc outputs, for instance in a Group using the group.fileTagsFilter property. &#34;qhp&#34; *.qhp 1.1 Files with this tag serve as inputs to the rule running the qhelpgenerator tool. Such files are created by qdoc, but can also appear as source files. &#34;qm&#34; n/a 1.1 This tag is attached to the output artifacts of the rule that runs the lrelease tool. &#34;qrc&#34; *.qrc 1.0 Files with this tag serve as inputs to the rule running the rcc tool. &#34;qt_plugin_metadata&#34; - 1.0 Source files with this tag trigger a re-execution of the rule running the moc tool when their timestamp changes. &#34;qt.core.metatypes&#34; n/a 1.16 This tag is attached to the JSON files that are potentially created if generateMetaTypesFile is enabled. &#34;qt.core.resource_data&#34; - 1.7 Source files with this tag serve as inputs to the rule creating qrc files. &#34;ts&#34; *.ts 1.0 Files with this tag serve as inputs to the rule running the lrelease tool. &#34;mocable&#34; - 1.13 Use this tag to force Qbs to run moc on the respective files, even though they do not contain Q_OBJECT or a related macro. &#34;unmocable&#34; - 1.2 Use this tag for files that Qbs should not run moc on, even though they contain Q_OBJECT or a related macro. Property Documentation availableBuildVariants : stringList The build variants that this Qt installation offers.
+Default: Set by setup-qt.
+binPath : path The path in which Qt tools such as qmake, moc, and so on are located.
+Default: Undefined
+combineMocOutput : bool Whether the C&#43;&#43; sources created by moc are combined into a single C&#43;&#43; file per product. For projects where many header files are to be handled by moc, this can speed up compilation considerably. However, side effects may occur as a result of merging translation units.
+Default: cpp.combineCxxSources
+config : stringList Corresponds to the default value of qmake&#39;s CONFIG variable.
+Default: []
+disabledFeatures : stringList [read-only] Corresponds to cmake&#39;s QT_DISABLED_PUBLIC_FEATURES variable.
+docPath : path The path in which the Qt documentation is located.
+Default: Undefined
+enableBigResources : bool Whether the Qt resource compiler is run in a two-pass fashion that supports the creation of big resources.
+Default: false
+enableKeywords : bool Set this property to false if you do not want Qt to define the symbols signals, slots, and emit. This can be necessary if your project interacts with code that also defines such symbols.
+Default: true
+enabledFeatures : stringList [read-only] Corresponds to cmake&#39;s QT_ENABLED_PUBLIC_FEATURES variable.
+frameworkBuild : bool Whether Qt was built as a framework. This is only relevant for Darwin systems.
+Default: Undefined
+generateMetaTypesFile : bool [since Qbs 1.16] If this property is enabled, a JSON file tagged as &#34;qt.core.metatypes&#34; will potentially be generated from metatype information collected by moc.
+Default: Undefined
+This property was introduced in Qbs 1.16.
+generatedHeadersDir : string The directory where tools that generate headers (such as moc or uic) put resulting files.
+Normally, you don&#39;t need to change this property. The one use-case is when there are several files with the same file name in the Product. The file name produced by moc is based only on the source file&#39;s base file name (without the directory path) which leads to a conflict in the mentioned case. You can resolve the conflict by setting this property to a non-default value for one of the files. For example:
+QtApplication { files: [&#34;my_cool_header.h&#34;, &#34;main.cpp&#34;] Group { name: &#34;legacy&#34; files: &#34;legacy/my_cool_header.h&#34; Qt.core.generatedHeadersDir: &#34;qt.legacy.headers&#34; } } Default: product.buildDirectory &#43; &#34;/qt.headers&#34;
+incPath : path The base path of the Qt headers.
+Default: Undefined
+libInfix : string The library infix can be set at Qt build time to change the name of Qt&#39;s libraries.
+For example, if the infix is &#34;Test&#34;, on Unix systems, the Qt Core library will be in a file called libQt5CoreTest.so instead of the default libQt5Core.so.
+Default: []
+libPath : path The path in which the Qt libraries are located.
+Default: Undefined
+lreleaseMultiplexMode : bool If this property is true, lrelease will merge all .ts files into one .qm file. Otherwise, one .qm file will be created for each .ts file.
+Default: false
+lreleaseName : string The base name of the lrelease tool. Set this if your system uses a name such as &#34;lrelease-qt4&#34;.
+Default: &#34;lrelease&#34;
+metaTypesInstallDir : bool [since Qbs 1.16] The directory to install the metatypes file into. If this property is empty or undefined, the metatypes file will not be installed. If the generateMetaTypesFile property is not true, then this property has no effect.
+Default: Undefined
+This property was introduced in Qbs 1.16.
+mkspecPath : path The path in which the Qt mkspecs are located.
+Default: Undefined
+mocFlags : stringList A list of additional flags to moc.
+You will rarely need to set this property.
+Default: []
+mocName : string The base name of the moc tool.
+Set this if your system uses a name such as &#34;moc-qt4&#34;.
+Default: &#34;moc&#34;
+namespace : string The Qt namespace that can be set at build time via the configure script.
+By default, Qt is not built in a namespace.
+Default: Undefined
+pluginMetaData : stringList A list of additional plugin metadata.
+The elements of the list are key-value pairs separated by the = character.
+A possible use case is to set the plugin URI when building a static QML plugin:
+Qt.core.pluginMetaData: [&#34;uri=thePlugin&#34;] Default: []
+pluginPath : path The path in which the Qt plugins are located.
+Default: Undefined
+qdocEnvironment : stringList The environment for calls to qdoc. Typically, you will need to set some variables here when running qdoc to build your project documentation.
+Default: Undefined
+qdocName : string The base name of the qdoc tool.
+Default: &#34;qdoc3&#34; for Qt 4, &#34;qdoc&#34; otherwise.
+qdocOutputDir : string The directory name where the qdoc tool writes its output.
+Default: product.buildDirectory &#43; &#34;/qdoc_html&#34;
+qmBaseName : string The base name of the .qm file to be built from the .ts files in the product.
+This property is ignored if lreleaseMultiplexMode is false.
+Default: product.targetName
+qmDir : string The directory name where to put the .qm file to be built.
+Default: product.destinationDirectory
+qtBuildVariant : string Specifies the type of Qt libraries to build against: &#34;debug&#34; or &#34;release&#34;.
+Note: On some systems, it is not possible to link code built in debug mode against libraries built in release mode and vice versa.
+Default: The build variant of the code linking against Qt. If Qt does not offer that build variant, the build variant offered by Qt is chosen instead.
+qtConfig : stringList Corresponds to the default value of qmake&#39;s QT_CONFIG variable.
+Default: []
+resourceFileBaseName : string For files tagged as qt.core.resource_data, this property determines the base name of the generated .qrc file.
+If this property needs to be changed, it must be set in the corresponding product rather than in a Group.
+Default: product.targetName
+resourcePrefix : string For files tagged as qt.core.resource_data, this property determines the prefix under which they will be available in the generated .qrc file.
+Default: &#34;/&#34;
+resourceSourceBase : path For files tagged as qt.core.resource_data, this property determines which part of their path will end up in the generated .qrc file. If this property is set to undefined, only the file name is used.
+Default: Undefined
+staticBuild : bool Whether Qt was built statically.
+Default: Undefined
+translationsPath : path [since 2.5] This property provides the absolute path to the directory where the Qt translation files (.qm) are installed.
+Default: Undefined
+This property was introduced in 2.5.
+useRPaths : bool Whether to add Qt.core.libPath to cpp.rpaths.
+Default: true on Linux, false everywhere else.
+version : string The Qt version.
+Consists of three numbers separated by dots. For example &#34;5.9.1&#34;.
+Default: Undefined
+versionMajor : int The Qt major version.
+Default: versionParts[0]
+versionMinor : int The Qt minor version.
+Default: versionParts[1]
+versionParts : list The Qt version as a list.
+For example, Qt version 5.9.1 would correspond to a value of [5, 9, 1].
+Default: []
+versionPatch : int The Qt patch level.
+Default: versionParts[2]">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -338,7 +790,7 @@ List of all members, including inherited members Properties availableBuildVarian
 <h3 class="fn qml-member qml-property" id="generatedHeadersDir-prop" translate="no"><span class="name">generatedHeadersDir</span> : <span class="type">string</span></h3>
 <p>The directory where tools that generate headers (such as <code translate="no">moc</code> or <code translate="no">uic</code>) put resulting files.</p>
 <p>Normally, you don't need to change this property. The one use-case is when there are several files with the same file name in the Product. The file name produced by <code translate="no">moc</code> is based only on the source file's base file name (without the directory path) which leads to a conflict in the mentioned case. You can resolve the conflict by setting this property to a non-default value for one of the files. For example:</p>
-<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
+<pre class="cpp" translate="no"><code class="cpp"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-qtapplication/" translate="no">QtApplication</a></span> {
     <span class="name">files</span>: [<span class="string">"my_cool_header.h"</span>, <span class="string">"main.cpp"</span>]
     <span class="type"><a href="https://qbs.io/
@@ -347,7 +799,7 @@ List of all members, including inherited members Properties availableBuildVarian
         <span class="name">files</span>: <span class="string">"legacy/my_cool_header.h"</span>
         <span class="name">Qt.core.generatedHeadersDir</span>: <span class="string">"qt.legacy.headers"</span>
     }
-}</pre>
+}</code></pre>
 <p>Default: <code translate="no">product.buildDirectory</code> + "/qt.headers"</p>
 <!-- @@@generatedHeadersDir -->
 <!-- $$$incPath -->
@@ -411,7 +863,7 @@ List of all members, including inherited members Properties availableBuildVarian
 <p>A list of additional plugin metadata.</p>
 <p>The elements of the list are key-value pairs separated by the <code translate="no">=</code> character.</p>
 <p>A possible use case is to set the plugin URI when building a static QML plugin:</p>
-<pre class="cpp plain" translate="no">Qt.core.pluginMetaData: ["uri=thePlugin"]</pre>
+<pre class="cpp plain" translate="no"><code class="text">Qt.core.pluginMetaData: ["uri=thePlugin"]</code></pre>
 <p>Default: <code translate="no">[]</code></p>
 <!-- @@@pluginMetaData -->
 <!-- $$$pluginPath -->

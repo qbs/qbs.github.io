@@ -31,7 +31,13 @@ List of all members, including inherited members
 
 Detailed Description
 The config.install module contains properties that configure built-in items such as Application, Library, and Plugin.
-An example showing how to enable installation of static libraries: ">
+An example showing how to enable installation of static libraries:
+qbs modules.config.install.staticLibraries:true
+An example showing how to change the install diretory for dynamic libraries:
+qbs modules.config.install.dynamicLibrariesDirectory:opt/lib
+For the list of available properties, see the ConfigInstall item.
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-config-install/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -41,7 +47,7 @@ An example showing how to enable installation of static libraries: ">
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-config-install/">
@@ -49,7 +55,9 @@ An example showing how to enable installation of static libraries: ">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual QbsModules config.install Qbs 3.4.0 Contents Detailed Description config.install Provides properties for configuring installation paths and rules for various build artifacts. More...
 Since: Qbs 3.1 List of all members, including inherited members Detailed Description The config.install module contains properties that configure built-in items such as Application, Library, and Plugin.
-An example showing how to enable installation of static libraries:">
+An example showing how to enable installation of static libraries:
+qbs modules.config.install.staticLibraries:true An example showing how to change the install diretory for dynamic libraries:
+qbs modules.config.install.dynamicLibrariesDirectory:opt/lib For the list of available properties, see the ConfigInstall item.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -59,7 +67,9 @@ An example showing how to enable installation of static libraries:">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual QbsModules config.install Qbs 3.4.0 Contents Detailed Description config.install Provides properties for configuring installation paths and rules for various build artifacts. More...
 Since: Qbs 3.1 List of all members, including inherited members Detailed Description The config.install module contains properties that configure built-in items such as Application, Library, and Plugin.
-An example showing how to enable installation of static libraries:">
+An example showing how to enable installation of static libraries:
+qbs modules.config.install.staticLibraries:true An example showing how to change the install diretory for dynamic libraries:
+qbs modules.config.install.dynamicLibrariesDirectory:opt/lib For the list of available properties, see the ConfigInstall item.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -126,9 +136,9 @@ An example showing how to enable installation of static libraries:">
 /docs/qml-qbsconvenienceitems-library/" translate="no">Library</a>, and <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-plugin/" translate="no">Plugin</a>.</p>
 <p>An example showing how to enable installation of static libraries:</p>
-<pre class="cpp" translate="no">qbs modules<span class="operator">.</span>config<span class="operator">.</span>install<span class="operator">.</span>staticLibraries:<span class="keyword">true</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs modules<span class="operator">.</span>config<span class="operator">.</span>install<span class="operator">.</span>staticLibraries:<span class="keyword">true</span></code></pre>
 <p>An example showing how to change the install diretory for dynamic libraries:</p>
-<pre class="cpp" translate="no">qbs modules<span class="operator">.</span>config<span class="operator">.</span>install<span class="operator">.</span>dynamicLibrariesDirectory:opt<span class="operator">/</span>lib</pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs modules<span class="operator">.</span>config<span class="operator">.</span>install<span class="operator">.</span>dynamicLibrariesDirectory:opt<span class="operator">/</span>lib</code></pre>
 <p>For the list of available properties, see the <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-configinstall/" translate="no">ConfigInstall</a> item.</p>
 <!-- @@@config.install -->

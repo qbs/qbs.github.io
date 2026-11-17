@@ -50,7 +50,49 @@ publicHeadersDirectory : string (since Qbs 3.2)
 
 
 Detailed Description
-A CppLibrary is an Library that has a dependency on the cpp module. ">
+A CppLibrary is an Library that has a dependency on the cpp module.
+It also provides additional properties to ease the installation of public and private headers.
+
+Property Documentation
+
+headersDirectoryName : string [since Qbs 3.2]
+The name of the directory where headers are installed.
+Default: Product.targetName
+This property was introduced in Qbs 3.2.
+
+
+privateHeaders : stringList [since Qbs 3.2]
+The list of the private headers.
+Files are autoatically tagged with the &#34;hpp&#34; tag and are installed to privateHeadersDirectory if library installation is requested.
+On Apple platforms, if isBundle is true, files are also tagged as &#34;bundle.input.public_hpp&#34; and are copied into the PrivateHeaders directory within the bundle.
+Default: []
+This property was introduced in Qbs 3.2.
+
+
+privateHeadersDirectory : string [since Qbs 3.2]
+The directory where to install private headers.
+Default: installpaths.headers &#43; &#34;/&#34; &#43; headersDirectoryName &#43; &#34;/private&#34;
+This property was introduced in Qbs 3.2.
+
+
+publicHeaders : stringList [since Qbs 3.2]
+The list of the public headers.
+Files are autoatically tagged with the &#34;hpp&#34; tag and are installed to publicHeadersDirectory if library installation is requested.
+On Apple platforms, if isBundle is true, files are also tagged as &#34;bundle.input.public_hpp&#34; and are copied into the Headers directory within the bundle.
+Default: []
+This property was introduced in Qbs 3.2.
+
+
+publicHeadersDirectory : string [since Qbs 3.2]
+The directory where to install public headers.
+Default: installpaths.headers &#43; &#34;/&#34; &#43; headersDirectoryName
+This property was introduced in Qbs 3.2.
+
+
+CppApplication
+CppStd
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsconvenienceitems-cpplibrary/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -60,7 +102,7 @@ A CppLibrary is an Library that has a dependency on the cpp module. ">
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsconvenienceitems-cpplibrary/">
@@ -69,7 +111,28 @@ A CppLibrary is an Library that has a dependency on the cpp module. ">
 	<meta property="og:description" content="Qbs Manual QbsConvenienceItems CppLibrary Qbs 3.4.0 CppApplication CppStd Contents Properties Detailed Description CppLibrary C&#43;&#43; library. More...
 Since: Qbs 3.2 Inherits: Library
 Inherited By: CppStd, DynamicLibrary, LoadableModule, ObjectLibrary, QmlModule, and StaticLibrary
-List of all members, including inherited members CppLibrary is part of List of All Items. Properties headersDirectoryName : string (since Qbs 3.2) privateHeaders : stringList (since Qbs 3.2) privateHeadersDirectory : string (since Qbs 3.2) publicHeaders : stringList (since Qbs 3.2) publicHeadersDirectory : string (since Qbs 3.2) Detailed Description A CppLibrary is an Library that has a dependency on the cpp module.">
+List of all members, including inherited members CppLibrary is part of List of All Items. Properties headersDirectoryName : string (since Qbs 3.2) privateHeaders : stringList (since Qbs 3.2) privateHeadersDirectory : string (since Qbs 3.2) publicHeaders : stringList (since Qbs 3.2) publicHeadersDirectory : string (since Qbs 3.2) Detailed Description A CppLibrary is an Library that has a dependency on the cpp module.
+It also provides additional properties to ease the installation of public and private headers.
+Property Documentation headersDirectoryName : string [since Qbs 3.2] The name of the directory where headers are installed.
+Default: Product.targetName
+This property was introduced in Qbs 3.2.
+privateHeaders : stringList [since Qbs 3.2] The list of the private headers.
+Files are autoatically tagged with the &#34;hpp&#34; tag and are installed to privateHeadersDirectory if library installation is requested.
+On Apple platforms, if isBundle is true, files are also tagged as &#34;bundle.input.public_hpp&#34; and are copied into the PrivateHeaders directory within the bundle.
+Default: []
+This property was introduced in Qbs 3.2.
+privateHeadersDirectory : string [since Qbs 3.2] The directory where to install private headers.
+Default: installpaths.headers &#43; &#34;/&#34; &#43; headersDirectoryName &#43; &#34;/private&#34;
+This property was introduced in Qbs 3.2.
+publicHeaders : stringList [since Qbs 3.2] The list of the public headers.
+Files are autoatically tagged with the &#34;hpp&#34; tag and are installed to publicHeadersDirectory if library installation is requested.
+On Apple platforms, if isBundle is true, files are also tagged as &#34;bundle.input.public_hpp&#34; and are copied into the Headers directory within the bundle.
+Default: []
+This property was introduced in Qbs 3.2.
+publicHeadersDirectory : string [since Qbs 3.2] The directory where to install public headers.
+Default: installpaths.headers &#43; &#34;/&#34; &#43; headersDirectoryName
+This property was introduced in Qbs 3.2.
+CppApplication CppStd">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -80,7 +143,28 @@ List of all members, including inherited members CppLibrary is part of List of A
 	<meta name="twitter:description" content="Qbs Manual QbsConvenienceItems CppLibrary Qbs 3.4.0 CppApplication CppStd Contents Properties Detailed Description CppLibrary C&#43;&#43; library. More...
 Since: Qbs 3.2 Inherits: Library
 Inherited By: CppStd, DynamicLibrary, LoadableModule, ObjectLibrary, QmlModule, and StaticLibrary
-List of all members, including inherited members CppLibrary is part of List of All Items. Properties headersDirectoryName : string (since Qbs 3.2) privateHeaders : stringList (since Qbs 3.2) privateHeadersDirectory : string (since Qbs 3.2) publicHeaders : stringList (since Qbs 3.2) publicHeadersDirectory : string (since Qbs 3.2) Detailed Description A CppLibrary is an Library that has a dependency on the cpp module.">
+List of all members, including inherited members CppLibrary is part of List of All Items. Properties headersDirectoryName : string (since Qbs 3.2) privateHeaders : stringList (since Qbs 3.2) privateHeadersDirectory : string (since Qbs 3.2) publicHeaders : stringList (since Qbs 3.2) publicHeadersDirectory : string (since Qbs 3.2) Detailed Description A CppLibrary is an Library that has a dependency on the cpp module.
+It also provides additional properties to ease the installation of public and private headers.
+Property Documentation headersDirectoryName : string [since Qbs 3.2] The name of the directory where headers are installed.
+Default: Product.targetName
+This property was introduced in Qbs 3.2.
+privateHeaders : stringList [since Qbs 3.2] The list of the private headers.
+Files are autoatically tagged with the &#34;hpp&#34; tag and are installed to privateHeadersDirectory if library installation is requested.
+On Apple platforms, if isBundle is true, files are also tagged as &#34;bundle.input.public_hpp&#34; and are copied into the PrivateHeaders directory within the bundle.
+Default: []
+This property was introduced in Qbs 3.2.
+privateHeadersDirectory : string [since Qbs 3.2] The directory where to install private headers.
+Default: installpaths.headers &#43; &#34;/&#34; &#43; headersDirectoryName &#43; &#34;/private&#34;
+This property was introduced in Qbs 3.2.
+publicHeaders : stringList [since Qbs 3.2] The list of the public headers.
+Files are autoatically tagged with the &#34;hpp&#34; tag and are installed to publicHeadersDirectory if library installation is requested.
+On Apple platforms, if isBundle is true, files are also tagged as &#34;bundle.input.public_hpp&#34; and are copied into the Headers directory within the bundle.
+Default: []
+This property was introduced in Qbs 3.2.
+publicHeadersDirectory : string [since Qbs 3.2] The directory where to install public headers.
+Default: installpaths.headers &#43; &#34;/&#34; &#43; headersDirectoryName
+This property was introduced in Qbs 3.2.
+CppApplication CppStd">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">

@@ -51,7 +51,109 @@ versionBelow : string
 
 
 Detailed Description
-A Depends item can appear inside a Product or Module item. ">
+A Depends item can appear inside a Product or Module item.
+For example, the following product will load the cpp module. In addition, it will try to load modules that may or may not exist, and pass this information on to the compiler.
+Product {
+    Depends { name: &#34;cpp&#34; }
+    Depends {
+        name: &#34;optional_module&#34;
+        versionAtLeast: &#34;2.0&#34;
+        required: false
+    }
+
+    Properties {
+        condition: optional_module.present
+        cpp.defines: &#34;HAS_OPTIONAL_MODULE&#34;
+    }
+
+    // ...
+}
+Dependency Parameters
+Sometimes it is desirable to have certain dependencies handled differently than others. For example, one might want to depend on a dynamic library without linking it.
+This can be done by setting the cpp.link dependency parameter to true in the dynamic library dependency:
+Product {
+    Depends { name: &#34;cpp&#34; }
+    Depends { name: &#34;some_dynamic_lib&#34;; cpp.link: false }
+
+    // ...
+}
+Dependency parameters are a special type of property that can only be set within Depends and Parameters items. Dependency parameters are declared in the modules they belong to.
+In the example above, the cpp module declares the parameter link. The Depends item for some_dynamic_lib sets cpp.link to false, which tells the linker rule to ignore this particular dependency.
+
+Property Documentation
+
+condition : bool
+Determines whether the dependency will actually be applied.
+Default: true
+
+
+limitToSubProject : bool
+If productTypes is set and this property is true, only products that are in the same sub-project as the product containing the Depends item are considered.
+Default: false
+
+
+minimal : bool [since Qbs 3.0]
+Setting this property to false instructs Qbs to build the respective product only to the extent that is necessary for the depending product. Otherwise (the default), the dependency gets fully built. This property only has an effect if the user requested a subset of the project to be built (that is, the -p option is used), the dependency is not in that subset and no other product in the subset has a non-minimal dependency on it.
+Default: false
+This property was introduced in Qbs 3.0.
+
+
+name : string
+The name of the dependent product or module.
+Default: Undefined
+
+
+productTypes : stringList
+A list of product types. Any enabled product in the project that has a matching type will become a dependency of the product containing the Depends item.
+This property is mutually exclusive with the name and submodules properties.
+The required and profiles properties are ignored if this property is set.
+
+Note: This property does not work recursively. Consider this example:
+
+Product {
+    name: &#34;A&#34;
+    type: &#34;x&#34;
+    Depends { productTypes: &#34;someTag&#34; }
+}
+Product {
+    name: &#34;B&#34;
+    Depends { productTypes: &#34;x&#34; }
+}
+It is not guaranteed that A will show up in B&#39;s dependencies.
+Default: Undefined
+
+
+profiles : stringList
+A list of profiles.
+If the dependency is on a product and that product is going to be built for more than one profile, you can specify here which instance of the product the dependency is on.
+See the qbs.profiles property for more information. An empty list means a dependency on all instances of the product with the given name, regardless of their profile.
+Default: Undefined
+
+
+required : bool
+Setting this property to false creates a soft dependency, meaning that it is not considered an error if the given module cannot be found. In such a case, an instance of the respective module will be created, but only the Module.present property will be available for querying, and it will be set to false.
+Default: true
+
+
+submodules : stringList
+A list of submodules of the module to depend on, if applicable.
+Default: Undefined
+
+
+versionAtLeast : string
+The minimum value that the dependency&#39;s version property needs to have. If the actual version is lower than that, loading the dependency will fail. The value consists of integers separated by dots.
+Default: Undefined
+
+
+versionBelow : string
+A value that the dependency&#39;s version property must be lower than. If the actual version is equal to or higher than that, loading the dependency will fail. The value consists of integers separated by dots.
+Default: Undefined
+
+
+Artifact
+Export
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbslanguageitems-depends/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -61,14 +163,47 @@ A Depends item can appear inside a Product or Module item. ">
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-depends/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual QbsLanguageItems Depends Qbs 3.4.0 Artifact Export Contents Properties Detailed Description Dependency Parameters Depends Represents dependencies between products and modules. More...
-List of all members, including inherited members Depends is part of List of All Items. Properties condition : bool limitToSubProject : bool minimal : bool (since Qbs 3.0) name : string productTypes : stringList profiles : stringList required : bool submodules : stringList versionAtLeast : string versionBelow : string Detailed Description A Depends item can appear inside a Product or Module item.">
+List of all members, including inherited members Depends is part of List of All Items. Properties condition : bool limitToSubProject : bool minimal : bool (since Qbs 3.0) name : string productTypes : stringList profiles : stringList required : bool submodules : stringList versionAtLeast : string versionBelow : string Detailed Description A Depends item can appear inside a Product or Module item.
+For example, the following product will load the cpp module. In addition, it will try to load modules that may or may not exist, and pass this information on to the compiler.
+Product { Depends { name: &#34;cpp&#34; } Depends { name: &#34;optional_module&#34; versionAtLeast: &#34;2.0&#34; required: false } Properties { condition: optional_module.present cpp.defines: &#34;HAS_OPTIONAL_MODULE&#34; } // ... } Dependency Parameters Sometimes it is desirable to have certain dependencies handled differently than others. For example, one might want to depend on a dynamic library without linking it.
+This can be done by setting the cpp.link dependency parameter to true in the dynamic library dependency:
+Product { Depends { name: &#34;cpp&#34; } Depends { name: &#34;some_dynamic_lib&#34;; cpp.link: false } // ... } Dependency parameters are a special type of property that can only be set within Depends and Parameters items. Dependency parameters are declared in the modules they belong to.
+In the example above, the cpp module declares the parameter link. The Depends item for some_dynamic_lib sets cpp.link to false, which tells the linker rule to ignore this particular dependency.
+Property Documentation condition : bool Determines whether the dependency will actually be applied.
+Default: true
+limitToSubProject : bool If productTypes is set and this property is true, only products that are in the same sub-project as the product containing the Depends item are considered.
+Default: false
+minimal : bool [since Qbs 3.0] Setting this property to false instructs Qbs to build the respective product only to the extent that is necessary for the depending product. Otherwise (the default), the dependency gets fully built. This property only has an effect if the user requested a subset of the project to be built (that is, the -p option is used), the dependency is not in that subset and no other product in the subset has a non-minimal dependency on it.
+Default: false
+This property was introduced in Qbs 3.0.
+name : string The name of the dependent product or module.
+Default: Undefined
+productTypes : stringList A list of product types. Any enabled product in the project that has a matching type will become a dependency of the product containing the Depends item.
+This property is mutually exclusive with the name and submodules properties.
+The required and profiles properties are ignored if this property is set.
+Note: This property does not work recursively. Consider this example:
+Product { name: &#34;A&#34; type: &#34;x&#34; Depends { productTypes: &#34;someTag&#34; } } Product { name: &#34;B&#34; Depends { productTypes: &#34;x&#34; } } It is not guaranteed that A will show up in B&#39;s dependencies.
+Default: Undefined
+profiles : stringList A list of profiles.
+If the dependency is on a product and that product is going to be built for more than one profile, you can specify here which instance of the product the dependency is on.
+See the qbs.profiles property for more information. An empty list means a dependency on all instances of the product with the given name, regardless of their profile.
+Default: Undefined
+required : bool Setting this property to false creates a soft dependency, meaning that it is not considered an error if the given module cannot be found. In such a case, an instance of the respective module will be created, but only the Module.present property will be available for querying, and it will be set to false.
+Default: true
+submodules : stringList A list of submodules of the module to depend on, if applicable.
+Default: Undefined
+versionAtLeast : string The minimum value that the dependency&#39;s version property needs to have. If the actual version is lower than that, loading the dependency will fail. The value consists of integers separated by dots.
+Default: Undefined
+versionBelow : string A value that the dependency&#39;s version property must be lower than. If the actual version is equal to or higher than that, loading the dependency will fail. The value consists of integers separated by dots.
+Default: Undefined
+Artifact Export">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -77,7 +212,40 @@ List of all members, including inherited members Depends is part of List of All 
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual QbsLanguageItems Depends Qbs 3.4.0 Artifact Export Contents Properties Detailed Description Dependency Parameters Depends Represents dependencies between products and modules. More...
-List of all members, including inherited members Depends is part of List of All Items. Properties condition : bool limitToSubProject : bool minimal : bool (since Qbs 3.0) name : string productTypes : stringList profiles : stringList required : bool submodules : stringList versionAtLeast : string versionBelow : string Detailed Description A Depends item can appear inside a Product or Module item.">
+List of all members, including inherited members Depends is part of List of All Items. Properties condition : bool limitToSubProject : bool minimal : bool (since Qbs 3.0) name : string productTypes : stringList profiles : stringList required : bool submodules : stringList versionAtLeast : string versionBelow : string Detailed Description A Depends item can appear inside a Product or Module item.
+For example, the following product will load the cpp module. In addition, it will try to load modules that may or may not exist, and pass this information on to the compiler.
+Product { Depends { name: &#34;cpp&#34; } Depends { name: &#34;optional_module&#34; versionAtLeast: &#34;2.0&#34; required: false } Properties { condition: optional_module.present cpp.defines: &#34;HAS_OPTIONAL_MODULE&#34; } // ... } Dependency Parameters Sometimes it is desirable to have certain dependencies handled differently than others. For example, one might want to depend on a dynamic library without linking it.
+This can be done by setting the cpp.link dependency parameter to true in the dynamic library dependency:
+Product { Depends { name: &#34;cpp&#34; } Depends { name: &#34;some_dynamic_lib&#34;; cpp.link: false } // ... } Dependency parameters are a special type of property that can only be set within Depends and Parameters items. Dependency parameters are declared in the modules they belong to.
+In the example above, the cpp module declares the parameter link. The Depends item for some_dynamic_lib sets cpp.link to false, which tells the linker rule to ignore this particular dependency.
+Property Documentation condition : bool Determines whether the dependency will actually be applied.
+Default: true
+limitToSubProject : bool If productTypes is set and this property is true, only products that are in the same sub-project as the product containing the Depends item are considered.
+Default: false
+minimal : bool [since Qbs 3.0] Setting this property to false instructs Qbs to build the respective product only to the extent that is necessary for the depending product. Otherwise (the default), the dependency gets fully built. This property only has an effect if the user requested a subset of the project to be built (that is, the -p option is used), the dependency is not in that subset and no other product in the subset has a non-minimal dependency on it.
+Default: false
+This property was introduced in Qbs 3.0.
+name : string The name of the dependent product or module.
+Default: Undefined
+productTypes : stringList A list of product types. Any enabled product in the project that has a matching type will become a dependency of the product containing the Depends item.
+This property is mutually exclusive with the name and submodules properties.
+The required and profiles properties are ignored if this property is set.
+Note: This property does not work recursively. Consider this example:
+Product { name: &#34;A&#34; type: &#34;x&#34; Depends { productTypes: &#34;someTag&#34; } } Product { name: &#34;B&#34; Depends { productTypes: &#34;x&#34; } } It is not guaranteed that A will show up in B&#39;s dependencies.
+Default: Undefined
+profiles : stringList A list of profiles.
+If the dependency is on a product and that product is going to be built for more than one profile, you can specify here which instance of the product the dependency is on.
+See the qbs.profiles property for more information. An empty list means a dependency on all instances of the product with the given name, regardless of their profile.
+Default: Undefined
+required : bool Setting this property to false creates a soft dependency, meaning that it is not considered an error if the given module cannot be found. In such a case, an instance of the respective module will be created, but only the Module.present property will be available for querying, and it will be set to false.
+Default: true
+submodules : stringList A list of submodules of the module to depend on, if applicable.
+Default: Undefined
+versionAtLeast : string The minimum value that the dependency&#39;s version property needs to have. If the actual version is lower than that, loading the dependency will fail. The value consists of integers separated by dots.
+Default: Undefined
+versionBelow : string A value that the dependency&#39;s version property must be lower than. If the actual version is equal to or higher than that, loading the dependency will fail. The value consists of integers separated by dots.
+Default: Undefined
+Artifact Export">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -180,7 +348,7 @@ List of all members, including inherited members Depends is part of List of All 
 /docs/qml-qbslanguageitems-module/" translate="no">Module</a> item.</p>
 <p>For example, the following product will load the <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/" translate="no">cpp</a> module. In addition, it will try to load modules that may or may not exist, and pass this information on to the compiler.</p>
-<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
+<pre class="cpp" translate="no"><code class="cpp"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/" translate="no">Product</a></span> {
     <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-depends/" translate="no">Depends</a></span> { <span class="name">name</span>: <span class="string">"cpp"</span> }
@@ -198,12 +366,12 @@ List of all members, including inherited members Depends is part of List of All 
     }
 
     <span class="comment">// ...</span>
-}</pre>
+}</code></pre>
 <h2 id="dependency-parameters">Dependency Parameters</h2>
 <p>Sometimes it is desirable to have certain dependencies handled differently than others. For example, one might want to depend on a dynamic library without linking it.</p>
 <p>This can be done by setting the <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#dependency-parameters" translate="no">cpp.link</a> dependency parameter to <code translate="no">true</code> in the dynamic library dependency:</p>
-<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
+<pre class="cpp" translate="no"><code class="cpp"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/" translate="no">Product</a></span> {
     <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-depends/" translate="no">Depends</a></span> { <span class="name">name</span>: <span class="string">"cpp"</span> }
@@ -211,7 +379,7 @@ List of all members, including inherited members Depends is part of List of All 
 /docs/qml-qbslanguageitems-depends/" translate="no">Depends</a></span> { <span class="name">name</span>: <span class="string">"some_dynamic_lib"</span>; <span class="name">cpp.link</span>: <span class="number">false</span> }
 
     <span class="comment">// ...</span>
-}</pre>
+}</code></pre>
 <p>Dependency parameters are a special type of property that can only be set within Depends and <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-parameters/" translate="no">Parameters</a> items. Dependency parameters are declared in the modules they belong to.</p>
 <p>In the example above, the <a href="https://qbs.io/
@@ -252,7 +420,7 @@ List of all members, including inherited members Depends is part of List of All 
 <div class="admonition note">
 <p><b>Note: </b>This property does not work recursively. Consider this example:</p>
 </div>
-<pre class="cpp" translate="no">Product {
+<pre class="cpp" translate="no"><code class="cpp">Product {
     name: <span class="string">"A"</span>
     type: <span class="string">"x"</span>
     Depends { productTypes: <span class="string">"someTag"</span> }
@@ -260,7 +428,7 @@ List of all members, including inherited members Depends is part of List of All 
 Product {
     name: <span class="string">"B"</span>
     Depends { productTypes: <span class="string">"x"</span> }
-}</pre>
+}</code></pre>
 <p>It is not guaranteed that <code translate="no">A</code> will show up in <code translate="no">B</code>'s dependencies.</p>
 <p>Default: Undefined</p>
 <!-- @@@productTypes -->

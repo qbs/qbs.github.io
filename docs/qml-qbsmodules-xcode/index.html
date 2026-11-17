@@ -45,7 +45,74 @@ targetDevices : stringList
 
 
 Detailed Description
-The xcode module contains properties and rules for Xcode-based development. This module provides the foundation for several other modules on Apple platforms, including the cpp and ib modules. ">
+The xcode module contains properties and rules for Xcode-based development. This module provides the foundation for several other modules on Apple platforms, including the cpp and ib modules.
+
+Property Documentation
+
+availableSdkNames : stringList [read-only]
+The canonical names of all SDKs available in the Xcode installation for the current platform.
+For example, [macosx10.9, macosx10.10].
+Default: developerPath
+
+
+availableSdkVersions : stringList [read-only]
+The version numbers of all SDK available in the Xcode installation for the current platform.
+For example, [10.9, 10.10].
+Default: developerPath
+
+
+developerPath : path
+The developer directory of the Xcode installation.
+Corresponds to the DEVELOPER_DIR environment variable.
+Default: The developer directory of the Xcode installation at its default location in /Applications. For example, &#34;/Applications/Xcode.app/Contents/Developer&#34;.
+
+
+latestSdkName : string [read-only]
+The canonical name of the latest SDK available in the Xcode installation.
+For example, macosx10.10.
+Default: developerPath
+
+
+latestSdkVersion : string [read-only]
+The version number of the latest SDK available in the Xcode installation.
+For example, 10.10.
+Default: developerPath
+
+
+platformPath : path [read-only]
+The path of the platform directory containing sdkPath.
+Default: developerPath
+
+
+sdk : string
+The version of the Xcode SDK used to build products.
+This can be specified as a full canonical SDK name (&#34;macosx10.10&#34;), a platform version number (&#34;10.10&#34;), or a platform identifier (&#34;macosx&#34;), in which case the latest SDK available for that platform will be used.
+Default: The latest SDK available in the Xcode installation for the current platform. Determined by qbs.targetOS.
+
+
+sdkName : string [read-only]
+The canonical name of the SDK used to build products.
+For example, macosx10.9.
+Default: sdk
+
+
+sdkPath : path [read-only]
+The path of the SDK used to build products. Equivalent to qbs.sysroot.
+Default: Determined by developerPath and sdk.
+
+
+sdkVersion : string [read-only]
+The version number of the SDK used to build products.
+For example, 10.9.
+Default: sdk
+
+
+targetDevices : stringList
+A list of the Apple devices targeted by this product.
+For macOS, watchOS, and tvOS, this should always be &#34;mac&#34;, &#34;watch&#34;, and &#34;tv&#34;, respectively. For iOS, this can be one or both of &#34;iphone&#34; and &#34;ipad&#34;.
+Default: The list of all device types supported by the current platform. Determined by qbs.targetOS.
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-xcode/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -55,14 +122,45 @@ The xcode module contains properties and rules for Xcode-based development. This
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-xcode/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual QbsModules xcode Qbs 3.4.0 Contents Properties Detailed Description xcode Provides Xcode support. More...
-Since: Qbs 1.5 List of all members, including inherited members Properties availableSdkNames : stringList availableSdkVersions : stringList developerPath : path latestSdkName : string latestSdkVersion : string platformPath : path sdk : string sdkName : string sdkPath : path sdkVersion : string targetDevices : stringList Detailed Description The xcode module contains properties and rules for Xcode-based development. This module provides the foundation for several other modules on Apple platforms, including the cpp and ib modules.">
+Since: Qbs 1.5 List of all members, including inherited members Properties availableSdkNames : stringList availableSdkVersions : stringList developerPath : path latestSdkName : string latestSdkVersion : string platformPath : path sdk : string sdkName : string sdkPath : path sdkVersion : string targetDevices : stringList Detailed Description The xcode module contains properties and rules for Xcode-based development. This module provides the foundation for several other modules on Apple platforms, including the cpp and ib modules.
+Property Documentation availableSdkNames : stringList [read-only] The canonical names of all SDKs available in the Xcode installation for the current platform.
+For example, [macosx10.9, macosx10.10].
+Default: developerPath
+availableSdkVersions : stringList [read-only] The version numbers of all SDK available in the Xcode installation for the current platform.
+For example, [10.9, 10.10].
+Default: developerPath
+developerPath : path The developer directory of the Xcode installation.
+Corresponds to the DEVELOPER_DIR environment variable.
+Default: The developer directory of the Xcode installation at its default location in /Applications. For example, &#34;/Applications/Xcode.app/Contents/Developer&#34;.
+latestSdkName : string [read-only] The canonical name of the latest SDK available in the Xcode installation.
+For example, macosx10.10.
+Default: developerPath
+latestSdkVersion : string [read-only] The version number of the latest SDK available in the Xcode installation.
+For example, 10.10.
+Default: developerPath
+platformPath : path [read-only] The path of the platform directory containing sdkPath.
+Default: developerPath
+sdk : string The version of the Xcode SDK used to build products.
+This can be specified as a full canonical SDK name (&#34;macosx10.10&#34;), a platform version number (&#34;10.10&#34;), or a platform identifier (&#34;macosx&#34;), in which case the latest SDK available for that platform will be used.
+Default: The latest SDK available in the Xcode installation for the current platform. Determined by qbs.targetOS.
+sdkName : string [read-only] The canonical name of the SDK used to build products.
+For example, macosx10.9.
+Default: sdk
+sdkPath : path [read-only] The path of the SDK used to build products. Equivalent to qbs.sysroot.
+Default: Determined by developerPath and sdk.
+sdkVersion : string [read-only] The version number of the SDK used to build products.
+For example, 10.9.
+Default: sdk
+targetDevices : stringList A list of the Apple devices targeted by this product.
+For macOS, watchOS, and tvOS, this should always be &#34;mac&#34;, &#34;watch&#34;, and &#34;tv&#34;, respectively. For iOS, this can be one or both of &#34;iphone&#34; and &#34;ipad&#34;.
+Default: The list of all device types supported by the current platform. Determined by qbs.targetOS.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -71,7 +169,38 @@ Since: Qbs 1.5 List of all members, including inherited members Properties avail
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual QbsModules xcode Qbs 3.4.0 Contents Properties Detailed Description xcode Provides Xcode support. More...
-Since: Qbs 1.5 List of all members, including inherited members Properties availableSdkNames : stringList availableSdkVersions : stringList developerPath : path latestSdkName : string latestSdkVersion : string platformPath : path sdk : string sdkName : string sdkPath : path sdkVersion : string targetDevices : stringList Detailed Description The xcode module contains properties and rules for Xcode-based development. This module provides the foundation for several other modules on Apple platforms, including the cpp and ib modules.">
+Since: Qbs 1.5 List of all members, including inherited members Properties availableSdkNames : stringList availableSdkVersions : stringList developerPath : path latestSdkName : string latestSdkVersion : string platformPath : path sdk : string sdkName : string sdkPath : path sdkVersion : string targetDevices : stringList Detailed Description The xcode module contains properties and rules for Xcode-based development. This module provides the foundation for several other modules on Apple platforms, including the cpp and ib modules.
+Property Documentation availableSdkNames : stringList [read-only] The canonical names of all SDKs available in the Xcode installation for the current platform.
+For example, [macosx10.9, macosx10.10].
+Default: developerPath
+availableSdkVersions : stringList [read-only] The version numbers of all SDK available in the Xcode installation for the current platform.
+For example, [10.9, 10.10].
+Default: developerPath
+developerPath : path The developer directory of the Xcode installation.
+Corresponds to the DEVELOPER_DIR environment variable.
+Default: The developer directory of the Xcode installation at its default location in /Applications. For example, &#34;/Applications/Xcode.app/Contents/Developer&#34;.
+latestSdkName : string [read-only] The canonical name of the latest SDK available in the Xcode installation.
+For example, macosx10.10.
+Default: developerPath
+latestSdkVersion : string [read-only] The version number of the latest SDK available in the Xcode installation.
+For example, 10.10.
+Default: developerPath
+platformPath : path [read-only] The path of the platform directory containing sdkPath.
+Default: developerPath
+sdk : string The version of the Xcode SDK used to build products.
+This can be specified as a full canonical SDK name (&#34;macosx10.10&#34;), a platform version number (&#34;10.10&#34;), or a platform identifier (&#34;macosx&#34;), in which case the latest SDK available for that platform will be used.
+Default: The latest SDK available in the Xcode installation for the current platform. Determined by qbs.targetOS.
+sdkName : string [read-only] The canonical name of the SDK used to build products.
+For example, macosx10.9.
+Default: sdk
+sdkPath : path [read-only] The path of the SDK used to build products. Equivalent to qbs.sysroot.
+Default: Determined by developerPath and sdk.
+sdkVersion : string [read-only] The version number of the SDK used to build products.
+For example, 10.9.
+Default: sdk
+targetDevices : stringList A list of the Apple devices targeted by this product.
+For macOS, watchOS, and tvOS, this should always be &#34;mac&#34;, &#34;watch&#34;, and &#34;tv&#34;, respectively. For iOS, this can be one or both of &#34;iphone&#34; and &#34;ipad&#34;.
+Default: The list of all device types supported by the current platform. Determined by qbs.targetOS.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">

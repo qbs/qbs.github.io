@@ -48,7 +48,29 @@ TagAuto-tagged File NamesSinceDescription
 Property Documentation
 
 className : string
-The class name of the generated state machine. ">
+The class name of the generated state machine.
+By default, the compiler will use the name attribute of the input file&#39;s &lt;scxml&gt; tag.
+Default: Undefined
+
+
+generateStateMethods : string [since 1.11]
+If this property is true, the Qt SCXML compiler will generate read and notify methods for states.
+Default: false
+This property was introduced in 1.11.
+
+
+namespace : string
+The C&#43;&#43; namespace in which to put the generated class.
+By default, the compiler will place the class in the global namespace.
+Default: Undefined
+
+
+qscxmlcName : string
+The base name of the Qt SCXML compiler.
+Set this value if your system uses a name different from the default value.
+Default: &#34;qscxmlc&#34;
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-qt-scxml/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -58,7 +80,7 @@ The class name of the generated state machine. ">
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-qt-scxml/">
@@ -66,7 +88,18 @@ The class name of the generated state machine. ">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual QbsModules Qt.scxml Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags Qt.scxml Provides Qt SCXML support. More...
 List of all members, including inherited members Properties className : string generateStateMethods : string (since 1.11) namespace : string qscxmlcName : string Detailed Description The Qt.scxml module provides support for the Qt SCXML module, which enables creating state machines from SCXML files.
-Relevant File Tags TagAuto-tagged File NamesSinceDescription &#34;qt.scxml.compilable&#34;-1.7Source files with this tag serve as inputs to the rule running the Qt SCXML compiler, which will create a C&#43;&#43; class representing a state machine. Property Documentation className : string The class name of the generated state machine.">
+Relevant File Tags Tag Auto-tagged File Names Since Description &#34;qt.scxml.compilable&#34; - 1.7 Source files with this tag serve as inputs to the rule running the Qt SCXML compiler, which will create a C&#43;&#43; class representing a state machine. Property Documentation className : string The class name of the generated state machine.
+By default, the compiler will use the name attribute of the input file&#39;s &lt;scxml&gt; tag.
+Default: Undefined
+generateStateMethods : string [since 1.11] If this property is true, the Qt SCXML compiler will generate read and notify methods for states.
+Default: false
+This property was introduced in 1.11.
+namespace : string The C&#43;&#43; namespace in which to put the generated class.
+By default, the compiler will place the class in the global namespace.
+Default: Undefined
+qscxmlcName : string The base name of the Qt SCXML compiler.
+Set this value if your system uses a name different from the default value.
+Default: &#34;qscxmlc&#34;">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -76,7 +109,18 @@ Relevant File Tags TagAuto-tagged File NamesSinceDescription &#34;qt.scxml.compi
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual QbsModules Qt.scxml Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags Qt.scxml Provides Qt SCXML support. More...
 List of all members, including inherited members Properties className : string generateStateMethods : string (since 1.11) namespace : string qscxmlcName : string Detailed Description The Qt.scxml module provides support for the Qt SCXML module, which enables creating state machines from SCXML files.
-Relevant File Tags TagAuto-tagged File NamesSinceDescription &#34;qt.scxml.compilable&#34;-1.7Source files with this tag serve as inputs to the rule running the Qt SCXML compiler, which will create a C&#43;&#43; class representing a state machine. Property Documentation className : string The class name of the generated state machine.">
+Relevant File Tags Tag Auto-tagged File Names Since Description &#34;qt.scxml.compilable&#34; - 1.7 Source files with this tag serve as inputs to the rule running the Qt SCXML compiler, which will create a C&#43;&#43; class representing a state machine. Property Documentation className : string The class name of the generated state machine.
+By default, the compiler will use the name attribute of the input file&#39;s &lt;scxml&gt; tag.
+Default: Undefined
+generateStateMethods : string [since 1.11] If this property is true, the Qt SCXML compiler will generate read and notify methods for states.
+Default: false
+This property was introduced in 1.11.
+namespace : string The C&#43;&#43; namespace in which to put the generated class.
+By default, the compiler will place the class in the global namespace.
+Default: Undefined
+qscxmlcName : string The base name of the Qt SCXML compiler.
+Set this value if your system uses a name different from the default value.
+Default: &#34;qscxmlc&#34;">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">

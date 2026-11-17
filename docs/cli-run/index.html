@@ -55,7 +55,115 @@ qbs run [options] [config:configuration-name] [property:value] ... [ -- &lt;argu
 Description
 Runs the specified product&#39;s executable with the specified &lt;arguments&gt;. If the project has only one product, the --products option may be omitted.
 The product will be built if it is not up to date, unless the --no-build option is specified. For more information, see build.
-For more information about running applications, see Running Applications. ">
+For more information about running applications, see Running Applications.
+Options
+--all-products
+Processes all products, even if their builtByDefault property is false.
+--build-directory|-d &lt;directory&gt;
+Specifies a &lt;directory&gt; where build artifacts are stored.
+The default value is the current directory unless preferences.defaultBuildDirectory is set.
+Relative paths will be interpreted relative to the current directory.
+You can use the following special values as placeholders:
+
+@project is expanded to the name of the project file excluding the extension .qbs.
+@path is expanded to the name of the directory containing the project file.
+
+--changed-files &lt;file&gt;[,&lt;file&gt;...]
+Assumes that the files specified by &lt;file&gt;, and only those files, have changed.
+--check-outputs
+Forces transformer output artifact checks.
+Verifies that the output artifacts declared by rules in the project are actually created.
+--check-timestamps
+Forces timestamp checks.
+Retrieves the timestamps from the file system, instead of using the file timestamps that are stored in the build graph.
+--clean-install-root
+Removes the installation base directory before installing.
+--command-echo-mode &lt;mode&gt;
+Determines what kind of output to show when executing commands.
+Possible values of &lt;mode&gt; are:
+
+silent
+summary (default value)
+command-line
+command-line-with-environment
+
+--dry-run|-n
+Performs a dry run. No commands will be executed and no permanent changes to the build graph will be done.
+[--file|-f &lt;file&gt;]
+Uses &lt;file&gt; as the project file. If &lt;file&gt; is a directory and it contains a single file with the extension .qbs, that file will be used.
+If this option is not given at all, the behavior is the same as for -f &lt;working-dir&gt;.
+--force-probe-execution
+Forces re-execution of all Probe items&#39; configure scripts, rather than using the cached data.
+--install-root &lt;directory&gt;
+Installs into the specified &lt;directory&gt;. If the directory does not exist, it will be created.
+The default value is &lt;build dir&gt;/install-root.
+Use the special value @sysroot to install into the sysroot. That is, the value of the qbs.sysroot property.
+--jobs|-j &lt;n&gt;
+Uses &lt;n&gt; concurrent build jobs, where &lt;n&gt; must be an integer greater than zero.
+The default is the number of logical cores.
+--keep-going|-k
+Keeps going when errors occur, if at all possible.
+--less-verbose|-q
+Becomes more quiet by decreasing the log level by one. This option can be given more than once. Excessive occurrences have no effect.
+If the option --log-level appears anywhere on the command line in addition to this option, its value is taken as the base for the decrease.
+--log-level &lt;level&gt;
+Uses the specified log level.
+Possible values of &lt;level&gt; are:
+
+error
+warning
+info (default value)
+debug
+trace
+
+--log-time
+Logs the time that the operations involved in this command take.
+This option is implied in log levels debug and higher.
+This option is mutually exclusive with --show-progress.
+--more-verbose|-v
+Becomes more verbose by increasing the log level by one. This option can be given more than once. Excessive occurrences have no effect.
+If the option --log-level appears anywhere on the command line in addition to this option, its value is taken as the base for the increase.
+--no-build
+Does not re-build the project before installing or running it.
+--products|-p &lt;name&gt;[,&lt;name&gt;...]
+Takes only the products specified by &lt;name&gt; and their dependencies into account.
+--settings-dir &lt;directory&gt;
+Reads all settings (such as profile information) from the specified &lt;directory&gt;. If the directory does not exist, it will be created.
+The default value is system-specific. For example:
+
+Linux: $HOME/.config/QtProject/qbs
+Windows: %APPDATA%\QtProject\qbs
+macOS: $HOME/Library/Preferences/qbs
+
+--setup-run-env-config
+A comma-separated list of strings. They will show up in the config parameter of all setupRunEnvironment scripts.
+--wait-lock
+Waits indefinitely for other processes to release the build graph lock.
+This option is typically used by generators, which may re-invoke multiple Qbs processes on the same project simultaneously.
+Parameters
+config:configuration-name
+Specifies the build configuration to use.
+Qbs can build a project for one or multiple configurations at once, each having a different set of parameters. The config parameter has a special function: with each occurrence a new configuration instance begins and all subsequent parameters until the next config are assigned to this instance. Parameter assignments before the first occurrence of config are applied to all build configurations. Inside products and modules, the current active build configuration can be retrieved via qbs.configurationName.
+In the following snippet, a profile clang is applied to all configurations while cpp.optimization is different for debug and release:
+profile:clang config:debug cpp.optimization:none config:release cpp.optimization:small
+The value of config determines the name of the build folder and affects the default value of the qbs.buildVariant property. Qbs knows the config values &#34;debug&#34; and &#34;release&#34;, but in general any name can be chosen. When naming configurations created for special purposes, follow the rules for legal names generally used in programming languages:
+
+The first character must be a letter (a-z), an underscore (_), or a dollar sign ($).
+Subsequent characters may be letters, digits, underscores, or dollar signs.
+
+property:value
+Property values set in project files or profiles can be overridden on the command line. The syntax is:
+&lt;prefix&gt;.&lt;property-name&gt;:&lt;property-value&gt;
+For more information, see Overriding Property Values from the Command Line.
+Arguments
+-- &lt;arguments&gt;
+Command-line arguments to be passed to the program to be run.
+Examples
+Runs the Qt Creator application:
+qbs run --products qtcreator
+
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/cli-run/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -65,7 +173,7 @@ For more information about running applications, see Running Applications. ">
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/cli-run/">
@@ -73,7 +181,55 @@ For more information about running applications, see Running Applications. ">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual Command-Line Interface run Qbs 3.4.0 Contents Synopsis Description Options --all-products --build-directory|-d &lt;directory&gt; --changed-files &lt;file&gt;[,&lt;file&gt;...] --check-outputs --check-timestamps --clean-install-root --command-echo-mode &lt;mode&gt; --dry-run|-n [--file|-f &lt;file&gt;] --force-probe-execution --install-root &lt;directory&gt; --jobs|-j &lt;n&gt; --keep-going|-k --less-verbose|-q --log-level &lt;level&gt; --log-time --more-verbose|-v --no-build --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; --setup-run-env-config --wait-lock Parameters config:configuration-name property:value Arguments -- &lt;arguments&gt; Examples run Synopsis qbs run [options] [config:configuration-name] [property:value] ... [ -- &lt;arguments&gt;] Description Runs the specified product&#39;s executable with the specified &lt;arguments&gt;. If the project has only one product, the --products option may be omitted.
 The product will be built if it is not up to date, unless the --no-build option is specified. For more information, see build.
-For more information about running applications, see Running Applications.">
+For more information about running applications, see Running Applications.
+Options --all-products Processes all products, even if their builtByDefault property is false.
+--build-directory|-d &lt;directory&gt; Specifies a &lt;directory&gt; where build artifacts are stored.
+The default value is the current directory unless preferences.defaultBuildDirectory is set.
+Relative paths will be interpreted relative to the current directory.
+You can use the following special values as placeholders:
+@project is expanded to the name of the project file excluding the extension .qbs. @path is expanded to the name of the directory containing the project file. --changed-files &lt;file&gt;[,&lt;file&gt;...] Assumes that the files specified by &lt;file&gt;, and only those files, have changed.
+--check-outputs Forces transformer output artifact checks.
+Verifies that the output artifacts declared by rules in the project are actually created.
+--check-timestamps Forces timestamp checks.
+Retrieves the timestamps from the file system, instead of using the file timestamps that are stored in the build graph.
+--clean-install-root Removes the installation base directory before installing.
+--command-echo-mode &lt;mode&gt; Determines what kind of output to show when executing commands.
+Possible values of &lt;mode&gt; are:
+silent summary (default value) command-line command-line-with-environment --dry-run|-n Performs a dry run. No commands will be executed and no permanent changes to the build graph will be done.
+[--file|-f &lt;file&gt;] Uses &lt;file&gt; as the project file. If &lt;file&gt; is a directory and it contains a single file with the extension .qbs, that file will be used.
+If this option is not given at all, the behavior is the same as for -f &lt;working-dir&gt;.
+--force-probe-execution Forces re-execution of all Probe items&#39; configure scripts, rather than using the cached data.
+--install-root &lt;directory&gt; Installs into the specified &lt;directory&gt;. If the directory does not exist, it will be created.
+The default value is &lt;build dir&gt;/install-root.
+Use the special value @sysroot to install into the sysroot. That is, the value of the qbs.sysroot property.
+--jobs|-j &lt;n&gt; Uses &lt;n&gt; concurrent build jobs, where &lt;n&gt; must be an integer greater than zero.
+The default is the number of logical cores.
+--keep-going|-k Keeps going when errors occur, if at all possible.
+--less-verbose|-q Becomes more quiet by decreasing the log level by one. This option can be given more than once. Excessive occurrences have no effect.
+If the option --log-level appears anywhere on the command line in addition to this option, its value is taken as the base for the decrease.
+--log-level &lt;level&gt; Uses the specified log level.
+Possible values of &lt;level&gt; are:
+error warning info (default value) debug trace --log-time Logs the time that the operations involved in this command take.
+This option is implied in log levels debug and higher.
+This option is mutually exclusive with --show-progress.
+--more-verbose|-v Becomes more verbose by increasing the log level by one. This option can be given more than once. Excessive occurrences have no effect.
+If the option --log-level appears anywhere on the command line in addition to this option, its value is taken as the base for the increase.
+--no-build Does not re-build the project before installing or running it.
+--products|-p &lt;name&gt;[,&lt;name&gt;...] Takes only the products specified by &lt;name&gt; and their dependencies into account.
+--settings-dir &lt;directory&gt; Reads all settings (such as profile information) from the specified &lt;directory&gt;. If the directory does not exist, it will be created.
+The default value is system-specific. For example:
+Linux: $HOME/.config/QtProject/qbs Windows: %APPDATA%\QtProject\qbs macOS: $HOME/Library/Preferences/qbs --setup-run-env-config A comma-separated list of strings. They will show up in the config parameter of all setupRunEnvironment scripts.
+--wait-lock Waits indefinitely for other processes to release the build graph lock.
+This option is typically used by generators, which may re-invoke multiple Qbs processes on the same project simultaneously.
+Parameters config:configuration-name Specifies the build configuration to use.
+Qbs can build a project for one or multiple configurations at once, each having a different set of parameters. The config parameter has a special function: with each occurrence a new configuration instance begins and all subsequent parameters until the next config are assigned to this instance. Parameter assignments before the first occurrence of config are applied to all build configurations. Inside products and modules, the current active build configuration can be retrieved via qbs.configurationName.
+In the following snippet, a profile clang is applied to all configurations while cpp.optimization is different for debug and release:
+profile:clang config:debug cpp.optimization:none config:release cpp.optimization:small The value of config determines the name of the build folder and affects the default value of the qbs.buildVariant property. Qbs knows the config values &#34;debug&#34; and &#34;release&#34;, but in general any name can be chosen. When naming configurations created for special purposes, follow the rules for legal names generally used in programming languages:
+The first character must be a letter (a-z), an underscore (_), or a dollar sign ($). Subsequent characters may be letters, digits, underscores, or dollar signs. property:value Property values set in project files or profiles can be overridden on the command line. The syntax is:
+&lt;prefix&gt;.&lt;property-name&gt;:&lt;property-value&gt; For more information, see Overriding Property Values from the Command Line.
+Arguments -- &lt;arguments&gt; Command-line arguments to be passed to the program to be run.
+Examples Runs the Qt Creator application:
+qbs run --products qtcreator">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -83,7 +239,55 @@ For more information about running applications, see Running Applications.">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual Command-Line Interface run Qbs 3.4.0 Contents Synopsis Description Options --all-products --build-directory|-d &lt;directory&gt; --changed-files &lt;file&gt;[,&lt;file&gt;...] --check-outputs --check-timestamps --clean-install-root --command-echo-mode &lt;mode&gt; --dry-run|-n [--file|-f &lt;file&gt;] --force-probe-execution --install-root &lt;directory&gt; --jobs|-j &lt;n&gt; --keep-going|-k --less-verbose|-q --log-level &lt;level&gt; --log-time --more-verbose|-v --no-build --products|-p &lt;name&gt;[,&lt;name&gt;...] --settings-dir &lt;directory&gt; --setup-run-env-config --wait-lock Parameters config:configuration-name property:value Arguments -- &lt;arguments&gt; Examples run Synopsis qbs run [options] [config:configuration-name] [property:value] ... [ -- &lt;arguments&gt;] Description Runs the specified product&#39;s executable with the specified &lt;arguments&gt;. If the project has only one product, the --products option may be omitted.
 The product will be built if it is not up to date, unless the --no-build option is specified. For more information, see build.
-For more information about running applications, see Running Applications.">
+For more information about running applications, see Running Applications.
+Options --all-products Processes all products, even if their builtByDefault property is false.
+--build-directory|-d &lt;directory&gt; Specifies a &lt;directory&gt; where build artifacts are stored.
+The default value is the current directory unless preferences.defaultBuildDirectory is set.
+Relative paths will be interpreted relative to the current directory.
+You can use the following special values as placeholders:
+@project is expanded to the name of the project file excluding the extension .qbs. @path is expanded to the name of the directory containing the project file. --changed-files &lt;file&gt;[,&lt;file&gt;...] Assumes that the files specified by &lt;file&gt;, and only those files, have changed.
+--check-outputs Forces transformer output artifact checks.
+Verifies that the output artifacts declared by rules in the project are actually created.
+--check-timestamps Forces timestamp checks.
+Retrieves the timestamps from the file system, instead of using the file timestamps that are stored in the build graph.
+--clean-install-root Removes the installation base directory before installing.
+--command-echo-mode &lt;mode&gt; Determines what kind of output to show when executing commands.
+Possible values of &lt;mode&gt; are:
+silent summary (default value) command-line command-line-with-environment --dry-run|-n Performs a dry run. No commands will be executed and no permanent changes to the build graph will be done.
+[--file|-f &lt;file&gt;] Uses &lt;file&gt; as the project file. If &lt;file&gt; is a directory and it contains a single file with the extension .qbs, that file will be used.
+If this option is not given at all, the behavior is the same as for -f &lt;working-dir&gt;.
+--force-probe-execution Forces re-execution of all Probe items&#39; configure scripts, rather than using the cached data.
+--install-root &lt;directory&gt; Installs into the specified &lt;directory&gt;. If the directory does not exist, it will be created.
+The default value is &lt;build dir&gt;/install-root.
+Use the special value @sysroot to install into the sysroot. That is, the value of the qbs.sysroot property.
+--jobs|-j &lt;n&gt; Uses &lt;n&gt; concurrent build jobs, where &lt;n&gt; must be an integer greater than zero.
+The default is the number of logical cores.
+--keep-going|-k Keeps going when errors occur, if at all possible.
+--less-verbose|-q Becomes more quiet by decreasing the log level by one. This option can be given more than once. Excessive occurrences have no effect.
+If the option --log-level appears anywhere on the command line in addition to this option, its value is taken as the base for the decrease.
+--log-level &lt;level&gt; Uses the specified log level.
+Possible values of &lt;level&gt; are:
+error warning info (default value) debug trace --log-time Logs the time that the operations involved in this command take.
+This option is implied in log levels debug and higher.
+This option is mutually exclusive with --show-progress.
+--more-verbose|-v Becomes more verbose by increasing the log level by one. This option can be given more than once. Excessive occurrences have no effect.
+If the option --log-level appears anywhere on the command line in addition to this option, its value is taken as the base for the increase.
+--no-build Does not re-build the project before installing or running it.
+--products|-p &lt;name&gt;[,&lt;name&gt;...] Takes only the products specified by &lt;name&gt; and their dependencies into account.
+--settings-dir &lt;directory&gt; Reads all settings (such as profile information) from the specified &lt;directory&gt;. If the directory does not exist, it will be created.
+The default value is system-specific. For example:
+Linux: $HOME/.config/QtProject/qbs Windows: %APPDATA%\QtProject\qbs macOS: $HOME/Library/Preferences/qbs --setup-run-env-config A comma-separated list of strings. They will show up in the config parameter of all setupRunEnvironment scripts.
+--wait-lock Waits indefinitely for other processes to release the build graph lock.
+This option is typically used by generators, which may re-invoke multiple Qbs processes on the same project simultaneously.
+Parameters config:configuration-name Specifies the build configuration to use.
+Qbs can build a project for one or multiple configurations at once, each having a different set of parameters. The config parameter has a special function: with each occurrence a new configuration instance begins and all subsequent parameters until the next config are assigned to this instance. Parameter assignments before the first occurrence of config are applied to all build configurations. Inside products and modules, the current active build configuration can be retrieved via qbs.configurationName.
+In the following snippet, a profile clang is applied to all configurations while cpp.optimization is different for debug and release:
+profile:clang config:debug cpp.optimization:none config:release cpp.optimization:small The value of config determines the name of the build folder and affects the default value of the qbs.buildVariant property. Qbs knows the config values &#34;debug&#34; and &#34;release&#34;, but in general any name can be chosen. When naming configurations created for special purposes, follow the rules for legal names generally used in programming languages:
+The first character must be a letter (a-z), an underscore (_), or a dollar sign ($). Subsequent characters may be letters, digits, underscores, or dollar signs. property:value Property values set in project files or profiles can be overridden on the command line. The syntax is:
+&lt;prefix&gt;.&lt;property-name&gt;:&lt;property-value&gt; For more information, see Overriding Property Values from the Command Line.
+Arguments -- &lt;arguments&gt; Command-line arguments to be passed to the program to be run.
+Examples Runs the Qt Creator application:
+qbs run --products qtcreator">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -165,7 +369,7 @@ For more information about running applications, see Running Applications.">
 <!-- $$$cli-run.html-description -->
 <div class="descr" id="details">
 <h2 id="synopsis">Synopsis</h2>
-<pre class="cpp" translate="no">qbs run <span class="operator">[</span>options<span class="operator">]</span> <span class="operator">[</span>config:configuration<span class="operator">-</span>name<span class="operator">]</span> <span class="operator">[</span>property:value<span class="operator">]</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span> <span class="operator">[</span> <span class="operator">-</span><span class="operator">-</span> <span class="operator">&lt;</span>arguments<span class="operator">&gt;</span><span class="operator">]</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs run <span class="operator">[</span>options<span class="operator">]</span> <span class="operator">[</span>config:configuration<span class="operator">-</span>name<span class="operator">]</span> <span class="operator">[</span>property:value<span class="operator">]</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span> <span class="operator">[</span> <span class="operator">-</span><span class="operator">-</span> <span class="operator">&lt;</span>arguments<span class="operator">&gt;</span><span class="operator">]</span></code></pre>
 <h2 id="description">Description</h2>
 <p>Runs the specified product's executable with the specified <code translate="no">&lt;arguments&gt;</code>. If the project has only one product, the <code translate="no">--products</code> option may be omitted.</p>
 <p>The product will be built if it is not up to date, unless the <code translate="no">--no-build</code> option is specified. For more information, see <a href="https://qbs.io/
@@ -272,7 +476,7 @@ For more information about running applications, see Running Applications.">
 <p>Qbs can build a project for one or multiple configurations at once, each having a different set of parameters. The <code translate="no">config</code> parameter has a special function: with each occurrence a new configuration instance begins and all subsequent parameters until the next <code translate="no">config</code> are assigned to this instance. Parameter assignments before the first occurrence of <code translate="no">config</code> are applied to all build configurations. Inside products and modules, the current active build configuration can be retrieved via <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#configurationName-prop" translate="no">qbs.configurationName</a>.</p>
 <p>In the following snippet, a profile <code translate="no">clang</code> is applied to all configurations while <code translate="no">cpp.optimization</code> is different for <code translate="no">debug</code> and <code translate="no">release</code>:</p>
-<pre class="cpp" translate="no">profile:clang config:debug cpp<span class="operator">.</span>optimization:none config:release cpp<span class="operator">.</span>optimization:small</pre>
+<pre class="cpp" translate="no"><code class="cpp">profile:clang config:debug cpp<span class="operator">.</span>optimization:none config:release cpp<span class="operator">.</span>optimization:small</code></pre>
 <p>The value of <code translate="no">config</code> determines the name of the build folder and affects the default value of the <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#buildVariant-prop" translate="no">qbs.buildVariant</a> property. Qbs knows the <code translate="no">config</code> values <code translate="no">"debug"</code> and <code translate="no">"release"</code>, but in general any name can be chosen. When naming configurations created for special purposes, follow the rules for legal names generally used in programming languages:</p>
 <ul>
@@ -281,7 +485,7 @@ For more information about running applications, see Running Applications.">
 </ul>
 <h3 id="property-value"><code translate="no">property:value</code></h3>
 <p>Property values set in project files or profiles can be overridden on the command line. The syntax is:</p>
-<pre class="cpp" translate="no"><span class="operator">&lt;</span>prefix<span class="operator">&gt;</span><span class="operator">.</span><span class="operator">&lt;</span>property<span class="operator">-</span>name<span class="operator">&gt;</span>:<span class="operator">&lt;</span>property<span class="operator">-</span>value<span class="operator">&gt;</span></pre>
+<pre class="cpp" translate="no"><code class="cpp"><span class="operator">&lt;</span>prefix<span class="operator">&gt;</span><span class="operator">.</span><span class="operator">&lt;</span>property<span class="operator">-</span>name<span class="operator">&gt;</span>:<span class="operator">&lt;</span>property<span class="operator">-</span>value<span class="operator">&gt;</span></code></pre>
 <p>For more information, see <a href="https://qbs.io/
 /docs/language-introduction/#overriding-property-values-from-the-command-line">Overriding Property Values from the Command Line</a>.</p>
 <h2 id="arguments">Arguments</h2>
@@ -289,7 +493,7 @@ For more information about running applications, see Running Applications.">
 <p>Command-line arguments to be passed to the program to be run.</p>
 <h2 id="examples">Examples</h2>
 <p>Runs the Qt Creator application:</p>
-<pre class="cpp" translate="no">qbs run <span class="operator">-</span><span class="operator">-</span>products qtcreator</pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs run <span class="operator">-</span><span class="operator">-</span>products qtcreator</code></pre>
 </div>
 <!-- @@@cli-run.html -->
 </div>

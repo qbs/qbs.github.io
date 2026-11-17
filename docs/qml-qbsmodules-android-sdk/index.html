@@ -57,7 +57,161 @@ versionName : string
 
 
 Detailed Description
-The Android.sdk module contains the properties and rules to create Android application packages from Java sources, resources, and so on. It is usually pulled in indirectly by declaring an Application product. ">
+The Android.sdk module contains the properties and rules to create Android application packages from Java sources, resources, and so on. It is usually pulled in indirectly by declaring an Application product.
+Relevant File Tags
+
+TagAuto-tagged File NamesSinceDescription
+&#34;android.aidl&#34;*.aidl1.4.0Attached to Android AIDL files. One Java source file will be generated for each such file.
+&#34;android.assets&#34;-1.4.0Attached to Android assets, which are typically located in an assets/ subdirectory. These files are tagged automatically if the automaticSources property is enabled.
+&#34;android.manifest&#34;AndroidManifest.xml1.4.0Attached to the Android manifest. There must be one such file for every Android app.
+&#34;android.resources&#34;-1.4.0Attached to Android resources, which are typically located in a res/ subdirectory. These files are tagged automatically if the automaticSources property is enabled.
+
+
+Property Documentation
+
+aaptName : string [since Qbs 1.17]
+Name of the aapt binary. Allowed options: &#34;aapt&#34; and &#34;aapt2&#34;.
+Default: &#34;aapt2&#34;
+This property was introduced in Qbs 1.17.
+
+
+aidlSearchPaths : stringList
+Search paths for import statements to pass to the aidl tool via the -I option.
+
+
+apkBaseName : string
+The base name of the APK file to to be built, that is, the file name without the &#34;.apk&#34; extension.
+Default: packageName
+
+
+assetsDir : path
+The base directory for Android assets in the respective product.
+
+Note: Android requires that the file name of this directory is always &#34;assets&#34;.
+
+Default: &#34;src/main/assets&#34; in the product source directory
+
+
+automaticSources : bool
+If true, Java sources as well as Android resources, assets, and the manifest file will be automatically included in the respective product via wildcards. Set this property to false if you want to specify these files manually.
+Default: true
+
+
+buildToolsVersion : string
+The version of the build tools such as aapt and dx.
+Default: Highest build tools version version available in the SDK.
+
+
+d8Desugaring : bool [since Qbs 2.5]
+Whether desugaring is enabled for &#34;d8&#34; dex compiler.
+Default: false
+This property was introduced in Qbs 2.5.
+
+
+dexCompilerName : string [since Qbs 1.20]
+Name of the dex compiler binary. Allowed options: &#34;dx&#34; and &#34;d8&#34;.
+Default: &#34;d8&#34;
+This property was introduced in Qbs 1.20.
+
+
+embedJar : bool [since Qbs 1.10]
+If true, then if the dependency is a JAR file, its classes and the classes of its dependencies (if embedJar is also true for them) will be recursively processed by dex and included in the final APK.
+Default: true
+This property was introduced in Qbs 1.10.
+
+
+extraResourcePackages : stringList [since Qbs 2.5]
+List of additional Java package names to compile resources for.
+Default: undefined
+This property was introduced in Qbs 2.5.
+
+
+manifestFile : string
+The file path to the Android manifest file. This property is only relevant if automaticSources is enabled.
+
+Note: Android requires that the file name is always &#34;AndroidManifest.xml&#34;.
+
+Default: &#34;src/main/AndroidManifest.xml&#34; in the product source directory
+
+
+minimumVersion : string [since Qbs 1.17]
+Minimum API Level required for the application to run.
+Default: &#34;21&#34;
+This property was introduced in Qbs 1.17.
+
+
+ndkDir : string
+The NDK base directory, if an NDK is present.
+Default: Determined automatically based on standard search paths.
+
+
+packageName : string
+The package name of the respective product. The package attribute in the manifest file will be set to this value automatically.
+Default: name
+
+
+packageType : string [since Qbs 1.17]
+Type of the package. Allowed options: &#34;apk&#34; and &#34;aab&#34;. Type &#34;apk&#34; generates a runnable package whereas &#34;aab&#34; generates a package for Google Play.
+Default: &#34;apk&#34;
+This property was introduced in Qbs 1.17.
+
+
+platform : string
+The versioned platform name (for example, &#34;android-21&#34;).
+Default: Highest build tools version version available in the SDK.
+
+
+resourcesDir : path
+The base directory for Android resources in the respective product.
+
+Note: Android requires that the file name of this directory is always &#34;res&#34;.
+
+Default: &#34;src/main/res&#34; in the product source directory
+
+
+sdkDir : string
+The SDK base directory.
+Default: Determined automatically based on standard search paths.
+
+
+sourcesDir : path
+The base directory for Java sources. This property is only relevant if automaticSources is enabled.
+Default: &#34;src/main/java&#34; in the product source directory
+
+
+targetVersion : string [since Qbs 1.17]
+API Level that the application targets.
+Default: platformVersion
+This property was introduced in Qbs 1.17.
+
+
+versionCode : string
+The Android Manifest version code of the respective product. The android:versionCode attribute in the manifest file will be set to this value if not undefined.
+In the following example we provide an architecture-specific value for android:versionCode:
+// ...
+property int _version: 1
+property int _patchVersion: 0
+Android.sdk.versionCode: {
+    switch (Android.ndk.abi) {
+    case &#34;armeabi-v7a&#34;:
+        return 132000000 | _version * 10 &#43; _patchVersion;
+    case &#34;arm64-v8a&#34;:
+        return 164000000 | _version * 10 &#43; _patchVersion;
+    case &#34;x86&#34;:
+        return 232000000 | _version * 10 &#43; _patchVersion;
+    case &#34;x86_64&#34;:
+        return 264000000 | _version * 10 &#43; _patchVersion;
+    }
+    throw &#34;Unknown architecture&#34;;
+}
+Default: undefined
+
+
+versionName : string
+The Android Manifest version name of the respective product. The android:versionName attribute in the manifest file will be set to this value if not undefined.
+Default: undefined
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-android-sdk/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -67,14 +221,69 @@ The Android.sdk module contains the properties and rules to create Android appli
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-android-sdk/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual QbsModules Android.sdk Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags Android.sdk Provides support for building Android packages. More...
-Since: Qbs 1.4 List of all members, including inherited members Properties aaptName : string (since Qbs 1.17) aidlSearchPaths : stringList apkBaseName : string assetsDir : path automaticSources : bool buildToolsVersion : string d8Desugaring : bool (since Qbs 2.5) dexCompilerName : string (since Qbs 1.20) embedJar : bool (since Qbs 1.10) extraResourcePackages : stringList (since Qbs 2.5) manifestFile : string minimumVersion : string (since Qbs 1.17) ndkDir : string packageName : string packageType : string (since Qbs 1.17) platform : string resourcesDir : path sdkDir : string sourcesDir : path targetVersion : string (since Qbs 1.17) versionCode : string versionName : string Detailed Description The Android.sdk module contains the properties and rules to create Android application packages from Java sources, resources, and so on. It is usually pulled in indirectly by declaring an Application product.">
+Since: Qbs 1.4 List of all members, including inherited members Properties aaptName : string (since Qbs 1.17) aidlSearchPaths : stringList apkBaseName : string assetsDir : path automaticSources : bool buildToolsVersion : string d8Desugaring : bool (since Qbs 2.5) dexCompilerName : string (since Qbs 1.20) embedJar : bool (since Qbs 1.10) extraResourcePackages : stringList (since Qbs 2.5) manifestFile : string minimumVersion : string (since Qbs 1.17) ndkDir : string packageName : string packageType : string (since Qbs 1.17) platform : string resourcesDir : path sdkDir : string sourcesDir : path targetVersion : string (since Qbs 1.17) versionCode : string versionName : string Detailed Description The Android.sdk module contains the properties and rules to create Android application packages from Java sources, resources, and so on. It is usually pulled in indirectly by declaring an Application product.
+Relevant File Tags Tag Auto-tagged File Names Since Description &#34;android.aidl&#34; *.aidl 1.4.0 Attached to Android AIDL files. One Java source file will be generated for each such file. &#34;android.assets&#34; - 1.4.0 Attached to Android assets, which are typically located in an assets/ subdirectory. These files are tagged automatically if the automaticSources property is enabled. &#34;android.manifest&#34; AndroidManifest.xml 1.4.0 Attached to the Android manifest. There must be one such file for every Android app. &#34;android.resources&#34; - 1.4.0 Attached to Android resources, which are typically located in a res/ subdirectory. These files are tagged automatically if the automaticSources property is enabled. Property Documentation aaptName : string [since Qbs 1.17] Name of the aapt binary. Allowed options: &#34;aapt&#34; and &#34;aapt2&#34;.
+Default: &#34;aapt2&#34;
+This property was introduced in Qbs 1.17.
+aidlSearchPaths : stringList Search paths for import statements to pass to the aidl tool via the -I option.
+apkBaseName : string The base name of the APK file to to be built, that is, the file name without the &#34;.apk&#34; extension.
+Default: packageName
+assetsDir : path The base directory for Android assets in the respective product.
+Note: Android requires that the file name of this directory is always &#34;assets&#34;.
+Default: &#34;src/main/assets&#34; in the product source directory
+automaticSources : bool If true, Java sources as well as Android resources, assets, and the manifest file will be automatically included in the respective product via wildcards. Set this property to false if you want to specify these files manually.
+Default: true
+buildToolsVersion : string The version of the build tools such as aapt and dx.
+Default: Highest build tools version version available in the SDK.
+d8Desugaring : bool [since Qbs 2.5] Whether desugaring is enabled for &#34;d8&#34; dex compiler.
+Default: false
+This property was introduced in Qbs 2.5.
+dexCompilerName : string [since Qbs 1.20] Name of the dex compiler binary. Allowed options: &#34;dx&#34; and &#34;d8&#34;.
+Default: &#34;d8&#34;
+This property was introduced in Qbs 1.20.
+embedJar : bool [since Qbs 1.10] If true, then if the dependency is a JAR file, its classes and the classes of its dependencies (if embedJar is also true for them) will be recursively processed by dex and included in the final APK.
+Default: true
+This property was introduced in Qbs 1.10.
+extraResourcePackages : stringList [since Qbs 2.5] List of additional Java package names to compile resources for.
+Default: undefined
+This property was introduced in Qbs 2.5.
+manifestFile : string The file path to the Android manifest file. This property is only relevant if automaticSources is enabled.
+Note: Android requires that the file name is always &#34;AndroidManifest.xml&#34;.
+Default: &#34;src/main/AndroidManifest.xml&#34; in the product source directory
+minimumVersion : string [since Qbs 1.17] Minimum API Level required for the application to run.
+Default: &#34;21&#34;
+This property was introduced in Qbs 1.17.
+ndkDir : string The NDK base directory, if an NDK is present.
+Default: Determined automatically based on standard search paths.
+packageName : string The package name of the respective product. The package attribute in the manifest file will be set to this value automatically.
+Default: name
+packageType : string [since Qbs 1.17] Type of the package. Allowed options: &#34;apk&#34; and &#34;aab&#34;. Type &#34;apk&#34; generates a runnable package whereas &#34;aab&#34; generates a package for Google Play.
+Default: &#34;apk&#34;
+This property was introduced in Qbs 1.17.
+platform : string The versioned platform name (for example, &#34;android-21&#34;).
+Default: Highest build tools version version available in the SDK.
+resourcesDir : path The base directory for Android resources in the respective product.
+Note: Android requires that the file name of this directory is always &#34;res&#34;.
+Default: &#34;src/main/res&#34; in the product source directory
+sdkDir : string The SDK base directory.
+Default: Determined automatically based on standard search paths.
+sourcesDir : path The base directory for Java sources. This property is only relevant if automaticSources is enabled.
+Default: &#34;src/main/java&#34; in the product source directory
+targetVersion : string [since Qbs 1.17] API Level that the application targets.
+Default: platformVersion
+This property was introduced in Qbs 1.17.
+versionCode : string The Android Manifest version code of the respective product. The android:versionCode attribute in the manifest file will be set to this value if not undefined.
+In the following example we provide an architecture-specific value for android:versionCode:
+// ... property int _version: 1 property int _patchVersion: 0 Android.sdk.versionCode: { switch (Android.ndk.abi) { case &#34;armeabi-v7a&#34;: return 132000000 | _version * 10 &#43; _patchVersion; case &#34;arm64-v8a&#34;: return 164000000 | _version * 10 &#43; _patchVersion; case &#34;x86&#34;: return 232000000 | _version * 10 &#43; _patchVersion; case &#34;x86_64&#34;: return 264000000 | _version * 10 &#43; _patchVersion; } throw &#34;Unknown architecture&#34;; } Default: undefined
+versionName : string The Android Manifest version name of the respective product. The android:versionName attribute in the manifest file will be set to this value if not undefined.
+Default: undefined">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -83,7 +292,62 @@ Since: Qbs 1.4 List of all members, including inherited members Properties aaptN
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual QbsModules Android.sdk Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags Android.sdk Provides support for building Android packages. More...
-Since: Qbs 1.4 List of all members, including inherited members Properties aaptName : string (since Qbs 1.17) aidlSearchPaths : stringList apkBaseName : string assetsDir : path automaticSources : bool buildToolsVersion : string d8Desugaring : bool (since Qbs 2.5) dexCompilerName : string (since Qbs 1.20) embedJar : bool (since Qbs 1.10) extraResourcePackages : stringList (since Qbs 2.5) manifestFile : string minimumVersion : string (since Qbs 1.17) ndkDir : string packageName : string packageType : string (since Qbs 1.17) platform : string resourcesDir : path sdkDir : string sourcesDir : path targetVersion : string (since Qbs 1.17) versionCode : string versionName : string Detailed Description The Android.sdk module contains the properties and rules to create Android application packages from Java sources, resources, and so on. It is usually pulled in indirectly by declaring an Application product.">
+Since: Qbs 1.4 List of all members, including inherited members Properties aaptName : string (since Qbs 1.17) aidlSearchPaths : stringList apkBaseName : string assetsDir : path automaticSources : bool buildToolsVersion : string d8Desugaring : bool (since Qbs 2.5) dexCompilerName : string (since Qbs 1.20) embedJar : bool (since Qbs 1.10) extraResourcePackages : stringList (since Qbs 2.5) manifestFile : string minimumVersion : string (since Qbs 1.17) ndkDir : string packageName : string packageType : string (since Qbs 1.17) platform : string resourcesDir : path sdkDir : string sourcesDir : path targetVersion : string (since Qbs 1.17) versionCode : string versionName : string Detailed Description The Android.sdk module contains the properties and rules to create Android application packages from Java sources, resources, and so on. It is usually pulled in indirectly by declaring an Application product.
+Relevant File Tags Tag Auto-tagged File Names Since Description &#34;android.aidl&#34; *.aidl 1.4.0 Attached to Android AIDL files. One Java source file will be generated for each such file. &#34;android.assets&#34; - 1.4.0 Attached to Android assets, which are typically located in an assets/ subdirectory. These files are tagged automatically if the automaticSources property is enabled. &#34;android.manifest&#34; AndroidManifest.xml 1.4.0 Attached to the Android manifest. There must be one such file for every Android app. &#34;android.resources&#34; - 1.4.0 Attached to Android resources, which are typically located in a res/ subdirectory. These files are tagged automatically if the automaticSources property is enabled. Property Documentation aaptName : string [since Qbs 1.17] Name of the aapt binary. Allowed options: &#34;aapt&#34; and &#34;aapt2&#34;.
+Default: &#34;aapt2&#34;
+This property was introduced in Qbs 1.17.
+aidlSearchPaths : stringList Search paths for import statements to pass to the aidl tool via the -I option.
+apkBaseName : string The base name of the APK file to to be built, that is, the file name without the &#34;.apk&#34; extension.
+Default: packageName
+assetsDir : path The base directory for Android assets in the respective product.
+Note: Android requires that the file name of this directory is always &#34;assets&#34;.
+Default: &#34;src/main/assets&#34; in the product source directory
+automaticSources : bool If true, Java sources as well as Android resources, assets, and the manifest file will be automatically included in the respective product via wildcards. Set this property to false if you want to specify these files manually.
+Default: true
+buildToolsVersion : string The version of the build tools such as aapt and dx.
+Default: Highest build tools version version available in the SDK.
+d8Desugaring : bool [since Qbs 2.5] Whether desugaring is enabled for &#34;d8&#34; dex compiler.
+Default: false
+This property was introduced in Qbs 2.5.
+dexCompilerName : string [since Qbs 1.20] Name of the dex compiler binary. Allowed options: &#34;dx&#34; and &#34;d8&#34;.
+Default: &#34;d8&#34;
+This property was introduced in Qbs 1.20.
+embedJar : bool [since Qbs 1.10] If true, then if the dependency is a JAR file, its classes and the classes of its dependencies (if embedJar is also true for them) will be recursively processed by dex and included in the final APK.
+Default: true
+This property was introduced in Qbs 1.10.
+extraResourcePackages : stringList [since Qbs 2.5] List of additional Java package names to compile resources for.
+Default: undefined
+This property was introduced in Qbs 2.5.
+manifestFile : string The file path to the Android manifest file. This property is only relevant if automaticSources is enabled.
+Note: Android requires that the file name is always &#34;AndroidManifest.xml&#34;.
+Default: &#34;src/main/AndroidManifest.xml&#34; in the product source directory
+minimumVersion : string [since Qbs 1.17] Minimum API Level required for the application to run.
+Default: &#34;21&#34;
+This property was introduced in Qbs 1.17.
+ndkDir : string The NDK base directory, if an NDK is present.
+Default: Determined automatically based on standard search paths.
+packageName : string The package name of the respective product. The package attribute in the manifest file will be set to this value automatically.
+Default: name
+packageType : string [since Qbs 1.17] Type of the package. Allowed options: &#34;apk&#34; and &#34;aab&#34;. Type &#34;apk&#34; generates a runnable package whereas &#34;aab&#34; generates a package for Google Play.
+Default: &#34;apk&#34;
+This property was introduced in Qbs 1.17.
+platform : string The versioned platform name (for example, &#34;android-21&#34;).
+Default: Highest build tools version version available in the SDK.
+resourcesDir : path The base directory for Android resources in the respective product.
+Note: Android requires that the file name of this directory is always &#34;res&#34;.
+Default: &#34;src/main/res&#34; in the product source directory
+sdkDir : string The SDK base directory.
+Default: Determined automatically based on standard search paths.
+sourcesDir : path The base directory for Java sources. This property is only relevant if automaticSources is enabled.
+Default: &#34;src/main/java&#34; in the product source directory
+targetVersion : string [since Qbs 1.17] API Level that the application targets.
+Default: platformVersion
+This property was introduced in Qbs 1.17.
+versionCode : string The Android Manifest version code of the respective product. The android:versionCode attribute in the manifest file will be set to this value if not undefined.
+In the following example we provide an architecture-specific value for android:versionCode:
+// ... property int _version: 1 property int _patchVersion: 0 Android.sdk.versionCode: { switch (Android.ndk.abi) { case &#34;armeabi-v7a&#34;: return 132000000 | _version * 10 &#43; _patchVersion; case &#34;arm64-v8a&#34;: return 164000000 | _version * 10 &#43; _patchVersion; case &#34;x86&#34;: return 232000000 | _version * 10 &#43; _patchVersion; case &#34;x86_64&#34;: return 264000000 | _version * 10 &#43; _patchVersion; } throw &#34;Unknown architecture&#34;; } Default: undefined
+versionName : string The Android Manifest version name of the respective product. The android:versionName attribute in the manifest file will be set to this value if not undefined.
+Default: undefined">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -331,7 +595,7 @@ Since: Qbs 1.4 List of all members, including inherited members Properties aaptN
 <h3 class="fn qml-member qml-property" id="versionCode-prop" translate="no"><span class="name">versionCode</span> : <span class="type">string</span></h3>
 <p>The Android Manifest version code of the respective product. The <code translate="no">android:versionCode</code> attribute in the manifest file will be set to this value if not undefined.</p>
 <p>In the following example we provide an architecture-specific value for <code translate="no">android:versionCode</code>:</p>
-<pre class="cpp" translate="no"><span class="comment">// ...</span>
+<pre class="cpp" translate="no"><code class="cpp"><span class="comment">// ...</span>
 property <span class="type">int</span> _version: <span class="number">1</span>
 property <span class="type">int</span> _patchVersion: <span class="number">0</span>
 Android<span class="operator">.</span>sdk<span class="operator">.</span>versionCode: {
@@ -346,7 +610,7 @@ Android<span class="operator">.</span>sdk<span class="operator">.</span>versionC
         <span class="keyword">return</span> <span class="number">264000000</span> <span class="operator">|</span> _version <span class="operator">*</span> <span class="number">10</span> <span class="operator">+</span> _patchVersion;
     }
     <span class="keyword">throw</span> <span class="string">"Unknown architecture"</span>;
-}</pre>
+}</code></pre>
 <p>Default: <code translate="no">undefined</code></p>
 <!-- @@@versionCode -->
 <!-- $$$versionName -->

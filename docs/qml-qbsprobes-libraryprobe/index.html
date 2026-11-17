@@ -33,7 +33,22 @@ LibraryProbe is part of List of All Items.
 
 Detailed Description
 On Windows, searches for library files within directories specified by the PATH environment variable.
-On Unix, searches for library files within directories specified by the LIBRARY_PATH environment variable, as well as in &#34;/usr/lib&#34; and &#34;/usr/local/lib&#34;. ">
+On Unix, searches for library files within directories specified by the LIBRARY_PATH environment variable, as well as in &#34;/usr/lib&#34; and &#34;/usr/local/lib&#34;.
+On Linux, also searches in platform-specific directories, such as &#34;/usr/lib64&#34; and &#34;/usr/lib/x86_64-linux-gnu&#34;.
+For example, LibraryProbe can be used to search for a zlib library as follows:
+import qbs.Probes
+
+CppApplication {
+    Probes.LibraryProbe {
+        id: zlibProbe
+        names: &#34;z&#34;
+    }
+    cpp.libraryPaths: zlibProbe.found ? [zlibProbe.path] : []
+    cpp.dynamicLibraries: zlibProbe.found ? [zlibProbe.names] : []
+    files: &#39;main.cpp&#39;
+}
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsprobes-libraryprobe/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -43,7 +58,7 @@ On Unix, searches for library files within directories specified by the LIBRARY_
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsprobes-libraryprobe/">
@@ -52,7 +67,10 @@ On Unix, searches for library files within directories specified by the LIBRARY_
 	<meta property="og:description" content="Qbs Manual QbsProbes LibraryProbe Qbs 3.4.0 Contents Detailed Description LibraryProbe Locates library files outside the project. More...
 Inherits: PathProbe
 List of all members, including inherited members LibraryProbe is part of List of All Items. Detailed Description On Windows, searches for library files within directories specified by the PATH environment variable.
-On Unix, searches for library files within directories specified by the LIBRARY_PATH environment variable, as well as in &#34;/usr/lib&#34; and &#34;/usr/local/lib&#34;.">
+On Unix, searches for library files within directories specified by the LIBRARY_PATH environment variable, as well as in &#34;/usr/lib&#34; and &#34;/usr/local/lib&#34;.
+On Linux, also searches in platform-specific directories, such as &#34;/usr/lib64&#34; and &#34;/usr/lib/x86_64-linux-gnu&#34;.
+For example, LibraryProbe can be used to search for a zlib library as follows:
+import qbs.Probes CppApplication { Probes.LibraryProbe { id: zlibProbe names: &#34;z&#34; } cpp.libraryPaths: zlibProbe.found ? [zlibProbe.path] : [] cpp.dynamicLibraries: zlibProbe.found ? [zlibProbe.names] : [] files: &#39;main.cpp&#39; }">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -63,7 +81,10 @@ On Unix, searches for library files within directories specified by the LIBRARY_
 	<meta name="twitter:description" content="Qbs Manual QbsProbes LibraryProbe Qbs 3.4.0 Contents Detailed Description LibraryProbe Locates library files outside the project. More...
 Inherits: PathProbe
 List of all members, including inherited members LibraryProbe is part of List of All Items. Detailed Description On Windows, searches for library files within directories specified by the PATH environment variable.
-On Unix, searches for library files within directories specified by the LIBRARY_PATH environment variable, as well as in &#34;/usr/lib&#34; and &#34;/usr/local/lib&#34;.">
+On Unix, searches for library files within directories specified by the LIBRARY_PATH environment variable, as well as in &#34;/usr/lib&#34; and &#34;/usr/local/lib&#34;.
+On Linux, also searches in platform-specific directories, such as &#34;/usr/lib64&#34; and &#34;/usr/lib/x86_64-linux-gnu&#34;.
+For example, LibraryProbe can be used to search for a zlib library as follows:
+import qbs.Probes CppApplication { Probes.LibraryProbe { id: zlibProbe names: &#34;z&#34; } cpp.libraryPaths: zlibProbe.found ? [zlibProbe.path] : [] cpp.dynamicLibraries: zlibProbe.found ? [zlibProbe.names] : [] files: &#39;main.cpp&#39; }">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -133,7 +154,7 @@ On Unix, searches for library files within directories specified by the LIBRARY_
 <p>On Unix, searches for library files within directories specified by the <code translate="no">LIBRARY_PATH</code> environment variable, as well as in <code translate="no">"/usr/lib"</code> and <code translate="no">"/usr/local/lib"</code>.</p>
 <p>On Linux, also searches in platform-specific directories, such as <code translate="no">"/usr/lib64"</code> and <code translate="no">"/usr/lib/x86_64-linux-gnu"</code>.</p>
 <p>For example, LibraryProbe can be used to search for a <code translate="no">zlib</code> library as follows:</p>
-<pre class="cpp" translate="no">import qbs.Probes
+<pre class="cpp" translate="no"><code class="cpp">import qbs.Probes
 
 <span class="type"><a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-cppapplication/" translate="no">CppApplication</a></span> {
@@ -145,7 +166,7 @@ On Unix, searches for library files within directories specified by the LIBRARY_
     <span class="name">cpp.libraryPaths</span>: <span class="name">zlibProbe</span>.<span class="name">found</span> ? [<span class="name">zlibProbe</span>.<span class="name">path</span>] : []
     <span class="name">cpp.dynamicLibraries</span>: <span class="name">zlibProbe</span>.<span class="name">found</span> ? [<span class="name">zlibProbe</span>.<span class="name">names</span>] : []
     <span class="name">files</span>: <span class="string">'main.cpp'</span>
-}</pre>
+}</code></pre>
 <!-- @@@LibraryProbe -->
 </div>
 

@@ -18,7 +18,84 @@ Configurable Library
 Config Module
 
 
-In the previous chapter, we added some properties to our main Project file. While this is a perfect approach for public properties of the project, sometimes we want to add some private properties for better tuning. Of course, we could put everything in the Project file, but that would make it very convoluted. Also, accessing the top-level project all the way from products makes things strongly tied. ">
+In the previous chapter, we added some properties to our main Project file. While this is a perfect approach for public properties of the project, sometimes we want to add some private properties for better tuning. Of course, we could put everything in the Project file, but that would make it very convoluted. Also, accessing the top-level project all the way from products makes things strongly tied.
+Let&#39;s create a file named module.qbs and put it into the qbs/modules/config/install directory, near the qbs/imports directory:
+// qbs/modules/config/install/module.qbs
+ConfigInstall {
+}
+Here we inherit the ConfigInstall item in order to re-use its properies. Since custom qbsSearchPaths are searched first, now our version will be used instead of built-in one.
+First, let&#39;s change the default value of the config.install.importLibraries in order to install import libraries on Windows:
+// qbs/modules/config/install/module.qbs
+ConfigInstall {
+    importLibraries: true
+}
+We could extend the config.install module with additional properties, but that could create collisions when someone tries to include the source code of your project into their project. Thus, we will create a new config.myproject module and use the same approach with the base item as Qbs does for the config.install module.
+Let&#39;s create a new item and add a new property to it:
+// qbs/imports/ConfigMyProject.qbs
+Module {
+    property bool enableAddressSanitizer: false
+    Depends { name: &#34;Sanitizers.address&#34;; condition: enableAddressSanitizer }
+We added the enableAddressSanitizer property and a dependency on the Sanitizer.address module if that property is set to true.
+Now let&#39;s use the item in a module:
+// qbs/modules/config/myproject/module.qbs
+ConfigMyProject {
+}
+Now we can use our module in the MyLibrary.qbs item by pulling in the new module using the Depends item:
+// qbs/imports/MyLibrary.qbs
+DynamicLibrary {
+    version: project.version
+
+    Depends { name: &#34;config.myproject&#34; }
+    // ...
+Now we can enable sanitizer build by setting the enableAddressSanitizer property from command-line:
+$ qbs resolve modules.config.myproject.enableAddressSanitizer:true
+$ qbs build
+Instead of the config.myproject.enableAddressSanitizer property, we could also use the property in the Project item similar to how we did in the previous chapter. There is no strong preference which way to use, however using modules for configuration is more flexible as it is also possible to set properties of other modules as described below.
+Qbs modules have the feature to automatically export properties of other modules. Those exported properties are merged in the resulting product. We can use this feature to set the cpp.rpaths in our module rather than in products:
+import qbs.FileInfo
+// qbs/imports/ConfigMyProject.qbs
+Module {
+    property bool enableAddressSanitizer: false
+    Depends { name: &#34;Sanitizers.address&#34;; condition: enableAddressSanitizer }
+
+    Depends { name: &#34;cpp&#34; }
+    Depends { name: &#34;config.install&#34; }
+
+    property bool enableRPath: true
+    property stringList libRPaths: {
+        if (enableRPath &amp;&amp; cpp.rpathOrigin &amp;&amp; product.installDir) {
+            console.info(FileInfo.joinPaths(
+                    cpp.rpathOrigin,
+                    FileInfo.relativePath(
+                        FileInfo.joinPaths(&#39;/&#39;, product.installDir),
+                        FileInfo.joinPaths(&#39;/&#39;, config.install.dynamicLibrariesDirectory))));
+            return [
+                FileInfo.joinPaths(
+                    cpp.rpathOrigin,
+                    FileInfo.relativePath(
+                        FileInfo.joinPaths(&#39;/&#39;, product.installDir),
+                        FileInfo.joinPaths(&#39;/&#39;, config.install.dynamicLibrariesDirectory)))];
+        }
+        return [];
+    }
+
+    cpp.rpaths: libRPaths
+}
+Here, we inject the dependency on the cpp module and calculate the libRPaths property. This is a relative path from the product.installDir (which is either &#34;bin&#34; or &#34;lib&#34;, depending on product type) to dynamicLibrariesDirectory (which is &#34;lib&#34; by default). Finally, we set cpp.rpaths to this property. This way, those rpaths will be automatically exported to all products that depend on the config.myproject module.
+We should also update the MyApplication item to add a dependency on the &#34;config.myproject&#34; in order to inject cpp.rpaths we set in the module:
+// qbs/imports/MyApplication.qbs
+CppApplication {
+    Depends { name: &#34;config.myproject&#34; }
+    version: &#34;1.0.0&#34;
+    consoleApplication: true
+}
+
+
+
+Project Properties
+Configurable Library
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/tutorial-7/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -28,13 +105,27 @@ In the previous chapter, we added some properties to our main Project file. Whil
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/tutorial-7/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual Config Module Qbs 3.4.0 Project Properties Configurable Library Config Module In the previous chapter, we added some properties to our main Project file. While this is a perfect approach for public properties of the project, sometimes we want to add some private properties for better tuning. Of course, we could put everything in the Project file, but that would make it very convoluted. Also, accessing the top-level project all the way from products makes things strongly tied.">
+	<meta property="og:description" content="Qbs Manual Config Module Qbs 3.4.0 Project Properties Configurable Library Config Module In the previous chapter, we added some properties to our main Project file. While this is a perfect approach for public properties of the project, sometimes we want to add some private properties for better tuning. Of course, we could put everything in the Project file, but that would make it very convoluted. Also, accessing the top-level project all the way from products makes things strongly tied.
+Let&#39;s create a file named module.qbs and put it into the qbs/modules/config/install directory, near the qbs/imports directory:
+// qbs/modules/config/install/module.qbs ConfigInstall { } Here we inherit the ConfigInstall item in order to re-use its properies. Since custom qbsSearchPaths are searched first, now our version will be used instead of built-in one.
+First, let&#39;s change the default value of the config.install.importLibraries in order to install import libraries on Windows:
+// qbs/modules/config/install/module.qbs ConfigInstall { importLibraries: true } We could extend the config.install module with additional properties, but that could create collisions when someone tries to include the source code of your project into their project. Thus, we will create a new config.myproject module and use the same approach with the base item as Qbs does for the config.install module.
+Let&#39;s create a new item and add a new property to it:
+// qbs/imports/ConfigMyProject.qbs Module { property bool enableAddressSanitizer: false Depends { name: &#34;Sanitizers.address&#34;; condition: enableAddressSanitizer } We added the enableAddressSanitizer property and a dependency on the Sanitizer.address module if that property is set to true.
+Now let&#39;s use the item in a module:
+// qbs/modules/config/myproject/module.qbs ConfigMyProject { } Now we can use our module in the MyLibrary.qbs item by pulling in the new module using the Depends item:
+// qbs/imports/MyLibrary.qbs DynamicLibrary { version: project.version Depends { name: &#34;config.myproject&#34; } // ... Now we can enable sanitizer build by setting the enableAddressSanitizer property from command-line:
+$ qbs resolve modules.config.myproject.enableAddressSanitizer:true $ qbs build Instead of the config.myproject.enableAddressSanitizer property, we could also use the property in the Project item similar to how we did in the previous chapter. There is no strong preference which way to use, however using modules for configuration is more flexible as it is also possible to set properties of other modules as described below.
+Qbs modules have the feature to automatically export properties of other modules. Those exported properties are merged in the resulting product. We can use this feature to set the cpp.rpaths in our module rather than in products:
+import qbs.FileInfo // qbs/imports/ConfigMyProject.qbs Module { property bool enableAddressSanitizer: false Depends { name: &#34;Sanitizers.address&#34;; condition: enableAddressSanitizer } Depends { name: &#34;cpp&#34; } Depends { name: &#34;config.install&#34; } property bool enableRPath: true property stringList libRPaths: { if (enableRPath &amp;&amp; cpp.rpathOrigin &amp;&amp; product.installDir) { console.info(FileInfo.joinPaths( cpp.rpathOrigin, FileInfo.relativePath( FileInfo.joinPaths(&#39;/&#39;, product.installDir), FileInfo.joinPaths(&#39;/&#39;, config.install.dynamicLibrariesDirectory)))); return [ FileInfo.joinPaths( cpp.rpathOrigin, FileInfo.relativePath( FileInfo.joinPaths(&#39;/&#39;, product.installDir), FileInfo.joinPaths(&#39;/&#39;, config.install.dynamicLibrariesDirectory)))]; } return []; } cpp.rpaths: libRPaths } Here, we inject the dependency on the cpp module and calculate the libRPaths property. This is a relative path from the product.installDir (which is either &#34;bin&#34; or &#34;lib&#34;, depending on product type) to dynamicLibrariesDirectory (which is &#34;lib&#34; by default). Finally, we set cpp.rpaths to this property. This way, those rpaths will be automatically exported to all products that depend on the config.myproject module.
+We should also update the MyApplication item to add a dependency on the &#34;config.myproject&#34; in order to inject cpp.rpaths we set in the module:
+// qbs/imports/MyApplication.qbs CppApplication { Depends { name: &#34;config.myproject&#34; } version: &#34;1.0.0&#34; consoleApplication: true } Project Properties Configurable Library">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -42,7 +133,21 @@ In the previous chapter, we added some properties to our main Project file. Whil
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual Config Module Qbs 3.4.0 Project Properties Configurable Library Config Module In the previous chapter, we added some properties to our main Project file. While this is a perfect approach for public properties of the project, sometimes we want to add some private properties for better tuning. Of course, we could put everything in the Project file, but that would make it very convoluted. Also, accessing the top-level project all the way from products makes things strongly tied.">
+	<meta name="twitter:description" content="Qbs Manual Config Module Qbs 3.4.0 Project Properties Configurable Library Config Module In the previous chapter, we added some properties to our main Project file. While this is a perfect approach for public properties of the project, sometimes we want to add some private properties for better tuning. Of course, we could put everything in the Project file, but that would make it very convoluted. Also, accessing the top-level project all the way from products makes things strongly tied.
+Let&#39;s create a file named module.qbs and put it into the qbs/modules/config/install directory, near the qbs/imports directory:
+// qbs/modules/config/install/module.qbs ConfigInstall { } Here we inherit the ConfigInstall item in order to re-use its properies. Since custom qbsSearchPaths are searched first, now our version will be used instead of built-in one.
+First, let&#39;s change the default value of the config.install.importLibraries in order to install import libraries on Windows:
+// qbs/modules/config/install/module.qbs ConfigInstall { importLibraries: true } We could extend the config.install module with additional properties, but that could create collisions when someone tries to include the source code of your project into their project. Thus, we will create a new config.myproject module and use the same approach with the base item as Qbs does for the config.install module.
+Let&#39;s create a new item and add a new property to it:
+// qbs/imports/ConfigMyProject.qbs Module { property bool enableAddressSanitizer: false Depends { name: &#34;Sanitizers.address&#34;; condition: enableAddressSanitizer } We added the enableAddressSanitizer property and a dependency on the Sanitizer.address module if that property is set to true.
+Now let&#39;s use the item in a module:
+// qbs/modules/config/myproject/module.qbs ConfigMyProject { } Now we can use our module in the MyLibrary.qbs item by pulling in the new module using the Depends item:
+// qbs/imports/MyLibrary.qbs DynamicLibrary { version: project.version Depends { name: &#34;config.myproject&#34; } // ... Now we can enable sanitizer build by setting the enableAddressSanitizer property from command-line:
+$ qbs resolve modules.config.myproject.enableAddressSanitizer:true $ qbs build Instead of the config.myproject.enableAddressSanitizer property, we could also use the property in the Project item similar to how we did in the previous chapter. There is no strong preference which way to use, however using modules for configuration is more flexible as it is also possible to set properties of other modules as described below.
+Qbs modules have the feature to automatically export properties of other modules. Those exported properties are merged in the resulting product. We can use this feature to set the cpp.rpaths in our module rather than in products:
+import qbs.FileInfo // qbs/imports/ConfigMyProject.qbs Module { property bool enableAddressSanitizer: false Depends { name: &#34;Sanitizers.address&#34;; condition: enableAddressSanitizer } Depends { name: &#34;cpp&#34; } Depends { name: &#34;config.install&#34; } property bool enableRPath: true property stringList libRPaths: { if (enableRPath &amp;&amp; cpp.rpathOrigin &amp;&amp; product.installDir) { console.info(FileInfo.joinPaths( cpp.rpathOrigin, FileInfo.relativePath( FileInfo.joinPaths(&#39;/&#39;, product.installDir), FileInfo.joinPaths(&#39;/&#39;, config.install.dynamicLibrariesDirectory)))); return [ FileInfo.joinPaths( cpp.rpathOrigin, FileInfo.relativePath( FileInfo.joinPaths(&#39;/&#39;, product.installDir), FileInfo.joinPaths(&#39;/&#39;, config.install.dynamicLibrariesDirectory)))]; } return []; } cpp.rpaths: libRPaths } Here, we inject the dependency on the cpp module and calculate the libRPaths property. This is a relative path from the product.installDir (which is either &#34;bin&#34; or &#34;lib&#34;, depending on product type) to dynamicLibrariesDirectory (which is &#34;lib&#34; by default). Finally, we set cpp.rpaths to this property. This way, those rpaths will be automatically exported to all products that depend on the config.myproject module.
+We should also update the MyApplication item to add a dependency on the &#34;config.myproject&#34; in order to inject cpp.rpaths we set in the module:
+// qbs/imports/MyApplication.qbs CppApplication { Depends { name: &#34;config.myproject&#34; } version: &#34;1.0.0&#34; consoleApplication: true } Project Properties Configurable Library">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -98,47 +203,47 @@ In the previous chapter, we added some properties to our main Project file. Whil
 /docs/qml-qbslanguageitems-project/" translate="no">Project</a> file. While this is a perfect approach for <i>public</i> properties of the project, sometimes we want to add some <i>private</i> properties for better tuning. Of course, we could put everything in the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-project/" translate="no">Project</a> file, but that would make it very convoluted. Also, accessing the top-level project all the way from products makes things strongly tied.</p>
 <p>Let's create a file named <code translate="no">module.qbs</code> and put it into the <code translate="no">qbs/modules/config/install</code> directory, near the <code translate="no">qbs/imports</code> directory:</p>
-<pre class="cpp" translate="no"><span class="comment">// qbs/modules/config/install/module.qbs</span>
+<pre class="cpp" translate="no"><code class="cpp"><span class="comment">// qbs/modules/config/install/module.qbs</span>
 ConfigInstall {
-}</pre>
+}</code></pre>
 <p>Here we inherit the <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-configinstall/" translate="no">ConfigInstall</a> item in order to re-use its properies. Since custom <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-project/#qbsSearchPaths-prop" translate="no">qbsSearchPaths</a> are searched first, now our version will be used instead of built-in one.</p>
 <p>First, let's change the default value of the <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-configinstall/#importLibraries-prop" translate="no">config.install.importLibraries</a> in order to install import libraries on Windows:</p>
-<pre class="cpp" translate="no"><span class="comment">// qbs/modules/config/install/module.qbs</span>
+<pre class="cpp" translate="no"><code class="cpp"><span class="comment">// qbs/modules/config/install/module.qbs</span>
 ConfigInstall {
     importLibraries: <span class="keyword">true</span>
-}</pre>
+}</code></pre>
 <p>We could extend the <a href="https://qbs.io/
 /docs/qml-qbsmodules-config-install/" translate="no">config.install</a> module with additional properties, but that could create collisions when someone tries to include the source code of your project into their project. Thus, we will create a new <code translate="no">config.myproject</code> module and use the same approach with the base item as Qbs does for the <code translate="no">config.install</code> module.</p>
 <p>Let's create a new item and add a new property to it:</p>
-<pre class="cpp" translate="no">// qbs/imports/ConfigMyProject.qbs
+<pre class="cpp" translate="no"><code class="cpp">// qbs/imports/ConfigMyProject.qbs
 Module {
     property bool enableAddressSanitizer: false
-    Depends { name: "Sanitizers.address"; condition: enableAddressSanitizer }</pre>
+    Depends { name: "Sanitizers.address"; condition: enableAddressSanitizer }</code></pre>
 <p>We added the <code translate="no">enableAddressSanitizer</code> property and a dependency on the Sanitizer.address module if that property is set to <code translate="no">true</code>.</p>
 <p>Now let's use the item in a module:</p>
-<pre class="cpp" translate="no">// qbs/modules/config/myproject/module.qbs
+<pre class="cpp" translate="no"><code class="cpp">// qbs/modules/config/myproject/module.qbs
 ConfigMyProject {
-}</pre>
+}</code></pre>
 <p>Now we can use our module in the <code translate="no">MyLibrary.qbs</code> item by pulling in the new module using the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-depends/" translate="no">Depends</a> item:</p>
-<pre class="cpp" translate="no">// qbs/imports/MyLibrary.qbs
+<pre class="cpp" translate="no"><code class="cpp">// qbs/imports/MyLibrary.qbs
 DynamicLibrary {
     version: project.version
 
     Depends { name: "config.myproject" }
-    // ...</pre>
+    // ...</code></pre>
 <p>Now we can enable sanitizer build by setting the <code translate="no">enableAddressSanitizer</code> property from command-line:</p>
-<pre class="cpp" translate="no">$ qbs resolve modules<span class="operator">.</span>config<span class="operator">.</span>myproject<span class="operator">.</span>enableAddressSanitizer:<span class="keyword">true</span>
-$ qbs build</pre>
+<pre class="cpp" translate="no"><code class="cpp">$ qbs resolve modules<span class="operator">.</span>config<span class="operator">.</span>myproject<span class="operator">.</span>enableAddressSanitizer:<span class="keyword">true</span>
+$ qbs build</code></pre>
 <p>Instead of the <code translate="no">config.myproject.enableAddressSanitizer</code> property, we could also use the property in the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-project/" translate="no">Project</a> item similar to how we did in the previous chapter. There is no strong preference which way to use, however using modules for configuration is more flexible as it is also possible to set properties of other modules as described below.</p>
 <p>Qbs <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-module/" translate="no">modules</a> have the feature to automatically export properties of other modules. Those exported properties are merged in the resulting product. We can use this feature to set the <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#rpaths-prop" translate="no">cpp.rpaths</a> in our module rather than in products:</p>
-<pre class="cpp" translate="no">import qbs.FileInfo
+<pre class="cpp" translate="no"><code class="cpp">import qbs.FileInfo
 // qbs/imports/ConfigMyProject.qbs
 Module {
     property bool enableAddressSanitizer: false
@@ -166,19 +271,19 @@ Module {
     }
 
     cpp.rpaths: libRPaths
-}</pre>
+}</code></pre>
 <p>Here, we inject the dependency on the <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/" translate="no">cpp</a> module and calculate the <code translate="no">libRPaths</code> property. This is a relative path from the <code translate="no">product.installDir</code> (which is either <code translate="no">"bin"</code> or <code translate="no">"lib"</code>, depending on product type) to <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-configinstall/#dynamicLibrariesDirectory-prop" translate="no">dynamicLibrariesDirectory</a> (which is <code translate="no">"lib"</code> by default). Finally, we set <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#rpaths-prop" translate="no">cpp.rpaths</a> to this property. This way, those <code translate="no">rpaths</code> will be automatically exported to all products that depend on the <code translate="no">config.myproject</code> module.</p>
 <p>We should also update the <code translate="no">MyApplication</code> item to add a dependency on the <code translate="no">"config.myproject"</code> in order to inject <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#rpaths-prop" translate="no">cpp.rpaths</a> we set in the module:</p>
-<pre class="cpp" translate="no">// qbs/imports/MyApplication.qbs
+<pre class="cpp" translate="no"><code class="cpp">// qbs/imports/MyApplication.qbs
 CppApplication {
     Depends { name: "config.myproject" }
     version: "1.0.0"
     consoleApplication: true
-}</pre>
+}</code></pre>
 </div>
 <!-- @@@tutorial-7.html -->
 <p class="naviNextPrevious footerNavi">

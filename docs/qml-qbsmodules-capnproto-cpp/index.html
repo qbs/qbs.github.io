@@ -41,7 +41,87 @@ useRpc : bool
 
 
 Detailed Description
-The capnproto.cpp module provides support for generating C&#43;&#43; headers and sources from proto definition files using the capnpc tool. ">
+The capnproto.cpp module provides support for generating C&#43;&#43; headers and sources from proto definition files using the capnpc tool.
+A simple qbs file that uses Cap&#39;n Proto can be written as follows:
+CppApplication {
+    Depends { name: &#34;capnproto.cpp&#34; }
+    files: [&#34;foo.capnp&#34;, &#34;main.cpp&#34;]
+}
+A generated header now can be included in the C&#43;&#43; sources:
+#include &lt;foo.capnp.h&gt;
+
+int main(int argc, char* argv[]) {
+    ::capnp::MallocMessageBuilder message;
+
+    auto foo = message.initRoot&lt;Foo&gt;();
+    foo.setAnswer(42);
+    return 0;
+}
+Relevant File Tags
+
+TagAuto-tagged File NamesSinceDescription
+&#34;capnproto.input&#34;*.capnp1.17.0Source files with this tag are considered inputs to the capnpc compiler.
+
+Dependencies
+This module depends on the capnp module and on the capnp-rpc module if useRpc property is true. These modules are created by the Module Providers via the pkg-config tool.
+
+Property Documentation
+
+compilerName : string
+The name of the capnp binary.
+Default: &#34;capnpc&#34;
+
+
+compilerPath : string
+The path to the protoc binary.
+Use this property to override the auto-detected location.
+Default: auto-detected
+
+
+importPaths : pathList
+The list of import paths that are passed to the capnpc tool via the --import-path option.
+Default: []
+
+
+outputDir : string
+The directory where the capnpc compiler generated files are placed.
+Default: product.buildDirectory &#43; &#34;/capnp&#34;
+
+
+useRpc : bool
+Use this property to enable support for the RPC framework.
+A simple qbs file that uses rpc can be written as follows:
+import qbs.Host
+
+Project {
+    CppApplication {
+        Depends { name: &#34;capnproto.cpp&#34;; required: false }
+        name: &#34;server&#34;
+        condition: capnproto.cpp.present &amp;&amp; qbs.targetPlatform === Host.platform()
+        consoleApplication: true
+        capnproto.cpp.useRpc: true
+
+        files: [
+            &#34;calculator.capnp&#34;,
+            &#34;calculator-server.cpp&#34;
+        ]
+    }
+    CppApplication {
+        Depends { name: &#34;capnproto.cpp&#34;; required: false }
+        name: &#34;client&#34;
+        condition: capnproto.cpp.present &amp;&amp; qbs.targetPlatform === Host.platform()
+        consoleApplication: true
+        capnproto.cpp.useRpc: true
+
+        files: [
+            &#34;calculator.capnp&#34;,
+            &#34;calculator-client.cpp&#34;
+        ]
+    }
+}
+Default: false
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-capnproto-cpp/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -51,14 +131,29 @@ The capnproto.cpp module provides support for generating C&#43;&#43; headers and
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-capnproto-cpp/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual QbsModules capnproto.cpp Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags Dependencies capnproto.cpp Provides support for Cap&#39;n Proto for the C&#43;&#43; language. More...
-Since: Qbs 1.17 List of all members, including inherited members Properties compilerName : string compilerPath : string importPaths : pathList outputDir : string useRpc : bool Detailed Description The capnproto.cpp module provides support for generating C&#43;&#43; headers and sources from proto definition files using the capnpc tool.">
+Since: Qbs 1.17 List of all members, including inherited members Properties compilerName : string compilerPath : string importPaths : pathList outputDir : string useRpc : bool Detailed Description The capnproto.cpp module provides support for generating C&#43;&#43; headers and sources from proto definition files using the capnpc tool.
+A simple qbs file that uses Cap&#39;n Proto can be written as follows:
+CppApplication { Depends { name: &#34;capnproto.cpp&#34; } files: [&#34;foo.capnp&#34;, &#34;main.cpp&#34;] } A generated header now can be included in the C&#43;&#43; sources:
+#include &lt;foo.capnp.h&gt; int main(int argc, char* argv[]) { ::capnp::MallocMessageBuilder message; auto foo = message.initRoot&lt;Foo&gt;(); foo.setAnswer(42); return 0; } Relevant File Tags Tag Auto-tagged File Names Since Description &#34;capnproto.input&#34; *.capnp 1.17.0 Source files with this tag are considered inputs to the capnpc compiler. Dependencies This module depends on the capnp module and on the capnp-rpc module if useRpc property is true. These modules are created by the Module Providers via the pkg-config tool.
+Property Documentation compilerName : string The name of the capnp binary.
+Default: &#34;capnpc&#34;
+compilerPath : string The path to the protoc binary.
+Use this property to override the auto-detected location.
+Default: auto-detected
+importPaths : pathList The list of import paths that are passed to the capnpc tool via the --import-path option.
+Default: []
+outputDir : string The directory where the capnpc compiler generated files are placed.
+Default: product.buildDirectory &#43; &#34;/capnp&#34;
+useRpc : bool Use this property to enable support for the RPC framework.
+A simple qbs file that uses rpc can be written as follows:
+import qbs.Host Project { CppApplication { Depends { name: &#34;capnproto.cpp&#34;; required: false } name: &#34;server&#34; condition: capnproto.cpp.present &amp;&amp; qbs.targetPlatform === Host.platform() consoleApplication: true capnproto.cpp.useRpc: true files: [ &#34;calculator.capnp&#34;, &#34;calculator-server.cpp&#34; ] } CppApplication { Depends { name: &#34;capnproto.cpp&#34;; required: false } name: &#34;client&#34; condition: capnproto.cpp.present &amp;&amp; qbs.targetPlatform === Host.platform() consoleApplication: true capnproto.cpp.useRpc: true files: [ &#34;calculator.capnp&#34;, &#34;calculator-client.cpp&#34; ] } } Default: false">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -67,7 +162,22 @@ Since: Qbs 1.17 List of all members, including inherited members Properties comp
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual QbsModules capnproto.cpp Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags Dependencies capnproto.cpp Provides support for Cap&#39;n Proto for the C&#43;&#43; language. More...
-Since: Qbs 1.17 List of all members, including inherited members Properties compilerName : string compilerPath : string importPaths : pathList outputDir : string useRpc : bool Detailed Description The capnproto.cpp module provides support for generating C&#43;&#43; headers and sources from proto definition files using the capnpc tool.">
+Since: Qbs 1.17 List of all members, including inherited members Properties compilerName : string compilerPath : string importPaths : pathList outputDir : string useRpc : bool Detailed Description The capnproto.cpp module provides support for generating C&#43;&#43; headers and sources from proto definition files using the capnpc tool.
+A simple qbs file that uses Cap&#39;n Proto can be written as follows:
+CppApplication { Depends { name: &#34;capnproto.cpp&#34; } files: [&#34;foo.capnp&#34;, &#34;main.cpp&#34;] } A generated header now can be included in the C&#43;&#43; sources:
+#include &lt;foo.capnp.h&gt; int main(int argc, char* argv[]) { ::capnp::MallocMessageBuilder message; auto foo = message.initRoot&lt;Foo&gt;(); foo.setAnswer(42); return 0; } Relevant File Tags Tag Auto-tagged File Names Since Description &#34;capnproto.input&#34; *.capnp 1.17.0 Source files with this tag are considered inputs to the capnpc compiler. Dependencies This module depends on the capnp module and on the capnp-rpc module if useRpc property is true. These modules are created by the Module Providers via the pkg-config tool.
+Property Documentation compilerName : string The name of the capnp binary.
+Default: &#34;capnpc&#34;
+compilerPath : string The path to the protoc binary.
+Use this property to override the auto-detected location.
+Default: auto-detected
+importPaths : pathList The list of import paths that are passed to the capnpc tool via the --import-path option.
+Default: []
+outputDir : string The directory where the capnpc compiler generated files are placed.
+Default: product.buildDirectory &#43; &#34;/capnp&#34;
+useRpc : bool Use this property to enable support for the RPC framework.
+A simple qbs file that uses rpc can be written as follows:
+import qbs.Host Project { CppApplication { Depends { name: &#34;capnproto.cpp&#34;; required: false } name: &#34;server&#34; condition: capnproto.cpp.present &amp;&amp; qbs.targetPlatform === Host.platform() consoleApplication: true capnproto.cpp.useRpc: true files: [ &#34;calculator.capnp&#34;, &#34;calculator-server.cpp&#34; ] } CppApplication { Depends { name: &#34;capnproto.cpp&#34;; required: false } name: &#34;client&#34; condition: capnproto.cpp.present &amp;&amp; qbs.targetPlatform === Host.platform() consoleApplication: true capnproto.cpp.useRpc: true files: [ &#34;calculator.capnp&#34;, &#34;calculator-client.cpp&#34; ] } } Default: false">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -147,14 +257,14 @@ Since: Qbs 1.17 List of all members, including inherited members Properties comp
 <h2 id="details">Detailed Description</h2>
 <p>The <code translate="no">capnproto.cpp</code> module provides support for generating C++ headers and sources from proto definition files using the <code translate="no">capnpc</code> tool.</p>
 <p>A simple qbs file that uses Cap'n Proto can be written as follows:</p>
-<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
+<pre class="cpp" translate="no"><code class="cpp"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-cppapplication/" translate="no">CppApplication</a></span> {
     <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-depends/" translate="no">Depends</a></span> { <span class="name">name</span>: <span class="string">"capnproto.cpp"</span> }
     <span class="name">files</span>: [<span class="string">"foo.capnp"</span>, <span class="string">"main.cpp"</span>]
-}</pre>
+}</code></pre>
 <p>A generated header now can be included in the C++ sources:</p>
-<pre class="cpp" translate="no"><span class="preprocessor">#include &lt;foo.capnp.h&gt;</span>
+<pre class="cpp" translate="no"><code class="cpp"><span class="preprocessor">#include &lt;foo.capnp.h&gt;</span>
 
 <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span><span class="operator">*</span> argv<span class="operator">[</span><span class="operator">]</span>) {
     <span class="operator">::</span>capnp<span class="operator">::</span>MallocMessageBuilder message;
@@ -162,7 +272,7 @@ Since: Qbs 1.17 List of all members, including inherited members Properties comp
     <span class="keyword">auto</span> foo <span class="operator">=</span> message<span class="operator">.</span>initRoot<span class="operator">&lt;</span>Foo<span class="operator">&gt;</span>();
     foo<span class="operator">.</span>setAnswer(<span class="number">42</span>);
     <span class="keyword">return</span> <span class="number">0</span>;
-}</pre>
+}</code></pre>
 <h3 id="relevant-file-tags">Relevant File Tags</h3>
 <div class="table"><table class="generic">
 <thead><tr class="qt-style"><th>Tag</th><th>Auto-tagged File Names</th><th>Since</th><th>Description</th></tr></thead>
@@ -199,7 +309,7 @@ Since: Qbs 1.17 List of all members, including inherited members Properties comp
 <h3 class="fn qml-member qml-property" id="useRpc-prop" translate="no"><span class="name">useRpc</span> : <span class="type">bool</span></h3>
 <p>Use this property to enable support for the RPC framework.</p>
 <p>A simple qbs file that uses rpc can be written as follows:</p>
-<pre class="cpp" translate="no">import qbs.Host
+<pre class="cpp" translate="no"><code class="cpp">import qbs.Host
 
 Project {
     CppApplication {
@@ -226,7 +336,7 @@ Project {
             "calculator-client.cpp"
         ]
     }
-}</pre>
+}</code></pre>
 <p>Default: <code translate="no">false</code></p>
 <!-- @@@useRpc -->
 </div>

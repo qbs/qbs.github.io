@@ -21,7 +21,15 @@ Running Applications
 Qbs has the convenience qbs run command that simplifies running applications.
 For example, entering the following command runs the Qt Creator application:
 qbs run --products qtcreator
-By default, running an application also builds it and installs it to a location from where it can be run on the desktop or on a device. Also, this command sets up the environment so that the application can find dependent libraries. ">
+By default, running an application also builds it and installs it to a location from where it can be run on the desktop or on a device. Also, this command sets up the environment so that the application can find dependent libraries.
+This is not the case when running the binary manually - you&#39;ll have to make sure that the app will find its dependencies and/or is relocatable. You can achieve that by configuring rpaths properly or setting the appropriate environment variable for the respective host system.
+
+
+
+Building Applications
+Installing Files
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/running-applications/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -31,7 +39,7 @@ By default, running an application also builds it and installs it to a location 
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/running-applications/">
@@ -39,7 +47,9 @@ By default, running an application also builds it and installs it to a location 
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual Running Applications Qbs 3.4.0 Building Applications Installing Files Running Applications Qbs has the convenience qbs run command that simplifies running applications.
 For example, entering the following command runs the Qt Creator application:
-qbs run --products qtcreator By default, running an application also builds it and installs it to a location from where it can be run on the desktop or on a device. Also, this command sets up the environment so that the application can find dependent libraries.">
+qbs run --products qtcreator By default, running an application also builds it and installs it to a location from where it can be run on the desktop or on a device. Also, this command sets up the environment so that the application can find dependent libraries.
+This is not the case when running the binary manually - you&#39;ll have to make sure that the app will find its dependencies and/or is relocatable. You can achieve that by configuring rpaths properly or setting the appropriate environment variable for the respective host system.
+Building Applications Installing Files">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -49,7 +59,9 @@ qbs run --products qtcreator By default, running an application also builds it a
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual Running Applications Qbs 3.4.0 Building Applications Installing Files Running Applications Qbs has the convenience qbs run command that simplifies running applications.
 For example, entering the following command runs the Qt Creator application:
-qbs run --products qtcreator By default, running an application also builds it and installs it to a location from where it can be run on the desktop or on a device. Also, this command sets up the environment so that the application can find dependent libraries.">
+qbs run --products qtcreator By default, running an application also builds it and installs it to a location from where it can be run on the desktop or on a device. Also, this command sets up the environment so that the application can find dependent libraries.
+This is not the case when running the binary manually - you&#39;ll have to make sure that the app will find its dependencies and/or is relocatable. You can achieve that by configuring rpaths properly or setting the appropriate environment variable for the respective host system.
+Building Applications Installing Files">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -104,7 +116,7 @@ qbs run --products qtcreator By default, running an application also builds it a
 <p>Qbs has the convenience <a href="https://qbs.io/
 /docs/cli-run/">qbs run</a> command that simplifies running applications.</p>
 <p>For example, entering the following command runs the Qt Creator application:</p>
-<pre class="cpp" translate="no">qbs run <span class="operator">-</span><span class="operator">-</span>products qtcreator</pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs run <span class="operator">-</span><span class="operator">-</span>products qtcreator</code></pre>
 <p>By default, running an application also builds it and installs it to a location from where it can be run on the desktop or on a device. Also, this command <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-module/#setupRunEnvironment-prop" translate="no">sets up</a> the environment so that the application can find dependent libraries.</p>
 <p>This is not the case when running the binary manually - you'll have to make sure that the app will find its dependencies and/or is relocatable. You can achieve that by <a href="https://qbs.io/

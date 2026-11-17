@@ -37,7 +37,27 @@ The second form creates a profile with the name &lt;profile name&gt; for the Qt 
 For more information, see Managing Qt Versions.
 Options
 --detect
-Attempts to auto-detect all known Qt versions, looking them up in the PATH environment variable. ">
+Attempts to auto-detect all known Qt versions, looking them up in the PATH environment variable.
+--settings-dir &lt;directory&gt;
+Reads all settings (such as profile information) from the specified &lt;directory&gt;. If the directory does not exist, it will be created.
+The default value is system-specific. For example:
+
+Linux: $HOME/.config/QtProject/qbs
+Windows: %APPDATA%\QtProject\qbs
+macOS: $HOME/Library/Preferences/qbs
+
+--system
+If this option is given, the profile(s) created by this tool will end up in the system-level settings and thus be available to all users. Otherwise, they go into the user-level settings.
+--help|-h|-?
+Displays help for the command.
+Examples
+Looks up Qt versions in the PATH and creates profiles for them:
+qbs setup-qt --detect
+Creates a profile called myqt for the Qt version located in /usr/bin/qmake:
+qbs setup-qt /usr/bin/qmake myqt
+
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/cli-setup-qt/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -47,7 +67,7 @@ Attempts to auto-detect all known Qt versions, looking them up in the PATH envir
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/cli-setup-qt/">
@@ -57,7 +77,14 @@ Attempts to auto-detect all known Qt versions, looking them up in the PATH envir
 The first form tries to auto-detect all known Qt versions, looking them up via the PATH variable.
 The second form creates a profile with the name &lt;profile name&gt; for the Qt version located at &lt;path to qmake&gt;.
 For more information, see Managing Qt Versions.
-Options --detect Attempts to auto-detect all known Qt versions, looking them up in the PATH environment variable.">
+Options --detect Attempts to auto-detect all known Qt versions, looking them up in the PATH environment variable.
+--settings-dir &lt;directory&gt; Reads all settings (such as profile information) from the specified &lt;directory&gt;. If the directory does not exist, it will be created.
+The default value is system-specific. For example:
+Linux: $HOME/.config/QtProject/qbs Windows: %APPDATA%\QtProject\qbs macOS: $HOME/Library/Preferences/qbs --system If this option is given, the profile(s) created by this tool will end up in the system-level settings and thus be available to all users. Otherwise, they go into the user-level settings.
+--help|-h|-? Displays help for the command.
+Examples Looks up Qt versions in the PATH and creates profiles for them:
+qbs setup-qt --detect Creates a profile called myqt for the Qt version located in /usr/bin/qmake:
+qbs setup-qt /usr/bin/qmake myqt">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -69,7 +96,14 @@ Options --detect Attempts to auto-detect all known Qt versions, looking them up 
 The first form tries to auto-detect all known Qt versions, looking them up via the PATH variable.
 The second form creates a profile with the name &lt;profile name&gt; for the Qt version located at &lt;path to qmake&gt;.
 For more information, see Managing Qt Versions.
-Options --detect Attempts to auto-detect all known Qt versions, looking them up in the PATH environment variable.">
+Options --detect Attempts to auto-detect all known Qt versions, looking them up in the PATH environment variable.
+--settings-dir &lt;directory&gt; Reads all settings (such as profile information) from the specified &lt;directory&gt;. If the directory does not exist, it will be created.
+The default value is system-specific. For example:
+Linux: $HOME/.config/QtProject/qbs Windows: %APPDATA%\QtProject\qbs macOS: $HOME/Library/Preferences/qbs --system If this option is given, the profile(s) created by this tool will end up in the system-level settings and thus be available to all users. Otherwise, they go into the user-level settings.
+--help|-h|-? Displays help for the command.
+Examples Looks up Qt versions in the PATH and creates profiles for them:
+qbs setup-qt --detect Creates a profile called myqt for the Qt version located in /usr/bin/qmake:
+qbs setup-qt /usr/bin/qmake myqt">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -128,8 +162,8 @@ Options --detect Attempts to auto-detect all known Qt versions, looking them up 
 <!-- $$$cli-setup-qt.html-description -->
 <div class="descr" id="details">
 <h2 id="synopsis">Synopsis</h2>
-<pre class="cpp" translate="no">qbs setup<span class="operator">-</span>qt <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>settings<span class="operator">-</span>dir <span class="operator">&lt;</span>directory<span class="operator">&gt;</span><span class="operator">]</span> <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>system<span class="operator">]</span> <span class="operator">-</span><span class="operator">-</span>detect
-qbs setup<span class="operator">-</span>qt <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>settings<span class="operator">-</span>dir <span class="operator">&lt;</span>directory<span class="operator">&gt;</span><span class="operator">]</span> <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>system<span class="operator">]</span> <span class="operator">&lt;</span>path to qmake<span class="operator">&gt;</span> <span class="operator">&lt;</span>profile name<span class="operator">&gt;</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs setup<span class="operator">-</span>qt <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>settings<span class="operator">-</span>dir <span class="operator">&lt;</span>directory<span class="operator">&gt;</span><span class="operator">]</span> <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>system<span class="operator">]</span> <span class="operator">-</span><span class="operator">-</span>detect
+qbs setup<span class="operator">-</span>qt <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>settings<span class="operator">-</span>dir <span class="operator">&lt;</span>directory<span class="operator">&gt;</span><span class="operator">]</span> <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>system<span class="operator">]</span> <span class="operator">&lt;</span>path to qmake<span class="operator">&gt;</span> <span class="operator">&lt;</span>profile name<span class="operator">&gt;</span></code></pre>
 <h2 id="description">Description</h2>
 <p>Creates Qbs profiles for Qt installations.</p>
 <p>The first form tries to auto-detect all known Qt versions, looking them up via the PATH variable.</p>
@@ -154,9 +188,9 @@ qbs setup<span class="operator">-</span>qt <span class="operator">[</span><span 
 <p>Displays help for the command.</p>
 <h2 id="examples">Examples</h2>
 <p>Looks up Qt versions in the PATH and creates profiles for them:</p>
-<pre class="cpp" translate="no">qbs setup<span class="operator">-</span>qt <span class="operator">-</span><span class="operator">-</span>detect</pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs setup<span class="operator">-</span>qt <span class="operator">-</span><span class="operator">-</span>detect</code></pre>
 <p>Creates a profile called <code translate="no">myqt</code> for the Qt version located in <code translate="no">/usr/bin/qmake</code>:</p>
-<pre class="cpp" translate="no">qbs setup<span class="operator">-</span>qt <span class="operator">/</span>usr<span class="operator">/</span>bin<span class="operator">/</span>qmake myqt</pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs setup<span class="operator">-</span>qt <span class="operator">/</span>usr<span class="operator">/</span>bin<span class="operator">/</span>qmake myqt</code></pre>
 </div>
 <!-- @@@cli-setup-qt.html -->
 </div>

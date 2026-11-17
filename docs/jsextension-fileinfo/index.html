@@ -46,7 +46,62 @@ FileInfo.baseName(filePath: string): string
 Returns the file name of filePath up to (but not including) the first &#39;.&#39; character.
 canonicalPath
 FileInfo.canonicalPath(filePath: string): string
-Returns a canonicalized filePath, i.e. an absolute path without symbolic links or redundant &#34;.&#34; or &#34;..&#34; elements. On Windows, drive substitutions are also resolved. ">
+Returns a canonicalized filePath, i.e. an absolute path without symbolic links or redundant &#34;.&#34; or &#34;..&#34; elements. On Windows, drive substitutions are also resolved.
+It is recommended to use canonicalPath in only those cases where canonical paths are really necessary. In most cases, cleanPath should be enough.
+cleanPath
+FileInfo.cleanPath(filePath: string): string
+Returns filePath without redundant separators and with resolved occurrences of . and .. components. For instance, /usr/local//../bin/ becomes /usr/bin.
+completeBaseName
+FileInfo.completeBaseName(filePath: string): string
+Returns the file name of filePath up to (but not including) the last &#39;.&#39; character.
+completeSuffix
+FileInfo.completeSuffix(filePath: string): string
+Returns the file suffix of filePath from (but not including) the last &#39;.&#39; character. This function was introduced in version 1.12.
+fileName
+FileInfo.fileName(filePath: string): string
+Returns the last component of filePath, that is, everything after the last &#39;/&#39; character.
+fromNativeSeparators
+FileInfo.fromNativeSeparators(filePath: string): string
+On Windows hosts, this function behaves the same as fromWindowsSeparators. On other operating systems, it returns the input unmodified.
+fromWindowsSeparators
+FileInfo.fromWindowsSeparators(filePath: string): string
+Returns filePath with all &#39;\&#39; characters replaced by &#39;/&#39;.
+isAbsolutePath
+FileInfo.isAbsolutePath(filePath: string, hostOS?: string[]): boolean
+Returns true if filePath is an absolute path and false if it is a relative one. If hostOS is specified, treats filePath as a file path of the kind found on that platform. This parameter defaults to the host OS on which Qbs is running and should normally be omitted.
+joinPaths
+FileInfo.joinPaths(...paths: string[]): string
+Concatenates the given paths using the &#39;/&#39; character.
+path
+FileInfo.path(filePath: string, hostOS?: string[]): string
+Returns the part of filePath that is not the file name, that is, everything up to (but not including) the last &#39;/&#39; character. If filePath is just a file name, then &#39;.&#39; is returned. If filePath ends with a &#39;/&#39; character, then the file name is assumed to be empty for the purpose of the above definition. If hostOS is specified, treats filePath as a file path of the kind found on that platform. This parameter defaults to the host OS on which Qbs is running and should normally be omitted.
+relativePath
+FileInfo.relativePath(dirPath: string, filePath: string): string
+Returns a relative path so that joining dirPath and the returned path results in filePath. If necessary, &#39;..&#39; components are inserted. The function assumes dirPath and filePath to be absolute paths and dirPath to be a directory.
+resolvePath
+FileInfo.resolvePath(base: string, rel: string): string
+Resolves the path rel against the base directory base and returns the result. If rel is already an absolute path, it is returned unchanged.
+suffix
+FileInfo.suffix(filePath: string): string
+Returns the file suffix of filePath from (but not including) the first &#39;.&#39; character. This function was introduced in version 1.12.
+toNativeSeparators
+FileInfo.toNativeSeparators(filePath: string): string
+On Windows hosts, this function behaves the same as toWindowsSeparators. On other operating systems, it returns the input unmodified.
+toWindowsSeparators
+FileInfo.toWindowsSeparators(filePath: string): string
+Returns filePath with all &#39;/&#39; characters replaced by &#39;\&#39;.
+pathListSeparator
+FileInfo.pathListSeparator(): string
+Returns the host operating system separator for a path list that is used in environment variables or other contexts. This function was introduced in version 1.22.
+pathSeparator
+FileInfo.pathSeparator(): string
+Returns the host operating system path separator. This function was introduced in version 1.22.
+executableSuffix
+FileInfo.executableSuffix(): string
+Returns the host operating system executable suffix. This function was introduced in version 1.23.
+
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/jsextension-fileinfo/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -56,7 +111,7 @@ Returns a canonicalized filePath, i.e. an absolute path without symbolic links o
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/jsextension-fileinfo/">
@@ -64,7 +119,25 @@ Returns a canonicalized filePath, i.e. an absolute path without symbolic links o
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual List of Built-in Services FileInfo Service Qbs 3.4.0 Contents Available Operations baseName canonicalPath cleanPath completeBaseName completeSuffix fileName fromNativeSeparators fromWindowsSeparators isAbsolutePath joinPaths path relativePath resolvePath suffix toNativeSeparators toWindowsSeparators pathListSeparator pathSeparator executableSuffix FileInfo Service The FileInfo service offers various operations on file paths, such as turning absolute paths into relative ones, splitting a path into its components, and so on.
 Available Operations baseName FileInfo.baseName(filePath: string): string Returns the file name of filePath up to (but not including) the first &#39;.&#39; character.
-canonicalPath FileInfo.canonicalPath(filePath: string): string Returns a canonicalized filePath, i.e. an absolute path without symbolic links or redundant &#34;.&#34; or &#34;..&#34; elements. On Windows, drive substitutions are also resolved.">
+canonicalPath FileInfo.canonicalPath(filePath: string): string Returns a canonicalized filePath, i.e. an absolute path without symbolic links or redundant &#34;.&#34; or &#34;..&#34; elements. On Windows, drive substitutions are also resolved.
+It is recommended to use canonicalPath in only those cases where canonical paths are really necessary. In most cases, cleanPath should be enough.
+cleanPath FileInfo.cleanPath(filePath: string): string Returns filePath without redundant separators and with resolved occurrences of . and .. components. For instance, /usr/local//../bin/ becomes /usr/bin.
+completeBaseName FileInfo.completeBaseName(filePath: string): string Returns the file name of filePath up to (but not including) the last &#39;.&#39; character.
+completeSuffix FileInfo.completeSuffix(filePath: string): string Returns the file suffix of filePath from (but not including) the last &#39;.&#39; character. This function was introduced in version 1.12.
+fileName FileInfo.fileName(filePath: string): string Returns the last component of filePath, that is, everything after the last &#39;/&#39; character.
+fromNativeSeparators FileInfo.fromNativeSeparators(filePath: string): string On Windows hosts, this function behaves the same as fromWindowsSeparators. On other operating systems, it returns the input unmodified.
+fromWindowsSeparators FileInfo.fromWindowsSeparators(filePath: string): string Returns filePath with all &#39;\&#39; characters replaced by &#39;/&#39;.
+isAbsolutePath FileInfo.isAbsolutePath(filePath: string, hostOS?: string[]): boolean Returns true if filePath is an absolute path and false if it is a relative one. If hostOS is specified, treats filePath as a file path of the kind found on that platform. This parameter defaults to the host OS on which Qbs is running and should normally be omitted.
+joinPaths FileInfo.joinPaths(...paths: string[]): string Concatenates the given paths using the &#39;/&#39; character.
+path FileInfo.path(filePath: string, hostOS?: string[]): string Returns the part of filePath that is not the file name, that is, everything up to (but not including) the last &#39;/&#39; character. If filePath is just a file name, then &#39;.&#39; is returned. If filePath ends with a &#39;/&#39; character, then the file name is assumed to be empty for the purpose of the above definition. If hostOS is specified, treats filePath as a file path of the kind found on that platform. This parameter defaults to the host OS on which Qbs is running and should normally be omitted.
+relativePath FileInfo.relativePath(dirPath: string, filePath: string): string Returns a relative path so that joining dirPath and the returned path results in filePath. If necessary, &#39;..&#39; components are inserted. The function assumes dirPath and filePath to be absolute paths and dirPath to be a directory.
+resolvePath FileInfo.resolvePath(base: string, rel: string): string Resolves the path rel against the base directory base and returns the result. If rel is already an absolute path, it is returned unchanged.
+suffix FileInfo.suffix(filePath: string): string Returns the file suffix of filePath from (but not including) the first &#39;.&#39; character. This function was introduced in version 1.12.
+toNativeSeparators FileInfo.toNativeSeparators(filePath: string): string On Windows hosts, this function behaves the same as toWindowsSeparators. On other operating systems, it returns the input unmodified.
+toWindowsSeparators FileInfo.toWindowsSeparators(filePath: string): string Returns filePath with all &#39;/&#39; characters replaced by &#39;\&#39;.
+pathListSeparator FileInfo.pathListSeparator(): string Returns the host operating system separator for a path list that is used in environment variables or other contexts. This function was introduced in version 1.22.
+pathSeparator FileInfo.pathSeparator(): string Returns the host operating system path separator. This function was introduced in version 1.22.
+executableSuffix FileInfo.executableSuffix(): string Returns the host operating system executable suffix. This function was introduced in version 1.23.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -74,7 +147,25 @@ canonicalPath FileInfo.canonicalPath(filePath: string): string Returns a canonic
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual List of Built-in Services FileInfo Service Qbs 3.4.0 Contents Available Operations baseName canonicalPath cleanPath completeBaseName completeSuffix fileName fromNativeSeparators fromWindowsSeparators isAbsolutePath joinPaths path relativePath resolvePath suffix toNativeSeparators toWindowsSeparators pathListSeparator pathSeparator executableSuffix FileInfo Service The FileInfo service offers various operations on file paths, such as turning absolute paths into relative ones, splitting a path into its components, and so on.
 Available Operations baseName FileInfo.baseName(filePath: string): string Returns the file name of filePath up to (but not including) the first &#39;.&#39; character.
-canonicalPath FileInfo.canonicalPath(filePath: string): string Returns a canonicalized filePath, i.e. an absolute path without symbolic links or redundant &#34;.&#34; or &#34;..&#34; elements. On Windows, drive substitutions are also resolved.">
+canonicalPath FileInfo.canonicalPath(filePath: string): string Returns a canonicalized filePath, i.e. an absolute path without symbolic links or redundant &#34;.&#34; or &#34;..&#34; elements. On Windows, drive substitutions are also resolved.
+It is recommended to use canonicalPath in only those cases where canonical paths are really necessary. In most cases, cleanPath should be enough.
+cleanPath FileInfo.cleanPath(filePath: string): string Returns filePath without redundant separators and with resolved occurrences of . and .. components. For instance, /usr/local//../bin/ becomes /usr/bin.
+completeBaseName FileInfo.completeBaseName(filePath: string): string Returns the file name of filePath up to (but not including) the last &#39;.&#39; character.
+completeSuffix FileInfo.completeSuffix(filePath: string): string Returns the file suffix of filePath from (but not including) the last &#39;.&#39; character. This function was introduced in version 1.12.
+fileName FileInfo.fileName(filePath: string): string Returns the last component of filePath, that is, everything after the last &#39;/&#39; character.
+fromNativeSeparators FileInfo.fromNativeSeparators(filePath: string): string On Windows hosts, this function behaves the same as fromWindowsSeparators. On other operating systems, it returns the input unmodified.
+fromWindowsSeparators FileInfo.fromWindowsSeparators(filePath: string): string Returns filePath with all &#39;\&#39; characters replaced by &#39;/&#39;.
+isAbsolutePath FileInfo.isAbsolutePath(filePath: string, hostOS?: string[]): boolean Returns true if filePath is an absolute path and false if it is a relative one. If hostOS is specified, treats filePath as a file path of the kind found on that platform. This parameter defaults to the host OS on which Qbs is running and should normally be omitted.
+joinPaths FileInfo.joinPaths(...paths: string[]): string Concatenates the given paths using the &#39;/&#39; character.
+path FileInfo.path(filePath: string, hostOS?: string[]): string Returns the part of filePath that is not the file name, that is, everything up to (but not including) the last &#39;/&#39; character. If filePath is just a file name, then &#39;.&#39; is returned. If filePath ends with a &#39;/&#39; character, then the file name is assumed to be empty for the purpose of the above definition. If hostOS is specified, treats filePath as a file path of the kind found on that platform. This parameter defaults to the host OS on which Qbs is running and should normally be omitted.
+relativePath FileInfo.relativePath(dirPath: string, filePath: string): string Returns a relative path so that joining dirPath and the returned path results in filePath. If necessary, &#39;..&#39; components are inserted. The function assumes dirPath and filePath to be absolute paths and dirPath to be a directory.
+resolvePath FileInfo.resolvePath(base: string, rel: string): string Resolves the path rel against the base directory base and returns the result. If rel is already an absolute path, it is returned unchanged.
+suffix FileInfo.suffix(filePath: string): string Returns the file suffix of filePath from (but not including) the first &#39;.&#39; character. This function was introduced in version 1.12.
+toNativeSeparators FileInfo.toNativeSeparators(filePath: string): string On Windows hosts, this function behaves the same as toWindowsSeparators. On other operating systems, it returns the input unmodified.
+toWindowsSeparators FileInfo.toWindowsSeparators(filePath: string): string Returns filePath with all &#39;/&#39; characters replaced by &#39;\&#39;.
+pathListSeparator FileInfo.pathListSeparator(): string Returns the host operating system separator for a path list that is used in environment variables or other contexts. This function was introduced in version 1.22.
+pathSeparator FileInfo.pathSeparator(): string Returns the host operating system path separator. This function was introduced in version 1.22.
+executableSuffix FileInfo.executableSuffix(): string Returns the host operating system executable suffix. This function was introduced in version 1.23.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -147,64 +238,64 @@ canonicalPath FileInfo.canonicalPath(filePath: string): string Returns a canonic
 <p>The <code translate="no">FileInfo</code> service offers various operations on file paths, such as turning absolute paths into relative ones, splitting a path into its components, and so on.</p>
 <h2 id="available-operations">Available Operations</h2>
 <h3 id="basename">baseName</h3>
-<pre class="cpp" translate="no">FileInfo<span class="operator">.</span>baseName(filePath: string): string</pre>
+<pre class="cpp" translate="no"><code class="cpp">FileInfo<span class="operator">.</span>baseName(filePath: string): string</code></pre>
 <p>Returns the file name of <code translate="no">filePath</code> up to (but not including) the first '.' character.</p>
 <h3 id="canonicalpath">canonicalPath</h3>
-<pre class="cpp" translate="no">FileInfo<span class="operator">.</span>canonicalPath(filePath: string): string</pre>
+<pre class="cpp" translate="no"><code class="cpp">FileInfo<span class="operator">.</span>canonicalPath(filePath: string): string</code></pre>
 <p>Returns a canonicalized <code translate="no">filePath</code>, i.e. an absolute path without symbolic links or redundant "." or ".." elements. On Windows, drive substitutions are also resolved.</p>
 <p>It is recommended to use <code translate="no">canonicalPath</code> in only those cases where canonical paths are really necessary. In most cases, <code translate="no">cleanPath</code> should be enough.</p>
 <h3 id="cleanpath">cleanPath</h3>
-<pre class="cpp" translate="no">FileInfo<span class="operator">.</span>cleanPath(filePath: string): string</pre>
+<pre class="cpp" translate="no"><code class="cpp">FileInfo<span class="operator">.</span>cleanPath(filePath: string): string</code></pre>
 <p>Returns <code translate="no">filePath</code> without redundant separators and with resolved occurrences of <code translate="no">.</code> and <code translate="no">..</code> components. For instance, <code translate="no">/usr/local//../bin/</code> becomes <code translate="no">/usr/bin</code>.</p>
 <h3 id="completebasename">completeBaseName</h3>
-<pre class="cpp" translate="no">FileInfo<span class="operator">.</span>completeBaseName(filePath: string): string</pre>
+<pre class="cpp" translate="no"><code class="cpp">FileInfo<span class="operator">.</span>completeBaseName(filePath: string): string</code></pre>
 <p>Returns the file name of <code translate="no">filePath</code> up to (but not including) the last '.' character.</p>
 <h3 id="completesuffix">completeSuffix</h3>
-<pre class="cpp" translate="no">FileInfo<span class="operator">.</span>completeSuffix(filePath: string): string</pre>
+<pre class="cpp" translate="no"><code class="cpp">FileInfo<span class="operator">.</span>completeSuffix(filePath: string): string</code></pre>
 <p>Returns the file suffix of <code translate="no">filePath</code> from (but not including) the last '.' character. </p><p>This function was introduced in version 1.12.</p><p></p>
 <h3 id="filename">fileName</h3>
-<pre class="cpp" translate="no">FileInfo<span class="operator">.</span>fileName(filePath: string): string</pre>
+<pre class="cpp" translate="no"><code class="cpp">FileInfo<span class="operator">.</span>fileName(filePath: string): string</code></pre>
 <p>Returns the last component of <code translate="no">filePath</code>, that is, everything after the last '/' character.</p>
 <h3 id="fromnativeseparators">fromNativeSeparators</h3>
-<pre class="cpp" translate="no">FileInfo<span class="operator">.</span>fromNativeSeparators(filePath: string): string</pre>
+<pre class="cpp" translate="no"><code class="cpp">FileInfo<span class="operator">.</span>fromNativeSeparators(filePath: string): string</code></pre>
 <p>On Windows hosts, this function behaves the same as <a href="https://qbs.io/
 /docs/jsextension-fileinfo/#fromwindowsseparators">fromWindowsSeparators</a>. On other operating systems, it returns the input unmodified.</p>
 <h3 id="fromwindowsseparators">fromWindowsSeparators</h3>
-<pre class="cpp" translate="no">FileInfo<span class="operator">.</span>fromWindowsSeparators(filePath: string): string</pre>
+<pre class="cpp" translate="no"><code class="cpp">FileInfo<span class="operator">.</span>fromWindowsSeparators(filePath: string): string</code></pre>
 <p>Returns <code translate="no">filePath</code> with all '\' characters replaced by '/'.</p>
 <h3 id="isabsolutepath">isAbsolutePath</h3>
-<pre class="cpp" translate="no">FileInfo<span class="operator">.</span>isAbsolutePath(filePath: string<span class="operator">,</span> hostOS<span class="operator">?</span>: string<span class="operator">[</span><span class="operator">]</span>): boolean</pre>
+<pre class="cpp" translate="no"><code class="cpp">FileInfo<span class="operator">.</span>isAbsolutePath(filePath: string<span class="operator">,</span> hostOS<span class="operator">?</span>: string<span class="operator">[</span><span class="operator">]</span>): boolean</code></pre>
 <p>Returns true if <code translate="no">filePath</code> is an absolute path and false if it is a relative one. If <code translate="no">hostOS</code> is specified, treats <code translate="no">filePath</code> as a file path of the kind found on that platform. This parameter defaults to the host OS on which Qbs is running and should normally be omitted.</p>
 <h3 id="joinpaths">joinPaths</h3>
-<pre class="cpp" translate="no">FileInfo<span class="operator">.</span>joinPaths(<span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>paths: string<span class="operator">[</span><span class="operator">]</span>): string</pre>
+<pre class="cpp" translate="no"><code class="cpp">FileInfo<span class="operator">.</span>joinPaths(<span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>paths: string<span class="operator">[</span><span class="operator">]</span>): string</code></pre>
 <p>Concatenates the given paths using the '/' character.</p>
 <h3 id="path">path</h3>
-<pre class="cpp" translate="no">FileInfo<span class="operator">.</span>path(filePath: string<span class="operator">,</span> hostOS<span class="operator">?</span>: string<span class="operator">[</span><span class="operator">]</span>): string</pre>
+<pre class="cpp" translate="no"><code class="cpp">FileInfo<span class="operator">.</span>path(filePath: string<span class="operator">,</span> hostOS<span class="operator">?</span>: string<span class="operator">[</span><span class="operator">]</span>): string</code></pre>
 <p>Returns the part of <code translate="no">filePath</code> that is not the file name, that is, everything up to (but not including) the last '/' character. If <code translate="no">filePath</code> is just a file name, then '.' is returned. If <code translate="no">filePath</code> ends with a '/' character, then the file name is assumed to be empty for the purpose of the above definition. If <code translate="no">hostOS</code> is specified, treats <code translate="no">filePath</code> as a file path of the kind found on that platform. This parameter defaults to the host OS on which Qbs is running and should normally be omitted.</p>
 <h3 id="relativepath">relativePath</h3>
-<pre class="cpp" translate="no">FileInfo<span class="operator">.</span>relativePath(dirPath: string<span class="operator">,</span> filePath: string): string</pre>
+<pre class="cpp" translate="no"><code class="cpp">FileInfo<span class="operator">.</span>relativePath(dirPath: string<span class="operator">,</span> filePath: string): string</code></pre>
 <p>Returns a relative path so that joining <code translate="no">dirPath</code> and the returned path results in <code translate="no">filePath</code>. If necessary, '..' components are inserted. The function assumes <code translate="no">dirPath</code> and <code translate="no">filePath</code> to be absolute paths and <code translate="no">dirPath</code> to be a directory.</p>
 <h3 id="resolvepath">resolvePath</h3>
-<pre class="cpp" translate="no">FileInfo<span class="operator">.</span>resolvePath(base: string<span class="operator">,</span> rel: string): string</pre>
+<pre class="cpp" translate="no"><code class="cpp">FileInfo<span class="operator">.</span>resolvePath(base: string<span class="operator">,</span> rel: string): string</code></pre>
 <p>Resolves the path <code translate="no">rel</code> against the base directory <code translate="no">base</code> and returns the result. If <code translate="no">rel</code> is already an absolute path, it is returned unchanged.</p>
 <h3 id="suffix">suffix</h3>
-<pre class="cpp" translate="no">FileInfo<span class="operator">.</span>suffix(filePath: string): string</pre>
+<pre class="cpp" translate="no"><code class="cpp">FileInfo<span class="operator">.</span>suffix(filePath: string): string</code></pre>
 <p>Returns the file suffix of <code translate="no">filePath</code> from (but not including) the first '.' character. </p><p>This function was introduced in version 1.12.</p><p></p>
 <h3 id="tonativeseparators">toNativeSeparators</h3>
-<pre class="cpp" translate="no">FileInfo<span class="operator">.</span>toNativeSeparators(filePath: string): string</pre>
+<pre class="cpp" translate="no"><code class="cpp">FileInfo<span class="operator">.</span>toNativeSeparators(filePath: string): string</code></pre>
 <p>On Windows hosts, this function behaves the same as <a href="https://qbs.io/
 /docs/jsextension-fileinfo/#towindowsseparators">toWindowsSeparators</a>. On other operating systems, it returns the input unmodified.</p>
 <h3 id="towindowsseparators">toWindowsSeparators</h3>
-<pre class="cpp" translate="no">FileInfo<span class="operator">.</span>toWindowsSeparators(filePath: string): string</pre>
+<pre class="cpp" translate="no"><code class="cpp">FileInfo<span class="operator">.</span>toWindowsSeparators(filePath: string): string</code></pre>
 <p>Returns <code translate="no">filePath</code> with all '/' characters replaced by '\'.</p>
 <h3 id="pathlistseparator">pathListSeparator</h3>
-<pre class="cpp" translate="no">FileInfo<span class="operator">.</span>pathListSeparator(): string</pre>
+<pre class="cpp" translate="no"><code class="cpp">FileInfo<span class="operator">.</span>pathListSeparator(): string</code></pre>
 <p>Returns the host operating system separator for a path list that is used in environment variables or other contexts. </p><p>This function was introduced in version 1.22.</p><p></p>
 <h3 id="pathseparator">pathSeparator</h3>
-<pre class="cpp" translate="no">FileInfo<span class="operator">.</span>pathSeparator(): string</pre>
+<pre class="cpp" translate="no"><code class="cpp">FileInfo<span class="operator">.</span>pathSeparator(): string</code></pre>
 <p>Returns the host operating system path separator. </p><p>This function was introduced in version 1.22.</p><p></p>
 <h3 id="executablesuffix">executableSuffix</h3>
-<pre class="cpp" translate="no">FileInfo<span class="operator">.</span>executableSuffix(): string</pre>
+<pre class="cpp" translate="no"><code class="cpp">FileInfo<span class="operator">.</span>executableSuffix(): string</code></pre>
 <p>Returns the host operating system executable suffix. </p><p>This function was introduced in version 1.23.</p><p></p>
 </div>
 <!-- @@@jsextension-fileinfo.html -->

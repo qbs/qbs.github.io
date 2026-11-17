@@ -37,7 +37,27 @@ Creates Qbs profiles for Android SDK and NDK installations.
 If a Qt path is given, these additional profiles will be suitable for building Qt binaries for the respective architecture, if the Qt installation has support for it.
 Options
 --settings-dir &lt;directory&gt;
-Reads all settings (such as profile information) from the specified &lt;directory&gt;. If the directory does not exist, it will be created. ">
+Reads all settings (such as profile information) from the specified &lt;directory&gt;. If the directory does not exist, it will be created.
+The default value is system-specific. For example:
+
+Linux: $HOME/.config/QtProject/qbs
+Windows: %APPDATA%\QtProject\qbs
+macOS: $HOME/Library/Preferences/qbs
+
+--ndk-dir &lt;directory&gt;
+Specifies a &lt;directory&gt; that contains an Android NDK.
+--sdk-dir &lt;directory&gt;
+Specifies a &lt;directory&gt; that contains an Android SDK.
+--qt-dir &lt;directory&gt;
+Specifies a &lt;directory&gt; that contains a Qt version.
+--help|-h|-?
+Displays help for the command.
+Examples
+Creates a profile with the name oreo that specifies the target platforms&#39; architectures and operating systems, as well as the toolchains available:
+qbs setup-android oreo
+
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/cli-setup-android/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -47,7 +67,7 @@ Reads all settings (such as profile information) from the specified &lt;director
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/cli-setup-android/">
@@ -55,7 +75,14 @@ Reads all settings (such as profile information) from the specified &lt;director
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual Command-Line Interface setup-android Qbs 3.4.0 Contents Synopsis Description Options --settings-dir &lt;directory&gt; --ndk-dir &lt;directory&gt; --sdk-dir &lt;directory&gt; --qt-dir &lt;directory&gt; --help|-h|-? Examples setup-android Synopsis qbs setup-android [--settings-dir &lt;directory&gt;] [--ndk-dir &lt;directory&gt;] [--sdk-dir &lt;directory&gt;] [--qt-dir &lt;directory&gt;] &lt;profile name&gt; Description Creates Qbs profiles for Android SDK and NDK installations.
 If a Qt path is given, these additional profiles will be suitable for building Qt binaries for the respective architecture, if the Qt installation has support for it.
-Options --settings-dir &lt;directory&gt; Reads all settings (such as profile information) from the specified &lt;directory&gt;. If the directory does not exist, it will be created.">
+Options --settings-dir &lt;directory&gt; Reads all settings (such as profile information) from the specified &lt;directory&gt;. If the directory does not exist, it will be created.
+The default value is system-specific. For example:
+Linux: $HOME/.config/QtProject/qbs Windows: %APPDATA%\QtProject\qbs macOS: $HOME/Library/Preferences/qbs --ndk-dir &lt;directory&gt; Specifies a &lt;directory&gt; that contains an Android NDK.
+--sdk-dir &lt;directory&gt; Specifies a &lt;directory&gt; that contains an Android SDK.
+--qt-dir &lt;directory&gt; Specifies a &lt;directory&gt; that contains a Qt version.
+--help|-h|-? Displays help for the command.
+Examples Creates a profile with the name oreo that specifies the target platforms&#39; architectures and operating systems, as well as the toolchains available:
+qbs setup-android oreo">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -65,7 +92,14 @@ Options --settings-dir &lt;directory&gt; Reads all settings (such as profile inf
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual Command-Line Interface setup-android Qbs 3.4.0 Contents Synopsis Description Options --settings-dir &lt;directory&gt; --ndk-dir &lt;directory&gt; --sdk-dir &lt;directory&gt; --qt-dir &lt;directory&gt; --help|-h|-? Examples setup-android Synopsis qbs setup-android [--settings-dir &lt;directory&gt;] [--ndk-dir &lt;directory&gt;] [--sdk-dir &lt;directory&gt;] [--qt-dir &lt;directory&gt;] &lt;profile name&gt; Description Creates Qbs profiles for Android SDK and NDK installations.
 If a Qt path is given, these additional profiles will be suitable for building Qt binaries for the respective architecture, if the Qt installation has support for it.
-Options --settings-dir &lt;directory&gt; Reads all settings (such as profile information) from the specified &lt;directory&gt;. If the directory does not exist, it will be created.">
+Options --settings-dir &lt;directory&gt; Reads all settings (such as profile information) from the specified &lt;directory&gt;. If the directory does not exist, it will be created.
+The default value is system-specific. For example:
+Linux: $HOME/.config/QtProject/qbs Windows: %APPDATA%\QtProject\qbs macOS: $HOME/Library/Preferences/qbs --ndk-dir &lt;directory&gt; Specifies a &lt;directory&gt; that contains an Android NDK.
+--sdk-dir &lt;directory&gt; Specifies a &lt;directory&gt; that contains an Android SDK.
+--qt-dir &lt;directory&gt; Specifies a &lt;directory&gt; that contains a Qt version.
+--help|-h|-? Displays help for the command.
+Examples Creates a profile with the name oreo that specifies the target platforms&#39; architectures and operating systems, as well as the toolchains available:
+qbs setup-android oreo">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -125,9 +159,9 @@ Options --settings-dir &lt;directory&gt; Reads all settings (such as profile inf
 <!-- $$$cli-setup-android.html-description -->
 <div class="descr" id="details">
 <h2 id="synopsis">Synopsis</h2>
-<pre class="cpp" translate="no">qbs setup<span class="operator">-</span>android <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>settings<span class="operator">-</span>dir <span class="operator">&lt;</span>directory<span class="operator">&gt;</span><span class="operator">]</span> <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>ndk<span class="operator">-</span>dir <span class="operator">&lt;</span>directory<span class="operator">&gt;</span><span class="operator">]</span>
+<pre class="cpp" translate="no"><code class="cpp">qbs setup<span class="operator">-</span>android <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>settings<span class="operator">-</span>dir <span class="operator">&lt;</span>directory<span class="operator">&gt;</span><span class="operator">]</span> <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>ndk<span class="operator">-</span>dir <span class="operator">&lt;</span>directory<span class="operator">&gt;</span><span class="operator">]</span>
                   <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>sdk<span class="operator">-</span>dir <span class="operator">&lt;</span>directory<span class="operator">&gt;</span><span class="operator">]</span> <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>qt<span class="operator">-</span>dir <span class="operator">&lt;</span>directory<span class="operator">&gt;</span><span class="operator">]</span>
-                  <span class="operator">&lt;</span>profile name<span class="operator">&gt;</span></pre>
+                  <span class="operator">&lt;</span>profile name<span class="operator">&gt;</span></code></pre>
 <h2 id="description">Description</h2>
 <p>Creates Qbs profiles for Android SDK and NDK installations.</p>
 <p>If a Qt path is given, these additional profiles will be suitable for building Qt binaries for the respective architecture, if the Qt installation has support for it.</p>
@@ -152,7 +186,7 @@ Options --settings-dir &lt;directory&gt; Reads all settings (such as profile inf
 <h2 id="examples">Examples</h2>
 <p>Creates a profile with the name <code translate="no">oreo</code> that specifies the target platforms' <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#architectures-prop" translate="no">architectures</a> and operating systems, as well as the toolchains available:</p>
-<pre class="cpp" translate="no">qbs setup<span class="operator">-</span>android oreo</pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs setup<span class="operator">-</span>android oreo</code></pre>
 </div>
 <!-- @@@cli-setup-android.html -->
 </div>

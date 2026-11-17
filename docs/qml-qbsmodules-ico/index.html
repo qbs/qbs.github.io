@@ -39,7 +39,52 @@ raw : bool
 
 
 Detailed Description
-The ico module contains properties and rules for building Microsoft Windows Icon (.ico) and Microsoft Windows Cursor (.cur) files. ">
+The ico module contains properties and rules for building Microsoft Windows Icon (.ico) and Microsoft Windows Cursor (.cur) files.
+
+Note: This module relies on the icotool command-line tool from the icotools package, which must be installed separately and found in the PATH or an appropriate system binaries directory for your system (for example, /usr/bin or /usr/local/bin).
+
+Relevant File Tags
+
+TagAuto-tagged File NamesSinceDescription
+&#34;cur&#34;n/a1.11The rule that creates cursor (.cur) files attaches this tag to its output artifact.
+&#34;ico&#34;n/a1.11The rule that creates icon (.ico) files attaches this tag to its output artifact.
+&#34;png&#34;&#34;*.png&#34;1.11Source files with this tag indicate PNG files which are used as inputs to create icon or cursor files.
+
+
+Property Documentation
+
+cursorHotspotX : int
+The cursor hotspot x coordinate. Only relevant when building .cur files.
+This property must be set individually for each input PNG file.
+
+Note: icoutils version 0.32 or greater is required to set the hotspot in cursor files with multiple images.
+
+Default: Undefined
+
+
+cursorHotspotY : int
+The cursor hotspot y coordinate. Only relevant when building .cur files.
+This property must be set individually for each input PNG file.
+
+Note: icoutils version 0.32 or greater is required to set the hotspot in cursor files with multiple images.
+
+Default: Undefined
+
+
+icotoolFilePath : string
+The full path of the icotool binary.
+This property should not normally need to be changed if Qbs was able to automatically detect it.
+Default: Determined automatically.
+
+
+raw : bool
+Whether to store the input file as a raw PNG, as supported in Windows Vista.
+Only relevant when building .ico files.
+This property must be set individually for each input PNG file.
+It is recommended to set this value only for icon sizes larger than or equal to 256x256.
+Default: false
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-ico/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -49,14 +94,31 @@ The ico module contains properties and rules for building Microsoft Windows Icon
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-ico/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual QbsModules ico Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags ico Provides support for building ICO (.ico) and CUR (.cur) files. More...
-Since: Qbs 1.11 List of all members, including inherited members Properties cursorHotspotX : int cursorHotspotY : int icotoolFilePath : string raw : bool Detailed Description The ico module contains properties and rules for building Microsoft Windows Icon (.ico) and Microsoft Windows Cursor (.cur) files.">
+Since: Qbs 1.11 List of all members, including inherited members Properties cursorHotspotX : int cursorHotspotY : int icotoolFilePath : string raw : bool Detailed Description The ico module contains properties and rules for building Microsoft Windows Icon (.ico) and Microsoft Windows Cursor (.cur) files.
+Note: This module relies on the icotool command-line tool from the icotools package, which must be installed separately and found in the PATH or an appropriate system binaries directory for your system (for example, /usr/bin or /usr/local/bin).
+Relevant File Tags Tag Auto-tagged File Names Since Description &#34;cur&#34; n/a 1.11 The rule that creates cursor (.cur) files attaches this tag to its output artifact. &#34;ico&#34; n/a 1.11 The rule that creates icon (.ico) files attaches this tag to its output artifact. &#34;png&#34; &#34;*.png&#34; 1.11 Source files with this tag indicate PNG files which are used as inputs to create icon or cursor files. Property Documentation cursorHotspotX : int The cursor hotspot x coordinate. Only relevant when building .cur files.
+This property must be set individually for each input PNG file.
+Note: icoutils version 0.32 or greater is required to set the hotspot in cursor files with multiple images.
+Default: Undefined
+cursorHotspotY : int The cursor hotspot y coordinate. Only relevant when building .cur files.
+This property must be set individually for each input PNG file.
+Note: icoutils version 0.32 or greater is required to set the hotspot in cursor files with multiple images.
+Default: Undefined
+icotoolFilePath : string The full path of the icotool binary.
+This property should not normally need to be changed if Qbs was able to automatically detect it.
+Default: Determined automatically.
+raw : bool Whether to store the input file as a raw PNG, as supported in Windows Vista.
+Only relevant when building .ico files.
+This property must be set individually for each input PNG file.
+It is recommended to set this value only for icon sizes larger than or equal to 256x256.
+Default: false">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -65,7 +127,24 @@ Since: Qbs 1.11 List of all members, including inherited members Properties curs
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual QbsModules ico Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags ico Provides support for building ICO (.ico) and CUR (.cur) files. More...
-Since: Qbs 1.11 List of all members, including inherited members Properties cursorHotspotX : int cursorHotspotY : int icotoolFilePath : string raw : bool Detailed Description The ico module contains properties and rules for building Microsoft Windows Icon (.ico) and Microsoft Windows Cursor (.cur) files.">
+Since: Qbs 1.11 List of all members, including inherited members Properties cursorHotspotX : int cursorHotspotY : int icotoolFilePath : string raw : bool Detailed Description The ico module contains properties and rules for building Microsoft Windows Icon (.ico) and Microsoft Windows Cursor (.cur) files.
+Note: This module relies on the icotool command-line tool from the icotools package, which must be installed separately and found in the PATH or an appropriate system binaries directory for your system (for example, /usr/bin or /usr/local/bin).
+Relevant File Tags Tag Auto-tagged File Names Since Description &#34;cur&#34; n/a 1.11 The rule that creates cursor (.cur) files attaches this tag to its output artifact. &#34;ico&#34; n/a 1.11 The rule that creates icon (.ico) files attaches this tag to its output artifact. &#34;png&#34; &#34;*.png&#34; 1.11 Source files with this tag indicate PNG files which are used as inputs to create icon or cursor files. Property Documentation cursorHotspotX : int The cursor hotspot x coordinate. Only relevant when building .cur files.
+This property must be set individually for each input PNG file.
+Note: icoutils version 0.32 or greater is required to set the hotspot in cursor files with multiple images.
+Default: Undefined
+cursorHotspotY : int The cursor hotspot y coordinate. Only relevant when building .cur files.
+This property must be set individually for each input PNG file.
+Note: icoutils version 0.32 or greater is required to set the hotspot in cursor files with multiple images.
+Default: Undefined
+icotoolFilePath : string The full path of the icotool binary.
+This property should not normally need to be changed if Qbs was able to automatically detect it.
+Default: Determined automatically.
+raw : bool Whether to store the input file as a raw PNG, as supported in Windows Vista.
+Only relevant when building .ico files.
+This property must be set individually for each input PNG file.
+It is recommended to set this value only for icon sizes larger than or equal to 256x256.
+Default: false">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">

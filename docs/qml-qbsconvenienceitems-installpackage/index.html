@@ -38,7 +38,52 @@ InstallPackage is part of List of All Items.
 
 
 Detailed Description
-An InstallPackage item is a product of the type archiver.archive that has a dependency on the archiver module. It is used to produce an archive from a set of installable files. ">
+An InstallPackage item is a product of the type archiver.archive that has a dependency on the archiver module. It is used to produce an archive from a set of installable files.
+Consider the following example project:
+Project {
+    CppApplication {
+        name: &#34;myapp&#34;
+        Depends { name: &#34;mylib&#34; }
+        files: [&#34;main.cpp&#34;]
+        Group {
+            fileTagsFilter: product.type
+            qbs.install: true
+            qbs.installDir: &#34;bin&#34;
+        }
+    }
+    DynamicLibrary {
+        name: &#34;mylib&#34;
+        files: [&#34;mylib.cpp&#34;]
+        Group {
+            name: &#34;public headers&#34;
+            files: [&#34;mylib.h&#34;]
+            qbs.install: true
+            qbs.installDir: &#34;include&#34;
+        }
+        Group {
+            fileTagsFilter: product.type
+            qbs.install: true
+            qbs.installDir: &#34;lib&#34;
+        }
+    }
+
+    InstallPackage {
+        archiver.type: &#34;tar&#34;
+        name: &#34;tar-package&#34;
+        Depends { name: &#34;myapp&#34; }
+        Depends { name: &#34;mylib&#34; }
+    }
+}
+Building the product &#34;tar-package&#34; on a Unix system will result in a tar file with these contents:
+include/mylib.h
+lib/libmylib.so
+bin/myapp
+
+
+InnoSetup
+JavaClassCollection
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsconvenienceitems-installpackage/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -48,7 +93,7 @@ An InstallPackage item is a product of the type archiver.archive that has a depe
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsconvenienceitems-installpackage/">
@@ -56,7 +101,10 @@ An InstallPackage item is a product of the type archiver.archive that has a depe
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual QbsConvenienceItems InstallPackage Qbs 3.4.0 InnoSetup JavaClassCollection Contents Detailed Description InstallPackage Archive of an installed project. More...
 Inherits: Product
-List of all members, including inherited members InstallPackage is part of List of All Items. Detailed Description An InstallPackage item is a product of the type archiver.archive that has a dependency on the archiver module. It is used to produce an archive from a set of installable files.">
+List of all members, including inherited members InstallPackage is part of List of All Items. Detailed Description An InstallPackage item is a product of the type archiver.archive that has a dependency on the archiver module. It is used to produce an archive from a set of installable files.
+Consider the following example project:
+Project { CppApplication { name: &#34;myapp&#34; Depends { name: &#34;mylib&#34; } files: [&#34;main.cpp&#34;] Group { fileTagsFilter: product.type qbs.install: true qbs.installDir: &#34;bin&#34; } } DynamicLibrary { name: &#34;mylib&#34; files: [&#34;mylib.cpp&#34;] Group { name: &#34;public headers&#34; files: [&#34;mylib.h&#34;] qbs.install: true qbs.installDir: &#34;include&#34; } Group { fileTagsFilter: product.type qbs.install: true qbs.installDir: &#34;lib&#34; } } InstallPackage { archiver.type: &#34;tar&#34; name: &#34;tar-package&#34; Depends { name: &#34;myapp&#34; } Depends { name: &#34;mylib&#34; } } } Building the product &#34;tar-package&#34; on a Unix system will result in a tar file with these contents:
+include/mylib.h lib/libmylib.so bin/myapp InnoSetup JavaClassCollection">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -66,7 +114,10 @@ List of all members, including inherited members InstallPackage is part of List 
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual QbsConvenienceItems InstallPackage Qbs 3.4.0 InnoSetup JavaClassCollection Contents Detailed Description InstallPackage Archive of an installed project. More...
 Inherits: Product
-List of all members, including inherited members InstallPackage is part of List of All Items. Detailed Description An InstallPackage item is a product of the type archiver.archive that has a dependency on the archiver module. It is used to produce an archive from a set of installable files.">
+List of all members, including inherited members InstallPackage is part of List of All Items. Detailed Description An InstallPackage item is a product of the type archiver.archive that has a dependency on the archiver module. It is used to produce an archive from a set of installable files.
+Consider the following example project:
+Project { CppApplication { name: &#34;myapp&#34; Depends { name: &#34;mylib&#34; } files: [&#34;main.cpp&#34;] Group { fileTagsFilter: product.type qbs.install: true qbs.installDir: &#34;bin&#34; } } DynamicLibrary { name: &#34;mylib&#34; files: [&#34;mylib.cpp&#34;] Group { name: &#34;public headers&#34; files: [&#34;mylib.h&#34;] qbs.install: true qbs.installDir: &#34;include&#34; } Group { fileTagsFilter: product.type qbs.install: true qbs.installDir: &#34;lib&#34; } } InstallPackage { archiver.type: &#34;tar&#34; name: &#34;tar-package&#34; Depends { name: &#34;myapp&#34; } Depends { name: &#34;mylib&#34; } } } Building the product &#34;tar-package&#34; on a Unix system will result in a tar file with these contents:
+include/mylib.h lib/libmylib.so bin/myapp InnoSetup JavaClassCollection">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -148,7 +199,7 @@ List of all members, including inherited members InstallPackage is part of List 
 /docs/qml-qbslanguageitems-depends/" translate="no">dependency</a> on the <a href="https://qbs.io/
 /docs/qml-qbsmodules-archiver/" translate="no">archiver</a> module. It is used to produce an archive from a set of installable files.</p>
 <p>Consider the following example project:</p>
-<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
+<pre class="cpp" translate="no"><code class="cpp"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-project/" translate="no">Project</a></span> {
     <span class="type"><a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-cppapplication/" translate="no">CppApplication</a></span> {
@@ -191,11 +242,11 @@ List of all members, including inherited members InstallPackage is part of List 
         <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-depends/" translate="no">Depends</a></span> { <span class="name">name</span>: <span class="string">"mylib"</span> }
     }
-}</pre>
+}</code></pre>
 <p>Building the product <code translate="no">"tar-package"</code> on a Unix system will result in a tar file with these contents:</p>
-<pre class="cpp" translate="no"><span class="keyword">include</span><span class="operator">/</span>mylib<span class="operator">.</span>h
+<pre class="cpp" translate="no"><code class="cpp"><span class="keyword">include</span><span class="operator">/</span>mylib<span class="operator">.</span>h
 lib<span class="operator">/</span>libmylib<span class="operator">.</span>so
-bin<span class="operator">/</span>myapp</pre>
+bin<span class="operator">/</span>myapp</code></pre>
 <!-- @@@InstallPackage -->
 <p class="naviNextPrevious footerNavi">
 <a class="prevPage" href="https://qbs.io/

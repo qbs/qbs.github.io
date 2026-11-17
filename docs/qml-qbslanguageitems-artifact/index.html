@@ -42,7 +42,38 @@ fileTags : stringList
 
 Detailed Description
 An Artifact represents a single file produced by a Rule.
-For example, if a rule produces three files, it needs to contain three Artifact items. ">
+For example, if a rule produces three files, it needs to contain three Artifact items.
+In addition to Artifact properties, you can set module properties within an Artifact item, as follows:
+Artifact {
+    filePath: &#34;somefile.cpp&#34;
+    fileTags: [&#34;cpp&#34;]
+    cpp.cxxLanguageVersion: &#34;c&#43;&#43;11&#34;
+    // ...
+}
+
+Note: The code on the right-hand side of Artifact properties has access to the set of input artifacts. That is, it can refer to the inputs map and, if the rule is not a multiplex rule, the input variable.
+
+
+Property Documentation
+
+alwaysUpdated : bool
+Setting this property to false means the file is not necessarily always written to by any command run by the rule. If all artifacts of a rule have this property set to false, the commands of the rule are only executed if all of them are out of date compared to the inputs.
+Default: true
+
+
+filePath : string
+The file path of the target artifact.
+Default: Undefined
+
+
+fileTags : stringList
+A list of tags to attach to the target file. These can then be matched by a Rule.
+Default: An empty list
+
+
+Depends
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbslanguageitems-artifact/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -52,7 +83,7 @@ For example, if a rule produces three files, it needs to contain three Artifact 
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-artifact/">
@@ -60,7 +91,16 @@ For example, if a rule produces three files, it needs to contain three Artifact 
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual QbsLanguageItems Artifact Qbs 3.4.0 Depends Contents Properties Detailed Description Artifact Describes a file produced by a Rule. More...
 List of all members, including inherited members Artifact is part of List of All Items. Properties alwaysUpdated : bool filePath : string fileTags : stringList Detailed Description An Artifact represents a single file produced by a Rule.
-For example, if a rule produces three files, it needs to contain three Artifact items.">
+For example, if a rule produces three files, it needs to contain three Artifact items.
+In addition to Artifact properties, you can set module properties within an Artifact item, as follows:
+Artifact { filePath: &#34;somefile.cpp&#34; fileTags: [&#34;cpp&#34;] cpp.cxxLanguageVersion: &#34;c&#43;&#43;11&#34; // ... } Note: The code on the right-hand side of Artifact properties has access to the set of input artifacts. That is, it can refer to the inputs map and, if the rule is not a multiplex rule, the input variable.
+Property Documentation alwaysUpdated : bool Setting this property to false means the file is not necessarily always written to by any command run by the rule. If all artifacts of a rule have this property set to false, the commands of the rule are only executed if all of them are out of date compared to the inputs.
+Default: true
+filePath : string The file path of the target artifact.
+Default: Undefined
+fileTags : stringList A list of tags to attach to the target file. These can then be matched by a Rule.
+Default: An empty list
+Depends">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -70,7 +110,16 @@ For example, if a rule produces three files, it needs to contain three Artifact 
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual QbsLanguageItems Artifact Qbs 3.4.0 Depends Contents Properties Detailed Description Artifact Describes a file produced by a Rule. More...
 List of all members, including inherited members Artifact is part of List of All Items. Properties alwaysUpdated : bool filePath : string fileTags : stringList Detailed Description An Artifact represents a single file produced by a Rule.
-For example, if a rule produces three files, it needs to contain three Artifact items.">
+For example, if a rule produces three files, it needs to contain three Artifact items.
+In addition to Artifact properties, you can set module properties within an Artifact item, as follows:
+Artifact { filePath: &#34;somefile.cpp&#34; fileTags: [&#34;cpp&#34;] cpp.cxxLanguageVersion: &#34;c&#43;&#43;11&#34; // ... } Note: The code on the right-hand side of Artifact properties has access to the set of input artifacts. That is, it can refer to the inputs map and, if the rule is not a multiplex rule, the input variable.
+Property Documentation alwaysUpdated : bool Setting this property to false means the file is not necessarily always written to by any command run by the rule. If all artifacts of a rule have this property set to false, the commands of the rule are only executed if all of them are out of date compared to the inputs.
+Default: true
+filePath : string The file path of the target artifact.
+Default: Undefined
+fileTags : stringList A list of tags to attach to the target file. These can then be matched by a Rule.
+Default: An empty list
+Depends">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -153,13 +202,13 @@ For example, if a rule produces three files, it needs to contain three Artifact 
 /docs/qml-qbslanguageitems-rule/" translate="no">Rule</a>.</p>
 <p>For example, if a rule produces three files, it needs to contain three Artifact items.</p>
 <p>In addition to Artifact properties, you can set module properties within an Artifact item, as follows:</p>
-<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
+<pre class="cpp" translate="no"><code class="cpp"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-artifact/" translate="no">Artifact</a></span> {
     <span class="name">filePath</span>: <span class="string">"somefile.cpp"</span>
     <span class="name">fileTags</span>: [<span class="string">"cpp"</span>]
     <span class="name">cpp.cxxLanguageVersion</span>: <span class="string">"c++11"</span>
     <span class="comment">// ...</span>
-}</pre>
+}</code></pre>
 <div class="admonition note">
 <p><b>Note: </b>The code on the right-hand side of Artifact properties has access to the set of input artifacts. That is, it can refer to the <code translate="no">inputs</code> map and, if the rule is not a multiplex rule, the <code translate="no">input</code> variable.</p>
 </div>

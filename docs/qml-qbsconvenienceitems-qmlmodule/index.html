@@ -50,7 +50,72 @@ uri : string
 
 
 Detailed Description
-A QmlModule is a convenience item that mirrors the functionality of CMake&#39;s qt_add_qml_module() command. It combines a plugin library with automatic QML type registration, qmldir generation, and resource embedding, so that the module can be imported from QML using the module-based import syntax (rather than file or directory imports). ">
+A QmlModule is a convenience item that mirrors the functionality of CMake&#39;s qt_add_qml_module() command. It combines a plugin library with automatic QML type registration, qmldir generation, and resource embedding, so that the module can be imported from QML using the module-based import syntax (rather than file or directory imports).
+
+Note: This functionality requires Qt 6.2 or later.
+
+What QmlModule Does Automatically
+
+Runs qmltyperegistrar on C&#43;&#43; files decorated with QML_ELEMENT or similar macros and produces a plugins.qmltypes file.
+Generates a qmldir file listing all QML files and, if Qt.qml.loadedAtRuntime is true, a plugin line for dynamic loading.
+Embeds all QML files, JavaScript files, and the qmldir into the plugin&#39;s resources at :/qt/qml/&lt;URI&gt;/, enabling the prefer :/qt/qml/&lt;URI&gt;/ directive so the QML engine uses embedded resources rather than files on disk.
+Installs qmldir, plugins.qmltypes, as well as QML and JavaScript files to modulesInstallDir. When the plugin is loaded at runtime (Qt.qml.loadedAtRuntime is true), the library binary is installed there too.
+
+Usage
+Dynamic Plugin — Linked Directly by the Application
+The application lists the module as a dependency, which links the plugin at build time. The QML engine finds module types through the pre-registered module without loading a plugin file at runtime. Because Qt.qml.loadedAtRuntime defaults to true for dynamic libraries, set it to false to suppress the plugin line in the generated qmldir.
+// mymodule/mymodule.qbs
+QmlModule {
+    name: &#34;mymoduleplugin&#34;
+    uri: &#34;com.example.MyModule&#34;
+    Qt.qml.loadedAtRuntime: false
+    files: [&#34;MyItem.qml&#34;, &#34;mytype.h&#34;, &#34;mytype.cpp&#34;]
+}
+
+// app/app.qbs
+CppApplication {
+    Depends { name: &#34;mymoduleplugin&#34; }
+    // ...
+}
+Dynamic Plugin — Loaded at Runtime via Import Path
+In this mode the plugin .so is not linked by the application. Instead, the QML engine discovers and loads it at runtime through the QML import path. Qt.qml.loadedAtRuntime defaults to true for dynamic libraries, so no override is needed:
+QmlModule {
+    name: &#34;mymoduleplugin&#34;
+    uri: &#34;com.example.MyModule&#34;
+    files: [...]
+}
+However, you need to point the QML engine to the install location via QML_IMPORT_PATH or QQmlEngine::addImportPath().
+Static Plugin
+For platforms that require static linking (iOS, tvOS, watchOS), the type is automatically set to staticlibrary. On other platforms, override type directly. Qt.qml.loadedAtRuntime defaults to false for static libraries, so no override is needed there either.
+QmlModule {
+    name: &#34;mymoduleplugin&#34;
+    uri: &#34;com.example.MyModule&#34;
+    type: [&#34;staticlibrary&#34;]
+    files: [...]
+}
+
+CppApplication {
+    Depends { name: &#34;mymoduleplugin&#34; }
+    // ...
+}
+
+Property Documentation
+
+modulesInstallDir : string
+The directory where qmldir, plugins.qmltypes, and QML files are installed. When Qt.qml.loadedAtRuntime is true, the plugin library is also installed here so the QML engine can find it.
+Default: Qt.qml.qmlPath &#43; &#34;/&#34; &#43; uri.replace(/\./g, &#34;/&#34;)
+
+
+uri : string
+The QML module URI, for example &#34;com.example.MyModule&#34;. This value is required.
+The URI is used as the Qt.qml.importName for type registration, written as the module line in the generated qmldir, and determines the resource path :/qt/qml/&lt;URI&gt;/ where QML files and the qmldir are embedded.
+Default: Undefined
+
+
+Plugin
+QtApplication
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsconvenienceitems-qmlmodule/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -60,7 +125,7 @@ A QmlModule is a convenience item that mirrors the functionality of CMake&#39;s 
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsconvenienceitems-qmlmodule/">
@@ -68,7 +133,18 @@ A QmlModule is a convenience item that mirrors the functionality of CMake&#39;s 
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual QbsConvenienceItems QmlModule Qbs 3.4.0 Plugin QtApplication Contents Properties Detailed Description What QmlModule Does Automatically Usage Dynamic Plugin — Linked Directly by the Application Dynamic Plugin — Loaded at Runtime via Import Path Static Plugin QmlModule QML extension module consisting of a plugin library and QML files. More...
 Since: Qbs 3.4 Inherits: CppLibrary
-List of all members, including inherited members QmlModule is part of List of All Items. Properties modulesInstallDir : string uri : string Detailed Description A QmlModule is a convenience item that mirrors the functionality of CMake&#39;s qt_add_qml_module() command. It combines a plugin library with automatic QML type registration, qmldir generation, and resource embedding, so that the module can be imported from QML using the module-based import syntax (rather than file or directory imports).">
+List of all members, including inherited members QmlModule is part of List of All Items. Properties modulesInstallDir : string uri : string Detailed Description A QmlModule is a convenience item that mirrors the functionality of CMake&#39;s qt_add_qml_module() command. It combines a plugin library with automatic QML type registration, qmldir generation, and resource embedding, so that the module can be imported from QML using the module-based import syntax (rather than file or directory imports).
+Note: This functionality requires Qt 6.2 or later.
+What QmlModule Does Automatically Runs qmltyperegistrar on C&#43;&#43; files decorated with QML_ELEMENT or similar macros and produces a plugins.qmltypes file. Generates a qmldir file listing all QML files and, if Qt.qml.loadedAtRuntime is true, a plugin line for dynamic loading. Embeds all QML files, JavaScript files, and the qmldir into the plugin&#39;s resources at :/qt/qml/&lt;URI&gt;/, enabling the prefer :/qt/qml/&lt;URI&gt;/ directive so the QML engine uses embedded resources rather than files on disk. Installs qmldir, plugins.qmltypes, as well as QML and JavaScript files to modulesInstallDir. When the plugin is loaded at runtime (Qt.qml.loadedAtRuntime is true), the library binary is installed there too. Usage Dynamic Plugin — Linked Directly by the Application The application lists the module as a dependency, which links the plugin at build time. The QML engine finds module types through the pre-registered module without loading a plugin file at runtime. Because Qt.qml.loadedAtRuntime defaults to true for dynamic libraries, set it to false to suppress the plugin line in the generated qmldir.
+// mymodule/mymodule.qbs QmlModule { name: &#34;mymoduleplugin&#34; uri: &#34;com.example.MyModule&#34; Qt.qml.loadedAtRuntime: false files: [&#34;MyItem.qml&#34;, &#34;mytype.h&#34;, &#34;mytype.cpp&#34;] } // app/app.qbs CppApplication { Depends { name: &#34;mymoduleplugin&#34; } // ... } Dynamic Plugin — Loaded at Runtime via Import Path In this mode the plugin .so is not linked by the application. Instead, the QML engine discovers and loads it at runtime through the QML import path. Qt.qml.loadedAtRuntime defaults to true for dynamic libraries, so no override is needed:
+QmlModule { name: &#34;mymoduleplugin&#34; uri: &#34;com.example.MyModule&#34; files: [...] } However, you need to point the QML engine to the install location via QML_IMPORT_PATH or QQmlEngine::addImportPath().
+Static Plugin For platforms that require static linking (iOS, tvOS, watchOS), the type is automatically set to staticlibrary. On other platforms, override type directly. Qt.qml.loadedAtRuntime defaults to false for static libraries, so no override is needed there either.
+QmlModule { name: &#34;mymoduleplugin&#34; uri: &#34;com.example.MyModule&#34; type: [&#34;staticlibrary&#34;] files: [...] } CppApplication { Depends { name: &#34;mymoduleplugin&#34; } // ... } Property Documentation modulesInstallDir : string The directory where qmldir, plugins.qmltypes, and QML files are installed. When Qt.qml.loadedAtRuntime is true, the plugin library is also installed here so the QML engine can find it.
+Default: Qt.qml.qmlPath &#43; &#34;/&#34; &#43; uri.replace(/\./g, &#34;/&#34;)
+uri : string The QML module URI, for example &#34;com.example.MyModule&#34;. This value is required.
+The URI is used as the Qt.qml.importName for type registration, written as the module line in the generated qmldir, and determines the resource path :/qt/qml/&lt;URI&gt;/ where QML files and the qmldir are embedded.
+Default: Undefined
+Plugin QtApplication">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -78,7 +154,18 @@ List of all members, including inherited members QmlModule is part of List of Al
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual QbsConvenienceItems QmlModule Qbs 3.4.0 Plugin QtApplication Contents Properties Detailed Description What QmlModule Does Automatically Usage Dynamic Plugin — Linked Directly by the Application Dynamic Plugin — Loaded at Runtime via Import Path Static Plugin QmlModule QML extension module consisting of a plugin library and QML files. More...
 Since: Qbs 3.4 Inherits: CppLibrary
-List of all members, including inherited members QmlModule is part of List of All Items. Properties modulesInstallDir : string uri : string Detailed Description A QmlModule is a convenience item that mirrors the functionality of CMake&#39;s qt_add_qml_module() command. It combines a plugin library with automatic QML type registration, qmldir generation, and resource embedding, so that the module can be imported from QML using the module-based import syntax (rather than file or directory imports).">
+List of all members, including inherited members QmlModule is part of List of All Items. Properties modulesInstallDir : string uri : string Detailed Description A QmlModule is a convenience item that mirrors the functionality of CMake&#39;s qt_add_qml_module() command. It combines a plugin library with automatic QML type registration, qmldir generation, and resource embedding, so that the module can be imported from QML using the module-based import syntax (rather than file or directory imports).
+Note: This functionality requires Qt 6.2 or later.
+What QmlModule Does Automatically Runs qmltyperegistrar on C&#43;&#43; files decorated with QML_ELEMENT or similar macros and produces a plugins.qmltypes file. Generates a qmldir file listing all QML files and, if Qt.qml.loadedAtRuntime is true, a plugin line for dynamic loading. Embeds all QML files, JavaScript files, and the qmldir into the plugin&#39;s resources at :/qt/qml/&lt;URI&gt;/, enabling the prefer :/qt/qml/&lt;URI&gt;/ directive so the QML engine uses embedded resources rather than files on disk. Installs qmldir, plugins.qmltypes, as well as QML and JavaScript files to modulesInstallDir. When the plugin is loaded at runtime (Qt.qml.loadedAtRuntime is true), the library binary is installed there too. Usage Dynamic Plugin — Linked Directly by the Application The application lists the module as a dependency, which links the plugin at build time. The QML engine finds module types through the pre-registered module without loading a plugin file at runtime. Because Qt.qml.loadedAtRuntime defaults to true for dynamic libraries, set it to false to suppress the plugin line in the generated qmldir.
+// mymodule/mymodule.qbs QmlModule { name: &#34;mymoduleplugin&#34; uri: &#34;com.example.MyModule&#34; Qt.qml.loadedAtRuntime: false files: [&#34;MyItem.qml&#34;, &#34;mytype.h&#34;, &#34;mytype.cpp&#34;] } // app/app.qbs CppApplication { Depends { name: &#34;mymoduleplugin&#34; } // ... } Dynamic Plugin — Loaded at Runtime via Import Path In this mode the plugin .so is not linked by the application. Instead, the QML engine discovers and loads it at runtime through the QML import path. Qt.qml.loadedAtRuntime defaults to true for dynamic libraries, so no override is needed:
+QmlModule { name: &#34;mymoduleplugin&#34; uri: &#34;com.example.MyModule&#34; files: [...] } However, you need to point the QML engine to the install location via QML_IMPORT_PATH or QQmlEngine::addImportPath().
+Static Plugin For platforms that require static linking (iOS, tvOS, watchOS), the type is automatically set to staticlibrary. On other platforms, override type directly. Qt.qml.loadedAtRuntime defaults to false for static libraries, so no override is needed there either.
+QmlModule { name: &#34;mymoduleplugin&#34; uri: &#34;com.example.MyModule&#34; type: [&#34;staticlibrary&#34;] files: [...] } CppApplication { Depends { name: &#34;mymoduleplugin&#34; } // ... } Property Documentation modulesInstallDir : string The directory where qmldir, plugins.qmltypes, and QML files are installed. When Qt.qml.loadedAtRuntime is true, the plugin library is also installed here so the QML engine can find it.
+Default: Qt.qml.qmlPath &#43; &#34;/&#34; &#43; uri.replace(/\./g, &#34;/&#34;)
+uri : string The QML module URI, for example &#34;com.example.MyModule&#34;. This value is required.
+The URI is used as the Qt.qml.importName for type registration, written as the module line in the generated qmldir, and determines the resource path :/qt/qml/&lt;URI&gt;/ where QML files and the qmldir are embedded.
+Default: Undefined
+Plugin QtApplication">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -186,7 +273,7 @@ List of all members, including inherited members QmlModule is part of List of Al
 <h4 id="dynamic-plugin-linked-directly-by-the-application-0fd5f99f">Dynamic Plugin — Linked Directly by the Application</h4>
 <p>The application lists the module as a dependency, which links the plugin at build time. The QML engine finds module types through the pre-registered module without loading a plugin file at runtime. Because <a href="https://qbs.io/
 /docs/qml-qbsmodules-qt-qml/#loadedAtRuntime-prop" translate="no">Qt.qml.loadedAtRuntime</a> defaults to <code translate="no">true</code> for dynamic libraries, set it to <code translate="no">false</code> to suppress the <code translate="no">plugin</code> line in the generated <code translate="no">qmldir</code>.</p>
-<pre class="cpp" translate="no"><span class="comment">// mymodule/mymodule.qbs</span>
+<pre class="cpp" translate="no"><code class="cpp"><span class="comment">// mymodule/mymodule.qbs</span>
 QmlModule {
     name: <span class="string">"mymoduleplugin"</span>
     uri: <span class="string">"com.example.MyModule"</span>
@@ -199,21 +286,21 @@ QmlModule {
 CppApplication {
     Depends { name: <span class="string">"mymoduleplugin"</span> }
     <span class="comment">// ...</span>
-}</pre>
+}</code></pre>
 <h4 id="dynamic-plugin-loaded-at-runtime-via-import-path-7aad8cc3">Dynamic Plugin — Loaded at Runtime via Import Path</h4>
 <p>In this mode the plugin <code translate="no">.so</code> is not linked by the application. Instead, the QML engine discovers and loads it at runtime through the QML import path. <a href="https://qbs.io/
 /docs/qml-qbsmodules-qt-qml/#loadedAtRuntime-prop" translate="no">Qt.qml.loadedAtRuntime</a> defaults to <code translate="no">true</code> for dynamic libraries, so no override is needed:</p>
-<pre class="cpp" translate="no">QmlModule {
+<pre class="cpp" translate="no"><code class="cpp">QmlModule {
     name: <span class="string">"mymoduleplugin"</span>
     uri: <span class="string">"com.example.MyModule"</span>
     files: <span class="operator">[</span><span class="operator">.</span><span class="operator">.</span><span class="operator">.</span><span class="operator">]</span>
-}</pre>
+}</code></pre>
 <p>However, you need to point the QML engine to the install location via <code translate="no">QML_IMPORT_PATH</code> or <code translate="no">QQmlEngine::addImportPath()</code>.</p>
 <h4 id="static-plugin">Static Plugin</h4>
 <p>For platforms that require static linking (iOS, tvOS, watchOS), the type is automatically set to <code translate="no">staticlibrary</code>. On other platforms, override <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#type-prop" translate="no">type</a> directly. <a href="https://qbs.io/
 /docs/qml-qbsmodules-qt-qml/#loadedAtRuntime-prop" translate="no">Qt.qml.loadedAtRuntime</a> defaults to <code translate="no">false</code> for static libraries, so no override is needed there either.</p>
-<pre class="cpp" translate="no">QmlModule {
+<pre class="cpp" translate="no"><code class="cpp">QmlModule {
     name: <span class="string">"mymoduleplugin"</span>
     uri: <span class="string">"com.example.MyModule"</span>
     type: <span class="operator">[</span><span class="string">"staticlibrary"</span><span class="operator">]</span>
@@ -223,7 +310,7 @@ CppApplication {
 CppApplication {
     Depends { name: <span class="string">"mymoduleplugin"</span> }
     <span class="comment">// ...</span>
-}</pre>
+}</code></pre>
 <!-- @@@QmlModule -->
 <h2>Property Documentation</h2>
 <!-- $$$modulesInstallDir -->

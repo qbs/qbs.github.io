@@ -43,7 +43,28 @@ pluginType : string
 
 
 Detailed Description
-This items contains properties that configure built-in items such as Application, Library, and Plugin. ">
+This items contains properties that configure built-in items such as Application, Library, and Plugin.
+
+Property Documentation
+
+libraryType : string
+Controls the default library kind produced by Library items.
+Allowed values are &#34;dynamic&#34; and &#34;static&#34;.
+Default: &#34;dynamic&#34;.
+On Apple iOS targets prior to iOS 8, dynamic libraries are not supported; in that case a static library will be produced regardless of this setting.
+
+
+pluginType : string
+Controls the default library kind produced by Plugin and l{LoadableModule} items.
+Allowed values are &#34;dynamic&#34; and &#34;static&#34;.
+Default: libraryType.
+On Apple iOS targets prior to iOS 8, dynamic libraries are not supported; in that case a static plugin will be produced regardless of this setting.
+
+
+AutotestRunner
+ConfigInstall
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsconvenienceitems-configbuild/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -53,14 +74,23 @@ This items contains properties that configure built-in items such as Application
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsconvenienceitems-configbuild/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual QbsConvenienceItems ConfigBuild Qbs 3.4.0 AutotestRunner ConfigInstall Contents Properties Detailed Description ConfigBuild This is the base item for the config.build module. More...
-Since: Qbs 3.1 List of all members, including inherited members ConfigBuild is part of List of All Items. Properties libraryType : string pluginType : string Detailed Description This items contains properties that configure built-in items such as Application, Library, and Plugin.">
+Since: Qbs 3.1 List of all members, including inherited members ConfigBuild is part of List of All Items. Properties libraryType : string pluginType : string Detailed Description This items contains properties that configure built-in items such as Application, Library, and Plugin.
+Property Documentation libraryType : string Controls the default library kind produced by Library items.
+Allowed values are &#34;dynamic&#34; and &#34;static&#34;.
+Default: &#34;dynamic&#34;.
+On Apple iOS targets prior to iOS 8, dynamic libraries are not supported; in that case a static library will be produced regardless of this setting.
+pluginType : string Controls the default library kind produced by Plugin and l{LoadableModule} items.
+Allowed values are &#34;dynamic&#34; and &#34;static&#34;.
+Default: libraryType.
+On Apple iOS targets prior to iOS 8, dynamic libraries are not supported; in that case a static plugin will be produced regardless of this setting.
+AutotestRunner ConfigInstall">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -69,7 +99,16 @@ Since: Qbs 3.1 List of all members, including inherited members ConfigBuild is p
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual QbsConvenienceItems ConfigBuild Qbs 3.4.0 AutotestRunner ConfigInstall Contents Properties Detailed Description ConfigBuild This is the base item for the config.build module. More...
-Since: Qbs 3.1 List of all members, including inherited members ConfigBuild is part of List of All Items. Properties libraryType : string pluginType : string Detailed Description This items contains properties that configure built-in items such as Application, Library, and Plugin.">
+Since: Qbs 3.1 List of all members, including inherited members ConfigBuild is part of List of All Items. Properties libraryType : string pluginType : string Detailed Description This items contains properties that configure built-in items such as Application, Library, and Plugin.
+Property Documentation libraryType : string Controls the default library kind produced by Library items.
+Allowed values are &#34;dynamic&#34; and &#34;static&#34;.
+Default: &#34;dynamic&#34;.
+On Apple iOS targets prior to iOS 8, dynamic libraries are not supported; in that case a static library will be produced regardless of this setting.
+pluginType : string Controls the default library kind produced by Plugin and l{LoadableModule} items.
+Allowed values are &#34;dynamic&#34; and &#34;static&#34;.
+Default: libraryType.
+On Apple iOS targets prior to iOS 8, dynamic libraries are not supported; in that case a static plugin will be produced regardless of this setting.
+AutotestRunner ConfigInstall">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">

@@ -27,7 +27,51 @@ Project {
        &#34;app/app.qbs&#34;
    ]
 }
-Here, we set the name of the project to &#34;My Project&#34; - it is mainly used for IDEs but can also be used to reference a project when setting properties from command-line. We also set the minimumQbsVersion - this property can be useful if the project depends on features that are not present in earlier Qbs versions. ">
+Here, we set the name of the project to &#34;My Project&#34; - it is mainly used for IDEs but can also be used to reference a project when setting properties from command-line. We also set the minimumQbsVersion - this property can be useful if the project depends on features that are not present in earlier Qbs versions.
+The references property contains the path to a file that describes our application. This file is located in a separate app directory - typically, projects tend to have quite a complicated structure but Qbs does not enforce any specific layout, so we will simply put each product in a separate directory.
+The application file sets several properties:
+CppApplication {
+    name: &#34;My Application&#34;
+    targetName: &#34;myapp&#34;
+    files: &#34;main.c&#34;
+    version: &#34;1.0.0&#34;
+
+    consoleApplication: true
+}
+The name property identifies the product. The targetName property sets the name of the resulting binary (without the .exe extension on Windows, which is appended automatically). By default, targetName defaults to name. The files property contains a single main.c file which is a trivial hello world application:
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    printf(&#34;Hello, world\n&#34;);
+    return 0;
+}
+We set consoleApplication to true to indicate that our application is going to be used from a terminal. For example, on Windows, this will spawn a new console window if you double-click the resulting binary, while on macOS it will create a standalone binary file instead of an application bundle.
+By default, Qbs installs binaries into an installation root folder which by default is named install-root and located under the build directory. This folder will contain only resulting artifacts without the build leftovers and files will have the same layout as in the target system. In order to skip installation of the specific Application product, set the CppApplication.install property to false. See the Installing Files section for more details.
+We can now build and run our application from the project directory:
+chapter-1 $ qbs build
+...
+Building for configuration default
+compiling main.c [My Application]
+...
+linking myapp [My Application]
+...
+Build done for configuration default.
+
+chapter-1 $ qbs run
+...
+Starting target. Full command line: .../default/install-root/usr/local/bin/myapp
+Hello, world
+The Qbs output to console and default installation location may vary between different platforms.
+In most cases, Qbs should be able to find the default compiler (for example, GCC or Clang on Linux, Visual Studio on Windows, or Xcode on macOS), but if that&#39;s not the case, see the configuring section.
+In the following chapters, we will continue to improve our project: we will add a library and make it configurable.
+
+
+
+Tutorial
+Static Library
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/tutorial-1/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -37,7 +81,7 @@ Here, we set the name of the project to &#34;My Project&#34; - it is mainly used
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/tutorial-1/">
@@ -45,7 +89,17 @@ Here, we set the name of the project to &#34;My Project&#34; - it is mainly used
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual Console Application Qbs 3.4.0 Tutorial Static Library Console Application Let&#39;s start with a mandatory Hello World example. There is a Hello World example in the overview section, but this time we will create a real-world project.
 We will start with a simple Qbs project file:
-Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references: [ &#34;app/app.qbs&#34; ] } Here, we set the name of the project to &#34;My Project&#34; - it is mainly used for IDEs but can also be used to reference a project when setting properties from command-line. We also set the minimumQbsVersion - this property can be useful if the project depends on features that are not present in earlier Qbs versions.">
+Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references: [ &#34;app/app.qbs&#34; ] } Here, we set the name of the project to &#34;My Project&#34; - it is mainly used for IDEs but can also be used to reference a project when setting properties from command-line. We also set the minimumQbsVersion - this property can be useful if the project depends on features that are not present in earlier Qbs versions.
+The references property contains the path to a file that describes our application. This file is located in a separate app directory - typically, projects tend to have quite a complicated structure but Qbs does not enforce any specific layout, so we will simply put each product in a separate directory.
+The application file sets several properties:
+CppApplication { name: &#34;My Application&#34; targetName: &#34;myapp&#34; files: &#34;main.c&#34; version: &#34;1.0.0&#34; consoleApplication: true } The name property identifies the product. The targetName property sets the name of the resulting binary (without the .exe extension on Windows, which is appended automatically). By default, targetName defaults to name. The files property contains a single main.c file which is a trivial hello world application:
+#include &lt;stdio.h&gt; int main() { printf(&#34;Hello, world\n&#34;); return 0; } We set consoleApplication to true to indicate that our application is going to be used from a terminal. For example, on Windows, this will spawn a new console window if you double-click the resulting binary, while on macOS it will create a standalone binary file instead of an application bundle.
+By default, Qbs installs binaries into an installation root folder which by default is named install-root and located under the build directory. This folder will contain only resulting artifacts without the build leftovers and files will have the same layout as in the target system. In order to skip installation of the specific Application product, set the CppApplication.install property to false. See the Installing Files section for more details.
+We can now build and run our application from the project directory:
+chapter-1 $ qbs build ... Building for configuration default compiling main.c [My Application] ... linking myapp [My Application] ... Build done for configuration default. chapter-1 $ qbs run ... Starting target. Full command line: .../default/install-root/usr/local/bin/myapp Hello, world The Qbs output to console and default installation location may vary between different platforms.
+In most cases, Qbs should be able to find the default compiler (for example, GCC or Clang on Linux, Visual Studio on Windows, or Xcode on macOS), but if that&#39;s not the case, see the configuring section.
+In the following chapters, we will continue to improve our project: we will add a library and make it configurable.
+Tutorial Static Library">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -55,7 +109,17 @@ Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual Console Application Qbs 3.4.0 Tutorial Static Library Console Application Let&#39;s start with a mandatory Hello World example. There is a Hello World example in the overview section, but this time we will create a real-world project.
 We will start with a simple Qbs project file:
-Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references: [ &#34;app/app.qbs&#34; ] } Here, we set the name of the project to &#34;My Project&#34; - it is mainly used for IDEs but can also be used to reference a project when setting properties from command-line. We also set the minimumQbsVersion - this property can be useful if the project depends on features that are not present in earlier Qbs versions.">
+Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references: [ &#34;app/app.qbs&#34; ] } Here, we set the name of the project to &#34;My Project&#34; - it is mainly used for IDEs but can also be used to reference a project when setting properties from command-line. We also set the minimumQbsVersion - this property can be useful if the project depends on features that are not present in earlier Qbs versions.
+The references property contains the path to a file that describes our application. This file is located in a separate app directory - typically, projects tend to have quite a complicated structure but Qbs does not enforce any specific layout, so we will simply put each product in a separate directory.
+The application file sets several properties:
+CppApplication { name: &#34;My Application&#34; targetName: &#34;myapp&#34; files: &#34;main.c&#34; version: &#34;1.0.0&#34; consoleApplication: true } The name property identifies the product. The targetName property sets the name of the resulting binary (without the .exe extension on Windows, which is appended automatically). By default, targetName defaults to name. The files property contains a single main.c file which is a trivial hello world application:
+#include &lt;stdio.h&gt; int main() { printf(&#34;Hello, world\n&#34;); return 0; } We set consoleApplication to true to indicate that our application is going to be used from a terminal. For example, on Windows, this will spawn a new console window if you double-click the resulting binary, while on macOS it will create a standalone binary file instead of an application bundle.
+By default, Qbs installs binaries into an installation root folder which by default is named install-root and located under the build directory. This folder will contain only resulting artifacts without the build leftovers and files will have the same layout as in the target system. In order to skip installation of the specific Application product, set the CppApplication.install property to false. See the Installing Files section for more details.
+We can now build and run our application from the project directory:
+chapter-1 $ qbs build ... Building for configuration default compiling main.c [My Application] ... linking myapp [My Application] ... Build done for configuration default. chapter-1 $ qbs run ... Starting target. Full command line: .../default/install-root/usr/local/bin/myapp Hello, world The Qbs output to console and default installation location may vary between different platforms.
+In most cases, Qbs should be able to find the default compiler (for example, GCC or Clang on Linux, Visual Studio on Windows, or Xcode on macOS), but if that&#39;s not the case, see the configuring section.
+In the following chapters, we will continue to improve our project: we will add a library and make it configurable.
+Tutorial Static Library">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -110,47 +174,47 @@ Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references
 <p>Let's start with a mandatory Hello World example. There is a Hello World example in the <a href="https://qbs.io/
 /docs/overview/#well-defined-language">overview section</a>, but this time we will create a real-world project.</p>
 <p>We will start with a simple Qbs project file:</p>
-<pre class="cpp" translate="no">Project {
+<pre class="cpp" translate="no"><code class="cpp">Project {
    name: "My Project"
    minimumQbsVersion: "2.0"
    references: [
        "app/app.qbs"
    ]
-}</pre>
+}</code></pre>
 <p>Here, we set the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-project/#name-prop" translate="no">name</a> of the project to <code translate="no">"My</code> Project" - it is mainly used for IDEs but can also be used to reference a project when setting properties from command-line. We also set the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-project/#minimumQbsVersion-prop" translate="no">minimumQbsVersion</a> - this property can be useful if the project depends on features that are not present in earlier Qbs versions.</p>
 <p>The <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-project/#references-prop" translate="no">references</a> property contains the path to a file that describes our application. This file is located in a separate <code translate="no">app</code> directory - typically, projects tend to have quite a complicated structure but Qbs does not enforce any specific layout, so we will simply put each product in a separate directory.</p>
 <p>The application file sets several properties:</p>
-<pre class="cpp" translate="no">CppApplication {
+<pre class="cpp" translate="no"><code class="cpp">CppApplication {
     name: "My Application"
     targetName: "myapp"
     files: "main.c"
     version: "1.0.0"
 
     consoleApplication: true
-}</pre>
+}</code></pre>
 <p>The <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#name-prop" translate="no">name</a> property identifies the product. The <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#targetName-prop" translate="no">targetName</a> property sets the name of the resulting binary (without the <code translate="no">.exe</code> extension on Windows, which is appended automatically). By default, <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#targetName-prop" translate="no">targetName</a> defaults to <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#name-prop" translate="no">name</a>. The <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#files-prop" translate="no">files</a> property contains a single <code translate="no">main.c</code> file which is a trivial <i>hello world</i> application:</p>
-<pre class="cpp" translate="no"><span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<pre class="cpp" translate="no"><code class="cpp"><span class="preprocessor">#include &lt;stdio.h&gt;</span>
 
 <span class="type">int</span> main()
 {
     printf(<span class="string">"Hello, world\n"</span>);
     <span class="keyword">return</span> <span class="number">0</span>;
-}</pre>
+}</code></pre>
 <p>We set <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#consoleApplication-prop" translate="no">consoleApplication</a> to <code translate="no">true</code> to indicate that our application is going to be used from a terminal. For example, on Windows, this will spawn a new console window if you double-click the resulting binary, while on macOS it will create a standalone binary file instead of an <a href="https://developer.apple.com/library/archive/documentation/CoreFoundation/Conceptual/CFBundles/BundleTypes/BundleTypes.html">application bundle</a>.</p>
 <p>By default, Qbs installs binaries into an <i>installation root</i> folder which by default is named <code translate="no">install-root</code> and located under the build directory. This folder will contain only resulting artifacts without the build leftovers and files will have the same layout as in the target system. In order to skip installation of the specific Application product, set the <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-application/#install-prop" translate="no">CppApplication.install</a> property to <code translate="no">false</code>. See the <a href="https://qbs.io/
 /docs/installing-files/">Installing Files</a> section for more details.</p>
 <p>We can now build and run our application from the project directory:</p>
-<pre class="cpp" translate="no">chapter<span class="operator">-</span><span class="number">1</span> $ qbs build
+<pre class="cpp" translate="no"><code class="cpp">chapter<span class="operator">-</span><span class="number">1</span> $ qbs build
 <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
 Building <span class="keyword">for</span> configuration <span class="keyword">default</span>
 compiling main<span class="operator">.</span>c <span class="operator">[</span>My Application<span class="operator">]</span>
@@ -162,7 +226,7 @@ Build done <span class="keyword">for</span> configuration <span class="keyword">
 chapter<span class="operator">-</span><span class="number">1</span> $ qbs run
 <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
 Starting target<span class="operator">.</span> Full command line: <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span><span class="operator">/</span><span class="keyword">default</span><span class="operator">/</span>install<span class="operator">-</span>root<span class="operator">/</span>usr<span class="operator">/</span>local<span class="operator">/</span>bin<span class="operator">/</span>myapp
-Hello<span class="operator">,</span> world</pre>
+Hello<span class="operator">,</span> world</code></pre>
 <p>The Qbs output to console and default installation location may vary between different platforms.</p>
 <p>In most cases, Qbs should be able to find the default compiler (for example, GCC or Clang on Linux, Visual Studio on Windows, or Xcode on macOS), but if that's not the case, see the <a href="https://qbs.io/
 /docs/configuring/">configuring</a> section.</p>

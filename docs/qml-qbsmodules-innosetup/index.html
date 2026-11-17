@@ -47,7 +47,88 @@ versionPatch : int
 
 
 Detailed Description
-The innosetup module contains properties and rules for building EXE setup packages with Inno Setup. Inno Setup 5 and above are supported. ">
+The innosetup module contains properties and rules for building EXE setup packages with Inno Setup. Inno Setup 5 and above are supported.
+
+Note: A typical Inno Setup Script includes an OutputBaseFilename command to set the filename of the generated installer executable. However, Qbs overrides any OutputBaseFilename commands found in the script by passing the /F option to the ISCC compiler, and therefore, you must use the Product.targetName property to set the filename. Qbs also overrides any Output commands by passing the /O option to the ISCC compiler.
+
+Relevant File Tags
+
+TagAuto-tagged File NamesSinceDescription
+&#34;innosetup.iss&#34;&#34;*.iss&#34;1.7Source files with this tag identify Inno Setup Script files, which serve as inputs to a rule invoking the Inno Setup Script Compiler.
+&#34;innosetup.exe&#34;n/a1.7The rule that creates Inno Setup executable files attaches this tag (as well as the &#34;application&#34; tag) to its output artifact.
+
+
+Property Documentation
+
+compilerFlags : stringList
+A list of additional flags for the Inno Setup compiler.
+Default: Undefined
+
+
+compilerName : string
+The name of the compiler binary.
+This property should not normally need to be changed.
+Default: &#34;ISCC.exe&#34;
+
+
+compilerPath : string
+The full path of the compiler binary.
+This property should not normally need to be changed.
+Default: compilerName
+
+
+defines : stringList
+A list of preprocessor macros that get passed to the compiler.
+To set macro values, use the following syntax:
+innosetup.defines: [&#34;USE_COLORS=1&#34;, &#39;COLOR_STR=&#34;blanched almond&#34;&#39;]
+Default: Undefined
+
+
+includePaths : pathList
+A list of include paths.
+Relative paths are considered to be relative to the .qbs product file they are used in.
+Default: Undefined
+
+
+toolchainInstallPath : path
+The Inno Setup installation directory.
+Determined by searching the registry for the latest version.
+This property should not normally need to be changed.
+Default: Determined automatically.
+
+
+verboseOutput : bool
+Whether to display verbose output from the Inno Setup compiler.
+Default: false
+
+
+version : string
+The Inno Setup version.
+Consists of three numbers separated by dots, for instance &#34;5.5.9&#34;.
+Default: Undefined
+
+
+versionMajor : int
+The Inno Setup major version.
+Default: versionParts[0]
+
+
+versionMinor : int
+The Inno Setup minor version.
+Default: versionParts[1]
+
+
+versionParts : list
+The Inno Setup version as a list.
+For instance, Inno Setup version 5.5.9 would correspond to a value of [5, 5, 9].
+Default: []
+
+
+versionPatch : int
+The Inno Setup patch level.
+Default: versionParts[2]
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-innosetup/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -57,14 +138,47 @@ The innosetup module contains properties and rules for building EXE setup packag
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-innosetup/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual QbsModules innosetup Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags innosetup Provides Inno Setup support. More...
-Since: Qbs 1.7 List of all members, including inherited members Properties compilerFlags : stringList compilerName : string compilerPath : string defines : stringList includePaths : pathList toolchainInstallPath : path verboseOutput : bool version : string versionMajor : int versionMinor : int versionParts : list versionPatch : int Detailed Description The innosetup module contains properties and rules for building EXE setup packages with Inno Setup. Inno Setup 5 and above are supported.">
+Since: Qbs 1.7 List of all members, including inherited members Properties compilerFlags : stringList compilerName : string compilerPath : string defines : stringList includePaths : pathList toolchainInstallPath : path verboseOutput : bool version : string versionMajor : int versionMinor : int versionParts : list versionPatch : int Detailed Description The innosetup module contains properties and rules for building EXE setup packages with Inno Setup. Inno Setup 5 and above are supported.
+Note: A typical Inno Setup Script includes an OutputBaseFilename command to set the filename of the generated installer executable. However, Qbs overrides any OutputBaseFilename commands found in the script by passing the /F option to the ISCC compiler, and therefore, you must use the Product.targetName property to set the filename. Qbs also overrides any Output commands by passing the /O option to the ISCC compiler.
+Relevant File Tags Tag Auto-tagged File Names Since Description &#34;innosetup.iss&#34; &#34;*.iss&#34; 1.7 Source files with this tag identify Inno Setup Script files, which serve as inputs to a rule invoking the Inno Setup Script Compiler. &#34;innosetup.exe&#34; n/a 1.7 The rule that creates Inno Setup executable files attaches this tag (as well as the &#34;application&#34; tag) to its output artifact. Property Documentation compilerFlags : stringList A list of additional flags for the Inno Setup compiler.
+Default: Undefined
+compilerName : string The name of the compiler binary.
+This property should not normally need to be changed.
+Default: &#34;ISCC.exe&#34;
+compilerPath : string The full path of the compiler binary.
+This property should not normally need to be changed.
+Default: compilerName
+defines : stringList A list of preprocessor macros that get passed to the compiler.
+To set macro values, use the following syntax:
+innosetup.defines: [&#34;USE_COLORS=1&#34;, &#39;COLOR_STR=&#34;blanched almond&#34;&#39;] Default: Undefined
+includePaths : pathList A list of include paths.
+Relative paths are considered to be relative to the .qbs product file they are used in.
+Default: Undefined
+toolchainInstallPath : path The Inno Setup installation directory.
+Determined by searching the registry for the latest version.
+This property should not normally need to be changed.
+Default: Determined automatically.
+verboseOutput : bool Whether to display verbose output from the Inno Setup compiler.
+Default: false
+version : string The Inno Setup version.
+Consists of three numbers separated by dots, for instance &#34;5.5.9&#34;.
+Default: Undefined
+versionMajor : int The Inno Setup major version.
+Default: versionParts[0]
+versionMinor : int The Inno Setup minor version.
+Default: versionParts[1]
+versionParts : list The Inno Setup version as a list.
+For instance, Inno Setup version 5.5.9 would correspond to a value of [5, 5, 9].
+Default: []
+versionPatch : int The Inno Setup patch level.
+Default: versionParts[2]">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -73,7 +187,40 @@ Since: Qbs 1.7 List of all members, including inherited members Properties compi
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual QbsModules innosetup Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags innosetup Provides Inno Setup support. More...
-Since: Qbs 1.7 List of all members, including inherited members Properties compilerFlags : stringList compilerName : string compilerPath : string defines : stringList includePaths : pathList toolchainInstallPath : path verboseOutput : bool version : string versionMajor : int versionMinor : int versionParts : list versionPatch : int Detailed Description The innosetup module contains properties and rules for building EXE setup packages with Inno Setup. Inno Setup 5 and above are supported.">
+Since: Qbs 1.7 List of all members, including inherited members Properties compilerFlags : stringList compilerName : string compilerPath : string defines : stringList includePaths : pathList toolchainInstallPath : path verboseOutput : bool version : string versionMajor : int versionMinor : int versionParts : list versionPatch : int Detailed Description The innosetup module contains properties and rules for building EXE setup packages with Inno Setup. Inno Setup 5 and above are supported.
+Note: A typical Inno Setup Script includes an OutputBaseFilename command to set the filename of the generated installer executable. However, Qbs overrides any OutputBaseFilename commands found in the script by passing the /F option to the ISCC compiler, and therefore, you must use the Product.targetName property to set the filename. Qbs also overrides any Output commands by passing the /O option to the ISCC compiler.
+Relevant File Tags Tag Auto-tagged File Names Since Description &#34;innosetup.iss&#34; &#34;*.iss&#34; 1.7 Source files with this tag identify Inno Setup Script files, which serve as inputs to a rule invoking the Inno Setup Script Compiler. &#34;innosetup.exe&#34; n/a 1.7 The rule that creates Inno Setup executable files attaches this tag (as well as the &#34;application&#34; tag) to its output artifact. Property Documentation compilerFlags : stringList A list of additional flags for the Inno Setup compiler.
+Default: Undefined
+compilerName : string The name of the compiler binary.
+This property should not normally need to be changed.
+Default: &#34;ISCC.exe&#34;
+compilerPath : string The full path of the compiler binary.
+This property should not normally need to be changed.
+Default: compilerName
+defines : stringList A list of preprocessor macros that get passed to the compiler.
+To set macro values, use the following syntax:
+innosetup.defines: [&#34;USE_COLORS=1&#34;, &#39;COLOR_STR=&#34;blanched almond&#34;&#39;] Default: Undefined
+includePaths : pathList A list of include paths.
+Relative paths are considered to be relative to the .qbs product file they are used in.
+Default: Undefined
+toolchainInstallPath : path The Inno Setup installation directory.
+Determined by searching the registry for the latest version.
+This property should not normally need to be changed.
+Default: Determined automatically.
+verboseOutput : bool Whether to display verbose output from the Inno Setup compiler.
+Default: false
+version : string The Inno Setup version.
+Consists of three numbers separated by dots, for instance &#34;5.5.9&#34;.
+Default: Undefined
+versionMajor : int The Inno Setup major version.
+Default: versionParts[0]
+versionMinor : int The Inno Setup minor version.
+Default: versionParts[1]
+versionParts : list The Inno Setup version as a list.
+For instance, Inno Setup version 5.5.9 would correspond to a value of [5, 5, 9].
+Default: []
+versionPatch : int The Inno Setup patch level.
+Default: versionParts[2]">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -199,7 +346,7 @@ Since: Qbs 1.7 List of all members, including inherited members Properties compi
 <h3 class="fn qml-member qml-property" id="defines-prop" translate="no"><span class="name">defines</span> : <span class="type">stringList</span></h3>
 <p>A list of preprocessor macros that get passed to the compiler.</p>
 <p>To set macro values, use the following syntax:</p>
-<pre class="cpp plain" translate="no">innosetup.defines: ["USE_COLORS=1", 'COLOR_STR="blanched almond"']</pre>
+<pre class="cpp plain" translate="no"><code class="text">innosetup.defines: ["USE_COLORS=1", 'COLOR_STR="blanched almond"']</code></pre>
 <p>Default: Undefined</p>
 <!-- @@@defines -->
 <!-- $$$includePaths -->

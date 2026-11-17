@@ -60,7 +60,364 @@ versionPatch : int (since Qbs 1.4.1)
 
 
 Detailed Description
-The qbs module is implicitly loaded in every product. It contains properties of the current build environment, independent of the used programming languages and toolchains. ">
+The qbs module is implicitly loaded in every product. It contains properties of the current build environment, independent of the used programming languages and toolchains.
+Installation Properties
+Typically, you use Group items to specify the target directories for installing files. To install a group of files, set the qbs.install property of the Group to true. The value of qbs.installDir specifies the path to the directory where the files will be installed. You can specify a base directory for all installation directories as the value of qbs.installPrefix.
+For example, the following properties specify where a set of QML files and an application executable are installed on Windows and Linux:
+Application {
+    name: &#34;myapp&#34;
+    Group {
+        name: &#34;Runtime resources&#34;
+        files: &#34;*.qml&#34;
+        qbs.install: true
+        qbs.installDir: condition: qbs.targetOS.includes(&#34;unix&#34;)
+            ? &#34;share/myapp&#34; : &#34;resources&#34;
+    }
+    Group {
+        name: &#34;The App itself&#34;
+        fileTagsFilter: &#34;application&#34;
+        qbs.install: true
+        qbs.installDir: &#34;bin&#34;
+    }
+    qbs.installPrefix: condition: qbs.targetOS.includes(&#34;unix&#34;)
+        ? &#34;usr/local&#34; : &#34;MyApp&#34;
+}
+On Windows, the QML files will ultimately get installed in MyApp\resources and the application executable in MyApp\bin, for instance under C:\Program Files. On Linux, the QML files will be installed in /usr/local/share/myapp and the executable in /usr/local/bin.
+By default, qbs.installRoot creates the install-root directory in the build directory for packaging the binaries before installation. It is a temporary directory that is usually not available when the application is run, and it should therefore not be set in the project files. You can override the default value from the command line, as described in Installing Files.
+Multiplexing Properties
+The following properties are specific to product multiplexing:
+
+architectures
+buildVariants
+profiles
+
+
+Property Documentation
+
+architecture : string
+The target platform&#39;s processor architecture.
+undefined indicates that the target platform is architecture-independent (for example the CLR or JVM).
+This property is typically set in a profile.
+Commonly used values are: &#34;x86&#34;, &#34;x86_64&#34;, and &#34;arm&#34;.
+Supported Processor Architectures
+This table describes the possible values of the architecture property:
+
+ArchitectureDescription
+&#34;78k&#34;16- and 8-bit accumulator-based register-bank CISC architecture microcontroller family manufactured by Renesas Electronics
+&#34;alpha&#34;64-bit ISA architecture of the Alpha family processors developed by DEC
+&#34;arm&#34;32-bit RISC architecture for computer processors developed by Acorn RISC Machine
+Note: There are a lot of sub-variants of the ARM architecture. Some specialized Qbs modules differentiate between them, making use of values such as &#34;armv7a&#34;. Please consult the respective module-specific documentation for information on what kind of value to use.
+
+
+&#34;arm64&#34;64-bit RISC architecture for computer processors developed by Acorn RISC Machine
+&#34;avr&#34;8-bit modified Harvard RISC architecture microcontroller family manufactured by Microchip Technology
+&#34;avr32&#34;32-bit RISC architecture microcontroller family developed by Atmel
+&#34;c166&#34;16-bit architecture microcontroller family developed by Infineon
+&#34;cr16&#34;16-bit compact RISC architecture microcontroller family developed by National Semiconductor
+&#34;e2k&#34;512-bit Russian wide VLIW microprocessor developed by Moscow Center of SPARC Technologies (MCST) and fabricated by TSMC
+&#34;hcs8&#34;8-bit HC08 and S08 microcontroller family from Freescale Semiconductor
+&#34;hcs12&#34;16-bit HC12 and S12 microcontroller family from Freescale Semiconductor
+&#34;hppa&#34;64-bit PA-RISC processor architecture developed by Hewlett-Packard
+&#34;ia64&#34;64-bit ISA architecture of the Itanium family processors developed by Intel
+&#34;m16c&#34;16-bit CISC microcontrollers featuring high ROM code efficiency manufactured by Renesas Electronics
+&#34;m32c&#34;32- and 16-bit CISC microcontrollers featuring high ROM code efficiency manufactured by Renesas Electronics
+&#34;m32r&#34;32-bit RISC microcontrollers for general industrial and car-mounted systems, digital AV equipment, digital imaging equipment manufactured by Renesas Electronics
+&#34;m68k&#34;16- and 32-bit CISC microprocessor, developed by Motorola Semiconductor Products Sector, and further improved as ColdFire architecture developed by NXP
+&#34;mcs251&#34;8-, 16-, and 32-bit microcontroller family which is a next binary compatible generation for the &#34;mcs51&#34; family
+&#34;mcs51&#34;8-bit Harvard architecture microcontroller family developed by Intel
+&#34;mips&#34;32-bit RISC microprocessor without interlocked pipelined stages architecture developed by MIPS Computer Systems
+&#34;mips64&#34;64-bit RISC microprocessor without interlocked pipelined stages architecture developed by MIPS Computer Systems
+&#34;msp430&#34;16-bit mixed-signal microcontroller family manufactured by Texas Instruments
+&#34;ppc&#34;32-bit RISC architecture processor family developed by Apple–IBM–Motorola alliance
+&#34;ppc64&#34;64-bit RISC architecture processor family developed by Apple–IBM–Motorola alliance
+&#34;r32c&#34;32-bit CISC microcontrollers with improved code efficiency and processing performance manufactured by Renesas Electronics
+&#34;rh850&#34;32-bit automotive microcontroller family manufactured by Renesas Electronics
+&#34;riscv&#34;Open and free standard instruction set architecture based on established RISC principles
+&#34;rl78&#34;16- and 8-bit accumulator-based register-bank CISC architecture with 3-stage instruction pipelining microcontroller family manufactured by Renesas Electronics
+&#34;rx&#34;High performance 32-bit CISC microcontroller family manufactured by Renesas Electronics
+&#34;s390x&#34;64- and 32-bit System/390 processor architecture developed by IBM
+&#34;sh&#34;32-bit RISC architecture processor family developed by Hitachi and currently manufactured by Renesas Electronics
+&#34;sparc&#34;32-bit RISC architecture processor family developed by Sun Microsystems and Fujitsu
+&#34;sparc64&#34;64-bit RISC architecture processor family developed by Sun Microsystems and Fujitsu
+&#34;stm8&#34;8-bit microcontroller family manufactured by STMicroelectronics
+&#34;v850&#34;32-bit RISC microcontroller family manufactured by Renesas Electronics
+&#34;x86&#34;32-bit ISA architecture processor family developed by Intel
+&#34;x86_16&#34;16-bit ISA architecture processor family developed by Intel
+&#34;x86_64&#34;64-bit ISA architecture processor family developed by AMD
+&#34;xtensa&#34;32-bit architecture with a compact 16- and 24-bit instruction set developed by Tensilica
+
+Default: Undefined
+
+
+architectures : stringList [since Qbs 1.9]
+The architectures the product will be built for.
+Default: Undefined
+This property was introduced in Qbs 1.9.
+
+
+buildVariant : string
+The name of the build variant for the current build.
+Possible values are &#34;debug&#34;, &#34;release&#34; and &#34;profiling&#34;. A debug build usually contains additional debug symbols that are needed for debugging the application and has optimizations turned off. A profiling build usually contains debug symbols and has optimizations turned on. This is useful for profiling tools or when you need to retain debug symbols in a release build. A release build is a build without debug information and with optimizations enabled.
+Default: &#34;release&#34; if qbs.configurationName is &#34;release&#34;, &#34;profiling&#34; if qbs.configurationName is &#34;profiling&#34;. Otherwise &#34;debug&#34;
+
+
+buildVariants : stringList [since Qbs 1.9]
+The build variants the product will be built for.
+Default: Undefined
+This property was introduced in Qbs 1.9.
+
+
+configurationName : string [read-only, since Qbs 1.6]
+The name of the current build configuration.
+The build configuration is set via the command line parameter config. For more information, see build.
+Default: &#34;default&#34;
+This property was introduced in Qbs 1.6.
+
+
+debugInformation : bool
+Whether to generate debug information.
+Default: true if qbs.buildVariant is &#34;debug&#34; or &#34;profiling&#34;. Otherwise false.
+
+
+enableDebugCode : bool
+Whether to enable debug functionality in the product. Not to be confused with generation of debug symbols or the code optimization level.
+The property changes the following things when enabled:
+
+Passes a flag to the Windows linker to link against a debug Windows CRT (common runtime) library (for example /MTd instead of /MT)
+
+The property changes the following things when disabled:
+
+Passes the NDEBUG define to the compiler
+
+Typically, this property is enabled for debug builds and disabled for release or profiling builds.
+Default: true for debug builds, false otherwise.
+
+
+install : bool
+Whether to install a certain set of files.
+This property is typically set in a Group item to mark a number of files as installable.
+
+Note: Artifacts for which this property is enabled automatically receive the file tag &#34;installable&#34;. This is useful for writing packaging-related rules.
+
+Default: false
+
+
+installDir : string
+The installation directory for the files of a product or a Group.
+The value of this property is a path that is relative to installPrefix.
+Default: Undefined
+
+
+installPrefix : string [since Qbs 1.1]
+The global installation prefix. It is implicitly prepended to all values of installDir.
+The value of this property itself is relative to the installRoot in the context of installation.
+Default: &#34;/usr/local&#34; on Unix, &#34;&#34; otherwise
+This property was introduced in Qbs 1.1.
+
+
+installRoot : string [since Qbs 1.4]
+The global installation root. It is implicitly prepended to all values of installPrefix in the context of installation.
+
+Note: This property is fundamentally different from installDir and installPrefix in that it must not be visible to the code being built. In fact, the install root is often just a temporary location used to package the binaries, which should therefore not assume they will be in that location at run-time. For the same reason, this property is usually not set from within project files.
+
+Default: &lt;build dir&gt;/install-root
+This property was introduced in Qbs 1.4.
+
+
+installSourceBase : string [since Qbs 1.4]
+The base directory of the local files that are going to be installed. The source base directory is omitted from the target directory path specified in installDir.
+Default: The directory of the current file to be installed, relative to the product&#39;s source directory.
+This property was introduced in Qbs 1.4.
+
+
+optimization : string
+The general type of optimization that should be performed by all toolchains.
+Allowed values are:
+
+&#34;fast&#34;
+&#34;none&#34;
+&#34;small&#34;
+
+Default: &#34;none&#34; if qbs.buildVariant is &#34;debug&#34;. Otherwise &#34;fast&#34;.
+
+
+profiles : stringList [since Qbs 1.9]
+The profiles for which the product should be built.
+For each profile listed here, one instance of the product will be built according to the properties set in the respective profile.
+Default: [project.profile]
+This property was introduced in Qbs 1.9.
+
+
+shellPath : path [since Qbs 1.5]
+The platform-specific file path corresponding to the command line interpreter.
+On Windows, this is the path to cmd.exe, which is held in the COMSPEC environment variable (typically, C:/Windows/System32/cmd.exe), On Unix-like platforms, this is /bin/sh.
+Default: &#34;%COMSPEC%&#34; on Windows, &#34;/bin/sh&#34; on Unix
+This property was introduced in Qbs 1.5.
+
+
+sysroot : string
+The sysroot of the target platform.
+This property is typically set in a profile for cross-compiling.
+Default: Undefined
+
+
+targetOS : stringList [read-only]
+Contains the list of string values describing the OS and OS family that is used to build a project.
+This property is calculated based on the targetPlatform property and is typically used to test for a particular OS or OS family in conditionals:
+Group {
+    // Includes all Unix-like platforms, such as: Linux, BSD, Apple platforms and others.
+    condition: qbs.targetOS.includes(&#34;unix&#34;)
+    files: ...
+}
+Group {
+    // Includes all Apple platforms, such as macOS, iOS, and iOS Simulator.
+    condition: qbs.targetOS.includes(&#34;darwin&#34;)
+    files: ...
+}
+Group {
+    // Includes only macOS
+    condition: qbs.targetOS.includes(&#34;macos&#34;)
+    files: ...
+}
+Avoid using targetPlatform for this purpose. For example, instead of:
+qbs.targetPlatform === &#34;macos&#34; || qbs.targetPlatform === &#34;ios&#34; || qbs.targetPlatform === &#34;tvos&#34; || qbs.targetPlatform === &#34;watchos&#34;
+use
+qbs.targetOS.includes(&#34;darwin&#34;)
+However, in some cases using targetPlatform would be acceptable, such as when the resulting condition would be simpler while still being correct:
+qbs.targetPlatform === &#34;linux&#34;
+versus
+qbs.targetOS.includes(&#34;linux&#34;) &amp;&amp; !qbs.targetOS.includes(&#34;android&#34;)
+For the complete list of possible values, see Relation between targetPlatform and targetOS.
+Default: Undefined
+
+
+targetPlatform : string [since 1.11]
+The OS you want to build the project for.
+This property is typically set in a profile or for a particular product where the target OS is always known (such as an Apple Watch app written in native code).
+For example, a profile used for building for the iOS Simulator platform will have this property set to the ios-simulator value:
+profiles.xcode-iphonesimulator.qbs.targetPlatform: &#34;ios-simulator&#34;
+You should generally treat this property as write-only and avoid using it to test for the current target OS. Instead, use the targetOS property for conditionals.
+Relation between targetPlatform and targetOS
+This table describes the possible values and matching between the targetPlatform and the targetOS properties:
+
+Target PlatformTarget OS
+&#34;aix&#34;[&#34;aix&#34;, &#34;unix&#34;]
+&#34;android&#34;[&#34;android&#34;, &#34;linux&#34;, &#34;unix&#34;]
+&#34;dos&#34;[&#34;dos&#34;]
+&#34;freebsd&#34;[&#34;freebsd&#34;, &#34;bsd&#34;, &#34;unix&#34;]
+&#34;haiku&#34;[&#34;haiku&#34;]
+&#34;hpux&#34;[&#34;hpux&#34;, &#34;unix&#34;]
+&#34;hurd&#34;[&#34;hurd&#34;, &#34;unix&#34;]
+&#34;integrity&#34;[&#34;integrity&#34;, &#34;unix&#34;]
+&#34;ios&#34;[&#34;ios&#34;, &#34;darwin&#34;, &#34;bsd&#34;, &#34;unix&#34;]
+&#34;ios-simulator&#34;[&#34;ios-simulator&#34;, &#34;ios&#34;, &#34;darwin&#34;, &#34;bsd&#34;, &#34;unix&#34;]
+&#34;linux&#34;[&#34;linux&#34;, &#34;unix&#34;]
+&#34;lynx&#34;[&#34;lynx&#34;]
+&#34;macos&#34;[&#34;macos&#34;, &#34;darwin&#34;, &#34;bsd&#34;, &#34;unix&#34;]
+&#34;netbsd&#34;[&#34;netbsd&#34;, &#34;bsd&#34;, &#34;unix&#34;]
+&#34;openbsd&#34;[&#34;openbsd&#34;, &#34;bsd&#34;, &#34;unix&#34;]
+&#34;os2&#34;[&#34;os2&#34;]
+&#34;qnx&#34;[&#34;qnx&#34;, &#34;unix&#34;]
+&#34;solaris&#34;[&#34;solaris&#34;, &#34;unix&#34;]
+&#34;tvos&#34;[&#34;tvos&#34;, &#34;darwin&#34;, &#34;bsd&#34;, &#34;unix&#34;]
+&#34;tvos-simulator&#34;[&#34;tvos-simulator&#34;, &#34;tvos&#34;, &#34;darwin&#34;, &#34;bsd&#34;, &#34;unix&#34;]
+&#34;unix&#34;[&#34;unix&#34;]
+&#34;vxworks&#34;[&#34;vxworks&#34;]
+&#34;watchos&#34;[&#34;watchos&#34;, &#34;darwin&#34;, &#34;bsd&#34;, &#34;unix&#34;]
+&#34;watchos-simulator&#34;[&#34;watchos-simulator&#34;, &#34;watchos&#34;, &#34;darwin&#34;, &#34;bsd&#34;, &#34;unix&#34;]
+&#34;windows&#34;[&#34;windows&#34;]
+&#34;none&#34;[&#34;none&#34;]
+undefined[]
+
+
+Note: The &#34;none&#34; value is usually used for a bare-metal platforms.
+
+Default: Host.platform()
+This property was introduced in 1.11.
+See also Target Platforms.
+
+
+toolchain : stringList
+Contains the list of string values describing the toolchain and toolchain family that is used to build a project.
+This property is deduced from the toolchainType property and is typically used to test for a particular toolchain or toolchain family in conditionals:
+Properties {
+    // flags for GCC
+    condition: qbs.toolchain.includes(&#34;gcc&#34;)
+    cpp.commonCompilerFlags: ...
+}
+Properties {
+    // flags for MSVC
+    condition: qbs.toolchain.includes(&#34;msvc&#34;)
+    cpp.commonCompilerFlags: ...
+}
+Unlike toolchainType, which contains a single value, qbs.toolchain is a string list which also contains the toolchain family. This allows to make conditions and checks simpler. For example, instead of:
+(qbs.toolchainType === &#34;xcode&#34; || qbs.toolchainType === &#34;clang&#34; || qbs.toolchainType === &#34;gcc&#34;)
+use:
+qbs.toolchain.includes(&#34;gcc&#34;)
+since XCode, GCC and Clang belong to the &#34;gcc&#34; family.
+Relation between toolchainType and toolchain
+This table describes the possible values and matching between the toolchainType and the toolchain properties:
+
+Toolchain TypeToolchain
+&#34;clang&#34;[&#34;clang&#34;, &#34;llvm&#34;, &#34;gcc&#34;]
+&#34;clang-cl&#34;[&#34;clang-cl&#34;, &#34;msvc&#34;]
+&#34;cosmic&#34;[&#34;cosmic&#34;]
+&#34;dmc&#34;[&#34;dmc&#34;]
+&#34;gcc&#34;[&#34;gcc&#34;]
+&#34;iar&#34;[&#34;iar&#34;]
+&#34;keil&#34;[&#34;keil&#34;]
+&#34;llvm&#34;[&#34;llvm&#34;, &#34;gcc&#34;]
+&#34;mingw&#34;[&#34;mingw&#34;, &#34;gcc&#34;]
+&#34;msvc&#34;[&#34;msvc&#34;]
+&#34;qcc&#34;[&#34;qcc&#34;]
+&#34;sdcc&#34;[&#34;sdcc&#34;]
+&#34;watcom&#34;[&#34;watcom&#34;]
+&#34;xcode&#34;[&#34;xcode&#34;, &#34;clang&#34;, &#34;llvm&#34;, &#34;gcc&#34;]
+
+Default: Undefined
+
+
+toolchainType : string [since Qbs 1.11]
+The toolchain that is going to be used for this build.
+For example, to build a project using the &#34;clang&#34; toolchain, simply do
+qbs build qbs.toolchainType:clang
+You should generally treat this property as write-only and avoid using it to test for the current toolchain. Instead, use the toolchain property for conditionals.
+Typical values include: &#34;gcc&#34;, &#34;clang&#34;, &#34;clang-cl&#34;, &#34;mingw&#34;, &#34;msvc&#34;, and &#34;xcode&#34;. Also see Relation between toolchainType and toolchain.
+By default, qbs.toolchainType is automatically detected based on the targetOS property:
+
+Target OSToolchain
+&#34;darwin&#34;&#34;xcode&#34;
+&#34;freebsd&#34;&#34;clang&#34;
+&#34;haiku&#34;&#34;gcc&#34;
+&#34;qnx&#34;&#34;qcc&#34;
+&#34;unix&#34;&#34;gcc&#34;
+&#34;vxworks&#34;&#34;gcc&#34;
+&#34;windows&#34;&#34;msvc&#34;
+
+Default: Determined automatically.
+This property was introduced in Qbs 1.11.
+
+
+version : string [read-only, since Qbs 1.4.1]
+The version number of Qbs as a string. For example, &#34;1.4.1&#34;.
+This property was introduced in Qbs 1.4.1.
+
+
+versionMajor : int [read-only, since Qbs 1.4.1]
+The major version number of Qbs.
+This property was introduced in Qbs 1.4.1.
+
+
+versionMinor : int [read-only, since Qbs 1.4.1]
+The minor version number of Qbs.
+This property was introduced in Qbs 1.4.1.
+
+
+versionPatch : int [read-only, since Qbs 1.4.1]
+The patch version number of Qbs.
+This property was introduced in Qbs 1.4.1.
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-qbs/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -70,14 +427,117 @@ The qbs module is implicitly loaded in every product. It contains properties of 
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-qbs/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual QbsModules qbs Qbs 3.4.0 Contents Properties Detailed Description Installation Properties Multiplexing Properties qbs Comprises general properties. More...
-Since: Qbs 1.0 List of all members, including inherited members Properties architecture : string architectures : stringList (since Qbs 1.9) buildVariant : string buildVariants : stringList (since Qbs 1.9) configurationName : string (since Qbs 1.6) debugInformation : bool enableDebugCode : bool install : bool installDir : string installPrefix : string (since Qbs 1.1) installRoot : string (since Qbs 1.4) installSourceBase : string (since Qbs 1.4) optimization : string profiles : stringList (since Qbs 1.9) shellPath : path (since Qbs 1.5) sysroot : string targetOS : stringList targetPlatform : string (since 1.11) toolchain : stringList toolchainType : string (since Qbs 1.11) version : string (since Qbs 1.4.1) versionMajor : int (since Qbs 1.4.1) versionMinor : int (since Qbs 1.4.1) versionPatch : int (since Qbs 1.4.1) Detailed Description The qbs module is implicitly loaded in every product. It contains properties of the current build environment, independent of the used programming languages and toolchains.">
+Since: Qbs 1.0 List of all members, including inherited members Properties architecture : string architectures : stringList (since Qbs 1.9) buildVariant : string buildVariants : stringList (since Qbs 1.9) configurationName : string (since Qbs 1.6) debugInformation : bool enableDebugCode : bool install : bool installDir : string installPrefix : string (since Qbs 1.1) installRoot : string (since Qbs 1.4) installSourceBase : string (since Qbs 1.4) optimization : string profiles : stringList (since Qbs 1.9) shellPath : path (since Qbs 1.5) sysroot : string targetOS : stringList targetPlatform : string (since 1.11) toolchain : stringList toolchainType : string (since Qbs 1.11) version : string (since Qbs 1.4.1) versionMajor : int (since Qbs 1.4.1) versionMinor : int (since Qbs 1.4.1) versionPatch : int (since Qbs 1.4.1) Detailed Description The qbs module is implicitly loaded in every product. It contains properties of the current build environment, independent of the used programming languages and toolchains.
+Installation Properties Typically, you use Group items to specify the target directories for installing files. To install a group of files, set the qbs.install property of the Group to true. The value of qbs.installDir specifies the path to the directory where the files will be installed. You can specify a base directory for all installation directories as the value of qbs.installPrefix.
+For example, the following properties specify where a set of QML files and an application executable are installed on Windows and Linux:
+Application { name: &#34;myapp&#34; Group { name: &#34;Runtime resources&#34; files: &#34;*.qml&#34; qbs.install: true qbs.installDir: condition: qbs.targetOS.includes(&#34;unix&#34;) ? &#34;share/myapp&#34; : &#34;resources&#34; } Group { name: &#34;The App itself&#34; fileTagsFilter: &#34;application&#34; qbs.install: true qbs.installDir: &#34;bin&#34; } qbs.installPrefix: condition: qbs.targetOS.includes(&#34;unix&#34;) ? &#34;usr/local&#34; : &#34;MyApp&#34; } On Windows, the QML files will ultimately get installed in MyApp\resources and the application executable in MyApp\bin, for instance under C:\Program Files. On Linux, the QML files will be installed in /usr/local/share/myapp and the executable in /usr/local/bin.
+By default, qbs.installRoot creates the install-root directory in the build directory for packaging the binaries before installation. It is a temporary directory that is usually not available when the application is run, and it should therefore not be set in the project files. You can override the default value from the command line, as described in Installing Files.
+Multiplexing Properties The following properties are specific to product multiplexing:
+architectures buildVariants profiles Property Documentation architecture : string The target platform&#39;s processor architecture.
+undefined indicates that the target platform is architecture-independent (for example the CLR or JVM).
+This property is typically set in a profile.
+Commonly used values are: &#34;x86&#34;, &#34;x86_64&#34;, and &#34;arm&#34;.
+Supported Processor Architectures This table describes the possible values of the architecture property:
+Architecture Description &#34;78k&#34; 16- and 8-bit accumulator-based register-bank CISC architecture microcontroller family manufactured by Renesas Electronics &#34;alpha&#34; 64-bit ISA architecture of the Alpha family processors developed by DEC &#34;arm&#34; 32-bit RISC architecture for computer processors developed by Acorn RISC Machine Note: There are a lot of sub-variants of the ARM architecture. Some specialized Qbs modules differentiate between them, making use of values such as &#34;armv7a&#34;. Please consult the respective module-specific documentation for information on what kind of value to use.
+&#34;arm64&#34; 64-bit RISC architecture for computer processors developed by Acorn RISC Machine &#34;avr&#34; 8-bit modified Harvard RISC architecture microcontroller family manufactured by Microchip Technology &#34;avr32&#34; 32-bit RISC architecture microcontroller family developed by Atmel &#34;c166&#34; 16-bit architecture microcontroller family developed by Infineon &#34;cr16&#34; 16-bit compact RISC architecture microcontroller family developed by National Semiconductor &#34;e2k&#34; 512-bit Russian wide VLIW microprocessor developed by Moscow Center of SPARC Technologies (MCST) and fabricated by TSMC &#34;hcs8&#34; 8-bit HC08 and S08 microcontroller family from Freescale Semiconductor &#34;hcs12&#34; 16-bit HC12 and S12 microcontroller family from Freescale Semiconductor &#34;hppa&#34; 64-bit PA-RISC processor architecture developed by Hewlett-Packard &#34;ia64&#34; 64-bit ISA architecture of the Itanium family processors developed by Intel &#34;m16c&#34; 16-bit CISC microcontrollers featuring high ROM code efficiency manufactured by Renesas Electronics &#34;m32c&#34; 32- and 16-bit CISC microcontrollers featuring high ROM code efficiency manufactured by Renesas Electronics &#34;m32r&#34; 32-bit RISC microcontrollers for general industrial and car-mounted systems, digital AV equipment, digital imaging equipment manufactured by Renesas Electronics &#34;m68k&#34; 16- and 32-bit CISC microprocessor, developed by Motorola Semiconductor Products Sector, and further improved as ColdFire architecture developed by NXP &#34;mcs251&#34; 8-, 16-, and 32-bit microcontroller family which is a next binary compatible generation for the &#34;mcs51&#34; family &#34;mcs51&#34; 8-bit Harvard architecture microcontroller family developed by Intel &#34;mips&#34; 32-bit RISC microprocessor without interlocked pipelined stages architecture developed by MIPS Computer Systems &#34;mips64&#34; 64-bit RISC microprocessor without interlocked pipelined stages architecture developed by MIPS Computer Systems &#34;msp430&#34; 16-bit mixed-signal microcontroller family manufactured by Texas Instruments &#34;ppc&#34; 32-bit RISC architecture processor family developed by Apple–IBM–Motorola alliance &#34;ppc64&#34; 64-bit RISC architecture processor family developed by Apple–IBM–Motorola alliance &#34;r32c&#34; 32-bit CISC microcontrollers with improved code efficiency and processing performance manufactured by Renesas Electronics &#34;rh850&#34; 32-bit automotive microcontroller family manufactured by Renesas Electronics &#34;riscv&#34; Open and free standard instruction set architecture based on established RISC principles &#34;rl78&#34; 16- and 8-bit accumulator-based register-bank CISC architecture with 3-stage instruction pipelining microcontroller family manufactured by Renesas Electronics &#34;rx&#34; High performance 32-bit CISC microcontroller family manufactured by Renesas Electronics &#34;s390x&#34; 64- and 32-bit System/390 processor architecture developed by IBM &#34;sh&#34; 32-bit RISC architecture processor family developed by Hitachi and currently manufactured by Renesas Electronics &#34;sparc&#34; 32-bit RISC architecture processor family developed by Sun Microsystems and Fujitsu &#34;sparc64&#34; 64-bit RISC architecture processor family developed by Sun Microsystems and Fujitsu &#34;stm8&#34; 8-bit microcontroller family manufactured by STMicroelectronics &#34;v850&#34; 32-bit RISC microcontroller family manufactured by Renesas Electronics &#34;x86&#34; 32-bit ISA architecture processor family developed by Intel &#34;x86_16&#34; 16-bit ISA architecture processor family developed by Intel &#34;x86_64&#34; 64-bit ISA architecture processor family developed by AMD &#34;xtensa&#34; 32-bit architecture with a compact 16- and 24-bit instruction set developed by Tensilica Default: Undefined
+architectures : stringList [since Qbs 1.9] The architectures the product will be built for.
+Default: Undefined
+This property was introduced in Qbs 1.9.
+buildVariant : string The name of the build variant for the current build.
+Possible values are &#34;debug&#34;, &#34;release&#34; and &#34;profiling&#34;. A debug build usually contains additional debug symbols that are needed for debugging the application and has optimizations turned off. A profiling build usually contains debug symbols and has optimizations turned on. This is useful for profiling tools or when you need to retain debug symbols in a release build. A release build is a build without debug information and with optimizations enabled.
+Default: &#34;release&#34; if qbs.configurationName is &#34;release&#34;, &#34;profiling&#34; if qbs.configurationName is &#34;profiling&#34;. Otherwise &#34;debug&#34;
+buildVariants : stringList [since Qbs 1.9] The build variants the product will be built for.
+Default: Undefined
+This property was introduced in Qbs 1.9.
+configurationName : string [read-only, since Qbs 1.6] The name of the current build configuration.
+The build configuration is set via the command line parameter config. For more information, see build.
+Default: &#34;default&#34;
+This property was introduced in Qbs 1.6.
+debugInformation : bool Whether to generate debug information.
+Default: true if qbs.buildVariant is &#34;debug&#34; or &#34;profiling&#34;. Otherwise false.
+enableDebugCode : bool Whether to enable debug functionality in the product. Not to be confused with generation of debug symbols or the code optimization level.
+The property changes the following things when enabled:
+Passes a flag to the Windows linker to link against a debug Windows CRT (common runtime) library (for example /MTd instead of /MT) The property changes the following things when disabled:
+Passes the NDEBUG define to the compiler Typically, this property is enabled for debug builds and disabled for release or profiling builds.
+Default: true for debug builds, false otherwise.
+install : bool Whether to install a certain set of files.
+This property is typically set in a Group item to mark a number of files as installable.
+Note: Artifacts for which this property is enabled automatically receive the file tag &#34;installable&#34;. This is useful for writing packaging-related rules.
+Default: false
+installDir : string The installation directory for the files of a product or a Group.
+The value of this property is a path that is relative to installPrefix.
+Default: Undefined
+installPrefix : string [since Qbs 1.1] The global installation prefix. It is implicitly prepended to all values of installDir.
+The value of this property itself is relative to the installRoot in the context of installation.
+Default: &#34;/usr/local&#34; on Unix, &#34;&#34; otherwise
+This property was introduced in Qbs 1.1.
+installRoot : string [since Qbs 1.4] The global installation root. It is implicitly prepended to all values of installPrefix in the context of installation.
+Note: This property is fundamentally different from installDir and installPrefix in that it must not be visible to the code being built. In fact, the install root is often just a temporary location used to package the binaries, which should therefore not assume they will be in that location at run-time. For the same reason, this property is usually not set from within project files.
+Default: &lt;build dir&gt;/install-root
+This property was introduced in Qbs 1.4.
+installSourceBase : string [since Qbs 1.4] The base directory of the local files that are going to be installed. The source base directory is omitted from the target directory path specified in installDir.
+Default: The directory of the current file to be installed, relative to the product&#39;s source directory.
+This property was introduced in Qbs 1.4.
+optimization : string The general type of optimization that should be performed by all toolchains.
+Allowed values are:
+&#34;fast&#34; &#34;none&#34; &#34;small&#34; Default: &#34;none&#34; if qbs.buildVariant is &#34;debug&#34;. Otherwise &#34;fast&#34;.
+profiles : stringList [since Qbs 1.9] The profiles for which the product should be built.
+For each profile listed here, one instance of the product will be built according to the properties set in the respective profile.
+Default: [project.profile]
+This property was introduced in Qbs 1.9.
+shellPath : path [since Qbs 1.5] The platform-specific file path corresponding to the command line interpreter.
+On Windows, this is the path to cmd.exe, which is held in the COMSPEC environment variable (typically, C:/Windows/System32/cmd.exe), On Unix-like platforms, this is /bin/sh.
+Default: &#34;%COMSPEC%&#34; on Windows, &#34;/bin/sh&#34; on Unix
+This property was introduced in Qbs 1.5.
+sysroot : string The sysroot of the target platform.
+This property is typically set in a profile for cross-compiling.
+Default: Undefined
+targetOS : stringList [read-only] Contains the list of string values describing the OS and OS family that is used to build a project.
+This property is calculated based on the targetPlatform property and is typically used to test for a particular OS or OS family in conditionals:
+Group { // Includes all Unix-like platforms, such as: Linux, BSD, Apple platforms and others. condition: qbs.targetOS.includes(&#34;unix&#34;) files: ... } Group { // Includes all Apple platforms, such as macOS, iOS, and iOS Simulator. condition: qbs.targetOS.includes(&#34;darwin&#34;) files: ... } Group { // Includes only macOS condition: qbs.targetOS.includes(&#34;macos&#34;) files: ... } Avoid using targetPlatform for this purpose. For example, instead of:
+qbs.targetPlatform === &#34;macos&#34; || qbs.targetPlatform === &#34;ios&#34; || qbs.targetPlatform === &#34;tvos&#34; || qbs.targetPlatform === &#34;watchos&#34; use
+qbs.targetOS.includes(&#34;darwin&#34;) However, in some cases using targetPlatform would be acceptable, such as when the resulting condition would be simpler while still being correct:
+qbs.targetPlatform === &#34;linux&#34; versus
+qbs.targetOS.includes(&#34;linux&#34;) &amp;&amp; !qbs.targetOS.includes(&#34;android&#34;) For the complete list of possible values, see Relation between targetPlatform and targetOS.
+Default: Undefined
+targetPlatform : string [since 1.11] The OS you want to build the project for.
+This property is typically set in a profile or for a particular product where the target OS is always known (such as an Apple Watch app written in native code).
+For example, a profile used for building for the iOS Simulator platform will have this property set to the ios-simulator value:
+profiles.xcode-iphonesimulator.qbs.targetPlatform: &#34;ios-simulator&#34; You should generally treat this property as write-only and avoid using it to test for the current target OS. Instead, use the targetOS property for conditionals.
+Relation between targetPlatform and targetOS This table describes the possible values and matching between the targetPlatform and the targetOS properties:
+Target Platform Target OS &#34;aix&#34; [&#34;aix&#34;, &#34;unix&#34;] &#34;android&#34; [&#34;android&#34;, &#34;linux&#34;, &#34;unix&#34;] &#34;dos&#34; [&#34;dos&#34;] &#34;freebsd&#34; [&#34;freebsd&#34;, &#34;bsd&#34;, &#34;unix&#34;] &#34;haiku&#34; [&#34;haiku&#34;] &#34;hpux&#34; [&#34;hpux&#34;, &#34;unix&#34;] &#34;hurd&#34; [&#34;hurd&#34;, &#34;unix&#34;] &#34;integrity&#34; [&#34;integrity&#34;, &#34;unix&#34;] &#34;ios&#34; [&#34;ios&#34;, &#34;darwin&#34;, &#34;bsd&#34;, &#34;unix&#34;] &#34;ios-simulator&#34; [&#34;ios-simulator&#34;, &#34;ios&#34;, &#34;darwin&#34;, &#34;bsd&#34;, &#34;unix&#34;] &#34;linux&#34; [&#34;linux&#34;, &#34;unix&#34;] &#34;lynx&#34; [&#34;lynx&#34;] &#34;macos&#34; [&#34;macos&#34;, &#34;darwin&#34;, &#34;bsd&#34;, &#34;unix&#34;] &#34;netbsd&#34; [&#34;netbsd&#34;, &#34;bsd&#34;, &#34;unix&#34;] &#34;openbsd&#34; [&#34;openbsd&#34;, &#34;bsd&#34;, &#34;unix&#34;] &#34;os2&#34; [&#34;os2&#34;] &#34;qnx&#34; [&#34;qnx&#34;, &#34;unix&#34;] &#34;solaris&#34; [&#34;solaris&#34;, &#34;unix&#34;] &#34;tvos&#34; [&#34;tvos&#34;, &#34;darwin&#34;, &#34;bsd&#34;, &#34;unix&#34;] &#34;tvos-simulator&#34; [&#34;tvos-simulator&#34;, &#34;tvos&#34;, &#34;darwin&#34;, &#34;bsd&#34;, &#34;unix&#34;] &#34;unix&#34; [&#34;unix&#34;] &#34;vxworks&#34; [&#34;vxworks&#34;] &#34;watchos&#34; [&#34;watchos&#34;, &#34;darwin&#34;, &#34;bsd&#34;, &#34;unix&#34;] &#34;watchos-simulator&#34; [&#34;watchos-simulator&#34;, &#34;watchos&#34;, &#34;darwin&#34;, &#34;bsd&#34;, &#34;unix&#34;] &#34;windows&#34; [&#34;windows&#34;] &#34;none&#34; [&#34;none&#34;] undefined [] Note: The &#34;none&#34; value is usually used for a bare-metal platforms.
+Default: Host.platform()
+This property was introduced in 1.11.
+See also Target Platforms.
+toolchain : stringList Contains the list of string values describing the toolchain and toolchain family that is used to build a project.
+This property is deduced from the toolchainType property and is typically used to test for a particular toolchain or toolchain family in conditionals:
+Properties { // flags for GCC condition: qbs.toolchain.includes(&#34;gcc&#34;) cpp.commonCompilerFlags: ... } Properties { // flags for MSVC condition: qbs.toolchain.includes(&#34;msvc&#34;) cpp.commonCompilerFlags: ... } Unlike toolchainType, which contains a single value, qbs.toolchain is a string list which also contains the toolchain family. This allows to make conditions and checks simpler. For example, instead of:
+(qbs.toolchainType === &#34;xcode&#34; || qbs.toolchainType === &#34;clang&#34; || qbs.toolchainType === &#34;gcc&#34;) use:
+qbs.toolchain.includes(&#34;gcc&#34;) since XCode, GCC and Clang belong to the &#34;gcc&#34; family.
+Relation between toolchainType and toolchain This table describes the possible values and matching between the toolchainType and the toolchain properties:
+Toolchain Type Toolchain &#34;clang&#34; [&#34;clang&#34;, &#34;llvm&#34;, &#34;gcc&#34;] &#34;clang-cl&#34; [&#34;clang-cl&#34;, &#34;msvc&#34;] &#34;cosmic&#34; [&#34;cosmic&#34;] &#34;dmc&#34; [&#34;dmc&#34;] &#34;gcc&#34; [&#34;gcc&#34;] &#34;iar&#34; [&#34;iar&#34;] &#34;keil&#34; [&#34;keil&#34;] &#34;llvm&#34; [&#34;llvm&#34;, &#34;gcc&#34;] &#34;mingw&#34; [&#34;mingw&#34;, &#34;gcc&#34;] &#34;msvc&#34; [&#34;msvc&#34;] &#34;qcc&#34; [&#34;qcc&#34;] &#34;sdcc&#34; [&#34;sdcc&#34;] &#34;watcom&#34; [&#34;watcom&#34;] &#34;xcode&#34; [&#34;xcode&#34;, &#34;clang&#34;, &#34;llvm&#34;, &#34;gcc&#34;] Default: Undefined
+toolchainType : string [since Qbs 1.11] The toolchain that is going to be used for this build.
+For example, to build a project using the &#34;clang&#34; toolchain, simply do
+qbs build qbs.toolchainType:clang You should generally treat this property as write-only and avoid using it to test for the current toolchain. Instead, use the toolchain property for conditionals.
+Typical values include: &#34;gcc&#34;, &#34;clang&#34;, &#34;clang-cl&#34;, &#34;mingw&#34;, &#34;msvc&#34;, and &#34;xcode&#34;. Also see Relation between toolchainType and toolchain.
+By default, qbs.toolchainType is automatically detected based on the targetOS property:
+Target OS Toolchain &#34;darwin&#34; &#34;xcode&#34; &#34;freebsd&#34; &#34;clang&#34; &#34;haiku&#34; &#34;gcc&#34; &#34;qnx&#34; &#34;qcc&#34; &#34;unix&#34; &#34;gcc&#34; &#34;vxworks&#34; &#34;gcc&#34; &#34;windows&#34; &#34;msvc&#34; Default: Determined automatically.
+This property was introduced in Qbs 1.11.
+version : string [read-only, since Qbs 1.4.1] The version number of Qbs as a string. For example, &#34;1.4.1&#34;.
+This property was introduced in Qbs 1.4.1.
+versionMajor : int [read-only, since Qbs 1.4.1] The major version number of Qbs.
+This property was introduced in Qbs 1.4.1.
+versionMinor : int [read-only, since Qbs 1.4.1] The minor version number of Qbs.
+This property was introduced in Qbs 1.4.1.
+versionPatch : int [read-only, since Qbs 1.4.1] The patch version number of Qbs.
+This property was introduced in Qbs 1.4.1.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -86,7 +546,110 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual QbsModules qbs Qbs 3.4.0 Contents Properties Detailed Description Installation Properties Multiplexing Properties qbs Comprises general properties. More...
-Since: Qbs 1.0 List of all members, including inherited members Properties architecture : string architectures : stringList (since Qbs 1.9) buildVariant : string buildVariants : stringList (since Qbs 1.9) configurationName : string (since Qbs 1.6) debugInformation : bool enableDebugCode : bool install : bool installDir : string installPrefix : string (since Qbs 1.1) installRoot : string (since Qbs 1.4) installSourceBase : string (since Qbs 1.4) optimization : string profiles : stringList (since Qbs 1.9) shellPath : path (since Qbs 1.5) sysroot : string targetOS : stringList targetPlatform : string (since 1.11) toolchain : stringList toolchainType : string (since Qbs 1.11) version : string (since Qbs 1.4.1) versionMajor : int (since Qbs 1.4.1) versionMinor : int (since Qbs 1.4.1) versionPatch : int (since Qbs 1.4.1) Detailed Description The qbs module is implicitly loaded in every product. It contains properties of the current build environment, independent of the used programming languages and toolchains.">
+Since: Qbs 1.0 List of all members, including inherited members Properties architecture : string architectures : stringList (since Qbs 1.9) buildVariant : string buildVariants : stringList (since Qbs 1.9) configurationName : string (since Qbs 1.6) debugInformation : bool enableDebugCode : bool install : bool installDir : string installPrefix : string (since Qbs 1.1) installRoot : string (since Qbs 1.4) installSourceBase : string (since Qbs 1.4) optimization : string profiles : stringList (since Qbs 1.9) shellPath : path (since Qbs 1.5) sysroot : string targetOS : stringList targetPlatform : string (since 1.11) toolchain : stringList toolchainType : string (since Qbs 1.11) version : string (since Qbs 1.4.1) versionMajor : int (since Qbs 1.4.1) versionMinor : int (since Qbs 1.4.1) versionPatch : int (since Qbs 1.4.1) Detailed Description The qbs module is implicitly loaded in every product. It contains properties of the current build environment, independent of the used programming languages and toolchains.
+Installation Properties Typically, you use Group items to specify the target directories for installing files. To install a group of files, set the qbs.install property of the Group to true. The value of qbs.installDir specifies the path to the directory where the files will be installed. You can specify a base directory for all installation directories as the value of qbs.installPrefix.
+For example, the following properties specify where a set of QML files and an application executable are installed on Windows and Linux:
+Application { name: &#34;myapp&#34; Group { name: &#34;Runtime resources&#34; files: &#34;*.qml&#34; qbs.install: true qbs.installDir: condition: qbs.targetOS.includes(&#34;unix&#34;) ? &#34;share/myapp&#34; : &#34;resources&#34; } Group { name: &#34;The App itself&#34; fileTagsFilter: &#34;application&#34; qbs.install: true qbs.installDir: &#34;bin&#34; } qbs.installPrefix: condition: qbs.targetOS.includes(&#34;unix&#34;) ? &#34;usr/local&#34; : &#34;MyApp&#34; } On Windows, the QML files will ultimately get installed in MyApp\resources and the application executable in MyApp\bin, for instance under C:\Program Files. On Linux, the QML files will be installed in /usr/local/share/myapp and the executable in /usr/local/bin.
+By default, qbs.installRoot creates the install-root directory in the build directory for packaging the binaries before installation. It is a temporary directory that is usually not available when the application is run, and it should therefore not be set in the project files. You can override the default value from the command line, as described in Installing Files.
+Multiplexing Properties The following properties are specific to product multiplexing:
+architectures buildVariants profiles Property Documentation architecture : string The target platform&#39;s processor architecture.
+undefined indicates that the target platform is architecture-independent (for example the CLR or JVM).
+This property is typically set in a profile.
+Commonly used values are: &#34;x86&#34;, &#34;x86_64&#34;, and &#34;arm&#34;.
+Supported Processor Architectures This table describes the possible values of the architecture property:
+Architecture Description &#34;78k&#34; 16- and 8-bit accumulator-based register-bank CISC architecture microcontroller family manufactured by Renesas Electronics &#34;alpha&#34; 64-bit ISA architecture of the Alpha family processors developed by DEC &#34;arm&#34; 32-bit RISC architecture for computer processors developed by Acorn RISC Machine Note: There are a lot of sub-variants of the ARM architecture. Some specialized Qbs modules differentiate between them, making use of values such as &#34;armv7a&#34;. Please consult the respective module-specific documentation for information on what kind of value to use.
+&#34;arm64&#34; 64-bit RISC architecture for computer processors developed by Acorn RISC Machine &#34;avr&#34; 8-bit modified Harvard RISC architecture microcontroller family manufactured by Microchip Technology &#34;avr32&#34; 32-bit RISC architecture microcontroller family developed by Atmel &#34;c166&#34; 16-bit architecture microcontroller family developed by Infineon &#34;cr16&#34; 16-bit compact RISC architecture microcontroller family developed by National Semiconductor &#34;e2k&#34; 512-bit Russian wide VLIW microprocessor developed by Moscow Center of SPARC Technologies (MCST) and fabricated by TSMC &#34;hcs8&#34; 8-bit HC08 and S08 microcontroller family from Freescale Semiconductor &#34;hcs12&#34; 16-bit HC12 and S12 microcontroller family from Freescale Semiconductor &#34;hppa&#34; 64-bit PA-RISC processor architecture developed by Hewlett-Packard &#34;ia64&#34; 64-bit ISA architecture of the Itanium family processors developed by Intel &#34;m16c&#34; 16-bit CISC microcontrollers featuring high ROM code efficiency manufactured by Renesas Electronics &#34;m32c&#34; 32- and 16-bit CISC microcontrollers featuring high ROM code efficiency manufactured by Renesas Electronics &#34;m32r&#34; 32-bit RISC microcontrollers for general industrial and car-mounted systems, digital AV equipment, digital imaging equipment manufactured by Renesas Electronics &#34;m68k&#34; 16- and 32-bit CISC microprocessor, developed by Motorola Semiconductor Products Sector, and further improved as ColdFire architecture developed by NXP &#34;mcs251&#34; 8-, 16-, and 32-bit microcontroller family which is a next binary compatible generation for the &#34;mcs51&#34; family &#34;mcs51&#34; 8-bit Harvard architecture microcontroller family developed by Intel &#34;mips&#34; 32-bit RISC microprocessor without interlocked pipelined stages architecture developed by MIPS Computer Systems &#34;mips64&#34; 64-bit RISC microprocessor without interlocked pipelined stages architecture developed by MIPS Computer Systems &#34;msp430&#34; 16-bit mixed-signal microcontroller family manufactured by Texas Instruments &#34;ppc&#34; 32-bit RISC architecture processor family developed by Apple–IBM–Motorola alliance &#34;ppc64&#34; 64-bit RISC architecture processor family developed by Apple–IBM–Motorola alliance &#34;r32c&#34; 32-bit CISC microcontrollers with improved code efficiency and processing performance manufactured by Renesas Electronics &#34;rh850&#34; 32-bit automotive microcontroller family manufactured by Renesas Electronics &#34;riscv&#34; Open and free standard instruction set architecture based on established RISC principles &#34;rl78&#34; 16- and 8-bit accumulator-based register-bank CISC architecture with 3-stage instruction pipelining microcontroller family manufactured by Renesas Electronics &#34;rx&#34; High performance 32-bit CISC microcontroller family manufactured by Renesas Electronics &#34;s390x&#34; 64- and 32-bit System/390 processor architecture developed by IBM &#34;sh&#34; 32-bit RISC architecture processor family developed by Hitachi and currently manufactured by Renesas Electronics &#34;sparc&#34; 32-bit RISC architecture processor family developed by Sun Microsystems and Fujitsu &#34;sparc64&#34; 64-bit RISC architecture processor family developed by Sun Microsystems and Fujitsu &#34;stm8&#34; 8-bit microcontroller family manufactured by STMicroelectronics &#34;v850&#34; 32-bit RISC microcontroller family manufactured by Renesas Electronics &#34;x86&#34; 32-bit ISA architecture processor family developed by Intel &#34;x86_16&#34; 16-bit ISA architecture processor family developed by Intel &#34;x86_64&#34; 64-bit ISA architecture processor family developed by AMD &#34;xtensa&#34; 32-bit architecture with a compact 16- and 24-bit instruction set developed by Tensilica Default: Undefined
+architectures : stringList [since Qbs 1.9] The architectures the product will be built for.
+Default: Undefined
+This property was introduced in Qbs 1.9.
+buildVariant : string The name of the build variant for the current build.
+Possible values are &#34;debug&#34;, &#34;release&#34; and &#34;profiling&#34;. A debug build usually contains additional debug symbols that are needed for debugging the application and has optimizations turned off. A profiling build usually contains debug symbols and has optimizations turned on. This is useful for profiling tools or when you need to retain debug symbols in a release build. A release build is a build without debug information and with optimizations enabled.
+Default: &#34;release&#34; if qbs.configurationName is &#34;release&#34;, &#34;profiling&#34; if qbs.configurationName is &#34;profiling&#34;. Otherwise &#34;debug&#34;
+buildVariants : stringList [since Qbs 1.9] The build variants the product will be built for.
+Default: Undefined
+This property was introduced in Qbs 1.9.
+configurationName : string [read-only, since Qbs 1.6] The name of the current build configuration.
+The build configuration is set via the command line parameter config. For more information, see build.
+Default: &#34;default&#34;
+This property was introduced in Qbs 1.6.
+debugInformation : bool Whether to generate debug information.
+Default: true if qbs.buildVariant is &#34;debug&#34; or &#34;profiling&#34;. Otherwise false.
+enableDebugCode : bool Whether to enable debug functionality in the product. Not to be confused with generation of debug symbols or the code optimization level.
+The property changes the following things when enabled:
+Passes a flag to the Windows linker to link against a debug Windows CRT (common runtime) library (for example /MTd instead of /MT) The property changes the following things when disabled:
+Passes the NDEBUG define to the compiler Typically, this property is enabled for debug builds and disabled for release or profiling builds.
+Default: true for debug builds, false otherwise.
+install : bool Whether to install a certain set of files.
+This property is typically set in a Group item to mark a number of files as installable.
+Note: Artifacts for which this property is enabled automatically receive the file tag &#34;installable&#34;. This is useful for writing packaging-related rules.
+Default: false
+installDir : string The installation directory for the files of a product or a Group.
+The value of this property is a path that is relative to installPrefix.
+Default: Undefined
+installPrefix : string [since Qbs 1.1] The global installation prefix. It is implicitly prepended to all values of installDir.
+The value of this property itself is relative to the installRoot in the context of installation.
+Default: &#34;/usr/local&#34; on Unix, &#34;&#34; otherwise
+This property was introduced in Qbs 1.1.
+installRoot : string [since Qbs 1.4] The global installation root. It is implicitly prepended to all values of installPrefix in the context of installation.
+Note: This property is fundamentally different from installDir and installPrefix in that it must not be visible to the code being built. In fact, the install root is often just a temporary location used to package the binaries, which should therefore not assume they will be in that location at run-time. For the same reason, this property is usually not set from within project files.
+Default: &lt;build dir&gt;/install-root
+This property was introduced in Qbs 1.4.
+installSourceBase : string [since Qbs 1.4] The base directory of the local files that are going to be installed. The source base directory is omitted from the target directory path specified in installDir.
+Default: The directory of the current file to be installed, relative to the product&#39;s source directory.
+This property was introduced in Qbs 1.4.
+optimization : string The general type of optimization that should be performed by all toolchains.
+Allowed values are:
+&#34;fast&#34; &#34;none&#34; &#34;small&#34; Default: &#34;none&#34; if qbs.buildVariant is &#34;debug&#34;. Otherwise &#34;fast&#34;.
+profiles : stringList [since Qbs 1.9] The profiles for which the product should be built.
+For each profile listed here, one instance of the product will be built according to the properties set in the respective profile.
+Default: [project.profile]
+This property was introduced in Qbs 1.9.
+shellPath : path [since Qbs 1.5] The platform-specific file path corresponding to the command line interpreter.
+On Windows, this is the path to cmd.exe, which is held in the COMSPEC environment variable (typically, C:/Windows/System32/cmd.exe), On Unix-like platforms, this is /bin/sh.
+Default: &#34;%COMSPEC%&#34; on Windows, &#34;/bin/sh&#34; on Unix
+This property was introduced in Qbs 1.5.
+sysroot : string The sysroot of the target platform.
+This property is typically set in a profile for cross-compiling.
+Default: Undefined
+targetOS : stringList [read-only] Contains the list of string values describing the OS and OS family that is used to build a project.
+This property is calculated based on the targetPlatform property and is typically used to test for a particular OS or OS family in conditionals:
+Group { // Includes all Unix-like platforms, such as: Linux, BSD, Apple platforms and others. condition: qbs.targetOS.includes(&#34;unix&#34;) files: ... } Group { // Includes all Apple platforms, such as macOS, iOS, and iOS Simulator. condition: qbs.targetOS.includes(&#34;darwin&#34;) files: ... } Group { // Includes only macOS condition: qbs.targetOS.includes(&#34;macos&#34;) files: ... } Avoid using targetPlatform for this purpose. For example, instead of:
+qbs.targetPlatform === &#34;macos&#34; || qbs.targetPlatform === &#34;ios&#34; || qbs.targetPlatform === &#34;tvos&#34; || qbs.targetPlatform === &#34;watchos&#34; use
+qbs.targetOS.includes(&#34;darwin&#34;) However, in some cases using targetPlatform would be acceptable, such as when the resulting condition would be simpler while still being correct:
+qbs.targetPlatform === &#34;linux&#34; versus
+qbs.targetOS.includes(&#34;linux&#34;) &amp;&amp; !qbs.targetOS.includes(&#34;android&#34;) For the complete list of possible values, see Relation between targetPlatform and targetOS.
+Default: Undefined
+targetPlatform : string [since 1.11] The OS you want to build the project for.
+This property is typically set in a profile or for a particular product where the target OS is always known (such as an Apple Watch app written in native code).
+For example, a profile used for building for the iOS Simulator platform will have this property set to the ios-simulator value:
+profiles.xcode-iphonesimulator.qbs.targetPlatform: &#34;ios-simulator&#34; You should generally treat this property as write-only and avoid using it to test for the current target OS. Instead, use the targetOS property for conditionals.
+Relation between targetPlatform and targetOS This table describes the possible values and matching between the targetPlatform and the targetOS properties:
+Target Platform Target OS &#34;aix&#34; [&#34;aix&#34;, &#34;unix&#34;] &#34;android&#34; [&#34;android&#34;, &#34;linux&#34;, &#34;unix&#34;] &#34;dos&#34; [&#34;dos&#34;] &#34;freebsd&#34; [&#34;freebsd&#34;, &#34;bsd&#34;, &#34;unix&#34;] &#34;haiku&#34; [&#34;haiku&#34;] &#34;hpux&#34; [&#34;hpux&#34;, &#34;unix&#34;] &#34;hurd&#34; [&#34;hurd&#34;, &#34;unix&#34;] &#34;integrity&#34; [&#34;integrity&#34;, &#34;unix&#34;] &#34;ios&#34; [&#34;ios&#34;, &#34;darwin&#34;, &#34;bsd&#34;, &#34;unix&#34;] &#34;ios-simulator&#34; [&#34;ios-simulator&#34;, &#34;ios&#34;, &#34;darwin&#34;, &#34;bsd&#34;, &#34;unix&#34;] &#34;linux&#34; [&#34;linux&#34;, &#34;unix&#34;] &#34;lynx&#34; [&#34;lynx&#34;] &#34;macos&#34; [&#34;macos&#34;, &#34;darwin&#34;, &#34;bsd&#34;, &#34;unix&#34;] &#34;netbsd&#34; [&#34;netbsd&#34;, &#34;bsd&#34;, &#34;unix&#34;] &#34;openbsd&#34; [&#34;openbsd&#34;, &#34;bsd&#34;, &#34;unix&#34;] &#34;os2&#34; [&#34;os2&#34;] &#34;qnx&#34; [&#34;qnx&#34;, &#34;unix&#34;] &#34;solaris&#34; [&#34;solaris&#34;, &#34;unix&#34;] &#34;tvos&#34; [&#34;tvos&#34;, &#34;darwin&#34;, &#34;bsd&#34;, &#34;unix&#34;] &#34;tvos-simulator&#34; [&#34;tvos-simulator&#34;, &#34;tvos&#34;, &#34;darwin&#34;, &#34;bsd&#34;, &#34;unix&#34;] &#34;unix&#34; [&#34;unix&#34;] &#34;vxworks&#34; [&#34;vxworks&#34;] &#34;watchos&#34; [&#34;watchos&#34;, &#34;darwin&#34;, &#34;bsd&#34;, &#34;unix&#34;] &#34;watchos-simulator&#34; [&#34;watchos-simulator&#34;, &#34;watchos&#34;, &#34;darwin&#34;, &#34;bsd&#34;, &#34;unix&#34;] &#34;windows&#34; [&#34;windows&#34;] &#34;none&#34; [&#34;none&#34;] undefined [] Note: The &#34;none&#34; value is usually used for a bare-metal platforms.
+Default: Host.platform()
+This property was introduced in 1.11.
+See also Target Platforms.
+toolchain : stringList Contains the list of string values describing the toolchain and toolchain family that is used to build a project.
+This property is deduced from the toolchainType property and is typically used to test for a particular toolchain or toolchain family in conditionals:
+Properties { // flags for GCC condition: qbs.toolchain.includes(&#34;gcc&#34;) cpp.commonCompilerFlags: ... } Properties { // flags for MSVC condition: qbs.toolchain.includes(&#34;msvc&#34;) cpp.commonCompilerFlags: ... } Unlike toolchainType, which contains a single value, qbs.toolchain is a string list which also contains the toolchain family. This allows to make conditions and checks simpler. For example, instead of:
+(qbs.toolchainType === &#34;xcode&#34; || qbs.toolchainType === &#34;clang&#34; || qbs.toolchainType === &#34;gcc&#34;) use:
+qbs.toolchain.includes(&#34;gcc&#34;) since XCode, GCC and Clang belong to the &#34;gcc&#34; family.
+Relation between toolchainType and toolchain This table describes the possible values and matching between the toolchainType and the toolchain properties:
+Toolchain Type Toolchain &#34;clang&#34; [&#34;clang&#34;, &#34;llvm&#34;, &#34;gcc&#34;] &#34;clang-cl&#34; [&#34;clang-cl&#34;, &#34;msvc&#34;] &#34;cosmic&#34; [&#34;cosmic&#34;] &#34;dmc&#34; [&#34;dmc&#34;] &#34;gcc&#34; [&#34;gcc&#34;] &#34;iar&#34; [&#34;iar&#34;] &#34;keil&#34; [&#34;keil&#34;] &#34;llvm&#34; [&#34;llvm&#34;, &#34;gcc&#34;] &#34;mingw&#34; [&#34;mingw&#34;, &#34;gcc&#34;] &#34;msvc&#34; [&#34;msvc&#34;] &#34;qcc&#34; [&#34;qcc&#34;] &#34;sdcc&#34; [&#34;sdcc&#34;] &#34;watcom&#34; [&#34;watcom&#34;] &#34;xcode&#34; [&#34;xcode&#34;, &#34;clang&#34;, &#34;llvm&#34;, &#34;gcc&#34;] Default: Undefined
+toolchainType : string [since Qbs 1.11] The toolchain that is going to be used for this build.
+For example, to build a project using the &#34;clang&#34; toolchain, simply do
+qbs build qbs.toolchainType:clang You should generally treat this property as write-only and avoid using it to test for the current toolchain. Instead, use the toolchain property for conditionals.
+Typical values include: &#34;gcc&#34;, &#34;clang&#34;, &#34;clang-cl&#34;, &#34;mingw&#34;, &#34;msvc&#34;, and &#34;xcode&#34;. Also see Relation between toolchainType and toolchain.
+By default, qbs.toolchainType is automatically detected based on the targetOS property:
+Target OS Toolchain &#34;darwin&#34; &#34;xcode&#34; &#34;freebsd&#34; &#34;clang&#34; &#34;haiku&#34; &#34;gcc&#34; &#34;qnx&#34; &#34;qcc&#34; &#34;unix&#34; &#34;gcc&#34; &#34;vxworks&#34; &#34;gcc&#34; &#34;windows&#34; &#34;msvc&#34; Default: Determined automatically.
+This property was introduced in Qbs 1.11.
+version : string [read-only, since Qbs 1.4.1] The version number of Qbs as a string. For example, &#34;1.4.1&#34;.
+This property was introduced in Qbs 1.4.1.
+versionMajor : int [read-only, since Qbs 1.4.1] The major version number of Qbs.
+This property was introduced in Qbs 1.4.1.
+versionMinor : int [read-only, since Qbs 1.4.1] The minor version number of Qbs.
+This property was introduced in Qbs 1.4.1.
+versionPatch : int [read-only, since Qbs 1.4.1] The patch version number of Qbs.
+This property was introduced in Qbs 1.4.1.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -210,7 +773,7 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 /docs/qml-qbsmodules-qbs/#installDir-prop" translate="no">qbs.installDir</a> specifies the path to the directory where the files will be installed. You can specify a base directory for all installation directories as the value of <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#installPrefix-prop" translate="no">qbs.installPrefix</a>.</p>
 <p>For example, the following properties specify where a set of QML files and an application executable are installed on Windows and Linux:</p>
-<pre class="cpp plain" translate="no">Application {
+<pre class="cpp plain" translate="no"><code class="text">Application {
     name: "myapp"
     Group {
         name: "Runtime resources"
@@ -227,7 +790,7 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
     }
     qbs.installPrefix: condition: qbs.targetOS.includes("unix")
         ? "usr/local" : "MyApp"
-}</pre>
+}</code></pre>
 <p>On Windows, the QML files will ultimately get installed in <code translate="no">MyApp\resources</code> and the application executable in <code translate="no">MyApp\bin</code>, for instance under <code translate="no">C:\Program Files</code>. On Linux, the QML files will be installed in <code translate="no">/usr/local/share/myapp</code> and the executable in <code translate="no">/usr/local/bin</code>.</p>
 <p>By default, <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#installRoot-prop" translate="no">qbs.installRoot</a> creates the <code translate="no">install-root</code> directory in the build directory for packaging the binaries before installation. It is a temporary directory that is usually not available when the application is run, and it should therefore not be set in the project files. You can override the default value from the command line, as described in <a href="https://qbs.io/
@@ -433,7 +996,7 @@ Since: Qbs 1.0 List of all members, including inherited members Properties archi
 <p>Contains the list of string values describing the OS and OS family that is used to build a project.</p>
 <p>This property is calculated based on the <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#targetPlatform-prop" translate="no">targetPlatform</a> property and is typically used to test for a particular OS or OS family in conditionals:</p>
-<pre class="cpp" translate="no">Group {
+<pre class="cpp" translate="no"><code class="cpp">Group {
     <span class="comment">// Includes all Unix-like platforms, such as: Linux, BSD, Apple platforms and others.</span>
     condition: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"unix"</span>)
     files: <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
@@ -447,17 +1010,17 @@ Group {
     <span class="comment">// Includes only macOS</span>
     condition: qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"macos"</span>)
     files: <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
-}</pre>
+}</code></pre>
 <p>Avoid using <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#targetPlatform-prop" translate="no">targetPlatform</a> for this purpose. For example, instead of:</p>
-<pre class="cpp" translate="no">qbs<span class="operator">.</span>targetPlatform <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"macos"</span> <span class="operator">|</span><span class="operator">|</span> qbs<span class="operator">.</span>targetPlatform <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"ios"</span> <span class="operator">|</span><span class="operator">|</span> qbs<span class="operator">.</span>targetPlatform <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"tvos"</span> <span class="operator">|</span><span class="operator">|</span> qbs<span class="operator">.</span>targetPlatform <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"watchos"</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs<span class="operator">.</span>targetPlatform <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"macos"</span> <span class="operator">|</span><span class="operator">|</span> qbs<span class="operator">.</span>targetPlatform <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"ios"</span> <span class="operator">|</span><span class="operator">|</span> qbs<span class="operator">.</span>targetPlatform <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"tvos"</span> <span class="operator">|</span><span class="operator">|</span> qbs<span class="operator">.</span>targetPlatform <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"watchos"</span></code></pre>
 <p>use</p>
-<pre class="cpp" translate="no">qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"darwin"</span>)</pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"darwin"</span>)</code></pre>
 <p>However, in some cases using <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#targetPlatform-prop" translate="no">targetPlatform</a> would be acceptable, such as when the resulting condition would be simpler while still being correct:</p>
-<pre class="cpp" translate="no">qbs<span class="operator">.</span>targetPlatform <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"linux"</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs<span class="operator">.</span>targetPlatform <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"linux"</span></code></pre>
 <p>versus</p>
-<pre class="cpp" translate="no">qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"linux"</span>) <span class="operator">&amp;</span><span class="operator">&amp;</span> <span class="operator">!</span>qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"android"</span>)</pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"linux"</span>) <span class="operator">&amp;</span><span class="operator">&amp;</span> <span class="operator">!</span>qbs<span class="operator">.</span>targetOS<span class="operator">.</span>includes(<span class="string">"android"</span>)</code></pre>
 <p>For the complete list of possible values, see <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#relation-between-targetplatform-and-targetos" translate="no">Relation between targetPlatform and targetOS</a>.</p>
 <p>Default: Undefined</p>
@@ -467,7 +1030,7 @@ Group {
 <p>The OS you want to build the project for.</p>
 <p>This property is typically set in a profile or for a particular product where the target OS is always known (such as an Apple Watch app written in native code).</p>
 <p>For example, a profile used for building for the iOS Simulator platform will have this property set to the <code translate="no">ios-simulator</code> value:</p>
-<pre class="cpp" translate="no">profiles<span class="operator">.</span>xcode<span class="operator">-</span>iphonesimulator<span class="operator">.</span>qbs<span class="operator">.</span>targetPlatform: <span class="string">"ios-simulator"</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">profiles<span class="operator">.</span>xcode<span class="operator">-</span>iphonesimulator<span class="operator">.</span>qbs<span class="operator">.</span>targetPlatform: <span class="string">"ios-simulator"</span></code></pre>
 <p>You should generally treat this property as <i>write-only</i> and avoid using it to test for the current target OS. Instead, use the <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#targetOS-prop" translate="no">targetOS</a> property for conditionals.</p>
 <h5 id="relation-between-targetplatform-and-targetos">Relation between targetPlatform and targetOS</h5>
@@ -517,7 +1080,7 @@ Group {
 <p>Contains the list of string values describing the toolchain and toolchain family that is used to build a project.</p>
 <p>This property is deduced from the <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#toolchainType-prop" translate="no">toolchainType</a> property and is typically used to test for a particular toolchain or toolchain family in conditionals:</p>
-<pre class="cpp" translate="no">Properties {
+<pre class="cpp" translate="no"><code class="cpp">Properties {
     <span class="comment">// flags for GCC</span>
     condition: qbs<span class="operator">.</span>toolchain<span class="operator">.</span>includes(<span class="string">"gcc"</span>)
     cpp<span class="operator">.</span>commonCompilerFlags: <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
@@ -526,12 +1089,12 @@ Properties {
     <span class="comment">// flags for MSVC</span>
     condition: qbs<span class="operator">.</span>toolchain<span class="operator">.</span>includes(<span class="string">"msvc"</span>)
     cpp<span class="operator">.</span>commonCompilerFlags: <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
-}</pre>
+}</code></pre>
 <p>Unlike <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#toolchainType-prop" translate="no">toolchainType</a>, which contains a single value, <code translate="no">qbs.toolchain</code> is a string list which also contains the toolchain family. This allows to make conditions and checks simpler. For example, instead of:</p>
-<pre class="cpp" translate="no">(qbs<span class="operator">.</span>toolchainType <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"xcode"</span> <span class="operator">|</span><span class="operator">|</span> qbs<span class="operator">.</span>toolchainType <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"clang"</span> <span class="operator">|</span><span class="operator">|</span> qbs<span class="operator">.</span>toolchainType <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"gcc"</span>)</pre>
+<pre class="cpp" translate="no"><code class="cpp">(qbs<span class="operator">.</span>toolchainType <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"xcode"</span> <span class="operator">|</span><span class="operator">|</span> qbs<span class="operator">.</span>toolchainType <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"clang"</span> <span class="operator">|</span><span class="operator">|</span> qbs<span class="operator">.</span>toolchainType <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span> <span class="string">"gcc"</span>)</code></pre>
 <p>use:</p>
-<pre class="cpp" translate="no">qbs<span class="operator">.</span>toolchain<span class="operator">.</span>includes(<span class="string">"gcc"</span>)</pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs<span class="operator">.</span>toolchain<span class="operator">.</span>includes(<span class="string">"gcc"</span>)</code></pre>
 <p>since XCode, GCC and Clang belong to the <code translate="no">"gcc"</code> family.</p>
 <h5 id="relation-between-toolchaintype-and-toolchain">Relation between toolchainType and toolchain</h5>
 <p>This table describes the possible values and matching between the <a href="https://qbs.io/
@@ -559,7 +1122,7 @@ Properties {
 <h3 class="fn qml-member qml-property" id="toolchainType-prop" translate="no"><span class="name">toolchainType</span> : <span class="type">string</span> <code class="details extra" translate="no">[since Qbs 1.11]</code></h3>
 <p>The toolchain that is going to be used for this build.</p>
 <p>For example, to build a project using the <code translate="no">"clang"</code> toolchain, simply do</p>
-<pre class="cpp" translate="no">qbs build qbs<span class="operator">.</span>toolchainType:clang</pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs build qbs<span class="operator">.</span>toolchainType:clang</code></pre>
 <p>You should generally treat this property as <i>write-only</i> and avoid using it to test for the current toolchain. Instead, use the <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#toolchain-prop" translate="no">toolchain</a> property for conditionals.</p>
 <p>Typical values include: <code translate="no">"gcc"</code>, <code translate="no">"clang"</code>, <code translate="no">"clang-cl"</code>, <code translate="no">"mingw"</code>, <code translate="no">"msvc"</code>, and <code translate="no">"xcode"</code>. Also see <a href="https://qbs.io/

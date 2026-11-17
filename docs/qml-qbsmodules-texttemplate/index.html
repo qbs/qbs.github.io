@@ -41,7 +41,71 @@ placeholder : string (since Qbs 3.1)
 
 
 Detailed Description
-The texttemplate module provides support for text template files. ">
+The texttemplate module provides support for text template files.
+Example
+Consider the following text file greeting.txt.in.
+${greeting} ${name}!
+This can be used in a project like this:
+Product {
+    type: [&#34;text&#34;]
+    files: [&#34;greeting.txt.in&#34;]
+    Depends { name: &#34;texttemplate&#34; }
+    texttemplate.dict: ({
+            greeting: &#34;Hello&#34;,
+            name: &#34;World&#34;
+        })
+}
+Which will create the file greeting.txt.
+Hello World!
+The same result can be achieved using the alternative placeholder format:
+Product {
+    type: [&#34;text&#34;]
+    files: [&#34;greeting.txt.in&#34;]
+    Depends { name: &#34;texttemplate&#34; }
+    texttemplate.placeholder: &#34;@@&#34;
+    texttemplate.dict: ({
+            greeting: &#34;Hello&#34;,
+            name: &#34;World&#34;
+        })
+}
+Where greeting.txt.in contains:
+@greeting@ @name@!
+Placeholder Syntax
+The texttemplate module supports two placeholder formats, controlled by the placeholder property.
+A placeholder ${foo} is replaced by its corresponding value in texttemplate.dict. Placeholder names consist of alphanumeric characters only.
+The placeholder ${$} is always replaced with $. If you need a literal ${foo} in your template, use ${$}{foo}.
+When texttemplate.placeholder is set to &#34;@@&#34;, placeholders use the format @foo@ instead.
+Placeholders that are not defined in the dictionary will produce an error.
+Relevant File Tags
+
+TagAuto-tagged File NamesSinceDescription
+&#34;texttemplate.input&#34;*.in1.13.0Source files with this tag serve as inputs for the text template rule.
+
+
+Property Documentation
+
+dict : var
+The dictionary containing values for all keys used in the template file.
+Default: {}
+
+
+outputFileName : string
+The output file name that is assigned to produced artifacts.
+Default: Complete base name of the input file
+
+
+outputTag : string
+The output tag that is assigned to produced artifacts.
+Default: &#34;text&#34;
+
+
+placeholder : string [since Qbs 3.1]
+The placeholder format to use for text template files.
+Possible values: &#34;${}&#34;, &#34;@@&#34;
+Default: &#34;${}&#34;
+This property was introduced in Qbs 3.1.
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-texttemplate/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -51,14 +115,34 @@ The texttemplate module provides support for text template files. ">
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-texttemplate/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual QbsModules texttemplate Qbs 3.4.0 Contents Properties Detailed Description Example Placeholder Syntax Relevant File Tags texttemplate Provides support for text template files. More...
-Since: Qbs 1.13 List of all members, including inherited members Properties dict : var outputFileName : string outputTag : string placeholder : string (since Qbs 3.1) Detailed Description The texttemplate module provides support for text template files.">
+Since: Qbs 1.13 List of all members, including inherited members Properties dict : var outputFileName : string outputTag : string placeholder : string (since Qbs 3.1) Detailed Description The texttemplate module provides support for text template files.
+Example Consider the following text file greeting.txt.in.
+${greeting} ${name}! This can be used in a project like this:
+Product { type: [&#34;text&#34;] files: [&#34;greeting.txt.in&#34;] Depends { name: &#34;texttemplate&#34; } texttemplate.dict: ({ greeting: &#34;Hello&#34;, name: &#34;World&#34; }) } Which will create the file greeting.txt.
+Hello World! The same result can be achieved using the alternative placeholder format:
+Product { type: [&#34;text&#34;] files: [&#34;greeting.txt.in&#34;] Depends { name: &#34;texttemplate&#34; } texttemplate.placeholder: &#34;@@&#34; texttemplate.dict: ({ greeting: &#34;Hello&#34;, name: &#34;World&#34; }) } Where greeting.txt.in contains:
+@greeting@ @name@! Placeholder Syntax The texttemplate module supports two placeholder formats, controlled by the placeholder property.
+A placeholder ${foo} is replaced by its corresponding value in texttemplate.dict. Placeholder names consist of alphanumeric characters only.
+The placeholder ${$} is always replaced with $. If you need a literal ${foo} in your template, use ${$}{foo}.
+When texttemplate.placeholder is set to &#34;@@&#34;, placeholders use the format @foo@ instead.
+Placeholders that are not defined in the dictionary will produce an error.
+Relevant File Tags Tag Auto-tagged File Names Since Description &#34;texttemplate.input&#34; *.in 1.13.0 Source files with this tag serve as inputs for the text template rule. Property Documentation dict : var The dictionary containing values for all keys used in the template file.
+Default: {}
+outputFileName : string The output file name that is assigned to produced artifacts.
+Default: Complete base name of the input file
+outputTag : string The output tag that is assigned to produced artifacts.
+Default: &#34;text&#34;
+placeholder : string [since Qbs 3.1] The placeholder format to use for text template files.
+Possible values: &#34;${}&#34;, &#34;@@&#34;
+Default: &#34;${}&#34;
+This property was introduced in Qbs 3.1.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -67,7 +151,27 @@ Since: Qbs 1.13 List of all members, including inherited members Properties dict
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual QbsModules texttemplate Qbs 3.4.0 Contents Properties Detailed Description Example Placeholder Syntax Relevant File Tags texttemplate Provides support for text template files. More...
-Since: Qbs 1.13 List of all members, including inherited members Properties dict : var outputFileName : string outputTag : string placeholder : string (since Qbs 3.1) Detailed Description The texttemplate module provides support for text template files.">
+Since: Qbs 1.13 List of all members, including inherited members Properties dict : var outputFileName : string outputTag : string placeholder : string (since Qbs 3.1) Detailed Description The texttemplate module provides support for text template files.
+Example Consider the following text file greeting.txt.in.
+${greeting} ${name}! This can be used in a project like this:
+Product { type: [&#34;text&#34;] files: [&#34;greeting.txt.in&#34;] Depends { name: &#34;texttemplate&#34; } texttemplate.dict: ({ greeting: &#34;Hello&#34;, name: &#34;World&#34; }) } Which will create the file greeting.txt.
+Hello World! The same result can be achieved using the alternative placeholder format:
+Product { type: [&#34;text&#34;] files: [&#34;greeting.txt.in&#34;] Depends { name: &#34;texttemplate&#34; } texttemplate.placeholder: &#34;@@&#34; texttemplate.dict: ({ greeting: &#34;Hello&#34;, name: &#34;World&#34; }) } Where greeting.txt.in contains:
+@greeting@ @name@! Placeholder Syntax The texttemplate module supports two placeholder formats, controlled by the placeholder property.
+A placeholder ${foo} is replaced by its corresponding value in texttemplate.dict. Placeholder names consist of alphanumeric characters only.
+The placeholder ${$} is always replaced with $. If you need a literal ${foo} in your template, use ${$}{foo}.
+When texttemplate.placeholder is set to &#34;@@&#34;, placeholders use the format @foo@ instead.
+Placeholders that are not defined in the dictionary will produce an error.
+Relevant File Tags Tag Auto-tagged File Names Since Description &#34;texttemplate.input&#34; *.in 1.13.0 Source files with this tag serve as inputs for the text template rule. Property Documentation dict : var The dictionary containing values for all keys used in the template file.
+Default: {}
+outputFileName : string The output file name that is assigned to produced artifacts.
+Default: Complete base name of the input file
+outputTag : string The output tag that is assigned to produced artifacts.
+Default: &#34;text&#34;
+placeholder : string [since Qbs 3.1] The placeholder format to use for text template files.
+Possible values: &#34;${}&#34;, &#34;@@&#34;
+Default: &#34;${}&#34;
+This property was introduced in Qbs 3.1.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -147,9 +251,9 @@ Since: Qbs 1.13 List of all members, including inherited members Properties dict
 <p>The <code translate="no">texttemplate</code> module provides support for text template files.</p>
 <h3 id="example">Example</h3>
 <p>Consider the following text file <i>greeting.txt.in</i>.</p>
-<pre class="cpp" translate="no">${greeting} ${name}<span class="operator">!</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">${greeting} ${name}<span class="operator">!</span></code></pre>
 <p>This can be used in a project like this:</p>
-<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
+<pre class="cpp" translate="no"><code class="cpp"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/" translate="no">Product</a></span> {
     <span class="name">type</span>: [<span class="string">"text"</span>]
     <span class="name">files</span>: [<span class="string">"greeting.txt.in"</span>]
@@ -159,11 +263,11 @@ Since: Qbs 1.13 List of all members, including inherited members Properties dict
             greeting: <span class="string">"Hello"</span>,
             name: <span class="string">"World"</span>
         })
-}</pre>
+}</code></pre>
 <p>Which will create the file <i>greeting.txt</i>.</p>
-<pre class="cpp" translate="no">Hello World<span class="operator">!</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">Hello World<span class="operator">!</span></code></pre>
 <p>The same result can be achieved using the alternative placeholder format:</p>
-<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
+<pre class="cpp" translate="no"><code class="cpp"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/" translate="no">Product</a></span> {
     <span class="name">type</span>: [<span class="string">"text"</span>]
     <span class="name">files</span>: [<span class="string">"greeting.txt.in"</span>]
@@ -174,9 +278,9 @@ Since: Qbs 1.13 List of all members, including inherited members Properties dict
             greeting: <span class="string">"Hello"</span>,
             name: <span class="string">"World"</span>
         })
-}</pre>
+}</code></pre>
 <p>Where <i>greeting.txt.in</i> contains:</p>
-<pre class="cpp" translate="no">@greeting@ @name@<span class="operator">!</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">@greeting@ @name@<span class="operator">!</span></code></pre>
 <h3 id="placeholder-syntax">Placeholder Syntax</h3>
 <p>The texttemplate module supports two placeholder formats, controlled by the <code translate="no">placeholder</code> property.</p>
 <p>A placeholder <code translate="no">${foo}</code> is replaced by its corresponding value in <i>texttemplate.dict</i>. Placeholder names consist of alphanumeric characters only.</p>

@@ -47,7 +47,82 @@ subdir : string
 
 
 Detailed Description
-The installpaths module contains properties indicating directories where files should be installed to in a manner allowing distributors to make necessary adjustments. ">
+The installpaths module contains properties indicating directories where files should be installed to in a manner allowing distributors to make necessary adjustments.
+Example usage:
+qbs modules.installPaths.libexec:lib64/libexec
+
+Note: On Debian-like Linux distributions, this module also provides some convenience auto-detection mechanism using the dpkg-architecture tool: If installPaths::autotedect is true, Qbs will query the library paths from the system.
+
+
+Property Documentation
+
+applications : string
+The location where to install applictaton bundles on Apple platforms.
+Default: &#34;Applications&#34;
+
+
+autotedect : string
+Whether to try autodetecting paths using system tools.
+This property has an effect only on Debian-like Linux systems.
+Default: false
+
+
+bin : string
+The location where to install binaries.
+Default: &#34;bin&#34;
+
+
+etc : string
+The location where to install configs.
+Default: &#34;etc&#34;
+
+
+frameworks : string
+The location where to install Frameworks on Apple platforms.
+Default: &#34;Library/Frameworks&#34;
+
+
+include : string
+The location where to install include files.
+Default: &#34;include&#34;
+
+
+lib : string
+The location where to install libraries.
+Default: &#34;lib&#34;
+
+
+libexec : string
+The location where to install additional executables.
+Default: &#34;libexec/&#34; &#43; subdir
+
+
+library : string
+The location where to install support files on Apple platforms.
+Default: &#34;Library&#34;
+
+
+loadableModules : string
+The location where to install loadable modules (bundle plugins) on Apple platforms.
+Default: &#34;Library/&lt;ProjectName&gt;/PlugIns&#34;
+
+
+plugins : string
+The location where to install plugins.
+On Apple platforms, non-bundle loadable modules are also installed here.
+Default: lib &#43; &#34;/&#34; &#43; subdir &#43; &#34;/plugins&#34;
+
+
+share : string
+The location where to install resources.
+Default: &#34;share/&#34; &#43; subdir
+
+
+subdir : string
+The additional directory appended to the libexec, share and plugins paths.
+Default: lower-case Project.name
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-installpaths/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -57,14 +132,44 @@ The installpaths module contains properties indicating directories where files s
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-installpaths/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual QbsModules installpaths Qbs 3.4.0 Contents Properties Detailed Description installpaths Provides properties for install directories. More...
-Since: Qbs 3.1 List of all members, including inherited members Properties applications : string autotedect : string bin : string etc : string frameworks : string include : string lib : string libexec : string library : string loadableModules : string plugins : string share : string subdir : string Detailed Description The installpaths module contains properties indicating directories where files should be installed to in a manner allowing distributors to make necessary adjustments.">
+Since: Qbs 3.1 List of all members, including inherited members Properties applications : string autotedect : string bin : string etc : string frameworks : string include : string lib : string libexec : string library : string loadableModules : string plugins : string share : string subdir : string Detailed Description The installpaths module contains properties indicating directories where files should be installed to in a manner allowing distributors to make necessary adjustments.
+Example usage:
+qbs modules.installPaths.libexec:lib64/libexec Note: On Debian-like Linux distributions, this module also provides some convenience auto-detection mechanism using the dpkg-architecture tool: If installPaths::autotedect is true, Qbs will query the library paths from the system.
+Property Documentation applications : string The location where to install applictaton bundles on Apple platforms.
+Default: &#34;Applications&#34;
+autotedect : string Whether to try autodetecting paths using system tools.
+This property has an effect only on Debian-like Linux systems.
+Default: false
+bin : string The location where to install binaries.
+Default: &#34;bin&#34;
+etc : string The location where to install configs.
+Default: &#34;etc&#34;
+frameworks : string The location where to install Frameworks on Apple platforms.
+Default: &#34;Library/Frameworks&#34;
+include : string The location where to install include files.
+Default: &#34;include&#34;
+lib : string The location where to install libraries.
+Default: &#34;lib&#34;
+libexec : string The location where to install additional executables.
+Default: &#34;libexec/&#34; &#43; subdir
+library : string The location where to install support files on Apple platforms.
+Default: &#34;Library&#34;
+loadableModules : string The location where to install loadable modules (bundle plugins) on Apple platforms.
+Default: &#34;Library/&lt;ProjectName&gt;/PlugIns&#34;
+plugins : string The location where to install plugins.
+On Apple platforms, non-bundle loadable modules are also installed here.
+Default: lib &#43; &#34;/&#34; &#43; subdir &#43; &#34;/plugins&#34;
+share : string The location where to install resources.
+Default: &#34;share/&#34; &#43; subdir
+subdir : string The additional directory appended to the libexec, share and plugins paths.
+Default: lower-case Project.name">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -73,7 +178,37 @@ Since: Qbs 3.1 List of all members, including inherited members Properties appli
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual QbsModules installpaths Qbs 3.4.0 Contents Properties Detailed Description installpaths Provides properties for install directories. More...
-Since: Qbs 3.1 List of all members, including inherited members Properties applications : string autotedect : string bin : string etc : string frameworks : string include : string lib : string libexec : string library : string loadableModules : string plugins : string share : string subdir : string Detailed Description The installpaths module contains properties indicating directories where files should be installed to in a manner allowing distributors to make necessary adjustments.">
+Since: Qbs 3.1 List of all members, including inherited members Properties applications : string autotedect : string bin : string etc : string frameworks : string include : string lib : string libexec : string library : string loadableModules : string plugins : string share : string subdir : string Detailed Description The installpaths module contains properties indicating directories where files should be installed to in a manner allowing distributors to make necessary adjustments.
+Example usage:
+qbs modules.installPaths.libexec:lib64/libexec Note: On Debian-like Linux distributions, this module also provides some convenience auto-detection mechanism using the dpkg-architecture tool: If installPaths::autotedect is true, Qbs will query the library paths from the system.
+Property Documentation applications : string The location where to install applictaton bundles on Apple platforms.
+Default: &#34;Applications&#34;
+autotedect : string Whether to try autodetecting paths using system tools.
+This property has an effect only on Debian-like Linux systems.
+Default: false
+bin : string The location where to install binaries.
+Default: &#34;bin&#34;
+etc : string The location where to install configs.
+Default: &#34;etc&#34;
+frameworks : string The location where to install Frameworks on Apple platforms.
+Default: &#34;Library/Frameworks&#34;
+include : string The location where to install include files.
+Default: &#34;include&#34;
+lib : string The location where to install libraries.
+Default: &#34;lib&#34;
+libexec : string The location where to install additional executables.
+Default: &#34;libexec/&#34; &#43; subdir
+library : string The location where to install support files on Apple platforms.
+Default: &#34;Library&#34;
+loadableModules : string The location where to install loadable modules (bundle plugins) on Apple platforms.
+Default: &#34;Library/&lt;ProjectName&gt;/PlugIns&#34;
+plugins : string The location where to install plugins.
+On Apple platforms, non-bundle loadable modules are also installed here.
+Default: lib &#43; &#34;/&#34; &#43; subdir &#43; &#34;/plugins&#34;
+share : string The location where to install resources.
+Default: &#34;share/&#34; &#43; subdir
+subdir : string The additional directory appended to the libexec, share and plugins paths.
+Default: lower-case Project.name">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -167,7 +302,7 @@ Since: Qbs 3.1 List of all members, including inherited members Properties appli
 <h2 id="details">Detailed Description</h2>
 <p>The <code translate="no">installpaths</code> module contains properties indicating directories where files should be installed to in a manner allowing distributors to make necessary adjustments.</p>
 <p>Example usage:</p>
-<pre class="cpp" translate="no">qbs modules<span class="operator">.</span>installPaths<span class="operator">.</span>libexec:lib64<span class="operator">/</span>libexec</pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs modules<span class="operator">.</span>installPaths<span class="operator">.</span>libexec:lib64<span class="operator">/</span>libexec</code></pre>
 <div class="admonition note">
 <p><b>Note: </b>On Debian-like Linux distributions, this module also provides some convenience auto-detection mechanism using the <code translate="no">dpkg-architecture</code> tool: If installPaths::autotedect is true, Qbs will query the library paths from the system.</p>
 </div>

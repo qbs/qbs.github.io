@@ -24,7 +24,65 @@ Now that we can re-use our base items, let&#39;s add a simple autotest. We inher
 MyApplication {
     type: base.concat([&#34;autotest&#34;])
 }
-This additional type is required for the helper AutotestRunner item. This item runs all products with the &#34;autotest&#34; type when it is being built. It also implicitly depends on all such products, so they will be built before running as well. ">
+This additional type is required for the helper AutotestRunner item. This item runs all products with the &#34;autotest&#34; type when it is being built. It also implicitly depends on all such products, so they will be built before running as well.
+Let&#39;s add this item to our top-level Project item:
+Project {
+    name: &#34;My Project&#34;
+    minimumQbsVersion: &#34;2.0&#34;
+    // ...
+    AutotestRunner {
+        timeout: 60
+    }
+}
+Here we set the timeout property to 60 seconds so that our runner kills tests that run way too long.
+Now we need to add our first test. Let&#39;s create a new product with the following content:
+// test/test.qbs
+
+MyAutoTest {
+    Depends { name: &#34;mylib&#34; }
+    name: &#34;mytest&#34;
+    files: &#34;test.c&#34;
+}
+Here we depend on our library (which we are going to test), set the product name, and specify the source file, which looks like this:
+// test/test.c
+
+#include &#34;lib.h&#34;
+
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main(int argc, char *argv[])
+{
+    if (argc &gt; 2) {
+        printf(&#34;usage: test [value]\n&#34;);
+        return 1;
+    }
+    const char *expected = argc == 2 ? argv[1] : &#34;Hello from library&#34;;
+    if (strcmp(get_string(), expected) != 0) {
+        printf(&#34;text differs\n&#34;);
+        return 1;
+    }
+    return 0;
+}
+The test compares the value from the library with the value from the command line.
+Don&#39;t forget to add the new test product to the references property in the Project:
+references: [
+    &#34;app/app.qbs&#34;,
+    &#34;lib/lib.qbs&#34;,
+    &#34;test/test.qbs&#34;,
+]
+Now we can build the autotest product - this will also launch our test:
+$ qbs build -p &#34;autotest-runner&#34;
+...
+running test mytest [autotest-runner]
+Build done for configuration default.
+
+
+
+Convenience Items
+Project Properties
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/tutorial-5/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -34,14 +92,22 @@ This additional type is required for the helper AutotestRunner item. This item r
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/tutorial-5/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual Autotest Qbs 3.4.0 Convenience Items Project Properties Autotest Now that we can re-use our base items, let&#39;s add a simple autotest. We inherit the new item from the MyApplication item and add an &#34;autotest&#34; type:
-// qbs/imports/MyAutoTest.qbs MyApplication { type: base.concat([&#34;autotest&#34;]) } This additional type is required for the helper AutotestRunner item. This item runs all products with the &#34;autotest&#34; type when it is being built. It also implicitly depends on all such products, so they will be built before running as well.">
+// qbs/imports/MyAutoTest.qbs MyApplication { type: base.concat([&#34;autotest&#34;]) } This additional type is required for the helper AutotestRunner item. This item runs all products with the &#34;autotest&#34; type when it is being built. It also implicitly depends on all such products, so they will be built before running as well.
+Let&#39;s add this item to our top-level Project item:
+Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; // ... AutotestRunner { timeout: 60 } } Here we set the timeout property to 60 seconds so that our runner kills tests that run way too long.
+Now we need to add our first test. Let&#39;s create a new product with the following content:
+// test/test.qbs MyAutoTest { Depends { name: &#34;mylib&#34; } name: &#34;mytest&#34; files: &#34;test.c&#34; } Here we depend on our library (which we are going to test), set the product name, and specify the source file, which looks like this:
+// test/test.c #include &#34;lib.h&#34; #include &lt;stdio.h&gt; #include &lt;string.h&gt; int main(int argc, char *argv[]) { if (argc &gt; 2) { printf(&#34;usage: test [value]\n&#34;); return 1; } const char *expected = argc == 2 ? argv[1] : &#34;Hello from library&#34;; if (strcmp(get_string(), expected) != 0) { printf(&#34;text differs\n&#34;); return 1; } return 0; } The test compares the value from the library with the value from the command line.
+Don&#39;t forget to add the new test product to the references property in the Project:
+references: [ &#34;app/app.qbs&#34;, &#34;lib/lib.qbs&#34;, &#34;test/test.qbs&#34;, ] Now we can build the autotest product - this will also launch our test:
+$ qbs build -p &#34;autotest-runner&#34; ... running test mytest [autotest-runner] Build done for configuration default. Convenience Items Project Properties">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -50,7 +116,15 @@ This additional type is required for the helper AutotestRunner item. This item r
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual Autotest Qbs 3.4.0 Convenience Items Project Properties Autotest Now that we can re-use our base items, let&#39;s add a simple autotest. We inherit the new item from the MyApplication item and add an &#34;autotest&#34; type:
-// qbs/imports/MyAutoTest.qbs MyApplication { type: base.concat([&#34;autotest&#34;]) } This additional type is required for the helper AutotestRunner item. This item runs all products with the &#34;autotest&#34; type when it is being built. It also implicitly depends on all such products, so they will be built before running as well.">
+// qbs/imports/MyAutoTest.qbs MyApplication { type: base.concat([&#34;autotest&#34;]) } This additional type is required for the helper AutotestRunner item. This item runs all products with the &#34;autotest&#34; type when it is being built. It also implicitly depends on all such products, so they will be built before running as well.
+Let&#39;s add this item to our top-level Project item:
+Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; // ... AutotestRunner { timeout: 60 } } Here we set the timeout property to 60 seconds so that our runner kills tests that run way too long.
+Now we need to add our first test. Let&#39;s create a new product with the following content:
+// test/test.qbs MyAutoTest { Depends { name: &#34;mylib&#34; } name: &#34;mytest&#34; files: &#34;test.c&#34; } Here we depend on our library (which we are going to test), set the product name, and specify the source file, which looks like this:
+// test/test.c #include &#34;lib.h&#34; #include &lt;stdio.h&gt; #include &lt;string.h&gt; int main(int argc, char *argv[]) { if (argc &gt; 2) { printf(&#34;usage: test [value]\n&#34;); return 1; } const char *expected = argc == 2 ? argv[1] : &#34;Hello from library&#34;; if (strcmp(get_string(), expected) != 0) { printf(&#34;text differs\n&#34;); return 1; } return 0; } The test compares the value from the library with the value from the command line.
+Don&#39;t forget to add the new test product to the references property in the Project:
+references: [ &#34;app/app.qbs&#34;, &#34;lib/lib.qbs&#34;, &#34;test/test.qbs&#34;, ] Now we can build the autotest product - this will also launch our test:
+$ qbs build -p &#34;autotest-runner&#34; ... running test mytest [autotest-runner] Build done for configuration default. Convenience Items Project Properties">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -103,36 +177,36 @@ This additional type is required for the helper AutotestRunner item. This item r
 <!-- $$$tutorial-5.html-description -->
 <div class="descr" id="details">
 <p>Now that we can re-use our base items, let's add a simple autotest. We inherit the new item from the <code translate="no">MyApplication</code> item and add an <code translate="no">"autotest"</code> type:</p>
-<pre class="cpp" translate="no">// qbs/imports/MyAutoTest.qbs
+<pre class="cpp" translate="no"><code class="cpp">// qbs/imports/MyAutoTest.qbs
 
 MyApplication {
     type: base.concat(["autotest"])
-}</pre>
+}</code></pre>
 <p>This additional type is required for the helper <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-autotestrunner/" translate="no">AutotestRunner</a> item. This item runs all products with the <code translate="no">"autotest"</code> type when it is being built. It also implicitly depends on all such products, so they will be built before running as well.</p>
 <p>Let's add this item to our top-level <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-project/" translate="no">Project</a> item:</p>
-<pre class="cpp" translate="no">Project {
+<pre class="cpp" translate="no"><code class="cpp">Project {
     name: <span class="string">"My Project"</span>
     minimumQbsVersion: <span class="string">"2.0"</span>
     <span class="comment">// ...</span>
     AutotestRunner {
         timeout: <span class="number">60</span>
     }
-}</pre>
+}</code></pre>
 <p>Here we set the <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-autotestrunner/#timeout-prop" translate="no">timeout</a> property to 60 seconds so that our runner kills tests that run way too long.</p>
 <p>Now we need to add our first test. Let's create a new product with the following content:</p>
-<pre class="cpp" translate="no">// test/test.qbs
+<pre class="cpp" translate="no"><code class="cpp">// test/test.qbs
 
 MyAutoTest {
     Depends { name: "mylib" }
     name: "mytest"
     files: "test.c"
-}</pre>
+}</code></pre>
 <p>Here we depend on our library (which we are going to test), set the product <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#name-prop" translate="no">name</a>, and specify the source file, which looks like this:</p>
-<pre class="cpp" translate="no"><span class="comment">// test/test.c</span>
+<pre class="cpp" translate="no"><code class="cpp"><span class="comment">// test/test.c</span>
 
 <span class="preprocessor">#include "lib.h"</span>
 
@@ -151,19 +225,19 @@ MyAutoTest {
         <span class="keyword">return</span> <span class="number">1</span>;
     }
     <span class="keyword">return</span> <span class="number">0</span>;
-}</pre>
+}</code></pre>
 <p>The test compares the value from the library with the value from the command line.</p>
 <p>Don't forget to add the new test product to the references property in the Project:</p>
-<pre class="cpp" translate="no">references: [
+<pre class="cpp" translate="no"><code class="cpp">references: [
     "app/app.qbs",
     "lib/lib.qbs",
     "test/test.qbs",
-]</pre>
+]</code></pre>
 <p>Now we can build the autotest product - this will also launch our test:</p>
-<pre class="cpp" translate="no">$ qbs build <span class="operator">-</span>p <span class="string">"autotest-runner"</span>
+<pre class="cpp" translate="no"><code class="cpp">$ qbs build <span class="operator">-</span>p <span class="string">"autotest-runner"</span>
 <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
 running test mytest <span class="operator">[</span>autotest<span class="operator">-</span>runner<span class="operator">]</span>
-Build done <span class="keyword">for</span> configuration <span class="keyword">default</span><span class="operator">.</span></pre>
+Build done <span class="keyword">for</span> configuration <span class="keyword">default</span><span class="operator">.</span></code></pre>
 </div>
 <!-- @@@tutorial-5.html -->
 <p class="naviNextPrevious footerNavi">

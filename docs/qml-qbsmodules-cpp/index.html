@@ -180,7 +180,1075 @@ windowsSdkVersion : string (since Qbs 1.19)
 
 
 Detailed Description
-The cpp module contains the properties and rules for toolchains of the C/C&#43;&#43; family. On Apple platforms, this includes support for Objective-C/C&#43;&#43;. ">
+The cpp module contains the properties and rules for toolchains of the C/C&#43;&#43; family. On Apple platforms, this includes support for Objective-C/C&#43;&#43;.
+Setting Up the Run Environment
+When running an application that has dependencies on dynamic libraries, the script specified by Module.setupRunEnvironment automatically adds the locations of the libraries to the environment. That is, to PATH on Windows, DYLD_LIBRARY_PATH on macOS, and LD_LIBRARY_PATH on Linux and other Unix platforms. If the value &#34;ignore-lib-dependencies&#34; shows up in the config array, this behavior is disabled. Users can set the value via the run command.
+Dependency Parameters
+
+ParameterTypeSinceDefaultDescription
+linkbool1.9undefinedIf false, the dependency will not be linked, even if it is a valid input for a linker rule. This property affects library dependencies only.
+linkWholeArchivebool1.9undefinedIf true, then if the dependency is a static library, all of its objects will be pulled into target binary, even if their symbols do not appear to be used. This parameter is mainly useful when creating a dynamic library from static libraries.
+symbolLinkModestring1.9undefinedAttribute specifying how the library or framework will be linked. May contain the values: &#34;weak&#34;, &#34;lazy&#34;, &#34;reexport&#34;, and &#34;upward&#34;; refer to the Apple ld64 man page for full details. undefined uses normal linking. Currently only applies when linking for Apple platforms. Note that &#34;lazy&#34; mode is deprecated and doesn&#39;t work with Xcode 15 and above.
+
+Relevant File Tags
+
+TagAuto-tagged File NamesSinceDescription
+&#34;application&#34;n/a1.0.1The rule that creates executable files (typically via a linker) attaches this tag to its output artifact.
+&#34;asm&#34;*.s (for GCC-like toolchains), *.asm (for MSVC)1.1.0Source files with this tag serve as inputs to a rule invoking the toolchain&#39;s assembler. One object file is generated for each such file.
+&#34;asm_cpp&#34;*.S, *.sx1.1.0Like &#34;asm&#34;, but for source files that need preprocessing. This tag only has an effect with GCC-like toolchains.
+&#34;c&#34;*.c (if combineCSources is not enabled)1.0.1Source files with this tag serve as inputs to a rule invoking the toolchain&#39;s C compiler. One object file is generated for each such file.
+&#34;c.combine&#34;*.c (if combineCSources is enabled)1.8Source files with this tag serve as inputs to a rule combining them into a single C file, which will then be compiled.
+&#34;cpp&#34;*.C, *.cpp, *.cxx, *.c&#43;&#43;, *.cc (if combineCxxSources is not enabled)1.0.1Source files with this tag serve as inputs to a rule invoking the toolchain&#39;s C&#43;&#43; compiler. One object file is generated for each such file.
+&#34;cpp.combine&#34;*.C, *.cpp, *.cxx, *.c&#43;&#43;, *.cc (if combineCxxSources is enabled)1.8Source files with this tag serve as inputs to a rule combining them into a single C&#43;&#43; file, which will then be compiled.
+&#34;c_pch_src&#34;, &#34;cpp_pch_src&#34;, &#34;objc_pch_src&#34;, &#34;objcpp_pch_src&#34;-1.5Files with this tag will be turned into precompiled headers for C, C&#43;&#43;, Objective-C and Objective-C&#43;&#43;, respectively. There can be only one such file per product and language.
+&#34;def&#34;-1.17.0This tag is used for a module-definition file (.def) to be passed to the linker. Such a file provides the linker with information about exports, attributes, and other information about the program to be linked. This file tag only has an effect with the MSVC toolchain.
+&#34;dynamiclibrary&#34;n/a1.0.1The rule that creates dynamic libraries (typically via a linker) attaches this tag to its output artifact.
+&#34;dynamiclibrary_import&#34;n/a1.0.0This tag is used for import libraries of dynamic libraries. For example, the MSVC linker rule creates a dynamiclibrary_import artifact foo.lib in addition to a dynamiclibrary artifact foo.dll.
+&#34;hpp&#34;*.h, *.H, *.hpp, *.hxx, *.h&#43;&#43;1.0.1This tag is used for header files (C, C&#43;&#43;, Objective-C and Objective-C&#43;&#43;). No rule in this module generates output artifacts from such files directly, but the compiler rule will have a dependency on all rules that create such files.
+&#34;linkerscript&#34;-1.5.0This tag is used for ld linker scripts. You can provide such a file if you need to replace the default linker script. This file tag only has an effect with GCC-like toolchains. The linker needs to be ld-compatible.
+&#34;native.pe.manifest&#34;*.manifest1.8.0This tag is automatically assigned to Microsoft manifest files. Manifests are embedded into the resulting binary.
+&#34;obj&#34;n/a1.0.1The rule that creates object files (typically via a compiler) attaches this tag to its output artifacts. Such files are usually intermediate artifacts of the build process and rarely need to be referenced in project files.
+&#34;objc&#34;*.m (if combineObjcSources is not enabled)1.1.0Source files with this tag serve as inputs to a rule invoking the toolchain&#39;s Objective-C compiler. One object file is generated for each such file.
+&#34;objc.combine&#34;*.m (if combineObjcSources is enabled)1.8Source files with this tag serve as inputs to a rule combining them into a single Objective-C file, which will then be compiled.
+&#34;objcpp&#34;*.mm (if combineObjcxxSources is not enabled)1.1.0Source files with this tag serve as inputs to a rule invoking the toolchain&#39;s Objective-C&#43;&#43; compiler. One object file is generated for each such file.
+&#34;objcpp.combine&#34;*.mm (if combineObjcxxSources is enabled)1.8Source files with this tag serve as inputs to a rule combining them into a single Objective-C&#43;&#43; file, which will then be compiled.
+&#34;rc&#34;*.rc1.1.0Files with this tag serve as inputs to the Windows resource compiler. One object file is generated for each such file. The tag has no effect on target platforms other than Windows.
+&#34;staticlibrary&#34;n/a1.0.1The rule that creates static libraries (typically via a linker) attaches this tag to its output artifact.
+&#34;objectlibrary&#34;n/a3.2.0The ObjectLibrary item attaches this tag to its &#34;obj&#34; artifacts.
+&#34;versionscript&#34;-1.5.0This tag is used for ld linker scripts. You can provide such a file if you need fine-grained control over the symbols present in a shared library. This file tag only has an effect with GCC-like toolchains. The linker needs to be ld-compatible.
+&#34;time_trace&#34;n/a3.3.0This tag is attached to .time_trace.json files produced by the compiler.
+
+Relevant Job Pools
+
+PoolSinceDescription
+&#34;assembler&#34;1.13The job pool used by rules that run the toolchain&#39;s assembler. This is only relevant for direct invocations of the assembler binary, not for running it indirectly via the compiler.
+&#34;compiler&#34;1.13The job pool used by rules that run a compiler. All language variants use the same pool.
+&#34;linker&#34;1.13The job pool used by rules that run a linker.
+
+
+Property Documentation
+
+allowUnresolvedSymbols : bool [since Qbs 1.2]
+Set to true if you want the linking step to succeed even if the resulting binary contains unresolved symbols. Normally, this makes little sense, but in special cases it is possible that the respective symbols will be available at load time even if they are not present during linking.
+Default: Undefined
+This property was introduced in Qbs 1.2.
+
+
+alwaysUseLipo : bool [since Qbs 1.9]
+Whether to always use lipo when combining Mach-O output files on Apple platforms, even if there is only one CPU architecture. This value should not normally need to be changed.
+Default: false
+This property was introduced in Qbs 1.9.
+
+
+architecture : string
+The target architecture.
+Default: qbs.architecture
+
+
+archiverFlags : string [since Qbs 3.0.0]
+Additional flags that are appended to the archiver command.
+Default: An empty list
+This property was introduced in Qbs 3.0.0.
+
+
+archiverName : string
+The name of the archiver binary. This property is usually predetermined by the toolchain and may be overridden. For instance, when enabling link-time optimization in a gcc-based toolchain, &#34;gcc-ar&#34; has to be used instead of &#34;ar&#34;.
+Default: Depends on the selected toolchain.
+
+
+archiverPath : string
+The full path of the archiver binary.
+Default: Determined by qbs setup-toolchains.
+
+
+assemblerFlags : stringList [since Qbs 1.5]
+A list of additional flags for the assembler.
+Default: Undefined
+This property was introduced in Qbs 1.5.
+
+
+assemblerListingSuffix : string
+A string to append to the generated assembler listing files.
+Default: toolchain-dependent, typical value is &#34;.lst&#34;
+
+
+assemblerName : string [since Qbs 1.5]
+The name of the assembler binary. This property is set in the build profile.
+Default: Determined by qbs setup-toolchains.
+This property was introduced in Qbs 1.5.
+
+
+assemblerPath : string [since Qbs 1.5]
+The full path of the assembler binary. This property is set in the build profile.
+Default: Determined by qbs setup-toolchains.
+This property was introduced in Qbs 1.5.
+
+
+automaticReferenceCounting : bool [since Qbs 1.4]
+This property is specific to Apple platforms.
+Whether to enable Automatic Reference Counting (ARC) for Objective-C and Objective-C&#43;&#43; source code.
+If left undefined, uses the compiler default (probably false).
+Default: Undefined
+This property was introduced in Qbs 1.4.
+
+
+cFlags : stringList
+A list of additional flags for the C compiler.
+Default: Undefined
+
+
+cLanguageVersion : stringList [since Qbs 1.4]
+The version of the C standard with which the code must comply.
+If this property is set, the corresponding compiler and linker flags will be added, depending on the toolchain.
+If the value is left undefined, the compiler default will be used. If the list contains more than one value, the highest version is chosen.
+Possible values include: &#34;c89&#34;, &#34;c99&#34;, &#34;c11&#34;, &#34;c17&#34;, &#34;c2x&#34;.
+Default: Undefined
+This property was introduced in Qbs 1.4.
+
+
+combineCSources : bool [since Qbs 1.8]
+Enabling this property on a product instructs the file tagger to attach the tag &#34;c.combine&#34; to C sources, rather than &#34;c&#34;. As a result, all C sources of the product will be combined into a single file, which is then compiled.
+This can speed up initial compilation significantly, but is of course detrimental in the context of incremental builds. Also, perfectly legal code may fail to compile with this option due to the merging of translation units.
+To enable this property in a product that has sources that cannot be merged, put the sources into a dedicated Group and set their fileTags property to &#34;c&#34;, overriding the file tagger.
+
+Note: Module properties set on specific source files (that is, at the Group level) will not be taken into account when building the combined file. You either need to set these properties at the product level or prevent the respective files from getting combined via the mechanism described above.
+
+Default: false
+This property was introduced in Qbs 1.8.
+
+
+combineCxxSources : bool [since Qbs 1.8]
+Like combineCSources, but for C&#43;&#43;. The relevant file tags are &#34;cpp&#34; and &#34;cpp.combine&#34;.
+Default: false
+This property was introduced in Qbs 1.8.
+See also combineCSources.
+
+
+combineObjcSources : bool [since Qbs 1.8]
+Like combineCSources, but for Objective-C. The relevant file tags are &#34;objc&#34; and &#34;objc.combine&#34;.
+Default: false
+This property was introduced in Qbs 1.8.
+See also combineCSources.
+
+
+combineObjcxxSources : bool [since Qbs 1.8]
+Like combineCSources, but for Objective-C&#43;&#43;. The relevant file tags are &#34;objcpp&#34; and &#34;objcpp.combine&#34;.
+Default: false
+This property was introduced in Qbs 1.8.
+See also combineCSources.
+
+
+commonCompilerFlags : stringList [since Qbs 1.0.1]
+A list of flags that are added to all compilation commands independently of the language.
+Default: Undefined
+This property was introduced in Qbs 1.0.1.
+
+
+compilerDefinesByLanguage : var [since Qbs 1.10]
+A string to string to string map of language tags to list of preprocessor macros that are used for all projects that are using the current toolchain.
+User project files usually do not set this property.
+
+Note: This property will not be usable without also setting enableCompilerDefinesByLanguage.
+
+Default: Undefined
+This property was introduced in Qbs 1.10.
+
+
+compilerFrameworkPaths : pathList [since Qbs 1.6]
+A list of framework search paths that are used for all projects that are using the current toolchain.
+User project files usually do not set this property.
+Default: Determined automatically by probing the compiler.
+This property was introduced in Qbs 1.6.
+
+
+compilerIncludePaths : pathList [since Qbs 1.6]
+A list of #include search paths that are used for all projects that are using the current toolchain.
+User project files usually do not set this property.
+Default: Determined automatically by probing the compiler.
+This property was introduced in Qbs 1.6.
+
+
+compilerLibraryPaths : pathList [since Qbs 1.6]
+A list of library search paths that are used for all projects that are using the current toolchain.
+User project files usually do not set this property.
+Default: Determined automatically by probing the compiler.
+This property was introduced in Qbs 1.6.
+
+
+compilerListingSuffix : string
+A string to append to the generated compiler listing files.
+Default: toolchain-dependent, typical value is &#34;.lst&#34;
+
+
+compilerName : string
+The name of the main compiler binary. This property is set in the build profile.
+Default: Determined by qbs setup-toolchains.
+
+
+compilerPath : string
+The full path of the main compiler binary. This property is set in the build profile.
+If the toolchain provides different compilers for different languages, compilerPathByLanguage is used.
+Default: Determined by qbs setup-toolchains.
+
+
+compilerPathByLanguage : var [since Qbs 1.3]
+A string to string map that maps file tags to full paths of compiler binaries. This property is set in the build profile.
+Default: Determined by qbs setup-toolchains.
+This property was introduced in Qbs 1.3.
+
+
+compilerVersion : string
+Compiler version string consisting of major, minor and patch numbers, separated by a dot.
+Default: Undefined
+
+
+compilerVersionMajor : int [since Qbs 1.4]
+The major version of the compiler.
+Default: Undefined
+This property was introduced in Qbs 1.4.
+
+
+compilerVersionMinor : int [since Qbs 1.4]
+The minor version of the compiler.
+Default: Undefined
+This property was introduced in Qbs 1.4.
+
+
+compilerVersionPatch : int [since Qbs 1.4]
+The patch level component of the compiler version.
+Default: Undefined
+This property was introduced in Qbs 1.4.
+
+
+compilerWrapper : stringList [since Qbs 1.1]
+A wrapper binary and its arguments for wrapping compiler calls. This is useful for compiler wrappers, such as ccache.
+Default: Undefined
+This property was introduced in Qbs 1.1.
+
+
+cppFlags : stringList
+A list of additional flags for the C preprocessor.
+Default: Undefined
+
+
+createSymlinks : bool
+This property is specific to Unix platforms.
+Whether to create version alias symlinks when building a dynamic library.
+Default: true
+
+
+cxxFlags : stringList
+A list of additional flags for the C&#43;&#43; compiler.
+Default: Undefined
+
+
+cxxLanguageVersion : stringList [since Qbs 1.4]
+The version of the C&#43;&#43; standard with which the code must comply.
+If this property is set, the corresponding compiler and linker flags will be added, depending on the toolchain.
+If the value is left undefined, the compiler default will be used. If the list contains more than one value, the highest version is chosen.
+Possible values include: &#34;c&#43;&#43;98&#34;, &#34;c&#43;&#43;11&#34;, &#34;c&#43;&#43;14&#34;, &#34;c&#43;&#43;17&#34;, &#34;c&#43;&#43;20&#34;, &#34;c&#43;&#43;23&#34;, &#34;c&#43;&#43;26&#34;.
+Default: Undefined
+This property was introduced in Qbs 1.4.
+
+
+cxxStandardLibrary : string [since Qbs 1.4]
+The C&#43;&#43; standard library to link to.
+If this property is set, the corresponding compiler and linker flags will be added, assuming the value is valid for the current toolchain.
+If the value is left undefined, the compiler default will be used.
+Possible values include: &#34;libstdc&#43;&#43;&#34;, &#34;libc&#43;&#43;&#34;.
+Default: Undefined
+This property was introduced in Qbs 1.4.
+
+
+debugInfoBundleSuffix : string
+This property is specific to Apple platforms.
+A string to append to the debug information bundle name.
+Default: &#34;.dSYM&#34;
+
+
+debugInfoSuffix : string
+A string to append to the debug information file name.
+Default: toolchain-dependent, typical values are &#34;.debug&#34;, &#34;.pdb&#34; or &#34;.dwarf&#34;
+
+
+debugInformation : bool
+Whether to generate debug information.
+Default: qbs.debugInformation
+
+
+defines : stringList
+A list of preprocessor macros that gets passed to the compiler.
+To set macro values, use the following syntax:
+cpp.defines: [&#34;USE_COLORS=1&#34;, &#39;COLOR_STR=&#34;blanched almond&#34;&#39;]
+Default: Undefined
+
+
+discardUnusedData : bool [since Qbs 1.10]
+If this property is true, the linker will discard data from objects that it determines to be unused. With MSVC and on Apple platforms, the granularity is per symbol, elsewhere it is per section.
+Default: Undefined
+This property was introduced in Qbs 1.10.
+
+
+distributionFrameworkPaths : pathList [since Qbs 1.8]
+A list of distribution-specific framework search paths, prioritized after systemFrameworkPaths.
+Intended for use by module authors implementing support for new operating systems or distributions.
+User project files should not set this property.
+Default: Undefined
+This property was introduced in Qbs 1.8.
+
+
+distributionIncludePaths : pathList [since Qbs 1.8]
+A list of distribution-specific include paths that are passed as system include paths to the compiler, prioritized after systemIncludePaths.
+Intended for use by module authors implementing support for new operating systems or distributions.
+User project files should not set this property.
+Default: Undefined
+This property was introduced in Qbs 1.8.
+
+
+distributionLibraryPaths : pathList [since Qbs 1.8]
+A list of distribution-specific library search paths.
+Intended for use by module authors implementing support for new operating systems or distributions.
+User project files should not set this property.
+Default: Undefined
+This property was introduced in Qbs 1.8.
+
+
+driverFlags : stringList [since Qbs 1.6]
+A list of flags that are added to all compilation and linking commands performed by the compiler driver, independently of the language.
+Default: Undefined
+This property was introduced in Qbs 1.6.
+
+
+driverLinkerFlags : stringList [since Qbs 1.11]
+A list of flags that are added to all linking commands performed by the compiler driver, independently of the language.
+Default: Undefined
+This property was introduced in Qbs 1.11.
+
+
+dsymutilFlags : stringList [since Qbs 1.4.1]
+This property is specific to Apple platforms.
+Additional flags for the dsymutil tool.
+
+Note: If this property contains the -f or --flat options, this will cause Qbs to generate &#34;flat&#34; (single-file) .dwarf debug symbol files instead of .dSYM bundles (directories) when separateDebugInformation is set to true.
+
+Default: Undefined
+This property was introduced in Qbs 1.4.1.
+
+
+dsymutilPath : string [since Qbs 1.4]
+This property is specific to Apple platforms.
+The full path of the dsymutil binary. This property is set in the build profile.
+Default: Determined by qbs setup-toolchains.
+This property was introduced in Qbs 1.4.
+
+
+dynamicLibraries : stringList
+Like libraries, but expressing the intention to link dynamic libraries specifically.
+
+Note: Qbs does currently not enforce that only dynamic libraries will be linked.
+
+Default: Undefined
+
+
+dynamicLibraryImportSuffix : string
+This property is specific to Windows.
+A string to append to the dynamic library import file name.
+Default: &#34;.lib&#34;
+
+
+dynamicLibraryPrefix : string
+A string to prepend to the dynamic library file name.
+Default: toolchain-dependent, typical values are &#34;&#34; or &#34;lib&#34;
+
+
+dynamicLibrarySuffix : string
+A string to append to the dynamic library file name.
+Default: toolchain-dependent, typical values are &#34;.so&#34;, &#34;.dll&#34; or &#34;dylib&#34;
+
+
+enableCompilerDefinesByLanguage : stringList [since Qbs 1.10]
+A list of languages (one or more of &#34;c&#34;, &#34;cpp&#34;, &#34;objc&#34;, &#34;objcpp&#34;) to extract the list of default compiler defines for in compilerDefinesByLanguage.
+Because this has performance implications, no languages are enabled by default.
+Default: Undefined
+This property was introduced in Qbs 1.10.
+
+
+enableCxxLanguageMacro : string [since Qbs 1.20]
+Whether to set the /Zc:__cplusplus macro (https://docs.microsoft.com/en-us/cpp/build/reference/zc-cplusplus)
+This property only applies to MSVC toolchain. clang-cl also supports this option, but it has no effect.
+This property is specific to Windows. Default: true for MSVC, false for clang-cl
+This property was introduced in Qbs 1.20.
+
+
+enableExceptions : bool [since Qbs 1.5]
+Whether to enable exceptions in C&#43;&#43; code.
+Default: true
+This property was introduced in Qbs 1.5.
+
+
+enableReproducibleBuilds : bool [since Qbs 1.5]
+Whether the compiler should try to generate reproducible object files.
+Some compilers (notably GCC) use random numbers for generating symbol names that have to be different in every compilation unit. This is avoided by setting this property to true.
+Default: false
+This property was introduced in Qbs 1.5.
+
+
+enableRtti : bool [since Qbs 1.5]
+Whether to enable runtime type information in C&#43;&#43; code.
+Default: Undefined
+This property was introduced in Qbs 1.5.
+
+
+enableSuspiciousLinkerFlagWarnings : bool [since Qbs 1.8]
+Whether to print warnings about escaped linker flags (such as -Xlinker and -Wl).
+Default: true
+This property was introduced in Qbs 1.8.
+
+
+enableTimeTrace : bool [since Qbs 3.3]
+Whether the compiler should generate time trace profiling information.
+When enabled and supported by the compiler, compilation of C and C&#43;&#43; source files will additionally produce .time_trace.json files alongside the regular object files. These files can be inspected with trace viewers such as Chromium&#39;s about:tracing page.
+If the toolchain does not support time trace generation, this property has no effect.
+The generated files are assigned the &#34;time_trace&#34; file tag.
+This option is currently supported only for the clang toolchain.
+Default: false
+This property was introduced in Qbs 3.3.
+
+
+endianness : string [since Qbs 1.9]
+Specifies the endianness of the target platform&#39;s processor architecture (&#34;big&#34; or &#34;little&#34;).
+The value is automatically detected from the compiler&#39;s default values, but can also be manually set in order to select a specific endianness when targeting bi-endian architectures like MIPS and PowerPC.
+Default: Compiler default value.
+This property was introduced in Qbs 1.9.
+
+
+entryPoint : string [since Qbs 1.3]
+The name of the entry point of an executable or dynamic library.
+If this property is left undefined, the toolchain&#39;s default is used.
+Default: Undefined
+This property was introduced in Qbs 1.3.
+
+
+exceptionHandlingModel : string [since Qbs 1.5]
+The exception handling model to use.
+For MSVC, this can be &#34;default&#34;, &#34;seh&#34; or &#34;externc&#34;. For all other compilers, &#34;default&#34; indicates the default or the only exception handling model.
+Default: &#34;default&#34;
+This property was introduced in Qbs 1.5.
+
+
+executablePrefix : string
+A string to prepend to the executable file name.
+Default: &#34;&#34;
+
+
+executableSuffix : string
+A string to append to the executable file name.
+Default: toolchain-dependent, typical values are &#34;&#34; or &#34;.exe&#34;
+
+
+exportedSymbolsCheckMode : string [since Qbs 1.4.1]
+This property is specific to Unix platforms.
+Controls how Qbs determines whether an updated dynamic library causes relinking of dependents.
+The default value is &#34;ignore-undefined&#34;, which means that undefined symbols being added or removed do not cause any relinking. If that should happen, for example because dependent products are linked with an option such as &#34;--no-undefined&#34;, this property can be set to &#34;strict&#34;.
+Default: &#34;ignore-undefined&#34;
+This property was introduced in Qbs 1.4.1.
+
+
+forceUseCxxModules : bool [since Qbs 2.5]
+Set this property to true to force support for C&#43;&#43;20 Modules.
+On details how to use modules, see the corresponding section in the tutorial.
+By default, modules support is disabled since this feature is considered experimental.
+
+Note: The default value is subject to change.
+
+Default: false
+This property was introduced in Qbs 2.5.
+
+
+frameworkPaths : pathList
+This property is specific to Apple platforms.
+A list of framework search paths.
+Relative paths are considered to be relative to the .qbs product file they are used in.
+Default: Undefined
+
+
+frameworks : stringList
+This property is specific to Apple platforms.
+A list of frameworks to be linked.
+If the framework is part of your project, consider using a Depends item instead.
+Default: Undefined
+
+
+generateAssemblerListingFiles : bool [since Qbs 1.15]
+This property is specific to bare-metal platforms.
+Whether to auto-generate an assembler listing files.
+Default: false
+This property was introduced in Qbs 1.15.
+
+
+generateCompilerListingFiles : bool [since Qbs 1.15]
+Whether to auto-generate compiler listing files.
+Default: false
+This property was introduced in Qbs 1.15.
+
+
+generateLinkerMapFile : bool [since Qbs 1.13]
+Whether to auto-generate a linker map file.
+Default: false
+This property was introduced in Qbs 1.13.
+
+
+generateManifestFile : bool [since Qbs 1.5.0]
+This property is specific to Windows.
+Whether to auto-generate a manifest file and include it in the binary.
+Set this property to false if you provide your own rc file.
+Default: true
+This property was introduced in Qbs 1.5.0.
+
+
+importPrivateLibraries : string [since Qbs 2.4]
+Whether to automatically import external libraries from dependencies.
+If set to true in the product that depends on the static library, the external dependencies (such as staticLibraries and dynamicLibraries) of this library are also added to products that depend on this library.
+StaticLibrary {
+    files: &#34;lib.cpp&#34;
+    cpp.staticLibraries: [&#34;l&#34;, &#34;y&#34;]
+}
+If set to false, the explicit Export item is required:
+StaticLibrary {
+    files: &#34;lib.cpp&#34;
+    Export {
+        Depends { name: &#34;cpp&#34; }
+        cpp.staticLibraries: [&#34;l&#34;, &#34;y&#34;]
+    }
+}
+We recommend using the Export item as it provides more flexibility.
+
+Note: The default value is subject to change.
+
+Default: true
+This property was introduced in Qbs 2.4.
+
+
+includePaths : pathList
+A list of include paths.
+Relative paths are considered to be relative to the .qbs product file they are used in.
+Default: Undefined
+
+
+libraries : stringList
+A List of libraries to be linked.
+If the library is part of your project, consider using a Depends item instead.
+Each library can be specified in one of two ways:
+
+An absolute file path (for example, &#34;/foo/bar.lib&#34;), in which case it is passed directly to the linker, ignoring libraryPaths.
+A library basename (for example, &#34;bar&#34;), in which case the directory that contains the library must be provided via libraryPaths.
+
+Relative paths (&#34;foo/bar.lib&#34;) are not allowed. When giving an absolute path, the more specific properties staticLibraries or dynamicLibraries should be preferred, depending on the type of the library.
+Default: Undefined
+See also libraryPaths and How do I create a module for a third-party library?.
+
+
+libraryPaths : pathList
+A list of library search paths.
+The paths will be passed to the linker in the appropriate way. For example, the -L argument will be used when using ld-like linkers.
+Relative paths are considered to be relative to the .qbs product file they are used in.
+Default: Undefined
+See also libraries, dynamicLibraries, staticLibraries, and How do I create a module for a third-party library?.
+
+
+linkerFlags : stringList
+A list of additional flags for the linker.
+These flags should not be escaped using the -Wl or -Xlinker syntaxes, as Qbs will do this automatically based on the linker being used.
+Default: Undefined
+See also linkerMode.
+
+
+linkerMapSuffix : string
+A string to append to the generated linker memory map files.
+Default: toolchain-dependent, typical value is &#34;.map&#34;
+
+
+linkerMode : string [since Qbs 1.6]
+Controls whether to automatically use an appropriate compiler frontend instead of the system linker when linking binaries.
+The default is &#34;automatic&#34;, which chooses either the C&#43;&#43; compiler, C compiler, or system linker specified by the linkerName and linkerPath properties, depending on the type of object files present on the linker command line.
+Set this property to &#34;manual&#34; to explicitly specify the linker using the linkerName and linkerPath properties.
+Default: &#34;automatic&#34;
+This property was introduced in Qbs 1.6.
+
+
+linkerName : string [since Qbs 1.1.1]
+The name of the linker binary. This property is set in the build profile.
+Default: Determined by qbs setup-toolchains.
+This property was introduced in Qbs 1.1.1.
+
+
+linkerPath : string [since Qbs 1.1.1]
+The full path of the linker binary. This property is set in the build profile.
+Default: Determined by qbs setup-toolchains.
+This property was introduced in Qbs 1.1.1.
+
+
+linkerVariant : string [since Qbs 1.13]
+Set this property to force the use of a specific linker. A non-empty value will result in the -fuse-ld option being emitted when linking with gcc, clang or clang-cl. Other toolchains do not support this property.
+The possible values for clang and gcc are &#34;bfd&#34;, &#34;gold&#34;, &#34;lld&#34;, &#34;mold&#34; and &#34;wild&#34;, the possible values for clang-cl are &#34;link&#34; and &#34;lld&#34;. Note that &#34;wild&#34; requires GCC 16.1 or later, or a ld.wild symlink/binary when used with clang.
+The following example demonstrates how to change the linker for different toolchains:
+Properties {
+    condition: qbs.toolchain.includes(&#34;gcc&#34;)
+    cpp.linkerVariant: &#34;gold&#34;
+}
+Properties {
+    condition: qbs.toolchain.includes(&#34;clang-cl&#34;)
+    cpp.linkerVariant: &#34;lld&#34;
+}
+Default: Undefined
+This property was introduced in Qbs 1.13.
+
+
+linkerWrapper : stringList [since Qbs 1.6.2]
+A wrapper binary and its arguments for wrapping linker calls. This is useful for linker wrappers as needed by Bullseye Coverage, for example.
+Default: Undefined
+This property was introduced in Qbs 1.6.2.
+
+
+lipoPath : string [since Qbs 1.9]
+This property is specific to Apple platforms.
+The full path of the lipo binary.
+Default: Determined automatically.
+This property was introduced in Qbs 1.9.
+
+
+loadableModulePrefix : string
+This property is specific to Apple platforms.
+A string to prepend to the Darwin loadable module file name.
+Default: &#34;&#34;
+
+
+loadableModuleSuffix : string
+This property is specific to Apple platforms.
+A string to append to the Darwin loadable module file name.
+Default: &#34;.bundle&#34;
+
+
+minimumIosVersion : string
+This property is specific to Apple platforms.
+A version number in the format [major].[minor] indicating the earliest version of iOS that the product should run on.
+Passes -miphoneos-version-min=&lt;version&gt; to the compiler.
+If set to undefined, compiler defaults will be used.
+
+Note: Qbs sets minimum version to &#34;6.0&#34; for armv7a because earlier iOS versions are broken in recent XCode installations.
+
+Default: &#34;6.0&#34; for armv7a, undefined otherwise
+
+
+minimumMacosVersion : string [since Qbs 1.5.2]
+This property is specific to Apple platforms.
+A version number in the format [major].[minor]indicating the earliest version of macOS that the product should run on.
+Passes -mmacosx-version-min=&lt;version&gt; to the compiler.
+If left undefined, compiler defaults will be used.
+Default: Undefined
+This property was introduced in Qbs 1.5.2.
+
+
+minimumTvosVersion : string [since Qbs 1.5]
+This property is specific to Apple platforms.
+A version number in the format [major].[minor] indicating the earliest version of Apple tvOS that the product should run on.
+If left undefined, compiler defaults will be used.
+
+Note: Qbs sets the minimum version to &#34;6.0&#34;, because earlier tvOS versions are not supported by recent XCode installations by default.
+
+Default: &#34;6.0
+This property was introduced in Qbs 1.5.
+
+
+minimumWatchosVersion : string
+This property is specific to Apple platforms.
+A version number in the format [major].[minor] indicating the earliest version of Apple watchOS that the product should run on.
+If left undefined, compiler defaults will be used.
+Default: Undefined
+
+
+minimumWindowsVersion : string
+This property is specific to Windows.
+A version number in the format [major].[minor] indicating the earliest version of Windows that the product should run on.
+Defines WINVER, _WIN32_WINNT, and _WIN32_WINDOWS, and applies a version number to the linker flags /SUBSYSTEM and /OSVERSION for MSVC or --major-subsystem-version, --minor-subsystem-version, --major-os-version, and --minor-os-version for MinGW.
+If left undefined, compiler defaults will be used.
+Default: Undefined
+
+
+nmName : string [since Qbs 1.2]
+This property is specific to Unix platforms.
+The name of the nm binary. This property is set in the build profile.
+Default: &#34;nm&#34;
+This property was introduced in Qbs 1.2.
+
+
+nmPath : string [since Qbs 1.2]
+This property is specific to Unix platforms.
+The full path of the nm binary. This property is set in the build profile.
+Default: Determined by qbs setup-toolchains.
+This property was introduced in Qbs 1.2.
+
+
+objcFlags : stringList
+A list of additional flags for the Objective-C compiler.
+Default: Undefined
+
+
+objcopyName : string [since Qbs 1.4]
+This property is specific to Unix platforms.
+The name of the objcopy binary. This property is set in the build profile.
+Default: &#34;objcopy&#34;
+This property was introduced in Qbs 1.4.
+
+
+objcopyPath : string [since Qbs 1.4]
+This property is specific to Unix platforms.
+The full path of the objcopy binary. This property is set in the build profile.
+Default: Determined by qbs setup-toolchains.
+This property was introduced in Qbs 1.4.
+
+
+objcxxFlags : stringList
+A list of additional flags for the Objective-C&#43;&#43; compiler.
+Default: Undefined
+
+
+objectSuffix : string
+A string to append to the generated object files.
+Default: toolchain-dependent, typical values are &#34;.o&#34; or &#34;.obj&#34;
+
+
+optimization : string
+The optimization level.
+Default: qbs.optimization
+
+
+pchDependsOnSystemHeaders : bool [since Qbs 3.4]
+If true, the system headers included (directly or indirectly) by a precompiled header – those found via systemIncludePaths, distributionIncludePaths, or compilerIncludePaths – are tracked as dependencies of the precompiled header. Modifying such a header (for instance, a system update that changes its timestamp) then causes the precompiled header to be regenerated.
+This prevents build failures in which the compiler rejects a precompiled header because a system header it was built from has changed, while Qbs still considers the precompiled header up to date.
+Unlike treatSystemHeadersAsDependencies, this tracking is limited to precompiled headers, so ordinary source files are not recompiled when an unrelated system header changes.
+
+Note: This is disabled by default because tracking the system headers requires scanning the precompiled header&#39;s entire transitive system-header closure, which can be large and slows down dependency scanning. Enable it only if stale precompiled headers are an actual problem for you.
+
+Default: false
+This property was introduced in Qbs 3.4.
+
+
+platformDefines : stringList
+A list of preprocessor macros that are used for all projects that are built for the current target platform. User project files usually do not set this property.
+Default: Undefined
+
+
+positionIndependentCode : bool
+This property is specific to Unix platforms.
+Whether to generate position-independent code.
+If this property is left undefined, position-independent code is generated for libraries, but not for applications.
+Default: Undefined
+
+
+prefixHeaders : pathList [since Qbs 1.0.1]
+A list of files to automatically include at the beginning of each source file in the product.
+Default: Undefined
+This property was introduced in Qbs 1.0.1.
+
+
+removeDuplicateLibraries : bool [since Qbs 1.16]
+Whether the list of the objects and libraries is reduced to a list of unique values before being passed to the linker.
+Default: true
+This property was introduced in Qbs 1.16.
+
+
+requireAppContainer : bool [since Qbs 1.10]
+This property is specific to Windows.
+Whether the generated executable or dynamic-link library requires an AppContainer execution environment. Set to true when creating Universal Windows Platform applications.
+Default: Undefined
+This property was introduced in Qbs 1.10.
+
+
+requireAppExtensionSafeApi : bool [since Qbs 1.4]
+This property is specific to Apple platforms.
+Whether to enforce the use of only app-extension-safe APIs on Apple platforms. This is necessary for building Application Extensions in OS X Yosemite and iOS 8 and above.
+If left undefined, uses the compiler and linker defaults (probably false).
+Default: Undefined
+This property was introduced in Qbs 1.4.
+
+
+rpathLinkDirs : stringList [since Qbs 3.2]
+This property is specific to Unix platforms.
+A list of paths that are passed to the linker as arguments to the rpathLinkFlag. Setting this property might be required in some cases when useRPaths is disabled. This property has no effect if useRPathLink is not enabled.
+Default: Undefined
+This property was introduced in Qbs 3.2.
+
+
+rpathLinkFlag : string [since Qbs 1.9]
+The rpath link flag used by the linker.
+Default: toolchain-dependent, typical values are &#34;-rpath-link=&#34; or &#34;-L&#34;
+This property was introduced in Qbs 1.9.
+
+
+rpathOrigin : string [since Qbs 1.11]
+This property is specific to Unix platforms.
+A placeholder value used in an rpath string to refer to the directory containing the referring executable or shared library.
+Default: &#34;@loader_path&#34; on Mach-O based platforms (macOS, iOS, tvOS, watchOS); &#34;$ORIGIN&#34; on ELF based platforms (Linux and most other Unix-like platforms).
+This property was introduced in Qbs 1.11.
+
+
+rpaths : stringList
+This property is specific to Unix platforms.
+A list of rpaths that are passed to the linker. Paths that also appear in systemRunPaths are ignored. This property has no effect if useRPaths is not enabled.
+Default: Undefined
+See also How do I make use of rpaths?.
+
+
+runtimeLibrary : string [since Qbs 1.3.3]
+The type of the runtime library used.
+Accepted values are &#34;static&#34; and &#34;dynamic&#34;.
+If this property is set to undefined, the default runtime library of the toolchain is used.
+
+Note: This property is only functional for MSVC and MinGW.
+
+Default: &#34;dynamic&#34; for MSVC and MinGW, undefined for other compilers.
+This property was introduced in Qbs 1.3.3.
+
+
+separateDebugInformation : bool [since Qbs 1.4]
+Whether to store debug information in an external file or bundle instead of within the binary.
+The type of files that will be generated when this property is true is dependent on the compiler and target platform:
+
+With MSVC, this property controls the generation of .pdb (Program Debug Database) files.
+On Apple platforms with GCC or Clang, this property controls the generation of .dSYM (DWARF Symbol) bundles or, if dsymutilFlags contains the -f or --flat flags, .dwarf symbol files.
+On other platforms with GCC or Clang (including Windows/MinGW), this property controls the generation of .debug symbol files.
+
+Default: true for MSVC and with GCC or Clang on Apple platforms, otherwise false.
+This property was introduced in Qbs 1.4.
+See also debugInformation, separateDebugInformationVariant, and How do I separate and install debugging symbols?.
+
+
+separateDebugInformationVariant : string [since Qbs 3.4]
+Selects how debug information is separated from the binary when separateDebugInformation is enabled.
+This property is available for GCC/Clang ELF targets (Unix platforms other than Darwin). Possible values are:
+
+&#34;objcopy&#34; (default): After linking, extract debug symbols into a .debug file with objcopy, strip them from the binary, and add a .gnu_debuglink section.
+&#34;fission&#34;: Pass -gsplit-dwarf to the compiler so most debug information is written to per-object .dwo files. The linked binary keeps only skeleton DWARF and is not post-processed with objcopy. The .dwo files use the same &#34;debuginfo_app&#34;, &#34;debuginfo_dll&#34;, or &#34;debuginfo_loadablemodule&#34; tags as .debug files, so they are installed the same way.
+
+On Darwin, MSVC, MinGW, and Emscripten this property has no effect; those toolchains use their platform-specific separate-debug mechanisms.
+Default: &#34;objcopy&#34;
+This property was introduced in Qbs 3.4.
+See also separateDebugInformation.
+
+
+soVersion : string [since Qbs 1.7]
+This property is specific to Unix platforms.
+The version number to be appended to the soname in ELF shared libraries.
+Default: The major part of product.version if a version is set, otherwise [].
+This property was introduced in Qbs 1.7.
+
+
+sonamePrefix : string [since Qbs 1.5]
+This property is specific to Unix platforms.
+A library name or full library path.
+If defined, the value of this property is used as a path to be prepended to the built shared library&#39;s SONAME identifier. The SONAME (LC_ID_DYLIB on Apple platforms, DT_SONAME on other Unix-like platforms) is the identifier that the dynamic linker will later use to reference the library.
+On Apple platforms, the path may contain the following placeholders:
+
+@rpath - Expands to paths defined by LC_RPATH Mach-O commands in the current process executable or the referring libraries.
+@executable_path - Expands to the current process executable location.
+@loader_path - Expands to the referring executable or library location.
+
+In most cases, using @rpath is sufficient and recommended. However, the prefix may be also specified using different placeholders, or an absolute path.
+For more information, see the DYLD documentation on dynamic library install names.
+Default: Undefined
+This property was introduced in Qbs 1.5.
+See also How do I make use of rpaths?.
+
+
+staticLibraries : stringList
+Like libraries, but expressing the intention to link static libraries specifically.
+
+Note: Qbs does currently not enforce that only static libraries will be linked.
+
+Default: Undefined
+
+
+staticLibraryPrefix : string
+A string to prepend to the static library file name.
+Default: toolchain-dependent, typical values are &#34;&#34; or &#34;lib&#34;
+
+
+staticLibrarySuffix : string
+A string to append to the executable file name.
+Default: toolchain-dependent, typical values are &#34;.a&#34; or &#34;.lib&#34;
+
+
+stripName : string [since Qbs 1.4]
+This property is specific to Unix platforms.
+The name of the strip binary. This property is set in the build profile.
+Default: &#34;strip&#34;
+This property was introduced in Qbs 1.4.
+
+
+stripPath : string [since Qbs 1.4]
+This property is specific to Unix platforms.
+The full path of the strip binary. This property is set in the build profile.
+Default: Determined by qbs setup-toolchains.
+This property was introduced in Qbs 1.4.
+
+
+systemFrameworkPaths : pathList
+This property is specific to Apple platforms.
+A list of framework search paths.
+Relative paths are considered to be relative to the .qbs product file they are used in. Header files in frameworks in those paths will not cause warnings.
+Default: Undefined
+
+
+systemIncludePaths : pathList
+A list of include paths that are passed as system include paths to the compiler.
+For header files in those paths, warnings will be ignored.
+Relative paths are considered to be relative to the .qbs product file they are used in.
+Default: Undefined
+
+
+systemRunPaths : stringList [since Qbs 1.6]
+The paths the dynamic linker uses on process start-up to locate dynamic libraries.
+Default: Auto-detected for host builds on Linux via ldconfig, [&#34;/lib&#34;, &#34;/usr/lib&#34;] otherwise on Unix, [] on Windows.
+This property was introduced in Qbs 1.6.
+
+
+toolchainInstallPath : string
+The directory path where the toolchain is installed. This property is set in the build profile.
+This is usually the base property from which all compiler and tool paths are automatically derived.
+Default: Determined by qbs setup-toolchains.
+
+
+treatSystemHeadersAsDependencies : bool [since Qbs 1.8]
+Whether included header files found via systemIncludePaths, distributionIncludePaths, or compilerIncludePaths will be added to the dependencies of the respective object file.
+This means that modification of such header files (or any of the headers they include) will cause recompilation.
+Default: false
+This property was introduced in Qbs 1.8.
+
+
+treatWarningsAsErrors : bool
+Whether warnings will be handled as errors and cause the build to fail.
+Default: false
+
+
+useCPrecompiledHeader : bool [since Qbs 1.5]
+Whether to use a precompiled header for compiling C sources if one is present.
+Set this property to false in a Group item to disable precompiled headers for some sources even though a precompiled header is present in the product.
+See Relevant File Tags for the associated file tags.
+Default: true
+This property was introduced in Qbs 1.5.
+
+
+useCxxPrecompiledHeader : bool [since Qbs 1.5]
+Like useCPrecompiledHeader, but for C&#43;&#43;.
+Default: true
+This property was introduced in Qbs 1.5.
+
+
+useLanguageVersionFallback : bool [since Qbs 1.11]
+Whether to explicitly use the language standard version fallback values in compiler command line invocations.
+By default, Qbs will automatically substitute fallback values for the C and C&#43;&#43; language standard versions specified by the cLanguageVersion and cxxLanguageVersion properties, which are passed to the -std= compiler command line option with GNU-compatible toolchains, if it detects that you are using an older toolchain which does not support the standard values. The substitutions are made as follows:
+
+ValueSubstitute
+c&#43;&#43;11c&#43;&#43;0x
+c11c1x
+c&#43;&#43;14c&#43;&#43;1y
+c&#43;&#43;17c&#43;&#43;1z
+
+If this property is explicitly set to true, Qbs will always use the fallback values.
+If this property is explicitly set to false, Qbs will never use the fallback values.
+This property has no effect with the Microsoft Visual C&#43;&#43; compiler.
+Default: Undefined
+This property was introduced in Qbs 1.11.
+
+
+useObjcPrecompiledHeader : bool [since Qbs 1.5]
+Like useCPrecompiledHeader, but for Objective-C.
+Default: true
+This property was introduced in Qbs 1.5.
+
+
+useObjcxxPrecompiledHeader : bool [since Qbs 1.5]
+Like useCPrecompiledHeader, but for Objective-C&#43;&#43;.
+Default: true
+This property was introduced in Qbs 1.5.
+
+
+useRPathLink : bool [since Qbs 1.8]
+This property is specific to Unix platforms.
+Whether to use the -rpath-link linker option for transitive shared objects.
+Default: true on non-Darwin Unix platforms or when targeting macOS 10.4.x and older.
+This property was introduced in Qbs 1.8.
+
+
+useRPaths : bool [since Qbs 1.3]
+This property is specific to Unix platforms.
+If false, prevents the linker from writing rpaths to the binary.
+Default: true
+This property was introduced in Qbs 1.3.
+
+
+variantSuffix : string [since Qbs 1.10]
+A suffix to add to a product&#39;s target name if that product is of the type staticlibrary or dynamiclibrary.
+On Darwin platforms, applications and loadable modules are also affected.
+By default, this property is left empty on all platforms unless the product is multiplexed over the qbs.buildVariants property. In that case, for the debug variant of the product, the default value is &#34;d&#34; on Windows and &#34;_debug&#34; on Darwin platforms, such as macOS. On all other platforms and in release mode, the default value is [].
+For example, building a dynamic library called MyLib that is multiplexed over the qbs.buildVariants property with MSVC will produce files called MyLib.dll (for the release version of the product) and MyLibd.dll (for the debug version).
+Default: Platform-specific.
+This property was introduced in Qbs 1.10.
+
+
+visibility : string
+This property is specific to Unix platforms.
+The visibility level for exported symbols.
+Possible values include: &#34;default&#34;, &#34;hidden&#34;, &#34;hiddenInlines&#34;, and &#34;minimal&#34;, which combines &#34;hidden&#34; and &#34;hiddenInlines&#34;.
+Default: &#34;default&#34;
+
+
+warningLevel : string
+The warning level for the compiler: &#34;none&#34; or &#34;all&#34;.
+Default: &#34;all&#34;
+
+
+weakFrameworks : stringList
+This property is specific to Apple platforms.
+A list of frameworks to be weakly linked.
+If the framework is part of your project, consider using a Depends item instead.
+Default: Undefined
+
+
+windowsApiAdditionalPartitions : stringList [since Qbs 1.10]
+This property is specific to Windows.
+A list of additional Windows API partitions to enable in addition to the ones implicitly enabled by the value of windowsApiFamily (WINAPI_FAMILY).
+This value is used when building Windows Store applications. For example, setting windowsApiFamily to &#34;pc&#34; and this property to [&#34;phone&#34;] will allow you to create Windows Store applications that target all Universal Windows Platform device families (&#34;Universal&#34; apps).
+Possible values include: &#34;app&#34;, &#34;desktop&#34;, &#34;pc&#34;, &#34;phone&#34;, &#34;server&#34;, and &#34;system&#34;, which are mapped to the corresponding set of possible WINAPI_PARTITION_* preprocessor defines in the Windows SDK.
+Default: Undefined, which lets the Windows SDK headers determine the default partitions based on the value of WINAPI_FAMILY.
+This property was introduced in Qbs 1.10.
+See also windowsApiFamily.
+
+
+windowsApiCharacterSet : string [since Qbs 1.0.1]
+This property is specific to Windows.
+The character set used in the Win32 API.
+The value &#34;unicode&#34; defines the preprocessor symbols UNICODE and _UNICODE, &#34;mbcs&#34; defines _MBCS, and setting the value to undefined will use the default character set.
+Default: &#34;unicode&#34;
+This property was introduced in Qbs 1.0.1.
+
+
+windowsApiFamily : string [since Qbs 1.10]
+This property is specific to Windows.
+The Windows API family that the application or library is targeting.
+This value is used when building Universal Windows Platform applications.
+Possible values include: &#34;desktop&#34;, &#34;pc&#34;, &#34;phone&#34;, &#34;server&#34;, and &#34;system&#34;, which are mapped to the corresponding set of possible values for the WINAPI_FAMILY preprocessor define in the Windows SDK.
+Default: Undefined, which lets the Windows SDK headers determine the default.
+This property was introduced in Qbs 1.10.
+
+
+windowsSdkVersion : string [since Qbs 1.19]
+Which Windows SDK version should be used with MSVC toolchain. By default, the latest SDK is used.
+This property is specific to Windows. Default: Undefined
+This property was introduced in Qbs 1.19.
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-cpp/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -190,14 +1258,546 @@ The cpp module contains the properties and rules for toolchains of the C/C&#43;&
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-cpp/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual QbsModules cpp Qbs 3.4.0 Contents Properties Detailed Description Setting Up the Run Environment Dependency Parameters Relevant File Tags Relevant Job Pools cpp Provides C/C&#43;&#43; support. More...
-Since: Qbs 1.0 List of all members, including inherited members Deprecated members Properties allowUnresolvedSymbols : bool (since Qbs 1.2) alwaysUseLipo : bool (since Qbs 1.9) architecture : string archiverFlags : string (since Qbs 3.0.0) archiverName : string archiverPath : string assemblerFlags : stringList (since Qbs 1.5) assemblerListingSuffix : string assemblerName : string (since Qbs 1.5) assemblerPath : string (since Qbs 1.5) automaticReferenceCounting : bool (since Qbs 1.4) cFlags : stringList cLanguageVersion : stringList (since Qbs 1.4) combineCSources : bool (since Qbs 1.8) combineCxxSources : bool (since Qbs 1.8) combineObjcSources : bool (since Qbs 1.8) combineObjcxxSources : bool (since Qbs 1.8) commonCompilerFlags : stringList (since Qbs 1.0.1) compilerDefinesByLanguage : var (since Qbs 1.10) compilerFrameworkPaths : pathList (since Qbs 1.6) compilerIncludePaths : pathList (since Qbs 1.6) compilerLibraryPaths : pathList (since Qbs 1.6) compilerListingSuffix : string compilerName : string compilerPath : string compilerPathByLanguage : var (since Qbs 1.3) compilerVersion : string compilerVersionMajor : int (since Qbs 1.4) compilerVersionMinor : int (since Qbs 1.4) compilerVersionPatch : int (since Qbs 1.4) compilerWrapper : stringList (since Qbs 1.1) cppFlags : stringList createSymlinks : bool cxxFlags : stringList cxxLanguageVersion : stringList (since Qbs 1.4) cxxStandardLibrary : string (since Qbs 1.4) debugInfoBundleSuffix : string debugInfoSuffix : string debugInformation : bool defines : stringList discardUnusedData : bool (since Qbs 1.10) distributionFrameworkPaths : pathList (since Qbs 1.8) distributionIncludePaths : pathList (since Qbs 1.8) distributionLibraryPaths : pathList (since Qbs 1.8) driverFlags : stringList (since Qbs 1.6) driverLinkerFlags : stringList (since Qbs 1.11) dsymutilFlags : stringList (since Qbs 1.4.1) dsymutilPath : string (since Qbs 1.4) dynamicLibraries : stringList dynamicLibraryImportSuffix : string dynamicLibraryPrefix : string dynamicLibrarySuffix : string enableCompilerDefinesByLanguage : stringList (since Qbs 1.10) enableCxxLanguageMacro : string (since Qbs 1.20) enableExceptions : bool (since Qbs 1.5) enableReproducibleBuilds : bool (since Qbs 1.5) enableRtti : bool (since Qbs 1.5) enableSuspiciousLinkerFlagWarnings : bool (since Qbs 1.8) enableTimeTrace : bool (since Qbs 3.3) endianness : string (since Qbs 1.9) entryPoint : string (since Qbs 1.3) exceptionHandlingModel : string (since Qbs 1.5) executablePrefix : string executableSuffix : string exportedSymbolsCheckMode : string (since Qbs 1.4.1) forceUseCxxModules : bool (since Qbs 2.5) frameworkPaths : pathList frameworks : stringList generateAssemblerListingFiles : bool (since Qbs 1.15) generateCompilerListingFiles : bool (since Qbs 1.15) generateLinkerMapFile : bool (since Qbs 1.13) generateManifestFile : bool (since Qbs 1.5.0) importPrivateLibraries : string (since Qbs 2.4) includePaths : pathList libraries : stringList libraryPaths : pathList linkerFlags : stringList linkerMapSuffix : string linkerMode : string (since Qbs 1.6) linkerName : string (since Qbs 1.1.1) linkerPath : string (since Qbs 1.1.1) linkerVariant : string (since Qbs 1.13) linkerWrapper : stringList (since Qbs 1.6.2) lipoPath : string (since Qbs 1.9) loadableModulePrefix : string loadableModuleSuffix : string minimumIosVersion : string minimumMacosVersion : string (since Qbs 1.5.2) minimumTvosVersion : string (since Qbs 1.5) minimumWatchosVersion : string minimumWindowsVersion : string nmName : string (since Qbs 1.2) nmPath : string (since Qbs 1.2) objcFlags : stringList objcopyName : string (since Qbs 1.4) objcopyPath : string (since Qbs 1.4) objcxxFlags : stringList objectSuffix : string optimization : string pchDependsOnSystemHeaders : bool (since Qbs 3.4) platformDefines : stringList positionIndependentCode : bool prefixHeaders : pathList (since Qbs 1.0.1) removeDuplicateLibraries : bool (since Qbs 1.16) requireAppContainer : bool (since Qbs 1.10) requireAppExtensionSafeApi : bool (since Qbs 1.4) rpathLinkDirs : stringList (since Qbs 3.2) rpathLinkFlag : string (since Qbs 1.9) rpathOrigin : string (since Qbs 1.11) rpaths : stringList runtimeLibrary : string (since Qbs 1.3.3) separateDebugInformation : bool (since Qbs 1.4) separateDebugInformationVariant : string (since Qbs 3.4) soVersion : string (since Qbs 1.7) sonamePrefix : string (since Qbs 1.5) staticLibraries : stringList staticLibraryPrefix : string staticLibrarySuffix : string stripName : string (since Qbs 1.4) stripPath : string (since Qbs 1.4) systemFrameworkPaths : pathList systemIncludePaths : pathList systemRunPaths : stringList (since Qbs 1.6) toolchainInstallPath : string treatSystemHeadersAsDependencies : bool (since Qbs 1.8) treatWarningsAsErrors : bool useCPrecompiledHeader : bool (since Qbs 1.5) useCxxPrecompiledHeader : bool (since Qbs 1.5) useLanguageVersionFallback : bool (since Qbs 1.11) useObjcPrecompiledHeader : bool (since Qbs 1.5) useObjcxxPrecompiledHeader : bool (since Qbs 1.5) useRPathLink : bool (since Qbs 1.8) useRPaths : bool (since Qbs 1.3) variantSuffix : string (since Qbs 1.10) visibility : string warningLevel : string weakFrameworks : stringList windowsApiAdditionalPartitions : stringList (since Qbs 1.10) windowsApiCharacterSet : string (since Qbs 1.0.1) windowsApiFamily : string (since Qbs 1.10) windowsSdkVersion : string (since Qbs 1.19) Detailed Description The cpp module contains the properties and rules for toolchains of the C/C&#43;&#43; family. On Apple platforms, this includes support for Objective-C/C&#43;&#43;.">
+Since: Qbs 1.0 List of all members, including inherited members Deprecated members Properties allowUnresolvedSymbols : bool (since Qbs 1.2) alwaysUseLipo : bool (since Qbs 1.9) architecture : string archiverFlags : string (since Qbs 3.0.0) archiverName : string archiverPath : string assemblerFlags : stringList (since Qbs 1.5) assemblerListingSuffix : string assemblerName : string (since Qbs 1.5) assemblerPath : string (since Qbs 1.5) automaticReferenceCounting : bool (since Qbs 1.4) cFlags : stringList cLanguageVersion : stringList (since Qbs 1.4) combineCSources : bool (since Qbs 1.8) combineCxxSources : bool (since Qbs 1.8) combineObjcSources : bool (since Qbs 1.8) combineObjcxxSources : bool (since Qbs 1.8) commonCompilerFlags : stringList (since Qbs 1.0.1) compilerDefinesByLanguage : var (since Qbs 1.10) compilerFrameworkPaths : pathList (since Qbs 1.6) compilerIncludePaths : pathList (since Qbs 1.6) compilerLibraryPaths : pathList (since Qbs 1.6) compilerListingSuffix : string compilerName : string compilerPath : string compilerPathByLanguage : var (since Qbs 1.3) compilerVersion : string compilerVersionMajor : int (since Qbs 1.4) compilerVersionMinor : int (since Qbs 1.4) compilerVersionPatch : int (since Qbs 1.4) compilerWrapper : stringList (since Qbs 1.1) cppFlags : stringList createSymlinks : bool cxxFlags : stringList cxxLanguageVersion : stringList (since Qbs 1.4) cxxStandardLibrary : string (since Qbs 1.4) debugInfoBundleSuffix : string debugInfoSuffix : string debugInformation : bool defines : stringList discardUnusedData : bool (since Qbs 1.10) distributionFrameworkPaths : pathList (since Qbs 1.8) distributionIncludePaths : pathList (since Qbs 1.8) distributionLibraryPaths : pathList (since Qbs 1.8) driverFlags : stringList (since Qbs 1.6) driverLinkerFlags : stringList (since Qbs 1.11) dsymutilFlags : stringList (since Qbs 1.4.1) dsymutilPath : string (since Qbs 1.4) dynamicLibraries : stringList dynamicLibraryImportSuffix : string dynamicLibraryPrefix : string dynamicLibrarySuffix : string enableCompilerDefinesByLanguage : stringList (since Qbs 1.10) enableCxxLanguageMacro : string (since Qbs 1.20) enableExceptions : bool (since Qbs 1.5) enableReproducibleBuilds : bool (since Qbs 1.5) enableRtti : bool (since Qbs 1.5) enableSuspiciousLinkerFlagWarnings : bool (since Qbs 1.8) enableTimeTrace : bool (since Qbs 3.3) endianness : string (since Qbs 1.9) entryPoint : string (since Qbs 1.3) exceptionHandlingModel : string (since Qbs 1.5) executablePrefix : string executableSuffix : string exportedSymbolsCheckMode : string (since Qbs 1.4.1) forceUseCxxModules : bool (since Qbs 2.5) frameworkPaths : pathList frameworks : stringList generateAssemblerListingFiles : bool (since Qbs 1.15) generateCompilerListingFiles : bool (since Qbs 1.15) generateLinkerMapFile : bool (since Qbs 1.13) generateManifestFile : bool (since Qbs 1.5.0) importPrivateLibraries : string (since Qbs 2.4) includePaths : pathList libraries : stringList libraryPaths : pathList linkerFlags : stringList linkerMapSuffix : string linkerMode : string (since Qbs 1.6) linkerName : string (since Qbs 1.1.1) linkerPath : string (since Qbs 1.1.1) linkerVariant : string (since Qbs 1.13) linkerWrapper : stringList (since Qbs 1.6.2) lipoPath : string (since Qbs 1.9) loadableModulePrefix : string loadableModuleSuffix : string minimumIosVersion : string minimumMacosVersion : string (since Qbs 1.5.2) minimumTvosVersion : string (since Qbs 1.5) minimumWatchosVersion : string minimumWindowsVersion : string nmName : string (since Qbs 1.2) nmPath : string (since Qbs 1.2) objcFlags : stringList objcopyName : string (since Qbs 1.4) objcopyPath : string (since Qbs 1.4) objcxxFlags : stringList objectSuffix : string optimization : string pchDependsOnSystemHeaders : bool (since Qbs 3.4) platformDefines : stringList positionIndependentCode : bool prefixHeaders : pathList (since Qbs 1.0.1) removeDuplicateLibraries : bool (since Qbs 1.16) requireAppContainer : bool (since Qbs 1.10) requireAppExtensionSafeApi : bool (since Qbs 1.4) rpathLinkDirs : stringList (since Qbs 3.2) rpathLinkFlag : string (since Qbs 1.9) rpathOrigin : string (since Qbs 1.11) rpaths : stringList runtimeLibrary : string (since Qbs 1.3.3) separateDebugInformation : bool (since Qbs 1.4) separateDebugInformationVariant : string (since Qbs 3.4) soVersion : string (since Qbs 1.7) sonamePrefix : string (since Qbs 1.5) staticLibraries : stringList staticLibraryPrefix : string staticLibrarySuffix : string stripName : string (since Qbs 1.4) stripPath : string (since Qbs 1.4) systemFrameworkPaths : pathList systemIncludePaths : pathList systemRunPaths : stringList (since Qbs 1.6) toolchainInstallPath : string treatSystemHeadersAsDependencies : bool (since Qbs 1.8) treatWarningsAsErrors : bool useCPrecompiledHeader : bool (since Qbs 1.5) useCxxPrecompiledHeader : bool (since Qbs 1.5) useLanguageVersionFallback : bool (since Qbs 1.11) useObjcPrecompiledHeader : bool (since Qbs 1.5) useObjcxxPrecompiledHeader : bool (since Qbs 1.5) useRPathLink : bool (since Qbs 1.8) useRPaths : bool (since Qbs 1.3) variantSuffix : string (since Qbs 1.10) visibility : string warningLevel : string weakFrameworks : stringList windowsApiAdditionalPartitions : stringList (since Qbs 1.10) windowsApiCharacterSet : string (since Qbs 1.0.1) windowsApiFamily : string (since Qbs 1.10) windowsSdkVersion : string (since Qbs 1.19) Detailed Description The cpp module contains the properties and rules for toolchains of the C/C&#43;&#43; family. On Apple platforms, this includes support for Objective-C/C&#43;&#43;.
+Setting Up the Run Environment When running an application that has dependencies on dynamic libraries, the script specified by Module.setupRunEnvironment automatically adds the locations of the libraries to the environment. That is, to PATH on Windows, DYLD_LIBRARY_PATH on macOS, and LD_LIBRARY_PATH on Linux and other Unix platforms. If the value &#34;ignore-lib-dependencies&#34; shows up in the config array, this behavior is disabled. Users can set the value via the run command.
+Dependency Parameters Parameter Type Since Default Description link bool 1.9 undefined If false, the dependency will not be linked, even if it is a valid input for a linker rule. This property affects library dependencies only. linkWholeArchive bool 1.9 undefined If true, then if the dependency is a static library, all of its objects will be pulled into target binary, even if their symbols do not appear to be used. This parameter is mainly useful when creating a dynamic library from static libraries. symbolLinkMode string 1.9 undefined Attribute specifying how the library or framework will be linked. May contain the values: &#34;weak&#34;, &#34;lazy&#34;, &#34;reexport&#34;, and &#34;upward&#34;; refer to the Apple ld64 man page for full details. undefined uses normal linking. Currently only applies when linking for Apple platforms. Note that &#34;lazy&#34; mode is deprecated and doesn&#39;t work with Xcode 15 and above. Relevant File Tags Tag Auto-tagged File Names Since Description &#34;application&#34; n/a 1.0.1 The rule that creates executable files (typically via a linker) attaches this tag to its output artifact. &#34;asm&#34; *.s (for GCC-like toolchains), *.asm (for MSVC) 1.1.0 Source files with this tag serve as inputs to a rule invoking the toolchain&#39;s assembler. One object file is generated for each such file. &#34;asm_cpp&#34; *.S, *.sx 1.1.0 Like &#34;asm&#34;, but for source files that need preprocessing. This tag only has an effect with GCC-like toolchains. &#34;c&#34; *.c (if combineCSources is not enabled) 1.0.1 Source files with this tag serve as inputs to a rule invoking the toolchain&#39;s C compiler. One object file is generated for each such file. &#34;c.combine&#34; *.c (if combineCSources is enabled) 1.8 Source files with this tag serve as inputs to a rule combining them into a single C file, which will then be compiled. &#34;cpp&#34; *.C, *.cpp, *.cxx, *.c&#43;&#43;, *.cc (if combineCxxSources is not enabled) 1.0.1 Source files with this tag serve as inputs to a rule invoking the toolchain&#39;s C&#43;&#43; compiler. One object file is generated for each such file. &#34;cpp.combine&#34; *.C, *.cpp, *.cxx, *.c&#43;&#43;, *.cc (if combineCxxSources is enabled) 1.8 Source files with this tag serve as inputs to a rule combining them into a single C&#43;&#43; file, which will then be compiled. &#34;c_pch_src&#34;, &#34;cpp_pch_src&#34;, &#34;objc_pch_src&#34;, &#34;objcpp_pch_src&#34; - 1.5 Files with this tag will be turned into precompiled headers for C, C&#43;&#43;, Objective-C and Objective-C&#43;&#43;, respectively. There can be only one such file per product and language. &#34;def&#34; - 1.17.0 This tag is used for a module-definition file (.def) to be passed to the linker. Such a file provides the linker with information about exports, attributes, and other information about the program to be linked. This file tag only has an effect with the MSVC toolchain. &#34;dynamiclibrary&#34; n/a 1.0.1 The rule that creates dynamic libraries (typically via a linker) attaches this tag to its output artifact. &#34;dynamiclibrary_import&#34; n/a 1.0.0 This tag is used for import libraries of dynamic libraries. For example, the MSVC linker rule creates a dynamiclibrary_import artifact foo.lib in addition to a dynamiclibrary artifact foo.dll. &#34;hpp&#34; *.h, *.H, *.hpp, *.hxx, *.h&#43;&#43; 1.0.1 This tag is used for header files (C, C&#43;&#43;, Objective-C and Objective-C&#43;&#43;). No rule in this module generates output artifacts from such files directly, but the compiler rule will have a dependency on all rules that create such files. &#34;linkerscript&#34; - 1.5.0 This tag is used for ld linker scripts. You can provide such a file if you need to replace the default linker script. This file tag only has an effect with GCC-like toolchains. The linker needs to be ld-compatible. &#34;native.pe.manifest&#34; *.manifest 1.8.0 This tag is automatically assigned to Microsoft manifest files. Manifests are embedded into the resulting binary. &#34;obj&#34; n/a 1.0.1 The rule that creates object files (typically via a compiler) attaches this tag to its output artifacts. Such files are usually intermediate artifacts of the build process and rarely need to be referenced in project files. &#34;objc&#34; *.m (if combineObjcSources is not enabled) 1.1.0 Source files with this tag serve as inputs to a rule invoking the toolchain&#39;s Objective-C compiler. One object file is generated for each such file. &#34;objc.combine&#34; *.m (if combineObjcSources is enabled) 1.8 Source files with this tag serve as inputs to a rule combining them into a single Objective-C file, which will then be compiled. &#34;objcpp&#34; *.mm (if combineObjcxxSources is not enabled) 1.1.0 Source files with this tag serve as inputs to a rule invoking the toolchain&#39;s Objective-C&#43;&#43; compiler. One object file is generated for each such file. &#34;objcpp.combine&#34; *.mm (if combineObjcxxSources is enabled) 1.8 Source files with this tag serve as inputs to a rule combining them into a single Objective-C&#43;&#43; file, which will then be compiled. &#34;rc&#34; *.rc 1.1.0 Files with this tag serve as inputs to the Windows resource compiler. One object file is generated for each such file. The tag has no effect on target platforms other than Windows. &#34;staticlibrary&#34; n/a 1.0.1 The rule that creates static libraries (typically via a linker) attaches this tag to its output artifact. &#34;objectlibrary&#34; n/a 3.2.0 The ObjectLibrary item attaches this tag to its &#34;obj&#34; artifacts. &#34;versionscript&#34; - 1.5.0 This tag is used for ld linker scripts. You can provide such a file if you need fine-grained control over the symbols present in a shared library. This file tag only has an effect with GCC-like toolchains. The linker needs to be ld-compatible. &#34;time_trace&#34; n/a 3.3.0 This tag is attached to .time_trace.json files produced by the compiler. Relevant Job Pools Pool Since Description &#34;assembler&#34; 1.13 The job pool used by rules that run the toolchain&#39;s assembler. This is only relevant for direct invocations of the assembler binary, not for running it indirectly via the compiler. &#34;compiler&#34; 1.13 The job pool used by rules that run a compiler. All language variants use the same pool. &#34;linker&#34; 1.13 The job pool used by rules that run a linker. Property Documentation allowUnresolvedSymbols : bool [since Qbs 1.2] Set to true if you want the linking step to succeed even if the resulting binary contains unresolved symbols. Normally, this makes little sense, but in special cases it is possible that the respective symbols will be available at load time even if they are not present during linking.
+Default: Undefined
+This property was introduced in Qbs 1.2.
+alwaysUseLipo : bool [since Qbs 1.9] Whether to always use lipo when combining Mach-O output files on Apple platforms, even if there is only one CPU architecture. This value should not normally need to be changed.
+Default: false
+This property was introduced in Qbs 1.9.
+architecture : string The target architecture.
+Default: qbs.architecture
+archiverFlags : string [since Qbs 3.0.0] Additional flags that are appended to the archiver command.
+Default: An empty list
+This property was introduced in Qbs 3.0.0.
+archiverName : string The name of the archiver binary. This property is usually predetermined by the toolchain and may be overridden. For instance, when enabling link-time optimization in a gcc-based toolchain, &#34;gcc-ar&#34; has to be used instead of &#34;ar&#34;.
+Default: Depends on the selected toolchain.
+archiverPath : string The full path of the archiver binary.
+Default: Determined by qbs setup-toolchains.
+assemblerFlags : stringList [since Qbs 1.5] A list of additional flags for the assembler.
+Default: Undefined
+This property was introduced in Qbs 1.5.
+assemblerListingSuffix : string A string to append to the generated assembler listing files.
+Default: toolchain-dependent, typical value is &#34;.lst&#34;
+assemblerName : string [since Qbs 1.5] The name of the assembler binary. This property is set in the build profile.
+Default: Determined by qbs setup-toolchains.
+This property was introduced in Qbs 1.5.
+assemblerPath : string [since Qbs 1.5] The full path of the assembler binary. This property is set in the build profile.
+Default: Determined by qbs setup-toolchains.
+This property was introduced in Qbs 1.5.
+automaticReferenceCounting : bool [since Qbs 1.4] This property is specific to Apple platforms.
+Whether to enable Automatic Reference Counting (ARC) for Objective-C and Objective-C&#43;&#43; source code.
+If left undefined, uses the compiler default (probably false).
+Default: Undefined
+This property was introduced in Qbs 1.4.
+cFlags : stringList A list of additional flags for the C compiler.
+Default: Undefined
+cLanguageVersion : stringList [since Qbs 1.4] The version of the C standard with which the code must comply.
+If this property is set, the corresponding compiler and linker flags will be added, depending on the toolchain.
+If the value is left undefined, the compiler default will be used. If the list contains more than one value, the highest version is chosen.
+Possible values include: &#34;c89&#34;, &#34;c99&#34;, &#34;c11&#34;, &#34;c17&#34;, &#34;c2x&#34;.
+Default: Undefined
+This property was introduced in Qbs 1.4.
+combineCSources : bool [since Qbs 1.8] Enabling this property on a product instructs the file tagger to attach the tag &#34;c.combine&#34; to C sources, rather than &#34;c&#34;. As a result, all C sources of the product will be combined into a single file, which is then compiled.
+This can speed up initial compilation significantly, but is of course detrimental in the context of incremental builds. Also, perfectly legal code may fail to compile with this option due to the merging of translation units.
+To enable this property in a product that has sources that cannot be merged, put the sources into a dedicated Group and set their fileTags property to &#34;c&#34;, overriding the file tagger.
+Note: Module properties set on specific source files (that is, at the Group level) will not be taken into account when building the combined file. You either need to set these properties at the product level or prevent the respective files from getting combined via the mechanism described above.
+Default: false
+This property was introduced in Qbs 1.8.
+combineCxxSources : bool [since Qbs 1.8] Like combineCSources, but for C&#43;&#43;. The relevant file tags are &#34;cpp&#34; and &#34;cpp.combine&#34;.
+Default: false
+This property was introduced in Qbs 1.8.
+See also combineCSources.
+combineObjcSources : bool [since Qbs 1.8] Like combineCSources, but for Objective-C. The relevant file tags are &#34;objc&#34; and &#34;objc.combine&#34;.
+Default: false
+This property was introduced in Qbs 1.8.
+See also combineCSources.
+combineObjcxxSources : bool [since Qbs 1.8] Like combineCSources, but for Objective-C&#43;&#43;. The relevant file tags are &#34;objcpp&#34; and &#34;objcpp.combine&#34;.
+Default: false
+This property was introduced in Qbs 1.8.
+See also combineCSources.
+commonCompilerFlags : stringList [since Qbs 1.0.1] A list of flags that are added to all compilation commands independently of the language.
+Default: Undefined
+This property was introduced in Qbs 1.0.1.
+compilerDefinesByLanguage : var [since Qbs 1.10] A string to string to string map of language tags to list of preprocessor macros that are used for all projects that are using the current toolchain.
+User project files usually do not set this property.
+Note: This property will not be usable without also setting enableCompilerDefinesByLanguage.
+Default: Undefined
+This property was introduced in Qbs 1.10.
+compilerFrameworkPaths : pathList [since Qbs 1.6] A list of framework search paths that are used for all projects that are using the current toolchain.
+User project files usually do not set this property.
+Default: Determined automatically by probing the compiler.
+This property was introduced in Qbs 1.6.
+compilerIncludePaths : pathList [since Qbs 1.6] A list of #include search paths that are used for all projects that are using the current toolchain.
+User project files usually do not set this property.
+Default: Determined automatically by probing the compiler.
+This property was introduced in Qbs 1.6.
+compilerLibraryPaths : pathList [since Qbs 1.6] A list of library search paths that are used for all projects that are using the current toolchain.
+User project files usually do not set this property.
+Default: Determined automatically by probing the compiler.
+This property was introduced in Qbs 1.6.
+compilerListingSuffix : string A string to append to the generated compiler listing files.
+Default: toolchain-dependent, typical value is &#34;.lst&#34;
+compilerName : string The name of the main compiler binary. This property is set in the build profile.
+Default: Determined by qbs setup-toolchains.
+compilerPath : string The full path of the main compiler binary. This property is set in the build profile.
+If the toolchain provides different compilers for different languages, compilerPathByLanguage is used.
+Default: Determined by qbs setup-toolchains.
+compilerPathByLanguage : var [since Qbs 1.3] A string to string map that maps file tags to full paths of compiler binaries. This property is set in the build profile.
+Default: Determined by qbs setup-toolchains.
+This property was introduced in Qbs 1.3.
+compilerVersion : string Compiler version string consisting of major, minor and patch numbers, separated by a dot.
+Default: Undefined
+compilerVersionMajor : int [since Qbs 1.4] The major version of the compiler.
+Default: Undefined
+This property was introduced in Qbs 1.4.
+compilerVersionMinor : int [since Qbs 1.4] The minor version of the compiler.
+Default: Undefined
+This property was introduced in Qbs 1.4.
+compilerVersionPatch : int [since Qbs 1.4] The patch level component of the compiler version.
+Default: Undefined
+This property was introduced in Qbs 1.4.
+compilerWrapper : stringList [since Qbs 1.1] A wrapper binary and its arguments for wrapping compiler calls. This is useful for compiler wrappers, such as ccache.
+Default: Undefined
+This property was introduced in Qbs 1.1.
+cppFlags : stringList A list of additional flags for the C preprocessor.
+Default: Undefined
+createSymlinks : bool This property is specific to Unix platforms.
+Whether to create version alias symlinks when building a dynamic library.
+Default: true
+cxxFlags : stringList A list of additional flags for the C&#43;&#43; compiler.
+Default: Undefined
+cxxLanguageVersion : stringList [since Qbs 1.4] The version of the C&#43;&#43; standard with which the code must comply.
+If this property is set, the corresponding compiler and linker flags will be added, depending on the toolchain.
+If the value is left undefined, the compiler default will be used. If the list contains more than one value, the highest version is chosen.
+Possible values include: &#34;c&#43;&#43;98&#34;, &#34;c&#43;&#43;11&#34;, &#34;c&#43;&#43;14&#34;, &#34;c&#43;&#43;17&#34;, &#34;c&#43;&#43;20&#34;, &#34;c&#43;&#43;23&#34;, &#34;c&#43;&#43;26&#34;.
+Default: Undefined
+This property was introduced in Qbs 1.4.
+cxxStandardLibrary : string [since Qbs 1.4] The C&#43;&#43; standard library to link to.
+If this property is set, the corresponding compiler and linker flags will be added, assuming the value is valid for the current toolchain.
+If the value is left undefined, the compiler default will be used.
+Possible values include: &#34;libstdc&#43;&#43;&#34;, &#34;libc&#43;&#43;&#34;.
+Default: Undefined
+This property was introduced in Qbs 1.4.
+debugInfoBundleSuffix : string This property is specific to Apple platforms.
+A string to append to the debug information bundle name.
+Default: &#34;.dSYM&#34;
+debugInfoSuffix : string A string to append to the debug information file name.
+Default: toolchain-dependent, typical values are &#34;.debug&#34;, &#34;.pdb&#34; or &#34;.dwarf&#34;
+debugInformation : bool Whether to generate debug information.
+Default: qbs.debugInformation
+defines : stringList A list of preprocessor macros that gets passed to the compiler.
+To set macro values, use the following syntax:
+cpp.defines: [&#34;USE_COLORS=1&#34;, &#39;COLOR_STR=&#34;blanched almond&#34;&#39;] Default: Undefined
+discardUnusedData : bool [since Qbs 1.10] If this property is true, the linker will discard data from objects that it determines to be unused. With MSVC and on Apple platforms, the granularity is per symbol, elsewhere it is per section.
+Default: Undefined
+This property was introduced in Qbs 1.10.
+distributionFrameworkPaths : pathList [since Qbs 1.8] A list of distribution-specific framework search paths, prioritized after systemFrameworkPaths.
+Intended for use by module authors implementing support for new operating systems or distributions.
+User project files should not set this property.
+Default: Undefined
+This property was introduced in Qbs 1.8.
+distributionIncludePaths : pathList [since Qbs 1.8] A list of distribution-specific include paths that are passed as system include paths to the compiler, prioritized after systemIncludePaths.
+Intended for use by module authors implementing support for new operating systems or distributions.
+User project files should not set this property.
+Default: Undefined
+This property was introduced in Qbs 1.8.
+distributionLibraryPaths : pathList [since Qbs 1.8] A list of distribution-specific library search paths.
+Intended for use by module authors implementing support for new operating systems or distributions.
+User project files should not set this property.
+Default: Undefined
+This property was introduced in Qbs 1.8.
+driverFlags : stringList [since Qbs 1.6] A list of flags that are added to all compilation and linking commands performed by the compiler driver, independently of the language.
+Default: Undefined
+This property was introduced in Qbs 1.6.
+driverLinkerFlags : stringList [since Qbs 1.11] A list of flags that are added to all linking commands performed by the compiler driver, independently of the language.
+Default: Undefined
+This property was introduced in Qbs 1.11.
+dsymutilFlags : stringList [since Qbs 1.4.1] This property is specific to Apple platforms.
+Additional flags for the dsymutil tool.
+Note: If this property contains the -f or --flat options, this will cause Qbs to generate &#34;flat&#34; (single-file) .dwarf debug symbol files instead of .dSYM bundles (directories) when separateDebugInformation is set to true.
+Default: Undefined
+This property was introduced in Qbs 1.4.1.
+dsymutilPath : string [since Qbs 1.4] This property is specific to Apple platforms.
+The full path of the dsymutil binary. This property is set in the build profile.
+Default: Determined by qbs setup-toolchains.
+This property was introduced in Qbs 1.4.
+dynamicLibraries : stringList Like libraries, but expressing the intention to link dynamic libraries specifically.
+Note: Qbs does currently not enforce that only dynamic libraries will be linked.
+Default: Undefined
+dynamicLibraryImportSuffix : string This property is specific to Windows.
+A string to append to the dynamic library import file name.
+Default: &#34;.lib&#34;
+dynamicLibraryPrefix : string A string to prepend to the dynamic library file name.
+Default: toolchain-dependent, typical values are &#34;&#34; or &#34;lib&#34;
+dynamicLibrarySuffix : string A string to append to the dynamic library file name.
+Default: toolchain-dependent, typical values are &#34;.so&#34;, &#34;.dll&#34; or &#34;dylib&#34;
+enableCompilerDefinesByLanguage : stringList [since Qbs 1.10] A list of languages (one or more of &#34;c&#34;, &#34;cpp&#34;, &#34;objc&#34;, &#34;objcpp&#34;) to extract the list of default compiler defines for in compilerDefinesByLanguage.
+Because this has performance implications, no languages are enabled by default.
+Default: Undefined
+This property was introduced in Qbs 1.10.
+enableCxxLanguageMacro : string [since Qbs 1.20] Whether to set the /Zc:__cplusplus macro (https://docs.microsoft.com/en-us/cpp/build/reference/zc-cplusplus)
+This property only applies to MSVC toolchain. clang-cl also supports this option, but it has no effect.
+This property is specific to Windows. Default: true for MSVC, false for clang-cl
+This property was introduced in Qbs 1.20.
+enableExceptions : bool [since Qbs 1.5] Whether to enable exceptions in C&#43;&#43; code.
+Default: true
+This property was introduced in Qbs 1.5.
+enableReproducibleBuilds : bool [since Qbs 1.5] Whether the compiler should try to generate reproducible object files.
+Some compilers (notably GCC) use random numbers for generating symbol names that have to be different in every compilation unit. This is avoided by setting this property to true.
+Default: false
+This property was introduced in Qbs 1.5.
+enableRtti : bool [since Qbs 1.5] Whether to enable runtime type information in C&#43;&#43; code.
+Default: Undefined
+This property was introduced in Qbs 1.5.
+enableSuspiciousLinkerFlagWarnings : bool [since Qbs 1.8] Whether to print warnings about escaped linker flags (such as -Xlinker and -Wl).
+Default: true
+This property was introduced in Qbs 1.8.
+enableTimeTrace : bool [since Qbs 3.3] Whether the compiler should generate time trace profiling information.
+When enabled and supported by the compiler, compilation of C and C&#43;&#43; source files will additionally produce .time_trace.json files alongside the regular object files. These files can be inspected with trace viewers such as Chromium&#39;s about:tracing page.
+If the toolchain does not support time trace generation, this property has no effect.
+The generated files are assigned the &#34;time_trace&#34; file tag.
+This option is currently supported only for the clang toolchain.
+Default: false
+This property was introduced in Qbs 3.3.
+endianness : string [since Qbs 1.9] Specifies the endianness of the target platform&#39;s processor architecture (&#34;big&#34; or &#34;little&#34;).
+The value is automatically detected from the compiler&#39;s default values, but can also be manually set in order to select a specific endianness when targeting bi-endian architectures like MIPS and PowerPC.
+Default: Compiler default value.
+This property was introduced in Qbs 1.9.
+entryPoint : string [since Qbs 1.3] The name of the entry point of an executable or dynamic library.
+If this property is left undefined, the toolchain&#39;s default is used.
+Default: Undefined
+This property was introduced in Qbs 1.3.
+exceptionHandlingModel : string [since Qbs 1.5] The exception handling model to use.
+For MSVC, this can be &#34;default&#34;, &#34;seh&#34; or &#34;externc&#34;. For all other compilers, &#34;default&#34; indicates the default or the only exception handling model.
+Default: &#34;default&#34;
+This property was introduced in Qbs 1.5.
+executablePrefix : string A string to prepend to the executable file name.
+Default: &#34;&#34;
+executableSuffix : string A string to append to the executable file name.
+Default: toolchain-dependent, typical values are &#34;&#34; or &#34;.exe&#34;
+exportedSymbolsCheckMode : string [since Qbs 1.4.1] This property is specific to Unix platforms.
+Controls how Qbs determines whether an updated dynamic library causes relinking of dependents.
+The default value is &#34;ignore-undefined&#34;, which means that undefined symbols being added or removed do not cause any relinking. If that should happen, for example because dependent products are linked with an option such as &#34;--no-undefined&#34;, this property can be set to &#34;strict&#34;.
+Default: &#34;ignore-undefined&#34;
+This property was introduced in Qbs 1.4.1.
+forceUseCxxModules : bool [since Qbs 2.5] Set this property to true to force support for C&#43;&#43;20 Modules.
+On details how to use modules, see the corresponding section in the tutorial.
+By default, modules support is disabled since this feature is considered experimental.
+Note: The default value is subject to change.
+Default: false
+This property was introduced in Qbs 2.5.
+frameworkPaths : pathList This property is specific to Apple platforms.
+A list of framework search paths.
+Relative paths are considered to be relative to the .qbs product file they are used in.
+Default: Undefined
+frameworks : stringList This property is specific to Apple platforms.
+A list of frameworks to be linked.
+If the framework is part of your project, consider using a Depends item instead.
+Default: Undefined
+generateAssemblerListingFiles : bool [since Qbs 1.15] This property is specific to bare-metal platforms.
+Whether to auto-generate an assembler listing files.
+Default: false
+This property was introduced in Qbs 1.15.
+generateCompilerListingFiles : bool [since Qbs 1.15] Whether to auto-generate compiler listing files.
+Default: false
+This property was introduced in Qbs 1.15.
+generateLinkerMapFile : bool [since Qbs 1.13] Whether to auto-generate a linker map file.
+Default: false
+This property was introduced in Qbs 1.13.
+generateManifestFile : bool [since Qbs 1.5.0] This property is specific to Windows.
+Whether to auto-generate a manifest file and include it in the binary.
+Set this property to false if you provide your own rc file.
+Default: true
+This property was introduced in Qbs 1.5.0.
+importPrivateLibraries : string [since Qbs 2.4] Whether to automatically import external libraries from dependencies.
+If set to true in the product that depends on the static library, the external dependencies (such as staticLibraries and dynamicLibraries) of this library are also added to products that depend on this library.
+StaticLibrary { files: &#34;lib.cpp&#34; cpp.staticLibraries: [&#34;l&#34;, &#34;y&#34;] } If set to false, the explicit Export item is required:
+StaticLibrary { files: &#34;lib.cpp&#34; Export { Depends { name: &#34;cpp&#34; } cpp.staticLibraries: [&#34;l&#34;, &#34;y&#34;] } } We recommend using the Export item as it provides more flexibility.
+Note: The default value is subject to change.
+Default: true
+This property was introduced in Qbs 2.4.
+includePaths : pathList A list of include paths.
+Relative paths are considered to be relative to the .qbs product file they are used in.
+Default: Undefined
+libraries : stringList A List of libraries to be linked.
+If the library is part of your project, consider using a Depends item instead.
+Each library can be specified in one of two ways:
+An absolute file path (for example, &#34;/foo/bar.lib&#34;), in which case it is passed directly to the linker, ignoring libraryPaths. A library basename (for example, &#34;bar&#34;), in which case the directory that contains the library must be provided via libraryPaths. Relative paths (&#34;foo/bar.lib&#34;) are not allowed. When giving an absolute path, the more specific properties staticLibraries or dynamicLibraries should be preferred, depending on the type of the library.
+Default: Undefined
+See also libraryPaths and How do I create a module for a third-party library?.
+libraryPaths : pathList A list of library search paths.
+The paths will be passed to the linker in the appropriate way. For example, the -L argument will be used when using ld-like linkers.
+Relative paths are considered to be relative to the .qbs product file they are used in.
+Default: Undefined
+See also libraries, dynamicLibraries, staticLibraries, and How do I create a module for a third-party library?.
+linkerFlags : stringList A list of additional flags for the linker.
+These flags should not be escaped using the -Wl or -Xlinker syntaxes, as Qbs will do this automatically based on the linker being used.
+Default: Undefined
+See also linkerMode.
+linkerMapSuffix : string A string to append to the generated linker memory map files.
+Default: toolchain-dependent, typical value is &#34;.map&#34;
+linkerMode : string [since Qbs 1.6] Controls whether to automatically use an appropriate compiler frontend instead of the system linker when linking binaries.
+The default is &#34;automatic&#34;, which chooses either the C&#43;&#43; compiler, C compiler, or system linker specified by the linkerName and linkerPath properties, depending on the type of object files present on the linker command line.
+Set this property to &#34;manual&#34; to explicitly specify the linker using the linkerName and linkerPath properties.
+Default: &#34;automatic&#34;
+This property was introduced in Qbs 1.6.
+linkerName : string [since Qbs 1.1.1] The name of the linker binary. This property is set in the build profile.
+Default: Determined by qbs setup-toolchains.
+This property was introduced in Qbs 1.1.1.
+linkerPath : string [since Qbs 1.1.1] The full path of the linker binary. This property is set in the build profile.
+Default: Determined by qbs setup-toolchains.
+This property was introduced in Qbs 1.1.1.
+linkerVariant : string [since Qbs 1.13] Set this property to force the use of a specific linker. A non-empty value will result in the -fuse-ld option being emitted when linking with gcc, clang or clang-cl. Other toolchains do not support this property.
+The possible values for clang and gcc are &#34;bfd&#34;, &#34;gold&#34;, &#34;lld&#34;, &#34;mold&#34; and &#34;wild&#34;, the possible values for clang-cl are &#34;link&#34; and &#34;lld&#34;. Note that &#34;wild&#34; requires GCC 16.1 or later, or a ld.wild symlink/binary when used with clang.
+The following example demonstrates how to change the linker for different toolchains:
+Properties { condition: qbs.toolchain.includes(&#34;gcc&#34;) cpp.linkerVariant: &#34;gold&#34; } Properties { condition: qbs.toolchain.includes(&#34;clang-cl&#34;) cpp.linkerVariant: &#34;lld&#34; } Default: Undefined
+This property was introduced in Qbs 1.13.
+linkerWrapper : stringList [since Qbs 1.6.2] A wrapper binary and its arguments for wrapping linker calls. This is useful for linker wrappers as needed by Bullseye Coverage, for example.
+Default: Undefined
+This property was introduced in Qbs 1.6.2.
+lipoPath : string [since Qbs 1.9] This property is specific to Apple platforms.
+The full path of the lipo binary.
+Default: Determined automatically.
+This property was introduced in Qbs 1.9.
+loadableModulePrefix : string This property is specific to Apple platforms.
+A string to prepend to the Darwin loadable module file name.
+Default: &#34;&#34;
+loadableModuleSuffix : string This property is specific to Apple platforms.
+A string to append to the Darwin loadable module file name.
+Default: &#34;.bundle&#34;
+minimumIosVersion : string This property is specific to Apple platforms.
+A version number in the format [major].[minor] indicating the earliest version of iOS that the product should run on.
+Passes -miphoneos-version-min=&lt;version&gt; to the compiler.
+If set to undefined, compiler defaults will be used.
+Note: Qbs sets minimum version to &#34;6.0&#34; for armv7a because earlier iOS versions are broken in recent XCode installations.
+Default: &#34;6.0&#34; for armv7a, undefined otherwise
+minimumMacosVersion : string [since Qbs 1.5.2] This property is specific to Apple platforms.
+A version number in the format [major].[minor]indicating the earliest version of macOS that the product should run on.
+Passes -mmacosx-version-min=&lt;version&gt; to the compiler.
+If left undefined, compiler defaults will be used.
+Default: Undefined
+This property was introduced in Qbs 1.5.2.
+minimumTvosVersion : string [since Qbs 1.5] This property is specific to Apple platforms.
+A version number in the format [major].[minor] indicating the earliest version of Apple tvOS that the product should run on.
+If left undefined, compiler defaults will be used.
+Note: Qbs sets the minimum version to &#34;6.0&#34;, because earlier tvOS versions are not supported by recent XCode installations by default.
+Default: &#34;6.0
+This property was introduced in Qbs 1.5.
+minimumWatchosVersion : string This property is specific to Apple platforms.
+A version number in the format [major].[minor] indicating the earliest version of Apple watchOS that the product should run on.
+If left undefined, compiler defaults will be used.
+Default: Undefined
+minimumWindowsVersion : string This property is specific to Windows.
+A version number in the format [major].[minor] indicating the earliest version of Windows that the product should run on.
+Defines WINVER, _WIN32_WINNT, and _WIN32_WINDOWS, and applies a version number to the linker flags /SUBSYSTEM and /OSVERSION for MSVC or --major-subsystem-version, --minor-subsystem-version, --major-os-version, and --minor-os-version for MinGW.
+If left undefined, compiler defaults will be used.
+Default: Undefined
+nmName : string [since Qbs 1.2] This property is specific to Unix platforms.
+The name of the nm binary. This property is set in the build profile.
+Default: &#34;nm&#34;
+This property was introduced in Qbs 1.2.
+nmPath : string [since Qbs 1.2] This property is specific to Unix platforms.
+The full path of the nm binary. This property is set in the build profile.
+Default: Determined by qbs setup-toolchains.
+This property was introduced in Qbs 1.2.
+objcFlags : stringList A list of additional flags for the Objective-C compiler.
+Default: Undefined
+objcopyName : string [since Qbs 1.4] This property is specific to Unix platforms.
+The name of the objcopy binary. This property is set in the build profile.
+Default: &#34;objcopy&#34;
+This property was introduced in Qbs 1.4.
+objcopyPath : string [since Qbs 1.4] This property is specific to Unix platforms.
+The full path of the objcopy binary. This property is set in the build profile.
+Default: Determined by qbs setup-toolchains.
+This property was introduced in Qbs 1.4.
+objcxxFlags : stringList A list of additional flags for the Objective-C&#43;&#43; compiler.
+Default: Undefined
+objectSuffix : string A string to append to the generated object files.
+Default: toolchain-dependent, typical values are &#34;.o&#34; or &#34;.obj&#34;
+optimization : string The optimization level.
+Default: qbs.optimization
+pchDependsOnSystemHeaders : bool [since Qbs 3.4] If true, the system headers included (directly or indirectly) by a precompiled header – those found via systemIncludePaths, distributionIncludePaths, or compilerIncludePaths – are tracked as dependencies of the precompiled header. Modifying such a header (for instance, a system update that changes its timestamp) then causes the precompiled header to be regenerated.
+This prevents build failures in which the compiler rejects a precompiled header because a system header it was built from has changed, while Qbs still considers the precompiled header up to date.
+Unlike treatSystemHeadersAsDependencies, this tracking is limited to precompiled headers, so ordinary source files are not recompiled when an unrelated system header changes.
+Note: This is disabled by default because tracking the system headers requires scanning the precompiled header&#39;s entire transitive system-header closure, which can be large and slows down dependency scanning. Enable it only if stale precompiled headers are an actual problem for you.
+Default: false
+This property was introduced in Qbs 3.4.
+platformDefines : stringList A list of preprocessor macros that are used for all projects that are built for the current target platform. User project files usually do not set this property.
+Default: Undefined
+positionIndependentCode : bool This property is specific to Unix platforms.
+Whether to generate position-independent code.
+If this property is left undefined, position-independent code is generated for libraries, but not for applications.
+Default: Undefined
+prefixHeaders : pathList [since Qbs 1.0.1] A list of files to automatically include at the beginning of each source file in the product.
+Default: Undefined
+This property was introduced in Qbs 1.0.1.
+removeDuplicateLibraries : bool [since Qbs 1.16] Whether the list of the objects and libraries is reduced to a list of unique values before being passed to the linker.
+Default: true
+This property was introduced in Qbs 1.16.
+requireAppContainer : bool [since Qbs 1.10] This property is specific to Windows.
+Whether the generated executable or dynamic-link library requires an AppContainer execution environment. Set to true when creating Universal Windows Platform applications.
+Default: Undefined
+This property was introduced in Qbs 1.10.
+requireAppExtensionSafeApi : bool [since Qbs 1.4] This property is specific to Apple platforms.
+Whether to enforce the use of only app-extension-safe APIs on Apple platforms. This is necessary for building Application Extensions in OS X Yosemite and iOS 8 and above.
+If left undefined, uses the compiler and linker defaults (probably false).
+Default: Undefined
+This property was introduced in Qbs 1.4.
+rpathLinkDirs : stringList [since Qbs 3.2] This property is specific to Unix platforms.
+A list of paths that are passed to the linker as arguments to the rpathLinkFlag. Setting this property might be required in some cases when useRPaths is disabled. This property has no effect if useRPathLink is not enabled.
+Default: Undefined
+This property was introduced in Qbs 3.2.
+rpathLinkFlag : string [since Qbs 1.9] The rpath link flag used by the linker.
+Default: toolchain-dependent, typical values are &#34;-rpath-link=&#34; or &#34;-L&#34;
+This property was introduced in Qbs 1.9.
+rpathOrigin : string [since Qbs 1.11] This property is specific to Unix platforms.
+A placeholder value used in an rpath string to refer to the directory containing the referring executable or shared library.
+Default: &#34;@loader_path&#34; on Mach-O based platforms (macOS, iOS, tvOS, watchOS); &#34;$ORIGIN&#34; on ELF based platforms (Linux and most other Unix-like platforms).
+This property was introduced in Qbs 1.11.
+rpaths : stringList This property is specific to Unix platforms.
+A list of rpaths that are passed to the linker. Paths that also appear in systemRunPaths are ignored. This property has no effect if useRPaths is not enabled.
+Default: Undefined
+See also How do I make use of rpaths?.
+runtimeLibrary : string [since Qbs 1.3.3] The type of the runtime library used.
+Accepted values are &#34;static&#34; and &#34;dynamic&#34;.
+If this property is set to undefined, the default runtime library of the toolchain is used.
+Note: This property is only functional for MSVC and MinGW.
+Default: &#34;dynamic&#34; for MSVC and MinGW, undefined for other compilers.
+This property was introduced in Qbs 1.3.3.
+separateDebugInformation : bool [since Qbs 1.4] Whether to store debug information in an external file or bundle instead of within the binary.
+The type of files that will be generated when this property is true is dependent on the compiler and target platform:
+With MSVC, this property controls the generation of .pdb (Program Debug Database) files. On Apple platforms with GCC or Clang, this property controls the generation of .dSYM (DWARF Symbol) bundles or, if dsymutilFlags contains the -f or --flat flags, .dwarf symbol files. On other platforms with GCC or Clang (including Windows/MinGW), this property controls the generation of .debug symbol files. Default: true for MSVC and with GCC or Clang on Apple platforms, otherwise false.
+This property was introduced in Qbs 1.4.
+See also debugInformation, separateDebugInformationVariant, and How do I separate and install debugging symbols?.
+separateDebugInformationVariant : string [since Qbs 3.4] Selects how debug information is separated from the binary when separateDebugInformation is enabled.
+This property is available for GCC/Clang ELF targets (Unix platforms other than Darwin). Possible values are:
+&#34;objcopy&#34; (default): After linking, extract debug symbols into a .debug file with objcopy, strip them from the binary, and add a .gnu_debuglink section. &#34;fission&#34;: Pass -gsplit-dwarf to the compiler so most debug information is written to per-object .dwo files. The linked binary keeps only skeleton DWARF and is not post-processed with objcopy. The .dwo files use the same &#34;debuginfo_app&#34;, &#34;debuginfo_dll&#34;, or &#34;debuginfo_loadablemodule&#34; tags as .debug files, so they are installed the same way. On Darwin, MSVC, MinGW, and Emscripten this property has no effect; those toolchains use their platform-specific separate-debug mechanisms.
+Default: &#34;objcopy&#34;
+This property was introduced in Qbs 3.4.
+See also separateDebugInformation.
+soVersion : string [since Qbs 1.7] This property is specific to Unix platforms.
+The version number to be appended to the soname in ELF shared libraries.
+Default: The major part of product.version if a version is set, otherwise [].
+This property was introduced in Qbs 1.7.
+sonamePrefix : string [since Qbs 1.5] This property is specific to Unix platforms.
+A library name or full library path.
+If defined, the value of this property is used as a path to be prepended to the built shared library&#39;s SONAME identifier. The SONAME (LC_ID_DYLIB on Apple platforms, DT_SONAME on other Unix-like platforms) is the identifier that the dynamic linker will later use to reference the library.
+On Apple platforms, the path may contain the following placeholders:
+@rpath - Expands to paths defined by LC_RPATH Mach-O commands in the current process executable or the referring libraries. @executable_path - Expands to the current process executable location. @loader_path - Expands to the referring executable or library location. In most cases, using @rpath is sufficient and recommended. However, the prefix may be also specified using different placeholders, or an absolute path.
+For more information, see the DYLD documentation on dynamic library install names.
+Default: Undefined
+This property was introduced in Qbs 1.5.
+See also How do I make use of rpaths?.
+staticLibraries : stringList Like libraries, but expressing the intention to link static libraries specifically.
+Note: Qbs does currently not enforce that only static libraries will be linked.
+Default: Undefined
+staticLibraryPrefix : string A string to prepend to the static library file name.
+Default: toolchain-dependent, typical values are &#34;&#34; or &#34;lib&#34;
+staticLibrarySuffix : string A string to append to the executable file name.
+Default: toolchain-dependent, typical values are &#34;.a&#34; or &#34;.lib&#34;
+stripName : string [since Qbs 1.4] This property is specific to Unix platforms.
+The name of the strip binary. This property is set in the build profile.
+Default: &#34;strip&#34;
+This property was introduced in Qbs 1.4.
+stripPath : string [since Qbs 1.4] This property is specific to Unix platforms.
+The full path of the strip binary. This property is set in the build profile.
+Default: Determined by qbs setup-toolchains.
+This property was introduced in Qbs 1.4.
+systemFrameworkPaths : pathList This property is specific to Apple platforms.
+A list of framework search paths.
+Relative paths are considered to be relative to the .qbs product file they are used in. Header files in frameworks in those paths will not cause warnings.
+Default: Undefined
+systemIncludePaths : pathList A list of include paths that are passed as system include paths to the compiler.
+For header files in those paths, warnings will be ignored.
+Relative paths are considered to be relative to the .qbs product file they are used in.
+Default: Undefined
+systemRunPaths : stringList [since Qbs 1.6] The paths the dynamic linker uses on process start-up to locate dynamic libraries.
+Default: Auto-detected for host builds on Linux via ldconfig, [&#34;/lib&#34;, &#34;/usr/lib&#34;] otherwise on Unix, [] on Windows.
+This property was introduced in Qbs 1.6.
+toolchainInstallPath : string The directory path where the toolchain is installed. This property is set in the build profile.
+This is usually the base property from which all compiler and tool paths are automatically derived.
+Default: Determined by qbs setup-toolchains.
+treatSystemHeadersAsDependencies : bool [since Qbs 1.8] Whether included header files found via systemIncludePaths, distributionIncludePaths, or compilerIncludePaths will be added to the dependencies of the respective object file.
+This means that modification of such header files (or any of the headers they include) will cause recompilation.
+Default: false
+This property was introduced in Qbs 1.8.
+treatWarningsAsErrors : bool Whether warnings will be handled as errors and cause the build to fail.
+Default: false
+useCPrecompiledHeader : bool [since Qbs 1.5] Whether to use a precompiled header for compiling C sources if one is present.
+Set this property to false in a Group item to disable precompiled headers for some sources even though a precompiled header is present in the product.
+See Relevant File Tags for the associated file tags.
+Default: true
+This property was introduced in Qbs 1.5.
+useCxxPrecompiledHeader : bool [since Qbs 1.5] Like useCPrecompiledHeader, but for C&#43;&#43;.
+Default: true
+This property was introduced in Qbs 1.5.
+useLanguageVersionFallback : bool [since Qbs 1.11] Whether to explicitly use the language standard version fallback values in compiler command line invocations.
+By default, Qbs will automatically substitute fallback values for the C and C&#43;&#43; language standard versions specified by the cLanguageVersion and cxxLanguageVersion properties, which are passed to the -std= compiler command line option with GNU-compatible toolchains, if it detects that you are using an older toolchain which does not support the standard values. The substitutions are made as follows:
+Value Substitute c&#43;&#43;11 c&#43;&#43;0x c11 c1x c&#43;&#43;14 c&#43;&#43;1y c&#43;&#43;17 c&#43;&#43;1z If this property is explicitly set to true, Qbs will always use the fallback values.
+If this property is explicitly set to false, Qbs will never use the fallback values.
+This property has no effect with the Microsoft Visual C&#43;&#43; compiler.
+Default: Undefined
+This property was introduced in Qbs 1.11.
+useObjcPrecompiledHeader : bool [since Qbs 1.5] Like useCPrecompiledHeader, but for Objective-C.
+Default: true
+This property was introduced in Qbs 1.5.
+useObjcxxPrecompiledHeader : bool [since Qbs 1.5] Like useCPrecompiledHeader, but for Objective-C&#43;&#43;.
+Default: true
+This property was introduced in Qbs 1.5.
+useRPathLink : bool [since Qbs 1.8] This property is specific to Unix platforms.
+Whether to use the -rpath-link linker option for transitive shared objects.
+Default: true on non-Darwin Unix platforms or when targeting macOS 10.4.x and older.
+This property was introduced in Qbs 1.8.
+useRPaths : bool [since Qbs 1.3] This property is specific to Unix platforms.
+If false, prevents the linker from writing rpaths to the binary.
+Default: true
+This property was introduced in Qbs 1.3.
+variantSuffix : string [since Qbs 1.10] A suffix to add to a product&#39;s target name if that product is of the type staticlibrary or dynamiclibrary.
+On Darwin platforms, applications and loadable modules are also affected.
+By default, this property is left empty on all platforms unless the product is multiplexed over the qbs.buildVariants property. In that case, for the debug variant of the product, the default value is &#34;d&#34; on Windows and &#34;_debug&#34; on Darwin platforms, such as macOS. On all other platforms and in release mode, the default value is [].
+For example, building a dynamic library called MyLib that is multiplexed over the qbs.buildVariants property with MSVC will produce files called MyLib.dll (for the release version of the product) and MyLibd.dll (for the debug version).
+Default: Platform-specific.
+This property was introduced in Qbs 1.10.
+visibility : string This property is specific to Unix platforms.
+The visibility level for exported symbols.
+Possible values include: &#34;default&#34;, &#34;hidden&#34;, &#34;hiddenInlines&#34;, and &#34;minimal&#34;, which combines &#34;hidden&#34; and &#34;hiddenInlines&#34;.
+Default: &#34;default&#34;
+warningLevel : string The warning level for the compiler: &#34;none&#34; or &#34;all&#34;.
+Default: &#34;all&#34;
+weakFrameworks : stringList This property is specific to Apple platforms.
+A list of frameworks to be weakly linked.
+If the framework is part of your project, consider using a Depends item instead.
+Default: Undefined
+windowsApiAdditionalPartitions : stringList [since Qbs 1.10] This property is specific to Windows.
+A list of additional Windows API partitions to enable in addition to the ones implicitly enabled by the value of windowsApiFamily (WINAPI_FAMILY).
+This value is used when building Windows Store applications. For example, setting windowsApiFamily to &#34;pc&#34; and this property to [&#34;phone&#34;] will allow you to create Windows Store applications that target all Universal Windows Platform device families (&#34;Universal&#34; apps).
+Possible values include: &#34;app&#34;, &#34;desktop&#34;, &#34;pc&#34;, &#34;phone&#34;, &#34;server&#34;, and &#34;system&#34;, which are mapped to the corresponding set of possible WINAPI_PARTITION_* preprocessor defines in the Windows SDK.
+Default: Undefined, which lets the Windows SDK headers determine the default partitions based on the value of WINAPI_FAMILY.
+This property was introduced in Qbs 1.10.
+See also windowsApiFamily.
+windowsApiCharacterSet : string [since Qbs 1.0.1] This property is specific to Windows.
+The character set used in the Win32 API.
+The value &#34;unicode&#34; defines the preprocessor symbols UNICODE and _UNICODE, &#34;mbcs&#34; defines _MBCS, and setting the value to undefined will use the default character set.
+Default: &#34;unicode&#34;
+This property was introduced in Qbs 1.0.1.
+windowsApiFamily : string [since Qbs 1.10] This property is specific to Windows.
+The Windows API family that the application or library is targeting.
+This value is used when building Universal Windows Platform applications.
+Possible values include: &#34;desktop&#34;, &#34;pc&#34;, &#34;phone&#34;, &#34;server&#34;, and &#34;system&#34;, which are mapped to the corresponding set of possible values for the WINAPI_FAMILY preprocessor define in the Windows SDK.
+Default: Undefined, which lets the Windows SDK headers determine the default.
+This property was introduced in Qbs 1.10.
+windowsSdkVersion : string [since Qbs 1.19] Which Windows SDK version should be used with MSVC toolchain. By default, the latest SDK is used.
+This property is specific to Windows. Default: Undefined
+This property was introduced in Qbs 1.19.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -206,7 +1806,539 @@ Since: Qbs 1.0 List of all members, including inherited members Deprecated membe
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual QbsModules cpp Qbs 3.4.0 Contents Properties Detailed Description Setting Up the Run Environment Dependency Parameters Relevant File Tags Relevant Job Pools cpp Provides C/C&#43;&#43; support. More...
-Since: Qbs 1.0 List of all members, including inherited members Deprecated members Properties allowUnresolvedSymbols : bool (since Qbs 1.2) alwaysUseLipo : bool (since Qbs 1.9) architecture : string archiverFlags : string (since Qbs 3.0.0) archiverName : string archiverPath : string assemblerFlags : stringList (since Qbs 1.5) assemblerListingSuffix : string assemblerName : string (since Qbs 1.5) assemblerPath : string (since Qbs 1.5) automaticReferenceCounting : bool (since Qbs 1.4) cFlags : stringList cLanguageVersion : stringList (since Qbs 1.4) combineCSources : bool (since Qbs 1.8) combineCxxSources : bool (since Qbs 1.8) combineObjcSources : bool (since Qbs 1.8) combineObjcxxSources : bool (since Qbs 1.8) commonCompilerFlags : stringList (since Qbs 1.0.1) compilerDefinesByLanguage : var (since Qbs 1.10) compilerFrameworkPaths : pathList (since Qbs 1.6) compilerIncludePaths : pathList (since Qbs 1.6) compilerLibraryPaths : pathList (since Qbs 1.6) compilerListingSuffix : string compilerName : string compilerPath : string compilerPathByLanguage : var (since Qbs 1.3) compilerVersion : string compilerVersionMajor : int (since Qbs 1.4) compilerVersionMinor : int (since Qbs 1.4) compilerVersionPatch : int (since Qbs 1.4) compilerWrapper : stringList (since Qbs 1.1) cppFlags : stringList createSymlinks : bool cxxFlags : stringList cxxLanguageVersion : stringList (since Qbs 1.4) cxxStandardLibrary : string (since Qbs 1.4) debugInfoBundleSuffix : string debugInfoSuffix : string debugInformation : bool defines : stringList discardUnusedData : bool (since Qbs 1.10) distributionFrameworkPaths : pathList (since Qbs 1.8) distributionIncludePaths : pathList (since Qbs 1.8) distributionLibraryPaths : pathList (since Qbs 1.8) driverFlags : stringList (since Qbs 1.6) driverLinkerFlags : stringList (since Qbs 1.11) dsymutilFlags : stringList (since Qbs 1.4.1) dsymutilPath : string (since Qbs 1.4) dynamicLibraries : stringList dynamicLibraryImportSuffix : string dynamicLibraryPrefix : string dynamicLibrarySuffix : string enableCompilerDefinesByLanguage : stringList (since Qbs 1.10) enableCxxLanguageMacro : string (since Qbs 1.20) enableExceptions : bool (since Qbs 1.5) enableReproducibleBuilds : bool (since Qbs 1.5) enableRtti : bool (since Qbs 1.5) enableSuspiciousLinkerFlagWarnings : bool (since Qbs 1.8) enableTimeTrace : bool (since Qbs 3.3) endianness : string (since Qbs 1.9) entryPoint : string (since Qbs 1.3) exceptionHandlingModel : string (since Qbs 1.5) executablePrefix : string executableSuffix : string exportedSymbolsCheckMode : string (since Qbs 1.4.1) forceUseCxxModules : bool (since Qbs 2.5) frameworkPaths : pathList frameworks : stringList generateAssemblerListingFiles : bool (since Qbs 1.15) generateCompilerListingFiles : bool (since Qbs 1.15) generateLinkerMapFile : bool (since Qbs 1.13) generateManifestFile : bool (since Qbs 1.5.0) importPrivateLibraries : string (since Qbs 2.4) includePaths : pathList libraries : stringList libraryPaths : pathList linkerFlags : stringList linkerMapSuffix : string linkerMode : string (since Qbs 1.6) linkerName : string (since Qbs 1.1.1) linkerPath : string (since Qbs 1.1.1) linkerVariant : string (since Qbs 1.13) linkerWrapper : stringList (since Qbs 1.6.2) lipoPath : string (since Qbs 1.9) loadableModulePrefix : string loadableModuleSuffix : string minimumIosVersion : string minimumMacosVersion : string (since Qbs 1.5.2) minimumTvosVersion : string (since Qbs 1.5) minimumWatchosVersion : string minimumWindowsVersion : string nmName : string (since Qbs 1.2) nmPath : string (since Qbs 1.2) objcFlags : stringList objcopyName : string (since Qbs 1.4) objcopyPath : string (since Qbs 1.4) objcxxFlags : stringList objectSuffix : string optimization : string pchDependsOnSystemHeaders : bool (since Qbs 3.4) platformDefines : stringList positionIndependentCode : bool prefixHeaders : pathList (since Qbs 1.0.1) removeDuplicateLibraries : bool (since Qbs 1.16) requireAppContainer : bool (since Qbs 1.10) requireAppExtensionSafeApi : bool (since Qbs 1.4) rpathLinkDirs : stringList (since Qbs 3.2) rpathLinkFlag : string (since Qbs 1.9) rpathOrigin : string (since Qbs 1.11) rpaths : stringList runtimeLibrary : string (since Qbs 1.3.3) separateDebugInformation : bool (since Qbs 1.4) separateDebugInformationVariant : string (since Qbs 3.4) soVersion : string (since Qbs 1.7) sonamePrefix : string (since Qbs 1.5) staticLibraries : stringList staticLibraryPrefix : string staticLibrarySuffix : string stripName : string (since Qbs 1.4) stripPath : string (since Qbs 1.4) systemFrameworkPaths : pathList systemIncludePaths : pathList systemRunPaths : stringList (since Qbs 1.6) toolchainInstallPath : string treatSystemHeadersAsDependencies : bool (since Qbs 1.8) treatWarningsAsErrors : bool useCPrecompiledHeader : bool (since Qbs 1.5) useCxxPrecompiledHeader : bool (since Qbs 1.5) useLanguageVersionFallback : bool (since Qbs 1.11) useObjcPrecompiledHeader : bool (since Qbs 1.5) useObjcxxPrecompiledHeader : bool (since Qbs 1.5) useRPathLink : bool (since Qbs 1.8) useRPaths : bool (since Qbs 1.3) variantSuffix : string (since Qbs 1.10) visibility : string warningLevel : string weakFrameworks : stringList windowsApiAdditionalPartitions : stringList (since Qbs 1.10) windowsApiCharacterSet : string (since Qbs 1.0.1) windowsApiFamily : string (since Qbs 1.10) windowsSdkVersion : string (since Qbs 1.19) Detailed Description The cpp module contains the properties and rules for toolchains of the C/C&#43;&#43; family. On Apple platforms, this includes support for Objective-C/C&#43;&#43;.">
+Since: Qbs 1.0 List of all members, including inherited members Deprecated members Properties allowUnresolvedSymbols : bool (since Qbs 1.2) alwaysUseLipo : bool (since Qbs 1.9) architecture : string archiverFlags : string (since Qbs 3.0.0) archiverName : string archiverPath : string assemblerFlags : stringList (since Qbs 1.5) assemblerListingSuffix : string assemblerName : string (since Qbs 1.5) assemblerPath : string (since Qbs 1.5) automaticReferenceCounting : bool (since Qbs 1.4) cFlags : stringList cLanguageVersion : stringList (since Qbs 1.4) combineCSources : bool (since Qbs 1.8) combineCxxSources : bool (since Qbs 1.8) combineObjcSources : bool (since Qbs 1.8) combineObjcxxSources : bool (since Qbs 1.8) commonCompilerFlags : stringList (since Qbs 1.0.1) compilerDefinesByLanguage : var (since Qbs 1.10) compilerFrameworkPaths : pathList (since Qbs 1.6) compilerIncludePaths : pathList (since Qbs 1.6) compilerLibraryPaths : pathList (since Qbs 1.6) compilerListingSuffix : string compilerName : string compilerPath : string compilerPathByLanguage : var (since Qbs 1.3) compilerVersion : string compilerVersionMajor : int (since Qbs 1.4) compilerVersionMinor : int (since Qbs 1.4) compilerVersionPatch : int (since Qbs 1.4) compilerWrapper : stringList (since Qbs 1.1) cppFlags : stringList createSymlinks : bool cxxFlags : stringList cxxLanguageVersion : stringList (since Qbs 1.4) cxxStandardLibrary : string (since Qbs 1.4) debugInfoBundleSuffix : string debugInfoSuffix : string debugInformation : bool defines : stringList discardUnusedData : bool (since Qbs 1.10) distributionFrameworkPaths : pathList (since Qbs 1.8) distributionIncludePaths : pathList (since Qbs 1.8) distributionLibraryPaths : pathList (since Qbs 1.8) driverFlags : stringList (since Qbs 1.6) driverLinkerFlags : stringList (since Qbs 1.11) dsymutilFlags : stringList (since Qbs 1.4.1) dsymutilPath : string (since Qbs 1.4) dynamicLibraries : stringList dynamicLibraryImportSuffix : string dynamicLibraryPrefix : string dynamicLibrarySuffix : string enableCompilerDefinesByLanguage : stringList (since Qbs 1.10) enableCxxLanguageMacro : string (since Qbs 1.20) enableExceptions : bool (since Qbs 1.5) enableReproducibleBuilds : bool (since Qbs 1.5) enableRtti : bool (since Qbs 1.5) enableSuspiciousLinkerFlagWarnings : bool (since Qbs 1.8) enableTimeTrace : bool (since Qbs 3.3) endianness : string (since Qbs 1.9) entryPoint : string (since Qbs 1.3) exceptionHandlingModel : string (since Qbs 1.5) executablePrefix : string executableSuffix : string exportedSymbolsCheckMode : string (since Qbs 1.4.1) forceUseCxxModules : bool (since Qbs 2.5) frameworkPaths : pathList frameworks : stringList generateAssemblerListingFiles : bool (since Qbs 1.15) generateCompilerListingFiles : bool (since Qbs 1.15) generateLinkerMapFile : bool (since Qbs 1.13) generateManifestFile : bool (since Qbs 1.5.0) importPrivateLibraries : string (since Qbs 2.4) includePaths : pathList libraries : stringList libraryPaths : pathList linkerFlags : stringList linkerMapSuffix : string linkerMode : string (since Qbs 1.6) linkerName : string (since Qbs 1.1.1) linkerPath : string (since Qbs 1.1.1) linkerVariant : string (since Qbs 1.13) linkerWrapper : stringList (since Qbs 1.6.2) lipoPath : string (since Qbs 1.9) loadableModulePrefix : string loadableModuleSuffix : string minimumIosVersion : string minimumMacosVersion : string (since Qbs 1.5.2) minimumTvosVersion : string (since Qbs 1.5) minimumWatchosVersion : string minimumWindowsVersion : string nmName : string (since Qbs 1.2) nmPath : string (since Qbs 1.2) objcFlags : stringList objcopyName : string (since Qbs 1.4) objcopyPath : string (since Qbs 1.4) objcxxFlags : stringList objectSuffix : string optimization : string pchDependsOnSystemHeaders : bool (since Qbs 3.4) platformDefines : stringList positionIndependentCode : bool prefixHeaders : pathList (since Qbs 1.0.1) removeDuplicateLibraries : bool (since Qbs 1.16) requireAppContainer : bool (since Qbs 1.10) requireAppExtensionSafeApi : bool (since Qbs 1.4) rpathLinkDirs : stringList (since Qbs 3.2) rpathLinkFlag : string (since Qbs 1.9) rpathOrigin : string (since Qbs 1.11) rpaths : stringList runtimeLibrary : string (since Qbs 1.3.3) separateDebugInformation : bool (since Qbs 1.4) separateDebugInformationVariant : string (since Qbs 3.4) soVersion : string (since Qbs 1.7) sonamePrefix : string (since Qbs 1.5) staticLibraries : stringList staticLibraryPrefix : string staticLibrarySuffix : string stripName : string (since Qbs 1.4) stripPath : string (since Qbs 1.4) systemFrameworkPaths : pathList systemIncludePaths : pathList systemRunPaths : stringList (since Qbs 1.6) toolchainInstallPath : string treatSystemHeadersAsDependencies : bool (since Qbs 1.8) treatWarningsAsErrors : bool useCPrecompiledHeader : bool (since Qbs 1.5) useCxxPrecompiledHeader : bool (since Qbs 1.5) useLanguageVersionFallback : bool (since Qbs 1.11) useObjcPrecompiledHeader : bool (since Qbs 1.5) useObjcxxPrecompiledHeader : bool (since Qbs 1.5) useRPathLink : bool (since Qbs 1.8) useRPaths : bool (since Qbs 1.3) variantSuffix : string (since Qbs 1.10) visibility : string warningLevel : string weakFrameworks : stringList windowsApiAdditionalPartitions : stringList (since Qbs 1.10) windowsApiCharacterSet : string (since Qbs 1.0.1) windowsApiFamily : string (since Qbs 1.10) windowsSdkVersion : string (since Qbs 1.19) Detailed Description The cpp module contains the properties and rules for toolchains of the C/C&#43;&#43; family. On Apple platforms, this includes support for Objective-C/C&#43;&#43;.
+Setting Up the Run Environment When running an application that has dependencies on dynamic libraries, the script specified by Module.setupRunEnvironment automatically adds the locations of the libraries to the environment. That is, to PATH on Windows, DYLD_LIBRARY_PATH on macOS, and LD_LIBRARY_PATH on Linux and other Unix platforms. If the value &#34;ignore-lib-dependencies&#34; shows up in the config array, this behavior is disabled. Users can set the value via the run command.
+Dependency Parameters Parameter Type Since Default Description link bool 1.9 undefined If false, the dependency will not be linked, even if it is a valid input for a linker rule. This property affects library dependencies only. linkWholeArchive bool 1.9 undefined If true, then if the dependency is a static library, all of its objects will be pulled into target binary, even if their symbols do not appear to be used. This parameter is mainly useful when creating a dynamic library from static libraries. symbolLinkMode string 1.9 undefined Attribute specifying how the library or framework will be linked. May contain the values: &#34;weak&#34;, &#34;lazy&#34;, &#34;reexport&#34;, and &#34;upward&#34;; refer to the Apple ld64 man page for full details. undefined uses normal linking. Currently only applies when linking for Apple platforms. Note that &#34;lazy&#34; mode is deprecated and doesn&#39;t work with Xcode 15 and above. Relevant File Tags Tag Auto-tagged File Names Since Description &#34;application&#34; n/a 1.0.1 The rule that creates executable files (typically via a linker) attaches this tag to its output artifact. &#34;asm&#34; *.s (for GCC-like toolchains), *.asm (for MSVC) 1.1.0 Source files with this tag serve as inputs to a rule invoking the toolchain&#39;s assembler. One object file is generated for each such file. &#34;asm_cpp&#34; *.S, *.sx 1.1.0 Like &#34;asm&#34;, but for source files that need preprocessing. This tag only has an effect with GCC-like toolchains. &#34;c&#34; *.c (if combineCSources is not enabled) 1.0.1 Source files with this tag serve as inputs to a rule invoking the toolchain&#39;s C compiler. One object file is generated for each such file. &#34;c.combine&#34; *.c (if combineCSources is enabled) 1.8 Source files with this tag serve as inputs to a rule combining them into a single C file, which will then be compiled. &#34;cpp&#34; *.C, *.cpp, *.cxx, *.c&#43;&#43;, *.cc (if combineCxxSources is not enabled) 1.0.1 Source files with this tag serve as inputs to a rule invoking the toolchain&#39;s C&#43;&#43; compiler. One object file is generated for each such file. &#34;cpp.combine&#34; *.C, *.cpp, *.cxx, *.c&#43;&#43;, *.cc (if combineCxxSources is enabled) 1.8 Source files with this tag serve as inputs to a rule combining them into a single C&#43;&#43; file, which will then be compiled. &#34;c_pch_src&#34;, &#34;cpp_pch_src&#34;, &#34;objc_pch_src&#34;, &#34;objcpp_pch_src&#34; - 1.5 Files with this tag will be turned into precompiled headers for C, C&#43;&#43;, Objective-C and Objective-C&#43;&#43;, respectively. There can be only one such file per product and language. &#34;def&#34; - 1.17.0 This tag is used for a module-definition file (.def) to be passed to the linker. Such a file provides the linker with information about exports, attributes, and other information about the program to be linked. This file tag only has an effect with the MSVC toolchain. &#34;dynamiclibrary&#34; n/a 1.0.1 The rule that creates dynamic libraries (typically via a linker) attaches this tag to its output artifact. &#34;dynamiclibrary_import&#34; n/a 1.0.0 This tag is used for import libraries of dynamic libraries. For example, the MSVC linker rule creates a dynamiclibrary_import artifact foo.lib in addition to a dynamiclibrary artifact foo.dll. &#34;hpp&#34; *.h, *.H, *.hpp, *.hxx, *.h&#43;&#43; 1.0.1 This tag is used for header files (C, C&#43;&#43;, Objective-C and Objective-C&#43;&#43;). No rule in this module generates output artifacts from such files directly, but the compiler rule will have a dependency on all rules that create such files. &#34;linkerscript&#34; - 1.5.0 This tag is used for ld linker scripts. You can provide such a file if you need to replace the default linker script. This file tag only has an effect with GCC-like toolchains. The linker needs to be ld-compatible. &#34;native.pe.manifest&#34; *.manifest 1.8.0 This tag is automatically assigned to Microsoft manifest files. Manifests are embedded into the resulting binary. &#34;obj&#34; n/a 1.0.1 The rule that creates object files (typically via a compiler) attaches this tag to its output artifacts. Such files are usually intermediate artifacts of the build process and rarely need to be referenced in project files. &#34;objc&#34; *.m (if combineObjcSources is not enabled) 1.1.0 Source files with this tag serve as inputs to a rule invoking the toolchain&#39;s Objective-C compiler. One object file is generated for each such file. &#34;objc.combine&#34; *.m (if combineObjcSources is enabled) 1.8 Source files with this tag serve as inputs to a rule combining them into a single Objective-C file, which will then be compiled. &#34;objcpp&#34; *.mm (if combineObjcxxSources is not enabled) 1.1.0 Source files with this tag serve as inputs to a rule invoking the toolchain&#39;s Objective-C&#43;&#43; compiler. One object file is generated for each such file. &#34;objcpp.combine&#34; *.mm (if combineObjcxxSources is enabled) 1.8 Source files with this tag serve as inputs to a rule combining them into a single Objective-C&#43;&#43; file, which will then be compiled. &#34;rc&#34; *.rc 1.1.0 Files with this tag serve as inputs to the Windows resource compiler. One object file is generated for each such file. The tag has no effect on target platforms other than Windows. &#34;staticlibrary&#34; n/a 1.0.1 The rule that creates static libraries (typically via a linker) attaches this tag to its output artifact. &#34;objectlibrary&#34; n/a 3.2.0 The ObjectLibrary item attaches this tag to its &#34;obj&#34; artifacts. &#34;versionscript&#34; - 1.5.0 This tag is used for ld linker scripts. You can provide such a file if you need fine-grained control over the symbols present in a shared library. This file tag only has an effect with GCC-like toolchains. The linker needs to be ld-compatible. &#34;time_trace&#34; n/a 3.3.0 This tag is attached to .time_trace.json files produced by the compiler. Relevant Job Pools Pool Since Description &#34;assembler&#34; 1.13 The job pool used by rules that run the toolchain&#39;s assembler. This is only relevant for direct invocations of the assembler binary, not for running it indirectly via the compiler. &#34;compiler&#34; 1.13 The job pool used by rules that run a compiler. All language variants use the same pool. &#34;linker&#34; 1.13 The job pool used by rules that run a linker. Property Documentation allowUnresolvedSymbols : bool [since Qbs 1.2] Set to true if you want the linking step to succeed even if the resulting binary contains unresolved symbols. Normally, this makes little sense, but in special cases it is possible that the respective symbols will be available at load time even if they are not present during linking.
+Default: Undefined
+This property was introduced in Qbs 1.2.
+alwaysUseLipo : bool [since Qbs 1.9] Whether to always use lipo when combining Mach-O output files on Apple platforms, even if there is only one CPU architecture. This value should not normally need to be changed.
+Default: false
+This property was introduced in Qbs 1.9.
+architecture : string The target architecture.
+Default: qbs.architecture
+archiverFlags : string [since Qbs 3.0.0] Additional flags that are appended to the archiver command.
+Default: An empty list
+This property was introduced in Qbs 3.0.0.
+archiverName : string The name of the archiver binary. This property is usually predetermined by the toolchain and may be overridden. For instance, when enabling link-time optimization in a gcc-based toolchain, &#34;gcc-ar&#34; has to be used instead of &#34;ar&#34;.
+Default: Depends on the selected toolchain.
+archiverPath : string The full path of the archiver binary.
+Default: Determined by qbs setup-toolchains.
+assemblerFlags : stringList [since Qbs 1.5] A list of additional flags for the assembler.
+Default: Undefined
+This property was introduced in Qbs 1.5.
+assemblerListingSuffix : string A string to append to the generated assembler listing files.
+Default: toolchain-dependent, typical value is &#34;.lst&#34;
+assemblerName : string [since Qbs 1.5] The name of the assembler binary. This property is set in the build profile.
+Default: Determined by qbs setup-toolchains.
+This property was introduced in Qbs 1.5.
+assemblerPath : string [since Qbs 1.5] The full path of the assembler binary. This property is set in the build profile.
+Default: Determined by qbs setup-toolchains.
+This property was introduced in Qbs 1.5.
+automaticReferenceCounting : bool [since Qbs 1.4] This property is specific to Apple platforms.
+Whether to enable Automatic Reference Counting (ARC) for Objective-C and Objective-C&#43;&#43; source code.
+If left undefined, uses the compiler default (probably false).
+Default: Undefined
+This property was introduced in Qbs 1.4.
+cFlags : stringList A list of additional flags for the C compiler.
+Default: Undefined
+cLanguageVersion : stringList [since Qbs 1.4] The version of the C standard with which the code must comply.
+If this property is set, the corresponding compiler and linker flags will be added, depending on the toolchain.
+If the value is left undefined, the compiler default will be used. If the list contains more than one value, the highest version is chosen.
+Possible values include: &#34;c89&#34;, &#34;c99&#34;, &#34;c11&#34;, &#34;c17&#34;, &#34;c2x&#34;.
+Default: Undefined
+This property was introduced in Qbs 1.4.
+combineCSources : bool [since Qbs 1.8] Enabling this property on a product instructs the file tagger to attach the tag &#34;c.combine&#34; to C sources, rather than &#34;c&#34;. As a result, all C sources of the product will be combined into a single file, which is then compiled.
+This can speed up initial compilation significantly, but is of course detrimental in the context of incremental builds. Also, perfectly legal code may fail to compile with this option due to the merging of translation units.
+To enable this property in a product that has sources that cannot be merged, put the sources into a dedicated Group and set their fileTags property to &#34;c&#34;, overriding the file tagger.
+Note: Module properties set on specific source files (that is, at the Group level) will not be taken into account when building the combined file. You either need to set these properties at the product level or prevent the respective files from getting combined via the mechanism described above.
+Default: false
+This property was introduced in Qbs 1.8.
+combineCxxSources : bool [since Qbs 1.8] Like combineCSources, but for C&#43;&#43;. The relevant file tags are &#34;cpp&#34; and &#34;cpp.combine&#34;.
+Default: false
+This property was introduced in Qbs 1.8.
+See also combineCSources.
+combineObjcSources : bool [since Qbs 1.8] Like combineCSources, but for Objective-C. The relevant file tags are &#34;objc&#34; and &#34;objc.combine&#34;.
+Default: false
+This property was introduced in Qbs 1.8.
+See also combineCSources.
+combineObjcxxSources : bool [since Qbs 1.8] Like combineCSources, but for Objective-C&#43;&#43;. The relevant file tags are &#34;objcpp&#34; and &#34;objcpp.combine&#34;.
+Default: false
+This property was introduced in Qbs 1.8.
+See also combineCSources.
+commonCompilerFlags : stringList [since Qbs 1.0.1] A list of flags that are added to all compilation commands independently of the language.
+Default: Undefined
+This property was introduced in Qbs 1.0.1.
+compilerDefinesByLanguage : var [since Qbs 1.10] A string to string to string map of language tags to list of preprocessor macros that are used for all projects that are using the current toolchain.
+User project files usually do not set this property.
+Note: This property will not be usable without also setting enableCompilerDefinesByLanguage.
+Default: Undefined
+This property was introduced in Qbs 1.10.
+compilerFrameworkPaths : pathList [since Qbs 1.6] A list of framework search paths that are used for all projects that are using the current toolchain.
+User project files usually do not set this property.
+Default: Determined automatically by probing the compiler.
+This property was introduced in Qbs 1.6.
+compilerIncludePaths : pathList [since Qbs 1.6] A list of #include search paths that are used for all projects that are using the current toolchain.
+User project files usually do not set this property.
+Default: Determined automatically by probing the compiler.
+This property was introduced in Qbs 1.6.
+compilerLibraryPaths : pathList [since Qbs 1.6] A list of library search paths that are used for all projects that are using the current toolchain.
+User project files usually do not set this property.
+Default: Determined automatically by probing the compiler.
+This property was introduced in Qbs 1.6.
+compilerListingSuffix : string A string to append to the generated compiler listing files.
+Default: toolchain-dependent, typical value is &#34;.lst&#34;
+compilerName : string The name of the main compiler binary. This property is set in the build profile.
+Default: Determined by qbs setup-toolchains.
+compilerPath : string The full path of the main compiler binary. This property is set in the build profile.
+If the toolchain provides different compilers for different languages, compilerPathByLanguage is used.
+Default: Determined by qbs setup-toolchains.
+compilerPathByLanguage : var [since Qbs 1.3] A string to string map that maps file tags to full paths of compiler binaries. This property is set in the build profile.
+Default: Determined by qbs setup-toolchains.
+This property was introduced in Qbs 1.3.
+compilerVersion : string Compiler version string consisting of major, minor and patch numbers, separated by a dot.
+Default: Undefined
+compilerVersionMajor : int [since Qbs 1.4] The major version of the compiler.
+Default: Undefined
+This property was introduced in Qbs 1.4.
+compilerVersionMinor : int [since Qbs 1.4] The minor version of the compiler.
+Default: Undefined
+This property was introduced in Qbs 1.4.
+compilerVersionPatch : int [since Qbs 1.4] The patch level component of the compiler version.
+Default: Undefined
+This property was introduced in Qbs 1.4.
+compilerWrapper : stringList [since Qbs 1.1] A wrapper binary and its arguments for wrapping compiler calls. This is useful for compiler wrappers, such as ccache.
+Default: Undefined
+This property was introduced in Qbs 1.1.
+cppFlags : stringList A list of additional flags for the C preprocessor.
+Default: Undefined
+createSymlinks : bool This property is specific to Unix platforms.
+Whether to create version alias symlinks when building a dynamic library.
+Default: true
+cxxFlags : stringList A list of additional flags for the C&#43;&#43; compiler.
+Default: Undefined
+cxxLanguageVersion : stringList [since Qbs 1.4] The version of the C&#43;&#43; standard with which the code must comply.
+If this property is set, the corresponding compiler and linker flags will be added, depending on the toolchain.
+If the value is left undefined, the compiler default will be used. If the list contains more than one value, the highest version is chosen.
+Possible values include: &#34;c&#43;&#43;98&#34;, &#34;c&#43;&#43;11&#34;, &#34;c&#43;&#43;14&#34;, &#34;c&#43;&#43;17&#34;, &#34;c&#43;&#43;20&#34;, &#34;c&#43;&#43;23&#34;, &#34;c&#43;&#43;26&#34;.
+Default: Undefined
+This property was introduced in Qbs 1.4.
+cxxStandardLibrary : string [since Qbs 1.4] The C&#43;&#43; standard library to link to.
+If this property is set, the corresponding compiler and linker flags will be added, assuming the value is valid for the current toolchain.
+If the value is left undefined, the compiler default will be used.
+Possible values include: &#34;libstdc&#43;&#43;&#34;, &#34;libc&#43;&#43;&#34;.
+Default: Undefined
+This property was introduced in Qbs 1.4.
+debugInfoBundleSuffix : string This property is specific to Apple platforms.
+A string to append to the debug information bundle name.
+Default: &#34;.dSYM&#34;
+debugInfoSuffix : string A string to append to the debug information file name.
+Default: toolchain-dependent, typical values are &#34;.debug&#34;, &#34;.pdb&#34; or &#34;.dwarf&#34;
+debugInformation : bool Whether to generate debug information.
+Default: qbs.debugInformation
+defines : stringList A list of preprocessor macros that gets passed to the compiler.
+To set macro values, use the following syntax:
+cpp.defines: [&#34;USE_COLORS=1&#34;, &#39;COLOR_STR=&#34;blanched almond&#34;&#39;] Default: Undefined
+discardUnusedData : bool [since Qbs 1.10] If this property is true, the linker will discard data from objects that it determines to be unused. With MSVC and on Apple platforms, the granularity is per symbol, elsewhere it is per section.
+Default: Undefined
+This property was introduced in Qbs 1.10.
+distributionFrameworkPaths : pathList [since Qbs 1.8] A list of distribution-specific framework search paths, prioritized after systemFrameworkPaths.
+Intended for use by module authors implementing support for new operating systems or distributions.
+User project files should not set this property.
+Default: Undefined
+This property was introduced in Qbs 1.8.
+distributionIncludePaths : pathList [since Qbs 1.8] A list of distribution-specific include paths that are passed as system include paths to the compiler, prioritized after systemIncludePaths.
+Intended for use by module authors implementing support for new operating systems or distributions.
+User project files should not set this property.
+Default: Undefined
+This property was introduced in Qbs 1.8.
+distributionLibraryPaths : pathList [since Qbs 1.8] A list of distribution-specific library search paths.
+Intended for use by module authors implementing support for new operating systems or distributions.
+User project files should not set this property.
+Default: Undefined
+This property was introduced in Qbs 1.8.
+driverFlags : stringList [since Qbs 1.6] A list of flags that are added to all compilation and linking commands performed by the compiler driver, independently of the language.
+Default: Undefined
+This property was introduced in Qbs 1.6.
+driverLinkerFlags : stringList [since Qbs 1.11] A list of flags that are added to all linking commands performed by the compiler driver, independently of the language.
+Default: Undefined
+This property was introduced in Qbs 1.11.
+dsymutilFlags : stringList [since Qbs 1.4.1] This property is specific to Apple platforms.
+Additional flags for the dsymutil tool.
+Note: If this property contains the -f or --flat options, this will cause Qbs to generate &#34;flat&#34; (single-file) .dwarf debug symbol files instead of .dSYM bundles (directories) when separateDebugInformation is set to true.
+Default: Undefined
+This property was introduced in Qbs 1.4.1.
+dsymutilPath : string [since Qbs 1.4] This property is specific to Apple platforms.
+The full path of the dsymutil binary. This property is set in the build profile.
+Default: Determined by qbs setup-toolchains.
+This property was introduced in Qbs 1.4.
+dynamicLibraries : stringList Like libraries, but expressing the intention to link dynamic libraries specifically.
+Note: Qbs does currently not enforce that only dynamic libraries will be linked.
+Default: Undefined
+dynamicLibraryImportSuffix : string This property is specific to Windows.
+A string to append to the dynamic library import file name.
+Default: &#34;.lib&#34;
+dynamicLibraryPrefix : string A string to prepend to the dynamic library file name.
+Default: toolchain-dependent, typical values are &#34;&#34; or &#34;lib&#34;
+dynamicLibrarySuffix : string A string to append to the dynamic library file name.
+Default: toolchain-dependent, typical values are &#34;.so&#34;, &#34;.dll&#34; or &#34;dylib&#34;
+enableCompilerDefinesByLanguage : stringList [since Qbs 1.10] A list of languages (one or more of &#34;c&#34;, &#34;cpp&#34;, &#34;objc&#34;, &#34;objcpp&#34;) to extract the list of default compiler defines for in compilerDefinesByLanguage.
+Because this has performance implications, no languages are enabled by default.
+Default: Undefined
+This property was introduced in Qbs 1.10.
+enableCxxLanguageMacro : string [since Qbs 1.20] Whether to set the /Zc:__cplusplus macro (https://docs.microsoft.com/en-us/cpp/build/reference/zc-cplusplus)
+This property only applies to MSVC toolchain. clang-cl also supports this option, but it has no effect.
+This property is specific to Windows. Default: true for MSVC, false for clang-cl
+This property was introduced in Qbs 1.20.
+enableExceptions : bool [since Qbs 1.5] Whether to enable exceptions in C&#43;&#43; code.
+Default: true
+This property was introduced in Qbs 1.5.
+enableReproducibleBuilds : bool [since Qbs 1.5] Whether the compiler should try to generate reproducible object files.
+Some compilers (notably GCC) use random numbers for generating symbol names that have to be different in every compilation unit. This is avoided by setting this property to true.
+Default: false
+This property was introduced in Qbs 1.5.
+enableRtti : bool [since Qbs 1.5] Whether to enable runtime type information in C&#43;&#43; code.
+Default: Undefined
+This property was introduced in Qbs 1.5.
+enableSuspiciousLinkerFlagWarnings : bool [since Qbs 1.8] Whether to print warnings about escaped linker flags (such as -Xlinker and -Wl).
+Default: true
+This property was introduced in Qbs 1.8.
+enableTimeTrace : bool [since Qbs 3.3] Whether the compiler should generate time trace profiling information.
+When enabled and supported by the compiler, compilation of C and C&#43;&#43; source files will additionally produce .time_trace.json files alongside the regular object files. These files can be inspected with trace viewers such as Chromium&#39;s about:tracing page.
+If the toolchain does not support time trace generation, this property has no effect.
+The generated files are assigned the &#34;time_trace&#34; file tag.
+This option is currently supported only for the clang toolchain.
+Default: false
+This property was introduced in Qbs 3.3.
+endianness : string [since Qbs 1.9] Specifies the endianness of the target platform&#39;s processor architecture (&#34;big&#34; or &#34;little&#34;).
+The value is automatically detected from the compiler&#39;s default values, but can also be manually set in order to select a specific endianness when targeting bi-endian architectures like MIPS and PowerPC.
+Default: Compiler default value.
+This property was introduced in Qbs 1.9.
+entryPoint : string [since Qbs 1.3] The name of the entry point of an executable or dynamic library.
+If this property is left undefined, the toolchain&#39;s default is used.
+Default: Undefined
+This property was introduced in Qbs 1.3.
+exceptionHandlingModel : string [since Qbs 1.5] The exception handling model to use.
+For MSVC, this can be &#34;default&#34;, &#34;seh&#34; or &#34;externc&#34;. For all other compilers, &#34;default&#34; indicates the default or the only exception handling model.
+Default: &#34;default&#34;
+This property was introduced in Qbs 1.5.
+executablePrefix : string A string to prepend to the executable file name.
+Default: &#34;&#34;
+executableSuffix : string A string to append to the executable file name.
+Default: toolchain-dependent, typical values are &#34;&#34; or &#34;.exe&#34;
+exportedSymbolsCheckMode : string [since Qbs 1.4.1] This property is specific to Unix platforms.
+Controls how Qbs determines whether an updated dynamic library causes relinking of dependents.
+The default value is &#34;ignore-undefined&#34;, which means that undefined symbols being added or removed do not cause any relinking. If that should happen, for example because dependent products are linked with an option such as &#34;--no-undefined&#34;, this property can be set to &#34;strict&#34;.
+Default: &#34;ignore-undefined&#34;
+This property was introduced in Qbs 1.4.1.
+forceUseCxxModules : bool [since Qbs 2.5] Set this property to true to force support for C&#43;&#43;20 Modules.
+On details how to use modules, see the corresponding section in the tutorial.
+By default, modules support is disabled since this feature is considered experimental.
+Note: The default value is subject to change.
+Default: false
+This property was introduced in Qbs 2.5.
+frameworkPaths : pathList This property is specific to Apple platforms.
+A list of framework search paths.
+Relative paths are considered to be relative to the .qbs product file they are used in.
+Default: Undefined
+frameworks : stringList This property is specific to Apple platforms.
+A list of frameworks to be linked.
+If the framework is part of your project, consider using a Depends item instead.
+Default: Undefined
+generateAssemblerListingFiles : bool [since Qbs 1.15] This property is specific to bare-metal platforms.
+Whether to auto-generate an assembler listing files.
+Default: false
+This property was introduced in Qbs 1.15.
+generateCompilerListingFiles : bool [since Qbs 1.15] Whether to auto-generate compiler listing files.
+Default: false
+This property was introduced in Qbs 1.15.
+generateLinkerMapFile : bool [since Qbs 1.13] Whether to auto-generate a linker map file.
+Default: false
+This property was introduced in Qbs 1.13.
+generateManifestFile : bool [since Qbs 1.5.0] This property is specific to Windows.
+Whether to auto-generate a manifest file and include it in the binary.
+Set this property to false if you provide your own rc file.
+Default: true
+This property was introduced in Qbs 1.5.0.
+importPrivateLibraries : string [since Qbs 2.4] Whether to automatically import external libraries from dependencies.
+If set to true in the product that depends on the static library, the external dependencies (such as staticLibraries and dynamicLibraries) of this library are also added to products that depend on this library.
+StaticLibrary { files: &#34;lib.cpp&#34; cpp.staticLibraries: [&#34;l&#34;, &#34;y&#34;] } If set to false, the explicit Export item is required:
+StaticLibrary { files: &#34;lib.cpp&#34; Export { Depends { name: &#34;cpp&#34; } cpp.staticLibraries: [&#34;l&#34;, &#34;y&#34;] } } We recommend using the Export item as it provides more flexibility.
+Note: The default value is subject to change.
+Default: true
+This property was introduced in Qbs 2.4.
+includePaths : pathList A list of include paths.
+Relative paths are considered to be relative to the .qbs product file they are used in.
+Default: Undefined
+libraries : stringList A List of libraries to be linked.
+If the library is part of your project, consider using a Depends item instead.
+Each library can be specified in one of two ways:
+An absolute file path (for example, &#34;/foo/bar.lib&#34;), in which case it is passed directly to the linker, ignoring libraryPaths. A library basename (for example, &#34;bar&#34;), in which case the directory that contains the library must be provided via libraryPaths. Relative paths (&#34;foo/bar.lib&#34;) are not allowed. When giving an absolute path, the more specific properties staticLibraries or dynamicLibraries should be preferred, depending on the type of the library.
+Default: Undefined
+See also libraryPaths and How do I create a module for a third-party library?.
+libraryPaths : pathList A list of library search paths.
+The paths will be passed to the linker in the appropriate way. For example, the -L argument will be used when using ld-like linkers.
+Relative paths are considered to be relative to the .qbs product file they are used in.
+Default: Undefined
+See also libraries, dynamicLibraries, staticLibraries, and How do I create a module for a third-party library?.
+linkerFlags : stringList A list of additional flags for the linker.
+These flags should not be escaped using the -Wl or -Xlinker syntaxes, as Qbs will do this automatically based on the linker being used.
+Default: Undefined
+See also linkerMode.
+linkerMapSuffix : string A string to append to the generated linker memory map files.
+Default: toolchain-dependent, typical value is &#34;.map&#34;
+linkerMode : string [since Qbs 1.6] Controls whether to automatically use an appropriate compiler frontend instead of the system linker when linking binaries.
+The default is &#34;automatic&#34;, which chooses either the C&#43;&#43; compiler, C compiler, or system linker specified by the linkerName and linkerPath properties, depending on the type of object files present on the linker command line.
+Set this property to &#34;manual&#34; to explicitly specify the linker using the linkerName and linkerPath properties.
+Default: &#34;automatic&#34;
+This property was introduced in Qbs 1.6.
+linkerName : string [since Qbs 1.1.1] The name of the linker binary. This property is set in the build profile.
+Default: Determined by qbs setup-toolchains.
+This property was introduced in Qbs 1.1.1.
+linkerPath : string [since Qbs 1.1.1] The full path of the linker binary. This property is set in the build profile.
+Default: Determined by qbs setup-toolchains.
+This property was introduced in Qbs 1.1.1.
+linkerVariant : string [since Qbs 1.13] Set this property to force the use of a specific linker. A non-empty value will result in the -fuse-ld option being emitted when linking with gcc, clang or clang-cl. Other toolchains do not support this property.
+The possible values for clang and gcc are &#34;bfd&#34;, &#34;gold&#34;, &#34;lld&#34;, &#34;mold&#34; and &#34;wild&#34;, the possible values for clang-cl are &#34;link&#34; and &#34;lld&#34;. Note that &#34;wild&#34; requires GCC 16.1 or later, or a ld.wild symlink/binary when used with clang.
+The following example demonstrates how to change the linker for different toolchains:
+Properties { condition: qbs.toolchain.includes(&#34;gcc&#34;) cpp.linkerVariant: &#34;gold&#34; } Properties { condition: qbs.toolchain.includes(&#34;clang-cl&#34;) cpp.linkerVariant: &#34;lld&#34; } Default: Undefined
+This property was introduced in Qbs 1.13.
+linkerWrapper : stringList [since Qbs 1.6.2] A wrapper binary and its arguments for wrapping linker calls. This is useful for linker wrappers as needed by Bullseye Coverage, for example.
+Default: Undefined
+This property was introduced in Qbs 1.6.2.
+lipoPath : string [since Qbs 1.9] This property is specific to Apple platforms.
+The full path of the lipo binary.
+Default: Determined automatically.
+This property was introduced in Qbs 1.9.
+loadableModulePrefix : string This property is specific to Apple platforms.
+A string to prepend to the Darwin loadable module file name.
+Default: &#34;&#34;
+loadableModuleSuffix : string This property is specific to Apple platforms.
+A string to append to the Darwin loadable module file name.
+Default: &#34;.bundle&#34;
+minimumIosVersion : string This property is specific to Apple platforms.
+A version number in the format [major].[minor] indicating the earliest version of iOS that the product should run on.
+Passes -miphoneos-version-min=&lt;version&gt; to the compiler.
+If set to undefined, compiler defaults will be used.
+Note: Qbs sets minimum version to &#34;6.0&#34; for armv7a because earlier iOS versions are broken in recent XCode installations.
+Default: &#34;6.0&#34; for armv7a, undefined otherwise
+minimumMacosVersion : string [since Qbs 1.5.2] This property is specific to Apple platforms.
+A version number in the format [major].[minor]indicating the earliest version of macOS that the product should run on.
+Passes -mmacosx-version-min=&lt;version&gt; to the compiler.
+If left undefined, compiler defaults will be used.
+Default: Undefined
+This property was introduced in Qbs 1.5.2.
+minimumTvosVersion : string [since Qbs 1.5] This property is specific to Apple platforms.
+A version number in the format [major].[minor] indicating the earliest version of Apple tvOS that the product should run on.
+If left undefined, compiler defaults will be used.
+Note: Qbs sets the minimum version to &#34;6.0&#34;, because earlier tvOS versions are not supported by recent XCode installations by default.
+Default: &#34;6.0
+This property was introduced in Qbs 1.5.
+minimumWatchosVersion : string This property is specific to Apple platforms.
+A version number in the format [major].[minor] indicating the earliest version of Apple watchOS that the product should run on.
+If left undefined, compiler defaults will be used.
+Default: Undefined
+minimumWindowsVersion : string This property is specific to Windows.
+A version number in the format [major].[minor] indicating the earliest version of Windows that the product should run on.
+Defines WINVER, _WIN32_WINNT, and _WIN32_WINDOWS, and applies a version number to the linker flags /SUBSYSTEM and /OSVERSION for MSVC or --major-subsystem-version, --minor-subsystem-version, --major-os-version, and --minor-os-version for MinGW.
+If left undefined, compiler defaults will be used.
+Default: Undefined
+nmName : string [since Qbs 1.2] This property is specific to Unix platforms.
+The name of the nm binary. This property is set in the build profile.
+Default: &#34;nm&#34;
+This property was introduced in Qbs 1.2.
+nmPath : string [since Qbs 1.2] This property is specific to Unix platforms.
+The full path of the nm binary. This property is set in the build profile.
+Default: Determined by qbs setup-toolchains.
+This property was introduced in Qbs 1.2.
+objcFlags : stringList A list of additional flags for the Objective-C compiler.
+Default: Undefined
+objcopyName : string [since Qbs 1.4] This property is specific to Unix platforms.
+The name of the objcopy binary. This property is set in the build profile.
+Default: &#34;objcopy&#34;
+This property was introduced in Qbs 1.4.
+objcopyPath : string [since Qbs 1.4] This property is specific to Unix platforms.
+The full path of the objcopy binary. This property is set in the build profile.
+Default: Determined by qbs setup-toolchains.
+This property was introduced in Qbs 1.4.
+objcxxFlags : stringList A list of additional flags for the Objective-C&#43;&#43; compiler.
+Default: Undefined
+objectSuffix : string A string to append to the generated object files.
+Default: toolchain-dependent, typical values are &#34;.o&#34; or &#34;.obj&#34;
+optimization : string The optimization level.
+Default: qbs.optimization
+pchDependsOnSystemHeaders : bool [since Qbs 3.4] If true, the system headers included (directly or indirectly) by a precompiled header – those found via systemIncludePaths, distributionIncludePaths, or compilerIncludePaths – are tracked as dependencies of the precompiled header. Modifying such a header (for instance, a system update that changes its timestamp) then causes the precompiled header to be regenerated.
+This prevents build failures in which the compiler rejects a precompiled header because a system header it was built from has changed, while Qbs still considers the precompiled header up to date.
+Unlike treatSystemHeadersAsDependencies, this tracking is limited to precompiled headers, so ordinary source files are not recompiled when an unrelated system header changes.
+Note: This is disabled by default because tracking the system headers requires scanning the precompiled header&#39;s entire transitive system-header closure, which can be large and slows down dependency scanning. Enable it only if stale precompiled headers are an actual problem for you.
+Default: false
+This property was introduced in Qbs 3.4.
+platformDefines : stringList A list of preprocessor macros that are used for all projects that are built for the current target platform. User project files usually do not set this property.
+Default: Undefined
+positionIndependentCode : bool This property is specific to Unix platforms.
+Whether to generate position-independent code.
+If this property is left undefined, position-independent code is generated for libraries, but not for applications.
+Default: Undefined
+prefixHeaders : pathList [since Qbs 1.0.1] A list of files to automatically include at the beginning of each source file in the product.
+Default: Undefined
+This property was introduced in Qbs 1.0.1.
+removeDuplicateLibraries : bool [since Qbs 1.16] Whether the list of the objects and libraries is reduced to a list of unique values before being passed to the linker.
+Default: true
+This property was introduced in Qbs 1.16.
+requireAppContainer : bool [since Qbs 1.10] This property is specific to Windows.
+Whether the generated executable or dynamic-link library requires an AppContainer execution environment. Set to true when creating Universal Windows Platform applications.
+Default: Undefined
+This property was introduced in Qbs 1.10.
+requireAppExtensionSafeApi : bool [since Qbs 1.4] This property is specific to Apple platforms.
+Whether to enforce the use of only app-extension-safe APIs on Apple platforms. This is necessary for building Application Extensions in OS X Yosemite and iOS 8 and above.
+If left undefined, uses the compiler and linker defaults (probably false).
+Default: Undefined
+This property was introduced in Qbs 1.4.
+rpathLinkDirs : stringList [since Qbs 3.2] This property is specific to Unix platforms.
+A list of paths that are passed to the linker as arguments to the rpathLinkFlag. Setting this property might be required in some cases when useRPaths is disabled. This property has no effect if useRPathLink is not enabled.
+Default: Undefined
+This property was introduced in Qbs 3.2.
+rpathLinkFlag : string [since Qbs 1.9] The rpath link flag used by the linker.
+Default: toolchain-dependent, typical values are &#34;-rpath-link=&#34; or &#34;-L&#34;
+This property was introduced in Qbs 1.9.
+rpathOrigin : string [since Qbs 1.11] This property is specific to Unix platforms.
+A placeholder value used in an rpath string to refer to the directory containing the referring executable or shared library.
+Default: &#34;@loader_path&#34; on Mach-O based platforms (macOS, iOS, tvOS, watchOS); &#34;$ORIGIN&#34; on ELF based platforms (Linux and most other Unix-like platforms).
+This property was introduced in Qbs 1.11.
+rpaths : stringList This property is specific to Unix platforms.
+A list of rpaths that are passed to the linker. Paths that also appear in systemRunPaths are ignored. This property has no effect if useRPaths is not enabled.
+Default: Undefined
+See also How do I make use of rpaths?.
+runtimeLibrary : string [since Qbs 1.3.3] The type of the runtime library used.
+Accepted values are &#34;static&#34; and &#34;dynamic&#34;.
+If this property is set to undefined, the default runtime library of the toolchain is used.
+Note: This property is only functional for MSVC and MinGW.
+Default: &#34;dynamic&#34; for MSVC and MinGW, undefined for other compilers.
+This property was introduced in Qbs 1.3.3.
+separateDebugInformation : bool [since Qbs 1.4] Whether to store debug information in an external file or bundle instead of within the binary.
+The type of files that will be generated when this property is true is dependent on the compiler and target platform:
+With MSVC, this property controls the generation of .pdb (Program Debug Database) files. On Apple platforms with GCC or Clang, this property controls the generation of .dSYM (DWARF Symbol) bundles or, if dsymutilFlags contains the -f or --flat flags, .dwarf symbol files. On other platforms with GCC or Clang (including Windows/MinGW), this property controls the generation of .debug symbol files. Default: true for MSVC and with GCC or Clang on Apple platforms, otherwise false.
+This property was introduced in Qbs 1.4.
+See also debugInformation, separateDebugInformationVariant, and How do I separate and install debugging symbols?.
+separateDebugInformationVariant : string [since Qbs 3.4] Selects how debug information is separated from the binary when separateDebugInformation is enabled.
+This property is available for GCC/Clang ELF targets (Unix platforms other than Darwin). Possible values are:
+&#34;objcopy&#34; (default): After linking, extract debug symbols into a .debug file with objcopy, strip them from the binary, and add a .gnu_debuglink section. &#34;fission&#34;: Pass -gsplit-dwarf to the compiler so most debug information is written to per-object .dwo files. The linked binary keeps only skeleton DWARF and is not post-processed with objcopy. The .dwo files use the same &#34;debuginfo_app&#34;, &#34;debuginfo_dll&#34;, or &#34;debuginfo_loadablemodule&#34; tags as .debug files, so they are installed the same way. On Darwin, MSVC, MinGW, and Emscripten this property has no effect; those toolchains use their platform-specific separate-debug mechanisms.
+Default: &#34;objcopy&#34;
+This property was introduced in Qbs 3.4.
+See also separateDebugInformation.
+soVersion : string [since Qbs 1.7] This property is specific to Unix platforms.
+The version number to be appended to the soname in ELF shared libraries.
+Default: The major part of product.version if a version is set, otherwise [].
+This property was introduced in Qbs 1.7.
+sonamePrefix : string [since Qbs 1.5] This property is specific to Unix platforms.
+A library name or full library path.
+If defined, the value of this property is used as a path to be prepended to the built shared library&#39;s SONAME identifier. The SONAME (LC_ID_DYLIB on Apple platforms, DT_SONAME on other Unix-like platforms) is the identifier that the dynamic linker will later use to reference the library.
+On Apple platforms, the path may contain the following placeholders:
+@rpath - Expands to paths defined by LC_RPATH Mach-O commands in the current process executable or the referring libraries. @executable_path - Expands to the current process executable location. @loader_path - Expands to the referring executable or library location. In most cases, using @rpath is sufficient and recommended. However, the prefix may be also specified using different placeholders, or an absolute path.
+For more information, see the DYLD documentation on dynamic library install names.
+Default: Undefined
+This property was introduced in Qbs 1.5.
+See also How do I make use of rpaths?.
+staticLibraries : stringList Like libraries, but expressing the intention to link static libraries specifically.
+Note: Qbs does currently not enforce that only static libraries will be linked.
+Default: Undefined
+staticLibraryPrefix : string A string to prepend to the static library file name.
+Default: toolchain-dependent, typical values are &#34;&#34; or &#34;lib&#34;
+staticLibrarySuffix : string A string to append to the executable file name.
+Default: toolchain-dependent, typical values are &#34;.a&#34; or &#34;.lib&#34;
+stripName : string [since Qbs 1.4] This property is specific to Unix platforms.
+The name of the strip binary. This property is set in the build profile.
+Default: &#34;strip&#34;
+This property was introduced in Qbs 1.4.
+stripPath : string [since Qbs 1.4] This property is specific to Unix platforms.
+The full path of the strip binary. This property is set in the build profile.
+Default: Determined by qbs setup-toolchains.
+This property was introduced in Qbs 1.4.
+systemFrameworkPaths : pathList This property is specific to Apple platforms.
+A list of framework search paths.
+Relative paths are considered to be relative to the .qbs product file they are used in. Header files in frameworks in those paths will not cause warnings.
+Default: Undefined
+systemIncludePaths : pathList A list of include paths that are passed as system include paths to the compiler.
+For header files in those paths, warnings will be ignored.
+Relative paths are considered to be relative to the .qbs product file they are used in.
+Default: Undefined
+systemRunPaths : stringList [since Qbs 1.6] The paths the dynamic linker uses on process start-up to locate dynamic libraries.
+Default: Auto-detected for host builds on Linux via ldconfig, [&#34;/lib&#34;, &#34;/usr/lib&#34;] otherwise on Unix, [] on Windows.
+This property was introduced in Qbs 1.6.
+toolchainInstallPath : string The directory path where the toolchain is installed. This property is set in the build profile.
+This is usually the base property from which all compiler and tool paths are automatically derived.
+Default: Determined by qbs setup-toolchains.
+treatSystemHeadersAsDependencies : bool [since Qbs 1.8] Whether included header files found via systemIncludePaths, distributionIncludePaths, or compilerIncludePaths will be added to the dependencies of the respective object file.
+This means that modification of such header files (or any of the headers they include) will cause recompilation.
+Default: false
+This property was introduced in Qbs 1.8.
+treatWarningsAsErrors : bool Whether warnings will be handled as errors and cause the build to fail.
+Default: false
+useCPrecompiledHeader : bool [since Qbs 1.5] Whether to use a precompiled header for compiling C sources if one is present.
+Set this property to false in a Group item to disable precompiled headers for some sources even though a precompiled header is present in the product.
+See Relevant File Tags for the associated file tags.
+Default: true
+This property was introduced in Qbs 1.5.
+useCxxPrecompiledHeader : bool [since Qbs 1.5] Like useCPrecompiledHeader, but for C&#43;&#43;.
+Default: true
+This property was introduced in Qbs 1.5.
+useLanguageVersionFallback : bool [since Qbs 1.11] Whether to explicitly use the language standard version fallback values in compiler command line invocations.
+By default, Qbs will automatically substitute fallback values for the C and C&#43;&#43; language standard versions specified by the cLanguageVersion and cxxLanguageVersion properties, which are passed to the -std= compiler command line option with GNU-compatible toolchains, if it detects that you are using an older toolchain which does not support the standard values. The substitutions are made as follows:
+Value Substitute c&#43;&#43;11 c&#43;&#43;0x c11 c1x c&#43;&#43;14 c&#43;&#43;1y c&#43;&#43;17 c&#43;&#43;1z If this property is explicitly set to true, Qbs will always use the fallback values.
+If this property is explicitly set to false, Qbs will never use the fallback values.
+This property has no effect with the Microsoft Visual C&#43;&#43; compiler.
+Default: Undefined
+This property was introduced in Qbs 1.11.
+useObjcPrecompiledHeader : bool [since Qbs 1.5] Like useCPrecompiledHeader, but for Objective-C.
+Default: true
+This property was introduced in Qbs 1.5.
+useObjcxxPrecompiledHeader : bool [since Qbs 1.5] Like useCPrecompiledHeader, but for Objective-C&#43;&#43;.
+Default: true
+This property was introduced in Qbs 1.5.
+useRPathLink : bool [since Qbs 1.8] This property is specific to Unix platforms.
+Whether to use the -rpath-link linker option for transitive shared objects.
+Default: true on non-Darwin Unix platforms or when targeting macOS 10.4.x and older.
+This property was introduced in Qbs 1.8.
+useRPaths : bool [since Qbs 1.3] This property is specific to Unix platforms.
+If false, prevents the linker from writing rpaths to the binary.
+Default: true
+This property was introduced in Qbs 1.3.
+variantSuffix : string [since Qbs 1.10] A suffix to add to a product&#39;s target name if that product is of the type staticlibrary or dynamiclibrary.
+On Darwin platforms, applications and loadable modules are also affected.
+By default, this property is left empty on all platforms unless the product is multiplexed over the qbs.buildVariants property. In that case, for the debug variant of the product, the default value is &#34;d&#34; on Windows and &#34;_debug&#34; on Darwin platforms, such as macOS. On all other platforms and in release mode, the default value is [].
+For example, building a dynamic library called MyLib that is multiplexed over the qbs.buildVariants property with MSVC will produce files called MyLib.dll (for the release version of the product) and MyLibd.dll (for the debug version).
+Default: Platform-specific.
+This property was introduced in Qbs 1.10.
+visibility : string This property is specific to Unix platforms.
+The visibility level for exported symbols.
+Possible values include: &#34;default&#34;, &#34;hidden&#34;, &#34;hiddenInlines&#34;, and &#34;minimal&#34;, which combines &#34;hidden&#34; and &#34;hiddenInlines&#34;.
+Default: &#34;default&#34;
+warningLevel : string The warning level for the compiler: &#34;none&#34; or &#34;all&#34;.
+Default: &#34;all&#34;
+weakFrameworks : stringList This property is specific to Apple platforms.
+A list of frameworks to be weakly linked.
+If the framework is part of your project, consider using a Depends item instead.
+Default: Undefined
+windowsApiAdditionalPartitions : stringList [since Qbs 1.10] This property is specific to Windows.
+A list of additional Windows API partitions to enable in addition to the ones implicitly enabled by the value of windowsApiFamily (WINAPI_FAMILY).
+This value is used when building Windows Store applications. For example, setting windowsApiFamily to &#34;pc&#34; and this property to [&#34;phone&#34;] will allow you to create Windows Store applications that target all Universal Windows Platform device families (&#34;Universal&#34; apps).
+Possible values include: &#34;app&#34;, &#34;desktop&#34;, &#34;pc&#34;, &#34;phone&#34;, &#34;server&#34;, and &#34;system&#34;, which are mapped to the corresponding set of possible WINAPI_PARTITION_* preprocessor defines in the Windows SDK.
+Default: Undefined, which lets the Windows SDK headers determine the default partitions based on the value of WINAPI_FAMILY.
+This property was introduced in Qbs 1.10.
+See also windowsApiFamily.
+windowsApiCharacterSet : string [since Qbs 1.0.1] This property is specific to Windows.
+The character set used in the Win32 API.
+The value &#34;unicode&#34; defines the preprocessor symbols UNICODE and _UNICODE, &#34;mbcs&#34; defines _MBCS, and setting the value to undefined will use the default character set.
+Default: &#34;unicode&#34;
+This property was introduced in Qbs 1.0.1.
+windowsApiFamily : string [since Qbs 1.10] This property is specific to Windows.
+The Windows API family that the application or library is targeting.
+This value is used when building Universal Windows Platform applications.
+Possible values include: &#34;desktop&#34;, &#34;pc&#34;, &#34;phone&#34;, &#34;server&#34;, and &#34;system&#34;, which are mapped to the corresponding set of possible values for the WINAPI_FAMILY preprocessor define in the Windows SDK.
+Default: Undefined, which lets the Windows SDK headers determine the default.
+This property was introduced in Qbs 1.10.
+windowsSdkVersion : string [since Qbs 1.19] Which Windows SDK version should be used with MSVC toolchain. By default, the latest SDK is used.
+This property is specific to Windows. Default: Undefined
+This property was introduced in Qbs 1.19.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -888,7 +3020,7 @@ Since: Qbs 1.0 List of all members, including inherited members Deprecated membe
 <h3 class="fn qml-member qml-property" id="defines-prop" translate="no"><span class="name">defines</span> : <span class="type">stringList</span></h3>
 <p>A list of preprocessor macros that gets passed to the compiler.</p>
 <p>To set macro values, use the following syntax:</p>
-<pre class="cpp" translate="no">cpp<span class="operator">.</span>defines: <span class="operator">[</span><span class="string">"USE_COLORS=1"</span><span class="operator">,</span> <span class="char">'COLOR_STR="blanched almond"'</span><span class="operator">]</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">cpp<span class="operator">.</span>defines: <span class="operator">[</span><span class="string">"USE_COLORS=1"</span><span class="operator">,</span> <span class="char">'COLOR_STR="blanched almond"'</span><span class="operator">]</span></code></pre>
 <p>Default: Undefined</p>
 <!-- @@@defines -->
 <!-- $$$discardUnusedData -->
@@ -1136,14 +3268,14 @@ Since: Qbs 1.0 List of all members, including inherited members Deprecated membe
 <p>If set to true in the product that depends on the static library, the external dependencies (such as <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#staticLibraries-prop" translate="no">staticLibraries</a> and <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#dynamicLibraries-prop" translate="no">dynamicLibraries</a>) of this library are also added to products that depend on this library.</p>
-<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
+<pre class="cpp" translate="no"><code class="cpp"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-staticlibrary/" translate="no">StaticLibrary</a></span> {
     <span class="name">files</span>: <span class="string">"lib.cpp"</span>
     <span class="name">cpp.staticLibraries</span>: [<span class="string">"l"</span>, <span class="string">"y"</span>]
-}</pre>
+}</code></pre>
 <p>If set to false, the explicit <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-export/" translate="no">Export</a> item is required:</p>
-<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
+<pre class="cpp" translate="no"><code class="cpp"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-staticlibrary/" translate="no">StaticLibrary</a></span> {
     <span class="name">files</span>: <span class="string">"lib.cpp"</span>
     <span class="type"><a href="https://qbs.io/
@@ -1152,7 +3284,7 @@ Since: Qbs 1.0 List of all members, including inherited members Deprecated membe
 /docs/qml-qbslanguageitems-depends/" translate="no">Depends</a></span> { <span class="name">name</span>: <span class="string">"cpp"</span> }
         <span class="name">cpp.staticLibraries</span>: [<span class="string">"l"</span>, <span class="string">"y"</span>]
     }
-}</pre>
+}</code></pre>
 <p>We recommend using the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-export/" translate="no">Export</a> item as it provides more flexibility.</p>
 <div class="admonition note">
@@ -1244,14 +3376,14 @@ Since: Qbs 1.0 List of all members, including inherited members Deprecated membe
 <p>Set this property to force the use of a specific linker. A non-empty value will result in the <code translate="no">-fuse-ld</code> option being emitted when linking with <code translate="no">gcc</code>, <code translate="no">clang</code> or <code translate="no">clang-cl</code>. Other toolchains do not support this property.</p>
 <p>The possible values for <code translate="no">clang</code> and <code translate="no">gcc</code> are <code translate="no">"bfd"</code>, <code translate="no">"gold"</code>, <code translate="no">"lld"</code>, <code translate="no">"mold"</code> and <code translate="no">"wild"</code>, the possible values for <code translate="no">clang-cl</code> are <code translate="no">"link"</code> and <code translate="no">"lld"</code>. Note that <code translate="no">"wild"</code> requires GCC 16.1 or later, or a <code translate="no">ld.wild</code> symlink/binary when used with <code translate="no">clang</code>.</p>
 <p>The following example demonstrates how to change the linker for different toolchains:</p>
-<pre class="cpp" translate="no">Properties {
+<pre class="cpp" translate="no"><code class="cpp">Properties {
     condition: qbs<span class="operator">.</span>toolchain<span class="operator">.</span>includes(<span class="string">"gcc"</span>)
     cpp<span class="operator">.</span>linkerVariant: <span class="string">"gold"</span>
 }
 Properties {
     condition: qbs<span class="operator">.</span>toolchain<span class="operator">.</span>includes(<span class="string">"clang-cl"</span>)
     cpp<span class="operator">.</span>linkerVariant: <span class="string">"lld"</span>
-}</pre>
+}</code></pre>
 <p>Default: Undefined</p>
 <p>This property was introduced in Qbs 1.13.</p>
 <!-- @@@linkerVariant -->

@@ -39,7 +39,43 @@ verboseAndroidDeployQt : bool
 
 
 Detailed Description
-The Qt.android_support module provides the glue for Qbs&#39; Qt and Android support. It is automatically pulled in by Qt.core, so you do not need to add an explicit dependency to it in your product, unless you want to set one of its properties. ">
+The Qt.android_support module provides the glue for Qbs&#39; Qt and Android support. It is automatically pulled in by Qt.core, so you do not need to add an explicit dependency to it in your product, unless you want to set one of its properties.
+
+Property Documentation
+
+deploymentDependencies : stringList
+Use this property to completely override the Qt deployment dependencies of your app. Corresponds to qmake&#39;s ANDROID_DEPLOYMENT_DEPENDENCIES.
+Default: undefined
+
+
+extraLibs : stringList
+Additional libs to be packaged and loaded on start-up (mind the order). Corresponds to qmake&#39;s ANDROID_EXTRA_LIBS.
+Default: undefined
+
+
+extraPlugins : stringList
+Additional non-asset files to be packaged. Corresponds to qmake&#39;s ANDROID_EXTRA_PLUGINS.
+Default: undefined
+
+
+qmlImportPaths : stringList [since 1.22]
+Additional import-root directories to search for QML imports.
+The module URI is converted to a relative path (dots become slashes) and appended to each entry automatically. Do not include that relative path in these directories.
+If this property is unset, the product-level qmlImportPaths property is used as a fallback.
+Default: undefined
+This property was introduced in 1.22.
+
+
+qmlRootDir : string
+The root directory of the product&#39;s QML files. This information is passed to the androiddeployqt tool, which will use it to decide which resources to include in the APK file.
+Default: product.sourceDirectory
+
+
+verboseAndroidDeployQt : bool
+Enable this property if you want verbose output from the androiddeployqt tool.
+Default: false
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-qt-android-support/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -49,14 +85,29 @@ The Qt.android_support module provides the glue for Qbs&#39; Qt and Android supp
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-qt-android-support/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual QbsModules Qt.android_support Qbs 3.4.0 Contents Properties Detailed Description Qt.android_support Provides Qt support for the Android platform. More...
-List of all members, including inherited members Properties deploymentDependencies : stringList extraLibs : stringList extraPlugins : stringList qmlImportPaths : stringList (since 1.22) qmlRootDir : string verboseAndroidDeployQt : bool Detailed Description The Qt.android_support module provides the glue for Qbs&#39; Qt and Android support. It is automatically pulled in by Qt.core, so you do not need to add an explicit dependency to it in your product, unless you want to set one of its properties.">
+List of all members, including inherited members Properties deploymentDependencies : stringList extraLibs : stringList extraPlugins : stringList qmlImportPaths : stringList (since 1.22) qmlRootDir : string verboseAndroidDeployQt : bool Detailed Description The Qt.android_support module provides the glue for Qbs&#39; Qt and Android support. It is automatically pulled in by Qt.core, so you do not need to add an explicit dependency to it in your product, unless you want to set one of its properties.
+Property Documentation deploymentDependencies : stringList Use this property to completely override the Qt deployment dependencies of your app. Corresponds to qmake&#39;s ANDROID_DEPLOYMENT_DEPENDENCIES.
+Default: undefined
+extraLibs : stringList Additional libs to be packaged and loaded on start-up (mind the order). Corresponds to qmake&#39;s ANDROID_EXTRA_LIBS.
+Default: undefined
+extraPlugins : stringList Additional non-asset files to be packaged. Corresponds to qmake&#39;s ANDROID_EXTRA_PLUGINS.
+Default: undefined
+qmlImportPaths : stringList [since 1.22] Additional import-root directories to search for QML imports.
+The module URI is converted to a relative path (dots become slashes) and appended to each entry automatically. Do not include that relative path in these directories.
+If this property is unset, the product-level qmlImportPaths property is used as a fallback.
+Default: undefined
+This property was introduced in 1.22.
+qmlRootDir : string The root directory of the product&#39;s QML files. This information is passed to the androiddeployqt tool, which will use it to decide which resources to include in the APK file.
+Default: product.sourceDirectory
+verboseAndroidDeployQt : bool Enable this property if you want verbose output from the androiddeployqt tool.
+Default: false">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -65,7 +116,22 @@ List of all members, including inherited members Properties deploymentDependenci
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual QbsModules Qt.android_support Qbs 3.4.0 Contents Properties Detailed Description Qt.android_support Provides Qt support for the Android platform. More...
-List of all members, including inherited members Properties deploymentDependencies : stringList extraLibs : stringList extraPlugins : stringList qmlImportPaths : stringList (since 1.22) qmlRootDir : string verboseAndroidDeployQt : bool Detailed Description The Qt.android_support module provides the glue for Qbs&#39; Qt and Android support. It is automatically pulled in by Qt.core, so you do not need to add an explicit dependency to it in your product, unless you want to set one of its properties.">
+List of all members, including inherited members Properties deploymentDependencies : stringList extraLibs : stringList extraPlugins : stringList qmlImportPaths : stringList (since 1.22) qmlRootDir : string verboseAndroidDeployQt : bool Detailed Description The Qt.android_support module provides the glue for Qbs&#39; Qt and Android support. It is automatically pulled in by Qt.core, so you do not need to add an explicit dependency to it in your product, unless you want to set one of its properties.
+Property Documentation deploymentDependencies : stringList Use this property to completely override the Qt deployment dependencies of your app. Corresponds to qmake&#39;s ANDROID_DEPLOYMENT_DEPENDENCIES.
+Default: undefined
+extraLibs : stringList Additional libs to be packaged and loaded on start-up (mind the order). Corresponds to qmake&#39;s ANDROID_EXTRA_LIBS.
+Default: undefined
+extraPlugins : stringList Additional non-asset files to be packaged. Corresponds to qmake&#39;s ANDROID_EXTRA_PLUGINS.
+Default: undefined
+qmlImportPaths : stringList [since 1.22] Additional import-root directories to search for QML imports.
+The module URI is converted to a relative path (dots become slashes) and appended to each entry automatically. Do not include that relative path in these directories.
+If this property is unset, the product-level qmlImportPaths property is used as a fallback.
+Default: undefined
+This property was introduced in 1.22.
+qmlRootDir : string The root directory of the product&#39;s QML files. This information is passed to the androiddeployqt tool, which will use it to decide which resources to include in the APK file.
+Default: product.sourceDirectory
+verboseAndroidDeployQt : bool Enable this property if you want verbose output from the androiddeployqt tool.
+Default: false">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">

@@ -26,7 +26,66 @@ Command and JavaScriptCommand
 
 A command is what Qbs executes at build time. It is represented in the language by an object of type Command, which runs a process, or JavaScriptCommand, which executes arbitrary JavaScript code. A command is always created in the prepare script of a Rule.
 Command
-A Command represents a process that will be invoked at build time. Its constructor arguments are the binary to run and a list of command-line arguments. For instance: ">
+A Command represents a process that will be invoked at build time. Its constructor arguments are the binary to run and a list of command-line arguments. For instance:
+var insaneCommand = new Command(&#34;rm&#34;, [&#34;-r&#34;, &#34;/&#34;]);
+The Rule item documentation shows a Command in context.
+JavaScriptCommand
+A JavaScriptCommand represents a chunk of JavaScript code that is run at build time. For instance:
+var cmd = new JavaScriptCommand();
+cmd.apology = &#34;Sorry.&#34;;
+cmd.sourceCode = function() {
+    console.info(&#34;I&#39;m a rather pointless command.&#34;);
+    console.info(apology);
+};
+Within the source code, the special identifiers project and product (giving access to project and product properties, respectively) as well as inputs and outputs are available. As the example shows, arbitrary properties can be set on the command object and then used within the source code. This technique is typically used to forward values from the prepare script to the command. The Rule item documentation shows a JavaScriptCommand in context.
+Properties
+Common Properties
+The following properties are available in both Command and JavaScriptCommand.
+
+ PropertyTypeDefaultDescription
+descriptionstringemptyA message that is displayed when the command is executed.
+extendedDescriptionstringemptyA detailed description that is displayed when the command is executed.
+highlightstringemptyA tag that can be used to influence how the description is displayed. In principle, the values are arbitrary. The Qbs command-line tool understands the following values and maps them to different colors if the output device is a terminal:
+&#34;compiler&#34; indicates that the command processes source code
+&#34;linker&#34; indicates that the command links objects
+&#34;codegen&#34; indicates that the command generates source code
+&#34;filegen&#34; indicates that the command creates arbitrary files
+
+All other values are mapped to the default color.
+
+jobPoolstringemptyDetermines which job pool the command will use. An empty string, which is the default, stands for the global job pool. See here and here for more information on job pools.
+silentboolfalseA flag that controls whether the description is printed. Set it to true for commands that users need not know about.
+Note: If this property is false, then description must not be empty.
+
+
+timeoutint-1Time limit for the command execution in seconds. If the command does not finish within the timeout, it is cancelled. In case of a Command, the process is requested to terminate. If it does not terminate within three seconds, it is killed. A value below or equal to 0 means no timeout. 
+ This property was introduced in Qbs 1.15.
+
+Command Properties
+
+ PropertyTypeDefaultDescription
+argumentsstringListemptyThe list of arguments to invoke the command with. Explicitly setting this property overrides an argument list provided when instantiating the object.
+environmentstringListemptyA list of environment variables that are added to the common build environment. They are provided as a list of strings in the form &#34;varName=value&#34;.
+maxExitCodeint0The maximum exit code from the process to interpret as success. Setting this should rarely be necessary, as all well-behaved applications use values other than zero to indicate failure.
+programstringundefinedThe binary to invoke. Explicitly setting this property overrides a path provided when instantiating the object.
+relevantEnvironmentVariablesstringListundefinedNames of environment variables that the invoked binary considers. If one of these variables changes in the build environment, the command will be re-run even if the input files are still up to date.
+responseFileThresholdintplatform-dependentIf this value is greater than zero and less than the length of the full command line, and if responseFileUsagePrefix is not empty, the contents of the command line are moved to a temporary file, whose path becomes the entire contents of the argument list. The program is then supposed to read the full argument list from that file. This mechanism is mainly useful to work around Windows limitations regarding the maximum length of the command line and will only work with programs that explicitly support it.
+responseFileArgumentIndexint0Index of the first argument to include in the response file. For example this may be used in conjunction with a compiler wrapper where the first argument (the path to the compiler) must be included on the raw command line.
+responseFileUsagePrefixstringemptyThe prefix that informs program that the rest of the argument is a path to a file containing the actual command line.
+stderrFilterFunctionfunctionundefinedA function that takes as input the command&#39;s actual standard error output and returns a string that is presented to the user as the command&#39;s standard error output. If it is not set, the output is shown unfiltered.
+stdoutFilterFunctionfunctionundefinedA function that takes as input the command&#39;s actual standard output and returns a string that is presented to the user as the command&#39;s standard output. If it is not set, the output is shown unfiltered.
+workingDirectorystringemptyThe program&#39;s working directory.
+stdoutFilePathstringundefinedRedirects the filtered standard output content to stdoutFilePath. If stdoutFilePath is undefined, the filtered standard output is forwarded to Qbs, possibly to be printed to the console.
+stderrFilePathstringundefinedRedirects the filtered standard error output content to stderrFilePath. If stderrFilePath is undefined, the filtered standard error output is forwarded to Qbs, possibly to be printed to the console.
+
+JavaScriptCommand Properties
+
+ PropertyTypeDefaultDescription
+sourceCodefunctionundefinedThe JavaScript function to execute.
+
+
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/commands/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -36,14 +95,21 @@ A Command represents a process that will be invoked at build time. Its construct
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/commands/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual Command and JavaScriptCommand Qbs 3.4.0 Contents Command JavaScriptCommand Properties Common Properties Command Properties JavaScriptCommand Properties Command and JavaScriptCommand A command is what Qbs executes at build time. It is represented in the language by an object of type Command, which runs a process, or JavaScriptCommand, which executes arbitrary JavaScript code. A command is always created in the prepare script of a Rule.
-Command A Command represents a process that will be invoked at build time. Its constructor arguments are the binary to run and a list of command-line arguments. For instance:">
+Command A Command represents a process that will be invoked at build time. Its constructor arguments are the binary to run and a list of command-line arguments. For instance:
+var insaneCommand = new Command(&#34;rm&#34;, [&#34;-r&#34;, &#34;/&#34;]); The Rule item documentation shows a Command in context.
+JavaScriptCommand A JavaScriptCommand represents a chunk of JavaScript code that is run at build time. For instance:
+var cmd = new JavaScriptCommand(); cmd.apology = &#34;Sorry.&#34;; cmd.sourceCode = function() { console.info(&#34;I&#39;m a rather pointless command.&#34;); console.info(apology); }; Within the source code, the special identifiers project and product (giving access to project and product properties, respectively) as well as inputs and outputs are available. As the example shows, arbitrary properties can be set on the command object and then used within the source code. This technique is typically used to forward values from the prepare script to the command. The Rule item documentation shows a JavaScriptCommand in context.
+Properties Common Properties The following properties are available in both Command and JavaScriptCommand.
+Property Type Default Description description string empty A message that is displayed when the command is executed. extendedDescription string empty A detailed description that is displayed when the command is executed. highlight string empty A tag that can be used to influence how the description is displayed. In principle, the values are arbitrary. The Qbs command-line tool understands the following values and maps them to different colors if the output device is a terminal: &#34;compiler&#34; indicates that the command processes source code &#34;linker&#34; indicates that the command links objects &#34;codegen&#34; indicates that the command generates source code &#34;filegen&#34; indicates that the command creates arbitrary files All other values are mapped to the default color.
+jobPool string empty Determines which job pool the command will use. An empty string, which is the default, stands for the global job pool. See here and here for more information on job pools. silent bool false A flag that controls whether the description is printed. Set it to true for commands that users need not know about. Note: If this property is false, then description must not be empty.
+timeout int -1 Time limit for the command execution in seconds. If the command does not finish within the timeout, it is cancelled. In case of a Command, the process is requested to terminate. If it does not terminate within three seconds, it is killed. A value below or equal to 0 means no timeout. This property was introduced in Qbs 1.15. Command Properties Property Type Default Description arguments stringList empty The list of arguments to invoke the command with. Explicitly setting this property overrides an argument list provided when instantiating the object. environment stringList empty A list of environment variables that are added to the common build environment. They are provided as a list of strings in the form &#34;varName=value&#34;. maxExitCode int 0 The maximum exit code from the process to interpret as success. Setting this should rarely be necessary, as all well-behaved applications use values other than zero to indicate failure. program string undefined The binary to invoke. Explicitly setting this property overrides a path provided when instantiating the object. relevantEnvironmentVariables stringList undefined Names of environment variables that the invoked binary considers. If one of these variables changes in the build environment, the command will be re-run even if the input files are still up to date. responseFileThreshold int platform-dependent If this value is greater than zero and less than the length of the full command line, and if responseFileUsagePrefix is not empty, the contents of the command line are moved to a temporary file, whose path becomes the entire contents of the argument list. The program is then supposed to read the full argument list from that file. This mechanism is mainly useful to work around Windows limitations regarding the maximum length of the command line and will only work with programs that explicitly support it. responseFileArgumentIndex int 0 Index of the first argument to include in the response file. For example this may be used in conjunction with a compiler wrapper where the first argument (the path to the compiler) must be included on the raw command line. responseFileUsagePrefix string empty The prefix that informs program that the rest of the argument is a path to a file containing the actual command line. stderrFilterFunction function undefined A function that takes as input the command&#39;s actual standard error output and returns a string that is presented to the user as the command&#39;s standard error output. If it is not set, the output is shown unfiltered. stdoutFilterFunction function undefined A function that takes as input the command&#39;s actual standard output and returns a string that is presented to the user as the command&#39;s standard output. If it is not set, the output is shown unfiltered. workingDirectory string empty The program&#39;s working directory. stdoutFilePath string undefined Redirects the filtered standard output content to stdoutFilePath. If stdoutFilePath is undefined, the filtered standard output is forwarded to Qbs, possibly to be printed to the console. stderrFilePath string undefined Redirects the filtered standard error output content to stderrFilePath. If stderrFilePath is undefined, the filtered standard error output is forwarded to Qbs, possibly to be printed to the console. JavaScriptCommand Properties Property Type Default Description sourceCode function undefined The JavaScript function to execute.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -52,7 +118,14 @@ Command A Command represents a process that will be invoked at build time. Its c
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual Command and JavaScriptCommand Qbs 3.4.0 Contents Command JavaScriptCommand Properties Common Properties Command Properties JavaScriptCommand Properties Command and JavaScriptCommand A command is what Qbs executes at build time. It is represented in the language by an object of type Command, which runs a process, or JavaScriptCommand, which executes arbitrary JavaScript code. A command is always created in the prepare script of a Rule.
-Command A Command represents a process that will be invoked at build time. Its constructor arguments are the binary to run and a list of command-line arguments. For instance:">
+Command A Command represents a process that will be invoked at build time. Its constructor arguments are the binary to run and a list of command-line arguments. For instance:
+var insaneCommand = new Command(&#34;rm&#34;, [&#34;-r&#34;, &#34;/&#34;]); The Rule item documentation shows a Command in context.
+JavaScriptCommand A JavaScriptCommand represents a chunk of JavaScript code that is run at build time. For instance:
+var cmd = new JavaScriptCommand(); cmd.apology = &#34;Sorry.&#34;; cmd.sourceCode = function() { console.info(&#34;I&#39;m a rather pointless command.&#34;); console.info(apology); }; Within the source code, the special identifiers project and product (giving access to project and product properties, respectively) as well as inputs and outputs are available. As the example shows, arbitrary properties can be set on the command object and then used within the source code. This technique is typically used to forward values from the prepare script to the command. The Rule item documentation shows a JavaScriptCommand in context.
+Properties Common Properties The following properties are available in both Command and JavaScriptCommand.
+Property Type Default Description description string empty A message that is displayed when the command is executed. extendedDescription string empty A detailed description that is displayed when the command is executed. highlight string empty A tag that can be used to influence how the description is displayed. In principle, the values are arbitrary. The Qbs command-line tool understands the following values and maps them to different colors if the output device is a terminal: &#34;compiler&#34; indicates that the command processes source code &#34;linker&#34; indicates that the command links objects &#34;codegen&#34; indicates that the command generates source code &#34;filegen&#34; indicates that the command creates arbitrary files All other values are mapped to the default color.
+jobPool string empty Determines which job pool the command will use. An empty string, which is the default, stands for the global job pool. See here and here for more information on job pools. silent bool false A flag that controls whether the description is printed. Set it to true for commands that users need not know about. Note: If this property is false, then description must not be empty.
+timeout int -1 Time limit for the command execution in seconds. If the command does not finish within the timeout, it is cancelled. In case of a Command, the process is requested to terminate. If it does not terminate within three seconds, it is killed. A value below or equal to 0 means no timeout. This property was introduced in Qbs 1.15. Command Properties Property Type Default Description arguments stringList empty The list of arguments to invoke the command with. Explicitly setting this property overrides an argument list provided when instantiating the object. environment stringList empty A list of environment variables that are added to the common build environment. They are provided as a list of strings in the form &#34;varName=value&#34;. maxExitCode int 0 The maximum exit code from the process to interpret as success. Setting this should rarely be necessary, as all well-behaved applications use values other than zero to indicate failure. program string undefined The binary to invoke. Explicitly setting this property overrides a path provided when instantiating the object. relevantEnvironmentVariables stringList undefined Names of environment variables that the invoked binary considers. If one of these variables changes in the build environment, the command will be re-run even if the input files are still up to date. responseFileThreshold int platform-dependent If this value is greater than zero and less than the length of the full command line, and if responseFileUsagePrefix is not empty, the contents of the command line are moved to a temporary file, whose path becomes the entire contents of the argument list. The program is then supposed to read the full argument list from that file. This mechanism is mainly useful to work around Windows limitations regarding the maximum length of the command line and will only work with programs that explicitly support it. responseFileArgumentIndex int 0 Index of the first argument to include in the response file. For example this may be used in conjunction with a compiler wrapper where the first argument (the path to the compiler) must be included on the raw command line. responseFileUsagePrefix string empty The prefix that informs program that the rest of the argument is a path to a file containing the actual command line. stderrFilterFunction function undefined A function that takes as input the command&#39;s actual standard error output and returns a string that is presented to the user as the command&#39;s standard error output. If it is not set, the output is shown unfiltered. stdoutFilterFunction function undefined A function that takes as input the command&#39;s actual standard output and returns a string that is presented to the user as the command&#39;s standard output. If it is not set, the output is shown unfiltered. workingDirectory string empty The program&#39;s working directory. stdoutFilePath string undefined Redirects the filtered standard output content to stdoutFilePath. If stdoutFilePath is undefined, the filtered standard output is forwarded to Qbs, possibly to be printed to the console. stderrFilePath string undefined Redirects the filtered standard error output content to stderrFilePath. If stderrFilePath is undefined, the filtered standard error output is forwarded to Qbs, possibly to be printed to the console. JavaScriptCommand Properties Property Type Default Description sourceCode function undefined The JavaScript function to execute.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -109,17 +182,17 @@ Command A Command represents a process that will be invoked at build time. Its c
 <p>A <i>command</i> is what Qbs executes at build time. It is represented in the language by an object of type <code translate="no">Command</code>, which runs a process, or <code translate="no">JavaScriptCommand</code>, which executes arbitrary JavaScript code. A command is always created in the prepare script of a <code translate="no">Rule</code>.</p>
 <h2 id="command">Command</h2>
 <p>A <code translate="no">Command</code> represents a process that will be invoked at build time. Its constructor arguments are the binary to run and a list of command-line arguments. For instance:</p>
-<pre class="cpp" translate="no">var insaneCommand <span class="operator">=</span> <span class="keyword">new</span> Command(<span class="string">"rm"</span><span class="operator">,</span> <span class="operator">[</span><span class="string">"-r"</span><span class="operator">,</span> <span class="string">"/"</span><span class="operator">]</span>);</pre>
+<pre class="cpp" translate="no"><code class="cpp">var insaneCommand <span class="operator">=</span> <span class="keyword">new</span> Command(<span class="string">"rm"</span><span class="operator">,</span> <span class="operator">[</span><span class="string">"-r"</span><span class="operator">,</span> <span class="string">"/"</span><span class="operator">]</span>);</code></pre>
 <p>The <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-rule/" translate="no">Rule</a> item documentation shows a <code translate="no">Command</code> in context.</p>
 <h2 id="javascriptcommand">JavaScriptCommand</h2>
 <p>A <code translate="no">JavaScriptCommand</code> represents a chunk of JavaScript code that is run at build time. For instance:</p>
-<pre class="cpp" translate="no">var cmd <span class="operator">=</span> <span class="keyword">new</span> JavaScriptCommand();
+<pre class="cpp" translate="no"><code class="cpp">var cmd <span class="operator">=</span> <span class="keyword">new</span> JavaScriptCommand();
 cmd<span class="operator">.</span>apology <span class="operator">=</span> <span class="string">"Sorry."</span>;
 cmd<span class="operator">.</span>sourceCode <span class="operator">=</span> function() {
     console<span class="operator">.</span>info(<span class="string">"I'm a rather pointless command."</span>);
     console<span class="operator">.</span>info(apology);
-};</pre>
+};</code></pre>
 <p>Within the source code, the special identifiers <code translate="no">project</code> and <code translate="no">product</code> (giving access to project and product properties, respectively) as well as <code translate="no">inputs</code> and <code translate="no">outputs</code> are available. As the example shows, arbitrary properties can be set on the command object and then used within the source code. This technique is typically used to forward values from the prepare script to the command. The <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-rule/" translate="no">Rule</a> item documentation shows a <code translate="no">JavaScriptCommand</code> in context.</p>
 <h2 id="properties">Properties</h2>

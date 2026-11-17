@@ -38,7 +38,43 @@ Options
 Uses &lt;file&gt; as the project file. If &lt;file&gt; is a directory and it contains a single file with the extension .qbs, that file will be used.
 If this option is not given at all, the behavior is the same as for -f &lt;working-dir&gt;.
 --build-directory|-d &lt;directory&gt;
-Specifies a &lt;directory&gt; where build artifacts are stored. ">
+Specifies a &lt;directory&gt; where build artifacts are stored.
+The default value is the current directory unless preferences.defaultBuildDirectory is set.
+Relative paths will be interpreted relative to the current directory.
+You can use the following special values as placeholders:
+
+@project is expanded to the name of the project file excluding the extension .qbs.
+@path is expanded to the name of the directory containing the project file.
+
+--settings-dir &lt;directory&gt;
+Reads all settings (such as profile information) from the specified &lt;directory&gt;. If the directory does not exist, it will be created.
+The default value is system-specific. For example:
+
+Linux: $HOME/.config/QtProject/qbs
+Windows: %APPDATA%\QtProject\qbs
+macOS: $HOME/Library/Preferences/qbs
+
+--tags &lt;tag&gt;[,&lt;tag&gt;...]
+Takes only products whose type matches one of the specified tags into account.
+Parameters
+config:configuration-name
+Specifies the build configuration to use.
+Qbs can build a project for one or multiple configurations at once, each having a different set of parameters. The config parameter has a special function: with each occurrence a new configuration instance begins and all subsequent parameters until the next config are assigned to this instance. Parameter assignments before the first occurrence of config are applied to all build configurations. Inside products and modules, the current active build configuration can be retrieved via qbs.configurationName.
+In the following snippet, a profile clang is applied to all configurations while cpp.optimization is different for debug and release:
+profile:clang config:debug cpp.optimization:none config:release cpp.optimization:small
+The value of config determines the name of the build folder and affects the default value of the qbs.buildVariant property. Qbs knows the config values &#34;debug&#34; and &#34;release&#34;, but in general any name can be chosen. When naming configurations created for special purposes, follow the rules for legal names generally used in programming languages:
+
+The first character must be a letter (a-z), an underscore (_), or a dollar sign ($).
+Subsequent characters may be letters, digits, underscores, or dollar signs.
+
+Examples
+To list all products for the project in the current directory:
+qbs list-products
+To list only the products whose type contains the tag staticlibrary:
+qbs list-products --tags staticlibrary
+
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/cli-list-products/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -48,7 +84,7 @@ Specifies a &lt;directory&gt; where build artifacts are stored. ">
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/cli-list-products/">
@@ -57,7 +93,20 @@ Specifies a &lt;directory&gt; where build artifacts are stored. ">
 	<meta property="og:description" content="Qbs Manual Command-Line Interface list-products Qbs 3.4.0 Contents Synopsis Description Options [--file|-f &lt;file&gt;] --build-directory|-d &lt;directory&gt; --settings-dir &lt;directory&gt; --tags &lt;tag&gt;[,&lt;tag&gt;...] Parameters config:configuration-name Examples list-products Synopsis qbs list-products [options] [config:configuration-name] Description Lists all products that exist in a project.
 Options [--file|-f &lt;file&gt;] Uses &lt;file&gt; as the project file. If &lt;file&gt; is a directory and it contains a single file with the extension .qbs, that file will be used.
 If this option is not given at all, the behavior is the same as for -f &lt;working-dir&gt;.
---build-directory|-d &lt;directory&gt; Specifies a &lt;directory&gt; where build artifacts are stored.">
+--build-directory|-d &lt;directory&gt; Specifies a &lt;directory&gt; where build artifacts are stored.
+The default value is the current directory unless preferences.defaultBuildDirectory is set.
+Relative paths will be interpreted relative to the current directory.
+You can use the following special values as placeholders:
+@project is expanded to the name of the project file excluding the extension .qbs. @path is expanded to the name of the directory containing the project file. --settings-dir &lt;directory&gt; Reads all settings (such as profile information) from the specified &lt;directory&gt;. If the directory does not exist, it will be created.
+The default value is system-specific. For example:
+Linux: $HOME/.config/QtProject/qbs Windows: %APPDATA%\QtProject\qbs macOS: $HOME/Library/Preferences/qbs --tags &lt;tag&gt;[,&lt;tag&gt;...] Takes only products whose type matches one of the specified tags into account.
+Parameters config:configuration-name Specifies the build configuration to use.
+Qbs can build a project for one or multiple configurations at once, each having a different set of parameters. The config parameter has a special function: with each occurrence a new configuration instance begins and all subsequent parameters until the next config are assigned to this instance. Parameter assignments before the first occurrence of config are applied to all build configurations. Inside products and modules, the current active build configuration can be retrieved via qbs.configurationName.
+In the following snippet, a profile clang is applied to all configurations while cpp.optimization is different for debug and release:
+profile:clang config:debug cpp.optimization:none config:release cpp.optimization:small The value of config determines the name of the build folder and affects the default value of the qbs.buildVariant property. Qbs knows the config values &#34;debug&#34; and &#34;release&#34;, but in general any name can be chosen. When naming configurations created for special purposes, follow the rules for legal names generally used in programming languages:
+The first character must be a letter (a-z), an underscore (_), or a dollar sign ($). Subsequent characters may be letters, digits, underscores, or dollar signs. Examples To list all products for the project in the current directory:
+qbs list-products To list only the products whose type contains the tag staticlibrary:
+qbs list-products --tags staticlibrary">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -68,7 +117,20 @@ If this option is not given at all, the behavior is the same as for -f &lt;worki
 	<meta name="twitter:description" content="Qbs Manual Command-Line Interface list-products Qbs 3.4.0 Contents Synopsis Description Options [--file|-f &lt;file&gt;] --build-directory|-d &lt;directory&gt; --settings-dir &lt;directory&gt; --tags &lt;tag&gt;[,&lt;tag&gt;...] Parameters config:configuration-name Examples list-products Synopsis qbs list-products [options] [config:configuration-name] Description Lists all products that exist in a project.
 Options [--file|-f &lt;file&gt;] Uses &lt;file&gt; as the project file. If &lt;file&gt; is a directory and it contains a single file with the extension .qbs, that file will be used.
 If this option is not given at all, the behavior is the same as for -f &lt;working-dir&gt;.
---build-directory|-d &lt;directory&gt; Specifies a &lt;directory&gt; where build artifacts are stored.">
+--build-directory|-d &lt;directory&gt; Specifies a &lt;directory&gt; where build artifacts are stored.
+The default value is the current directory unless preferences.defaultBuildDirectory is set.
+Relative paths will be interpreted relative to the current directory.
+You can use the following special values as placeholders:
+@project is expanded to the name of the project file excluding the extension .qbs. @path is expanded to the name of the directory containing the project file. --settings-dir &lt;directory&gt; Reads all settings (such as profile information) from the specified &lt;directory&gt;. If the directory does not exist, it will be created.
+The default value is system-specific. For example:
+Linux: $HOME/.config/QtProject/qbs Windows: %APPDATA%\QtProject\qbs macOS: $HOME/Library/Preferences/qbs --tags &lt;tag&gt;[,&lt;tag&gt;...] Takes only products whose type matches one of the specified tags into account.
+Parameters config:configuration-name Specifies the build configuration to use.
+Qbs can build a project for one or multiple configurations at once, each having a different set of parameters. The config parameter has a special function: with each occurrence a new configuration instance begins and all subsequent parameters until the next config are assigned to this instance. Parameter assignments before the first occurrence of config are applied to all build configurations. Inside products and modules, the current active build configuration can be retrieved via qbs.configurationName.
+In the following snippet, a profile clang is applied to all configurations while cpp.optimization is different for debug and release:
+profile:clang config:debug cpp.optimization:none config:release cpp.optimization:small The value of config determines the name of the build folder and affects the default value of the qbs.buildVariant property. Qbs knows the config values &#34;debug&#34; and &#34;release&#34;, but in general any name can be chosen. When naming configurations created for special purposes, follow the rules for legal names generally used in programming languages:
+The first character must be a letter (a-z), an underscore (_), or a dollar sign ($). Subsequent characters may be letters, digits, underscores, or dollar signs. Examples To list all products for the project in the current directory:
+qbs list-products To list only the products whose type contains the tag staticlibrary:
+qbs list-products --tags staticlibrary">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -129,7 +191,7 @@ If this option is not given at all, the behavior is the same as for -f &lt;worki
 <!-- $$$cli-list-products.html-description -->
 <div class="descr" id="details">
 <h2 id="synopsis">Synopsis</h2>
-<pre class="cpp" translate="no">qbs list<span class="operator">-</span>products <span class="operator">[</span>options<span class="operator">]</span> <span class="operator">[</span>config:configuration<span class="operator">-</span>name<span class="operator">]</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs list<span class="operator">-</span>products <span class="operator">[</span>options<span class="operator">]</span> <span class="operator">[</span>config:configuration<span class="operator">-</span>name<span class="operator">]</span></code></pre>
 <h2 id="description">Description</h2>
 <p>Lists all products that exist in a project.</p>
 <h2 id="options">Options</h2>
@@ -163,7 +225,7 @@ If this option is not given at all, the behavior is the same as for -f &lt;worki
 <p>Qbs can build a project for one or multiple configurations at once, each having a different set of parameters. The <code translate="no">config</code> parameter has a special function: with each occurrence a new configuration instance begins and all subsequent parameters until the next <code translate="no">config</code> are assigned to this instance. Parameter assignments before the first occurrence of <code translate="no">config</code> are applied to all build configurations. Inside products and modules, the current active build configuration can be retrieved via <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#configurationName-prop" translate="no">qbs.configurationName</a>.</p>
 <p>In the following snippet, a profile <code translate="no">clang</code> is applied to all configurations while <code translate="no">cpp.optimization</code> is different for <code translate="no">debug</code> and <code translate="no">release</code>:</p>
-<pre class="cpp" translate="no">profile:clang config:debug cpp<span class="operator">.</span>optimization:none config:release cpp<span class="operator">.</span>optimization:small</pre>
+<pre class="cpp" translate="no"><code class="cpp">profile:clang config:debug cpp<span class="operator">.</span>optimization:none config:release cpp<span class="operator">.</span>optimization:small</code></pre>
 <p>The value of <code translate="no">config</code> determines the name of the build folder and affects the default value of the <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#buildVariant-prop" translate="no">qbs.buildVariant</a> property. Qbs knows the <code translate="no">config</code> values <code translate="no">"debug"</code> and <code translate="no">"release"</code>, but in general any name can be chosen. When naming configurations created for special purposes, follow the rules for legal names generally used in programming languages:</p>
 <ul>
@@ -172,10 +234,10 @@ If this option is not given at all, the behavior is the same as for -f &lt;worki
 </ul>
 <h2 id="examples">Examples</h2>
 <p>To list all products for the project in the current directory:</p>
-<pre class="cpp" translate="no">qbs list<span class="operator">-</span>products</pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs list<span class="operator">-</span>products</code></pre>
 <p>To list only the products whose <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#type-prop" translate="no">type</a> contains the tag <code translate="no">staticlibrary</code>:</p>
-<pre class="cpp" translate="no">qbs list<span class="operator">-</span>products <span class="operator">-</span><span class="operator">-</span>tags staticlibrary</pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs list<span class="operator">-</span>products <span class="operator">-</span><span class="operator">-</span>tags staticlibrary</code></pre>
 </div>
 <!-- @@@cli-list-products.html -->
 </div>

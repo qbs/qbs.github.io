@@ -18,7 +18,94 @@ Autotest
 Convenience Items
 
 
-As you might have noticed, we are repeating ourselves when setting the same properties in our products - we set version, cpp.rpaths, and so on. For a single application and a library, that is not a big deal, but what if we have a dozen libraries? Luckily, this can be achieved using item inheritance - we move the common code to the base item and in the real product we will only set what is specific to that product (for example, the list of files). ">
+As you might have noticed, we are repeating ourselves when setting the same properties in our products - we set version, cpp.rpaths, and so on. For a single application and a library, that is not a big deal, but what if we have a dozen libraries? Luckily, this can be achieved using item inheritance - we move the common code to the base item and in the real product we will only set what is specific to that product (for example, the list of files).
+First, we need to tell Qbs where to look for our new base items. This can be achieved using the qbsSearchPaths property. We set this property to &#34;qbs&#34; so that Qbs will search our items in the qbs directory located in the project directory:
+Project {
+   name: &#34;My Project&#34;
+   minimumQbsVersion: &#34;2.0&#34;
+   references: [
+       &#34;app/app.qbs&#34;,
+       &#34;lib/lib.qbs&#34;
+   ]
+   qbsSearchPaths: &#34;qbs&#34;
+}
+
+Note: This directory has a pre-defined structure: base items should be located under the imports subdirectory. See Custom Modules and Items for details.
+
+Let&#39;s create a base item for all our applications and move common code there:
+// qbs/imports/MyApplication.qbs
+
+import qbs.FileInfo
+
+CppApplication {
+    version: &#34;1.0.0&#34;
+    consoleApplication: true
+
+    cpp.rpaths: {
+        if (!cpp.rpathOrigin)
+            return [];
+        return [
+            FileInfo.joinPaths(
+                cpp.rpathOrigin,
+                FileInfo.relativePath(
+                    FileInfo.joinPaths(&#34;/&#34;, product.installDir),
+                    FileInfo.joinPaths(&#34;/&#34;, &#34;lib&#34;)))
+        ];
+    }
+}
+As you see, we managed to extract most of the code here, and our application file now only contains what&#39;s relevant to it:
+// app/app.qbs
+
+MyApplication {
+    Depends { name: &#34;mylib&#34; }
+    name: &#34;My Application&#34;
+    targetName: &#34;myapp&#34;
+    files: &#34;main.c&#34;
+}
+Now let&#39;s do the same for our library:
+// qbs/imports/MyLibrary.qbs
+
+DynamicLibrary {
+    version: &#34;1.0.0&#34;
+
+    Depends { name: &#39;cpp&#39; }
+    property string libraryMacro: name.replace(&#34; &#34;, &#34;_&#34;).toUpperCase() &#43; &#34;_LIBRARY&#34;
+    cpp.defines: [libraryMacro]
+    cpp.sonamePrefix: qbs.targetOS.contains(&#34;darwin&#34;) ? &#34;@rpath&#34; : undefined
+
+    Export {
+        Depends { name: &#34;cpp&#34; }
+        cpp.includePaths: [exportingProduct.sourceDirectory]
+    }
+
+    Depends { name: &#39;bundle&#39; }
+    bundle.isBundle: false
+}
+Here, we introduce a helper property, libraryMacro, with a default value calculated based on the capitalized product name. Since the name of out library product is &#34;mylib&#34;, this property will expand to &#34;MYLIB_LIBRARY&#34;. We can also override the default value for the macro in products that inherit our item like this:
+MyLibrary {
+    libraryMacro: &#34;SOME_OTHER_LIBRARY_MACRO&#34;
+}
+Let&#39;s take a look at the refactored library file:
+// lib/lib.qbs
+
+MyLibrary {
+    name: &#34;mylib&#34;
+    files: [&#34;lib.c&#34;]
+    publicHeaders: [
+        &#34;lib.h&#34;,
+        &#34;lib_global.h&#34;,
+    ]
+    cpp.defines: base.concat([&#34;CRUCIAL_DEFINE&#34;])
+}
+We managed to extract the reusable parts to common base items leaving the actual products clean and simple.
+Unfortunately, item inheritance comes with a price - when both parent and child items set the same property (cpp.defines in our case), the value in the child item wins. To work around this, the special base value exists - it gives access to the base item&#39;s value of the current property and makes it possible to extend its value rather than override it. Here, we concatenate the list of defines from the base item [&#34;MYLIB_LIBRARY&#34;] with a new list, specific to this product (namely, [&#39;CRUCIAL_DEFINE&#39;]).
+
+
+
+Dynamic Library
+Autotest
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/tutorial-4/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -28,13 +115,23 @@ As you might have noticed, we are repeating ourselves when setting the same prop
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/tutorial-4/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual Convenience Items Qbs 3.4.0 Dynamic Library Autotest Convenience Items As you might have noticed, we are repeating ourselves when setting the same properties in our products - we set version, cpp.rpaths, and so on. For a single application and a library, that is not a big deal, but what if we have a dozen libraries? Luckily, this can be achieved using item inheritance - we move the common code to the base item and in the real product we will only set what is specific to that product (for example, the list of files).">
+	<meta property="og:description" content="Qbs Manual Convenience Items Qbs 3.4.0 Dynamic Library Autotest Convenience Items As you might have noticed, we are repeating ourselves when setting the same properties in our products - we set version, cpp.rpaths, and so on. For a single application and a library, that is not a big deal, but what if we have a dozen libraries? Luckily, this can be achieved using item inheritance - we move the common code to the base item and in the real product we will only set what is specific to that product (for example, the list of files).
+First, we need to tell Qbs where to look for our new base items. This can be achieved using the qbsSearchPaths property. We set this property to &#34;qbs&#34; so that Qbs will search our items in the qbs directory located in the project directory:
+Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references: [ &#34;app/app.qbs&#34;, &#34;lib/lib.qbs&#34; ] qbsSearchPaths: &#34;qbs&#34; } Note: This directory has a pre-defined structure: base items should be located under the imports subdirectory. See Custom Modules and Items for details.
+Let&#39;s create a base item for all our applications and move common code there:
+// qbs/imports/MyApplication.qbs import qbs.FileInfo CppApplication { version: &#34;1.0.0&#34; consoleApplication: true cpp.rpaths: { if (!cpp.rpathOrigin) return []; return [ FileInfo.joinPaths( cpp.rpathOrigin, FileInfo.relativePath( FileInfo.joinPaths(&#34;/&#34;, product.installDir), FileInfo.joinPaths(&#34;/&#34;, &#34;lib&#34;))) ]; } } As you see, we managed to extract most of the code here, and our application file now only contains what&#39;s relevant to it:
+// app/app.qbs MyApplication { Depends { name: &#34;mylib&#34; } name: &#34;My Application&#34; targetName: &#34;myapp&#34; files: &#34;main.c&#34; } Now let&#39;s do the same for our library:
+// qbs/imports/MyLibrary.qbs DynamicLibrary { version: &#34;1.0.0&#34; Depends { name: &#39;cpp&#39; } property string libraryMacro: name.replace(&#34; &#34;, &#34;_&#34;).toUpperCase() &#43; &#34;_LIBRARY&#34; cpp.defines: [libraryMacro] cpp.sonamePrefix: qbs.targetOS.contains(&#34;darwin&#34;) ? &#34;@rpath&#34; : undefined Export { Depends { name: &#34;cpp&#34; } cpp.includePaths: [exportingProduct.sourceDirectory] } Depends { name: &#39;bundle&#39; } bundle.isBundle: false } Here, we introduce a helper property, libraryMacro, with a default value calculated based on the capitalized product name. Since the name of out library product is &#34;mylib&#34;, this property will expand to &#34;MYLIB_LIBRARY&#34;. We can also override the default value for the macro in products that inherit our item like this:
+MyLibrary { libraryMacro: &#34;SOME_OTHER_LIBRARY_MACRO&#34; } Let&#39;s take a look at the refactored library file:
+// lib/lib.qbs MyLibrary { name: &#34;mylib&#34; files: [&#34;lib.c&#34;] publicHeaders: [ &#34;lib.h&#34;, &#34;lib_global.h&#34;, ] cpp.defines: base.concat([&#34;CRUCIAL_DEFINE&#34;]) } We managed to extract the reusable parts to common base items leaving the actual products clean and simple.
+Unfortunately, item inheritance comes with a price - when both parent and child items set the same property (cpp.defines in our case), the value in the child item wins. To work around this, the special base value exists - it gives access to the base item&#39;s value of the current property and makes it possible to extend its value rather than override it. Here, we concatenate the list of defines from the base item [&#34;MYLIB_LIBRARY&#34;] with a new list, specific to this product (namely, [&#39;CRUCIAL_DEFINE&#39;]).
+Dynamic Library Autotest">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -42,7 +139,17 @@ As you might have noticed, we are repeating ourselves when setting the same prop
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual Convenience Items Qbs 3.4.0 Dynamic Library Autotest Convenience Items As you might have noticed, we are repeating ourselves when setting the same properties in our products - we set version, cpp.rpaths, and so on. For a single application and a library, that is not a big deal, but what if we have a dozen libraries? Luckily, this can be achieved using item inheritance - we move the common code to the base item and in the real product we will only set what is specific to that product (for example, the list of files).">
+	<meta name="twitter:description" content="Qbs Manual Convenience Items Qbs 3.4.0 Dynamic Library Autotest Convenience Items As you might have noticed, we are repeating ourselves when setting the same properties in our products - we set version, cpp.rpaths, and so on. For a single application and a library, that is not a big deal, but what if we have a dozen libraries? Luckily, this can be achieved using item inheritance - we move the common code to the base item and in the real product we will only set what is specific to that product (for example, the list of files).
+First, we need to tell Qbs where to look for our new base items. This can be achieved using the qbsSearchPaths property. We set this property to &#34;qbs&#34; so that Qbs will search our items in the qbs directory located in the project directory:
+Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; references: [ &#34;app/app.qbs&#34;, &#34;lib/lib.qbs&#34; ] qbsSearchPaths: &#34;qbs&#34; } Note: This directory has a pre-defined structure: base items should be located under the imports subdirectory. See Custom Modules and Items for details.
+Let&#39;s create a base item for all our applications and move common code there:
+// qbs/imports/MyApplication.qbs import qbs.FileInfo CppApplication { version: &#34;1.0.0&#34; consoleApplication: true cpp.rpaths: { if (!cpp.rpathOrigin) return []; return [ FileInfo.joinPaths( cpp.rpathOrigin, FileInfo.relativePath( FileInfo.joinPaths(&#34;/&#34;, product.installDir), FileInfo.joinPaths(&#34;/&#34;, &#34;lib&#34;))) ]; } } As you see, we managed to extract most of the code here, and our application file now only contains what&#39;s relevant to it:
+// app/app.qbs MyApplication { Depends { name: &#34;mylib&#34; } name: &#34;My Application&#34; targetName: &#34;myapp&#34; files: &#34;main.c&#34; } Now let&#39;s do the same for our library:
+// qbs/imports/MyLibrary.qbs DynamicLibrary { version: &#34;1.0.0&#34; Depends { name: &#39;cpp&#39; } property string libraryMacro: name.replace(&#34; &#34;, &#34;_&#34;).toUpperCase() &#43; &#34;_LIBRARY&#34; cpp.defines: [libraryMacro] cpp.sonamePrefix: qbs.targetOS.contains(&#34;darwin&#34;) ? &#34;@rpath&#34; : undefined Export { Depends { name: &#34;cpp&#34; } cpp.includePaths: [exportingProduct.sourceDirectory] } Depends { name: &#39;bundle&#39; } bundle.isBundle: false } Here, we introduce a helper property, libraryMacro, with a default value calculated based on the capitalized product name. Since the name of out library product is &#34;mylib&#34;, this property will expand to &#34;MYLIB_LIBRARY&#34;. We can also override the default value for the macro in products that inherit our item like this:
+MyLibrary { libraryMacro: &#34;SOME_OTHER_LIBRARY_MACRO&#34; } Let&#39;s take a look at the refactored library file:
+// lib/lib.qbs MyLibrary { name: &#34;mylib&#34; files: [&#34;lib.c&#34;] publicHeaders: [ &#34;lib.h&#34;, &#34;lib_global.h&#34;, ] cpp.defines: base.concat([&#34;CRUCIAL_DEFINE&#34;]) } We managed to extract the reusable parts to common base items leaving the actual products clean and simple.
+Unfortunately, item inheritance comes with a price - when both parent and child items set the same property (cpp.defines in our case), the value in the child item wins. To work around this, the special base value exists - it gives access to the base item&#39;s value of the current property and makes it possible to extend its value rather than override it. Here, we concatenate the list of defines from the base item [&#34;MYLIB_LIBRARY&#34;] with a new list, specific to this product (namely, [&#39;CRUCIAL_DEFINE&#39;]).
+Dynamic Library Autotest">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -101,7 +208,7 @@ As you might have noticed, we are repeating ourselves when setting the same prop
 /docs/qml-qbslanguageitems-product/#files-prop" translate="no">files</a>).</p>
 <p>First, we need to tell Qbs where to look for our new base items. This can be achieved using the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-project/#qbsSearchPaths-prop" translate="no">qbsSearchPaths</a> property. We set this property to <code translate="no">"qbs"</code> so that Qbs will search our items in the <code translate="no">qbs</code> directory located in the project directory:</p>
-<pre class="cpp" translate="no">Project {
+<pre class="cpp" translate="no"><code class="cpp">Project {
    name: "My Project"
    minimumQbsVersion: "2.0"
    references: [
@@ -109,13 +216,13 @@ As you might have noticed, we are repeating ourselves when setting the same prop
        "lib/lib.qbs"
    ]
    qbsSearchPaths: "qbs"
-}</pre>
+}</code></pre>
 <div class="admonition note">
 <p><b>Note: </b>This directory has a pre-defined structure: base items should be located under the <code translate="no">imports</code> subdirectory. See <a href="https://qbs.io/
 /docs/custom-modules/">Custom Modules and Items</a> for details.</p>
 </div>
 <p>Let's create a base item for all our applications and move common code there:</p>
-<pre class="cpp" translate="no">// qbs/imports/MyApplication.qbs
+<pre class="cpp" translate="no"><code class="cpp">// qbs/imports/MyApplication.qbs
 
 import qbs.FileInfo
 
@@ -134,18 +241,18 @@ CppApplication {
                     FileInfo.joinPaths("/", "lib")))
         ];
     }
-}</pre>
+}</code></pre>
 <p>As you see, we managed to extract most of the code here, and our application file now only contains what's relevant to it:</p>
-<pre class="cpp" translate="no">// app/app.qbs
+<pre class="cpp" translate="no"><code class="cpp">// app/app.qbs
 
 MyApplication {
     Depends { name: "mylib" }
     name: "My Application"
     targetName: "myapp"
     files: "main.c"
-}</pre>
+}</code></pre>
 <p>Now let's do the same for our library:</p>
-<pre class="cpp" translate="no">// qbs/imports/MyLibrary.qbs
+<pre class="cpp" translate="no"><code class="cpp">// qbs/imports/MyLibrary.qbs
 
 DynamicLibrary {
     version: "1.0.0"
@@ -162,13 +269,13 @@ DynamicLibrary {
 
     Depends { name: 'bundle' }
     bundle.isBundle: false
-}</pre>
+}</code></pre>
 <p>Here, we introduce a helper property, <code translate="no">libraryMacro</code>, with a default value calculated based on the capitalized product name. Since the name of out library product is <code translate="no">"mylib"</code>, this property will expand to <code translate="no">"MYLIB_LIBRARY"</code>. We can also override the default value for the macro in products that inherit our item like this:</p>
-<pre class="cpp" translate="no">MyLibrary {
+<pre class="cpp" translate="no"><code class="cpp">MyLibrary {
     libraryMacro: <span class="string">"SOME_OTHER_LIBRARY_MACRO"</span>
-}</pre>
+}</code></pre>
 <p>Let's take a look at the refactored library file:</p>
-<pre class="cpp" translate="no">// lib/lib.qbs
+<pre class="cpp" translate="no"><code class="cpp">// lib/lib.qbs
 
 MyLibrary {
     name: "mylib"
@@ -178,7 +285,7 @@ MyLibrary {
         "lib_global.h",
     ]
     cpp.defines: base.concat(["CRUCIAL_DEFINE"])
-}</pre>
+}</code></pre>
 <p>We managed to extract the reusable parts to common base items leaving the actual products clean and simple.</p>
 <p>Unfortunately, item inheritance comes with a price - when both parent and child items set the same property (<a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#defines-prop" translate="no">cpp.defines</a> in our case), the value in the child item wins. To work around this, the special <a href="https://qbs.io/

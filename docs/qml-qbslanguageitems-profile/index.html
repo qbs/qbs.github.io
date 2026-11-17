@@ -43,7 +43,45 @@ name : string
 
 
 Detailed Description
-The profiles used by Qbs are normally set up on a user&#39;s machine and are then available to all projects. See Configuring Profiles and Preferences for information on how to set up and use profiles on the command line. In some rare cases, however, the creator of a project has complete knowledge about the system on which that project is to be built. Then it can make sense to integrate the profile into the project: ">
+The profiles used by Qbs are normally set up on a user&#39;s machine and are then available to all projects. See Configuring Profiles and Preferences for information on how to set up and use profiles on the command line. In some rare cases, however, the creator of a project has complete knowledge about the system on which that project is to be built. Then it can make sense to integrate the profile into the project:
+Product {
+    // ...
+    Profile {
+        name: &#34;my-special-profile&#34;
+        qbs.toolchainType: &#34;gcc&#34;
+        qbs.targetPlatform: &#34;linux&#34;
+        qbs.architecture: &#34;armv7a&#34;
+        cpp.toolchainInstallPath: &#34;/opt/special-gcc/bin&#34;
+        cpp.toolchainPrefix: &#34;arm-linux-gnueabi-&#34;
+    }
+    qbs.profiles: [&#34;my-special-profile&#34;]
+    // ...
+}
+The project in the above example can be built in a particular well-known environment without any additional setup.
+Profile items can appear inside Product and Project items.
+
+Property Documentation
+
+baseProfile : string
+The name of a profile from which this profile inherits. If the same property is set in both this profile and the base profile, the value from this profile takes precedence.
+Default: Undefined
+
+
+condition : bool
+Determines whether this profile can be used.
+If this property is set to false, the profile cannot be used.
+Default: true
+
+
+name : string
+The name under which the profile can be referenced later. Setting this property is required. The value must be unique among all profiles in an entire project.
+Default: Undefined
+
+
+Product
+Project
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbslanguageitems-profile/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -53,14 +91,24 @@ The profiles used by Qbs are normally set up on a user&#39;s machine and are the
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-profile/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual QbsLanguageItems Profile Qbs 3.4.0 Product Project Contents Properties Detailed Description Profile Creates a profile within the project. More...
-List of all members, including inherited members Profile is part of List of All Items. Properties baseProfile : string condition : bool name : string Detailed Description The profiles used by Qbs are normally set up on a user&#39;s machine and are then available to all projects. See Configuring Profiles and Preferences for information on how to set up and use profiles on the command line. In some rare cases, however, the creator of a project has complete knowledge about the system on which that project is to be built. Then it can make sense to integrate the profile into the project:">
+List of all members, including inherited members Profile is part of List of All Items. Properties baseProfile : string condition : bool name : string Detailed Description The profiles used by Qbs are normally set up on a user&#39;s machine and are then available to all projects. See Configuring Profiles and Preferences for information on how to set up and use profiles on the command line. In some rare cases, however, the creator of a project has complete knowledge about the system on which that project is to be built. Then it can make sense to integrate the profile into the project:
+Product { // ... Profile { name: &#34;my-special-profile&#34; qbs.toolchainType: &#34;gcc&#34; qbs.targetPlatform: &#34;linux&#34; qbs.architecture: &#34;armv7a&#34; cpp.toolchainInstallPath: &#34;/opt/special-gcc/bin&#34; cpp.toolchainPrefix: &#34;arm-linux-gnueabi-&#34; } qbs.profiles: [&#34;my-special-profile&#34;] // ... } The project in the above example can be built in a particular well-known environment without any additional setup.
+Profile items can appear inside Product and Project items.
+Property Documentation baseProfile : string The name of a profile from which this profile inherits. If the same property is set in both this profile and the base profile, the value from this profile takes precedence.
+Default: Undefined
+condition : bool Determines whether this profile can be used.
+If this property is set to false, the profile cannot be used.
+Default: true
+name : string The name under which the profile can be referenced later. Setting this property is required. The value must be unique among all profiles in an entire project.
+Default: Undefined
+Product Project">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -69,7 +117,17 @@ List of all members, including inherited members Profile is part of List of All 
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual QbsLanguageItems Profile Qbs 3.4.0 Product Project Contents Properties Detailed Description Profile Creates a profile within the project. More...
-List of all members, including inherited members Profile is part of List of All Items. Properties baseProfile : string condition : bool name : string Detailed Description The profiles used by Qbs are normally set up on a user&#39;s machine and are then available to all projects. See Configuring Profiles and Preferences for information on how to set up and use profiles on the command line. In some rare cases, however, the creator of a project has complete knowledge about the system on which that project is to be built. Then it can make sense to integrate the profile into the project:">
+List of all members, including inherited members Profile is part of List of All Items. Properties baseProfile : string condition : bool name : string Detailed Description The profiles used by Qbs are normally set up on a user&#39;s machine and are then available to all projects. See Configuring Profiles and Preferences for information on how to set up and use profiles on the command line. In some rare cases, however, the creator of a project has complete knowledge about the system on which that project is to be built. Then it can make sense to integrate the profile into the project:
+Product { // ... Profile { name: &#34;my-special-profile&#34; qbs.toolchainType: &#34;gcc&#34; qbs.targetPlatform: &#34;linux&#34; qbs.architecture: &#34;armv7a&#34; cpp.toolchainInstallPath: &#34;/opt/special-gcc/bin&#34; cpp.toolchainPrefix: &#34;arm-linux-gnueabi-&#34; } qbs.profiles: [&#34;my-special-profile&#34;] // ... } The project in the above example can be built in a particular well-known environment without any additional setup.
+Profile items can appear inside Product and Project items.
+Property Documentation baseProfile : string The name of a profile from which this profile inherits. If the same property is set in both this profile and the base profile, the value from this profile takes precedence.
+Default: Undefined
+condition : bool Determines whether this profile can be used.
+If this property is set to false, the profile cannot be used.
+Default: true
+name : string The name under which the profile can be referenced later. Setting this property is required. The value must be unique among all profiles in an entire project.
+Default: Undefined
+Product Project">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -154,7 +212,7 @@ List of all members, including inherited members Profile is part of List of All 
 <h2 id="details">Detailed Description</h2>
 <p>The profiles used by Qbs are normally set up on a user's machine and are then available to all projects. See <a href="https://qbs.io/
 /docs/configuring/">Configuring Profiles and Preferences</a> for information on how to set up and use profiles on the command line. In some rare cases, however, the creator of a project has complete knowledge about the system on which that project is to be built. Then it can make sense to integrate the profile into the project:</p>
-<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
+<pre class="cpp" translate="no"><code class="cpp"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/" translate="no">Product</a></span> {
     <span class="comment">// ...</span>
     <span class="type"><a href="https://qbs.io/
@@ -168,7 +226,7 @@ List of all members, including inherited members Profile is part of List of All 
     }
     <span class="name">qbs.profiles</span>: [<span class="string">"my-special-profile"</span>]
     <span class="comment">// ...</span>
-}</pre>
+}</code></pre>
 <p>The project in the above example can be built in a particular well-known environment without any additional setup.</p>
 <p><code translate="no">Profile</code> items can appear inside <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/" translate="no">Product</a> and <a href="https://qbs.io/

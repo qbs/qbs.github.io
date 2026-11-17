@@ -33,7 +33,20 @@ FrameworkProbe is part of List of All Items.
 
 Detailed Description
 Finds macOS frameworks that have the specified file names.
-By default, FrameworkProbe searches for frameworks in ~/Library/Frameworks, /usr/local/lib, /Library/Frameworks, and in /System/Library/Frameworks. ">
+By default, FrameworkProbe searches for frameworks in ~/Library/Frameworks, /usr/local/lib, /Library/Frameworks, and in /System/Library/Frameworks.
+Also, if qbs.sysroot is specified (for example, when compiling using XCode SDK), the probe searches in the sysroot/System/Library/Frameworks folder first.
+For example, a simple FrameworkProbe that searches for the Foundation framework can be used as follows:
+import qbs.Probes
+Product {
+    Depends { name: &#34;cpp&#34;; }
+    Probes.FrameworkProbe {
+        id: foundationProbe
+        names: [&#34;Foundation&#34;]
+    }
+    cpp.frameworkPaths: foundationProbe.found ? [foundationProbe.path] : []
+}
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsprobes-frameworkprobe/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -43,7 +56,7 @@ By default, FrameworkProbe searches for frameworks in ~/Library/Frameworks, /usr
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsprobes-frameworkprobe/">
@@ -52,7 +65,10 @@ By default, FrameworkProbe searches for frameworks in ~/Library/Frameworks, /usr
 	<meta property="og:description" content="Qbs Manual QbsProbes FrameworkProbe Qbs 3.4.0 Contents Detailed Description FrameworkProbe Locates macOS frameworks outside the project. More...
 Inherits: PathProbe
 List of all members, including inherited members FrameworkProbe is part of List of All Items. Detailed Description Finds macOS frameworks that have the specified file names.
-By default, FrameworkProbe searches for frameworks in ~/Library/Frameworks, /usr/local/lib, /Library/Frameworks, and in /System/Library/Frameworks.">
+By default, FrameworkProbe searches for frameworks in ~/Library/Frameworks, /usr/local/lib, /Library/Frameworks, and in /System/Library/Frameworks.
+Also, if qbs.sysroot is specified (for example, when compiling using XCode SDK), the probe searches in the sysroot/System/Library/Frameworks folder first.
+For example, a simple FrameworkProbe that searches for the Foundation framework can be used as follows:
+import qbs.Probes Product { Depends { name: &#34;cpp&#34;; } Probes.FrameworkProbe { id: foundationProbe names: [&#34;Foundation&#34;] } cpp.frameworkPaths: foundationProbe.found ? [foundationProbe.path] : [] }">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -63,7 +79,10 @@ By default, FrameworkProbe searches for frameworks in ~/Library/Frameworks, /usr
 	<meta name="twitter:description" content="Qbs Manual QbsProbes FrameworkProbe Qbs 3.4.0 Contents Detailed Description FrameworkProbe Locates macOS frameworks outside the project. More...
 Inherits: PathProbe
 List of all members, including inherited members FrameworkProbe is part of List of All Items. Detailed Description Finds macOS frameworks that have the specified file names.
-By default, FrameworkProbe searches for frameworks in ~/Library/Frameworks, /usr/local/lib, /Library/Frameworks, and in /System/Library/Frameworks.">
+By default, FrameworkProbe searches for frameworks in ~/Library/Frameworks, /usr/local/lib, /Library/Frameworks, and in /System/Library/Frameworks.
+Also, if qbs.sysroot is specified (for example, when compiling using XCode SDK), the probe searches in the sysroot/System/Library/Frameworks folder first.
+For example, a simple FrameworkProbe that searches for the Foundation framework can be used as follows:
+import qbs.Probes Product { Depends { name: &#34;cpp&#34;; } Probes.FrameworkProbe { id: foundationProbe names: [&#34;Foundation&#34;] } cpp.frameworkPaths: foundationProbe.found ? [foundationProbe.path] : [] }">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -134,7 +153,7 @@ By default, FrameworkProbe searches for frameworks in ~/Library/Frameworks, /usr
 <p>Also, if <a href="https://qbs.io/
 /docs/qml-qbsmodules-qbs/#sysroot-prop" translate="no">qbs.sysroot</a> is specified (for example, when compiling using XCode SDK), the probe searches in the <code translate="no">sysroot/System/Library/Frameworks</code> folder first.</p>
 <p>For example, a simple FrameworkProbe that searches for the Foundation framework can be used as follows:</p>
-<pre class="cpp" translate="no">import qbs.Probes
+<pre class="cpp" translate="no"><code class="cpp">import qbs.Probes
 <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/" translate="no">Product</a></span> {
     <span class="type"><a href="https://qbs.io/
@@ -145,7 +164,7 @@ By default, FrameworkProbe searches for frameworks in ~/Library/Frameworks, /usr
         <span class="name">names</span>: [<span class="string">"Foundation"</span>]
     }
     <span class="name">cpp.frameworkPaths</span>: <span class="name">foundationProbe</span>.<span class="name">found</span> ? [<span class="name">foundationProbe</span>.<span class="name">path</span>] : []
-}</pre>
+}</code></pre>
 <!-- @@@FrameworkProbe -->
 </div>
 

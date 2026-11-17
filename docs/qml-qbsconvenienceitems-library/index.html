@@ -51,7 +51,63 @@ installImportLib : bool (since Qbs 1.13)
 
 
 Detailed Description
-A Library item is a base item for native libraries and can have type set to one of the following values: &#34;dynamiclibrary&#34;, &#34;staticlibrary&#34;, &#34;objectlibrary&#34;, &#34;loadablemodule&#34;. ">
+A Library item is a base item for native libraries and can have type set to one of the following values: &#34;dynamiclibrary&#34;, &#34;staticlibrary&#34;, &#34;objectlibrary&#34;, &#34;loadablemodule&#34;.
+The default type value is &#34;dynamiclibrary&#34; except for iOS prior to version 8, in which case the default value is &#34;staticlibrary&#34;.
+This item can automatically install the library target (and library symlinks on Unix) and separated debug information.
+For Android targets, the following applies:
+
+The Product.type property value contains &#34;android.nativelibrary&#34; in addition to &#34;dynamiclibrary&#34;.
+There is a dependency on the cpp and Android.ndk modules.
+
+
+Property Documentation
+
+debugInformationInstallDir : string [since Qbs 1.16]
+Where to install the debug information if installDebugInformation is enabled.
+The value is appended to qbs.installPrefix when constructing the actual installation directory.
+Default: installDir.
+This property was introduced in Qbs 1.16.
+See also How do I separate and install debugging symbols?.
+
+
+importLibInstallDir : string [since Qbs 1.13]
+Where to install the import library, if installImportLib is enabled.
+The value is appended to qbs.installPrefix when constructing the actual installation directory.
+This property is only relevant for Windows targets.
+Default: lib
+This property was introduced in Qbs 1.13.
+
+
+install : bool [since Qbs 1.13]
+If true, the library will be installed to installDir.
+Default: false
+This property was introduced in Qbs 1.13.
+
+
+installDebugInformation : bool [since Qbs 1.16]
+If true, the debug information will be installed to debugInformationInstallDir.
+Default: false
+This property was introduced in Qbs 1.16.
+See also How do I separate and install debugging symbols?.
+
+
+installDir : string [since Qbs 1.13]
+Where to install the library, if install is enabled. On Unix, the symbolic links are also installed to this location.
+The value is appended to qbs.installPrefix when constructing the actual installation directory.
+Default: Library/Frameworks if the library is a bundle, otherwise bin for Windows and lib for Unix-like targets.
+This property was introduced in Qbs 1.13.
+
+
+installImportLib : bool [since Qbs 1.13]
+If true, the import library will be installed to importLibInstallDir. This property is only relevant for Windows targets. Enable it if you want to create a development package.
+Default: false
+This property was introduced in Qbs 1.13.
+
+
+JavaJarFile
+LoadableModule
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsconvenienceitems-library/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -61,7 +117,7 @@ A Library item is a base item for native libraries and can have type set to one 
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsconvenienceitems-library/">
@@ -70,7 +126,35 @@ A Library item is a base item for native libraries and can have type set to one 
 	<meta property="og:description" content="Qbs Manual QbsConvenienceItems Library Qbs 3.4.0 JavaJarFile LoadableModule Contents Properties Detailed Description Library Generic library. More...
 Since: Qbs 1.4 Inherits: Product
 Inherited By: CppLibrary, CppStd, DynamicLibrary, LoadableModule, ObjectLibrary, Plugin, QmlModule, and StaticLibrary
-List of all members, including inherited members Library is part of List of All Items. Properties debugInformationInstallDir : string (since Qbs 1.16) importLibInstallDir : string (since Qbs 1.13) install : bool (since Qbs 1.13) installDebugInformation : bool (since Qbs 1.16) installDir : string (since Qbs 1.13) installImportLib : bool (since Qbs 1.13) Detailed Description A Library item is a base item for native libraries and can have type set to one of the following values: &#34;dynamiclibrary&#34;, &#34;staticlibrary&#34;, &#34;objectlibrary&#34;, &#34;loadablemodule&#34;.">
+List of all members, including inherited members Library is part of List of All Items. Properties debugInformationInstallDir : string (since Qbs 1.16) importLibInstallDir : string (since Qbs 1.13) install : bool (since Qbs 1.13) installDebugInformation : bool (since Qbs 1.16) installDir : string (since Qbs 1.13) installImportLib : bool (since Qbs 1.13) Detailed Description A Library item is a base item for native libraries and can have type set to one of the following values: &#34;dynamiclibrary&#34;, &#34;staticlibrary&#34;, &#34;objectlibrary&#34;, &#34;loadablemodule&#34;.
+The default type value is &#34;dynamiclibrary&#34; except for iOS prior to version 8, in which case the default value is &#34;staticlibrary&#34;.
+This item can automatically install the library target (and library symlinks on Unix) and separated debug information.
+For Android targets, the following applies:
+The Product.type property value contains &#34;android.nativelibrary&#34; in addition to &#34;dynamiclibrary&#34;. There is a dependency on the cpp and Android.ndk modules. Property Documentation debugInformationInstallDir : string [since Qbs 1.16] Where to install the debug information if installDebugInformation is enabled.
+The value is appended to qbs.installPrefix when constructing the actual installation directory.
+Default: installDir.
+This property was introduced in Qbs 1.16.
+See also How do I separate and install debugging symbols?.
+importLibInstallDir : string [since Qbs 1.13] Where to install the import library, if installImportLib is enabled.
+The value is appended to qbs.installPrefix when constructing the actual installation directory.
+This property is only relevant for Windows targets.
+Default: lib
+This property was introduced in Qbs 1.13.
+install : bool [since Qbs 1.13] If true, the library will be installed to installDir.
+Default: false
+This property was introduced in Qbs 1.13.
+installDebugInformation : bool [since Qbs 1.16] If true, the debug information will be installed to debugInformationInstallDir.
+Default: false
+This property was introduced in Qbs 1.16.
+See also How do I separate and install debugging symbols?.
+installDir : string [since Qbs 1.13] Where to install the library, if install is enabled. On Unix, the symbolic links are also installed to this location.
+The value is appended to qbs.installPrefix when constructing the actual installation directory.
+Default: Library/Frameworks if the library is a bundle, otherwise bin for Windows and lib for Unix-like targets.
+This property was introduced in Qbs 1.13.
+installImportLib : bool [since Qbs 1.13] If true, the import library will be installed to importLibInstallDir. This property is only relevant for Windows targets. Enable it if you want to create a development package.
+Default: false
+This property was introduced in Qbs 1.13.
+JavaJarFile LoadableModule">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -81,7 +165,35 @@ List of all members, including inherited members Library is part of List of All 
 	<meta name="twitter:description" content="Qbs Manual QbsConvenienceItems Library Qbs 3.4.0 JavaJarFile LoadableModule Contents Properties Detailed Description Library Generic library. More...
 Since: Qbs 1.4 Inherits: Product
 Inherited By: CppLibrary, CppStd, DynamicLibrary, LoadableModule, ObjectLibrary, Plugin, QmlModule, and StaticLibrary
-List of all members, including inherited members Library is part of List of All Items. Properties debugInformationInstallDir : string (since Qbs 1.16) importLibInstallDir : string (since Qbs 1.13) install : bool (since Qbs 1.13) installDebugInformation : bool (since Qbs 1.16) installDir : string (since Qbs 1.13) installImportLib : bool (since Qbs 1.13) Detailed Description A Library item is a base item for native libraries and can have type set to one of the following values: &#34;dynamiclibrary&#34;, &#34;staticlibrary&#34;, &#34;objectlibrary&#34;, &#34;loadablemodule&#34;.">
+List of all members, including inherited members Library is part of List of All Items. Properties debugInformationInstallDir : string (since Qbs 1.16) importLibInstallDir : string (since Qbs 1.13) install : bool (since Qbs 1.13) installDebugInformation : bool (since Qbs 1.16) installDir : string (since Qbs 1.13) installImportLib : bool (since Qbs 1.13) Detailed Description A Library item is a base item for native libraries and can have type set to one of the following values: &#34;dynamiclibrary&#34;, &#34;staticlibrary&#34;, &#34;objectlibrary&#34;, &#34;loadablemodule&#34;.
+The default type value is &#34;dynamiclibrary&#34; except for iOS prior to version 8, in which case the default value is &#34;staticlibrary&#34;.
+This item can automatically install the library target (and library symlinks on Unix) and separated debug information.
+For Android targets, the following applies:
+The Product.type property value contains &#34;android.nativelibrary&#34; in addition to &#34;dynamiclibrary&#34;. There is a dependency on the cpp and Android.ndk modules. Property Documentation debugInformationInstallDir : string [since Qbs 1.16] Where to install the debug information if installDebugInformation is enabled.
+The value is appended to qbs.installPrefix when constructing the actual installation directory.
+Default: installDir.
+This property was introduced in Qbs 1.16.
+See also How do I separate and install debugging symbols?.
+importLibInstallDir : string [since Qbs 1.13] Where to install the import library, if installImportLib is enabled.
+The value is appended to qbs.installPrefix when constructing the actual installation directory.
+This property is only relevant for Windows targets.
+Default: lib
+This property was introduced in Qbs 1.13.
+install : bool [since Qbs 1.13] If true, the library will be installed to installDir.
+Default: false
+This property was introduced in Qbs 1.13.
+installDebugInformation : bool [since Qbs 1.16] If true, the debug information will be installed to debugInformationInstallDir.
+Default: false
+This property was introduced in Qbs 1.16.
+See also How do I separate and install debugging symbols?.
+installDir : string [since Qbs 1.13] Where to install the library, if install is enabled. On Unix, the symbolic links are also installed to this location.
+The value is appended to qbs.installPrefix when constructing the actual installation directory.
+Default: Library/Frameworks if the library is a bundle, otherwise bin for Windows and lib for Unix-like targets.
+This property was introduced in Qbs 1.13.
+installImportLib : bool [since Qbs 1.13] If true, the import library will be installed to importLibInstallDir. This property is only relevant for Windows targets. Enable it if you want to create a development package.
+Default: false
+This property was introduced in Qbs 1.13.
+JavaJarFile LoadableModule">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">

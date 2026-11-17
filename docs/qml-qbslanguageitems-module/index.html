@@ -54,7 +54,174 @@ version : string
 
 
 Detailed Description
-A Module item is a collection of properties and language items. It contributes to building a product if the product has a dependency on the module. Modules may contain the following items: ">
+A Module item is a collection of properties and language items. It contributes to building a product if the product has a dependency on the module. Modules may contain the following items:
+
+Depends
+FileTagger
+Group
+JobLimit
+Parameter
+Probe
+PropertyOptions
+Rule
+Scanner
+
+When a product expresses a dependency on a module, Qbs will create an instance of the module item in the scope of the product. The product can then read and write properties from and to the loaded module, respectively.
+Modules in different products are isolated from each other, just as products cannot access each other&#39;s properties. However, products can use the Export item to pass dependencies and properties of modules to other dependent products.
+The following (somewhat artificial) module pre-processes text files by removing certain characters from them. The module&#39;s name is txt_processor.
+import qbs.FileInfo
+import qbs.TextFile
+
+Module {
+    property stringList unwantedCharacters: []
+
+    FileTagger {
+        patterns: [&#34;*.raw&#34;]
+        fileTags: [&#34;raw-txt&#34;]
+    }
+
+    Rule {
+        inputs: [&#34;raw-txt&#34;]
+
+        Artifact {
+            filePath: FileInfo.relativePath(input.filePath, product.sourceDirectory) &#43;
+                       &#34;/&#34; &#43; input.fileName &#43; &#34;.processed&#34;
+            fileTags: [&#34;processed-txt&#34;]
+        }
+
+        prepare: {
+            var cmd = new JavaScriptCommand();
+            cmd.description = &#34;Processing &#34; &#43; input.fileName;
+            cmd.sourceCode = function() {
+                var inFile = new TextFile(input.filePath, TextFile.ReadOnly);
+                var content = inFile.readAll();
+                inFile.close();
+                var unwantedChars = input.txt_processor.unwantedCharacters;
+                for (var c in unwantedChars)
+                    content = content.replace(unwantedChars[c], &#34;&#34;);
+                var outFile = new TextFile(output.filePath, TextFile.WriteOnly);
+                outFile.write(content);
+                outFile.close();
+            };
+            return cmd;
+        }
+    }
+}
+And this is how a Product would use the module:
+Product {
+    type: &#34;processed-txt&#34;
+    Depends { name: &#34;txt_processor&#34; }
+    txt_processor.unwantedCharacters: [&#34;\r&#34;]
+    files: [
+        &#34;file1.raw&#34;,
+        &#34;file2.raw&#34;
+    ]
+}
+The resulting files are tagged with processed-txt and might be consumed by a rule in another module. That is possible if another rule has processed-txt in its inputs property.
+For more information about how you make your own modules available to Qbs, see Custom Modules and Items.
+Accessing Product and Module Properties
+When defining a property in a module item, the right-hand side expression is a binding. Bindings may reference other properties of:
+
+the current module
+other modules that this module depends on
+the dependent product
+
+Please note that this applies to bindings in modules only. Property access in rules and other nested items is different.
+Accessing Properties of the Current Module
+Sibling properties in the same module can be accessed directly by their name:
+Module {
+    property stringList windowsDefaults: [&#34;\r&#34;]
+    property stringList unwantedCharacters: windowsDefaults
+}
+Properties of the Dependent Modules
+When a module loads another module through a Depends element, it can access properties of the other module through its name. Assuming there was a module OtherModule with a property otherProperty, such an access would look like this:
+Module {
+    Depends { name: &#34;OtherModule&#34; }
+    property string myProperty: &#34;something-&#34; &#43; OtherModule.otherProperty
+}
+Accessing Properties of the Dependent Product
+Module {
+    property bool featureEnabled:
+            (product.type.includes(&#34;application&#34;)) ?  true : false
+}
+Special Property Values
+For every property defined in a module, Qbs provides the special original value containing the value of the property in the module itself (possibly overridden from a profile).
+Dependency Parameters
+Modules can declare dependency parameters. Those parameters can be set within Depends items. Rules of the module can read the parameters of dependencies and act accordingly.
+In the following example, the module foo declares the parameter ignore. A dependency to bar then sets the parameter foo.ignore to true. A rule in foo ignores all dependencies that have foo.ignore set to true.
+Module {    // Definition of module &#39;foo&#39;.
+    Parameter { property bool ignore }
+    Rule {
+        ...
+        prepare: {
+            for (i in product.dependencies) {
+                var dep = product.dependencies[i];
+                if (dep.foo.ignore)
+                    continue;
+                // Do something with the dependency.
+            }
+        }
+    }
+    ...
+}
+----------
+Product {
+    Depends { name: &#34;foo&#34; }
+    Depends { name: &#34;bar&#34;; foo.ignore: true }
+}
+
+Property Documentation
+
+additionalProductTypes : stringList
+A list of elements that will be added to the type property of a product that has a dependency on the module.
+Default: []
+
+
+condition : bool
+Whether the module is enabled. If this property is false, the surrounding Module item will not be considered in the module look-up.
+Default: true
+
+
+present : bool [read-only]
+This property is false if and only if the respective Depends item had its required property set to false and the module was not found.
+Default: true
+
+
+priority : int
+The priority of this module instance. If there is more than one module instance available for a module name, the module with the highest priority is chosen.
+Default: 0
+
+
+setupBuildEnvironment : script
+A script for setting up the environment in which a product is built.
+The code in this script is treated as a function with the signature function(project, product).
+Use the Environment functions to alter the environment.
+The return value of this script is ignored.
+Default: Undefined
+
+
+setupRunEnvironment : script
+A script for setting up the environment in which a product is run.
+The code in this script is treated as a function with the signature function(project, product, config).
+The config parameter is a list of arbitrary strings that can be passed via the run command. The values supported by specific modules are listed in their respective documentation.
+Use the Environment functions to alter the environment.
+The return value of this script is ignored.
+Default: Undefined
+
+
+validate : script
+A script that is run after the module is loaded. It can be used to check property values and throw errors in unexpected cases. The return value is ignored.
+Default: Undefined
+
+
+version : string
+The module&#39;s version. It consists of integer values separated by dots. You can check for specific values of this property in a Depends item.
+
+
+JobLimit
+ModuleProvider
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbslanguageitems-module/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -64,14 +231,50 @@ A Module item is a collection of properties and language items. It contributes t
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-module/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual QbsLanguageItems Module Qbs 3.4.0 JobLimit ModuleProvider Contents Properties Detailed Description Accessing Product and Module Properties Accessing Properties of the Current Module Properties of the Dependent Modules Accessing Properties of the Dependent Product Special Property Values Dependency Parameters Module Represents a collection of properties and items that can be loaded into a product. More...
-List of all members, including inherited members Module is part of List of All Items. Properties additionalProductTypes : stringList condition : bool present : bool priority : int setupBuildEnvironment : script setupRunEnvironment : script validate : script version : string Detailed Description A Module item is a collection of properties and language items. It contributes to building a product if the product has a dependency on the module. Modules may contain the following items:">
+List of all members, including inherited members Module is part of List of All Items. Properties additionalProductTypes : stringList condition : bool present : bool priority : int setupBuildEnvironment : script setupRunEnvironment : script validate : script version : string Detailed Description A Module item is a collection of properties and language items. It contributes to building a product if the product has a dependency on the module. Modules may contain the following items:
+Depends FileTagger Group JobLimit Parameter Probe PropertyOptions Rule Scanner When a product expresses a dependency on a module, Qbs will create an instance of the module item in the scope of the product. The product can then read and write properties from and to the loaded module, respectively.
+Modules in different products are isolated from each other, just as products cannot access each other&#39;s properties. However, products can use the Export item to pass dependencies and properties of modules to other dependent products.
+The following (somewhat artificial) module pre-processes text files by removing certain characters from them. The module&#39;s name is txt_processor.
+import qbs.FileInfo import qbs.TextFile Module { property stringList unwantedCharacters: [] FileTagger { patterns: [&#34;*.raw&#34;] fileTags: [&#34;raw-txt&#34;] } Rule { inputs: [&#34;raw-txt&#34;] Artifact { filePath: FileInfo.relativePath(input.filePath, product.sourceDirectory) &#43; &#34;/&#34; &#43; input.fileName &#43; &#34;.processed&#34; fileTags: [&#34;processed-txt&#34;] } prepare: { var cmd = new JavaScriptCommand(); cmd.description = &#34;Processing &#34; &#43; input.fileName; cmd.sourceCode = function() { var inFile = new TextFile(input.filePath, TextFile.ReadOnly); var content = inFile.readAll(); inFile.close(); var unwantedChars = input.txt_processor.unwantedCharacters; for (var c in unwantedChars) content = content.replace(unwantedChars[c], &#34;&#34;); var outFile = new TextFile(output.filePath, TextFile.WriteOnly); outFile.write(content); outFile.close(); }; return cmd; } } } And this is how a Product would use the module:
+Product { type: &#34;processed-txt&#34; Depends { name: &#34;txt_processor&#34; } txt_processor.unwantedCharacters: [&#34;\r&#34;] files: [ &#34;file1.raw&#34;, &#34;file2.raw&#34; ] } The resulting files are tagged with processed-txt and might be consumed by a rule in another module. That is possible if another rule has processed-txt in its inputs property.
+For more information about how you make your own modules available to Qbs, see Custom Modules and Items.
+Accessing Product and Module Properties When defining a property in a module item, the right-hand side expression is a binding. Bindings may reference other properties of:
+the current module other modules that this module depends on the dependent product Please note that this applies to bindings in modules only. Property access in rules and other nested items is different.
+Accessing Properties of the Current Module Sibling properties in the same module can be accessed directly by their name:
+Module { property stringList windowsDefaults: [&#34;\r&#34;] property stringList unwantedCharacters: windowsDefaults } Properties of the Dependent Modules When a module loads another module through a Depends element, it can access properties of the other module through its name. Assuming there was a module OtherModule with a property otherProperty, such an access would look like this:
+Module { Depends { name: &#34;OtherModule&#34; } property string myProperty: &#34;something-&#34; &#43; OtherModule.otherProperty } Accessing Properties of the Dependent Product Module { property bool featureEnabled: (product.type.includes(&#34;application&#34;)) ? true : false } Special Property Values For every property defined in a module, Qbs provides the special original value containing the value of the property in the module itself (possibly overridden from a profile).
+Dependency Parameters Modules can declare dependency parameters. Those parameters can be set within Depends items. Rules of the module can read the parameters of dependencies and act accordingly.
+In the following example, the module foo declares the parameter ignore. A dependency to bar then sets the parameter foo.ignore to true. A rule in foo ignores all dependencies that have foo.ignore set to true.
+Module { // Definition of module &#39;foo&#39;. Parameter { property bool ignore } Rule { ... prepare: { for (i in product.dependencies) { var dep = product.dependencies[i]; if (dep.foo.ignore) continue; // Do something with the dependency. } } } ... } ---------- Product { Depends { name: &#34;foo&#34; } Depends { name: &#34;bar&#34;; foo.ignore: true } } Property Documentation additionalProductTypes : stringList A list of elements that will be added to the type property of a product that has a dependency on the module.
+Default: []
+condition : bool Whether the module is enabled. If this property is false, the surrounding Module item will not be considered in the module look-up.
+Default: true
+present : bool [read-only] This property is false if and only if the respective Depends item had its required property set to false and the module was not found.
+Default: true
+priority : int The priority of this module instance. If there is more than one module instance available for a module name, the module with the highest priority is chosen.
+Default: 0
+setupBuildEnvironment : script A script for setting up the environment in which a product is built.
+The code in this script is treated as a function with the signature function(project, product).
+Use the Environment functions to alter the environment.
+The return value of this script is ignored.
+Default: Undefined
+setupRunEnvironment : script A script for setting up the environment in which a product is run.
+The code in this script is treated as a function with the signature function(project, product, config).
+The config parameter is a list of arbitrary strings that can be passed via the run command. The values supported by specific modules are listed in their respective documentation.
+Use the Environment functions to alter the environment.
+The return value of this script is ignored.
+Default: Undefined
+validate : script A script that is run after the module is loaded. It can be used to check property values and throw errors in unexpected cases. The return value is ignored.
+Default: Undefined
+version : string The module&#39;s version. It consists of integer values separated by dots. You can check for specific values of this property in a Depends item.
+JobLimit ModuleProvider">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -80,7 +283,43 @@ List of all members, including inherited members Module is part of List of All I
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual QbsLanguageItems Module Qbs 3.4.0 JobLimit ModuleProvider Contents Properties Detailed Description Accessing Product and Module Properties Accessing Properties of the Current Module Properties of the Dependent Modules Accessing Properties of the Dependent Product Special Property Values Dependency Parameters Module Represents a collection of properties and items that can be loaded into a product. More...
-List of all members, including inherited members Module is part of List of All Items. Properties additionalProductTypes : stringList condition : bool present : bool priority : int setupBuildEnvironment : script setupRunEnvironment : script validate : script version : string Detailed Description A Module item is a collection of properties and language items. It contributes to building a product if the product has a dependency on the module. Modules may contain the following items:">
+List of all members, including inherited members Module is part of List of All Items. Properties additionalProductTypes : stringList condition : bool present : bool priority : int setupBuildEnvironment : script setupRunEnvironment : script validate : script version : string Detailed Description A Module item is a collection of properties and language items. It contributes to building a product if the product has a dependency on the module. Modules may contain the following items:
+Depends FileTagger Group JobLimit Parameter Probe PropertyOptions Rule Scanner When a product expresses a dependency on a module, Qbs will create an instance of the module item in the scope of the product. The product can then read and write properties from and to the loaded module, respectively.
+Modules in different products are isolated from each other, just as products cannot access each other&#39;s properties. However, products can use the Export item to pass dependencies and properties of modules to other dependent products.
+The following (somewhat artificial) module pre-processes text files by removing certain characters from them. The module&#39;s name is txt_processor.
+import qbs.FileInfo import qbs.TextFile Module { property stringList unwantedCharacters: [] FileTagger { patterns: [&#34;*.raw&#34;] fileTags: [&#34;raw-txt&#34;] } Rule { inputs: [&#34;raw-txt&#34;] Artifact { filePath: FileInfo.relativePath(input.filePath, product.sourceDirectory) &#43; &#34;/&#34; &#43; input.fileName &#43; &#34;.processed&#34; fileTags: [&#34;processed-txt&#34;] } prepare: { var cmd = new JavaScriptCommand(); cmd.description = &#34;Processing &#34; &#43; input.fileName; cmd.sourceCode = function() { var inFile = new TextFile(input.filePath, TextFile.ReadOnly); var content = inFile.readAll(); inFile.close(); var unwantedChars = input.txt_processor.unwantedCharacters; for (var c in unwantedChars) content = content.replace(unwantedChars[c], &#34;&#34;); var outFile = new TextFile(output.filePath, TextFile.WriteOnly); outFile.write(content); outFile.close(); }; return cmd; } } } And this is how a Product would use the module:
+Product { type: &#34;processed-txt&#34; Depends { name: &#34;txt_processor&#34; } txt_processor.unwantedCharacters: [&#34;\r&#34;] files: [ &#34;file1.raw&#34;, &#34;file2.raw&#34; ] } The resulting files are tagged with processed-txt and might be consumed by a rule in another module. That is possible if another rule has processed-txt in its inputs property.
+For more information about how you make your own modules available to Qbs, see Custom Modules and Items.
+Accessing Product and Module Properties When defining a property in a module item, the right-hand side expression is a binding. Bindings may reference other properties of:
+the current module other modules that this module depends on the dependent product Please note that this applies to bindings in modules only. Property access in rules and other nested items is different.
+Accessing Properties of the Current Module Sibling properties in the same module can be accessed directly by their name:
+Module { property stringList windowsDefaults: [&#34;\r&#34;] property stringList unwantedCharacters: windowsDefaults } Properties of the Dependent Modules When a module loads another module through a Depends element, it can access properties of the other module through its name. Assuming there was a module OtherModule with a property otherProperty, such an access would look like this:
+Module { Depends { name: &#34;OtherModule&#34; } property string myProperty: &#34;something-&#34; &#43; OtherModule.otherProperty } Accessing Properties of the Dependent Product Module { property bool featureEnabled: (product.type.includes(&#34;application&#34;)) ? true : false } Special Property Values For every property defined in a module, Qbs provides the special original value containing the value of the property in the module itself (possibly overridden from a profile).
+Dependency Parameters Modules can declare dependency parameters. Those parameters can be set within Depends items. Rules of the module can read the parameters of dependencies and act accordingly.
+In the following example, the module foo declares the parameter ignore. A dependency to bar then sets the parameter foo.ignore to true. A rule in foo ignores all dependencies that have foo.ignore set to true.
+Module { // Definition of module &#39;foo&#39;. Parameter { property bool ignore } Rule { ... prepare: { for (i in product.dependencies) { var dep = product.dependencies[i]; if (dep.foo.ignore) continue; // Do something with the dependency. } } } ... } ---------- Product { Depends { name: &#34;foo&#34; } Depends { name: &#34;bar&#34;; foo.ignore: true } } Property Documentation additionalProductTypes : stringList A list of elements that will be added to the type property of a product that has a dependency on the module.
+Default: []
+condition : bool Whether the module is enabled. If this property is false, the surrounding Module item will not be considered in the module look-up.
+Default: true
+present : bool [read-only] This property is false if and only if the respective Depends item had its required property set to false and the module was not found.
+Default: true
+priority : int The priority of this module instance. If there is more than one module instance available for a module name, the module with the highest priority is chosen.
+Default: 0
+setupBuildEnvironment : script A script for setting up the environment in which a product is built.
+The code in this script is treated as a function with the signature function(project, product).
+Use the Environment functions to alter the environment.
+The return value of this script is ignored.
+Default: Undefined
+setupRunEnvironment : script A script for setting up the environment in which a product is run.
+The code in this script is treated as a function with the signature function(project, product, config).
+The config parameter is a list of arbitrary strings that can be passed via the run command. The values supported by specific modules are listed in their respective documentation.
+Use the Environment functions to alter the environment.
+The return value of this script is ignored.
+Default: Undefined
+validate : script A script that is run after the module is loaded. It can be used to check property values and throw errors in unexpected cases. The return value is ignored.
+Default: Undefined
+version : string The module&#39;s version. It consists of integer values separated by dots. You can check for specific values of this property in a Depends item.
+JobLimit ModuleProvider">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -205,7 +444,7 @@ List of all members, including inherited members Module is part of List of All I
 <p>Modules in different products are isolated from each other, just as products cannot access each other's properties. However, products can use the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-export/" translate="no">Export</a> item to pass dependencies and properties of modules to other dependent products.</p>
 <p>The following (somewhat artificial) module pre-processes text files by removing certain characters from them. The module's name is <code translate="no">txt_processor</code>.</p>
-<pre class="qml" translate="no">import qbs.FileInfo
+<pre class="qml" translate="no"><code class="qml">import qbs.FileInfo
 import qbs.TextFile
 
 <span class="type"><a href="https://qbs.io/
@@ -246,10 +485,10 @@ import qbs.TextFile
             <span class="keyword">return</span> <span class="name">cmd</span>;
         }
     }
-}</pre>
+}</code></pre>
 <p>And this is how a <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/" translate="no">Product</a> would use the module:</p>
-<pre class="qml" translate="no"><span class="type"><a href="https://qbs.io/
+<pre class="qml" translate="no"><code class="qml"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/" translate="no">Product</a></span> {
     <span class="name">type</span>: <span class="string">"processed-txt"</span>
     <span class="type"><a href="https://qbs.io/
@@ -259,7 +498,7 @@ import qbs.TextFile
         <span class="string">"file1.raw"</span>,
         <span class="string">"file2.raw"</span>
     ]
-}</pre>
+}</code></pre>
 <p>The resulting files are tagged with <code translate="no">processed-txt</code> and might be consumed by a rule in another module. That is possible if another rule has <code translate="no">processed-txt</code> in its <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-rule/#inputs-prop" translate="no">inputs</a> property.</p>
 <p>For more information about how you make your own modules available to Qbs, see <a href="https://qbs.io/
@@ -274,26 +513,26 @@ import qbs.TextFile
 <p>Please note that this applies to bindings in modules only. Property access in rules and other nested items is different.</p>
 <h3 id="accessing-properties-of-the-current-module">Accessing Properties of the Current Module</h3>
 <p>Sibling properties in the same module can be accessed directly by their name:</p>
-<pre class="qml" translate="no"><span class="type"><a href="https://qbs.io/
+<pre class="qml" translate="no"><code class="qml"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-module/" translate="no">Module</a></span> {
     property <span class="type">stringList</span> <span class="name">windowsDefaults</span>: [<span class="string">"\r"</span>]
     property <span class="type">stringList</span> <span class="name">unwantedCharacters</span>: <span class="name">windowsDefaults</span>
-}</pre>
+}</code></pre>
 <h3 id="properties-of-the-dependent-modules">Properties of the Dependent Modules</h3>
 <p>When a module loads another module through a <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-depends/" translate="no">Depends</a> element, it can access properties of the other module through its name. Assuming there was a module <code translate="no">OtherModule</code> with a property <code translate="no">otherProperty</code>, such an access would look like this:</p>
-<pre class="qml" translate="no"><span class="type"><a href="https://qbs.io/
+<pre class="qml" translate="no"><code class="qml"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-module/" translate="no">Module</a></span> {
     <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-depends/" translate="no">Depends</a></span> { <span class="name">name</span>: <span class="string">"OtherModule"</span> }
     property <span class="type">string</span> <span class="name">myProperty</span>: <span class="string">"something-"</span> <span class="operator">+</span> <span class="name">OtherModule</span>.<span class="name">otherProperty</span>
-}</pre>
+}</code></pre>
 <h3 id="accessing-properties-of-the-dependent-product">Accessing Properties of the Dependent Product</h3>
-<pre class="qml" translate="no"><span class="type"><a href="https://qbs.io/
+<pre class="qml" translate="no"><code class="qml"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-module/" translate="no">Module</a></span> {
     property <span class="type">bool</span> <span class="name">featureEnabled</span>:
             (<span class="name">product</span>.<span class="name">type</span>.<span class="name">includes</span>(<span class="string">"application"</span>)) ?  <span class="number">true</span> : <span class="number">false</span>
-}</pre>
+}</code></pre>
 <h3 id="special-property-values">Special Property Values</h3>
 <p>For every property defined in a module, Qbs provides the special <a href="https://qbs.io/
 /docs/special-property-values/#original">original</a> value containing the value of the property in the module itself (possibly overridden from a profile).</p>
@@ -302,7 +541,7 @@ import qbs.TextFile
 /docs/qml-qbslanguageitems-depends/" translate="no">Depends</a> items. <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-rule/" translate="no">Rules</a> of the module can read the parameters of dependencies and act accordingly.</p>
 <p>In the following example, the module <i>foo</i> declares the parameter <code translate="no">ignore</code>. A dependency to <code translate="no">bar</code> then sets the parameter <code translate="no">foo.ignore</code> to <code translate="no">true</code>. A rule in <code translate="no">foo</code> ignores all dependencies that have <code translate="no">foo.ignore</code> set to true.</p>
-<pre class="cpp" translate="no">Module {    <span class="comment">// Definition of module 'foo'.</span>
+<pre class="cpp" translate="no"><code class="cpp">Module {    <span class="comment">// Definition of module 'foo'.</span>
     Parameter { property <span class="type">bool</span> ignore }
     Rule {
         <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
@@ -321,7 +560,7 @@ import qbs.TextFile
 Product {
     Depends { name: <span class="string">"foo"</span> }
     Depends { name: <span class="string">"bar"</span>; foo<span class="operator">.</span>ignore: <span class="keyword">true</span> }
-}</pre>
+}</code></pre>
 <!-- @@@Module -->
 <h2>Property Documentation</h2>
 <!-- $$$additionalProductTypes -->

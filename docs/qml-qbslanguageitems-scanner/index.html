@@ -46,7 +46,64 @@ searchPaths : script
 
 
 Detailed Description
-A Scanner item can appear inside a Module item, and allows to extract dependencies for artifacts from the artifacts&#39; file contents. For example, this is what a scanner for &#34;qrc&#34; files might look like: ">
+A Scanner item can appear inside a Module item, and allows to extract dependencies for artifacts from the artifacts&#39; file contents. For example, this is what a scanner for &#34;qrc&#34; files might look like:
+import qbs.Xml
+
+Module {
+  Scanner {
+    inputs: &#39;qrc&#39;
+    scan: {
+      var xml = new Xml.DomDocument(input.filePath);
+      dependencies = [];
+      // retrieve &lt;file&gt; entries from the XML document
+      return dependencies;
+    }
+  }
+}
+
+Property Documentation
+
+condition : bool
+If true, the scanner is enabled, otherwise it does nothing.
+Default: true
+
+
+inputs : stringList
+A list of file tags the input artifacts must match.
+Default: Undefined
+
+
+recursive : bool
+Determines whether to scan the returned dependencies using the same scanner.
+Default: false
+
+
+scan : script
+A script that reads the input artifact and returns either a string list with dependencies or an object.
+If the return value is an array, it is interpreted as a list of dependency paths.
+If the return value is an object, it may be empty or provide dependencies and/or scannerProperties. The dependencies property provides the dependency paths. The scannerProperties property is a map of custom values stored in the build graph and exposed as input.qbsScanners.&lt;scannerId&gt;.&lt;propertyName&gt; in prepare and outputArtifacts scripts (not in scan scripts). Use the separate searchPaths script to supply search paths.
+The code in this script is treated as a function with the signature function(project, product, input, filePath), where input is the artifact at which the scan originated, and filePath is the currently scanned file. For non-recursive scans, filePath is always equal to input.filePath.
+Default: Undefined
+
+
+scannerId : string
+An identifier for this scanner. For scanners declared in a module, the module name is prepended to this property to form a global scanner id used for caching scan results (for example, cpp.myScanner). For scanners declared directly in a product, the value is used as-is.
+That global id must be unique within the product, including scanners coming from modules.
+In prepare and outputArtifacts scripts, scanner properties are exposed via input.qbsScanners.&lt;scannerId&gt;.&lt;propertyName&gt; (use bracket notation when the id contains dots, for example input.qbsScanners[&#34;Qt.core.moc&#34;]). They are not available on input in scan scripts; values come from the last scan stored in the build graph.
+If not set explicitly, the pluginName is used for plugin-based scanners. Otherwise, a stable identifier (SHA1-hash) is derived from the scan script.
+Default: Undefined
+
+
+searchPaths : script
+A script that returns the paths where to look for dependencies.
+The code in this script is treated as a function with the signature function(project, product, input).
+Default: Undefined
+
+
+Rule
+SubProject
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbslanguageitems-scanner/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -56,14 +113,34 @@ A Scanner item can appear inside a Module item, and allows to extract dependenci
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-scanner/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual QbsLanguageItems Scanner Qbs 3.4.0 Rule SubProject Contents Properties Detailed Description Scanner Creates custom dependency scanners in products or modules. More...
-List of all members, including inherited members Scanner is part of List of All Items. Properties condition : bool inputs : stringList recursive : bool scan : script scannerId : string searchPaths : script Detailed Description A Scanner item can appear inside a Module item, and allows to extract dependencies for artifacts from the artifacts&#39; file contents. For example, this is what a scanner for &#34;qrc&#34; files might look like:">
+List of all members, including inherited members Scanner is part of List of All Items. Properties condition : bool inputs : stringList recursive : bool scan : script scannerId : string searchPaths : script Detailed Description A Scanner item can appear inside a Module item, and allows to extract dependencies for artifacts from the artifacts&#39; file contents. For example, this is what a scanner for &#34;qrc&#34; files might look like:
+import qbs.Xml Module { Scanner { inputs: &#39;qrc&#39; scan: { var xml = new Xml.DomDocument(input.filePath); dependencies = []; // retrieve &lt;file&gt; entries from the XML document return dependencies; } } } Property Documentation condition : bool If true, the scanner is enabled, otherwise it does nothing.
+Default: true
+inputs : stringList A list of file tags the input artifacts must match.
+Default: Undefined
+recursive : bool Determines whether to scan the returned dependencies using the same scanner.
+Default: false
+scan : script A script that reads the input artifact and returns either a string list with dependencies or an object.
+If the return value is an array, it is interpreted as a list of dependency paths.
+If the return value is an object, it may be empty or provide dependencies and/or scannerProperties. The dependencies property provides the dependency paths. The scannerProperties property is a map of custom values stored in the build graph and exposed as input.qbsScanners.&lt;scannerId&gt;.&lt;propertyName&gt; in prepare and outputArtifacts scripts (not in scan scripts). Use the separate searchPaths script to supply search paths.
+The code in this script is treated as a function with the signature function(project, product, input, filePath), where input is the artifact at which the scan originated, and filePath is the currently scanned file. For non-recursive scans, filePath is always equal to input.filePath.
+Default: Undefined
+scannerId : string An identifier for this scanner. For scanners declared in a module, the module name is prepended to this property to form a global scanner id used for caching scan results (for example, cpp.myScanner). For scanners declared directly in a product, the value is used as-is.
+That global id must be unique within the product, including scanners coming from modules.
+In prepare and outputArtifacts scripts, scanner properties are exposed via input.qbsScanners.&lt;scannerId&gt;.&lt;propertyName&gt; (use bracket notation when the id contains dots, for example input.qbsScanners[&#34;Qt.core.moc&#34;]). They are not available on input in scan scripts; values come from the last scan stored in the build graph.
+If not set explicitly, the pluginName is used for plugin-based scanners. Otherwise, a stable identifier (SHA1-hash) is derived from the scan script.
+Default: Undefined
+searchPaths : script A script that returns the paths where to look for dependencies.
+The code in this script is treated as a function with the signature function(project, product, input).
+Default: Undefined
+Rule SubProject">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -72,7 +149,27 @@ List of all members, including inherited members Scanner is part of List of All 
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual QbsLanguageItems Scanner Qbs 3.4.0 Rule SubProject Contents Properties Detailed Description Scanner Creates custom dependency scanners in products or modules. More...
-List of all members, including inherited members Scanner is part of List of All Items. Properties condition : bool inputs : stringList recursive : bool scan : script scannerId : string searchPaths : script Detailed Description A Scanner item can appear inside a Module item, and allows to extract dependencies for artifacts from the artifacts&#39; file contents. For example, this is what a scanner for &#34;qrc&#34; files might look like:">
+List of all members, including inherited members Scanner is part of List of All Items. Properties condition : bool inputs : stringList recursive : bool scan : script scannerId : string searchPaths : script Detailed Description A Scanner item can appear inside a Module item, and allows to extract dependencies for artifacts from the artifacts&#39; file contents. For example, this is what a scanner for &#34;qrc&#34; files might look like:
+import qbs.Xml Module { Scanner { inputs: &#39;qrc&#39; scan: { var xml = new Xml.DomDocument(input.filePath); dependencies = []; // retrieve &lt;file&gt; entries from the XML document return dependencies; } } } Property Documentation condition : bool If true, the scanner is enabled, otherwise it does nothing.
+Default: true
+inputs : stringList A list of file tags the input artifacts must match.
+Default: Undefined
+recursive : bool Determines whether to scan the returned dependencies using the same scanner.
+Default: false
+scan : script A script that reads the input artifact and returns either a string list with dependencies or an object.
+If the return value is an array, it is interpreted as a list of dependency paths.
+If the return value is an object, it may be empty or provide dependencies and/or scannerProperties. The dependencies property provides the dependency paths. The scannerProperties property is a map of custom values stored in the build graph and exposed as input.qbsScanners.&lt;scannerId&gt;.&lt;propertyName&gt; in prepare and outputArtifacts scripts (not in scan scripts). Use the separate searchPaths script to supply search paths.
+The code in this script is treated as a function with the signature function(project, product, input, filePath), where input is the artifact at which the scan originated, and filePath is the currently scanned file. For non-recursive scans, filePath is always equal to input.filePath.
+Default: Undefined
+scannerId : string An identifier for this scanner. For scanners declared in a module, the module name is prepended to this property to form a global scanner id used for caching scan results (for example, cpp.myScanner). For scanners declared directly in a product, the value is used as-is.
+That global id must be unique within the product, including scanners coming from modules.
+In prepare and outputArtifacts scripts, scanner properties are exposed via input.qbsScanners.&lt;scannerId&gt;.&lt;propertyName&gt; (use bracket notation when the id contains dots, for example input.qbsScanners[&#34;Qt.core.moc&#34;]). They are not available on input in scan scripts; values come from the last scan stored in the build graph.
+If not set explicitly, the pluginName is used for plugin-based scanners. Otherwise, a stable identifier (SHA1-hash) is derived from the scan script.
+Default: Undefined
+searchPaths : script A script that returns the paths where to look for dependencies.
+The code in this script is treated as a function with the signature function(project, product, input).
+Default: Undefined
+Rule SubProject">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -163,7 +260,7 @@ List of all members, including inherited members Scanner is part of List of All 
 <h2 id="details">Detailed Description</h2>
 <p>A Scanner item can appear inside a <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-module/" translate="no">Module</a> item, and allows to extract dependencies for artifacts from the artifacts' file contents. For example, this is what a scanner for "qrc" files might look like:</p>
-<pre class="cpp" translate="no">import qbs.Xml
+<pre class="cpp" translate="no"><code class="cpp">import qbs.Xml
 
 <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-module/" translate="no">Module</a></span> {
@@ -177,7 +274,7 @@ List of all members, including inherited members Scanner is part of List of All 
       <span class="keyword">return</span> <span class="name">dependencies</span>;
     }
   }
-}</pre>
+}</code></pre>
 <!-- @@@Scanner -->
 <h2>Property Documentation</h2>
 <!-- $$$condition -->

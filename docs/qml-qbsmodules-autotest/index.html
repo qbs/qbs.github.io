@@ -38,7 +38,31 @@ workingDir : string
 
 
 Detailed Description
-The autotest module provides properties that allow autotest applications to specify how exactly they should be run. ">
+The autotest module provides properties that allow autotest applications to specify how exactly they should be run.
+
+Property Documentation
+
+allowFailure : bool
+Autotests for which this property is true can return a non-zero exit code without causing the entire AutotestRunner to fail. Use this for tests that are known to be unreliable.
+Default: false
+
+
+arguments : stringList
+The list of arguments to invoke the autotest with. If not specified, then the arguments property of the AutotestRunner that invokes the autotest is used.
+Default: Undefined
+
+
+timeout : int [since Qbs 1.15]
+The time limit for the execution of the autotest. If not specified, the timeout property of the AutotestRunner that invokes the autotest is used.
+Default: Undefined
+This property was introduced in Qbs 1.15.
+
+
+workingDir : string
+The working directory for running the autotest. If not specified, then the workingDir property of the AutotestRunner that invokes the autotest is used.
+Default: Undefined
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-autotest/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -48,14 +72,23 @@ The autotest module provides properties that allow autotest applications to spec
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-autotest/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual QbsModules autotest Qbs 3.4.0 Contents Properties Detailed Description autotest Allows to fine-tune autotest execution. More...
-Since: Qbs 1.13 List of all members, including inherited members Properties allowFailure : bool arguments : stringList timeout : int (since Qbs 1.15) workingDir : string Detailed Description The autotest module provides properties that allow autotest applications to specify how exactly they should be run.">
+Since: Qbs 1.13 List of all members, including inherited members Properties allowFailure : bool arguments : stringList timeout : int (since Qbs 1.15) workingDir : string Detailed Description The autotest module provides properties that allow autotest applications to specify how exactly they should be run.
+Property Documentation allowFailure : bool Autotests for which this property is true can return a non-zero exit code without causing the entire AutotestRunner to fail. Use this for tests that are known to be unreliable.
+Default: false
+arguments : stringList The list of arguments to invoke the autotest with. If not specified, then the arguments property of the AutotestRunner that invokes the autotest is used.
+Default: Undefined
+timeout : int [since Qbs 1.15] The time limit for the execution of the autotest. If not specified, the timeout property of the AutotestRunner that invokes the autotest is used.
+Default: Undefined
+This property was introduced in Qbs 1.15.
+workingDir : string The working directory for running the autotest. If not specified, then the workingDir property of the AutotestRunner that invokes the autotest is used.
+Default: Undefined">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -64,7 +97,16 @@ Since: Qbs 1.13 List of all members, including inherited members Properties allo
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual QbsModules autotest Qbs 3.4.0 Contents Properties Detailed Description autotest Allows to fine-tune autotest execution. More...
-Since: Qbs 1.13 List of all members, including inherited members Properties allowFailure : bool arguments : stringList timeout : int (since Qbs 1.15) workingDir : string Detailed Description The autotest module provides properties that allow autotest applications to specify how exactly they should be run.">
+Since: Qbs 1.13 List of all members, including inherited members Properties allowFailure : bool arguments : stringList timeout : int (since Qbs 1.15) workingDir : string Detailed Description The autotest module provides properties that allow autotest applications to specify how exactly they should be run.
+Property Documentation allowFailure : bool Autotests for which this property is true can return a non-zero exit code without causing the entire AutotestRunner to fail. Use this for tests that are known to be unreliable.
+Default: false
+arguments : stringList The list of arguments to invoke the autotest with. If not specified, then the arguments property of the AutotestRunner that invokes the autotest is used.
+Default: Undefined
+timeout : int [since Qbs 1.15] The time limit for the execution of the autotest. If not specified, the timeout property of the AutotestRunner that invokes the autotest is used.
+Default: Undefined
+This property was introduced in Qbs 1.15.
+workingDir : string The working directory for running the autotest. If not specified, then the workingDir property of the AutotestRunner that invokes the autotest is used.
+Default: Undefined">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">

@@ -28,7 +28,48 @@ Project {
     name: &#34;My Project&#34;
     minimumQbsVersion: &#34;2.0&#34;
     // ...
-Now we can use those properties in our helper items and in products: ">
+Now we can use those properties in our helper items and in products:
+CppApplication {
+    version: project.version
+    consoleApplication: true
+    // ...
+Here, we access the project file using the special project value. If the nearest project in the project tree does not have the desired property, Qbs looks it up in the parent project, potentially all the way up to the top-level project.
+Let&#39;s now disable the tests if project.withTests is false:
+SubProject {
+    filePath: &#34;test/test.qbs&#34;
+    Properties {
+        condition: parent.withTests
+    }
+}
+Here we use the Properties item within the SubProject item. This item allows to override a subproject&#39;s properties which can be useful when adding some other Qbs project as a Git submodule. Of course, it is not very useful in our particular case since we only set the Project.condition property. We could achieve the same effect by setting the condition property of the SubProject item:
+SubProject {
+    filePath: &#34;test/test.qbs&#34;
+    condition: parent.withTests
+}
+Another way would be to disable the test product. That way, an IDE would still show the whole project tree including disabled tests:
+// qbs/imports/MyAutoTest.qbs
+MyApplication {
+    condition: project.withTests
+    type: base.concat([&#34;autotest&#34;])
+}
+Let&#39;s finally make our AutotestRunner configurable too:
+AutotestRunner {
+    condition: parent.withTests
+    arguments: parent.autotestArguments
+    wrapper: parent.autotestWrapper
+}
+There are several ways to override project properties from the command line. First, the special project variable can be used to set the properties of the top-level project:
+$ qbs resolve project.withTests:false
+You can also refer to properties using project&#39;s name:
+$ qbs resolve &#34;projects.My Project.withTests:false&#34;
+This can again be useful for accessing the properties of external sub-projects. Note that since the project name contains spaces, we use quotes here.
+
+
+
+Autotest
+Config Module
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/tutorial-6/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -38,14 +79,23 @@ Now we can use those properties in our helper items and in products: ">
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/tutorial-6/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual Project Properties Qbs 3.4.0 Autotest Config Module Project Properties It would be nice if our project was configurable. Let&#39;s add some properties to our root project file:
-Project { property string version: &#34;1.0.0&#34; property bool withTests: false property stringList autotestArguments: [] property stringList autotestWrapper: [] name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; // ... Now we can use those properties in our helper items and in products:">
+Project { property string version: &#34;1.0.0&#34; property bool withTests: false property stringList autotestArguments: [] property stringList autotestWrapper: [] name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; // ... Now we can use those properties in our helper items and in products:
+CppApplication { version: project.version consoleApplication: true // ... Here, we access the project file using the special project value. If the nearest project in the project tree does not have the desired property, Qbs looks it up in the parent project, potentially all the way up to the top-level project.
+Let&#39;s now disable the tests if project.withTests is false:
+SubProject { filePath: &#34;test/test.qbs&#34; Properties { condition: parent.withTests } } Here we use the Properties item within the SubProject item. This item allows to override a subproject&#39;s properties which can be useful when adding some other Qbs project as a Git submodule. Of course, it is not very useful in our particular case since we only set the Project.condition property. We could achieve the same effect by setting the condition property of the SubProject item:
+SubProject { filePath: &#34;test/test.qbs&#34; condition: parent.withTests } Another way would be to disable the test product. That way, an IDE would still show the whole project tree including disabled tests:
+// qbs/imports/MyAutoTest.qbs MyApplication { condition: project.withTests type: base.concat([&#34;autotest&#34;]) } Let&#39;s finally make our AutotestRunner configurable too:
+AutotestRunner { condition: parent.withTests arguments: parent.autotestArguments wrapper: parent.autotestWrapper } There are several ways to override project properties from the command line. First, the special project variable can be used to set the properties of the top-level project:
+$ qbs resolve project.withTests:false You can also refer to properties using project&#39;s name:
+$ qbs resolve &#34;projects.My Project.withTests:false&#34; This can again be useful for accessing the properties of external sub-projects. Note that since the project name contains spaces, we use quotes here.
+Autotest Config Module">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -54,7 +104,16 @@ Project { property string version: &#34;1.0.0&#34; property bool withTests: fals
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual Project Properties Qbs 3.4.0 Autotest Config Module Project Properties It would be nice if our project was configurable. Let&#39;s add some properties to our root project file:
-Project { property string version: &#34;1.0.0&#34; property bool withTests: false property stringList autotestArguments: [] property stringList autotestWrapper: [] name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; // ... Now we can use those properties in our helper items and in products:">
+Project { property string version: &#34;1.0.0&#34; property bool withTests: false property stringList autotestArguments: [] property stringList autotestWrapper: [] name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; // ... Now we can use those properties in our helper items and in products:
+CppApplication { version: project.version consoleApplication: true // ... Here, we access the project file using the special project value. If the nearest project in the project tree does not have the desired property, Qbs looks it up in the parent project, potentially all the way up to the top-level project.
+Let&#39;s now disable the tests if project.withTests is false:
+SubProject { filePath: &#34;test/test.qbs&#34; Properties { condition: parent.withTests } } Here we use the Properties item within the SubProject item. This item allows to override a subproject&#39;s properties which can be useful when adding some other Qbs project as a Git submodule. Of course, it is not very useful in our particular case since we only set the Project.condition property. We could achieve the same effect by setting the condition property of the SubProject item:
+SubProject { filePath: &#34;test/test.qbs&#34; condition: parent.withTests } Another way would be to disable the test product. That way, an IDE would still show the whole project tree including disabled tests:
+// qbs/imports/MyAutoTest.qbs MyApplication { condition: project.withTests type: base.concat([&#34;autotest&#34;]) } Let&#39;s finally make our AutotestRunner configurable too:
+AutotestRunner { condition: parent.withTests arguments: parent.autotestArguments wrapper: parent.autotestWrapper } There are several ways to override project properties from the command line. First, the special project variable can be used to set the properties of the top-level project:
+$ qbs resolve project.withTests:false You can also refer to properties using project&#39;s name:
+$ qbs resolve &#34;projects.My Project.withTests:false&#34; This can again be useful for accessing the properties of external sub-projects. Note that since the project name contains spaces, we use quotes here.
+Autotest Config Module">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -107,7 +166,7 @@ Project { property string version: &#34;1.0.0&#34; property bool withTests: fals
 <!-- $$$tutorial-6.html-description -->
 <div class="descr" id="details">
 <p>It would be nice if our project was configurable. Let's add some properties to our root project file:</p>
-<pre class="cpp" translate="no">Project {
+<pre class="cpp" translate="no"><code class="cpp">Project {
     property string version: "1.0.0"
     property bool withTests: false
     property stringList autotestArguments: []
@@ -115,49 +174,49 @@ Project { property string version: &#34;1.0.0&#34; property bool withTests: fals
 
     name: "My Project"
     minimumQbsVersion: "2.0"
-    // ...</pre>
+    // ...</code></pre>
 <p>Now we can use those properties in our helper items and in products:</p>
-<pre class="cpp" translate="no">CppApplication {
+<pre class="cpp" translate="no"><code class="cpp">CppApplication {
     version: project.version
     consoleApplication: true
-    // ...</pre>
+    // ...</code></pre>
 <p>Here, we access the project file using the special <a href="https://qbs.io/
 /docs/special-property-values/#project">project</a> value. If the nearest project in the project tree does not have the desired property, Qbs looks it up in the parent project, potentially all the way up to the top-level project.</p>
 <p>Let's now disable the tests if <code translate="no">project.withTests</code> is <code translate="no">false</code>:</p>
-<pre class="cpp" translate="no">SubProject {
+<pre class="cpp" translate="no"><code class="cpp">SubProject {
     filePath: "test/test.qbs"
     Properties {
         condition: parent.withTests
     }
-}</pre>
+}</code></pre>
 <p>Here we use the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-properties/" translate="no">Properties</a> item within the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-subproject/" translate="no">SubProject</a> item. This item allows to override a subproject's properties which can be useful when adding some other Qbs project as a Git submodule. Of course, it is not very useful in our particular case since we only set the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-project/#condition-prop" translate="no">Project.condition</a> property. We could achieve the same effect by setting the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-subproject/#condition-prop" translate="no">condition</a> property of the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-subproject/" translate="no">SubProject</a> item:</p>
-<pre class="cpp" translate="no">SubProject {
+<pre class="cpp" translate="no"><code class="cpp">SubProject {
     filePath: <span class="string">"test/test.qbs"</span>
     condition: parent<span class="operator">.</span>withTests
-}</pre>
+}</code></pre>
 <p>Another way would be to disable the test product. That way, an IDE would still show the whole project tree including disabled tests:</p>
-<pre class="cpp" translate="no"><span class="comment">// qbs/imports/MyAutoTest.qbs</span>
+<pre class="cpp" translate="no"><code class="cpp"><span class="comment">// qbs/imports/MyAutoTest.qbs</span>
 MyApplication {
     condition: project<span class="operator">.</span>withTests
     type: base<span class="operator">.</span>concat(<span class="operator">[</span><span class="string">"autotest"</span><span class="operator">]</span>)
-}</pre>
+}</code></pre>
 <p>Let's finally make our <a href="https://qbs.io/
 /docs/qml-qbsconvenienceitems-autotestrunner/" translate="no">AutotestRunner</a> configurable too:</p>
-<pre class="cpp" translate="no">AutotestRunner {
+<pre class="cpp" translate="no"><code class="cpp">AutotestRunner {
     condition: parent.withTests
     arguments: parent.autotestArguments
     wrapper: parent.autotestWrapper
-}</pre>
+}</code></pre>
 <p>There are several ways to override project properties from the command line. First, the special <code translate="no">project</code> variable can be used to set the properties of the top-level project:</p>
-<pre class="cpp" translate="no">$ qbs resolve project<span class="operator">.</span>withTests:<span class="keyword">false</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">$ qbs resolve project<span class="operator">.</span>withTests:<span class="keyword">false</span></code></pre>
 <p>You can also refer to properties using project's <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-project/#name-prop" translate="no">name</a>:</p>
-<pre class="cpp" translate="no">$ qbs resolve <span class="string">"projects.My Project.withTests:false"</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">$ qbs resolve <span class="string">"projects.My Project.withTests:false"</span></code></pre>
 <p>This can again be useful for accessing the properties of external sub-projects. Note that since the project name contains spaces, we use quotes here.</p>
 </div>
 <!-- @@@tutorial-6.html -->

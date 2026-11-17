@@ -22,7 +22,24 @@ This section assumes that Qbs is present in PATH. For the details how to install
 To build applications from the command line, enter the following commands:
 cd examples/collidingmice
 qbs
-By default, Qbs uses all the CPU cores available to achieve maximum build parallelization. To explicitly specify the number of concurrent jobs, use the -j option. For example, to run 4 concurrent jobs, enter the following command: ">
+By default, Qbs uses all the CPU cores available to achieve maximum build parallelization. To explicitly specify the number of concurrent jobs, use the -j option. For example, to run 4 concurrent jobs, enter the following command:
+qbs -j4
+The application is built using the default build profile that is set up in your Qbs configuration.
+You can use the config command to set the max number of jobs per profile. For example, to set four jobs as the default option for a profile named Android, enter the following command:
+qbs config profiles.Android.preferences.jobs 4
+To build with other profiles than the default one, specify options for the build command. For example, to build debug and release configurations with the Android profile, enter the following command:
+qbs build profile:Android config:debug config:release
+The position of the property assignment is important. In the example above, the profile property is set for all build configurations that come afterwards.
+To set a property just for one build configuration, place the assignment after the build configuration name. In the following example, the property cpp.treatWarningsAsErrors is set to true for debug only and cpp.optimization is set to small for release only.
+qbs build config:debug modules.cpp.treatWarningsAsErrors:true config:release modules.cpp.optimization:small
+Projects are built in the debug build configuration by default.
+
+
+
+Language Introduction
+Running Applications
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/building-applications/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -32,7 +49,7 @@ By default, Qbs uses all the CPU cores available to achieve maximum build parall
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/building-applications/">
@@ -40,7 +57,14 @@ By default, Qbs uses all the CPU cores available to achieve maximum build parall
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual Building Applications Qbs 3.4.0 Language Introduction Running Applications Building Applications This section assumes that Qbs is present in PATH. For the details how to install Qbs, see the Installing page.
 To build applications from the command line, enter the following commands:
-cd examples/collidingmice qbs By default, Qbs uses all the CPU cores available to achieve maximum build parallelization. To explicitly specify the number of concurrent jobs, use the -j option. For example, to run 4 concurrent jobs, enter the following command:">
+cd examples/collidingmice qbs By default, Qbs uses all the CPU cores available to achieve maximum build parallelization. To explicitly specify the number of concurrent jobs, use the -j option. For example, to run 4 concurrent jobs, enter the following command:
+qbs -j4 The application is built using the default build profile that is set up in your Qbs configuration.
+You can use the config command to set the max number of jobs per profile. For example, to set four jobs as the default option for a profile named Android, enter the following command:
+qbs config profiles.Android.preferences.jobs 4 To build with other profiles than the default one, specify options for the build command. For example, to build debug and release configurations with the Android profile, enter the following command:
+qbs build profile:Android config:debug config:release The position of the property assignment is important. In the example above, the profile property is set for all build configurations that come afterwards.
+To set a property just for one build configuration, place the assignment after the build configuration name. In the following example, the property cpp.treatWarningsAsErrors is set to true for debug only and cpp.optimization is set to small for release only.
+qbs build config:debug modules.cpp.treatWarningsAsErrors:true config:release modules.cpp.optimization:small Projects are built in the debug build configuration by default.
+Language Introduction Running Applications">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -50,7 +74,14 @@ cd examples/collidingmice qbs By default, Qbs uses all the CPU cores available t
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual Building Applications Qbs 3.4.0 Language Introduction Running Applications Building Applications This section assumes that Qbs is present in PATH. For the details how to install Qbs, see the Installing page.
 To build applications from the command line, enter the following commands:
-cd examples/collidingmice qbs By default, Qbs uses all the CPU cores available to achieve maximum build parallelization. To explicitly specify the number of concurrent jobs, use the -j option. For example, to run 4 concurrent jobs, enter the following command:">
+cd examples/collidingmice qbs By default, Qbs uses all the CPU cores available to achieve maximum build parallelization. To explicitly specify the number of concurrent jobs, use the -j option. For example, to run 4 concurrent jobs, enter the following command:
+qbs -j4 The application is built using the default build profile that is set up in your Qbs configuration.
+You can use the config command to set the max number of jobs per profile. For example, to set four jobs as the default option for a profile named Android, enter the following command:
+qbs config profiles.Android.preferences.jobs 4 To build with other profiles than the default one, specify options for the build command. For example, to build debug and release configurations with the Android profile, enter the following command:
+qbs build profile:Android config:debug config:release The position of the property assignment is important. In the example above, the profile property is set for all build configurations that come afterwards.
+To set a property just for one build configuration, place the assignment after the build configuration name. In the following example, the property cpp.treatWarningsAsErrors is set to true for debug only and cpp.optimization is set to small for release only.
+qbs build config:debug modules.cpp.treatWarningsAsErrors:true config:release modules.cpp.optimization:small Projects are built in the debug build configuration by default.
+Language Introduction Running Applications">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -105,22 +136,22 @@ cd examples/collidingmice qbs By default, Qbs uses all the CPU cores available t
 <p>This section assumes that Qbs is present in <code translate="no">PATH</code>. For the details how to install Qbs, see the <a href="https://qbs.io/
 /docs/installing/">Installing</a> page.</p>
 <p>To build applications from the command line, enter the following commands:</p>
-<pre class="cpp" translate="no">cd examples<span class="operator">/</span>collidingmice
-qbs</pre>
+<pre class="cpp" translate="no"><code class="cpp">cd examples<span class="operator">/</span>collidingmice
+qbs</code></pre>
 <p>By default, Qbs uses all the CPU cores available to achieve maximum build parallelization. To explicitly specify the number of concurrent jobs, use the <code translate="no">-j</code> option. For example, to run 4 concurrent jobs, enter the following command:</p>
-<pre class="cpp" translate="no">qbs <span class="operator">-</span>j4</pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs <span class="operator">-</span>j4</code></pre>
 <p>The application is built using the default build profile that is set up in your Qbs configuration.</p>
 <p>You can use the <a href="https://qbs.io/
 /docs/cli-config/">config</a> command to set the max number of jobs per profile. For example, to set four jobs as the default option for a profile named <i>Android</i>, enter the following command:</p>
-<pre class="cpp" translate="no">qbs config profiles<span class="operator">.</span>Android<span class="operator">.</span>preferences<span class="operator">.</span>jobs <span class="number">4</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs config profiles<span class="operator">.</span>Android<span class="operator">.</span>preferences<span class="operator">.</span>jobs <span class="number">4</span></code></pre>
 <p>To build with other profiles than the default one, specify options for the <a href="https://qbs.io/
 /docs/cli-build/">build</a> command. For example, to build debug and release configurations with the <i>Android</i> profile, enter the following command:</p>
-<pre class="cpp" translate="no">qbs build profile:Android config:debug config:release</pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs build profile:Android config:debug config:release</code></pre>
 <p>The position of the property assignment is important. In the example above, the profile property is set for all build configurations that come afterwards.</p>
 <p>To set a property just for one build configuration, place the assignment after the build configuration name. In the following example, the property <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#treatWarningsAsErrors-prop" translate="no">cpp.treatWarningsAsErrors</a> is set to <code translate="no">true</code> for debug only and <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/#optimization-prop" translate="no">cpp.optimization</a> is set to <code translate="no">small</code> for release only.</p>
-<pre class="cpp" translate="no">qbs build config:debug modules<span class="operator">.</span>cpp<span class="operator">.</span>treatWarningsAsErrors:<span class="keyword">true</span> config:release modules<span class="operator">.</span>cpp<span class="operator">.</span>optimization:small</pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs build config:debug modules<span class="operator">.</span>cpp<span class="operator">.</span>treatWarningsAsErrors:<span class="keyword">true</span> config:release modules<span class="operator">.</span>cpp<span class="operator">.</span>optimization:small</code></pre>
 <p>Projects are built in the debug build configuration by default.</p>
 </div>
 <!-- @@@building-applications.html -->

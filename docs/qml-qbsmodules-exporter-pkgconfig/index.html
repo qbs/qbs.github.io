@@ -49,7 +49,92 @@ versionEntry : string
 
 
 Detailed Description
-The Exporter.pkgconfig module contains the properties and rules to create a pkg-config metadata (.pc) file for a Product. ">
+The Exporter.pkgconfig module contains the properties and rules to create a pkg-config metadata (.pc) file for a Product.
+By default, Qbs will attempt to derive some of the .pc file&#39;s contents from the product&#39;s Export item. This behavior can be suppressed by setting the autoDetect property to false.
+Relevant File Tags
+
+TagSinceDescription
+&#34;Exporter.pkgconfig.pc&#34;1.12.0This tag is attached to the generated .pc file.
+
+
+Property Documentation
+
+autoDetect : bool
+If this property is enabled, then Qbs will try to derive various .pc file entries from the contents of the product&#39;s Export item, including the dependencies declared therein. Values for these fields can still be explicitly provided via the respective properties, in which case they will be concatenated with the auto-detected ones. If an exported dependency is known to correspond to a pkg-config module (either by pulling in the Exporter.pkgconfig module or by appearing in the requiresEntry property), it will end up in the Requires field of the .pc file, otherwise its exported cpp properties will be collected for use in the Cflags and Libs fields. The excludedDependencies property can be used to ignore specific products altogether.
+Default: true
+
+
+cflagsEntry : stringList
+The value of the Cflags field in the .pc file.
+If autoDetect is enabled, then this value will be appended to the flags derived from the product&#39;s Export item and the dependencies declared therein.
+Default: []
+
+
+conflictsEntry : stringList
+The value of the Conflicts field in the .pc file.
+Default: []
+
+
+customVariables : string
+Use this property to add arbitrary variable assignments into the .pc file. The property is a map that will produce one assignment per entry. The keys and values of the map represent the left-hand sides and right-hand sides of these assignments, respectively. The values are strings that will be written into the file verbatim.
+Default: Undefined
+
+
+excludedDependencies : stringList
+If autoDetect is enabled, the entries of this property will be matched against the product&#39;s exported dependencies. In case such a dependency&#39;s name is present in the array, Qbs will not traverse that dependency to collect entries for the Cflags, Libs, Requires and Requires.private fields.
+This list must not contain any values that are present in requiresEntry.
+Default: undefined
+
+
+fileName : string
+The file name of the generated pkg-config metadata file.
+Default: product.targetName &#43; &#34;.pc&#34;
+
+
+libsEntry : stringList
+The value of the Libs field in the .pc file.
+If autoDetect is enabled, then this value will be appended to the flags derived from the product&#39;s Export item and the dependencies declared therein.
+Default: []
+
+
+libsPrivateEntry : stringList
+The value of the Libs.Private field in the .pc file.
+Default: []
+
+
+nameEntry : string
+The value of the Name field in the .pc file.
+Default: product.name
+
+
+requiresEntry : stringList
+The value of the Requires field in the .pc file.
+If autoDetect is enabled, then those of the product&#39;s exported dependencies that pull in the Exporter.pkgconfig module will also end up in the Requires field, provided they are not listed in excludedDependencies.
+If an exported dependency matches an entry of this array, Qbs will not traverse that dependency to gather cpp properties for use in the cflagsEntry and libsEntry values, as pkg-config takes care of that itself.
+Default: []
+
+
+requiresPrivateEntry : stringList
+The value of the Requires.private field in the .pc file.
+If autoDetect is enabled, then those of the product&#39;s non-exported dependencies that pull in the Exporter.pkgconfig module will also end up in the Requires.private field, provided they are not listed in excludedDependencies.
+Default: []
+
+
+transformFunction : var
+A function with the signature function(product, moduleName, propertyName, value). This can be useful to &#34;fine-tune&#34; property values if autoDetect is enabled, in case they need amending for the purpose of pkg-config. The product parameter represents the exporting product, the remaining parameters describe the module property. The modified value of the module property shall be returned.
+Default: undefined
+
+
+urlEntry : string
+The value of the URL field in the .pc file.
+Default: undefined
+
+
+versionEntry : string
+The value of the Version field in the .pc file.
+Default: product.version
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-exporter-pkgconfig/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -59,14 +144,49 @@ The Exporter.pkgconfig module contains the properties and rules to create a pkg-
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-exporter-pkgconfig/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual QbsModules Exporter.pkgconfig Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags Exporter.pkgconfig Provides support for generating pkg-config files. More...
-Since: Qbs 1.12 List of all members, including inherited members Properties autoDetect : bool cflagsEntry : stringList conflictsEntry : stringList customVariables : string excludedDependencies : stringList fileName : string libsEntry : stringList libsPrivateEntry : stringList nameEntry : string requiresEntry : stringList requiresPrivateEntry : stringList transformFunction : var urlEntry : string versionEntry : string Detailed Description The Exporter.pkgconfig module contains the properties and rules to create a pkg-config metadata (.pc) file for a Product.">
+Since: Qbs 1.12 List of all members, including inherited members Properties autoDetect : bool cflagsEntry : stringList conflictsEntry : stringList customVariables : string excludedDependencies : stringList fileName : string libsEntry : stringList libsPrivateEntry : stringList nameEntry : string requiresEntry : stringList requiresPrivateEntry : stringList transformFunction : var urlEntry : string versionEntry : string Detailed Description The Exporter.pkgconfig module contains the properties and rules to create a pkg-config metadata (.pc) file for a Product.
+By default, Qbs will attempt to derive some of the .pc file&#39;s contents from the product&#39;s Export item. This behavior can be suppressed by setting the autoDetect property to false.
+Relevant File Tags Tag Since Description &#34;Exporter.pkgconfig.pc&#34; 1.12.0 This tag is attached to the generated .pc file. Property Documentation autoDetect : bool If this property is enabled, then Qbs will try to derive various .pc file entries from the contents of the product&#39;s Export item, including the dependencies declared therein. Values for these fields can still be explicitly provided via the respective properties, in which case they will be concatenated with the auto-detected ones. If an exported dependency is known to correspond to a pkg-config module (either by pulling in the Exporter.pkgconfig module or by appearing in the requiresEntry property), it will end up in the Requires field of the .pc file, otherwise its exported cpp properties will be collected for use in the Cflags and Libs fields. The excludedDependencies property can be used to ignore specific products altogether.
+Default: true
+cflagsEntry : stringList The value of the Cflags field in the .pc file.
+If autoDetect is enabled, then this value will be appended to the flags derived from the product&#39;s Export item and the dependencies declared therein.
+Default: []
+conflictsEntry : stringList The value of the Conflicts field in the .pc file.
+Default: []
+customVariables : string Use this property to add arbitrary variable assignments into the .pc file. The property is a map that will produce one assignment per entry. The keys and values of the map represent the left-hand sides and right-hand sides of these assignments, respectively. The values are strings that will be written into the file verbatim.
+Default: Undefined
+excludedDependencies : stringList If autoDetect is enabled, the entries of this property will be matched against the product&#39;s exported dependencies. In case such a dependency&#39;s name is present in the array, Qbs will not traverse that dependency to collect entries for the Cflags, Libs, Requires and Requires.private fields.
+This list must not contain any values that are present in requiresEntry.
+Default: undefined
+fileName : string The file name of the generated pkg-config metadata file.
+Default: product.targetName &#43; &#34;.pc&#34;
+libsEntry : stringList The value of the Libs field in the .pc file.
+If autoDetect is enabled, then this value will be appended to the flags derived from the product&#39;s Export item and the dependencies declared therein.
+Default: []
+libsPrivateEntry : stringList The value of the Libs.Private field in the .pc file.
+Default: []
+nameEntry : string The value of the Name field in the .pc file.
+Default: product.name
+requiresEntry : stringList The value of the Requires field in the .pc file.
+If autoDetect is enabled, then those of the product&#39;s exported dependencies that pull in the Exporter.pkgconfig module will also end up in the Requires field, provided they are not listed in excludedDependencies.
+If an exported dependency matches an entry of this array, Qbs will not traverse that dependency to gather cpp properties for use in the cflagsEntry and libsEntry values, as pkg-config takes care of that itself.
+Default: []
+requiresPrivateEntry : stringList The value of the Requires.private field in the .pc file.
+If autoDetect is enabled, then those of the product&#39;s non-exported dependencies that pull in the Exporter.pkgconfig module will also end up in the Requires.private field, provided they are not listed in excludedDependencies.
+Default: []
+transformFunction : var A function with the signature function(product, moduleName, propertyName, value). This can be useful to &#34;fine-tune&#34; property values if autoDetect is enabled, in case they need amending for the purpose of pkg-config. The product parameter represents the exporting product, the remaining parameters describe the module property. The modified value of the module property shall be returned.
+Default: undefined
+urlEntry : string The value of the URL field in the .pc file.
+Default: undefined
+versionEntry : string The value of the Version field in the .pc file.
+Default: product.version">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -75,7 +195,42 @@ Since: Qbs 1.12 List of all members, including inherited members Properties auto
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual QbsModules Exporter.pkgconfig Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags Exporter.pkgconfig Provides support for generating pkg-config files. More...
-Since: Qbs 1.12 List of all members, including inherited members Properties autoDetect : bool cflagsEntry : stringList conflictsEntry : stringList customVariables : string excludedDependencies : stringList fileName : string libsEntry : stringList libsPrivateEntry : stringList nameEntry : string requiresEntry : stringList requiresPrivateEntry : stringList transformFunction : var urlEntry : string versionEntry : string Detailed Description The Exporter.pkgconfig module contains the properties and rules to create a pkg-config metadata (.pc) file for a Product.">
+Since: Qbs 1.12 List of all members, including inherited members Properties autoDetect : bool cflagsEntry : stringList conflictsEntry : stringList customVariables : string excludedDependencies : stringList fileName : string libsEntry : stringList libsPrivateEntry : stringList nameEntry : string requiresEntry : stringList requiresPrivateEntry : stringList transformFunction : var urlEntry : string versionEntry : string Detailed Description The Exporter.pkgconfig module contains the properties and rules to create a pkg-config metadata (.pc) file for a Product.
+By default, Qbs will attempt to derive some of the .pc file&#39;s contents from the product&#39;s Export item. This behavior can be suppressed by setting the autoDetect property to false.
+Relevant File Tags Tag Since Description &#34;Exporter.pkgconfig.pc&#34; 1.12.0 This tag is attached to the generated .pc file. Property Documentation autoDetect : bool If this property is enabled, then Qbs will try to derive various .pc file entries from the contents of the product&#39;s Export item, including the dependencies declared therein. Values for these fields can still be explicitly provided via the respective properties, in which case they will be concatenated with the auto-detected ones. If an exported dependency is known to correspond to a pkg-config module (either by pulling in the Exporter.pkgconfig module or by appearing in the requiresEntry property), it will end up in the Requires field of the .pc file, otherwise its exported cpp properties will be collected for use in the Cflags and Libs fields. The excludedDependencies property can be used to ignore specific products altogether.
+Default: true
+cflagsEntry : stringList The value of the Cflags field in the .pc file.
+If autoDetect is enabled, then this value will be appended to the flags derived from the product&#39;s Export item and the dependencies declared therein.
+Default: []
+conflictsEntry : stringList The value of the Conflicts field in the .pc file.
+Default: []
+customVariables : string Use this property to add arbitrary variable assignments into the .pc file. The property is a map that will produce one assignment per entry. The keys and values of the map represent the left-hand sides and right-hand sides of these assignments, respectively. The values are strings that will be written into the file verbatim.
+Default: Undefined
+excludedDependencies : stringList If autoDetect is enabled, the entries of this property will be matched against the product&#39;s exported dependencies. In case such a dependency&#39;s name is present in the array, Qbs will not traverse that dependency to collect entries for the Cflags, Libs, Requires and Requires.private fields.
+This list must not contain any values that are present in requiresEntry.
+Default: undefined
+fileName : string The file name of the generated pkg-config metadata file.
+Default: product.targetName &#43; &#34;.pc&#34;
+libsEntry : stringList The value of the Libs field in the .pc file.
+If autoDetect is enabled, then this value will be appended to the flags derived from the product&#39;s Export item and the dependencies declared therein.
+Default: []
+libsPrivateEntry : stringList The value of the Libs.Private field in the .pc file.
+Default: []
+nameEntry : string The value of the Name field in the .pc file.
+Default: product.name
+requiresEntry : stringList The value of the Requires field in the .pc file.
+If autoDetect is enabled, then those of the product&#39;s exported dependencies that pull in the Exporter.pkgconfig module will also end up in the Requires field, provided they are not listed in excludedDependencies.
+If an exported dependency matches an entry of this array, Qbs will not traverse that dependency to gather cpp properties for use in the cflagsEntry and libsEntry values, as pkg-config takes care of that itself.
+Default: []
+requiresPrivateEntry : stringList The value of the Requires.private field in the .pc file.
+If autoDetect is enabled, then those of the product&#39;s non-exported dependencies that pull in the Exporter.pkgconfig module will also end up in the Requires.private field, provided they are not listed in excludedDependencies.
+Default: []
+transformFunction : var A function with the signature function(product, moduleName, propertyName, value). This can be useful to &#34;fine-tune&#34; property values if autoDetect is enabled, in case they need amending for the purpose of pkg-config. The product parameter represents the exporting product, the remaining parameters describe the module property. The modified value of the module property shall be returned.
+Default: undefined
+urlEntry : string The value of the URL field in the .pc file.
+Default: undefined
+versionEntry : string The value of the Version field in the .pc file.
+Default: product.version">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">

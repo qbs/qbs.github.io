@@ -43,7 +43,48 @@ priority : int (since Qbs 1.10)
 
 
 Detailed Description
-This item assigns file tags to files. The FileTagger item can appear in Product items or Module items. ">
+This item assigns file tags to files. The FileTagger item can appear in Product items or Module items.
+For every source artifact that has no file tag, Qbs will search for a FileTagger with a pattern that matches the file name of the source artifact. If a matching file tagger is found, then the file tags specified in the FileTagger item are assigned to the source artifact.
+If there is more than one matching FileTagger, all file taggers with the same highest priority are taken into account and their file tags are accumulated.
+The FileTagger item can be attached to a product or a module. In the latter case, its effect is the same as if it had been attached to all products having a dependency on the respective module. For instance, the cpp module of Qbs has, among others, the following file tagger:
+FileTagger {
+    patterns: &#34;*.cpp&#34;
+    fileTags: [&#34;cpp&#34;]
+}
+As a result, the &#34;cpp&#34; tag is automatically attached to all files ending with &#34;.cpp&#34; in products depending on the cpp module. This causes them to be compiled, because a C&#43;&#43; compiler rule has &#34;cpp&#34; in its list of matching input tags.
+File taggers are disabled if file tags are set explicitly in a product or group. For example, the &#34;cpp&#34; tag is not attached to the .cpp files in the following product:
+Product {
+    Depends { name: &#34;cpp&#34; }
+    Group {
+        files: &#34;*.cpp&#34;
+        fileTags: &#34;other&#34;
+    }
+}
+
+Property Documentation
+
+fileTags : list [since Qbs 1.0]
+Tags to attach to a product&#39;s files. These can then be matched by a rule.
+Default: An empty list
+This property was introduced in Qbs 1.0.
+
+
+patterns : stringList [since Qbs 1.0]
+A list of patterns to match against. Supports the usual wildcards &#39;*&#39;, &#39;?&#39; and &#39;[]&#39;.
+Neither the list itself nor any of its elements may be empty.
+This property was introduced in Qbs 1.0.
+
+
+priority : int [since Qbs 1.10]
+The priority of the FileTagger. A higher numerical value means a higher priority.
+Default: 0
+This property was introduced in Qbs 1.10.
+
+
+Export
+Group
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbslanguageitems-filetagger/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -53,14 +94,29 @@ This item assigns file tags to files. The FileTagger item can appear in Product 
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-filetagger/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual QbsLanguageItems FileTagger Qbs 3.4.0 Export Group Contents Properties Detailed Description FileTagger Assigns file tags to files. More...
-List of all members, including inherited members FileTagger is part of List of All Items. Properties fileTags : list (since Qbs 1.0) patterns : stringList (since Qbs 1.0) priority : int (since Qbs 1.10) Detailed Description This item assigns file tags to files. The FileTagger item can appear in Product items or Module items.">
+List of all members, including inherited members FileTagger is part of List of All Items. Properties fileTags : list (since Qbs 1.0) patterns : stringList (since Qbs 1.0) priority : int (since Qbs 1.10) Detailed Description This item assigns file tags to files. The FileTagger item can appear in Product items or Module items.
+For every source artifact that has no file tag, Qbs will search for a FileTagger with a pattern that matches the file name of the source artifact. If a matching file tagger is found, then the file tags specified in the FileTagger item are assigned to the source artifact.
+If there is more than one matching FileTagger, all file taggers with the same highest priority are taken into account and their file tags are accumulated.
+The FileTagger item can be attached to a product or a module. In the latter case, its effect is the same as if it had been attached to all products having a dependency on the respective module. For instance, the cpp module of Qbs has, among others, the following file tagger:
+FileTagger { patterns: &#34;*.cpp&#34; fileTags: [&#34;cpp&#34;] } As a result, the &#34;cpp&#34; tag is automatically attached to all files ending with &#34;.cpp&#34; in products depending on the cpp module. This causes them to be compiled, because a C&#43;&#43; compiler rule has &#34;cpp&#34; in its list of matching input tags.
+File taggers are disabled if file tags are set explicitly in a product or group. For example, the &#34;cpp&#34; tag is not attached to the .cpp files in the following product:
+Product { Depends { name: &#34;cpp&#34; } Group { files: &#34;*.cpp&#34; fileTags: &#34;other&#34; } } Property Documentation fileTags : list [since Qbs 1.0] Tags to attach to a product&#39;s files. These can then be matched by a rule.
+Default: An empty list
+This property was introduced in Qbs 1.0.
+patterns : stringList [since Qbs 1.0] A list of patterns to match against. Supports the usual wildcards &#39;*&#39;, &#39;?&#39; and &#39;[]&#39;.
+Neither the list itself nor any of its elements may be empty.
+This property was introduced in Qbs 1.0.
+priority : int [since Qbs 1.10] The priority of the FileTagger. A higher numerical value means a higher priority.
+Default: 0
+This property was introduced in Qbs 1.10.
+Export Group">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -69,7 +125,22 @@ List of all members, including inherited members FileTagger is part of List of A
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual QbsLanguageItems FileTagger Qbs 3.4.0 Export Group Contents Properties Detailed Description FileTagger Assigns file tags to files. More...
-List of all members, including inherited members FileTagger is part of List of All Items. Properties fileTags : list (since Qbs 1.0) patterns : stringList (since Qbs 1.0) priority : int (since Qbs 1.10) Detailed Description This item assigns file tags to files. The FileTagger item can appear in Product items or Module items.">
+List of all members, including inherited members FileTagger is part of List of All Items. Properties fileTags : list (since Qbs 1.0) patterns : stringList (since Qbs 1.0) priority : int (since Qbs 1.10) Detailed Description This item assigns file tags to files. The FileTagger item can appear in Product items or Module items.
+For every source artifact that has no file tag, Qbs will search for a FileTagger with a pattern that matches the file name of the source artifact. If a matching file tagger is found, then the file tags specified in the FileTagger item are assigned to the source artifact.
+If there is more than one matching FileTagger, all file taggers with the same highest priority are taken into account and their file tags are accumulated.
+The FileTagger item can be attached to a product or a module. In the latter case, its effect is the same as if it had been attached to all products having a dependency on the respective module. For instance, the cpp module of Qbs has, among others, the following file tagger:
+FileTagger { patterns: &#34;*.cpp&#34; fileTags: [&#34;cpp&#34;] } As a result, the &#34;cpp&#34; tag is automatically attached to all files ending with &#34;.cpp&#34; in products depending on the cpp module. This causes them to be compiled, because a C&#43;&#43; compiler rule has &#34;cpp&#34; in its list of matching input tags.
+File taggers are disabled if file tags are set explicitly in a product or group. For example, the &#34;cpp&#34; tag is not attached to the .cpp files in the following product:
+Product { Depends { name: &#34;cpp&#34; } Group { files: &#34;*.cpp&#34; fileTags: &#34;other&#34; } } Property Documentation fileTags : list [since Qbs 1.0] Tags to attach to a product&#39;s files. These can then be matched by a rule.
+Default: An empty list
+This property was introduced in Qbs 1.0.
+patterns : stringList [since Qbs 1.0] A list of patterns to match against. Supports the usual wildcards &#39;*&#39;, &#39;?&#39; and &#39;[]&#39;.
+Neither the list itself nor any of its elements may be empty.
+This property was introduced in Qbs 1.0.
+priority : int [since Qbs 1.10] The priority of the FileTagger. A higher numerical value means a higher priority.
+Default: 0
+This property was introduced in Qbs 1.10.
+Export Group">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -159,16 +230,16 @@ List of all members, including inherited members FileTagger is part of List of A
 <p>If there is more than one matching FileTagger, all file taggers with the same highest priority are taken into account and their file tags are accumulated.</p>
 <p>The FileTagger item can be attached to a product or a module. In the latter case, its effect is the same as if it had been attached to all products having a dependency on the respective module. For instance, the <a href="https://qbs.io/
 /docs/qml-qbsmodules-cpp/" translate="no">cpp</a> module of Qbs has, among others, the following file tagger:</p>
-<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
+<pre class="cpp" translate="no"><code class="cpp"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-filetagger/" translate="no">FileTagger</a></span> {
     <span class="name">patterns</span>: <span class="string">"*.cpp"</span>
     <span class="name">fileTags</span>: [<span class="string">"cpp"</span>]
-}</pre>
+}</code></pre>
 <p>As a result, the <code translate="no">"cpp"</code> tag is automatically attached to all files ending with <code translate="no">".cpp"</code> in products depending on the <code translate="no">cpp</code> module. This causes them to be compiled, because a C++ compiler rule has <code translate="no">"cpp"</code> in its list of matching input tags.</p>
 <p>File taggers are disabled if file tags are set explicitly in a <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/" translate="no">product</a> or <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-group/" translate="no">group</a>. For example, the <code translate="no">"cpp"</code> tag is not attached to the <code translate="no">.cpp</code> files in the following product:</p>
-<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
+<pre class="cpp" translate="no"><code class="cpp"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/" translate="no">Product</a></span> {
     <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-depends/" translate="no">Depends</a></span> { <span class="name">name</span>: <span class="string">"cpp"</span> }
@@ -177,7 +248,7 @@ List of all members, including inherited members FileTagger is part of List of A
         <span class="name">files</span>: <span class="string">"*.cpp"</span>
         <span class="name">fileTags</span>: <span class="string">"other"</span>
     }
-}</pre>
+}</code></pre>
 <!-- @@@FileTagger -->
 <h2>Property Documentation</h2>
 <!-- $$$fileTags -->

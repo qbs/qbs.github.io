@@ -48,7 +48,43 @@ installDir : string (since Qbs 1.13)
 
 
 Detailed Description
-An Application item is a Product representing an application. ">
+An Application item is a Product representing an application.
+The target artifact of this type of product is usually an executable binary tagged &#34;application&#34;. However, on Android, unless you set consoleApplication to true, the application target will be an APK or an AAB package tagged &#34;android.package&#34; according to the packageType property. A dependency to the Android.sdk module is automatically added to the product.
+
+Property Documentation
+
+debugInformationInstallDir : string [since Qbs 1.16]
+Where to install the debug information if installDebugInformation is enabled.
+The value is appended to qbs.installPrefix when constructing the actual installation directory.
+Default: installDir.
+This property was introduced in Qbs 1.16.
+See also How do I separate and install debugging symbols?.
+
+
+install : bool [since Qbs 1.13]
+If true, the executable that is produced when building the application will be installed to installDir.
+Default: false
+This property was introduced in Qbs 1.13.
+
+
+installDebugInformation : bool [since Qbs 1.16]
+If true, the debug information will be installed to debugInformationInstallDir.
+Default: false
+This property was introduced in Qbs 1.16.
+See also How do I separate and install debugging symbols?.
+
+
+installDir : string [since Qbs 1.13]
+Where to install the executable that is produced when building the application, if install is enabled.
+The value is appended to qbs.installPrefix when constructing the actual installation directory.
+Default: Applications if the app is a bundle, bin otherwise.
+This property was introduced in Qbs 1.13.
+
+
+AppleDiskImage
+ApplicationExtension
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsconvenienceitems-application/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -58,7 +94,7 @@ An Application item is a Product representing an application. ">
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsconvenienceitems-application/">
@@ -67,7 +103,25 @@ An Application item is a Product representing an application. ">
 	<meta property="og:description" content="Qbs Manual QbsConvenienceItems Application Qbs 3.4.0 AppleDiskImage ApplicationExtension Contents Properties Detailed Description Application Product of the type application. More...
 Inherits: Product
 Inherited By: ApplicationExtension, CppApplication, QtApplication, QtGuiApplication, and XPCService
-List of all members, including inherited members Application is part of List of All Items. Properties debugInformationInstallDir : string (since Qbs 1.16) install : bool (since Qbs 1.13) installDebugInformation : bool (since Qbs 1.16) installDir : string (since Qbs 1.13) Detailed Description An Application item is a Product representing an application.">
+List of all members, including inherited members Application is part of List of All Items. Properties debugInformationInstallDir : string (since Qbs 1.16) install : bool (since Qbs 1.13) installDebugInformation : bool (since Qbs 1.16) installDir : string (since Qbs 1.13) Detailed Description An Application item is a Product representing an application.
+The target artifact of this type of product is usually an executable binary tagged &#34;application&#34;. However, on Android, unless you set consoleApplication to true, the application target will be an APK or an AAB package tagged &#34;android.package&#34; according to the packageType property. A dependency to the Android.sdk module is automatically added to the product.
+Property Documentation debugInformationInstallDir : string [since Qbs 1.16] Where to install the debug information if installDebugInformation is enabled.
+The value is appended to qbs.installPrefix when constructing the actual installation directory.
+Default: installDir.
+This property was introduced in Qbs 1.16.
+See also How do I separate and install debugging symbols?.
+install : bool [since Qbs 1.13] If true, the executable that is produced when building the application will be installed to installDir.
+Default: false
+This property was introduced in Qbs 1.13.
+installDebugInformation : bool [since Qbs 1.16] If true, the debug information will be installed to debugInformationInstallDir.
+Default: false
+This property was introduced in Qbs 1.16.
+See also How do I separate and install debugging symbols?.
+installDir : string [since Qbs 1.13] Where to install the executable that is produced when building the application, if install is enabled.
+The value is appended to qbs.installPrefix when constructing the actual installation directory.
+Default: Applications if the app is a bundle, bin otherwise.
+This property was introduced in Qbs 1.13.
+AppleDiskImage ApplicationExtension">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -78,7 +132,25 @@ List of all members, including inherited members Application is part of List of 
 	<meta name="twitter:description" content="Qbs Manual QbsConvenienceItems Application Qbs 3.4.0 AppleDiskImage ApplicationExtension Contents Properties Detailed Description Application Product of the type application. More...
 Inherits: Product
 Inherited By: ApplicationExtension, CppApplication, QtApplication, QtGuiApplication, and XPCService
-List of all members, including inherited members Application is part of List of All Items. Properties debugInformationInstallDir : string (since Qbs 1.16) install : bool (since Qbs 1.13) installDebugInformation : bool (since Qbs 1.16) installDir : string (since Qbs 1.13) Detailed Description An Application item is a Product representing an application.">
+List of all members, including inherited members Application is part of List of All Items. Properties debugInformationInstallDir : string (since Qbs 1.16) install : bool (since Qbs 1.13) installDebugInformation : bool (since Qbs 1.16) installDir : string (since Qbs 1.13) Detailed Description An Application item is a Product representing an application.
+The target artifact of this type of product is usually an executable binary tagged &#34;application&#34;. However, on Android, unless you set consoleApplication to true, the application target will be an APK or an AAB package tagged &#34;android.package&#34; according to the packageType property. A dependency to the Android.sdk module is automatically added to the product.
+Property Documentation debugInformationInstallDir : string [since Qbs 1.16] Where to install the debug information if installDebugInformation is enabled.
+The value is appended to qbs.installPrefix when constructing the actual installation directory.
+Default: installDir.
+This property was introduced in Qbs 1.16.
+See also How do I separate and install debugging symbols?.
+install : bool [since Qbs 1.13] If true, the executable that is produced when building the application will be installed to installDir.
+Default: false
+This property was introduced in Qbs 1.13.
+installDebugInformation : bool [since Qbs 1.16] If true, the debug information will be installed to debugInformationInstallDir.
+Default: false
+This property was introduced in Qbs 1.16.
+See also How do I separate and install debugging symbols?.
+installDir : string [since Qbs 1.13] Where to install the executable that is produced when building the application, if install is enabled.
+The value is appended to qbs.installPrefix when constructing the actual installation directory.
+Default: Applications if the app is a bundle, bin otherwise.
+This property was introduced in Qbs 1.13.
+AppleDiskImage ApplicationExtension">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">

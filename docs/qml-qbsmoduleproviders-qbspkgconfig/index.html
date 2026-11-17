@@ -41,7 +41,66 @@ sysroot : path
 
 
 Detailed Description
-Qbs uses a built-in parser of the *.pc files and does not require the presence of the pkg-config tool in the system. However, if the pkg-config tool is present, Qbs will use the same libDirs as the system pkg-config uses by default; otherwise, a built-in list of paths is used. ">
+Qbs uses a built-in parser of the *.pc files and does not require the presence of the pkg-config tool in the system. However, if the pkg-config tool is present, Qbs will use the same libDirs as the system pkg-config uses by default; otherwise, a built-in list of paths is used.
+In order to enable usage of this provider in your Product, set the qbsModuleProviders property as shown in the example below:
+CppApplication {
+    consoleApplication: true
+    Depends { name: &#34;zlib&#34;; required: false }
+    condition: !qbs.toolchain.includes(&#34;emscripten&#34;) &amp;&amp; zlib.present
+    name: &#34;PkgConfigProviderExample&#34;
+    files: &#34;main.c&#34;
+    qbsModuleProviders: [&#34;qbspkgconfig&#34;]
+}
+
+Property Documentation
+
+definePrefix : bool
+If this property is true, then Qbs will override the ${prefix} variable in the packages with a value that is guessed based on the location of the .pc file.
+This option corresponds to the --define-prefix / --dont-define-prefix command line options of the pkg-config tool.
+Default: true on Windows, false otherwise
+
+
+executableFilePath : string
+The path to the pkg-config executable. If not set, the pkg-config from PATH is used.
+Default: undefined
+
+
+executableNames : stringList
+The names of the pkg-config executable to search for.
+Note that since newer distributions use pkgconf by default, it has higher priority over pkg-config.
+Default: [&#34;pkgconf&#34;, &#34;pkg-config&#34;]
+
+
+extraPaths : stringList
+Set this if you need to add extra search directories.
+This property is the equivalent of the PKG_CONFIG_PATH variable for the pkg-config tool.
+Default: Undefined
+
+
+libDirs : stringList
+Set this if you need to overwrite the default search directories.
+
+Note: You do not need to set this for cross-compilation in order to point to the sysroot. Qbs does that for you.
+
+This property is the equivalent of the PKG_CONFIG_LIBDIR variable for the pkg-config tool.
+Default: Undefined
+
+
+staticMode : bool
+If this property is true, then Qbs will include &#34;private&#34; libs and dependencies of the package. This property is the equivalent of the --static option for the pkg-config tool.
+Set this if your product is to be linked statically.
+Default: false
+
+
+sysroot : path
+Set this property if you need to overwrite the default search sysroot path used by pkg-config.
+This can be useful if pkg-config files are located in the directory other than qbs.sysroot. This is the case on macOS platform - all XCode profiles are sysrooted to the SDK directory, but pkg-config is typically intalled using Brew and resides in the /usr/local directory.
+Setting this property to undefined or empty (&#34;&#34;) value will use pkg-config&#39;s default search paths:
+qbs resolve moduleProviders.qbspkgconfig.sysroot:undefined
+This property is the equivalent of the PKG_CONFIG_SYSROOT_DIR variable for the pkg-config tool.
+Default: &#34;&#34; on macOS, qbs.sysroot on other platforms
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmoduleproviders-qbspkgconfig/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -51,14 +110,38 @@ Qbs uses a built-in parser of the *.pc files and does not require the presence o
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmoduleproviders-qbspkgconfig/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual QbsModuleProviders qbspkgconfig Qbs 3.4.0 Contents Properties Detailed Description qbspkgconfig Module provider based on the qbspkg-config library. More...
-Since: 1.20 List of all members, including inherited members Properties definePrefix : bool executableFilePath : string executableNames : stringList extraPaths : stringList libDirs : stringList staticMode : bool sysroot : path Detailed Description Qbs uses a built-in parser of the *.pc files and does not require the presence of the pkg-config tool in the system. However, if the pkg-config tool is present, Qbs will use the same libDirs as the system pkg-config uses by default; otherwise, a built-in list of paths is used.">
+Since: 1.20 List of all members, including inherited members Properties definePrefix : bool executableFilePath : string executableNames : stringList extraPaths : stringList libDirs : stringList staticMode : bool sysroot : path Detailed Description Qbs uses a built-in parser of the *.pc files and does not require the presence of the pkg-config tool in the system. However, if the pkg-config tool is present, Qbs will use the same libDirs as the system pkg-config uses by default; otherwise, a built-in list of paths is used.
+In order to enable usage of this provider in your Product, set the qbsModuleProviders property as shown in the example below:
+CppApplication { consoleApplication: true Depends { name: &#34;zlib&#34;; required: false } condition: !qbs.toolchain.includes(&#34;emscripten&#34;) &amp;&amp; zlib.present name: &#34;PkgConfigProviderExample&#34; files: &#34;main.c&#34; qbsModuleProviders: [&#34;qbspkgconfig&#34;] } Property Documentation definePrefix : bool If this property is true, then Qbs will override the ${prefix} variable in the packages with a value that is guessed based on the location of the .pc file.
+This option corresponds to the --define-prefix / --dont-define-prefix command line options of the pkg-config tool.
+Default: true on Windows, false otherwise
+executableFilePath : string The path to the pkg-config executable. If not set, the pkg-config from PATH is used.
+Default: undefined
+executableNames : stringList The names of the pkg-config executable to search for.
+Note that since newer distributions use pkgconf by default, it has higher priority over pkg-config.
+Default: [&#34;pkgconf&#34;, &#34;pkg-config&#34;]
+extraPaths : stringList Set this if you need to add extra search directories.
+This property is the equivalent of the PKG_CONFIG_PATH variable for the pkg-config tool.
+Default: Undefined
+libDirs : stringList Set this if you need to overwrite the default search directories.
+Note: You do not need to set this for cross-compilation in order to point to the sysroot. Qbs does that for you.
+This property is the equivalent of the PKG_CONFIG_LIBDIR variable for the pkg-config tool.
+Default: Undefined
+staticMode : bool If this property is true, then Qbs will include &#34;private&#34; libs and dependencies of the package. This property is the equivalent of the --static option for the pkg-config tool.
+Set this if your product is to be linked statically.
+Default: false
+sysroot : path Set this property if you need to overwrite the default search sysroot path used by pkg-config.
+This can be useful if pkg-config files are located in the directory other than qbs.sysroot. This is the case on macOS platform - all XCode profiles are sysrooted to the SDK directory, but pkg-config is typically intalled using Brew and resides in the /usr/local directory.
+Setting this property to undefined or empty (&#34;&#34;) value will use pkg-config&#39;s default search paths:
+qbs resolve moduleProviders.qbspkgconfig.sysroot:undefined This property is the equivalent of the PKG_CONFIG_SYSROOT_DIR variable for the pkg-config tool.
+Default: &#34;&#34; on macOS, qbs.sysroot on other platforms">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -67,7 +150,31 @@ Since: 1.20 List of all members, including inherited members Properties definePr
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual QbsModuleProviders qbspkgconfig Qbs 3.4.0 Contents Properties Detailed Description qbspkgconfig Module provider based on the qbspkg-config library. More...
-Since: 1.20 List of all members, including inherited members Properties definePrefix : bool executableFilePath : string executableNames : stringList extraPaths : stringList libDirs : stringList staticMode : bool sysroot : path Detailed Description Qbs uses a built-in parser of the *.pc files and does not require the presence of the pkg-config tool in the system. However, if the pkg-config tool is present, Qbs will use the same libDirs as the system pkg-config uses by default; otherwise, a built-in list of paths is used.">
+Since: 1.20 List of all members, including inherited members Properties definePrefix : bool executableFilePath : string executableNames : stringList extraPaths : stringList libDirs : stringList staticMode : bool sysroot : path Detailed Description Qbs uses a built-in parser of the *.pc files and does not require the presence of the pkg-config tool in the system. However, if the pkg-config tool is present, Qbs will use the same libDirs as the system pkg-config uses by default; otherwise, a built-in list of paths is used.
+In order to enable usage of this provider in your Product, set the qbsModuleProviders property as shown in the example below:
+CppApplication { consoleApplication: true Depends { name: &#34;zlib&#34;; required: false } condition: !qbs.toolchain.includes(&#34;emscripten&#34;) &amp;&amp; zlib.present name: &#34;PkgConfigProviderExample&#34; files: &#34;main.c&#34; qbsModuleProviders: [&#34;qbspkgconfig&#34;] } Property Documentation definePrefix : bool If this property is true, then Qbs will override the ${prefix} variable in the packages with a value that is guessed based on the location of the .pc file.
+This option corresponds to the --define-prefix / --dont-define-prefix command line options of the pkg-config tool.
+Default: true on Windows, false otherwise
+executableFilePath : string The path to the pkg-config executable. If not set, the pkg-config from PATH is used.
+Default: undefined
+executableNames : stringList The names of the pkg-config executable to search for.
+Note that since newer distributions use pkgconf by default, it has higher priority over pkg-config.
+Default: [&#34;pkgconf&#34;, &#34;pkg-config&#34;]
+extraPaths : stringList Set this if you need to add extra search directories.
+This property is the equivalent of the PKG_CONFIG_PATH variable for the pkg-config tool.
+Default: Undefined
+libDirs : stringList Set this if you need to overwrite the default search directories.
+Note: You do not need to set this for cross-compilation in order to point to the sysroot. Qbs does that for you.
+This property is the equivalent of the PKG_CONFIG_LIBDIR variable for the pkg-config tool.
+Default: Undefined
+staticMode : bool If this property is true, then Qbs will include &#34;private&#34; libs and dependencies of the package. This property is the equivalent of the --static option for the pkg-config tool.
+Set this if your product is to be linked statically.
+Default: false
+sysroot : path Set this property if you need to overwrite the default search sysroot path used by pkg-config.
+This can be useful if pkg-config files are located in the directory other than qbs.sysroot. This is the case on macOS platform - all XCode profiles are sysrooted to the SDK directory, but pkg-config is typically intalled using Brew and resides in the /usr/local directory.
+Setting this property to undefined or empty (&#34;&#34;) value will use pkg-config&#39;s default search paths:
+qbs resolve moduleProviders.qbspkgconfig.sysroot:undefined This property is the equivalent of the PKG_CONFIG_SYSROOT_DIR variable for the pkg-config tool.
+Default: &#34;&#34; on macOS, qbs.sysroot on other platforms">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -151,14 +258,14 @@ Since: 1.20 List of all members, including inherited members Properties definePr
 /docs/qml-qbsmoduleproviders-qbspkgconfig/#libDirs-prop" translate="no">libDirs</a> as the system pkg-config uses by default; otherwise, a built-in list of paths is used.</p>
 <p>In order to enable usage of this provider in your Product, set the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/#qbsModuleProviders-prop" translate="no">qbsModuleProviders</a> property as shown in the example below:</p>
-<pre class="cpp" translate="no">CppApplication {
+<pre class="cpp" translate="no"><code class="cpp">CppApplication {
     consoleApplication: true
     Depends { name: "zlib"; required: false }
     condition: !qbs.toolchain.includes("emscripten") &amp;&amp; zlib.present
     name: "PkgConfigProviderExample"
     files: "main.c"
     qbsModuleProviders: ["qbspkgconfig"]
-}</pre>
+}</code></pre>
 <!-- @@@qbspkgconfig -->
 <h2>Property Documentation</h2>
 <!-- $$$definePrefix -->
@@ -204,7 +311,7 @@ Since: 1.20 List of all members, including inherited members Properties definePr
 <p>Set this property if you need to overwrite the default search sysroot path used by <code translate="no">pkg-config</code>.</p>
 <p>This can be useful if <code translate="no">pkg-config</code> files are located in the directory other than qbs.sysroot. This is the case on macOS platform - all XCode profiles are sysrooted to the SDK directory, but <code translate="no">pkg-config</code> is typically intalled using Brew and resides in the <code translate="no">/usr/local</code> directory.</p>
 <p>Setting this property to <code translate="no">undefined</code> or empty (<code translate="no">""</code>) value will use pkg-config's default search paths:</p>
-<pre class="cpp" translate="no">qbs resolve moduleProviders<span class="operator">.</span>qbspkgconfig<span class="operator">.</span>sysroot:undefined</pre>
+<pre class="cpp" translate="no"><code class="cpp">qbs resolve moduleProviders<span class="operator">.</span>qbspkgconfig<span class="operator">.</span>sysroot:undefined</code></pre>
 <p>This property is the equivalent of the <code translate="no">PKG_CONFIG_SYSROOT_DIR</code> variable for the <code translate="no">pkg-config</code> tool.</p>
 <p>Default: <code translate="no">""</code> on macOS, <code translate="no">qbs.sysroot</code> on other platforms</p>
 <!-- @@@sysroot -->

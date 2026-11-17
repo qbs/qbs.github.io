@@ -58,7 +58,84 @@ staticLibrariesDirectory : string
 
 
 Detailed Description
-This items contains properties that configure built-in items such as Application, Library, and Plugin. ">
+This items contains properties that configure built-in items such as Application, Library, and Plugin.
+
+Property Documentation
+
+applicationsDirectory : string
+The directory where application bundles should be installed on Apple platforms. Default: installpaths.applications
+
+
+binariesDirectory : string
+The directory where binaries should be installed. Default: installpaths.bin
+
+
+debugInformation : bool
+Controls whether debug information should be installed. Default: install
+
+
+debugInformationDirectory : string
+The directory where debug information should be installed.
+If not set, the value is auto-detected based on item type installing debug info into the same folder as the main artifact.
+Default: Undefined
+
+
+dynamicLibraries : bool
+Controls whether dynamic libraries should be installed. Default: install
+
+
+dynamicLibrariesDirectory : string
+The directory where dynamic libraries should be installed. Default: installpaths.bin on Windows, installpaths.lib otherwise
+
+
+frameworks : bool
+Controls whether frameworks should be installed. Default: install
+
+
+frameworksDirectory : string
+The directory where frameworks should be installed. Default: installpaths.library &#43; &#34;/&#34; &#43; installpaths.frameworks
+
+
+importLibraries : bool
+Controls whether import libraries should be installed (relevant for Windows dynamic libraries). Default: false
+
+
+importLibrariesDirectory : string
+The directory where import libraries should be installed. Default: installpaths.lib
+
+
+install : bool
+Controls whether products should be installed by default. Default: true
+
+
+loadableModules : bool
+Controls whether loadable modules should be installed. Default: install
+
+
+loadableModulesDirectory : string
+The directory where loadable modules should be installed. Default: installpaths.library &#43; &#34;/&#34; &#43; installpaths.frameworks
+
+
+plugins : bool
+Controls whether plugins should be installed. Default: install
+
+
+pluginsDirectory : string
+The directory where plugins should be installed. Default: installpaths.plugins
+
+
+staticLibraries : bool
+Controls whether static libraries should be installed. Default: false
+
+
+staticLibrariesDirectory : string
+The directory where static libraries should be installed. Default: installpaths.lib
+
+
+ConfigBuild
+CppApplication
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsconvenienceitems-configinstall/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -68,14 +145,34 @@ This items contains properties that configure built-in items such as Application
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsconvenienceitems-configinstall/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual QbsConvenienceItems ConfigInstall Qbs 3.4.0 ConfigBuild CppApplication Contents Properties Detailed Description ConfigInstall This is the base item for the config.install module. More...
-Since: Qbs 3.1 List of all members, including inherited members ConfigInstall is part of List of All Items. Properties applicationsDirectory : string binariesDirectory : string debugInformation : bool debugInformationDirectory : string dynamicLibraries : bool dynamicLibrariesDirectory : string frameworks : bool frameworksDirectory : string importLibraries : bool importLibrariesDirectory : string install : bool loadableModules : bool loadableModulesDirectory : string plugins : bool pluginsDirectory : string staticLibraries : bool staticLibrariesDirectory : string Detailed Description This items contains properties that configure built-in items such as Application, Library, and Plugin.">
+Since: Qbs 3.1 List of all members, including inherited members ConfigInstall is part of List of All Items. Properties applicationsDirectory : string binariesDirectory : string debugInformation : bool debugInformationDirectory : string dynamicLibraries : bool dynamicLibrariesDirectory : string frameworks : bool frameworksDirectory : string importLibraries : bool importLibrariesDirectory : string install : bool loadableModules : bool loadableModulesDirectory : string plugins : bool pluginsDirectory : string staticLibraries : bool staticLibrariesDirectory : string Detailed Description This items contains properties that configure built-in items such as Application, Library, and Plugin.
+Property Documentation applicationsDirectory : string The directory where application bundles should be installed on Apple platforms. Default: installpaths.applications
+binariesDirectory : string The directory where binaries should be installed. Default: installpaths.bin
+debugInformation : bool Controls whether debug information should be installed. Default: install
+debugInformationDirectory : string The directory where debug information should be installed.
+If not set, the value is auto-detected based on item type installing debug info into the same folder as the main artifact.
+Default: Undefined
+dynamicLibraries : bool Controls whether dynamic libraries should be installed. Default: install
+dynamicLibrariesDirectory : string The directory where dynamic libraries should be installed. Default: installpaths.bin on Windows, installpaths.lib otherwise
+frameworks : bool Controls whether frameworks should be installed. Default: install
+frameworksDirectory : string The directory where frameworks should be installed. Default: installpaths.library &#43; &#34;/&#34; &#43; installpaths.frameworks
+importLibraries : bool Controls whether import libraries should be installed (relevant for Windows dynamic libraries). Default: false
+importLibrariesDirectory : string The directory where import libraries should be installed. Default: installpaths.lib
+install : bool Controls whether products should be installed by default. Default: true
+loadableModules : bool Controls whether loadable modules should be installed. Default: install
+loadableModulesDirectory : string The directory where loadable modules should be installed. Default: installpaths.library &#43; &#34;/&#34; &#43; installpaths.frameworks
+plugins : bool Controls whether plugins should be installed. Default: install
+pluginsDirectory : string The directory where plugins should be installed. Default: installpaths.plugins
+staticLibraries : bool Controls whether static libraries should be installed. Default: false
+staticLibrariesDirectory : string The directory where static libraries should be installed. Default: installpaths.lib
+ConfigBuild CppApplication">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -84,7 +181,27 @@ Since: Qbs 3.1 List of all members, including inherited members ConfigInstall is
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual QbsConvenienceItems ConfigInstall Qbs 3.4.0 ConfigBuild CppApplication Contents Properties Detailed Description ConfigInstall This is the base item for the config.install module. More...
-Since: Qbs 3.1 List of all members, including inherited members ConfigInstall is part of List of All Items. Properties applicationsDirectory : string binariesDirectory : string debugInformation : bool debugInformationDirectory : string dynamicLibraries : bool dynamicLibrariesDirectory : string frameworks : bool frameworksDirectory : string importLibraries : bool importLibrariesDirectory : string install : bool loadableModules : bool loadableModulesDirectory : string plugins : bool pluginsDirectory : string staticLibraries : bool staticLibrariesDirectory : string Detailed Description This items contains properties that configure built-in items such as Application, Library, and Plugin.">
+Since: Qbs 3.1 List of all members, including inherited members ConfigInstall is part of List of All Items. Properties applicationsDirectory : string binariesDirectory : string debugInformation : bool debugInformationDirectory : string dynamicLibraries : bool dynamicLibrariesDirectory : string frameworks : bool frameworksDirectory : string importLibraries : bool importLibrariesDirectory : string install : bool loadableModules : bool loadableModulesDirectory : string plugins : bool pluginsDirectory : string staticLibraries : bool staticLibrariesDirectory : string Detailed Description This items contains properties that configure built-in items such as Application, Library, and Plugin.
+Property Documentation applicationsDirectory : string The directory where application bundles should be installed on Apple platforms. Default: installpaths.applications
+binariesDirectory : string The directory where binaries should be installed. Default: installpaths.bin
+debugInformation : bool Controls whether debug information should be installed. Default: install
+debugInformationDirectory : string The directory where debug information should be installed.
+If not set, the value is auto-detected based on item type installing debug info into the same folder as the main artifact.
+Default: Undefined
+dynamicLibraries : bool Controls whether dynamic libraries should be installed. Default: install
+dynamicLibrariesDirectory : string The directory where dynamic libraries should be installed. Default: installpaths.bin on Windows, installpaths.lib otherwise
+frameworks : bool Controls whether frameworks should be installed. Default: install
+frameworksDirectory : string The directory where frameworks should be installed. Default: installpaths.library &#43; &#34;/&#34; &#43; installpaths.frameworks
+importLibraries : bool Controls whether import libraries should be installed (relevant for Windows dynamic libraries). Default: false
+importLibrariesDirectory : string The directory where import libraries should be installed. Default: installpaths.lib
+install : bool Controls whether products should be installed by default. Default: true
+loadableModules : bool Controls whether loadable modules should be installed. Default: install
+loadableModulesDirectory : string The directory where loadable modules should be installed. Default: installpaths.library &#43; &#34;/&#34; &#43; installpaths.frameworks
+plugins : bool Controls whether plugins should be installed. Default: install
+pluginsDirectory : string The directory where plugins should be installed. Default: installpaths.plugins
+staticLibraries : bool Controls whether static libraries should be installed. Default: false
+staticLibrariesDirectory : string The directory where static libraries should be installed. Default: installpaths.lib
+ConfigBuild CppApplication">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">

@@ -35,7 +35,45 @@ These are operations that do not fit into any of the other categories. They are 
 Available Operations
 require
 require(identifier: string): any
-Loads an extension and returns an object representing the extension. If identifier is a relative or absolute file path, this function will load a JavaScript file and return an object containing the evaluated context of that file. Otherwise, loads a Qbs extension named identifier and returns an object that contains the extension&#39;s context. This function is only available in JavaScript files and is designed to behave similarly to the CommonJS/RequireJS/Node.js module resolution systems. ">
+Loads an extension and returns an object representing the extension. If identifier is a relative or absolute file path, this function will load a JavaScript file and return an object containing the evaluated context of that file. Otherwise, loads a Qbs extension named identifier and returns an object that contains the extension&#39;s context. This function is only available in JavaScript files and is designed to behave similarly to the CommonJS/RequireJS/Node.js module resolution systems.
+var MyFunctions = require(&#34;./myfunctions.js&#34;);
+MyFunctions.doSomething();
+var FileInfo = require(&#34;qbs.FileInfo&#34;);
+var fileName = FileInfo.fileName(filePath);
+Extensions to JavaScript Built-in Objects
+Array.containsAll
+Array.containsAll(other: any[]): boolean
+Returns true if the array contains every element in the other array. Returns false otherwise.
+Array.containsAny
+Array.containsAny(other: any[]): boolean
+Returns true if the array contains some element(s) in the other array. Returns false otherwise.
+Array.uniqueConcat
+Array.uniqueConcat(other: any[]): any[]
+Returns a copy of this array joined with the array other. Duplicates that would originate from the concatenation are removed. The order of elements is preserved.
+Console API
+Qbs provides a subset of the non-standard Console API available in most ECMAScript runtimes.
+The output of each of these functions will only be displayed if the logging level is at least the level which the function outputs at. Logging levels from lowest to highest are: &#39;error&#39;, &#39;warning&#39;, &#39;info&#39;, &#39;debug&#39;, and &#39;trace&#39;. The default is &#39;info&#39;.
+
+Warning: The contents of this section are subject to change in order to align with future standardization processes.
+
+console.debug
+console.debug(s: string): void
+This method is an alias for console.log().
+console.error
+console.error(s: string): void
+Logs an error level message. Outputs to stderr when the logger output is a terminal. The string will be prefixed with &#34;ERROR: &#34; and colored red when the logger output is a color-capable terminal.
+console.info
+console.info(s: string): void
+Logs an info level message. Outputs to stdout when the logger output is a terminal.
+console.log
+console.log(s: string): void
+Logs a debug level message. Outputs to stderr when the logger output is a terminal.
+console.warn
+console.warn(s: string): void
+Logs a warning level message. Outputs to stderr when the logger output is a terminal. The string will be prefixed with &#34;WARNING: &#34; and colored yellow when the logger output is a color-capable terminal.
+
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/jsextensions-general/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -45,14 +83,25 @@ Loads an extension and returns an object representing the extension. If identifi
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/jsextensions-general/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual List of Built-in Services General Services Qbs 3.4.0 Contents Available Operations require Extensions to JavaScript Built-in Objects Array.containsAll Array.containsAny Array.uniqueConcat Console API console.debug console.error console.info console.log console.warn General Services These are operations that do not fit into any of the other categories. They are automatically available in any Qbs project file or JavaScript file.
-Available Operations require require(identifier: string): any Loads an extension and returns an object representing the extension. If identifier is a relative or absolute file path, this function will load a JavaScript file and return an object containing the evaluated context of that file. Otherwise, loads a Qbs extension named identifier and returns an object that contains the extension&#39;s context. This function is only available in JavaScript files and is designed to behave similarly to the CommonJS/RequireJS/Node.js module resolution systems.">
+Available Operations require require(identifier: string): any Loads an extension and returns an object representing the extension. If identifier is a relative or absolute file path, this function will load a JavaScript file and return an object containing the evaluated context of that file. Otherwise, loads a Qbs extension named identifier and returns an object that contains the extension&#39;s context. This function is only available in JavaScript files and is designed to behave similarly to the CommonJS/RequireJS/Node.js module resolution systems.
+var MyFunctions = require(&#34;./myfunctions.js&#34;); MyFunctions.doSomething(); var FileInfo = require(&#34;qbs.FileInfo&#34;); var fileName = FileInfo.fileName(filePath); Extensions to JavaScript Built-in Objects Array.containsAll Array.containsAll(other: any[]): boolean Returns true if the array contains every element in the other array. Returns false otherwise.
+Array.containsAny Array.containsAny(other: any[]): boolean Returns true if the array contains some element(s) in the other array. Returns false otherwise.
+Array.uniqueConcat Array.uniqueConcat(other: any[]): any[] Returns a copy of this array joined with the array other. Duplicates that would originate from the concatenation are removed. The order of elements is preserved.
+Console API Qbs provides a subset of the non-standard Console API available in most ECMAScript runtimes.
+The output of each of these functions will only be displayed if the logging level is at least the level which the function outputs at. Logging levels from lowest to highest are: &#39;error&#39;, &#39;warning&#39;, &#39;info&#39;, &#39;debug&#39;, and &#39;trace&#39;. The default is &#39;info&#39;.
+Warning: The contents of this section are subject to change in order to align with future standardization processes.
+console.debug console.debug(s: string): void This method is an alias for console.log().
+console.error console.error(s: string): void Logs an error level message. Outputs to stderr when the logger output is a terminal. The string will be prefixed with &#34;ERROR: &#34; and colored red when the logger output is a color-capable terminal.
+console.info console.info(s: string): void Logs an info level message. Outputs to stdout when the logger output is a terminal.
+console.log console.log(s: string): void Logs a debug level message. Outputs to stderr when the logger output is a terminal.
+console.warn console.warn(s: string): void Logs a warning level message. Outputs to stderr when the logger output is a terminal. The string will be prefixed with &#34;WARNING: &#34; and colored yellow when the logger output is a color-capable terminal.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -61,7 +110,18 @@ Available Operations require require(identifier: string): any Loads an extension
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual List of Built-in Services General Services Qbs 3.4.0 Contents Available Operations require Extensions to JavaScript Built-in Objects Array.containsAll Array.containsAny Array.uniqueConcat Console API console.debug console.error console.info console.log console.warn General Services These are operations that do not fit into any of the other categories. They are automatically available in any Qbs project file or JavaScript file.
-Available Operations require require(identifier: string): any Loads an extension and returns an object representing the extension. If identifier is a relative or absolute file path, this function will load a JavaScript file and return an object containing the evaluated context of that file. Otherwise, loads a Qbs extension named identifier and returns an object that contains the extension&#39;s context. This function is only available in JavaScript files and is designed to behave similarly to the CommonJS/RequireJS/Node.js module resolution systems.">
+Available Operations require require(identifier: string): any Loads an extension and returns an object representing the extension. If identifier is a relative or absolute file path, this function will load a JavaScript file and return an object containing the evaluated context of that file. Otherwise, loads a Qbs extension named identifier and returns an object that contains the extension&#39;s context. This function is only available in JavaScript files and is designed to behave similarly to the CommonJS/RequireJS/Node.js module resolution systems.
+var MyFunctions = require(&#34;./myfunctions.js&#34;); MyFunctions.doSomething(); var FileInfo = require(&#34;qbs.FileInfo&#34;); var fileName = FileInfo.fileName(filePath); Extensions to JavaScript Built-in Objects Array.containsAll Array.containsAll(other: any[]): boolean Returns true if the array contains every element in the other array. Returns false otherwise.
+Array.containsAny Array.containsAny(other: any[]): boolean Returns true if the array contains some element(s) in the other array. Returns false otherwise.
+Array.uniqueConcat Array.uniqueConcat(other: any[]): any[] Returns a copy of this array joined with the array other. Duplicates that would originate from the concatenation are removed. The order of elements is preserved.
+Console API Qbs provides a subset of the non-standard Console API available in most ECMAScript runtimes.
+The output of each of these functions will only be displayed if the logging level is at least the level which the function outputs at. Logging levels from lowest to highest are: &#39;error&#39;, &#39;warning&#39;, &#39;info&#39;, &#39;debug&#39;, and &#39;trace&#39;. The default is &#39;info&#39;.
+Warning: The contents of this section are subject to change in order to align with future standardization processes.
+console.debug console.debug(s: string): void This method is an alias for console.log().
+console.error console.error(s: string): void Logs an error level message. Outputs to stderr when the logger output is a terminal. The string will be prefixed with &#34;ERROR: &#34; and colored red when the logger output is a color-capable terminal.
+console.info console.info(s: string): void Logs an info level message. Outputs to stdout when the logger output is a terminal.
+console.log console.log(s: string): void Logs a debug level message. Outputs to stderr when the logger output is a terminal.
+console.warn console.warn(s: string): void Logs a warning level message. Outputs to stderr when the logger output is a terminal. The string will be prefixed with &#34;WARNING: &#34; and colored yellow when the logger output is a color-capable terminal.">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -126,21 +186,21 @@ Available Operations require require(identifier: string): any Loads an extension
 <p>These are operations that do not fit into any of the other categories. They are automatically available in any Qbs project file or JavaScript file.</p>
 <h2 id="available-operations">Available Operations</h2>
 <h3 id="require">require</h3>
-<pre class="cpp" translate="no">require(identifier: string): any</pre>
+<pre class="cpp" translate="no"><code class="cpp">require(identifier: string): any</code></pre>
 <p>Loads an extension and returns an object representing the extension. If <i translate="no">identifier</i> is a relative or absolute file path, this function will load a JavaScript file and return an object containing the evaluated context of that file. Otherwise, loads a Qbs extension named <i translate="no">identifier</i> and returns an object that contains the extension's context. This function is only available in JavaScript files and is designed to behave similarly to the CommonJS/RequireJS/Node.js module resolution systems.</p>
-<pre class="cpp" translate="no">var MyFunctions <span class="operator">=</span> require(<span class="string">"./myfunctions.js"</span>);
+<pre class="cpp" translate="no"><code class="cpp">var MyFunctions <span class="operator">=</span> require(<span class="string">"./myfunctions.js"</span>);
 MyFunctions<span class="operator">.</span>doSomething();
 var FileInfo <span class="operator">=</span> require(<span class="string">"qbs.FileInfo"</span>);
-var fileName <span class="operator">=</span> FileInfo<span class="operator">.</span>fileName(filePath);</pre>
+var fileName <span class="operator">=</span> FileInfo<span class="operator">.</span>fileName(filePath);</code></pre>
 <h2 id="extensions-to-javascript-built-in-objects">Extensions to JavaScript Built-in Objects</h2>
 <h3 id="array-containsall">Array.containsAll</h3>
-<pre class="cpp" translate="no">Array<span class="operator">.</span>containsAll(other: any<span class="operator">[</span><span class="operator">]</span>): boolean</pre>
+<pre class="cpp" translate="no"><code class="cpp">Array<span class="operator">.</span>containsAll(other: any<span class="operator">[</span><span class="operator">]</span>): boolean</code></pre>
 <p>Returns <code translate="no">true</code> if the array contains every element in the <code translate="no">other</code> array. Returns <code translate="no">false</code> otherwise.</p>
 <h3 id="array-containsany">Array.containsAny</h3>
-<pre class="cpp" translate="no">Array<span class="operator">.</span>containsAny(other: any<span class="operator">[</span><span class="operator">]</span>): boolean</pre>
+<pre class="cpp" translate="no"><code class="cpp">Array<span class="operator">.</span>containsAny(other: any<span class="operator">[</span><span class="operator">]</span>): boolean</code></pre>
 <p>Returns <code translate="no">true</code> if the array contains some element(s) in the <code translate="no">other</code> array. Returns <code translate="no">false</code> otherwise.</p>
 <h3 id="array-uniqueconcat">Array.uniqueConcat</h3>
-<pre class="cpp" translate="no">Array<span class="operator">.</span>uniqueConcat(other: any<span class="operator">[</span><span class="operator">]</span>): any<span class="operator">[</span><span class="operator">]</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">Array<span class="operator">.</span>uniqueConcat(other: any<span class="operator">[</span><span class="operator">]</span>): any<span class="operator">[</span><span class="operator">]</span></code></pre>
 <p>Returns a copy of this array joined with the array <code translate="no">other</code>. Duplicates that would originate from the concatenation are removed. The order of elements is preserved.</p>
 <h2 id="console-api">Console API</h2>
 <p>Qbs provides a subset of the non-standard Console API available in most ECMAScript runtimes.</p>
@@ -149,19 +209,19 @@ var fileName <span class="operator">=</span> FileInfo<span class="operator">.</s
 <p><b>Warning: </b>The contents of this section are subject to change in order to align with future <a href="https://www.w3.org/2011/08/browser-testing-charter.html">standardization</a> <a href="https://github.com/DeveloperToolsWG/console-object/blob/master/api.md">processes</a>.</p>
 </div>
 <h3 id="console-debug">console.debug</h3>
-<pre class="cpp" translate="no">console<span class="operator">.</span>debug(s: string): <span class="type">void</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">console<span class="operator">.</span>debug(s: string): <span class="type">void</span></code></pre>
 <p>This method is an alias for <code translate="no">console.log()</code>.</p>
 <h3 id="console-error">console.error</h3>
-<pre class="cpp" translate="no">console<span class="operator">.</span>error(s: string): <span class="type">void</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">console<span class="operator">.</span>error(s: string): <span class="type">void</span></code></pre>
 <p>Logs an <code translate="no">error</code> level message. Outputs to stderr when the logger output is a terminal. The string will be prefixed with <code translate="no">"ERROR: "</code> and colored red when the logger output is a color-capable terminal.</p>
 <h3 id="console-info">console.info</h3>
-<pre class="cpp" translate="no">console<span class="operator">.</span>info(s: string): <span class="type">void</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">console<span class="operator">.</span>info(s: string): <span class="type">void</span></code></pre>
 <p>Logs an <code translate="no">info</code> level message. Outputs to stdout when the logger output is a terminal.</p>
 <h3 id="console-log">console.log</h3>
-<pre class="cpp" translate="no">console<span class="operator">.</span>log(s: string): <span class="type">void</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">console<span class="operator">.</span>log(s: string): <span class="type">void</span></code></pre>
 <p>Logs a <code translate="no">debug</code> level message. Outputs to stderr when the logger output is a terminal.</p>
 <h3 id="console-warn">console.warn</h3>
-<pre class="cpp" translate="no">console<span class="operator">.</span>warn(s: string): <span class="type">void</span></pre>
+<pre class="cpp" translate="no"><code class="cpp">console<span class="operator">.</span>warn(s: string): <span class="type">void</span></code></pre>
 <p>Logs a <code translate="no">warning</code> level message. Outputs to stderr when the logger output is a terminal. The string will be prefixed with <code translate="no">"WARNING: "</code> and colored yellow when the logger output is a color-capable terminal.</p>
 </div>
 <!-- @@@jsextensions-general.html -->

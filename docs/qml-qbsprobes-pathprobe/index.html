@@ -51,7 +51,133 @@ selectors : varList
 
 
 Detailed Description
-Finds files that have the specified file name suffix, such as .exe, from the specified locations. ">
+Finds files that have the specified file name suffix, such as .exe, from the specified locations.
+PathProbe takes as input lists of paths to search files from and file name patterns. The paths are specified by using the environmentPaths, searchPaths, platformEnvironmentPaths and platformSearchPaths properties; the path are searched in the same order as listed. The file name patterns are specified by the names and nameSuffixes properties. Returns the first file that matches the file name patterns. If no such file is found, the probe.found property is set to false.
+For example, a simple PathProbe that searches for the stdio.h header can be used as follows:
+Product {
+    Depends { name: &#34;cpp&#34; }
+    PathProbe {
+        id: probe
+        pathSuffixes: [&#34;include&#34;]
+        names: [&#34;stdio.h&#34;]
+    }
+    cpp.includePaths: probe.found ? [probe.path] : []
+}
+
+Property Documentation
+
+allResults : varList
+This property contains the list of objects, each object representing a single found file:
+{
+    found: true,
+    candidatePaths: [&#34;path1/to/file&#34;, &#34;path2/to/file&#34;, ...]
+    filePath: &#34;path/to/file&#34;
+    fileName: &#34;file&#34;
+    path: &#34;path/to&#34;
+}
+See also filePath, fileName, and path.
+
+
+candidateFilter : var
+This property holds the function that can be used to filter out unsuitable candidates. For example, when searching for a library, it might be necessary to check its architecture:
+PathProbe {
+    pathSuffixes: [&#34;.so&#34;, &#34;.dll&#34;, &#34;.dylib&#34;]
+    candidateFilter: {
+        function getLibraryArchitecture(file) { ... }
+        return function(file) {
+            return Utilities.isSharedLibrary(file)
+                    &amp;&amp; getLibraryArchitecture(file) == qbs.architecture;
+        }
+    }
+}
+
+
+candidatePaths : stringList
+This property contains the result list of all paths that were checked before a file was found (including the file names).
+This property is set even if the Probe didn&#39;t find anything and can be used to give the user a hint what went wrong:
+Module {
+    Probes.BinaryProbe {
+        id: pythonProbe
+        names: &#34;python&#34;
+    }
+    validate: {
+        if (!pythonProbe.found) {
+            throw ModUtils.ModuleError(
+                    &#34;Could not find python binary at any of the following locations:\n\t&#34; &#43;
+                    pythonProbe.candidatePaths.join(&#34;\n\t&#34;));
+        }
+    }
+}
+Default: Undefined
+
+
+environmentPaths : stringList
+The list of environment variables that contains paths where to search files. Paths in the environment variable should be separated using FileInfo.pathListSeparator().
+Default: Undefined
+
+
+fileName : string
+This property contains the found file&#39;s name (excluding the path).
+Default: Undefined
+
+
+filePath : string
+This property contains the full path to the found file, including the file name.
+Default: Undefined
+
+
+nameFilter : script
+A script that is executed for each file name before prepending file suffixes. Can be used to transform file names.
+
+
+nameSuffixes : stringList
+The list of file suffixes to search for. These suffixes are appended to every file name passed via the names property.
+Default: Undefined
+
+
+names : stringList
+The list of file names to search for.
+Default: Undefined
+
+
+path : string
+This property contains the full path where the found file is located (that is, the file directory).
+Default: Undefined
+
+
+pathSuffixes : stringList
+A list of relative paths that are appended to each path where PathProbe searches for files. That is, the file should be located within one of the subfolders passed using this property.
+Default: Undefined
+
+
+platformEnvironmentPaths : stringList
+The list of platform environment variables that contains paths where to search files. Paths in the environment variable should be separated using FileInfo.pathListSeparator().
+Default: Undefined
+
+
+platformSearchPaths : pathList
+The list of platform paths where to search files.
+Default: [&#39;/usr&#39;, &#39;/usr/local&#39;] on Unix hosts, empty otherwise
+
+
+searchPaths : pathList
+The list of paths where to search files.
+Default: Undefined
+
+
+selectors : varList
+This property should be used to search for multiple files. It contains the list of selectors each of which describes a single file to search for. A selector can be either a string, a stringList, or a dictionary.
+The following example searches for three files and illustrates different ways to specify selectors:
+selectors: [
+    // 1st file with a single name
+    &#34;header.h&#34;,
+    // 2nd file with possible name variants
+    [&#34;config.h&#34;, &#34;foo-config.h&#34;, &#34;bar-config.h&#34;],
+    // 3rd file with possible name and suffix variants
+    {names: [&#34;footk&#34;, &#34;footk-version&#34;], nameSuffixes: [&#34;.h&#34;, &#34;.hpp&#34;]}
+]
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsprobes-pathprobe/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -61,7 +187,7 @@ Finds files that have the specified file name suffix, such as .exe, from the spe
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsprobes-pathprobe/">
@@ -69,7 +195,39 @@ Finds files that have the specified file name suffix, such as .exe, from the spe
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual QbsProbes PathProbe Qbs 3.4.0 Contents Properties Detailed Description PathProbe Locates files outside the project. More...
 Inherited By: BinaryProbe, FrameworkProbe, IncludeProbe, and LibraryProbe
-List of all members, including inherited members PathProbe is part of List of All Items. Properties allResults : varList candidateFilter : var candidatePaths : stringList environmentPaths : stringList fileName : string filePath : string nameFilter : script nameSuffixes : stringList names : stringList path : string pathSuffixes : stringList platformEnvironmentPaths : stringList platformSearchPaths : pathList searchPaths : pathList selectors : varList Detailed Description Finds files that have the specified file name suffix, such as .exe, from the specified locations.">
+List of all members, including inherited members PathProbe is part of List of All Items. Properties allResults : varList candidateFilter : var candidatePaths : stringList environmentPaths : stringList fileName : string filePath : string nameFilter : script nameSuffixes : stringList names : stringList path : string pathSuffixes : stringList platformEnvironmentPaths : stringList platformSearchPaths : pathList searchPaths : pathList selectors : varList Detailed Description Finds files that have the specified file name suffix, such as .exe, from the specified locations.
+PathProbe takes as input lists of paths to search files from and file name patterns. The paths are specified by using the environmentPaths, searchPaths, platformEnvironmentPaths and platformSearchPaths properties; the path are searched in the same order as listed. The file name patterns are specified by the names and nameSuffixes properties. Returns the first file that matches the file name patterns. If no such file is found, the probe.found property is set to false.
+For example, a simple PathProbe that searches for the stdio.h header can be used as follows:
+Product { Depends { name: &#34;cpp&#34; } PathProbe { id: probe pathSuffixes: [&#34;include&#34;] names: [&#34;stdio.h&#34;] } cpp.includePaths: probe.found ? [probe.path] : [] } Property Documentation allResults : varList This property contains the list of objects, each object representing a single found file:
+{ found: true, candidatePaths: [&#34;path1/to/file&#34;, &#34;path2/to/file&#34;, ...] filePath: &#34;path/to/file&#34; fileName: &#34;file&#34; path: &#34;path/to&#34; } See also filePath, fileName, and path.
+candidateFilter : var This property holds the function that can be used to filter out unsuitable candidates. For example, when searching for a library, it might be necessary to check its architecture:
+PathProbe { pathSuffixes: [&#34;.so&#34;, &#34;.dll&#34;, &#34;.dylib&#34;] candidateFilter: { function getLibraryArchitecture(file) { ... } return function(file) { return Utilities.isSharedLibrary(file) &amp;&amp; getLibraryArchitecture(file) == qbs.architecture; } } } candidatePaths : stringList This property contains the result list of all paths that were checked before a file was found (including the file names).
+This property is set even if the Probe didn&#39;t find anything and can be used to give the user a hint what went wrong:
+Module { Probes.BinaryProbe { id: pythonProbe names: &#34;python&#34; } validate: { if (!pythonProbe.found) { throw ModUtils.ModuleError( &#34;Could not find python binary at any of the following locations:\n\t&#34; &#43; pythonProbe.candidatePaths.join(&#34;\n\t&#34;)); } } } Default: Undefined
+environmentPaths : stringList The list of environment variables that contains paths where to search files. Paths in the environment variable should be separated using FileInfo.pathListSeparator().
+Default: Undefined
+fileName : string This property contains the found file&#39;s name (excluding the path).
+Default: Undefined
+filePath : string This property contains the full path to the found file, including the file name.
+Default: Undefined
+nameFilter : script A script that is executed for each file name before prepending file suffixes. Can be used to transform file names.
+nameSuffixes : stringList The list of file suffixes to search for. These suffixes are appended to every file name passed via the names property.
+Default: Undefined
+names : stringList The list of file names to search for.
+Default: Undefined
+path : string This property contains the full path where the found file is located (that is, the file directory).
+Default: Undefined
+pathSuffixes : stringList A list of relative paths that are appended to each path where PathProbe searches for files. That is, the file should be located within one of the subfolders passed using this property.
+Default: Undefined
+platformEnvironmentPaths : stringList The list of platform environment variables that contains paths where to search files. Paths in the environment variable should be separated using FileInfo.pathListSeparator().
+Default: Undefined
+platformSearchPaths : pathList The list of platform paths where to search files.
+Default: [&#39;/usr&#39;, &#39;/usr/local&#39;] on Unix hosts, empty otherwise
+searchPaths : pathList The list of paths where to search files.
+Default: Undefined
+selectors : varList This property should be used to search for multiple files. It contains the list of selectors each of which describes a single file to search for. A selector can be either a string, a stringList, or a dictionary.
+The following example searches for three files and illustrates different ways to specify selectors:
+selectors: [ // 1st file with a single name &#34;header.h&#34;, // 2nd file with possible name variants [&#34;config.h&#34;, &#34;foo-config.h&#34;, &#34;bar-config.h&#34;], // 3rd file with possible name and suffix variants {names: [&#34;footk&#34;, &#34;footk-version&#34;], nameSuffixes: [&#34;.h&#34;, &#34;.hpp&#34;]} ]">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -79,7 +237,39 @@ List of all members, including inherited members PathProbe is part of List of Al
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual QbsProbes PathProbe Qbs 3.4.0 Contents Properties Detailed Description PathProbe Locates files outside the project. More...
 Inherited By: BinaryProbe, FrameworkProbe, IncludeProbe, and LibraryProbe
-List of all members, including inherited members PathProbe is part of List of All Items. Properties allResults : varList candidateFilter : var candidatePaths : stringList environmentPaths : stringList fileName : string filePath : string nameFilter : script nameSuffixes : stringList names : stringList path : string pathSuffixes : stringList platformEnvironmentPaths : stringList platformSearchPaths : pathList searchPaths : pathList selectors : varList Detailed Description Finds files that have the specified file name suffix, such as .exe, from the specified locations.">
+List of all members, including inherited members PathProbe is part of List of All Items. Properties allResults : varList candidateFilter : var candidatePaths : stringList environmentPaths : stringList fileName : string filePath : string nameFilter : script nameSuffixes : stringList names : stringList path : string pathSuffixes : stringList platformEnvironmentPaths : stringList platformSearchPaths : pathList searchPaths : pathList selectors : varList Detailed Description Finds files that have the specified file name suffix, such as .exe, from the specified locations.
+PathProbe takes as input lists of paths to search files from and file name patterns. The paths are specified by using the environmentPaths, searchPaths, platformEnvironmentPaths and platformSearchPaths properties; the path are searched in the same order as listed. The file name patterns are specified by the names and nameSuffixes properties. Returns the first file that matches the file name patterns. If no such file is found, the probe.found property is set to false.
+For example, a simple PathProbe that searches for the stdio.h header can be used as follows:
+Product { Depends { name: &#34;cpp&#34; } PathProbe { id: probe pathSuffixes: [&#34;include&#34;] names: [&#34;stdio.h&#34;] } cpp.includePaths: probe.found ? [probe.path] : [] } Property Documentation allResults : varList This property contains the list of objects, each object representing a single found file:
+{ found: true, candidatePaths: [&#34;path1/to/file&#34;, &#34;path2/to/file&#34;, ...] filePath: &#34;path/to/file&#34; fileName: &#34;file&#34; path: &#34;path/to&#34; } See also filePath, fileName, and path.
+candidateFilter : var This property holds the function that can be used to filter out unsuitable candidates. For example, when searching for a library, it might be necessary to check its architecture:
+PathProbe { pathSuffixes: [&#34;.so&#34;, &#34;.dll&#34;, &#34;.dylib&#34;] candidateFilter: { function getLibraryArchitecture(file) { ... } return function(file) { return Utilities.isSharedLibrary(file) &amp;&amp; getLibraryArchitecture(file) == qbs.architecture; } } } candidatePaths : stringList This property contains the result list of all paths that were checked before a file was found (including the file names).
+This property is set even if the Probe didn&#39;t find anything and can be used to give the user a hint what went wrong:
+Module { Probes.BinaryProbe { id: pythonProbe names: &#34;python&#34; } validate: { if (!pythonProbe.found) { throw ModUtils.ModuleError( &#34;Could not find python binary at any of the following locations:\n\t&#34; &#43; pythonProbe.candidatePaths.join(&#34;\n\t&#34;)); } } } Default: Undefined
+environmentPaths : stringList The list of environment variables that contains paths where to search files. Paths in the environment variable should be separated using FileInfo.pathListSeparator().
+Default: Undefined
+fileName : string This property contains the found file&#39;s name (excluding the path).
+Default: Undefined
+filePath : string This property contains the full path to the found file, including the file name.
+Default: Undefined
+nameFilter : script A script that is executed for each file name before prepending file suffixes. Can be used to transform file names.
+nameSuffixes : stringList The list of file suffixes to search for. These suffixes are appended to every file name passed via the names property.
+Default: Undefined
+names : stringList The list of file names to search for.
+Default: Undefined
+path : string This property contains the full path where the found file is located (that is, the file directory).
+Default: Undefined
+pathSuffixes : stringList A list of relative paths that are appended to each path where PathProbe searches for files. That is, the file should be located within one of the subfolders passed using this property.
+Default: Undefined
+platformEnvironmentPaths : stringList The list of platform environment variables that contains paths where to search files. Paths in the environment variable should be separated using FileInfo.pathListSeparator().
+Default: Undefined
+platformSearchPaths : pathList The list of platform paths where to search files.
+Default: [&#39;/usr&#39;, &#39;/usr/local&#39;] on Unix hosts, empty otherwise
+searchPaths : pathList The list of paths where to search files.
+Default: Undefined
+selectors : varList This property should be used to search for multiple files. It contains the list of selectors each of which describes a single file to search for. A selector can be either a string, a stringList, or a dictionary.
+The following example searches for three files and illustrates different ways to specify selectors:
+selectors: [ // 1st file with a single name &#34;header.h&#34;, // 2nd file with possible name variants [&#34;config.h&#34;, &#34;foo-config.h&#34;, &#34;bar-config.h&#34;], // 3rd file with possible name and suffix variants {names: [&#34;footk&#34;, &#34;footk-version&#34;], nameSuffixes: [&#34;.h&#34;, &#34;.hpp&#34;]} ]">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
@@ -192,7 +382,7 @@ List of all members, including inherited members PathProbe is part of List of Al
 /docs/qml-qbsprobes-pathprobe/#nameSuffixes-prop" translate="no">nameSuffixes</a> properties. Returns the first file that matches the file name patterns. If no such file is found, the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-probe/#found-prop" translate="no">probe.found</a> property is set to <code translate="no">false</code>.</p>
 <p>For example, a simple PathProbe that searches for the stdio.h header can be used as follows:</p>
-<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
+<pre class="cpp" translate="no"><code class="cpp"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-product/" translate="no">Product</a></span> {
     <span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-depends/" translate="no">Depends</a></span> { <span class="name">name</span>: <span class="string">"cpp"</span> }
@@ -203,19 +393,19 @@ List of all members, including inherited members PathProbe is part of List of Al
         <span class="name">names</span>: [<span class="string">"stdio.h"</span>]
     }
     <span class="name">cpp.includePaths</span>: <span class="name">probe</span>.<span class="name">found</span> ? [<span class="name">probe</span>.<span class="name">path</span>] : []
-}</pre>
+}</code></pre>
 <!-- @@@PathProbe -->
 <h2>Property Documentation</h2>
 <!-- $$$allResults -->
 <h3 class="fn qml-member qml-property" id="allResults-prop" translate="no"><span class="name">allResults</span> : <span class="type">varList</span></h3>
 <p>This property contains the list of objects, each object representing a single found file:</p>
-<pre class="cpp" translate="no">{
+<pre class="cpp" translate="no"><code class="cpp">{
     found: <span class="keyword">true</span><span class="operator">,</span>
     candidatePaths: <span class="operator">[</span><span class="string">"path1/to/file"</span><span class="operator">,</span> <span class="string">"path2/to/file"</span><span class="operator">,</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span><span class="operator">]</span>
     filePath: <span class="string">"path/to/file"</span>
     fileName: <span class="string">"file"</span>
     path: <span class="string">"path/to"</span>
-}</pre>
+}</code></pre>
 <p><b>See also </b><a href="https://qbs.io/
 /docs/qml-qbsprobes-pathprobe/#filePath-prop" translate="no">filePath</a>, <a href="https://qbs.io/
 /docs/qml-qbsprobes-pathprobe/#fileName-prop" translate="no">fileName</a>, and <a href="https://qbs.io/
@@ -224,7 +414,7 @@ List of all members, including inherited members PathProbe is part of List of Al
 <!-- $$$candidateFilter -->
 <h3 class="fn qml-member qml-property" id="candidateFilter-prop" translate="no"><span class="name">candidateFilter</span> : <span class="type">var</span></h3>
 <p>This property holds the function that can be used to filter out unsuitable candidates. For example, when searching for a library, it might be necessary to check its architecture:</p>
-<pre class="cpp" translate="no">PathProbe {
+<pre class="cpp" translate="no"><code class="cpp">PathProbe {
     pathSuffixes: <span class="operator">[</span><span class="string">".so"</span><span class="operator">,</span> <span class="string">".dll"</span><span class="operator">,</span> <span class="string">".dylib"</span><span class="operator">]</span>
     candidateFilter: {
         function getLibraryArchitecture(file) { <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span> }
@@ -233,13 +423,13 @@ List of all members, including inherited members PathProbe is part of List of Al
                     <span class="operator">&amp;</span><span class="operator">&amp;</span> getLibraryArchitecture(file) <span class="operator">=</span><span class="operator">=</span> qbs<span class="operator">.</span>architecture;
         }
     }
-}</pre>
+}</code></pre>
 <!-- @@@candidateFilter -->
 <!-- $$$candidatePaths -->
 <h3 class="fn qml-member qml-property" id="candidatePaths-prop" translate="no"><span class="name">candidatePaths</span> : <span class="type">stringList</span></h3>
 <p>This property contains the result list of all paths that were checked before a file was found (including the file names).</p>
 <p>This property is set even if the Probe didn't find anything and can be used to give the user a hint what went wrong:</p>
-<pre class="cpp" translate="no"><span class="type"><a href="https://qbs.io/
+<pre class="cpp" translate="no"><code class="cpp"><span class="type"><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-module/" translate="no">Module</a></span> {
     <span class="type"><a href="https://qbs.io/
 /docs/qml-qbsprobes-binaryprobe/" translate="no">Probes.BinaryProbe</a></span> {
@@ -253,7 +443,7 @@ List of all members, including inherited members PathProbe is part of List of Al
                     <span class="name">pythonProbe</span>.<span class="name">candidatePaths</span>.<span class="name">join</span>(<span class="string">"\n\t"</span>));
         }
     }
-}</pre>
+}</code></pre>
 <p>Default: Undefined</p>
 <!-- @@@candidatePaths -->
 <!-- $$$environmentPaths -->
@@ -318,14 +508,14 @@ List of all members, including inherited members PathProbe is part of List of Al
 <h3 class="fn qml-member qml-property" id="selectors-prop" translate="no"><span class="name">selectors</span> : <span class="type">varList</span></h3>
 <p>This property should be used to search for multiple files. It contains the list of selectors each of which describes a single file to search for. A selector can be either a string, a stringList, or a dictionary.</p>
 <p>The following example searches for three files and illustrates different ways to specify selectors:</p>
-<pre class="cpp" translate="no">selectors: <span class="operator">[</span>
+<pre class="cpp" translate="no"><code class="cpp">selectors: <span class="operator">[</span>
     <span class="comment">// 1st file with a single name</span>
     <span class="string">"header.h"</span><span class="operator">,</span>
     <span class="comment">// 2nd file with possible name variants</span>
     <span class="operator">[</span><span class="string">"config.h"</span><span class="operator">,</span> <span class="string">"foo-config.h"</span><span class="operator">,</span> <span class="string">"bar-config.h"</span><span class="operator">]</span><span class="operator">,</span>
     <span class="comment">// 3rd file with possible name and suffix variants</span>
     {names: <span class="operator">[</span><span class="string">"footk"</span><span class="operator">,</span> <span class="string">"footk-version"</span><span class="operator">]</span><span class="operator">,</span> nameSuffixes: <span class="operator">[</span><span class="string">".h"</span><span class="operator">,</span> <span class="string">".hpp"</span><span class="operator">]</span>}
-<span class="operator">]</span></pre>
+<span class="operator">]</span></code></pre>
 <!-- @@@selectors -->
 </div>
 

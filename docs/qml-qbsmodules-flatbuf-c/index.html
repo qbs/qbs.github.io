@@ -39,7 +39,33 @@ importPaths : pathList
 
 
 Detailed Description
-The flatbuf.c module provides support for generating C headers and sources from flatbuffers definition files using the flatcc tool. ">
+The flatbuf.c module provides support for generating C headers and sources from flatbuffers definition files using the flatcc tool.
+Relevant File Tags
+
+TagAuto-tagged File NamesSinceDescription
+&#34;flatbuffers.input&#34;*.fbs2.4.0Source files with this tag are considered inputs to the flatcc compiler.
+
+Dependencies
+This module depends on the flatcc module which can be created via the Conan module provider.
+
+Property Documentation
+
+compilerName : string
+The name of the flatcc binary.
+Default: &#34;flatcc&#34;
+
+
+compilerPath : string
+The path to the flatcc binary.
+Use this property to override the auto-detected location.
+Default: auto-detected
+
+
+importPaths : pathList
+The list of import paths that are passed to the flatcc tool via the -I option.
+Default: []
+
+ ">
     <link rel="canonical" href="https://qbs.io/docs/qml-qbsmodules-flatbuf-c/" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -49,14 +75,22 @@ The flatbuf.c module provides support for generating C headers and sources from 
 
     
       
-      <link rel="stylesheet" href="/css/main.min.2588597ca833edacc8d7b130093647bba2c01204f75dc2725db701318e14963c.css" integrity="sha256-JYhZfKgz7azI17EwCTZHu6LAEgT3XcJyXbcBMY4Uljw="/>
+      <link rel="stylesheet" href="/css/main.min.5ae759beab13fc55dafbda49c2b1530149770e3571c8d7fd71ea68fea94f0946.css" integrity="sha256-WudZvqsT/FXa+9pJwrFTAUl3DjVxyNf9cepo/qlPCUY="/>
     
 
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-flatbuf-c/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
 	<meta property="og:description" content="Qbs Manual QbsModules flatbuf.c Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags Dependencies flatbuf.c Provides support for FlatBuffers for the C language. More...
-Since: Qbs 2.4 List of all members, including inherited members Properties compilerName : string compilerPath : string importPaths : pathList Detailed Description The flatbuf.c module provides support for generating C headers and sources from flatbuffers definition files using the flatcc tool.">
+Since: Qbs 2.4 List of all members, including inherited members Properties compilerName : string compilerPath : string importPaths : pathList Detailed Description The flatbuf.c module provides support for generating C headers and sources from flatbuffers definition files using the flatcc tool.
+Relevant File Tags Tag Auto-tagged File Names Since Description &#34;flatbuffers.input&#34; *.fbs 2.4.0 Source files with this tag are considered inputs to the flatcc compiler. Dependencies This module depends on the flatcc module which can be created via the Conan module provider.
+Property Documentation compilerName : string The name of the flatcc binary.
+Default: &#34;flatcc&#34;
+compilerPath : string The path to the flatcc binary.
+Use this property to override the auto-detected location.
+Default: auto-detected
+importPaths : pathList The list of import paths that are passed to the flatcc tool via the -I option.
+Default: []">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
@@ -65,7 +99,15 @@ Since: Qbs 2.4 List of all members, including inherited members Properties compi
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
 	<meta name="twitter:description" content="Qbs Manual QbsModules flatbuf.c Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags Dependencies flatbuf.c Provides support for FlatBuffers for the C language. More...
-Since: Qbs 2.4 List of all members, including inherited members Properties compilerName : string compilerPath : string importPaths : pathList Detailed Description The flatbuf.c module provides support for generating C headers and sources from flatbuffers definition files using the flatcc tool.">
+Since: Qbs 2.4 List of all members, including inherited members Properties compilerName : string compilerPath : string importPaths : pathList Detailed Description The flatbuf.c module provides support for generating C headers and sources from flatbuffers definition files using the flatcc tool.
+Relevant File Tags Tag Auto-tagged File Names Since Description &#34;flatbuffers.input&#34; *.fbs 2.4.0 Source files with this tag are considered inputs to the flatcc compiler. Dependencies This module depends on the flatcc module which can be created via the Conan module provider.
+Property Documentation compilerName : string The name of the flatcc binary.
+Default: &#34;flatcc&#34;
+compilerPath : string The path to the flatcc binary.
+Use this property to override the auto-detected location.
+Default: auto-detected
+importPaths : pathList The list of import paths that are passed to the flatcc tool via the -I option.
+Default: []">
 
 </head>
 <body><header class="sticky flex flex-col md:flex-row items-center justify-between top-0 left-0 right-0 bg-white dark:bg-gray-700 dark:border-gray-800 p-4 border-b z-10">
