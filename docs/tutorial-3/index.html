@@ -6,7 +6,7 @@
     <meta name="description" content="
 Qbs Manual
 Dynamic Library
-Qbs 3.4.0
+Qbs 3.4.1
 
   
   
@@ -128,7 +128,7 @@ Convenience Items
     <meta property="og:url" content="https://qbs.io/docs/tutorial-3/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual Dynamic Library Qbs 3.4.0 Static Library Convenience Items Dynamic Library Let&#39;s now turn our static library into a dynamic library. It is a bit trickier with dynamic libraries since several things should be tweaked. First, we need to be able to mark methods (or classes) in our library as exported. Second, we need to tell our application where to look for our library at run time using rpaths.
+	<meta property="og:description" content="Qbs Manual Dynamic Library Qbs 3.4.1 Static Library Convenience Items Dynamic Library Let&#39;s now turn our static library into a dynamic library. It is a bit trickier with dynamic libraries since several things should be tweaked. First, we need to be able to mark methods (or classes) in our library as exported. Second, we need to tell our application where to look for our library at run time using rpaths.
 Some compilers, like MSVC, require us to mark which symbols we want to export or import. The canonical way would be to define some helper macros. Let&#39;s start with a header that defines those helper macros:
 // lib/lib_global.h #ifndef LIB_GLOBAL_H #define LIB_GLOBAL_H #if defined(_WIN32) || defined(WIN32) #define MYLIB_DECL_EXPORT __declspec(dllexport) #define MYLIB_DECL_IMPORT __declspec(dllimport) #else #define MYLIB_DECL_EXPORT __attribute__((visibility(&#34;default&#34;))) #define MYLIB_DECL_IMPORT __attribute__((visibility(&#34;default&#34;))) #endif #if defined(MYLIB_LIBRARY) #define MYLIB_EXPORT MYLIB_DECL_EXPORT #else #define MYLIB_EXPORT MYLIB_DECL_IMPORT #endif #endif // LIB_GLOBAL_H This header defines the MYLIB_EXPORT macro that expands either to an &#34;export&#34; or to an &#34;import&#34; directive based on the presence of the MYLIB_LIBRARY macro. We can use this macro to mark a function as follows:
 // lib/lib.h #include &#34;lib_global.h&#34; MYLIB_EXPORT const char *get_string(); The modified library product may look like this:
@@ -145,7 +145,7 @@ To make the example complete, here&#39;s how the full app/app.qbs file should lo
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual Dynamic Library Qbs 3.4.0 Static Library Convenience Items Dynamic Library Let&#39;s now turn our static library into a dynamic library. It is a bit trickier with dynamic libraries since several things should be tweaked. First, we need to be able to mark methods (or classes) in our library as exported. Second, we need to tell our application where to look for our library at run time using rpaths.
+	<meta name="twitter:description" content="Qbs Manual Dynamic Library Qbs 3.4.1 Static Library Convenience Items Dynamic Library Let&#39;s now turn our static library into a dynamic library. It is a bit trickier with dynamic libraries since several things should be tweaked. First, we need to be able to mark methods (or classes) in our library as exported. Second, we need to tell our application where to look for our library at run time using rpaths.
 Some compilers, like MSVC, require us to mark which symbols we want to export or import. The canonical way would be to define some helper macros. Let&#39;s start with a header that defines those helper macros:
 // lib/lib_global.h #ifndef LIB_GLOBAL_H #define LIB_GLOBAL_H #if defined(_WIN32) || defined(WIN32) #define MYLIB_DECL_EXPORT __declspec(dllexport) #define MYLIB_DECL_IMPORT __declspec(dllimport) #else #define MYLIB_DECL_EXPORT __attribute__((visibility(&#34;default&#34;))) #define MYLIB_DECL_IMPORT __attribute__((visibility(&#34;default&#34;))) #endif #if defined(MYLIB_LIBRARY) #define MYLIB_EXPORT MYLIB_DECL_EXPORT #else #define MYLIB_EXPORT MYLIB_DECL_IMPORT #endif #endif // LIB_GLOBAL_H This header defines the MYLIB_EXPORT macro that expands either to an &#34;export&#34; or to an &#34;import&#34; directive based on the presence of the MYLIB_LIBRARY macro. We can use this macro to mark a function as follows:
 // lib/lib.h #include &#34;lib_global.h&#34; MYLIB_EXPORT const char *get_string(); The modified library product may look like this:
@@ -190,7 +190,7 @@ To make the example complete, here&#39;s how the full app/app.qbs file should lo
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li>Dynamic Library</li>
-<li id="buildversion">Qbs 3.4.0</li>
+<li id="buildversion">Qbs 3.4.1</li>
 </ul>
   <link rel="prev" href="https://qbs.io/
 /docs/tutorial-2/">

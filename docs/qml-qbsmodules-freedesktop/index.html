@@ -7,7 +7,7 @@
 Qbs Manual
 QbsModules
 freedesktop
-Qbs 3.4.0
+Qbs 3.4.1
 
 
 
@@ -132,7 +132,7 @@ This property was introduced in 2.5.
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-freedesktop/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsModules freedesktop Qbs 3.4.0 Contents Properties Detailed Description Example usage Relevant File Tags freedesktop Provides support for some freedesktop.org specifications. More...
+	<meta property="og:description" content="Qbs Manual QbsModules freedesktop Qbs 3.4.1 Contents Properties Detailed Description Example usage Relevant File Tags freedesktop Provides support for some freedesktop.org specifications. More...
 Since: Qbs 1.16 List of all members, including inherited members Properties appName : string desktopKeys : var hicolorRoot : string (since 2.5) Detailed Description The freedesktop module contains properties and rules for building and working with applications compliant to freedesktop.org specifications on UNIX platforms. The areas in which this module can be of use include:
 Creation or post-processing of .desktop files Installation of AppStream metadata Defining the location for application icons This module is available on all platforms but is currently only useful on UNIX platforms.
 Example usage Application { ... Depends { name: &#34;freedesktop&#34; } Group { files: [ ... // Declare the desktop and appstream files &#34;data/my-app.desktop&#34;, &#34;data/my-app.metainfo.xml&#34;, ] } // Add/change some fields in the desktop file freedesktop.desktopKeys: ({ &#39;Exec&#39;: FileInfo.joinPaths(qbs.installPrefix, product.installDir, product.targetName) &#43; &#39; --argument&#39;, &#39;X-Application-Version&#39;: product.version, }) // Define the source directory for application icons freedesktop.hicolorRoot: project.sourceDirectory &#43; &#34;/icons/&#34; // Declare the application icons Group { prefix: project.sourceDirectory &#43; &#34;/icons/&#34; files: [ &#34;32x32/apps/my-application.png&#34;, &#34;32x32@2/apps/my-application.png&#34;, &#34;32x32/mimetypes/application-format.png&#34;, ... &#34;scalable/apps/my-application.svg&#34;, ] fileTags: &#34;freedesktop.appIcon&#34; } } Relevant File Tags Tag Auto-tagged File Names Since Description &#34;freedesktop.desktopfile_source&#34; *.desktop 1.16 A source file with this tag is a .desktop file or fragment that will be merged into the application&#39;s final .desktop file. &#34;freedesktop.desktopfile&#34; - 1.16 Attached to the output artifacts of the rule that produces the merged .desktop file. &#34;freedesktop.appstream&#34; *.metainfo.xml, *.appdata.xml 1.16 Source files with this tag are AppStream metadata files which will be installed under installPrefix/share/metainfo &#34;freedesktop.appIcon&#34; - 1.16 Source files with this tag are application icons compliant with the freedesktop.org Icon Theme Specification. These icons will be installed under installPrefix/share/icons/hicolor in their respective resolution-based directories (e.g., 48x48/apps/, 256x256/apps/), ensuring compatibility with desktop environments following this specification. Note: After Qbs version 2.5, the hicolorRoot property must be set to define the source directory for these icons. Without setting this property, icons will not be installed.
@@ -152,7 +152,7 @@ This property was introduced in 2.5.">
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsModules freedesktop Qbs 3.4.0 Contents Properties Detailed Description Example usage Relevant File Tags freedesktop Provides support for some freedesktop.org specifications. More...
+	<meta name="twitter:description" content="Qbs Manual QbsModules freedesktop Qbs 3.4.1 Contents Properties Detailed Description Example usage Relevant File Tags freedesktop Provides support for some freedesktop.org specifications. More...
 Since: Qbs 1.16 List of all members, including inherited members Properties appName : string desktopKeys : var hicolorRoot : string (since 2.5) Detailed Description The freedesktop module contains properties and rules for building and working with applications compliant to freedesktop.org specifications on UNIX platforms. The areas in which this module can be of use include:
 Creation or post-processing of .desktop files Installation of AppStream metadata Defining the location for application icons This module is available on all platforms but is currently only useful on UNIX platforms.
 Example usage Application { ... Depends { name: &#34;freedesktop&#34; } Group { files: [ ... // Declare the desktop and appstream files &#34;data/my-app.desktop&#34;, &#34;data/my-app.metainfo.xml&#34;, ] } // Add/change some fields in the desktop file freedesktop.desktopKeys: ({ &#39;Exec&#39;: FileInfo.joinPaths(qbs.installPrefix, product.installDir, product.targetName) &#43; &#39; --argument&#39;, &#39;X-Application-Version&#39;: product.version, }) // Define the source directory for application icons freedesktop.hicolorRoot: project.sourceDirectory &#43; &#34;/icons/&#34; // Declare the application icons Group { prefix: project.sourceDirectory &#43; &#34;/icons/&#34; files: [ &#34;32x32/apps/my-application.png&#34;, &#34;32x32@2/apps/my-application.png&#34;, &#34;32x32/mimetypes/application-format.png&#34;, ... &#34;scalable/apps/my-application.svg&#34;, ] fileTags: &#34;freedesktop.appIcon&#34; } } Relevant File Tags Tag Auto-tagged File Names Since Description &#34;freedesktop.desktopfile_source&#34; *.desktop 1.16 A source file with this tag is a .desktop file or fragment that will be merged into the application&#39;s final .desktop file. &#34;freedesktop.desktopfile&#34; - 1.16 Attached to the output artifacts of the rule that produces the merged .desktop file. &#34;freedesktop.appstream&#34; *.metainfo.xml, *.appdata.xml 1.16 Source files with this tag are AppStream metadata files which will be installed under installPrefix/share/metainfo &#34;freedesktop.appIcon&#34; - 1.16 Source files with this tag are application icons compliant with the freedesktop.org Icon Theme Specification. These icons will be installed under installPrefix/share/icons/hicolor in their respective resolution-based directories (e.g., 48x48/apps/, 256x256/apps/), ensuring compatibility with desktop environments following this specification. Note: After Qbs version 2.5, the hicolorRoot property must be set to define the source directory for these icons. Without setting this property, icons will not be installed.
@@ -202,7 +202,7 @@ This property was introduced in 2.5.">
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>freedesktop</li>
-<li id="buildversion">Qbs 3.4.0</li>
+<li id="buildversion">Qbs 3.4.1</li>
 </ul>
 <div class="sidebar">
 <div class="toc">

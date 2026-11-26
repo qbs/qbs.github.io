@@ -7,7 +7,7 @@
 Qbs Manual
 QbsLanguageItems
 JobLimit
-Qbs 3.4.0
+Qbs 3.4.1
 
 
 
@@ -104,7 +104,7 @@ Module
     <meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-joblimit/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsLanguageItems JobLimit Qbs 3.4.0 Group Module Contents Properties Detailed Description JobLimit Restricts concurrent execution of jobs in a given pool. More...
+	<meta property="og:description" content="Qbs Manual QbsLanguageItems JobLimit Qbs 3.4.1 Group Module Contents Properties Detailed Description JobLimit Restricts concurrent execution of jobs in a given pool. More...
 List of all members, including inherited members JobLimit is part of List of All Items. Properties condition : bool jobCount : int jobPool : string Detailed Description In addition to the global limit on concurrently running commands, a project might want to restrict concurrent execution of certain types of commands even further, for instance because they are not well-suited to share certain types of resources.
 In the following example, we define a rule that runs a tool of which at most one instance can be running for the same project at any given time:
 Rule { // ... prepare: { var cmd = new Command(&#34;my-exclusive-tool&#34;, [project.buildDirectory]); cmd.description = &#34;running the exclusive tool&#34;; cmd.jobPool = &#34;exclusive_tool&#34;; return cmd; } } JobLimit { jobPool: &#34;exclusive_tool&#34; jobCount: 1 } JobLimit items can appear inside Product, Project and Module items. In the case of collisions, that is, items matching the same job pool but setting different values, the ones defined inside products have the highest precedence, and the ones inside modules have the lowest. Items defined in sub-projects have higher precedence than those defined in parent projects. For items with the same precedence level, the most restrictive one is chosen, that is, the one with the lowest job number greater than zero.
@@ -128,7 +128,7 @@ Group Module">
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsLanguageItems JobLimit Qbs 3.4.0 Group Module Contents Properties Detailed Description JobLimit Restricts concurrent execution of jobs in a given pool. More...
+	<meta name="twitter:description" content="Qbs Manual QbsLanguageItems JobLimit Qbs 3.4.1 Group Module Contents Properties Detailed Description JobLimit Restricts concurrent execution of jobs in a given pool. More...
 List of all members, including inherited members JobLimit is part of List of All Items. Properties condition : bool jobCount : int jobPool : string Detailed Description In addition to the global limit on concurrently running commands, a project might want to restrict concurrent execution of certain types of commands even further, for instance because they are not well-suited to share certain types of resources.
 In the following example, we define a rule that runs a tool of which at most one instance can be running for the same project at any given time:
 Rule { // ... prepare: { var cmd = new Command(&#34;my-exclusive-tool&#34;, [project.buildDirectory]); cmd.description = &#34;running the exclusive tool&#34;; cmd.jobPool = &#34;exclusive_tool&#34;; return cmd; } } JobLimit { jobPool: &#34;exclusive_tool&#34; jobCount: 1 } JobLimit items can appear inside Product, Project and Module items. In the case of collisions, that is, items matching the same job pool but setting different values, the ones defined inside products have the highest precedence, and the ones inside modules have the lowest. Items defined in sub-projects have higher precedence than those defined in parent projects. For items with the same precedence level, the most restrictive one is chosen, that is, the one with the lowest job number greater than zero.
@@ -182,7 +182,7 @@ Group Module">
 <li><a href="https://qbs.io/
 /docs/qbslanguageitems-qmlmodule/" translate="no">QbsLanguageItems</a></li>
 <li>JobLimit</li>
-<li id="buildversion">Qbs 3.4.0</li>
+<li id="buildversion">Qbs 3.4.1</li>
 </ul>
 <link href="https://qbs.io/
 /docs/qml-qbslanguageitems-group/" rel="prev">

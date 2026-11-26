@@ -7,7 +7,7 @@
 Qbs Manual
 QbsModules
 Exporter.pkgconfig
-Qbs 3.4.0
+Qbs 3.4.1
 
 
 
@@ -150,7 +150,7 @@ Default: product.version
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-exporter-pkgconfig/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsModules Exporter.pkgconfig Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags Exporter.pkgconfig Provides support for generating pkg-config files. More...
+	<meta property="og:description" content="Qbs Manual QbsModules Exporter.pkgconfig Qbs 3.4.1 Contents Properties Detailed Description Relevant File Tags Exporter.pkgconfig Provides support for generating pkg-config files. More...
 Since: Qbs 1.12 List of all members, including inherited members Properties autoDetect : bool cflagsEntry : stringList conflictsEntry : stringList customVariables : string excludedDependencies : stringList fileName : string libsEntry : stringList libsPrivateEntry : stringList nameEntry : string requiresEntry : stringList requiresPrivateEntry : stringList transformFunction : var urlEntry : string versionEntry : string Detailed Description The Exporter.pkgconfig module contains the properties and rules to create a pkg-config metadata (.pc) file for a Product.
 By default, Qbs will attempt to derive some of the .pc file&#39;s contents from the product&#39;s Export item. This behavior can be suppressed by setting the autoDetect property to false.
 Relevant File Tags Tag Since Description &#34;Exporter.pkgconfig.pc&#34; 1.12.0 This tag is attached to the generated .pc file. Property Documentation autoDetect : bool If this property is enabled, then Qbs will try to derive various .pc file entries from the contents of the product&#39;s Export item, including the dependencies declared therein. Values for these fields can still be explicitly provided via the respective properties, in which case they will be concatenated with the auto-detected ones. If an exported dependency is known to correspond to a pkg-config module (either by pulling in the Exporter.pkgconfig module or by appearing in the requiresEntry property), it will end up in the Requires field of the .pc file, otherwise its exported cpp properties will be collected for use in the Cflags and Libs fields. The excludedDependencies property can be used to ignore specific products altogether.
@@ -194,7 +194,7 @@ Default: product.version">
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsModules Exporter.pkgconfig Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags Exporter.pkgconfig Provides support for generating pkg-config files. More...
+	<meta name="twitter:description" content="Qbs Manual QbsModules Exporter.pkgconfig Qbs 3.4.1 Contents Properties Detailed Description Relevant File Tags Exporter.pkgconfig Provides support for generating pkg-config files. More...
 Since: Qbs 1.12 List of all members, including inherited members Properties autoDetect : bool cflagsEntry : stringList conflictsEntry : stringList customVariables : string excludedDependencies : stringList fileName : string libsEntry : stringList libsPrivateEntry : stringList nameEntry : string requiresEntry : stringList requiresPrivateEntry : stringList transformFunction : var urlEntry : string versionEntry : string Detailed Description The Exporter.pkgconfig module contains the properties and rules to create a pkg-config metadata (.pc) file for a Product.
 By default, Qbs will attempt to derive some of the .pc file&#39;s contents from the product&#39;s Export item. This behavior can be suppressed by setting the autoDetect property to false.
 Relevant File Tags Tag Since Description &#34;Exporter.pkgconfig.pc&#34; 1.12.0 This tag is attached to the generated .pc file. Property Documentation autoDetect : bool If this property is enabled, then Qbs will try to derive various .pc file entries from the contents of the product&#39;s Export item, including the dependencies declared therein. Values for these fields can still be explicitly provided via the respective properties, in which case they will be concatenated with the auto-detected ones. If an exported dependency is known to correspond to a pkg-config module (either by pulling in the Exporter.pkgconfig module or by appearing in the requiresEntry property), it will end up in the Requires field of the .pc file, otherwise its exported cpp properties will be collected for use in the Cflags and Libs fields. The excludedDependencies property can be used to ignore specific products altogether.
@@ -268,7 +268,7 @@ Default: product.version">
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>Exporter.pkgconfig</li>
-<li id="buildversion">Qbs 3.4.0</li>
+<li id="buildversion">Qbs 3.4.1</li>
 </ul>
 <div class="sidebar">
 <div class="toc">

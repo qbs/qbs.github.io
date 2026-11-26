@@ -7,7 +7,7 @@
 Qbs Manual
 QbsModuleProviders
 qbspkgconfig
-Qbs 3.4.0
+Qbs 3.4.1
 
 
 
@@ -116,7 +116,7 @@ Default: &#34;&#34; on macOS, qbs.sysroot on other platforms
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmoduleproviders-qbspkgconfig/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsModuleProviders qbspkgconfig Qbs 3.4.0 Contents Properties Detailed Description qbspkgconfig Module provider based on the qbspkg-config library. More...
+	<meta property="og:description" content="Qbs Manual QbsModuleProviders qbspkgconfig Qbs 3.4.1 Contents Properties Detailed Description qbspkgconfig Module provider based on the qbspkg-config library. More...
 Since: 1.20 List of all members, including inherited members Properties definePrefix : bool executableFilePath : string executableNames : stringList extraPaths : stringList libDirs : stringList staticMode : bool sysroot : path Detailed Description Qbs uses a built-in parser of the *.pc files and does not require the presence of the pkg-config tool in the system. However, if the pkg-config tool is present, Qbs will use the same libDirs as the system pkg-config uses by default; otherwise, a built-in list of paths is used.
 In order to enable usage of this provider in your Product, set the qbsModuleProviders property as shown in the example below:
 CppApplication { consoleApplication: true Depends { name: &#34;zlib&#34;; required: false } condition: !qbs.toolchain.includes(&#34;emscripten&#34;) &amp;&amp; zlib.present name: &#34;PkgConfigProviderExample&#34; files: &#34;main.c&#34; qbsModuleProviders: [&#34;qbspkgconfig&#34;] } Property Documentation definePrefix : bool If this property is true, then Qbs will override the ${prefix} variable in the packages with a value that is guessed based on the location of the .pc file.
@@ -149,7 +149,7 @@ Default: &#34;&#34; on macOS, qbs.sysroot on other platforms">
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsModuleProviders qbspkgconfig Qbs 3.4.0 Contents Properties Detailed Description qbspkgconfig Module provider based on the qbspkg-config library. More...
+	<meta name="twitter:description" content="Qbs Manual QbsModuleProviders qbspkgconfig Qbs 3.4.1 Contents Properties Detailed Description qbspkgconfig Module provider based on the qbspkg-config library. More...
 Since: 1.20 List of all members, including inherited members Properties definePrefix : bool executableFilePath : string executableNames : stringList extraPaths : stringList libDirs : stringList staticMode : bool sysroot : path Detailed Description Qbs uses a built-in parser of the *.pc files and does not require the presence of the pkg-config tool in the system. However, if the pkg-config tool is present, Qbs will use the same libDirs as the system pkg-config uses by default; otherwise, a built-in list of paths is used.
 In order to enable usage of this provider in your Product, set the qbsModuleProviders property as shown in the example below:
 CppApplication { consoleApplication: true Depends { name: &#34;zlib&#34;; required: false } condition: !qbs.toolchain.includes(&#34;emscripten&#34;) &amp;&amp; zlib.present name: &#34;PkgConfigProviderExample&#34; files: &#34;main.c&#34; qbsModuleProviders: [&#34;qbspkgconfig&#34;] } Property Documentation definePrefix : bool If this property is true, then Qbs will override the ${prefix} variable in the packages with a value that is guessed based on the location of the .pc file.
@@ -212,7 +212,7 @@ Default: &#34;&#34; on macOS, qbs.sysroot on other platforms">
 <li><a href="https://qbs.io/
 /docs/qbsmoduleproviders-qmlmodule/" translate="no">QbsModuleProviders</a></li>
 <li>qbspkgconfig</li>
-<li id="buildversion">Qbs 3.4.0</li>
+<li id="buildversion">Qbs 3.4.1</li>
 </ul>
 <div class="sidebar">
 <div class="toc">

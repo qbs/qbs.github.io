@@ -6,7 +6,7 @@
     <meta name="description" content="
 Qbs Manual
 Autotest
-Qbs 3.4.0
+Qbs 3.4.1
 
   
   
@@ -98,7 +98,7 @@ Project Properties
     <meta property="og:url" content="https://qbs.io/docs/tutorial-5/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual Autotest Qbs 3.4.0 Convenience Items Project Properties Autotest Now that we can re-use our base items, let&#39;s add a simple autotest. We inherit the new item from the MyApplication item and add an &#34;autotest&#34; type:
+	<meta property="og:description" content="Qbs Manual Autotest Qbs 3.4.1 Convenience Items Project Properties Autotest Now that we can re-use our base items, let&#39;s add a simple autotest. We inherit the new item from the MyApplication item and add an &#34;autotest&#34; type:
 // qbs/imports/MyAutoTest.qbs MyApplication { type: base.concat([&#34;autotest&#34;]) } This additional type is required for the helper AutotestRunner item. This item runs all products with the &#34;autotest&#34; type when it is being built. It also implicitly depends on all such products, so they will be built before running as well.
 Let&#39;s add this item to our top-level Project item:
 Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; // ... AutotestRunner { timeout: 60 } } Here we set the timeout property to 60 seconds so that our runner kills tests that run way too long.
@@ -115,7 +115,7 @@ $ qbs build -p &#34;autotest-runner&#34; ... running test mytest [autotest-runne
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual Autotest Qbs 3.4.0 Convenience Items Project Properties Autotest Now that we can re-use our base items, let&#39;s add a simple autotest. We inherit the new item from the MyApplication item and add an &#34;autotest&#34; type:
+	<meta name="twitter:description" content="Qbs Manual Autotest Qbs 3.4.1 Convenience Items Project Properties Autotest Now that we can re-use our base items, let&#39;s add a simple autotest. We inherit the new item from the MyApplication item and add an &#34;autotest&#34; type:
 // qbs/imports/MyAutoTest.qbs MyApplication { type: base.concat([&#34;autotest&#34;]) } This additional type is required for the helper AutotestRunner item. This item runs all products with the &#34;autotest&#34; type when it is being built. It also implicitly depends on all such products, so they will be built before running as well.
 Let&#39;s add this item to our top-level Project item:
 Project { name: &#34;My Project&#34; minimumQbsVersion: &#34;2.0&#34; // ... AutotestRunner { timeout: 60 } } Here we set the timeout property to 60 seconds so that our runner kills tests that run way too long.
@@ -160,7 +160,7 @@ $ qbs build -p &#34;autotest-runner&#34; ... running test mytest [autotest-runne
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li>Autotest</li>
-<li id="buildversion">Qbs 3.4.0</li>
+<li id="buildversion">Qbs 3.4.1</li>
 </ul>
   <link rel="prev" href="https://qbs.io/
 /docs/tutorial-4/">

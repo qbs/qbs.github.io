@@ -7,7 +7,7 @@
 Qbs Manual
 QbsLanguageItems
 Group
-Qbs 3.4.0
+Qbs 3.4.1
 
 
 
@@ -227,7 +227,7 @@ JobLimit
     <meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-group/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsLanguageItems Group Qbs 3.4.0 FileTagger JobLimit Contents Properties Detailed Description Typical Uses of Groups by Example Wildcards Attaching Module Properties to Source Files Attaching Module Properties to Generated Files Groups in Modules Grouping Related Items Group Groups files and other items in a product or module. More...
+	<meta property="og:description" content="Qbs Manual QbsLanguageItems Group Qbs 3.4.1 FileTagger JobLimit Contents Properties Detailed Description Typical Uses of Groups by Example Wildcards Attaching Module Properties to Source Files Attaching Module Properties to Generated Files Groups in Modules Grouping Related Items Group Groups files and other items in a product or module. More...
 List of all members, including inherited members Group is part of List of All Items. Properties condition : bool excludeFiles : pathList fileTags : stringList fileTagsFilter : stringList files : pathList filesAreTargets : bool name : string overrideTags : bool prefix : string Detailed Description This item is attached to a product or module and used to group files and other items that have something in common.
 Typical Uses of Groups by Example Application { Group { name: &#34;common files&#34; files: [&#34;myclass.h&#34;, &#34;myclass_common_impl.cpp&#34;] } Group { name: &#34;Windows files&#34; condition: qbs.targetOS.includes(&#34;windows&#34;) files: &#34;myclass_win_impl.cpp&#34; } Group { name: &#34;Unix files&#34; condition: qbs.targetOS.includes(&#34;unix&#34;) files: &#34;unixhelper.cpp&#34; Group { name: &#34;Linux files&#34; condition: qbs.targetOS.includes(&#34;linux&#34;) files: &#34;myclass_linux_impl.cpp&#34; } Group { name: &#34;FreeBSD files&#34; condition: qbs.targetOS.includes(&#34;freebsd&#34;) files: &#34;myclass_freebsd_impl.cpp&#34; } } Group { name: &#34;Files to install&#34; qbs.install: true qbs.installDir: &#34;share&#34; files: &#34;runtime_resource.txt&#34; } } Wildcards When specifying files, you can use the wildcards &#34;*&#34;, &#34;?&#34; and &#34;[]&#34;, which have their usual meaning as in Unix Shell. By default, matching files are only picked up directly from the parent directory, but you can tell Qbs to consider the whole directory tree. It is also possible to exclude certain files from the list. The pattern &#34;**&#34; used in a pathname expansion context will match all files and zero or more directories and subdirectories. For example:
 Group { name: &#34;Word processing documents&#34; files: [&#34;*.doc&#34;, &#34;*.rtf&#34;] prefix: &#34;**/&#34; qbs.install: true qbs.installDir: &#34;share&#34; excludeFiles: &#34;do_not_install_this_file.*&#34; } Attaching Module Properties to Source Files Within a Group item, module properties can be attached either to all files in the product, or to only the files in that group. The following example demonstrates both:
@@ -272,7 +272,7 @@ FileTagger JobLimit">
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsLanguageItems Group Qbs 3.4.0 FileTagger JobLimit Contents Properties Detailed Description Typical Uses of Groups by Example Wildcards Attaching Module Properties to Source Files Attaching Module Properties to Generated Files Groups in Modules Grouping Related Items Group Groups files and other items in a product or module. More...
+	<meta name="twitter:description" content="Qbs Manual QbsLanguageItems Group Qbs 3.4.1 FileTagger JobLimit Contents Properties Detailed Description Typical Uses of Groups by Example Wildcards Attaching Module Properties to Source Files Attaching Module Properties to Generated Files Groups in Modules Grouping Related Items Group Groups files and other items in a product or module. More...
 List of all members, including inherited members Group is part of List of All Items. Properties condition : bool excludeFiles : pathList fileTags : stringList fileTagsFilter : stringList files : pathList filesAreTargets : bool name : string overrideTags : bool prefix : string Detailed Description This item is attached to a product or module and used to group files and other items that have something in common.
 Typical Uses of Groups by Example Application { Group { name: &#34;common files&#34; files: [&#34;myclass.h&#34;, &#34;myclass_common_impl.cpp&#34;] } Group { name: &#34;Windows files&#34; condition: qbs.targetOS.includes(&#34;windows&#34;) files: &#34;myclass_win_impl.cpp&#34; } Group { name: &#34;Unix files&#34; condition: qbs.targetOS.includes(&#34;unix&#34;) files: &#34;unixhelper.cpp&#34; Group { name: &#34;Linux files&#34; condition: qbs.targetOS.includes(&#34;linux&#34;) files: &#34;myclass_linux_impl.cpp&#34; } Group { name: &#34;FreeBSD files&#34; condition: qbs.targetOS.includes(&#34;freebsd&#34;) files: &#34;myclass_freebsd_impl.cpp&#34; } } Group { name: &#34;Files to install&#34; qbs.install: true qbs.installDir: &#34;share&#34; files: &#34;runtime_resource.txt&#34; } } Wildcards When specifying files, you can use the wildcards &#34;*&#34;, &#34;?&#34; and &#34;[]&#34;, which have their usual meaning as in Unix Shell. By default, matching files are only picked up directly from the parent directory, but you can tell Qbs to consider the whole directory tree. It is also possible to exclude certain files from the list. The pattern &#34;**&#34; used in a pathname expansion context will match all files and zero or more directories and subdirectories. For example:
 Group { name: &#34;Word processing documents&#34; files: [&#34;*.doc&#34;, &#34;*.rtf&#34;] prefix: &#34;**/&#34; qbs.install: true qbs.installDir: &#34;share&#34; excludeFiles: &#34;do_not_install_this_file.*&#34; } Attaching Module Properties to Source Files Within a Group item, module properties can be attached either to all files in the product, or to only the files in that group. The following example demonstrates both:
@@ -347,7 +347,7 @@ FileTagger JobLimit">
 <li><a href="https://qbs.io/
 /docs/qbslanguageitems-qmlmodule/" translate="no">QbsLanguageItems</a></li>
 <li>Group</li>
-<li id="buildversion">Qbs 3.4.0</li>
+<li id="buildversion">Qbs 3.4.1</li>
 </ul>
 <link href="https://qbs.io/
 /docs/qml-qbslanguageitems-filetagger/" rel="prev">

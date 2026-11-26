@@ -77,6 +77,8 @@ It creates a Qbs project from scratch.</li>
 <li>The <a href="https://qbs.io//docs/cli-run">run</a> command now releases the build graph, allowing a
 concurrent re-build.</li>
 <li>The bundled <a href="https://github.com/quickjs-ng/quickjs">QuickJS-NG</a> was updated to version 0.16.2.</li>
+<li>Qbs now uses bytecode cache when evaluating code. On Qbs itself, this speeds up resolving by
+10% at a cost of additional memory consumption (2%-5%).</li>
 </ul>
 <h3 id="language">Language</h3>
 <p>We improved <a href="https://qbs.io//docs/qml-qbslanguageitems-scanner">scanners</a>: They can now

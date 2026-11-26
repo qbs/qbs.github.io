@@ -7,7 +7,7 @@
 Qbs Manual
 QbsModules
 Exporter.qbs
-Qbs 3.4.0
+Qbs 3.4.1
 
 
 
@@ -119,7 +119,7 @@ Default: product.targetName &#43; &#34;.qbs&#34;
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-exporter-qbs/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsModules Exporter.qbs Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags Exporter.qbs Provides support for generating Qbs modules from products. More...
+	<meta property="og:description" content="Qbs Manual QbsModules Exporter.qbs Qbs 3.4.1 Contents Properties Detailed Description Relevant File Tags Exporter.qbs Provides support for generating Qbs modules from products. More...
 Since: Qbs 1.12 List of all members, including inherited members Properties additionalContent : string artifactTypes : stringList excludedDependencies : stringList fileName : string Detailed Description The Exporter.qbs module contains the properties and rules to create a Qbs module from the Export item of a Product.
 Such a module acts as your product&#39;s interface to other projects written in Qbs. For instance, suppose you are creating a library. To allow other products both within and outside of your project to make use of it, you would write something like the following:
 DynamicLibrary { name: &#34;mylibrary&#34; qbs.installPrefix: &#34;/opt/mylibrary&#34; Depends { name: &#34;Exporter.qbs&#34; } property string headersInstallDir: &#34;include&#34; // ... Group { name: &#34;API headers&#34; files: [&#34;mylib.h&#34;] qbs.install: true qbs.installDir: headersInstallDir } Group { fileTagsFilter: [&#34;Exporter.qbs.module&#34;] qbs.installDir: &#34;qbs/modules/mylibrary&#34; } Export { Depends { name: &#34;cpp&#34; } cpp.includePaths: [exportingProduct.sourceDirectory] prefixMapping: [{ prefix: exportingProduct.sourceDirectory, replacement: FileInfo.joinPaths(exportingProduct.qbs.installPrefix, exportingProduct.headersInstallDir) }] } } To build against this library, from within your project or any other one, you simply declare a dependency:
@@ -141,7 +141,7 @@ Default: product.targetName &#43; &#34;.qbs&#34;">
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsModules Exporter.qbs Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags Exporter.qbs Provides support for generating Qbs modules from products. More...
+	<meta name="twitter:description" content="Qbs Manual QbsModules Exporter.qbs Qbs 3.4.1 Contents Properties Detailed Description Relevant File Tags Exporter.qbs Provides support for generating Qbs modules from products. More...
 Since: Qbs 1.12 List of all members, including inherited members Properties additionalContent : string artifactTypes : stringList excludedDependencies : stringList fileName : string Detailed Description The Exporter.qbs module contains the properties and rules to create a Qbs module from the Export item of a Product.
 Such a module acts as your product&#39;s interface to other projects written in Qbs. For instance, suppose you are creating a library. To allow other products both within and outside of your project to make use of it, you would write something like the following:
 DynamicLibrary { name: &#34;mylibrary&#34; qbs.installPrefix: &#34;/opt/mylibrary&#34; Depends { name: &#34;Exporter.qbs&#34; } property string headersInstallDir: &#34;include&#34; // ... Group { name: &#34;API headers&#34; files: [&#34;mylib.h&#34;] qbs.install: true qbs.installDir: headersInstallDir } Group { fileTagsFilter: [&#34;Exporter.qbs.module&#34;] qbs.installDir: &#34;qbs/modules/mylibrary&#34; } Export { Depends { name: &#34;cpp&#34; } cpp.includePaths: [exportingProduct.sourceDirectory] prefixMapping: [{ prefix: exportingProduct.sourceDirectory, replacement: FileInfo.joinPaths(exportingProduct.qbs.installPrefix, exportingProduct.headersInstallDir) }] } } To build against this library, from within your project or any other one, you simply declare a dependency:
@@ -193,7 +193,7 @@ Default: product.targetName &#43; &#34;.qbs&#34;">
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>Exporter.qbs</li>
-<li id="buildversion">Qbs 3.4.0</li>
+<li id="buildversion">Qbs 3.4.1</li>
 </ul>
 <div class="sidebar">
 <div class="toc">

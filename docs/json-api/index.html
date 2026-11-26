@@ -6,7 +6,7 @@
     <meta name="description" content="
 Qbs Manual
 Appendix C: The JSON API
-Qbs 3.4.0
+Qbs 3.4.1
 
   
   
@@ -459,7 +459,7 @@ Appendix D: Licenses and Code Attributions
     <meta property="og:url" content="https://qbs.io/docs/json-api/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual Appendix C: The JSON API Qbs 3.4.0 Appendix B: Migrating from Other Build Systems Appendix D: Licenses and Code Attributions Contents Packet Format Messages The hello Message Resolving a Project Building a Project Cleaning a Project Installing a Project Canceling an Operation Adding, Removing and Renaming Source Files Adding Dependencies The get-run-environment Message The get-generated-files-for-sources Message Closing a Project Closing the Session Progress Messages The task-started Message The task-progress Message The new-max-progress Message Messages for Users The log-data Message The warning Message The protocol-error Message Project Data TopLevelProjectData PlainProjectData ProductData GroupData ArtifactData ModulePropertiesData Other Custom Data Types FilePath Location ErrorInfo DataMode LogLevel Environment Appendix C: The JSON API This API is the recommended way to provide Qbs support to an IDE. It is accessible via the session command.
+	<meta property="og:description" content="Qbs Manual Appendix C: The JSON API Qbs 3.4.1 Appendix B: Migrating from Other Build Systems Appendix D: Licenses and Code Attributions Contents Packet Format Messages The hello Message Resolving a Project Building a Project Cleaning a Project Installing a Project Canceling an Operation Adding, Removing and Renaming Source Files Adding Dependencies The get-run-environment Message The get-generated-files-for-sources Message Closing a Project Closing the Session Progress Messages The task-started Message The task-progress Message The new-max-progress Message Messages for Users The log-data Message The warning Message The protocol-error Message Project Data TopLevelProjectData PlainProjectData ProductData GroupData ArtifactData ModulePropertiesData Other Custom Data Types FilePath Location ErrorInfo DataMode LogLevel Environment Appendix C: The JSON API This API is the recommended way to provide Qbs support to an IDE. It is accessible via the session command.
 Packet Format All information is exchanged via packets, which have the following structure:
 packet = &#34;qbsmsg:&#34; &lt;payload length&gt; [&lt;meta data&gt;] &lt;line feed&gt; &lt;payload&gt; First comes a fixed string indentifying the start of a packet, followed by the size of the actual data in bytes. After that, further meta data might follow. There is none currently, but future extensions might add some. A line feed character marks the end of the meta data section and is followed immediately by the payload, which is a single JSON object encoded in Base64 format. We call this object a message.
 Messages The message data is UTF8-encoded.
@@ -605,7 +605,7 @@ Appendix B: Migrating from Other Build Systems Appendix D: Licenses and Code Att
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual Appendix C: The JSON API Qbs 3.4.0 Appendix B: Migrating from Other Build Systems Appendix D: Licenses and Code Attributions Contents Packet Format Messages The hello Message Resolving a Project Building a Project Cleaning a Project Installing a Project Canceling an Operation Adding, Removing and Renaming Source Files Adding Dependencies The get-run-environment Message The get-generated-files-for-sources Message Closing a Project Closing the Session Progress Messages The task-started Message The task-progress Message The new-max-progress Message Messages for Users The log-data Message The warning Message The protocol-error Message Project Data TopLevelProjectData PlainProjectData ProductData GroupData ArtifactData ModulePropertiesData Other Custom Data Types FilePath Location ErrorInfo DataMode LogLevel Environment Appendix C: The JSON API This API is the recommended way to provide Qbs support to an IDE. It is accessible via the session command.
+	<meta name="twitter:description" content="Qbs Manual Appendix C: The JSON API Qbs 3.4.1 Appendix B: Migrating from Other Build Systems Appendix D: Licenses and Code Attributions Contents Packet Format Messages The hello Message Resolving a Project Building a Project Cleaning a Project Installing a Project Canceling an Operation Adding, Removing and Renaming Source Files Adding Dependencies The get-run-environment Message The get-generated-files-for-sources Message Closing a Project Closing the Session Progress Messages The task-started Message The task-progress Message The new-max-progress Message Messages for Users The log-data Message The warning Message The protocol-error Message Project Data TopLevelProjectData PlainProjectData ProductData GroupData ArtifactData ModulePropertiesData Other Custom Data Types FilePath Location ErrorInfo DataMode LogLevel Environment Appendix C: The JSON API This API is the recommended way to provide Qbs support to an IDE. It is accessible via the session command.
 Packet Format All information is exchanged via packets, which have the following structure:
 packet = &#34;qbsmsg:&#34; &lt;payload length&gt; [&lt;meta data&gt;] &lt;line feed&gt; &lt;payload&gt; First comes a fixed string indentifying the start of a packet, followed by the size of the actual data in bytes. After that, further meta data might follow. There is none currently, but future extensions might add some. A line feed character marks the end of the meta data section and is followed immediately by the payload, which is a single JSON object encoded in Base64 format. We call this object a message.
 Messages The message data is UTF8-encoded.
@@ -779,7 +779,7 @@ Appendix B: Migrating from Other Build Systems Appendix D: Licenses and Code Att
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li>Appendix C: The JSON API</li>
-<li id="buildversion">Qbs 3.4.0</li>
+<li id="buildversion">Qbs 3.4.1</li>
 </ul>
   <link rel="prev" href="https://qbs.io/
 /docs/porting-to-qbs/">

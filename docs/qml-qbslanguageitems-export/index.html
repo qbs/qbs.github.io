@@ -7,7 +7,7 @@
 Qbs Manual
 QbsLanguageItems
 Export
-Qbs 3.4.0
+Qbs 3.4.1
 
 
 
@@ -114,7 +114,7 @@ FileTagger
     <meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-export/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsLanguageItems Export Qbs 3.4.0 Depends FileTagger Contents Properties Detailed Description Export Exports dependencies and properties to other products. More...
+	<meta property="og:description" content="Qbs Manual QbsLanguageItems Export Qbs 3.4.1 Depends FileTagger Contents Properties Detailed Description Export Exports dependencies and properties to other products. More...
 List of all members, including inherited members Export is part of List of All Items. Properties prefixMapping : var (since 1.12) Detailed Description An Export item can appear inside a Product item. It defines a Module with the product&#39;s name that can be depended on by other products. The properties attached to the Export item will take effect in all products that depend on the product inside which the Export item is defined. As an example, consider these two products:
 Product { name: &#34;A&#34; Export { Depends { name: &#34;cpp&#34; } cpp.includePaths: exportingProduct.sourceDirectory cpp.defines: [&#34;USING_&#34; &#43; exportingProduct.name.toUpperCase()] } } Product { name: &#34;B&#34; Depends { name: &#34;A&#34; } } The sources in product B will be able to use headers from product A without specifying the full path to them, because the include path has been made known to the compiler via A&#39;s Export item. Additionally, product B will be compiled with the define USING_A.
 The dependent Product&#39;s modules are not exported unless explicitly specified within the Export item:
@@ -132,7 +132,7 @@ Depends FileTagger">
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsLanguageItems Export Qbs 3.4.0 Depends FileTagger Contents Properties Detailed Description Export Exports dependencies and properties to other products. More...
+	<meta name="twitter:description" content="Qbs Manual QbsLanguageItems Export Qbs 3.4.1 Depends FileTagger Contents Properties Detailed Description Export Exports dependencies and properties to other products. More...
 List of all members, including inherited members Export is part of List of All Items. Properties prefixMapping : var (since 1.12) Detailed Description An Export item can appear inside a Product item. It defines a Module with the product&#39;s name that can be depended on by other products. The properties attached to the Export item will take effect in all products that depend on the product inside which the Export item is defined. As an example, consider these two products:
 Product { name: &#34;A&#34; Export { Depends { name: &#34;cpp&#34; } cpp.includePaths: exportingProduct.sourceDirectory cpp.defines: [&#34;USING_&#34; &#43; exportingProduct.name.toUpperCase()] } } Product { name: &#34;B&#34; Depends { name: &#34;A&#34; } } The sources in product B will be able to use headers from product A without specifying the full path to them, because the include path has been made known to the compiler via A&#39;s Export item. Additionally, product B will be compiled with the define USING_A.
 The dependent Product&#39;s modules are not exported unless explicitly specified within the Export item:
@@ -180,7 +180,7 @@ Depends FileTagger">
 <li><a href="https://qbs.io/
 /docs/qbslanguageitems-qmlmodule/" translate="no">QbsLanguageItems</a></li>
 <li>Export</li>
-<li id="buildversion">Qbs 3.4.0</li>
+<li id="buildversion">Qbs 3.4.1</li>
 </ul>
 <link href="https://qbs.io/
 /docs/qml-qbslanguageitems-depends/" rel="prev">

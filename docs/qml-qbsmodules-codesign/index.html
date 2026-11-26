@@ -7,7 +7,7 @@
 Qbs Manual
 QbsModules
 codesign
-Qbs 3.4.0
+Qbs 3.4.1
 
 
 
@@ -268,7 +268,7 @@ This property was introduced in Qbs 1.19.
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-codesign/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsModules codesign Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags codesign Provides code signing support. More...
+	<meta property="og:description" content="Qbs Manual QbsModules codesign Qbs 3.4.1 Contents Properties Detailed Description Relevant File Tags codesign Provides code signing support. More...
 Since: Qbs 1.19 List of all members, including inherited members Properties certificatePassword : string (since Qbs 1.19) certificatePath : string (since Qbs 1.19) codesignFlags : stringList (since Qbs 1.19) codesignName : string (since Qbs 1.19) codesignPath : string (since Qbs 1.19) crossCertificatePath : string (since Qbs 1.19) enableCodeSigning : bool (since Qbs 1.19) hashAlgorithm : string (since Qbs 1.19) keyAlias : string (since Qbs 1.19) keyPassword : string (since Qbs 1.19) keystorePassword : string (since Qbs 1.19) keystorePath : string (since Qbs 1.19) provisioningProfile : string (since Qbs 1.19) provisioningProfilesPath : path (since Qbs 1.19) rootSubjectName : string (since Qbs 1.19) signingIdentity : string (since Qbs 1.19) signingTimestamp : string (since Qbs 1.19) signingType : string (since Qbs 1.19) subjectName : string (since Qbs 1.19) teamIdentifier : string (since Qbs 1.19) timestampAlgorithm : string (since Qbs 1.19.2) useApksigner : bool (since Qbs 1.19) Detailed Description The codesign module contains properties and rules for code signing on Apple, Android, and Windows platforms.
 The tool used to sign Windows artifacts (applications, libraries, and installers) depends on the host operating system:
 On Windows hosts, signing is performed with the signtool utility from the Windows SDK. The signing certificate may be selected from the Windows certificate store (via subjectName) or supplied as a PKCS#12 (PFX) file. On non-Windows hosts, signing is performed with osslsigncode version 2.0 or later. By default it is located in the PATH, but its location can be set explicitly via codesignPath. This makes it possible to sign a cross-compiled binary or an NSIS, Inno Setup, or WiX installer that was built on Linux or macOS. The certificate must be supplied as a PKCS#12 (PFX) file. Available since Qbs 3.4. Because the two backends are different tools, they do not accept the same set of properties. certificatePath, certificatePassword, hashAlgorithm, and signingTimestamp are honored by both signtool and osslsigncode. The subjectName, rootSubjectName, timestampAlgorithm, and crossCertificatePath properties apply to signtool only and are ignored by osslsigncode. To pass an option that has no dedicated property to the underlying tool, use codesignFlags.
@@ -369,7 +369,7 @@ This property was introduced in Qbs 1.19.">
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsModules codesign Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags codesign Provides code signing support. More...
+	<meta name="twitter:description" content="Qbs Manual QbsModules codesign Qbs 3.4.1 Contents Properties Detailed Description Relevant File Tags codesign Provides code signing support. More...
 Since: Qbs 1.19 List of all members, including inherited members Properties certificatePassword : string (since Qbs 1.19) certificatePath : string (since Qbs 1.19) codesignFlags : stringList (since Qbs 1.19) codesignName : string (since Qbs 1.19) codesignPath : string (since Qbs 1.19) crossCertificatePath : string (since Qbs 1.19) enableCodeSigning : bool (since Qbs 1.19) hashAlgorithm : string (since Qbs 1.19) keyAlias : string (since Qbs 1.19) keyPassword : string (since Qbs 1.19) keystorePassword : string (since Qbs 1.19) keystorePath : string (since Qbs 1.19) provisioningProfile : string (since Qbs 1.19) provisioningProfilesPath : path (since Qbs 1.19) rootSubjectName : string (since Qbs 1.19) signingIdentity : string (since Qbs 1.19) signingTimestamp : string (since Qbs 1.19) signingType : string (since Qbs 1.19) subjectName : string (since Qbs 1.19) teamIdentifier : string (since Qbs 1.19) timestampAlgorithm : string (since Qbs 1.19.2) useApksigner : bool (since Qbs 1.19) Detailed Description The codesign module contains properties and rules for code signing on Apple, Android, and Windows platforms.
 The tool used to sign Windows artifacts (applications, libraries, and installers) depends on the host operating system:
 On Windows hosts, signing is performed with the signtool utility from the Windows SDK. The signing certificate may be selected from the Windows certificate store (via subjectName) or supplied as a PKCS#12 (PFX) file. On non-Windows hosts, signing is performed with osslsigncode version 2.0 or later. By default it is located in the PATH, but its location can be set explicitly via codesignPath. This makes it possible to sign a cross-compiled binary or an NSIS, Inno Setup, or WiX installer that was built on Linux or macOS. The certificate must be supplied as a PKCS#12 (PFX) file. Available since Qbs 3.4. Because the two backends are different tools, they do not accept the same set of properties. certificatePath, certificatePassword, hashAlgorithm, and signingTimestamp are honored by both signtool and osslsigncode. The subjectName, rootSubjectName, timestampAlgorithm, and crossCertificatePath properties apply to signtool only and are ignored by osslsigncode. To pass an option that has no dedicated property to the underlying tool, use codesignFlags.
@@ -500,7 +500,7 @@ This property was introduced in Qbs 1.19.">
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>codesign</li>
-<li id="buildversion">Qbs 3.4.0</li>
+<li id="buildversion">Qbs 3.4.1</li>
 </ul>
 <div class="sidebar">
 <div class="toc">

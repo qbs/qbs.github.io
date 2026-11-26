@@ -6,7 +6,7 @@
     <meta name="description" content="
 Qbs Manual
 Config Module
-Qbs 3.4.0
+Qbs 3.4.1
 
   
   
@@ -35,7 +35,7 @@ Let&#39;s create a new item and add a new property to it:
 Module {
     property bool enableAddressSanitizer: false
     Depends { name: &#34;Sanitizers.address&#34;; condition: enableAddressSanitizer }
-We added the enableAddressSanitizer property and a dependency on the Sanitizer.address module if that property is set to true.
+We added the enableAddressSanitizer property and a dependency on the Sanitizers.address module if that property is set to true.
 Now let&#39;s use the item in a module:
 // qbs/modules/config/myproject/module.qbs
 ConfigMyProject {
@@ -111,13 +111,13 @@ Configurable Library
     <meta property="og:url" content="https://qbs.io/docs/tutorial-7/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual Config Module Qbs 3.4.0 Project Properties Configurable Library Config Module In the previous chapter, we added some properties to our main Project file. While this is a perfect approach for public properties of the project, sometimes we want to add some private properties for better tuning. Of course, we could put everything in the Project file, but that would make it very convoluted. Also, accessing the top-level project all the way from products makes things strongly tied.
+	<meta property="og:description" content="Qbs Manual Config Module Qbs 3.4.1 Project Properties Configurable Library Config Module In the previous chapter, we added some properties to our main Project file. While this is a perfect approach for public properties of the project, sometimes we want to add some private properties for better tuning. Of course, we could put everything in the Project file, but that would make it very convoluted. Also, accessing the top-level project all the way from products makes things strongly tied.
 Let&#39;s create a file named module.qbs and put it into the qbs/modules/config/install directory, near the qbs/imports directory:
 // qbs/modules/config/install/module.qbs ConfigInstall { } Here we inherit the ConfigInstall item in order to re-use its properies. Since custom qbsSearchPaths are searched first, now our version will be used instead of built-in one.
 First, let&#39;s change the default value of the config.install.importLibraries in order to install import libraries on Windows:
 // qbs/modules/config/install/module.qbs ConfigInstall { importLibraries: true } We could extend the config.install module with additional properties, but that could create collisions when someone tries to include the source code of your project into their project. Thus, we will create a new config.myproject module and use the same approach with the base item as Qbs does for the config.install module.
 Let&#39;s create a new item and add a new property to it:
-// qbs/imports/ConfigMyProject.qbs Module { property bool enableAddressSanitizer: false Depends { name: &#34;Sanitizers.address&#34;; condition: enableAddressSanitizer } We added the enableAddressSanitizer property and a dependency on the Sanitizer.address module if that property is set to true.
+// qbs/imports/ConfigMyProject.qbs Module { property bool enableAddressSanitizer: false Depends { name: &#34;Sanitizers.address&#34;; condition: enableAddressSanitizer } We added the enableAddressSanitizer property and a dependency on the Sanitizers.address module if that property is set to true.
 Now let&#39;s use the item in a module:
 // qbs/modules/config/myproject/module.qbs ConfigMyProject { } Now we can use our module in the MyLibrary.qbs item by pulling in the new module using the Depends item:
 // qbs/imports/MyLibrary.qbs DynamicLibrary { version: project.version Depends { name: &#34;config.myproject&#34; } // ... Now we can enable sanitizer build by setting the enableAddressSanitizer property from command-line:
@@ -133,13 +133,13 @@ We should also update the MyApplication item to add a dependency on the &#34;con
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual Config Module Qbs 3.4.0 Project Properties Configurable Library Config Module In the previous chapter, we added some properties to our main Project file. While this is a perfect approach for public properties of the project, sometimes we want to add some private properties for better tuning. Of course, we could put everything in the Project file, but that would make it very convoluted. Also, accessing the top-level project all the way from products makes things strongly tied.
+	<meta name="twitter:description" content="Qbs Manual Config Module Qbs 3.4.1 Project Properties Configurable Library Config Module In the previous chapter, we added some properties to our main Project file. While this is a perfect approach for public properties of the project, sometimes we want to add some private properties for better tuning. Of course, we could put everything in the Project file, but that would make it very convoluted. Also, accessing the top-level project all the way from products makes things strongly tied.
 Let&#39;s create a file named module.qbs and put it into the qbs/modules/config/install directory, near the qbs/imports directory:
 // qbs/modules/config/install/module.qbs ConfigInstall { } Here we inherit the ConfigInstall item in order to re-use its properies. Since custom qbsSearchPaths are searched first, now our version will be used instead of built-in one.
 First, let&#39;s change the default value of the config.install.importLibraries in order to install import libraries on Windows:
 // qbs/modules/config/install/module.qbs ConfigInstall { importLibraries: true } We could extend the config.install module with additional properties, but that could create collisions when someone tries to include the source code of your project into their project. Thus, we will create a new config.myproject module and use the same approach with the base item as Qbs does for the config.install module.
 Let&#39;s create a new item and add a new property to it:
-// qbs/imports/ConfigMyProject.qbs Module { property bool enableAddressSanitizer: false Depends { name: &#34;Sanitizers.address&#34;; condition: enableAddressSanitizer } We added the enableAddressSanitizer property and a dependency on the Sanitizer.address module if that property is set to true.
+// qbs/imports/ConfigMyProject.qbs Module { property bool enableAddressSanitizer: false Depends { name: &#34;Sanitizers.address&#34;; condition: enableAddressSanitizer } We added the enableAddressSanitizer property and a dependency on the Sanitizers.address module if that property is set to true.
 Now let&#39;s use the item in a module:
 // qbs/modules/config/myproject/module.qbs ConfigMyProject { } Now we can use our module in the MyLibrary.qbs item by pulling in the new module using the Depends item:
 // qbs/imports/MyLibrary.qbs DynamicLibrary { version: project.version Depends { name: &#34;config.myproject&#34; } // ... Now we can enable sanitizer build by setting the enableAddressSanitizer property from command-line:
@@ -183,7 +183,7 @@ We should also update the MyApplication item to add a dependency on the &#34;con
 <li><a href="https://qbs.io/
 /docs">Qbs Manual</a></li>
 <li>Config Module</li>
-<li id="buildversion">Qbs 3.4.0</li>
+<li id="buildversion">Qbs 3.4.1</li>
 </ul>
   <link rel="prev" href="https://qbs.io/
 /docs/tutorial-6/">
@@ -222,7 +222,8 @@ ConfigInstall {
 Module {
     property bool enableAddressSanitizer: false
     Depends { name: "Sanitizers.address"; condition: enableAddressSanitizer }</code></pre>
-<p>We added the <code translate="no">enableAddressSanitizer</code> property and a dependency on the Sanitizer.address module if that property is set to <code translate="no">true</code>.</p>
+<p>We added the <code translate="no">enableAddressSanitizer</code> property and a dependency on the <a href="https://qbs.io/
+/docs/qml-qbsmodules-sanitizers-address/" translate="no">Sanitizers.address</a> module if that property is set to <code translate="no">true</code>.</p>
 <p>Now let's use the item in a module:</p>
 <pre class="cpp" translate="no"><code class="cpp">// qbs/modules/config/myproject/module.qbs
 ConfigMyProject {

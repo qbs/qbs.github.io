@@ -7,7 +7,7 @@
 Qbs Manual
 QbsModules
 Exporter.cmake
-Qbs 3.4.0
+Qbs 3.4.1
 
 
 
@@ -109,7 +109,7 @@ Default: packageName &#43; &#34;ConfigVersion.cmake&#34;
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-exporter-cmake/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsModules Exporter.cmake Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags Exporter.cmake Provides support for generating CMake packages from dynamic, static and header library products. More...
+	<meta property="og:description" content="Qbs Manual QbsModules Exporter.cmake Qbs 3.4.1 Contents Properties Detailed Description Relevant File Tags Exporter.cmake Provides support for generating CMake packages from dynamic, static and header library products. More...
 Since: Qbs 2.3 List of all members, including inherited members Properties configFileName : string packageName : string versionFileName : string Detailed Description The Exporter.cmake module contains the properties and rules to create a CMake config files from the Export item of a Product.
 For instance, suppose you are creating a library. To allow exporting to CMake, you would write something like the following:
 DynamicLibrary { name: &#34;mylibrary&#34; qbs.installPrefix: &#34;/opt/mylibrary&#34; Depends { name: &#34;Exporter.cmake&#34; } Exporter.cmake.packageName: &#34;MyLibrary&#34; property string headersInstallDir: &#34;include&#34; // ... Group { name: &#34;API headers&#34; files: [&#34;mylib.h&#34;] qbs.install: true qbs.installDir: headersInstallDir } Group { fileTagsFilter: [&#34;Exporter.cmake.package&#34;] qbs.installDir: &#34;lib/cmake/MyLibrary&#34; } Export { Depends { name: &#34;cpp&#34; } cpp.includePaths: FileInfo.joinPaths( exportingProduct.qbs.installRoot, exportingProduct.qbs.installPrefix, exportingProduct.headersInstallDir) } } To build against this library, from within your CMake project, you simply use find_package:
@@ -126,7 +126,7 @@ Default: packageName &#43; &#34;ConfigVersion.cmake&#34;">
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsModules Exporter.cmake Qbs 3.4.0 Contents Properties Detailed Description Relevant File Tags Exporter.cmake Provides support for generating CMake packages from dynamic, static and header library products. More...
+	<meta name="twitter:description" content="Qbs Manual QbsModules Exporter.cmake Qbs 3.4.1 Contents Properties Detailed Description Relevant File Tags Exporter.cmake Provides support for generating CMake packages from dynamic, static and header library products. More...
 Since: Qbs 2.3 List of all members, including inherited members Properties configFileName : string packageName : string versionFileName : string Detailed Description The Exporter.cmake module contains the properties and rules to create a CMake config files from the Export item of a Product.
 For instance, suppose you are creating a library. To allow exporting to CMake, you would write something like the following:
 DynamicLibrary { name: &#34;mylibrary&#34; qbs.installPrefix: &#34;/opt/mylibrary&#34; Depends { name: &#34;Exporter.cmake&#34; } Exporter.cmake.packageName: &#34;MyLibrary&#34; property string headersInstallDir: &#34;include&#34; // ... Group { name: &#34;API headers&#34; files: [&#34;mylib.h&#34;] qbs.install: true qbs.installDir: headersInstallDir } Group { fileTagsFilter: [&#34;Exporter.cmake.package&#34;] qbs.installDir: &#34;lib/cmake/MyLibrary&#34; } Export { Depends { name: &#34;cpp&#34; } cpp.includePaths: FileInfo.joinPaths( exportingProduct.qbs.installRoot, exportingProduct.qbs.installPrefix, exportingProduct.headersInstallDir) } } To build against this library, from within your CMake project, you simply use find_package:
@@ -173,7 +173,7 @@ Default: packageName &#43; &#34;ConfigVersion.cmake&#34;">
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>Exporter.cmake</li>
-<li id="buildversion">Qbs 3.4.0</li>
+<li id="buildversion">Qbs 3.4.1</li>
 </ul>
 <div class="sidebar">
 <div class="toc">

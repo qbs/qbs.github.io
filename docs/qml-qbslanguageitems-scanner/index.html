@@ -7,7 +7,7 @@
 Qbs Manual
 QbsLanguageItems
 Scanner
-Qbs 3.4.0
+Qbs 3.4.1
 
 
 
@@ -39,6 +39,7 @@ Properties
 
 condition : bool
 inputs : stringList
+pluginName : string
 recursive : bool
 scan : script
 scannerId : string
@@ -70,6 +71,12 @@ Default: true
 
 inputs : stringList
 A list of file tags the input artifacts must match.
+Default: Undefined
+
+
+pluginName : string
+The name of a built-in scanner plugin that extracts dependencies.
+When set, that plugin performs the scan instead of the scan script. Resolving the product fails if no plugin with this name is available.
 Default: Undefined
 
 
@@ -119,11 +126,14 @@ SubProject
     <meta property="og:url" content="https://qbs.io/docs/qml-qbslanguageitems-scanner/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsLanguageItems Scanner Qbs 3.4.0 Rule SubProject Contents Properties Detailed Description Scanner Creates custom dependency scanners in products or modules. More...
-List of all members, including inherited members Scanner is part of List of All Items. Properties condition : bool inputs : stringList recursive : bool scan : script scannerId : string searchPaths : script Detailed Description A Scanner item can appear inside a Module item, and allows to extract dependencies for artifacts from the artifacts&#39; file contents. For example, this is what a scanner for &#34;qrc&#34; files might look like:
+	<meta property="og:description" content="Qbs Manual QbsLanguageItems Scanner Qbs 3.4.1 Rule SubProject Contents Properties Detailed Description Scanner Creates custom dependency scanners in products or modules. More...
+List of all members, including inherited members Scanner is part of List of All Items. Properties condition : bool inputs : stringList pluginName : string recursive : bool scan : script scannerId : string searchPaths : script Detailed Description A Scanner item can appear inside a Module item, and allows to extract dependencies for artifacts from the artifacts&#39; file contents. For example, this is what a scanner for &#34;qrc&#34; files might look like:
 import qbs.Xml Module { Scanner { inputs: &#39;qrc&#39; scan: { var xml = new Xml.DomDocument(input.filePath); dependencies = []; // retrieve &lt;file&gt; entries from the XML document return dependencies; } } } Property Documentation condition : bool If true, the scanner is enabled, otherwise it does nothing.
 Default: true
 inputs : stringList A list of file tags the input artifacts must match.
+Default: Undefined
+pluginName : string The name of a built-in scanner plugin that extracts dependencies.
+When set, that plugin performs the scan instead of the scan script. Resolving the product fails if no plugin with this name is available.
 Default: Undefined
 recursive : bool Determines whether to scan the returned dependencies using the same scanner.
 Default: false
@@ -148,11 +158,14 @@ Rule SubProject">
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsLanguageItems Scanner Qbs 3.4.0 Rule SubProject Contents Properties Detailed Description Scanner Creates custom dependency scanners in products or modules. More...
-List of all members, including inherited members Scanner is part of List of All Items. Properties condition : bool inputs : stringList recursive : bool scan : script scannerId : string searchPaths : script Detailed Description A Scanner item can appear inside a Module item, and allows to extract dependencies for artifacts from the artifacts&#39; file contents. For example, this is what a scanner for &#34;qrc&#34; files might look like:
+	<meta name="twitter:description" content="Qbs Manual QbsLanguageItems Scanner Qbs 3.4.1 Rule SubProject Contents Properties Detailed Description Scanner Creates custom dependency scanners in products or modules. More...
+List of all members, including inherited members Scanner is part of List of All Items. Properties condition : bool inputs : stringList pluginName : string recursive : bool scan : script scannerId : string searchPaths : script Detailed Description A Scanner item can appear inside a Module item, and allows to extract dependencies for artifacts from the artifacts&#39; file contents. For example, this is what a scanner for &#34;qrc&#34; files might look like:
 import qbs.Xml Module { Scanner { inputs: &#39;qrc&#39; scan: { var xml = new Xml.DomDocument(input.filePath); dependencies = []; // retrieve &lt;file&gt; entries from the XML document return dependencies; } } } Property Documentation condition : bool If true, the scanner is enabled, otherwise it does nothing.
 Default: true
 inputs : stringList A list of file tags the input artifacts must match.
+Default: Undefined
+pluginName : string The name of a built-in scanner plugin that extracts dependencies.
+When set, that plugin performs the scan instead of the scan script. Resolving the product fails if no plugin with this name is available.
 Default: Undefined
 recursive : bool Determines whether to scan the returned dependencies using the same scanner.
 Default: false
@@ -207,7 +220,7 @@ Rule SubProject">
 <li><a href="https://qbs.io/
 /docs/qbslanguageitems-qmlmodule/" translate="no">QbsLanguageItems</a></li>
 <li>Scanner</li>
-<li id="buildversion">Qbs 3.4.0</li>
+<li id="buildversion">Qbs 3.4.1</li>
 </ul>
 <link href="https://qbs.io/
 /docs/qml-qbslanguageitems-rule/" rel="prev">
@@ -247,6 +260,8 @@ Rule SubProject">
 /docs/qml-qbslanguageitems-scanner/#condition-prop" translate="no">condition</a></b> : bool</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-scanner/#inputs-prop" translate="no">inputs</a></b> : stringList</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbslanguageitems-scanner/#pluginName-prop" translate="no">pluginName</a></b> : string</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbslanguageitems-scanner/#recursive-prop" translate="no">recursive</a></b> : bool</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
@@ -288,6 +303,13 @@ Rule SubProject">
 /docs/qml-qbslanguageitems-filetagger/" translate="no">file tags</a> the input artifacts must match.</p>
 <p>Default: Undefined</p>
 <!-- @@@inputs -->
+<!-- $$$pluginName -->
+<h3 class="fn qml-member qml-property" id="pluginName-prop" translate="no"><span class="name">pluginName</span> : <span class="type">string</span></h3>
+<p>The name of a built-in scanner plugin that extracts dependencies.</p>
+<p>When set, that plugin performs the scan instead of the <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-scanner/#scan-prop" translate="no">scan</a> script. Resolving the product fails if no plugin with this name is available.</p>
+<p>Default: Undefined</p>
+<!-- @@@pluginName -->
 <!-- $$$recursive -->
 <h3 class="fn qml-member qml-property" id="recursive-prop" translate="no"><span class="name">recursive</span> : <span class="type">bool</span></h3>
 <p>Determines whether to scan the returned dependencies using the same scanner.</p>
@@ -307,7 +329,8 @@ Rule SubProject">
 <p>An identifier for this scanner. For scanners declared in a module, the module name is prepended to this property to form a global scanner id used for caching scan results (for example, <code translate="no">cpp.myScanner</code>). For scanners declared directly in a product, the value is used as-is.</p>
 <p>That global id must be unique within the product, including scanners coming from modules.</p>
 <p>In prepare and <code translate="no">outputArtifacts</code> scripts, scanner properties are exposed via <code translate="no">input.qbsScanners.&lt;scannerId&gt;.&lt;propertyName&gt;</code> (use bracket notation when the id contains dots, for example <code translate="no">input.qbsScanners["Qt.core.moc"]</code>). They are not available on <code translate="no">input</code> in scan scripts; values come from the last scan stored in the build graph.</p>
-<p>If not set explicitly, the pluginName is used for plugin-based scanners. Otherwise, a stable identifier (SHA1-hash) is derived from the <a href="https://qbs.io/
+<p>If not set explicitly, the <a href="https://qbs.io/
+/docs/qml-qbslanguageitems-scanner/#pluginName-prop" translate="no">pluginName</a> is used for plugin-based scanners. Otherwise, a stable identifier (SHA1-hash) is derived from the <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-scanner/#scan-prop" translate="no">scan</a> script.</p>
 <p>Default: Undefined</p>
 <!-- @@@scannerId -->

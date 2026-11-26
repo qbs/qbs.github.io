@@ -7,7 +7,7 @@
 Qbs Manual
 QbsModules
 installpaths
-Qbs 3.4.0
+Qbs 3.4.1
 
 
 
@@ -36,6 +36,7 @@ autotedect : string
 bin : string
 etc : string
 frameworks : string
+headers : string
 include : string
 lib : string
 libexec : string
@@ -82,8 +83,21 @@ The location where to install Frameworks on Apple platforms.
 Default: &#34;Library/Frameworks&#34;
 
 
+headers : string
+The directory where a project&#39;s headers are installed.
+Set this property in a product to override the default value.
+This example installs a CppLibrary&#39;s public headers under /include/somedir/&lt;product name&gt; instead of /include/&lt;project name&gt;/&lt;product name&gt;:
+CppLibrary {
+    install: true
+    publicHeaders: [&#34;mylib.h&#34;]
+    installpaths.headers: installpaths.include &#43; &#34;/somedir&#34;
+}
+Default: include &#43; &#34;/&#34; &#43; subdir
+
+
 include : string
-The location where to install include files.
+The root directory for headers, relative to qbs.installPrefix.
+This is the system include directory. With an install prefix of /usr, the default value corresponds to /usr/include. Distributors change this property to relocate that directory for every header install, for example from /usr/include to /opt/include.
 Default: &#34;include&#34;
 
 
@@ -119,7 +133,7 @@ Default: &#34;share/&#34; &#43; subdir
 
 
 subdir : string
-The additional directory appended to the libexec, share and plugins paths.
+The additional directory appended to the headers, libexec, share and plugins paths.
 Default: lower-case Project.name
 
  ">
@@ -138,8 +152,8 @@ Default: lower-case Project.name
     <meta property="og:url" content="https://qbs.io/docs/qml-qbsmodules-installpaths/">
 	<meta property="og:site_name" content="Qbs">
 	<meta property="og:title" content="Qbs">
-	<meta property="og:description" content="Qbs Manual QbsModules installpaths Qbs 3.4.0 Contents Properties Detailed Description installpaths Provides properties for install directories. More...
-Since: Qbs 3.1 List of all members, including inherited members Properties applications : string autotedect : string bin : string etc : string frameworks : string include : string lib : string libexec : string library : string loadableModules : string plugins : string share : string subdir : string Detailed Description The installpaths module contains properties indicating directories where files should be installed to in a manner allowing distributors to make necessary adjustments.
+	<meta property="og:description" content="Qbs Manual QbsModules installpaths Qbs 3.4.1 Contents Properties Detailed Description installpaths Provides properties for install directories. More...
+Since: Qbs 3.1 List of all members, including inherited members Properties applications : string autotedect : string bin : string etc : string frameworks : string headers : string include : string lib : string libexec : string library : string loadableModules : string plugins : string share : string subdir : string Detailed Description The installpaths module contains properties indicating directories where files should be installed to in a manner allowing distributors to make necessary adjustments.
 Example usage:
 qbs modules.installPaths.libexec:lib64/libexec Note: On Debian-like Linux distributions, this module also provides some convenience auto-detection mechanism using the dpkg-architecture tool: If installPaths::autotedect is true, Qbs will query the library paths from the system.
 Property Documentation applications : string The location where to install applictaton bundles on Apple platforms.
@@ -153,7 +167,12 @@ etc : string The location where to install configs.
 Default: &#34;etc&#34;
 frameworks : string The location where to install Frameworks on Apple platforms.
 Default: &#34;Library/Frameworks&#34;
-include : string The location where to install include files.
+headers : string The directory where a project&#39;s headers are installed.
+Set this property in a product to override the default value.
+This example installs a CppLibrary&#39;s public headers under /include/somedir/&lt;product name&gt; instead of /include/&lt;project name&gt;/&lt;product name&gt;:
+CppLibrary { install: true publicHeaders: [&#34;mylib.h&#34;] installpaths.headers: installpaths.include &#43; &#34;/somedir&#34; } Default: include &#43; &#34;/&#34; &#43; subdir
+include : string The root directory for headers, relative to qbs.installPrefix.
+This is the system include directory. With an install prefix of /usr, the default value corresponds to /usr/include. Distributors change this property to relocate that directory for every header install, for example from /usr/include to /opt/include.
 Default: &#34;include&#34;
 lib : string The location where to install libraries.
 Default: &#34;lib&#34;
@@ -168,7 +187,7 @@ On Apple platforms, non-bundle loadable modules are also installed here.
 Default: lib &#43; &#34;/&#34; &#43; subdir &#43; &#34;/plugins&#34;
 share : string The location where to install resources.
 Default: &#34;share/&#34; &#43; subdir
-subdir : string The additional directory appended to the libexec, share and plugins paths.
+subdir : string The additional directory appended to the headers, libexec, share and plugins paths.
 Default: lower-case Project.name">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
@@ -177,8 +196,8 @@ Default: lower-case Project.name">
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Qbs">
-	<meta name="twitter:description" content="Qbs Manual QbsModules installpaths Qbs 3.4.0 Contents Properties Detailed Description installpaths Provides properties for install directories. More...
-Since: Qbs 3.1 List of all members, including inherited members Properties applications : string autotedect : string bin : string etc : string frameworks : string include : string lib : string libexec : string library : string loadableModules : string plugins : string share : string subdir : string Detailed Description The installpaths module contains properties indicating directories where files should be installed to in a manner allowing distributors to make necessary adjustments.
+	<meta name="twitter:description" content="Qbs Manual QbsModules installpaths Qbs 3.4.1 Contents Properties Detailed Description installpaths Provides properties for install directories. More...
+Since: Qbs 3.1 List of all members, including inherited members Properties applications : string autotedect : string bin : string etc : string frameworks : string headers : string include : string lib : string libexec : string library : string loadableModules : string plugins : string share : string subdir : string Detailed Description The installpaths module contains properties indicating directories where files should be installed to in a manner allowing distributors to make necessary adjustments.
 Example usage:
 qbs modules.installPaths.libexec:lib64/libexec Note: On Debian-like Linux distributions, this module also provides some convenience auto-detection mechanism using the dpkg-architecture tool: If installPaths::autotedect is true, Qbs will query the library paths from the system.
 Property Documentation applications : string The location where to install applictaton bundles on Apple platforms.
@@ -192,7 +211,12 @@ etc : string The location where to install configs.
 Default: &#34;etc&#34;
 frameworks : string The location where to install Frameworks on Apple platforms.
 Default: &#34;Library/Frameworks&#34;
-include : string The location where to install include files.
+headers : string The directory where a project&#39;s headers are installed.
+Set this property in a product to override the default value.
+This example installs a CppLibrary&#39;s public headers under /include/somedir/&lt;product name&gt; instead of /include/&lt;project name&gt;/&lt;product name&gt;:
+CppLibrary { install: true publicHeaders: [&#34;mylib.h&#34;] installpaths.headers: installpaths.include &#43; &#34;/somedir&#34; } Default: include &#43; &#34;/&#34; &#43; subdir
+include : string The root directory for headers, relative to qbs.installPrefix.
+This is the system include directory. With an install prefix of /usr, the default value corresponds to /usr/include. Distributors change this property to relocate that directory for every header install, for example from /usr/include to /opt/include.
 Default: &#34;include&#34;
 lib : string The location where to install libraries.
 Default: &#34;lib&#34;
@@ -207,7 +231,7 @@ On Apple platforms, non-bundle loadable modules are also installed here.
 Default: lib &#43; &#34;/&#34; &#43; subdir &#43; &#34;/plugins&#34;
 share : string The location where to install resources.
 Default: &#34;share/&#34; &#43; subdir
-subdir : string The additional directory appended to the libexec, share and plugins paths.
+subdir : string The additional directory appended to the headers, libexec, share and plugins paths.
 Default: lower-case Project.name">
 
 </head>
@@ -246,7 +270,7 @@ Default: lower-case Project.name">
 <li><a href="https://qbs.io/
 /docs/qbsmodules-qmlmodule/" translate="no">QbsModules</a></li>
 <li>installpaths</li>
-<li id="buildversion">Qbs 3.4.0</li>
+<li id="buildversion">Qbs 3.4.1</li>
 </ul>
 <div class="sidebar">
 <div class="toc">
@@ -281,6 +305,8 @@ Default: lower-case Project.name">
 /docs/qml-qbsmodules-installpaths/#etc-prop" translate="no">etc</a></b> : string</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-installpaths/#frameworks-prop" translate="no">frameworks</a></b> : string</li>
+<li class="fn" translate="no"><b><a href="https://qbs.io/
+/docs/qml-qbsmodules-installpaths/#headers-prop" translate="no">headers</a></b> : string</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
 /docs/qml-qbsmodules-installpaths/#include-prop" translate="no">include</a></b> : string</li>
 <li class="fn" translate="no"><b><a href="https://qbs.io/
@@ -334,9 +360,27 @@ Default: lower-case Project.name">
 <p>The location where to install Frameworks on Apple platforms.</p>
 <p>Default: <code translate="no">"Library/Frameworks"</code></p>
 <!-- @@@frameworks -->
+<!-- $$$headers -->
+<h3 class="fn qml-member qml-property" id="headers-prop" translate="no"><span class="name">headers</span> : <span class="type">string</span></h3>
+<p>The directory where a project's headers are installed.</p>
+<p>Set this property in a product to override the default value.</p>
+<p>This example installs a <a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-cpplibrary/" translate="no">CppLibrary</a>'s public headers under <code translate="no">/include/somedir/&lt;product name&gt;</code> instead of <code translate="no">/include/&lt;project name&gt;/&lt;product name&gt;</code>:</p>
+<pre class="cpp" translate="no"><code class="cpp"><span class="type"><a href="https://qbs.io/
+/docs/qml-qbsconvenienceitems-cpplibrary/" translate="no">CppLibrary</a></span> {
+    <span class="name">install</span>: <span class="number">true</span>
+    <span class="name">publicHeaders</span>: [<span class="string">"mylib.h"</span>]
+    <span class="name">installpaths.headers</span>: <span class="name">installpaths</span>.<span class="name">include</span> <span class="operator">+</span> <span class="string">"/somedir"</span>
+}</code></pre>
+<p>Default: <a href="https://qbs.io/
+/docs/qml-qbsmodules-installpaths/#include-prop" translate="no">include</a> + <code translate="no">"/"</code> + <a href="https://qbs.io/
+/docs/qml-qbsmodules-installpaths/#subdir-prop" translate="no">subdir</a></p>
+<!-- @@@headers -->
 <!-- $$$include -->
 <h3 class="fn qml-member qml-property" id="include-prop" translate="no"><span class="name">include</span> : <span class="type">string</span></h3>
-<p>The location where to install include files.</p>
+<p>The root directory for headers, relative to <a href="https://qbs.io/
+/docs/qml-qbsmodules-qbs/#installPrefix-prop" translate="no">qbs.installPrefix</a>.</p>
+<p>This is the system include directory. With an install prefix of <code translate="no">/usr</code>, the default value corresponds to <code translate="no">/usr/include</code>. Distributors change this property to relocate that directory for every header install, for example from <code translate="no">/usr/include</code> to <code translate="no">/opt/include</code>.</p>
 <p>Default: <code translate="no">"include"</code></p>
 <!-- @@@include -->
 <!-- $$$lib -->
@@ -376,7 +420,7 @@ Default: lower-case Project.name">
 <!-- @@@share -->
 <!-- $$$subdir -->
 <h3 class="fn qml-member qml-property" id="subdir-prop" translate="no"><span class="name">subdir</span> : <span class="type">string</span></h3>
-<p>The additional directory appended to the libexec, share and plugins paths.</p>
+<p>The additional directory appended to the headers, libexec, share and plugins paths.</p>
 <p>Default: lower-case <a href="https://qbs.io/
 /docs/qml-qbslanguageitems-project/#name-prop" translate="no">Project.name</a></p>
 <!-- @@@subdir -->
